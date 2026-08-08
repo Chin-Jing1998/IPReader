@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/04/003/09",
+  "anchorNode": "04-03-09",
+  "terms": [
+    { "name": "药品专利纠纷早期解决机制", "aliases": [], "role": "defined", "confidence": "high", "evidence": "涉及药品专利纠纷早期解决机制的无效宣告请求案件" },
+    { "name": "仿制药申请人", "aliases": ["药品上市许可申请人"], "role": "defined", "confidence": "high", "evidence": "药品上市许可申请人（又称仿制药申请人）" },
+    { "name": "中国上市药品专利信息登记平台", "aliases": [], "role": "used", "confidence": "mid", "evidence": "中国上市药品专利信息登记平台收录的被仿制药相关专利权" },
+    { "name": "第四类声明", "aliases": [], "role": "used", "confidence": "mid", "evidence": "仿制药申请人根据药品专利纠纷早期解决机制有关规定提出第四类声明后" },
+    { "name": "无效宣告请求案件审查状态通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "合议组可以向其发出无效宣告请求案件审查状态通知书" },
+    { "name": "无效宣告审查结案通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "将审查决定和无效宣告审查结案通知书送达上述相关部门" }
+  ],
+  "laws": ["专利法第76条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

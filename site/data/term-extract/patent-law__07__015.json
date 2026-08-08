@@ -1,0 +1,14 @@
+{
+  "chunk": "patent-law/07/015",
+  "anchorNode": "law-07-15",
+  "terms": [
+    { "name": "保密审查", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "违反本法第十九条规定向外国申请专利，泄露国家秘密的" },
+    { "name": "国家秘密", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "泄露国家秘密的" },
+    { "name": "行政处分", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "由所在单位或者上级主管机关给予行政处分" }
+  ],
+  "laws": ["专利法第19条"],
+  "extractedAt": "2026-07-12T15:49:49+08:00"
+}

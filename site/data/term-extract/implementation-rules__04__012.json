@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/04/012",
+  "anchorNode": "rule-04-12",
+  "terms": [
+    { "name": "撤回无效宣告请求", "aliases": [], "role": "used", "confidence": "high", "evidence": "无效宣告请求人可以撤回其请求" },
+    { "name": "无效宣告请求审查程序终止", "aliases": [], "role": "defined", "confidence": "high", "evidence": "无效宣告请求审查程序终止" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "或者其无效宣告请求被视为撤回的" },
+    { "name": "审查程序不终止的例外情形", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "根据已进行的审查工作能够作出宣告专利权无效或者部分无效的决定的，不终止审查程序" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

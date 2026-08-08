@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/05/007/02",
+  "anchorNode": "05-07-02",
+  "terms": [
+    { "name": "期限的起算日", "aliases": ["起算日"], "role": "defined", "confidence": "high", "evidence": "大部分法定期限是自申请日、优先权日、授权公告日等固定日期起计算的" },
+    { "name": "期限的届满日", "aliases": ["届满日"], "role": "defined", "confidence": "high", "evidence": "期限起算日加上法定或者指定的期限即为期限的届满日" },
+    { "name": "优先权日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "该期限的起算日为在外国第一次提出专利申请之日（优先权日）" },
+    { "name": "法定休假日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "法定休假日包括国务院发布的《全国年节及纪念日放假办法》第二条规定的" },
+    { "name": "移用周休息日", "aliases": [], "role": "used", "confidence": "mid", "evidence": "期限届满日是法定休假日或者移用周休息日的" }
+  ],
+  "laws": ["专利法第42条", "专利法第29条第1款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

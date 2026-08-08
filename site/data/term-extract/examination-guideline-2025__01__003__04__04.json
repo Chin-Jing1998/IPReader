@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/01/003/04/04",
+  "anchorNode": "01-03-04-04",
+  "terms": [
+    { "name": "局部外观设计", "aliases": [], "role": "defined", "confidence": "high", "evidence": "局部外观设计是指对产品的局部的形状、图案或者其结合以及色彩与形状、图案的结合" },
+    { "name": "整体产品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当在产品名称中写明要求保护的局部及其所在的整体产品" },
+    { "name": "虚线与实线相结合", "aliases": [], "role": "used", "confidence": "mid", "evidence": "用虚线与实线相结合的方式表明所需要保护部分的内容" },
+    { "name": "点划线", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当用点划线表示分界线" }
+  ],
+  "laws": ["专利法实施细则第30条第2款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

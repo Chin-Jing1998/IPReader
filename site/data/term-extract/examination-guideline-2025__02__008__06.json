@@ -1,0 +1,19 @@
+{
+  "chunk": "examination-guideline-2025/02/008/06",
+  "anchorNode": "02-08-06",
+  "terms": [
+    { "name": "驳回决定", "aliases": [], "role": "defined", "confidence": "high", "evidence": "驳回决定应当包括如下两部分" },
+    { "name": "授予专利权的通知书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当发出授予发明专利权的通知书" },
+    { "name": "案由", "aliases": [], "role": "defined", "confidence": "high", "evidence": "案由部分应当简要陈述申请的审查过程" },
+    { "name": "驳回理由", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在驳回理由部分，审查员应当详细论述驳回决定所依据的事实、理由和证据" },
+    { "name": "授权的文本", "aliases": [], "role": "used", "confidence": "high", "evidence": "授权的文本，必须是经申请人以书面形式最后确认的文本" },
+    { "name": "避免重复授权", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "如果存在需要避免重复授权情形，应当进行避免重复授权结论确认" },
+    { "name": "著录项目变更", "aliases": [], "role": "used", "confidence": "mid", "evidence": "如果发明名称进行了修改，或者优先权经核实有变化的，应当进行著录项目变更" },
+    { "name": "遗传资源", "aliases": [], "role": "used", "confidence": "mid", "evidence": "违反法律、行政法规的规定获取或者利用遗传资源，并依赖该遗传资源完成的" },
+    { "name": "诚实信用原则", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请专利过程中违反诚实信用原则" },
+    { "name": "保密审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "向外国申请专利前未报经专利局进行保密审查的" },
+    { "name": "必要技术特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "独立权利要求缺少解决技术问题的必要技术特征" }
+  ],
+  "laws": ["专利法实施细则第59条", "专利法第25条", "专利法第9条", "专利法第38条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

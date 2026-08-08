@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/03/022",
+  "anchorNode": "rule-03-22",
+  "terms": [
+    { "name": "专利权评价报告", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当自收到专利权评价报告请求书后2个月内作出专利权评价报告" },
+    { "name": "专利权评价报告请求书", "aliases": [], "role": "used", "confidence": "high", "evidence": "自收到专利权评价报告请求书后2个月内" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

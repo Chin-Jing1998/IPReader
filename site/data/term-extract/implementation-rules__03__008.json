@@ -1,0 +1,13 @@
+{
+  "chunk": "implementation-rules/03/008",
+  "anchorNode": "rule-03-08",
+  "terms": [
+    { "name": "分案申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "依照本细则第四十八条规定提出的分案申请，可以保留原申请日" },
+    { "name": "原申请日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以保留原申请日" },
+    { "name": "优先权日", "aliases": [], "role": "used", "confidence": "high", "evidence": "享有优先权的，可以保留优先权日" },
+    { "name": "原申请记载的范围", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "但是不得超出原申请记载的范围" },
+    { "name": "原申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "原申请的申请号和申请日" }
+  ],
+  "laws": ["专利法实施细则第48条"],
+  "extractedAt": "2026-07-12T15:51:42+08:00"
+}

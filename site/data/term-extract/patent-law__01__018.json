@@ -1,0 +1,11 @@
+{
+  "chunk": "patent-law/01/018",
+  "anchorNode": "law-01-18",
+  "terms": [
+    { "name": "专利代理机构", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当委托依法设立的专利代理机构办理" },
+    { "name": "被代理人", "aliases": [], "role": "used", "confidence": "high", "evidence": "按照被代理人的委托办理专利申请或者其他专利事务" },
+    { "name": "保密责任", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对被代理人发明创造的内容，除专利申请已经公布或者公告的以外，负有保密责任" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

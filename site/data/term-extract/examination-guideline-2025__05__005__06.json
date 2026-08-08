@@ -1,0 +1,20 @@
+{
+  "chunk": "examination-guideline-2025/05/005/06",
+  "anchorNode": "05-05-06",
+  "terms": [
+    { "name": "保密审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当事先报经专利局进行保密审查" },
+    { "name": "向外国申请专利", "aliases": [], "role": "defined", "confidence": "high", "evidence": "向外国申请专利是指向外国国家或外国政府间专利合作组织设立的专利主管机构" },
+    { "name": "PCT受理局", "aliases": [], "role": "used", "confidence": "high", "evidence": "作为PCT受理局的外国国家或外国政府间专利合作组织设立的专利主管机构" },
+    { "name": "专利国际申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "或者向有关国外机构提交专利国际申请的" },
+    { "name": "国际局", "aliases": [], "role": "used", "confidence": "high", "evidence": "或世界知识产权组织国际局提交专利国际申请" },
+    { "name": "世界知识产权组织", "aliases": [], "role": "used", "confidence": "high", "evidence": "或世界知识产权组织国际局提交专利国际申请" },
+    { "name": "视为未提出", "aliases": [], "role": "used", "confidence": "high", "evidence": "该向外国申请专利保密审查请求视为未提出" },
+    { "name": "暂缓向外国申请专利", "aliases": [], "role": "used", "confidence": "high", "evidence": "将需作进一步保密审查、暂缓向外国申请专利的审查意见通知请求人" },
+    { "name": "国际阶段程序", "aliases": [], "role": "used", "confidence": "mid", "evidence": "该申请将不再作为国际申请处理，终止国际阶段程序" },
+    { "name": "登记本和检索本", "aliases": [], "role": "used", "confidence": "high", "evidence": "发出因国家安全原因不再传送登记本和检索本的通知书" },
+    { "name": "技术方案说明书", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当包括向外国申请专利保密审查请求书和技术方案说明书" },
+    { "name": "向外国申请专利保密审查请求书", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当包括向外国申请专利保密审查请求书和技术方案说明书" }
+  ],
+  "laws": ["专利法第19条第1款", "专利法第19条第4款", "专利法实施细则第8条", "专利法实施细则第20条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

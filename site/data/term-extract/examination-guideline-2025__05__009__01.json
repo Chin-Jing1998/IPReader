@@ -1,0 +1,16 @@
+{
+  "chunk": "examination-guideline-2025/05/009/01",
+  "anchorNode": "05-09-01",
+  "terms": [
+    { "name": "授予专利权通知", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在授予专利权之前，专利局应当发出授予专利权的通知书" },
+    { "name": "办理登记手续通知", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利局发出授予专利权通知书的同时，应当发出办理登记手续通知书" },
+    { "name": "视为放弃取得专利权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当发出视为放弃取得专利权通知书" },
+    { "name": "专利证书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利证书应当记载与专利权有关的重要著录事项" },
+    { "name": "专利登记簿", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利局授予专利权时应当建立专利登记簿" },
+    { "name": "专利登记簿副本", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "专利登记簿副本依据专利登记簿制作" },
+    { "name": "权属纠纷", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利权权属纠纷经地方知识产权管理部门调解或者人民法院调解或者判决后" },
+    { "name": "专利权生效", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "专利权自公告之日起生效" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:05:00+08:00"
+}

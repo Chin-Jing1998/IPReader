@@ -1,0 +1,34 @@
+{
+  "chunk": "examination-guideline-2025/03/002/05",
+  "anchorNode": "03-02-05",
+  "terms": [
+    { "name": "专利性国际初步报告", "aliases": [], "role": "used", "confidence": "high", "evidence": "对附有专利性国际初步报告的国际申请" },
+    { "name": "国际初步审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "国际申请的国际初步审查是根据专利合作条约第33条（1）的规定" },
+    { "name": "抵触申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当判断该对比文件是否构成抵触申请" },
+    { "name": "非书面公开", "aliases": [], "role": "defined", "confidence": "high", "evidence": "非书面公开是指：在国际申请的申请日或者有效的优先权日之前" },
+    { "name": "单一性", "aliases": [], "role": "used", "confidence": "high", "evidence": "要求保护的发明是否存在缺乏单一性的多项发明" },
+    { "name": "附加检索费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "附加检索费或附加审查费" },
+    { "name": "附加审查费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "附加检索费或附加审查费" },
+    { "name": "单一性恢复费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当发出缴纳单一性恢复费通知书" },
+    { "name": "恢复优先权", "aliases": ["优先权恢复"], "role": "used", "confidence": "high", "evidence": "自进入日起2个月内请求恢复优先权" },
+    { "name": "重复授权", "aliases": [], "role": "used", "confidence": "high", "evidence": "则可能造成重复授权" },
+    { "name": "分案申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人不得提出分案申请" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际申请中上述未经国际检索的部分将被视为撤回" },
+    { "name": "译文错误", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当判断是否属于译文错误" },
+    { "name": "PX、PY类对比文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "国际检索报告中列出了PX、PY类对比文件的" }
+  ],
+  "laws": [
+    "专利法第2条第2款",
+    "专利法第5条",
+    "专利法第25条",
+    "专利法第26条第3款",
+    "专利法第26条第4款",
+    "专利法实施细则第48条第1款",
+    "专利法实施细则第128条",
+    "专利法实施细则第133条第1款",
+    "专利法实施细则第133条第2款",
+    "专利合作条约第33条",
+    "专利合作条约实施细则第39条"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

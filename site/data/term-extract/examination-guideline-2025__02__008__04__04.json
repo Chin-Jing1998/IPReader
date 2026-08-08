@@ -1,0 +1,18 @@
+{
+  "chunk": "examination-guideline-2025/02/008/04/04",
+  "anchorNode": "02-08-04-04",
+  "terms": [
+    { "name": "单一性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利申请缺乏单一性的缺陷有时是明显的" },
+    { "name": "独立权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "存在于相互并列的独立权利要求之间" },
+    { "name": "从属权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "存在于相互并列的从属权利要求之间" },
+    { "name": "新颖性", "aliases": [], "role": "used", "confidence": "high", "evidence": "不具备新颖性或创造性而存在于相互并列的从属权利要求之间" },
+    { "name": "创造性", "aliases": [], "role": "used", "confidence": "high", "evidence": "不具备新颖性或创造性而存在于相互并列的从属权利要求之间" },
+    { "name": "分案通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "先向申请人发出分案通知书" },
+    { "name": "第一次审查意见通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "在第一次审查意见通知书中只针对第一独立权利要求" },
+    { "name": "授权前景", "aliases": [], "role": "used", "confidence": "mid", "evidence": "认为第一独立权利要求或者其从属权利要求具有被授权的前景" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人期满不答复的，该申请被视为撤回" },
+    { "name": "驳回", "aliases": [], "role": "used", "confidence": "high", "evidence": "根据专利法第三十八条的有关规定驳回该申请" }
+  ],
+  "laws": ["专利法第38条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

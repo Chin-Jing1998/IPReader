@@ -1,0 +1,22 @@
+{
+  "chunk": "examination-guideline-2025/02/002/02/01",
+  "anchorNode": "02-02-02-01",
+  "terms": [
+    { "name": "充分公开", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "说明书应当满足充分公开发明或者实用新型的要求" },
+    { "name": "能够实现", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "技术人员按照说明书记载的内容，就能够实现该发明或者实用新型的技术方案" },
+    { "name": "所属技术领域的技术人员", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "所属技术领域的技术人员" },
+    { "name": "技术偏见", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "对于克服了技术偏见的发明或者实用新型" },
+    { "name": "技术问题", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "发明或者实用新型所要解决的技术问题" },
+    { "name": "技术方案", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "解决其技术问题采用的技术方案" },
+    { "name": "现有技术", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "说明书应当从现有技术出发" }
+  ],
+  "laws": ["专利法第26条第3款"],
+  "extractedAt": "2026-07-12T15:38:20+08:00"
+}

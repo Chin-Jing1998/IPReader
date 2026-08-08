@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/01/003/02",
+  "anchorNode": "01-03-02",
+  "terms": [
+    { "name": "保密原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以及其他不适宜公开的信息负有保密责任" },
+    { "name": "书面审查原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以申请人提交的书面文件为基础进行审查" },
+    { "name": "听证原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当将驳回所依据的事实、理由和证据通知申请人" },
+    { "name": "程序节约原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查员应当尽可能提高审查效率，缩短审查过程" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

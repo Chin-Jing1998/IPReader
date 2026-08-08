@@ -1,0 +1,13 @@
+{
+  "chunk": "patent-law/07/002",
+  "anchorNode": "law-07-02",
+  "terms": [
+    { "name": "专利侵权", "aliases": ["侵犯专利权"], "role": "defined", "confidence": "high", "evidence": "未经专利权人许可，实施其专利，即侵犯其专利权" },
+    { "name": "利害关系人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利权人或者利害关系人可以向人民法院起诉" },
+    { "name": "管理专利工作的部门", "aliases": [], "role": "used", "confidence": "high", "evidence": "管理专利工作的部门处理" },
+    { "name": "强制执行", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人民法院强制执行" },
+    { "name": "赔偿数额", "aliases": [], "role": "used", "confidence": "mid", "evidence": "就侵犯专利权的赔偿数额进行调解" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

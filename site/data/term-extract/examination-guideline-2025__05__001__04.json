@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/05/001/04",
+  "anchorNode": "05-01-04",
+  "terms": [
+    { "name": "标准表格", "aliases": [], "role": "defined", "confidence": "high", "evidence": "办理专利申请（或者专利）手续时应当使用专利局制定的标准表格" },
+    { "name": "补正通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员可以根据有关规定发出补正通知书或者针对该手续发出视为未提出通知书" },
+    { "name": "视为未提出通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员可以根据有关规定发出补正通知书或者针对该手续发出视为未提出通知书" },
+    { "name": "审查意见通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人在答复补正通知书或者审查意见通知书时" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/07/002",
+  "anchorNode": "rule-07-02",
+  "terms": [
+    { "name": "发明人奖金", "aliases": ["奖金"], "role": "defined",
+      "confidence": "high", "evidence": "一项发明专利的奖金最低不少于4000元" }
+  ],
+  "laws": ["专利法第15条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

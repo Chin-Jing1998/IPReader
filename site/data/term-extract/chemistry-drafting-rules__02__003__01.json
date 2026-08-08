@@ -1,0 +1,10 @@
+{
+  "chunk": "chemistry-drafting-rules/02/003/01",
+  "anchorNode": "chem-02-03-01",
+  "terms": [
+    { "name": "技术领域", "aliases": [], "role": "defined", "confidence": "high", "evidence": "技术领域的作用在于方便分类，因此，能够体现所保护主题的所属领域即可" },
+    { "name": "两段式的写法", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "提倡采用两段式的写法，即先写大的领域，再写小的领域" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

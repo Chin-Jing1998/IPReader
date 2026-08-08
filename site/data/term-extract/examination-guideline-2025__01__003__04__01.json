@@ -1,0 +1,10 @@
+{
+  "chunk": "examination-guideline-2025/01/003/04/01",
+  "anchorNode": "01-03-04-01",
+  "terms": [
+    { "name": "产品名称", "aliases": ["使用外观设计的产品名称"], "role": "defined", "confidence": "high", "evidence": "使用外观设计的产品名称应当与外观设计图片或者照片中表示的外观设计相符合" },
+    { "name": "国际外观设计分类表", "aliases": [], "role": "used", "confidence": "high", "evidence": "产品名称一般应当符合国际外观设计分类表中小类列举的名称" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

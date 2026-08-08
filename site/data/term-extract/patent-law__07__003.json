@@ -1,0 +1,12 @@
+{
+  "chunk": "patent-law/07/003",
+  "anchorNode": "law-07-03",
+  "terms": [
+    { "name": "举证责任倒置", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当提供其产品制造方法不同于专利方法的证明" },
+    { "name": "专利权评价报告", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对相关实用新型或者外观设计进行检索、分析和评价后作出的专利权评价报告" },
+    { "name": "被控侵权人", "aliases": [], "role": "used", "confidence": "high", "evidence": "被控侵权人也可以主动出具专利权评价报告" },
+    { "name": "专利侵权纠纷", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利侵权纠纷涉及新产品制造方法的发明专利的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,15 @@
+{
+  "chunk": "patent-law/05/006",
+  "anchorNode": "law-05-06",
+  "terms": [
+    { "name": "专利权宣告无效的追溯力", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不具有追溯力" },
+    { "name": "专利侵权纠纷处理决定", "aliases": [], "role": "used", "confidence": "mid", "evidence": "强制执行的专利侵权纠纷处理决定" },
+    { "name": "专利实施许可合同", "aliases": [], "role": "used", "confidence": "high", "evidence": "已经履行的专利实施许可合同和专利权转让合同" },
+    { "name": "专利权转让合同", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利实施许可合同和专利权转让合同" },
+    { "name": "专利侵权赔偿金", "aliases": [], "role": "used", "confidence": "high", "evidence": "不返还专利侵权赔偿金、专利使用费、专利权转让费" },
+    { "name": "专利权转让费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利侵权赔偿金、专利使用费、专利权转让费" },
+    { "name": "公平原则", "aliases": [], "role": "used", "confidence": "mid", "evidence": "明显违反公平原则的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

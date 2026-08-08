@@ -1,0 +1,12 @@
+{
+  "chunk": "infringement-guide/06/003",
+  "anchorNode": "infr-06-03",
+  "terms": [
+    { "name": "不侵权抗辩", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不侵权抗辩" },
+    { "name": "技术特征", "aliases": [], "role": "used", "confidence": "mid", "evidence": "被诉侵权技术方案的技术特征与权利要求记载的全部技术特征相比" },
+    { "name": "变劣技术方案", "aliases": [], "role": "defined", "confidence": "high", "evidence": "舍弃或显著降低权利要求中与该技术特征对应的性能和效果从而形成变劣技术方案的" },
+    { "name": "非生产经营目的", "aliases": [], "role": "defined", "confidence": "high", "evidence": "为私人利用等非生产经营目的实施他人专利的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

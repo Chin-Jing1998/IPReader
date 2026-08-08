@@ -1,0 +1,36 @@
+{
+  "chunk": "examination-guideline-2025/04/005/04",
+  "anchorNode": "04-05-04",
+  "terms": [
+    {
+      "name": "判断主体",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "4.判断主体"
+    },
+    {
+      "name": "一般消费者",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "作为某种类外观设计产品的一般消费者应当具备下列特点"
+    },
+    {
+      "name": "常用设计手法",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "常用设计手法包括设计的转用、拼合、替换等类型"
+    },
+    {
+      "name": "转用",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "设计的转用、拼合、替换等类型"
+    }
+  ],
+  "laws": ["专利法第23条第1款", "专利法第23条第2款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

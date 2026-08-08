@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/12/006",
+  "anchorNode": "rule-12-06",
+  "terms": [
+    { "name": "外观设计国际申请", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "一件外观设计国际申请包括两项以上外观设计的" },
+    { "name": "分案申请", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "向国务院专利行政部门提出分案申请" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

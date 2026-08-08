@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/01/001/06/03",
+  "anchorNode": "01-01-06-03",
+  "terms": [
+    { "name": "不丧失新颖性的公开", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请专利的发明创造在申请日（享有优先权的指优先权日）之前六个月内有下列情况之一的" },
+    { "name": "不丧失新颖性宽限期", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当在得知情况后两个月内提出要求不丧失新颖性宽限期的声明" },
+    { "name": "国际展览会", "aliases": [], "role": "defined", "confidence": "high", "evidence": "国际展览会公约规定的由国际展览局注册或者认可的国际展览会" },
+    { "name": "学术会议或者技术会议", "aliases": [], "role": "defined", "confidence": "high", "evidence": "国务院有关主管部门或者全国性学术团体组织召开的学术会议或者技术会议" },
+    { "name": "他人未经申请人同意而泄露其内容", "aliases": [], "role": "defined", "confidence": "high", "evidence": "他人未经申请人同意而泄露其内容所造成的公开" }
+  ],
+  "laws": ["专利法第24条"],
+  "extractedAt": "2026-07-12T15:38:10+08:00"
+}

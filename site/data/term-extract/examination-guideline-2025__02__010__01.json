@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/02/010/01",
+  "anchorNode": "02-10-01",
+  "terms": [
+    { "name": "性能参数", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不得不借助于性能参数和/或制备方法来定义" },
+    { "name": "制备方法", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不得不借助于性能参数和/或制备方法来定义" },
+    { "name": "保藏生物材料", "aliases": [], "role": "used", "confidence": "high", "evidence": "必须借助于保藏生物材料作为补充手段" },
+    { "name": "已知产品的新用途", "aliases": [], "role": "used", "confidence": "high", "evidence": "发现已知化学产品新的性能或者用途并不意味着其结构或者组成的改变" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

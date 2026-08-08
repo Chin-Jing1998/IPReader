@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/04/010",
+  "anchorNode": "rule-04-10",
+  "terms": [
+    { "name": "口头审理", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以决定对无效宣告请求进行口头审理" },
+    { "name": "口头审理通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当向当事人发出口头审理通知书" },
+    { "name": "视为撤回", "aliases": [], "role": "defined", "confidence": "high", "evidence": "其无效宣告请求视为撤回" },
+    { "name": "缺席审理", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利权人不参加口头审理的，可以缺席审理" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

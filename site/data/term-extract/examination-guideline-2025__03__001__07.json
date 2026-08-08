@@ -1,0 +1,18 @@
+{
+  "chunk": "examination-guideline-2025/03/001/07",
+  "anchorNode": "03-01-07",
+  "terms": [
+    { "name": "申请附加费", "aliases": [], "role": "used", "confidence": "high", "evidence": "未缴纳或未缴足申请附加费的" },
+    { "name": "宽限费", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请费、公布印刷费及宽限费" },
+    { "name": "国际检索报告", "aliases": [], "role": "used", "confidence": "high", "evidence": "由中国专利局作出国际检索报告及专利性国际初步报告的国际申请" },
+    { "name": "专利性国际初步报告", "aliases": [], "role": "used", "confidence": "high", "evidence": "由中国专利局作出国际检索报告及专利性国际初步报告的国际申请" },
+    { "name": "复审费", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际申请的申请人缴纳复审费和年费确有困难的" },
+    { "name": "年费", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际申请的申请人缴纳复审费和年费确有困难的" },
+    { "name": "专利收费减缴办法", "aliases": [], "role": "used", "confidence": "high", "evidence": "可以根据专利收费减缴办法向专利局提出收费减缴的请求" },
+    { "name": "译文改正费", "aliases": [], "role": "used", "confidence": "high", "evidence": "译文改正费应当在提出改正译文错误请求的同时缴纳" },
+    { "name": "单一性恢复费", "aliases": [], "role": "used", "confidence": "high", "evidence": "单一性恢复费，应当在审查员发出的缴纳单一性恢复费通知规定的期限内缴纳" },
+    { "name": "序列表", "aliases": [], "role": "used", "confidence": "mid", "evidence": "核苷酸和/或氨基酸序列表作为说明书的单独部分超过400页的" }
+  ],
+  "laws": ["专利法实施细则第120条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

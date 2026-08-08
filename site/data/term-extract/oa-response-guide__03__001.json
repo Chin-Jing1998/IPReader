@@ -1,0 +1,10 @@
+{
+  "chunk": "oa-response-guide/03/001",
+  "anchorNode": "oa-03-01",
+  "terms": [
+    { "name": "单一性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "单一性的理解" },
+    { "name": "发明构思", "aliases": [], "role": "defined", "confidence": "high", "evidence": "属于一个总的发明构思的两项以上的发明" }
+  ],
+  "laws": ["专利法第31条第1款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

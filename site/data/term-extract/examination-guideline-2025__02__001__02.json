@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/02/001/02",
+  "anchorNode": "02-01-02",
+  "terms": [
+    { "name": "技术方案", "aliases": [], "role": "defined", "confidence": "high", "evidence": "技术方案是对要解决的技术问题所采取的利用了自然规律的技术手段的集合" },
+    { "name": "技术手段", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "技术手段通常是由技术特征来体现的" },
+    { "name": "技术特征", "aliases": [], "role": "used", "confidence": "mid", "evidence": "由技术特征来体现的" },
+    { "name": "技术问题", "aliases": [], "role": "used", "confidence": "mid", "evidence": "未采用技术手段解决技术问题" },
+    { "name": "技术效果", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以获得符合自然规律的技术效果的方案" }
+  ],
+  "laws": ["专利法第2条第2款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

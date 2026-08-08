@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/05/002/03",
+  "anchorNode": "05-02-03",
+  "terms": [
+    { "name": "收费减缴", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以根据专利收费减缴办法向专利局提出收费减缴的请求" },
+    { "name": "开放许可实施期间", "aliases": [], "role": "used", "confidence": "high", "evidence": "或者其专利处于开放许可实施期间的" },
+    { "name": "专利费减备案", "aliases": [], "role": "used", "confidence": "high", "evidence": "并在提出请求前提前办理专利费减备案手续" },
+    { "name": "开放许可实施合同备案", "aliases": [], "role": "used", "confidence": "high", "evidence": "办理专利开放许可实施合同备案的，视为提出年费减缴请求" },
+    { "name": "收费减缴审批通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当发出收费减缴审批通知书" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

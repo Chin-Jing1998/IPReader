@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/02/007/04",
+  "anchorNode": "02-07-04",
+  "terms": [
+    { "name": "抵触申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "为了确定是否存在影响发明专利申请主题新颖性的抵触申请" },
+    { "name": "优先权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以省去核实优先权是否成立的工作" },
+    { "name": "专利合作条约", "aliases": ["PCT"], "role": "used", "confidence": "high", "evidence": "可能会按照专利合作条约（PCT）的规定进入中国国家阶段" },
+    { "name": "指定中国的国际申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "相同或相近技术领域的指定中国的国际申请" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

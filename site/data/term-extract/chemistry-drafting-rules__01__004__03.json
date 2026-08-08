@@ -1,0 +1,13 @@
+{
+  "chunk": "chemistry-drafting-rules/01/004/03",
+  "anchorNode": "chem-01-04-03",
+  "terms": [
+    { "name": "背景技术", "aliases": [], "role": "defined", "confidence": "high", "evidence": "背景技术的主要作用是让人了解本申请技术方案之前的技术情况及技术问题" },
+    { "name": "现有技术", "aliases": [], "role": "used", "confidence": "high", "evidence": "禁止出现“现有技术”、“传统技术”等字眼" },
+    { "name": "相关技术", "aliases": ["关联技术", "改进前的方案"], "role": "used", "confidence": "mid", "evidence": "建议使用“相关技术”、“关联技术”或“改进前的方案”" },
+    { "name": "技术性启示", "aliases": [], "role": "used", "confidence": "high", "evidence": "禁止写入对申请方案有技术性启示的内容" },
+    { "name": "技术缺陷", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当写明以发明人角度出发认为相关技术中存在的技术缺陷" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

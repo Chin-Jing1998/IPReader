@@ -1,0 +1,908 @@
+[
+ {
+  "termKey": "e类文件",
+  "canonical": "E类文件",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/12",
+    "text": "E：单独影响权利要求新颖性的抵触申请文件；"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/002/04",
+    "text": "“E”表示申请日或优先权日早于国际申请的申请日（非优先权日）"
+   }
+  ]
+ },
+ {
+  "termKey": "p类文件",
+  "canonical": "P类文件",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/12",
+    "text": "P：中间文件，其公开日在申请的申请日与所要求的优先权日之间的文件，或者会导致需要"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/002/04",
+    "text": "“P”表示公布日先于国际申请的申请日但迟于其所要求的优先权日的文件"
+   }
+  ]
+ },
+ {
+  "termKey": "pe类文件",
+  "canonical": "PE类文件",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/04/06",
+    "text": "即任何单位或者个人在专利局的申请构成PE类文件"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/002/04",
+    "text": "可能成为国家阶段检索报告中的PE类或E类文件"
+   }
+  ]
+ },
+ {
+  "termKey": "x类文件",
+  "canonical": "X类文件",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/08",
+    "text": "构成检索报告中所规定的X类文件或E类文件"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/007/12",
+    "text": "X：单独影响权利要求的新颖性或创造性的文件；"
+   }
+  ]
+ },
+ {
+  "termKey": "y类文件",
+  "canonical": "Y类文件",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/08",
+    "text": "构成检索报告中所规定的Y类文件"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/007/12",
+    "text": "Y：与检索报告中其他Y类文件组合后影响权利要求的创造性的文件；"
+   }
+  ]
+ },
+ {
+  "termKey": "案卷号",
+  "canonical": "案卷号",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/004/02",
+    "text": "以该专利申请的申请号作为该案卷的案卷号"
+   }
+  ]
+ },
+ {
+  "termKey": "案卷夹",
+  "canonical": "案卷夹",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/004/02",
+    "text": "案卷夹用于保存文件，同时也用于记录案卷的重要内容"
+   }
+  ]
+ },
+ {
+  "termKey": "案卷销毁清册",
+  "canonical": "案卷销毁清册",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/004/06",
+    "text": "销毁前通过计算机作出案卷销毁清册"
+   }
+  ]
+ },
+ {
+  "termKey": "办理登记手续通知",
+  "canonical": "办理登记手续通知",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/009/01",
+    "text": "专利局发出授予专利权通知书的同时，应当发出办理登记手续通知书"
+   }
+  ]
+ },
+ {
+  "termKey": "帮助他人实施侵犯专利权行为",
+  "canonical": "帮助他人实施侵犯专利权行为",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/05/002",
+    "text": "帮助他人实施侵犯专利权行为"
+   }
+  ]
+ },
+ {
+  "termKey": "保存期限",
+  "canonical": "保存期限",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/004/06",
+    "text": "未授权结案的案卷保存期限为二年；授权后结案的案卷保存期限为三年"
+   }
+  ]
+ },
+ {
+  "termKey": "保健品功能范围",
+  "canonical": "保健品功能范围",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/005/04",
+    "text": "保健品的功能范围共计27 种，因此权利要求主题名称需要符合这27 种的规定"
+   }
+  ]
+ },
+ {
+  "termKey": "保密范围",
+  "canonical": "保密范围",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/005/01",
+    "text": "专利法第四条规定的保密范围是涉及国家安全或者重大利益两个方面的发明创造"
+   }
+  ]
+ },
+ {
+  "termKey": "保密请求",
+  "canonical": "保密请求",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/005/03",
+    "text": "在请求书上提出保密请求，其申请文件应当以纸件形式提交"
+   }
+  ]
+ },
+ {
+  "termKey": "保密证明材料",
+  "canonical": "保密证明材料",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/005/03",
+    "text": "应当提交有定密权限的机关、单位出具的保密证明材料"
+   }
+  ]
+ },
+ {
+  "termKey": "保密状态",
+  "canonical": "保密状态",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/003/02",
+    "text": "处于保密状态的技术内容不属于现有技术"
+   }
+  ]
+ },
+ {
+  "termKey": "背景文件",
+  "canonical": "背景文件",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/010/04",
+    "text": "背景文件，即反映外观设计的部分设计特征或者有关的文件"
+   }
+  ]
+ },
+ {
+  "termKey": "本领域普通技术人员",
+  "canonical": "本领域普通技术人员",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/01/003",
+    "text": "本领域普通技术人员，是一种假设的"
+   }
+  ]
+ },
+ {
+  "termKey": "笔录",
+  "canonical": "笔录",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/004/11",
+    "text": "合议组可以使用笔录、录音或者录像等方式进行记录"
+   }
+  ]
+ },
+ {
+  "termKey": "必然趋势",
+  "canonical": "必然趋势",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/06",
+    "text": "如果要求保护的技术方案的效果是已知的必然趋势所导致的，则该技术方案没有创造性"
+   }
+  ]
+ },
+ {
+  "termKey": "变化状态产品",
+  "canonical": "变化状态产品",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/05",
+    "text": "变化状态产品，是指在销售和使用时呈现不同状态的产品"
+   }
+  ]
+ },
+ {
+  "termKey": "变劣技术方案",
+  "canonical": "变劣技术方案",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/06/003",
+    "text": "舍弃或显著降低权利要求中与该技术特征对应的性能和效果从而形成变劣技术方案的"
+   }
+  ]
+ },
+ {
+  "termKey": "辨证论治",
+  "canonical": "辨证论治",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/011/04",
+    "text": "辨证论治是中医治疗疾病的基本原则"
+   }
+  ]
+ },
+ {
+  "termKey": "标准必要专利",
+  "canonical": "标准必要专利",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/06/007",
+    "text": "标准必要专利是指为实施技术标准而必须使用的专利"
+   }
+  ]
+ },
+ {
+  "termKey": "标准表格",
+  "canonical": "标准表格",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/001/04",
+    "text": "办理专利申请（或者专利）手续时应当使用专利局制定的标准表格"
+   }
+  ]
+ },
+ {
+  "termKey": "并列独立权利要求",
+  "canonical": "并列独立权利要求",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/002/03/01",
+    "text": "其他独立权利要求称为并列独立权利要求"
+   }
+  ]
+ },
+ {
+  "termKey": "并列选择法概括",
+  "canonical": "并列选择法概括",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/002/03/03",
+    "text": "用并列选择法概括，即用“或者”或者“和”并列几个必择其一的具体特征"
+   }
+  ]
+ },
+ {
+  "termKey": "补交遗漏文件",
+  "canonical": "补交遗漏文件",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/003/02",
+    "text": "专利局发出补交遗漏文件通知书"
+   }
+  ]
+ },
+ {
+  "termKey": "不得扩大原专利的保护范围",
+  "canonical": "不得扩大原专利的保护范围",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/04/009",
+    "text": "但是不得扩大原专利的保护范围"
+   }
+  ]
+ },
+ {
+  "termKey": "不经创造性劳动",
+  "canonical": "不经创造性劳动",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "oa-response-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "oa-response-guide/02/004",
+    "text": "本领域技术人员在知晓相关现有技术的情况下，能否不经创造性劳动就得到"
+   }
+  ]
+ },
+ {
+  "termKey": "不明显缺乏单一性的申请",
+  "canonical": "不明显缺乏单一性的申请",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/09",
+    "text": "不明显缺乏单一性的申请，是指只有经过检索，才能确定其申请的主题之间缺乏单一性的那"
+   }
+  ]
+ },
+ {
+  "termKey": "不侵权抗辩",
+  "canonical": "不侵权抗辩",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/06/003",
+    "text": "不侵权抗辩"
+   }
+  ]
+ },
+ {
+  "termKey": "不视为侵权的抗辩",
+  "canonical": "不视为侵权的抗辩",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/06/004",
+    "text": "不视为侵权的抗辩"
+   }
+  ]
+ },
+ {
+  "termKey": "不受理的情形",
+  "canonical": "不受理的情形",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/003/02",
+    "text": "专利申请有下列情形之一的，专利局不予受理"
+   }
+  ]
+ },
+ {
+  "termKey": "不停止侵权抗辩",
+  "canonical": "不停止侵权抗辩",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/06/007",
+    "text": "不停止侵权抗辩"
+   }
+  ]
+ },
+ {
+  "termKey": "部分违反专利法第五条第一款的申请",
+  "canonical": "部分违反专利法第五条第一款的申请",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/001/03",
+    "text": "该专利申请称为部分违反专利法第五条第一款的申请"
+   }
+  ]
+ },
+ {
+  "termKey": "部分优先权",
+  "canonical": "部分优先权",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/04/06",
+    "text": "这种情况称为部分优先权"
+   }
+  ]
+ },
+ {
+  "termKey": "菜肴",
+  "canonical": "菜肴",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/07",
+    "text": "不适于在产业上制造和不能重复实施的菜肴，不具备实用性，不能被授予专利权"
+   }
+  ]
+ },
+ {
+  "termKey": "参考图",
+  "canonical": "参考图",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/04/02",
+    "text": "参考图通常用于表明使用外观设计的产品的用途、使用方法或者使用场所"
+   }
+  ]
+ },
+ {
+  "termKey": "参考资料",
+  "canonical": "参考资料",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/04/003",
+    "text": "应当提交在申请日前与其发明有关的参考资料"
+   }
+  ]
+ },
+ {
+  "termKey": "参审员",
+  "canonical": "参审员",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/03",
+    "text": "参审员参与审查并协助组长和主审员工作"
+   }
+  ]
+ },
+ {
+  "termKey": "产品",
+  "canonical": "产品",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/002/06",
+    "text": "产品应当是经过产业方法制造的，有确定形状、构造且占据一定空间的实体"
+   }
+  ]
+ },
+ {
+  "termKey": "产品备案",
+  "canonical": "产品备案",
+  "aliases": [
+   "备案信息"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/005/02",
+    "text": "如果备案信息没有公开该产品配方，则可同时保护产品和制备方法"
+   }
+  ]
+ },
+ {
+  "termKey": "产品的构造",
+  "canonical": "产品的构造",
+  "aliases": [
+   "构造"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/002/06",
+    "text": "产品的各个组成部分的安排、组织和相互关系"
+   }
+  ]
+ },
+ {
+  "termKey": "产品名称",
+  "canonical": "产品名称",
+  "aliases": [
+   "使用外观设计的产品名称"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/04/01",
+    "text": "使用外观设计的产品名称应当与外观设计图片或者照片中表示的外观设计相符合"
+   }
+  ]
+ },
+ {
+  "termKey": "常规检索",
+  "canonical": "常规检索",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/06",
+    "text": "常规检索是在申请的主题的所属技术领域进行的检索。"
+   }
+  ]
+ },
+ {
+  "termKey": "常用设计手法",
+  "canonical": "常用设计手法",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/04",
+    "text": "常用设计手法包括设计的转用、拼合、替换等类型"
+   }
+  ]
+ },
+ {
+  "termKey": "成套产品外观设计",
+  "canonical": "成套产品外观设计",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/03/006",
+    "text": "用于同一类别并且成套出售或者使用的产品的两项以上外观设计"
+   }
+  ]
+ },
+ {
+  "termKey": "成套出售或者使用",
+  "canonical": "成套出售或者使用",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/09",
+    "text": "成套出售或者使用，指习惯上同时出售或者同时使用并具有组合使用价值。"
+   }
+  ]
+ },
+ {
+  "termKey": "程序模块",
+  "canonical": "程序模块",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/009/05",
+    "text": "应当理解为实现该程序流程各步骤或该方法各步骤所必须建立的程序模块"
+   }
+  ]
+ },
+ {
+  "termKey": "出版物",
+  "canonical": "出版物",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/003/02",
+    "text": "专利法意义上的出版物是指记载有技术或者设计内容的独立存在的传播载体"
+   }
+  ]
+ },
+ {
+  "termKey": "初步审查合格",
+  "canonical": "初步审查合格",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/03",
+    "text": "包括经过补正符合初步审查要求的专利申请，应当认为初步审查合格"
+   }
+  ]
+ },
+ {
+  "termKey": "处分决定",
+  "canonical": "处分决定",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/007/05",
+    "text": "因耽误期限作出的处分决定主要包括：视为撤回专利申请权、视为放弃取得专利权的权利"
+   }
+  ]
+ },
+ {
+  "termKey": "处于各形成和发育阶段的人体",
+  "canonical": "处于各形成和发育阶段的人体",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/09/01",
+    "text": "处于各个形成和发育阶段的人体，包括人的生殖细胞、受精卵、胚胎及个体"
+   }
+  ]
+ },
+ {
+  "termKey": "传送条件",
+  "canonical": "传送条件",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/06/001/02",
+    "text": "外观设计国际注册申请符合下列条件的，专利局予以传送国际局"
+   }
+  ]
+ }
+]

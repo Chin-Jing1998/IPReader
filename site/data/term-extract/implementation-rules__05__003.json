@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/05/003",
+  "anchorNode": "rule-05-03",
+  "terms": [
+    { "name": "由申请人引起的不合理延迟", "aliases": [], "role": "defined", "confidence": "high", "evidence": "由申请人引起的不合理延迟包括以下情形" },
+    { "name": "延迟审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请延迟审查" }
+  ],
+  "laws": ["专利法第42条第2款", "专利法实施细则第45条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

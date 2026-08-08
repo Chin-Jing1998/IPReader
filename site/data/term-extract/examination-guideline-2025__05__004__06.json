@@ -1,0 +1,17 @@
+{
+  "chunk": "examination-guideline-2025/05/004/06",
+  "anchorNode": "05-04-06",
+  "terms": [
+    { "name": "保存期限", "aliases": [], "role": "defined", "confidence": "high", "evidence": "未授权结案的案卷保存期限为二年；授权后结案的案卷保存期限为三年" },
+    { "name": "结案日", "aliases": [], "role": "used", "confidence": "high", "evidence": "保存期限自结案日起算" },
+    { "name": "分案申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "有分案申请的原申请的案卷的保存期从最后结案的分案的结案日起算" },
+    { "name": "案卷销毁清册", "aliases": [], "role": "defined", "confidence": "high", "evidence": "销毁前通过计算机作出案卷销毁清册" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "未授权结案（视为撤回、撤回和驳回等）的案卷" },
+    { "name": "专利权期限届满", "aliases": [], "role": "used", "confidence": "high", "evidence": "未缴年费专利权终止、专利权期限届满和专利权被宣告全部无效等" },
+    { "name": "专利权被宣告全部无效", "aliases": [], "role": "used", "confidence": "high", "evidence": "未缴年费专利权终止、专利权期限届满和专利权被宣告全部无效等" },
+    { "name": "未缴年费专利权终止", "aliases": [], "role": "used", "confidence": "high", "evidence": "未缴年费专利权终止、专利权期限届满和专利权被宣告全部无效等" },
+    { "name": "不受理决定", "aliases": [], "role": "used", "confidence": "mid", "evidence": "作出不受理决定的专利申请文件保存期限为一年" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/07/003",
+  "anchorNode": "rule-07-03",
+  "terms": [
+    { "name": "中华人民共和国促进科技成果转化法", "aliases": ["促进科技成果转化法"], "role": "used",
+      "confidence": "high", "evidence": "依照《中华人民共和国促进科技成果转化法》的规定" },
+    { "name": "合理报酬", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "给予发明人或者设计人合理的报酬" }
+  ],
+  "laws": ["专利法第15条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

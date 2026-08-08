@@ -1,0 +1,16 @@
+{
+  "chunk": "examination-guideline-2025/06/002/04",
+  "anchorNode": "06-02-04",
+  "terms": [
+    { "name": "审查依据的文本", "aliases": ["审查基础的文本"], "role": "defined", "confidence": "high", "evidence": "作为外观设计国际申请审查基础的文本可能包括" },
+    { "name": "国际注册日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "外观设计国际申请自国际注册日起享有与在中国提出的外观设计专利申请同等的效力" },
+    { "name": "修改文本", "aliases": [], "role": "used", "confidence": "mid", "evidence": "根据专利法实施细则第一百四十一条提交的修改文本" },
+    { "name": "英文补正文本", "aliases": [], "role": "used", "confidence": "high", "evidence": "根据专利法实施细则第五十条提交的英文补正文本" }
+  ],
+  "laws": [
+    "专利法实施细则第141条",
+    "专利法实施细则第50条",
+    "海牙协定第14条第1款"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

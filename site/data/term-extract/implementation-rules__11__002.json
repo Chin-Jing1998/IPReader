@@ -1,0 +1,9 @@
+{
+  "chunk": "implementation-rules/11/002",
+  "anchorNode": "rule-11-02",
+  "terms": [
+    { "name": "国际申请日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "该国际申请日视为专利法第二十八条所称的申请日" }
+  ],
+  "laws": ["专利法第28条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,13 @@
+{
+  "chunk": "infringement-guide/03/_full-chapter",
+  "anchorNode": "infr-03",
+  "terms": [
+    { "name": "整体比对原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "整体比对原则。在确定外观设计保护范围时，应当综合考虑授权公告中表示该外观设计" },
+    { "name": "设计特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "设计特征是指具有相对独立的视觉效果，具有完整性和可识别性的产品的形状、图案及" },
+    { "name": "设计要点", "aliases": [], "role": "defined", "confidence": "high", "evidence": "设计要点是指外观设计区别于现有设计、能够对一般消费者产生显著视觉影响的设计特征" },
+    { "name": "图形用户界面外观设计", "aliases": [], "role": "used", "confidence": "high", "evidence": "图形用户界面外观设计的保护范围应结合设计要点由产品外观设计视图确定" },
+    { "name": "动态图形用户界面外观设计", "aliases": [], "role": "used", "confidence": "high", "evidence": "动态图形用户界面外观设计的保护范围需结合简要说明对动态变化过程的描述" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:20:00+08:00"
+}

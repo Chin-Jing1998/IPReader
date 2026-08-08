@@ -1,0 +1,12 @@
+{
+  "chunk": "oa-response-guide/04/003",
+  "anchorNode": "oa-04-03",
+  "terms": [
+    { "name": "权利要求得不到说明书支持", "aliases": [], "role": "used", "confidence": "mid", "evidence": "权利要求不能得到说明书支持的技术特征所表示的范围" },
+    { "name": "现有技术", "aliases": [], "role": "used", "confidence": "high", "evidence": "参照相关的现有技术" },
+    { "name": "本领域技术人员", "aliases": [], "role": "used", "confidence": "high", "evidence": "本领域技术人员根据现有技术能够合理预料得到的内容" },
+    { "name": "具体实施方式", "aliases": [], "role": "used", "confidence": "high", "evidence": "具体实施方式中记载的各个实施例" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

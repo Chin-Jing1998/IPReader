@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/02/025",
+  "anchorNode": "rule-02-25",
+  "terms": [
+    { "name": "撤回专利申请", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "申请人撤回专利申请的，应当向国务院专利行政部门提出声明" },
+    { "name": "专利公报", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当在以后出版的专利公报上予以公告" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:51:42+08:00"
+}

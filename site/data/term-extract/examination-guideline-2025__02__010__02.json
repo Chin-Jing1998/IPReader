@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/02/010/02",
+  "anchorNode": "02-10-02",
+  "terms": [
+    { "name": "天然物质", "aliases": [], "role": "defined", "confidence": "high", "evidence": "其结构、形态或者其他物理化学参数是现有技术中不曾认识的" },
+    { "name": "物质的医药用途", "aliases": [], "role": "defined", "confidence": "high", "evidence": "物质的医药用途如果是用于诊断或者治疗疾病" },
+    { "name": "科学发现", "aliases": [], "role": "used", "confidence": "mid", "evidence": "属于专利法第二十五条第一款第（一）项规定的" }
+  ],
+  "laws": ["专利法第25条第1款第(一)项", "专利法第25条第1款第(三)项"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

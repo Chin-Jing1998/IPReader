@@ -1,0 +1,16 @@
+{
+  "chunk": "patent-law/07/013",
+  "anchorNode": "law-07-13",
+  "terms": [
+    { "name": "药品专利链接制度", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "药品上市审评审批过程中，药品上市许可申请人与有关专利权人或者利害关系人" },
+    { "name": "药品上市许可申请人", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "药品上市许可申请人与有关专利权人或者利害关系人" },
+    { "name": "行政裁决", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "向国务院专利行政部门请求行政裁决" },
+    { "name": "专利权保护范围", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "请求就申请注册的药品相关技术方案是否落入他人药品专利权保护范围作出判决" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:49:49+08:00"
+}

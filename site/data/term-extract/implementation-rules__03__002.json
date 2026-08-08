@@ -1,0 +1,16 @@
+{
+  "chunk": "implementation-rules/03/002",
+  "anchorNode": "rule-03-02",
+  "terms": [
+    { "name": "申请日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当明确申请日、给予申请号，并通知申请人" },
+    { "name": "申请号", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当明确申请日、给予申请号，并通知申请人" },
+    { "name": "请求书", "aliases": [], "role": "used", "confidence": "high", "evidence": "发明或者实用新型专利申请的请求书、说明书" },
+    { "name": "说明书", "aliases": [], "role": "used", "confidence": "high", "evidence": "发明或者实用新型专利申请的请求书、说明书" },
+    { "name": "权利要求书", "aliases": [], "role": "used", "confidence": "high", "evidence": "实用新型必须包括附图）和权利要求书" },
+    { "name": "简要说明", "aliases": [], "role": "used", "confidence": "high", "evidence": "外观设计的图片或者照片和简要说明后" },
+    { "name": "实用新型", "aliases": [], "role": "used", "confidence": "high", "evidence": "发明或者实用新型专利申请的请求书" },
+    { "name": "外观设计", "aliases": [], "role": "used", "confidence": "high", "evidence": "外观设计专利申请的请求书、外观设计的图片或者照片" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:51:42+08:00"
+}

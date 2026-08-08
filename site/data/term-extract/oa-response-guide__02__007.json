@@ -1,0 +1,19 @@
+{
+  "chunk": "oa-response-guide/02/007",
+  "anchorNode": "oa-02-07",
+  "terms": [
+    { "name": "最接近的现有技术", "aliases": [], "role": "defined", "confidence": "high", "evidence": "最接近的现有技术是判断发明是否具有突出的实质性特点的基础" },
+    { "name": "事实认定", "aliases": [], "role": "defined", "confidence": "high", "evidence": "事实认定是专利性判断过程中的关键问题" },
+    { "name": "隐含公开", "aliases": [], "role": "defined", "confidence": "high", "evidence": "隐含公开指的是对于所属技术领域的技术人员来说" },
+    { "name": "割裂技术特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "这些特征之间应当是作为一个整体不可分割的" },
+    { "name": "区别技术特征", "aliases": ["区别特征"], "role": "used", "confidence": "high", "evidence": "区别技术特征：在该权利要求中" },
+    { "name": "事后诸葛亮", "aliases": [], "role": "defined", "confidence": "high", "evidence": "从而犯“事后诸葛亮”的错误" },
+    { "name": "实际解决的技术问题", "aliases": [], "role": "defined", "confidence": "high", "evidence": "确定发明实际解决的技术问题的依据包括" },
+    { "name": "技术启示", "aliases": [], "role": "defined", "confidence": "high", "evidence": "判断是否存在技术启示，首先在于能够想到技术问题所在" },
+    { "name": "替代方案", "aliases": ["等效手段"], "role": "defined", "confidence": "mid", "evidence": "发明实际解决技术问题就应当是提供一种解决已知问题的替代方案" },
+    { "name": "公知常识", "aliases": [], "role": "defined", "confidence": "high", "evidence": "要判断区别特征是否属于公知常识而构成现有技术存在技术启示的情形" },
+    { "name": "抵触申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "用抵触申请评的创造性" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/01/002",
+  "anchorNode": "rule-01-02",
+  "terms": [
+    { "name": "电子形式", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "数据电文（以下统称电子形式），视为书面形式" },
+    { "name": "书面形式", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "应当以书面形式或者国务院专利行政部门规定的其他形式办理" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

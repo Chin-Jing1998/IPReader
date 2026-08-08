@@ -1,0 +1,20 @@
+{
+  "chunk": "examination-guideline-2025/01/002/08",
+  "anchorNode": "01-02-08",
+  "terms": [
+    { "name": "原说明书和权利要求书记载的范围", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对申请文件的修改不得超出原说明书和权利要求书记载的范围" },
+    { "name": "直接地、毫无疑义地确定", "aliases": [], "role": "defined", "confidence": "high", "evidence": "所属技术领域的技术人员不能从原说明书和权利要求书中直接地、毫无疑义地确定的内容" },
+    { "name": "明显错误", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不正确的内容可以从原说明书、权利要求书的上下文中清楚地判断出来" },
+    { "name": "主动修改", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人可以自申请日起两个月内对实用新型专利申请文件主动提出修改" },
+    { "name": "视为未提出通知书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查员应当发出视为未提出通知书" },
+    { "name": "依职权修改", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以对申请文件中文字和符号的明显错误依职权进行修改" },
+    { "name": "针对通知书指出的缺陷进行修改", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "针对通知书指出的缺陷进行修改" }
+  ],
+  "laws": [
+    "专利法第三十三条",
+    "专利法实施细则第五十七条",
+    "专利法实施细则第五十条",
+    "专利法实施细则第五十七条第三款"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

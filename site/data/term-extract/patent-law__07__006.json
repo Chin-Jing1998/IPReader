@@ -1,0 +1,13 @@
+{
+  "chunk": "patent-law/07/006",
+  "anchorNode": "law-07-06",
+  "terms": [
+    { "name": "负责专利执法的部门", "aliases": [], "role": "defined", "confidence": "high", "evidence": "负责专利执法的部门根据已经取得的证据，对涉嫌假冒专利行为进行查处时" },
+    { "name": "现场检查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对当事人涉嫌违法行为的场所实施现场检查" },
+    { "name": "查封", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以查封或者扣押" },
+    { "name": "扣押", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以查封或者扣押" },
+    { "name": "假冒专利", "aliases": [], "role": "used", "confidence": "high", "evidence": "对有证据证明是假冒专利的产品，可以查封或者扣押" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,20 @@
+{
+  "chunk": "chemistry-drafting-rules/01/003/01",
+  "anchorNode": "chem-01-03-01",
+  "terms": [
+    { "name": "特性参数", "aliases": [], "role": "defined", "confidence": "high", "evidence": "特性参数应是本技术领域常用的、清楚的，包括用来确定化学结构的各类参数" },
+    { "name": "组合物发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "组合物发明（是指各组分混合得到的产品）" },
+    { "name": "化学产品发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "化学产品发明（是指各组分之间发生化学反应得到的产品）" },
+    { "name": "涉及工艺的方法特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "涉及工艺的方法特征，包括：工艺步骤（反应步骤）、操作步骤及其顺序等" },
+    { "name": "涉及物质的方法特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "涉及物质的方法特征，包括：原料和产品的化学成分、化学结构、理化性能参数等" },
+    { "name": "涉及设备的方法特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "涉及设备的方法特征，包括：该方法所用设备的类型及其相关特性或功能等" },
+    { "name": "用途权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "既可以采用“用途权利要求”来保护" },
+    { "name": "产品权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "又可以采用将新化合物与其他物质组合形成新产品的“产品权利要求”来保护" },
+    { "name": "方法权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "也可以采用“方法权利要求”来保护" },
+    { "name": "高分子化合物", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对于高分子化合物发明，可以采用结构和/或组成特征来表征" },
+    { "name": "上下位概念", "aliases": [], "role": "defined", "confidence": "high", "evidence": "同一权利要求中，避免上下位概念并列" },
+    { "name": "拼凑权项", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "不应存在有拼凑权项的行为" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

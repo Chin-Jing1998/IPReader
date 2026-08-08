@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/11/012",
+  "anchorNode": "rule-11-12",
+  "terms": [
+    { "name": "提前处理和审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "要求国务院专利行政部门提前处理和审查国际申请的" },
+    { "name": "国际申请副本", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人应当提交经确认的国际申请副本" },
+    { "name": "优先权日", "aliases": [], "role": "used", "confidence": "high", "evidence": "在优先权日起30个月期满前" }
+  ],
+  "laws": ["专利合作条约第23条第2款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

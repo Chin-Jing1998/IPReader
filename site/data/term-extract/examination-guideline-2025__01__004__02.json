@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/01/004/02",
+  "anchorNode": "01-04-02",
+  "terms": [
+    { "name": "发明信息", "aliases": [], "role": "defined", "confidence": "high", "evidence": "发明信息是专利申请的全部文本" },
+    { "name": "附加信息", "aliases": [], "role": "defined", "confidence": "high", "evidence": "附加信息本身不代表对现有技术的贡献，而是对检索可能是有用的信息" },
+    { "name": "现有技术", "aliases": [], "role": "used", "confidence": "high", "evidence": "对现有技术的贡献的技术信息" },
+    { "name": "引得码", "aliases": [], "role": "used", "confidence": "mid", "evidence": "其中包括引得码所表示的技术信息" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

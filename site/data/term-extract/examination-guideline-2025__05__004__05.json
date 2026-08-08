@@ -1,0 +1,20 @@
+{
+  "chunk": "examination-guideline-2025/05/004/05",
+  "anchorNode": "05-04-05",
+  "terms": [
+    { "name": "保密责任", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利局相关部门对尚未审结的复审和无效案卷负有保密责任" },
+    { "name": "查阅和复制", "aliases": [], "role": "used", "confidence": "high", "evidence": "查阅和复制专利申请案卷中的文件，应当按照下列顺序进行" },
+    { "name": "专利代理师", "aliases": [], "role": "used", "confidence": "high", "evidence": "查阅和复制请求人仅限于该案申请人及其专利代理师" },
+    { "name": "视为未提出", "aliases": [], "role": "used", "confidence": "high", "evidence": "视为未提出、不予受理、主动撤回、视为撤回" },
+    { "name": "不予受理", "aliases": [], "role": "used", "confidence": "high", "evidence": "视为未提出、不予受理、主动撤回、视为撤回" },
+    { "name": "主动撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "视为未提出、不予受理、主动撤回、视为撤回" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "视为未提出、不予受理、主动撤回、视为撤回" },
+    { "name": "商业秘密", "aliases": [], "role": "used", "confidence": "high", "evidence": "涉及个人隐私或者商业秘密等情形的除外" },
+    { "name": "优先权文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请文件，优先权文件，与申请直接有关的手续文件" },
+    { "name": "专利登记簿", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利登记簿，专利权评价报告" },
+    { "name": "检索报告", "aliases": [], "role": "used", "confidence": "high", "evidence": "发出的通知书、检索报告和决定书" },
+    { "name": "发明专利申请单行本", "aliases": ["单行本"], "role": "used", "confidence": "mid", "evidence": "发明专利申请单行本，发明专利、实用新型专利和外观设计专利单行本" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,18 @@
+{
+  "chunk": "examination-guideline-2025/04/003/03",
+  "anchorNode": "04-03-03",
+  "terms": [
+    { "name": "无效宣告请求客体", "aliases": [], "role": "defined", "confidence": "high", "evidence": "无效宣告请求的客体应当是已经公告授权的专利" },
+    { "name": "无效宣告理由", "aliases": [], "role": "defined", "confidence": "high", "evidence": "无效宣告理由仅限于专利法实施细则第六十九条第二款规定的理由" },
+    { "name": "利害关系人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "利害关系人是指有权根据相关法律规定就侵犯在先权利的纠纷向人民法院起诉" },
+    { "name": "无效宣告请求人资格", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "无效宣告请求人资格" },
+    { "name": "无效宣告请求视为未提出", "aliases": [], "role": "used", "confidence": "mid", "evidence": "期满未补正的，无效宣告请求视为未提出" },
+    { "name": "无效宣告请求不予受理", "aliases": [], "role": "used", "confidence": "mid", "evidence": "其无效宣告请求不予受理" },
+    { "name": "特别授权的委托书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "代理人需要具有特别授权的委托书" },
+    { "name": "权属纠纷", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利权权属纠纷的当事人可以请求参加无效宣告程序" },
+    { "name": "共有专利权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "共有专利权的所有专利权人" },
+    { "name": "全程代理", "aliases": [], "role": "used", "confidence": "low", "evidence": "全程代理的机构" }
+  ],
+  "laws": ["专利法实施细则第69条第2款", "专利法第18条第1款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

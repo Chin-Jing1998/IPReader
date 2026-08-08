@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/01/005",
+  "anchorNode": "rule-01-05",
+  "terms": [
+    { "name": "期限届满日", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "以其最后一月的相应日为期限届满日" },
+    { "name": "法定休假日", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "期限届满日是法定休假日的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/11/001",
+  "anchorNode": "rule-11-01",
+  "terms": [
+    { "name": "专利合作条约", "aliases": [], "role": "used", "confidence": "high", "evidence": "受理按照专利合作条约提出的专利国际申请" },
+    { "name": "国际申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "按照专利合作条约提出并指定中国的专利国际申请（以下简称国际申请）" },
+    { "name": "进入中国国家阶段", "aliases": [], "role": "defined", "confidence": "high", "evidence": "进入国务院专利行政部门处理阶段（以下称进入中国国家阶段）" }
+  ],
+  "laws": ["专利法第19条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

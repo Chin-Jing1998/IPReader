@@ -1,0 +1,11 @@
+{
+  "chunk": "patent-law/01/020",
+  "anchorNode": "law-01-20",
+  "terms": [
+    { "name": "诚实信用原则", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请专利和行使专利权应当遵循诚实信用原则" },
+    { "name": "滥用专利权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不得滥用专利权损害公共利益或者他人合法权益" },
+    { "name": "垄断行为", "aliases": [], "role": "used", "confidence": "mid", "evidence": "排除或者限制竞争，构成垄断行为的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,17 @@
+{
+  "chunk": "examination-guideline-2025/02/003/04",
+  "anchorNode": "02-03-04",
+  "terms": [
+    { "name": "外国优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "这种优先权，称为外国优先权" },
+    { "name": "本国优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "这种优先权称为本国优先权" },
+    { "name": "相同主题的发明或者实用新型", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指技术领域、所解决的技术问题、技术方案和预期的效果相同的发明或者实用新型" },
+    { "name": "外国首次申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在外国第一次提出专利申请（以下简称外国首次申请）" },
+    { "name": "中国在后申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "又在中国提出专利申请（以下简称中国在后申请）" },
+    { "name": "外国部分优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "故称为外国部分优先权" },
+    { "name": "本国部分优先权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "本国多项优先权和本国部分优先权" },
+    { "name": "多项优先权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以要求一项或者多项优先权" },
+    { "name": "恢复优先权", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "可以在期限届满之日起2个月内请求恢复优先权" }
+  ],
+  "laws": ["专利法第29条", "专利法实施细则第36条", "专利法实施细则第35条第1款", "专利法第31条", "专利法实施细则第39条", "专利法实施细则第48条"],
+  "extractedAt": "2026-07-12T15:37:35+08:00"
+}

@@ -1,0 +1,43 @@
+{
+  "chunk": "examination-guideline-2025/02/007/08",
+  "anchorNode": "02-07-08",
+  "terms": [
+    {
+      "name": "最低限度数据库",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "最低限度数据库一般情况下应当包括中国专利文摘类数据库、中国专利全文类数据库、外文"
+    },
+    {
+      "name": "X类文件",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "构成检索报告中所规定的X类文件或E类文件"
+    },
+    {
+      "name": "Y类文件",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "构成检索报告中所规定的Y类文件"
+    },
+    {
+      "name": "中止检索",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "检索过程中，出现下列情况之一时，审查员可以中止检索："
+    },
+    {
+      "name": "对比文件",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "审查员已经找到一份与申请的全部主题密切相关的对比文件"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:45:00+08:00"
+}

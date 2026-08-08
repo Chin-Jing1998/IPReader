@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/05/010/03",
+  "anchorNode": "05-10-03",
+  "terms": [
+    { "name": "抵触申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "为了确定是否存在抵触申请，审查员应当检索" },
+    { "name": "重复授权", "aliases": [], "role": "used", "confidence": "high", "evidence": "为了确定是否存在重复授权，审查员还应当检索" },
+    { "name": "新颖性", "aliases": [], "role": "used", "confidence": "high", "evidence": "实用新型是否具备专利法第二十二条第二款规定的新颖性" },
+    { "name": "创造性", "aliases": [], "role": "used", "confidence": "high", "evidence": "实用新型是否具备专利法第二十二条第三款规定的创造性" },
+    { "name": "实用性", "aliases": [], "role": "used", "confidence": "high", "evidence": "实用新型是否具备专利法第二十二条第四款规定的实用性" },
+    { "name": "充分公开", "aliases": [], "role": "used", "confidence": "mid", "evidence": "充分公开了专利保护的主题" },
+    { "name": "分案申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "分案的实用新型专利是否符合专利法实施细则第四十九条第一款的规定" }
+  ],
+  "laws": ["专利法第5条", "专利法第25条", "专利法第2条第3款", "专利法第22条第4款", "专利法第26条第3款", "专利法第22条第2款", "专利法第22条第3款", "专利法第26条第4款", "专利法实施细则第23条第2款", "专利法第33条", "专利法实施细则第49条第1款", "专利法第9条", "专利法实施细则第11条", "专利法第2条第4款", "专利法第23条第1款", "专利法第23条第2款", "专利法第27条第2款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

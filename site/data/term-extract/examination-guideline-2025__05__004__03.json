@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/05/004/03",
+  "anchorNode": "05-04-03",
+  "terms": [
+    { "name": "电子文档", "aliases": [], "role": "defined", "confidence": "high", "evidence": "电子文档的建立应当参照本章第2.3节的原则" },
+    { "name": "序列表", "aliases": [], "role": "used", "confidence": "high", "evidence": "核苷酸或者氨基酸的序列表" },
+    { "name": "专利权评价报告", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利权评价报告" },
+    { "name": "著录项目", "aliases": [], "role": "used", "confidence": "mid", "evidence": "全部著录项目及其变更的历史记录" },
+    { "name": "法律状态", "aliases": [], "role": "used", "confidence": "mid", "evidence": "与专利申请或者专利审批有关的法律状态及变化的历史记录" },
+    { "name": "无效宣告程序", "aliases": [], "role": "used", "confidence": "high", "evidence": "复审、无效宣告程序中，专利局作出的通知" },
+    { "name": "电子申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "当事人以电子申请方式提交的电子文件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

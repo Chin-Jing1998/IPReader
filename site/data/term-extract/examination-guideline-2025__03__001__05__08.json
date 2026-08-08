@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/03/001/05/08",
+  "anchorNode": "03-01-05-08",
+  "terms": [
+    { "name": "译文错误", "aliases": [], "role": "defined", "confidence": "high", "evidence": "译文错误是指译文文本与国际局传送的原文文本相比个别术语" },
+    { "name": "译文改正费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "并且缴纳规定的译文改正费" },
+    { "name": "视为未提出通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当发出视为未提出通知书" }
+  ],
+  "laws": ["专利法实施细则第一百三十一条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

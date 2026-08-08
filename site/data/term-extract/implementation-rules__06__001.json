@@ -1,0 +1,14 @@
+{
+  "chunk": "implementation-rules/06/001",
+  "anchorNode": "rule-06-01",
+  "terms": [
+    { "name": "开放许可", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "专利权人自愿声明对其专利实行开放许可的，应当在公告授予专利权后提出" },
+    { "name": "开放许可声明", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "开放许可声明应当写明以下事项" },
+    { "name": "专利许可使用费", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "专利许可使用费支付方式、标准" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,32 @@
+{
+  "chunk": "examination-guideline-2025/06/002/05",
+  "anchorNode": "06-02-05",
+  "terms": [
+    { "name": "著录项目", "aliases": [], "role": "used", "confidence": "high", "evidence": "外观设计国际申请的著录项目以国际局公布的为准" },
+    { "name": "视图名称及其标注", "aliases": [], "role": "used", "confidence": "mid", "evidence": "外观设计国际申请的视图名称及其标注被视为符合" },
+    { "name": "简要说明书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "外观设计国际申请简要说明书的内容用于解释图片或者照片所示的产品的外观设计" },
+    { "name": "简要说明", "aliases": [], "role": "used", "confidence": "mid", "evidence": "视为已经依照专利法实施细则第三十一条的规定提交了简要说明" },
+    { "name": "分案申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "分案申请被视为国家申请" },
+    { "name": "设计要点", "aliases": [], "role": "used", "confidence": "mid", "evidence": "国际局公布的外观设计国际申请中包括含设计要点的说明书的" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "mid", "evidence": "或者原申请被视为撤回且未被恢复权利的" },
+    { "name": "恢复权利", "aliases": [], "role": "used", "confidence": "mid", "evidence": "未被恢复权利的，一般不得再提出分案申请" },
+    { "name": "国内公告日", "aliases": [], "role": "used", "confidence": "mid", "evidence": "最迟应当在原申请的国内公告日起两个月内提出" }
+  ],
+  "laws": [
+    "专利法第27条第2款",
+    "专利法实施细则第142条",
+    "专利法实施细则第31条",
+    "专利法第64条第2款",
+    "专利法第5条第1款",
+    "专利法第25条第1款第6项",
+    "专利法实施细则第11条",
+    "专利法第2条第4款",
+    "专利法第9条",
+    "专利法第23条第1款",
+    "专利法第23条第2款",
+    "专利法第31条第2款",
+    "专利法实施细则第141条",
+    "专利法第33条"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

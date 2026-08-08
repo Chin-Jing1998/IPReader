@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/04/002/03",
+  "anchorNode": "04-02-03",
+  "terms": [
+    { "name": "前置审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "经形式审查合格后转交给审查部门进行前置审查" },
+    { "name": "前置审查意见", "aliases": [], "role": "defined", "confidence": "high", "evidence": "前置审查意见分为下列三种类型" },
+    { "name": "驳回决定", "aliases": [], "role": "used", "confidence": "high", "evidence": "同意撤销驳回决定" },
+    { "name": "驳回理由", "aliases": [], "role": "used", "confidence": "high", "evidence": "不得补充驳回理由和证据" },
+    { "name": "公知常识", "aliases": [], "role": "used", "confidence": "high", "evidence": "所属技术领域中的公知常识性证据" },
+    { "name": "公知常识性证据", "aliases": [], "role": "used", "confidence": "mid", "evidence": "技术词典、技术手册、教科书等所属技术领域中的公知常识性证据" },
+    { "name": "修改文本", "aliases": [], "role": "used", "confidence": "high", "evidence": "以修改文本为基础进行前置审查" }
+  ],
+  "laws": ["专利法第22条第3款", "专利法第33条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

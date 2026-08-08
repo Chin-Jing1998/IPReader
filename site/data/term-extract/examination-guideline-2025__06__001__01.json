@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/06/001/01",
+  "anchorNode": "06-01-01",
+  "terms": [
+    { "name": "海牙协定", "aliases": ["工业品外观设计国际注册海牙协定日内瓦文本"], "role": "defined",
+      "confidence": "high", "evidence": "工业品外观设计国际注册海牙协定日内瓦文本（以下简称海牙协定）" },
+    { "name": "外观设计国际申请", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "按照海牙协定提出并指定中国的外观设计国际注册申请（以下简称外观设计国际申请）" },
+    { "name": "外观设计国际注册申请", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "通过专利局提交外观设计国际注册申请、缴纳费用" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

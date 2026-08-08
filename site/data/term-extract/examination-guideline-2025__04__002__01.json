@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/04/002/01",
+  "anchorNode": "04-02-01",
+  "terms": [
+    { "name": "复审程序", "aliases": [], "role": "defined", "confidence": "high", "evidence": "复审程序是因申请人对驳回决定不服而启动的救济程序" },
+    { "name": "驳回决定", "aliases": [], "role": "used", "confidence": "high", "evidence": "因申请人对驳回决定不服而启动的救济程序" },
+    { "name": "依职权审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "合议组可以依职权对驳回决定未提及的明显实质性缺陷进行审查" },
+    { "name": "明显实质性缺陷", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对驳回决定未提及的明显实质性缺陷进行审查" }
+  ],
+  "laws": [
+    "专利法第41条",
+    "专利法实施细则第65条至第68条"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

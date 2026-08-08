@@ -1,0 +1,77 @@
+{
+ "batchNo": 56,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/12/006.md",
+   "chunkId": "implementation-rules/12/006",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-12-06",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十二章 关于外观设计国际申请的特别规定 ｜ 第一百四十一条",
+   "charLen": 78
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/12/007.md",
+   "chunkId": "implementation-rules/12/007",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-12-07",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十二章 关于外观设计国际申请的特别规定 ｜ 第一百四十二条",
+   "charLen": 62
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/12/008.md",
+   "chunkId": "implementation-rules/12/008",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-12-08",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十二章 关于外观设计国际申请的特别规定 ｜ 第一百四十三条",
+   "charLen": 108
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/12/009.md",
+   "chunkId": "implementation-rules/12/009",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-12-09",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十二章 关于外观设计国际申请的特别规定 ｜ 第一百四十四条",
+   "charLen": 48
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/13/001.md",
+   "chunkId": "implementation-rules/13/001",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-13-01",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十三章 附 则 ｜ 第一百四十五条",
+   "charLen": 163
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/13/002.md",
+   "chunkId": "implementation-rules/13/002",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-13-02",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十三章 附 则 ｜ 第一百四十六条",
+   "charLen": 182
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/13/003.md",
+   "chunkId": "implementation-rules/13/003",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-13-03",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十三章 附 则 ｜ 第一百四十七条",
+   "charLen": 142
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/13/004.md",
+   "chunkId": "implementation-rules/13/004",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-13-04",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十三章 附 则 ｜ 第一百四十八条",
+   "charLen": 36
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/13/005.md",
+   "chunkId": "implementation-rules/13/005",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-13-05",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十三章 附 则 ｜ 第一百四十九条",
+   "charLen": 85
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+  "chunk": "patent-law/07/008",
+  "anchorNode": "law-07-08",
+  "terms": [
+    { "name": "实际损失", "aliases": [], "role": "defined", "confidence": "high", "evidence": "权利人因被侵权所受到的实际损失" },
+    { "name": "侵权获利", "aliases": ["侵权人获得的利益"], "role": "defined", "confidence": "high", "evidence": "侵权人因侵权所获得的利益确定" },
+    { "name": "专利许可使用费", "aliases": [], "role": "defined", "confidence": "high", "evidence": "参照该专利许可使用费的倍数合理确定" },
+    { "name": "法定赔偿", "aliases": [], "role": "defined", "confidence": "high", "evidence": "确定给予三万元以上五百万元以下的赔偿" },
+    { "name": "惩罚性赔偿", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对故意侵犯专利权，情节严重的，可以在按照上述方法确定数额的一倍以上五倍以下" },
+    { "name": "合理开支", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "权利人为制止侵权行为所支付的合理开支" },
+    { "name": "举证妨碍规则", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "责令侵权人提供与侵权行为相关的账簿、资料" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

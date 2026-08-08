@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/02/008/04/02",
+  "anchorNode": "02-08-04-02",
+  "terms": [
+    { "name": "背景技术", "aliases": [], "role": "used", "confidence": "high", "evidence": "了解发明所要解决的技术问题" },
+    { "name": "技术问题", "aliases": [], "role": "used", "confidence": "high", "evidence": "了解发明所要解决的技术问题" },
+    { "name": "技术方案", "aliases": [], "role": "used", "confidence": "mid", "evidence": "理解解决所述技术问题的技术方案" },
+    { "name": "必要技术特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "明确该技术方案的全部必要技术特征" },
+    { "name": "技术效果", "aliases": [], "role": "used", "confidence": "high", "evidence": "该技术方案所能带来的技术效果" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

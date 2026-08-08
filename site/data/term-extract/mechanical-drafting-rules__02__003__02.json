@@ -1,0 +1,12 @@
+{
+  "chunk": "mechanical-drafting-rules/02/003/02",
+  "anchorNode": "mech-02-03-02",
+  "terms": [
+    { "name": "背景技术", "aliases": [], "role": "defined", "confidence": "high", "evidence": "背景技术中所记载的技术缺陷要对应技术方案实际能够解决的技术问题" },
+    { "name": "发明目的", "aliases": [], "role": "used", "confidence": "high", "evidence": "发明目的处也只写独权对应技术方案能够解决的技术问题" },
+    { "name": "技术问题", "aliases": [], "role": "used", "confidence": "mid", "evidence": "彰显发明要解决的技术问题的合理性" },
+    { "name": "现有技术", "aliases": [], "role": "used", "confidence": "mid", "evidence": "通过对现有技术的原理/过程进行分析" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

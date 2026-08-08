@@ -1,0 +1,16 @@
+{
+  "chunk": "examination-guideline-2025/02/009/02",
+  "anchorNode": "02-09-02",
+  "terms": [
+    { "name": "智力活动的规则和方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "则该权利要求属于智力活动的规则和方法，不属于专利保护的客体" },
+    { "name": "技术方案", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利法所称的发明是指对产品、方法或者其改进所提出的新的技术方案" },
+    { "name": "专利保护的客体", "aliases": [], "role": "used", "confidence": "high", "evidence": "则该权利要求属于智力活动的规则和方法，不属于专利保护的客体" },
+    { "name": "技术特征", "aliases": [], "role": "used", "confidence": "mid", "evidence": "又包括技术特征，则该权利要求就整体而言并不是一种智力活动的规则和方法" },
+    { "name": "技术手段", "aliases": [], "role": "used", "confidence": "high", "evidence": "所反映的是遵循自然规律的技术手段" },
+    { "name": "技术问题", "aliases": [], "role": "used", "confidence": "high", "evidence": "解决方案执行计算机程序的目的是解决技术问题" },
+    { "name": "技术效果", "aliases": [], "role": "used", "confidence": "high", "evidence": "并且由此获得符合自然规律的技术效果" },
+    { "name": "自然规律", "aliases": [], "role": "used", "confidence": "mid", "evidence": "获得的不是受自然规律约束的效果" }
+  ],
+  "laws": ["专利法第二十五条第一款第（二）项", "专利法第二条第二款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

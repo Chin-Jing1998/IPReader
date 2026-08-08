@@ -1,0 +1,20 @@
+{
+  "chunk": "examination-guideline-2025/05/005/03",
+  "anchorNode": "05-05-03",
+  "terms": [
+    { "name": "保密请求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在请求书上提出保密请求，其申请文件应当以纸件形式提交" },
+    { "name": "保密证明材料", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当提交有定密权限的机关、单位出具的保密证明材料" },
+    { "name": "定密权限", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当提交有定密权限的机关、单位出具的保密证明材料" },
+    { "name": "密级", "aliases": [], "role": "used", "confidence": "mid", "evidence": "保密证明材料中应当写明发明创造名称、申请人姓名或者名称、密级、保密期限" },
+    { "name": "保密期限", "aliases": [], "role": "used", "confidence": "mid", "evidence": "保密证明材料中应当写明发明创造名称、申请人姓名或者名称、密级、保密期限" },
+    { "name": "定密责任人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "保密原因及保密要点、定密责任人、定密机关或者单位的联系人和联系电话" },
+    { "name": "定密机关", "aliases": [], "role": "used", "confidence": "mid", "evidence": "保密原因及保密要点、定密责任人、定密机关或者单位的联系人和联系电话" },
+    { "name": "保密基准", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当根据保密基准对专利申请进行审查" },
+    { "name": "保密审批通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员应当发出保密审批通知书" },
+    { "name": "分类审查员", "aliases": [], "role": "used", "confidence": "high", "evidence": "分类审查员在对发明或者实用新型专利申请进行分类时" },
+    { "name": "保密专利申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "按照保密专利申请处理" },
+    { "name": "专利申请移交国防知识产权局通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员向申请人发出专利申请移交国防知识产权局通知书" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

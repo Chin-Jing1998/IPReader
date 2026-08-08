@@ -1,0 +1,15 @@
+{
+  "chunk": "patent-law/05/004",
+  "anchorNode": "law-05-04",
+  "terms": [
+    {
+      "name": "宣告专利权无效",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "可以请求国务院专利行政部门宣告该专利权无效"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

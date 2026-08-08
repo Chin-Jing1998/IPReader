@@ -1,0 +1,9 @@
+{
+  "chunk": "patent-law/03/007",
+  "anchorNode": "law-03-07",
+  "terms": [
+    { "name": "撤回专利申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以在被授予专利权之前随时撤回其专利申请" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

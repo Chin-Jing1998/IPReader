@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/02/020",
+  "anchorNode": "rule-02-20",
+  "terms": [
+    { "name": "恢复优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以在期限届满之日起2个月内请求恢复优先权" },
+    { "name": "正当理由", "aliases": [], "role": "used", "confidence": "mid", "evidence": "有正当理由的" }
+  ],
+  "laws": ["专利法第29条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

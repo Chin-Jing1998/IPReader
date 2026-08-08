@@ -1,0 +1,10 @@
+{
+  "chunk": "mechanical-drafting-rules/01/003/05",
+  "anchorNode": "mech-01-03-05",
+  "terms": [
+    { "name": "附图标记说明", "aliases": [], "role": "used", "confidence": "mid", "evidence": "附图标记说明：1、壳体；2、" },
+    { "name": "相关技术", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当明确指出是相关技术的 XX 结构示意图，不得写为" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

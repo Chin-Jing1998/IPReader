@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/04/003/02",
+  "anchorNode": "04-03-02",
+  "terms": [
+    { "name": "一事不再理原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以相同或者实质相同的理由和证据再次提出无效宣告请求的，不予受理和审理" },
+    { "name": "当事人处置原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "请求人可以放弃全部或者部分无效宣告请求的范围、理由及证据" },
+    { "name": "保密原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "为了保证公正执法和保密，合议组成员原则上不得与一方当事人会晤" },
+    { "name": "无效宣告理由", "aliases": ["无效宣告请求的理由"], "role": "defined", "confidence": "high", "evidence": "无效宣告请求的理由（简称无效宣告理由）" },
+    { "name": "举证责任", "aliases": [], "role": "used", "confidence": "high", "evidence": "从而免去请求人对宣告该权利要求无效这一主张的举证责任" },
+    { "name": "无效宣告请求", "aliases": [], "role": "used", "confidence": "high", "evidence": "再次提出无效宣告请求的，不予受理和审理" },
+    { "name": "和解", "aliases": [], "role": "used", "confidence": "mid", "evidence": "当事人有权自行与对方和解" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

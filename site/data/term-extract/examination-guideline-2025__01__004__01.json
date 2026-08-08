@@ -1,0 +1,10 @@
+{
+  "chunk": "examination-guideline-2025/01/004/01",
+  "anchorNode": "01-04-01",
+  "terms": [
+    { "name": "国际专利分类", "aliases": ["IPC", "国际专利分类表"], "role": "defined", "confidence": "high", "evidence": "专利局采用国际专利分类对发明专利申请和实用新型专利申请进行分类" },
+    { "name": "分类号", "aliases": [], "role": "used", "confidence": "mid", "evidence": "按照分类号编排发明专利申请和实用新型专利申请" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

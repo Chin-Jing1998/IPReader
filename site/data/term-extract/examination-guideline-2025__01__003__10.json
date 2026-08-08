@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/01/003/10",
+  "anchorNode": "01-03-10",
+  "terms": [
+    { "name": "修改超出原图片或者照片表示的范围", "aliases": [], "role": "defined", "confidence": "high", "evidence": "修改超出原图片或者照片表示的范围，是指修改后的外观设计与原始申请文件中表示的相应" },
+    { "name": "直接地、毫无疑义地确定", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以直接地、毫无疑义地确定" },
+    { "name": "主动修改", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人可以自申请日起两个月内对外观设计专利申请文件主动提出修改" },
+    { "name": "依职权修改", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员可以对本章第4.1节、第4.2节和第4.3节规定的申请文件中出现的明显错误" },
+    { "name": "视为未提出通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当发出视为未提出通知书" }
+  ],
+  "laws": ["专利法第33条", "专利法实施细则第50条第2款", "专利法实施细则第57条第3款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

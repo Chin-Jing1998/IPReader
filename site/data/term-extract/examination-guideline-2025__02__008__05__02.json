@@ -1,0 +1,21 @@
+{
+  "chunk": "examination-guideline-2025/02/008/05/02",
+  "anchorNode": "02-08-05-02",
+  "terms": [
+    { "name": "原说明书和权利要求书记载的范围", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不得超出原说明书和权利要求书记载的范围" },
+    { "name": "主动修改", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人仅在下述两种情形下可对其发明专利申请文件进行主动修改" },
+    { "name": "依职权修改", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查员可以依职权进行，并通知申请人" },
+    { "name": "替换页", "aliases": [], "role": "defined", "confidence": "high", "evidence": "说明书或者权利要求书的修改部分，应当按照规定格式提交替换页" },
+    { "name": "修改对照表", "aliases": [], "role": "used", "confidence": "mid", "evidence": "提交替换页和修改对照表" },
+    { "name": "数值范围", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "数值范围的两个端值在原说明书和/或权利要求书中已确实记载" },
+    { "name": "单一性", "aliases": [], "role": "used", "confidence": "high", "evidence": "修改后的主题与原来要求保护的主题之间缺乏单一性" },
+    { "name": "最接近的现有技术", "aliases": [], "role": "used", "confidence": "high", "evidence": "修改独立权利要求，使其相对于最接近的现有技术重新划界" },
+    { "name": "划界", "aliases": [], "role": "used", "confidence": "mid", "evidence": "将独立权利要求相对于最接近的现有技术正确划界" },
+    { "name": "功能性术语＋装置", "aliases": [], "role": "used", "confidence": "mid", "evidence": "用不能从原申请文件中直接得出的“功能性术语＋装置”的方式" },
+    { "name": "所属技术领域的技术人员", "aliases": [], "role": "used", "confidence": "high", "evidence": "所属技术领域的技术人员可以直接地、毫无疑义地从原始申请文件中推断出这种效果" },
+    { "name": "有益效果", "aliases": [], "role": "used", "confidence": "high", "evidence": "才允许对发明的有益效果作合适的修改" },
+    { "name": "专利合作条约", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际申请的申请人根据专利合作条约规定所提交的修改文件" }
+  ],
+  "laws": ["专利法第33条", "专利法实施细则第57条第1款", "专利法实施细则第57条第3款", "专利法实施细则第58条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

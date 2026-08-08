@@ -1,0 +1,18 @@
+{
+  "chunk": "examination-guideline-2025/02/002/03/02",
+  "anchorNode": "02-02-03-02",
+  "terms": [
+    { "name": "以说明书为依据", "aliases": ["权利要求得到说明书的支持"], "role": "defined",
+      "confidence": "high", "evidence": "权利要求书应当以说明书为依据，是指权利要求应当得到说明书的支持" },
+    { "name": "功能性限定", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "对于权利要求中所包含的功能性限定的技术特征，应当理解为覆盖了所有能够实现所述功能" },
+    { "name": "纯功能性的权利要求", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "纯功能性的权利要求得不到说明书的支持，因而也是不允许的" },
+    { "name": "开拓性发明", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "开拓性发明可以比改进性发明有更宽的概括范围" },
+    { "name": "上位概念概括", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "对于用上位概念概括或用并列选择方式概括的权利要求" }
+  ],
+  "laws": ["专利法第26条第4款", "专利法实施细则第22条第1款"],
+  "extractedAt": "2026-07-12T15:38:20+08:00"
+}

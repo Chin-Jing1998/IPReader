@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/01/002/04",
+  "anchorNode": "01-02-04",
+  "terms": [
+    { "name": "委托专利代理机构", "aliases": [], "role": "used", "confidence": "low", "evidence": "委托专利代理机构" },
+    { "name": "要求优先权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "要求优先权" },
+    { "name": "不丧失新颖性的公开", "aliases": [], "role": "used", "confidence": "high", "evidence": "不丧失新颖性的公开" },
+    { "name": "撤回专利申请声明", "aliases": [], "role": "used", "confidence": "low", "evidence": "撤回专利申请声明" },
+    { "name": "著录项目变更", "aliases": [], "role": "used", "confidence": "mid", "evidence": "著录项目变更" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

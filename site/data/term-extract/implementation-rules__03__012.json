@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/03/012",
+  "anchorNode": "rule-03-12",
+  "terms": [
+    { "name": "外观设计产品分类表", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "外观设计产品分类表" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

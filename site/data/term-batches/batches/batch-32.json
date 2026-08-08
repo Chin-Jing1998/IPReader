@@ -1,0 +1,77 @@
+{
+ "batchNo": 32,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/06/001/04.md",
+   "chunkId": "examination-guideline-2025/06/001/04",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "06-01-04",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第六部分 外观设计国际申请 ｜ 第一章外观设计国际注册申请的事务处理 ｜ 4.缴费的特别规定",
+   "charLen": 381
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/06/002/01.md",
+   "chunkId": "examination-guideline-2025/06/002/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "06-02-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第六部分 外观设计国际申请 ｜ 第二章外观设计国际申请的审查 ｜ 1.引言",
+   "charLen": 530
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/06/002/02.md",
+   "chunkId": "examination-guideline-2025/06/002/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "06-02-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第六部分 外观设计国际申请 ｜ 第二章外观设计国际申请的审查 ｜ 2.审查原则",
+   "charLen": 150
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/06/002/03.md",
+   "chunkId": "examination-guideline-2025/06/002/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "06-02-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第六部分 外观设计国际申请 ｜ 第二章外观设计国际申请的审查 ｜ 3.审查程序",
+   "charLen": 643
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/06/002/04.md",
+   "chunkId": "examination-guideline-2025/06/002/04",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "06-02-04",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第六部分 外观设计国际申请 ｜ 第二章外观设计国际申请的审查 ｜ 4.审查依据的文本确认",
+   "charLen": 209
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/06/002/05.md",
+   "chunkId": "examination-guideline-2025/06/002/05",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "06-02-05",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第六部分 外观设计国际申请 ｜ 第二章外观设计国际申请的审查 ｜ 5.外观设计国际申请文件的审查",
+   "charLen": 994
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/06/002/06/01.md",
+   "chunkId": "examination-guideline-2025/06/002/06/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "06-02-06-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第六部分 外观设计国际申请 ｜ 第二章外观设计国际申请的审查 ｜ 6.其他文件和相关手续的审查 ｜ 6.1委托专利代理机构",
+   "charLen": 195
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/06/002/06/02.md",
+   "chunkId": "examination-guideline-2025/06/002/06/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "06-02-06-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第六部分 外观设计国际申请 ｜ 第二章外观设计国际申请的审查 ｜ 6.其他文件和相关手续的审查 ｜ 6.2优先权的审查",
+   "charLen": 1280
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/06/002/06/03.md",
+   "chunkId": "examination-guideline-2025/06/002/06/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "06-02-06-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第六部分 外观设计国际申请 ｜ 第二章外观设计国际申请的审查 ｜ 6.其他文件和相关手续的审查 ｜ 6.3不丧失新颖性的公开",
+   "charLen": 12856
+  }
+ ]
+}

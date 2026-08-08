@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/02/002/01",
+  "anchorNode": "02-02-01",
+  "terms": [
+    { "name": "说明书", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "说明书和权利要求书是记载发明或者实用新型及确定其保护范围的法律文件" },
+    { "name": "权利要求书", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "说明书和权利要求书是记载发明或者实用新型及确定其保护范围的法律文件" },
+    { "name": "保护范围", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "发明或者实用新型专利权的保护范围以其权利要求的内容为准" }
+  ],
+  "laws": ["专利法第26条第1款", "专利法第64条第1款"],
+  "extractedAt": "2026-07-12T15:38:20+08:00"
+}

@@ -1,0 +1,19 @@
+{
+  "chunk": "examination-guideline-2025/05/008/01/03",
+  "anchorNode": "05-08-01-03",
+  "terms": [
+    { "name": "无效宣告", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利权的全部或者部分无效宣告" },
+    { "name": "药品专利权期限补偿", "aliases": [], "role": "used", "confidence": "mid", "evidence": "药品专利权期限补偿公布的项目包括" },
+    { "name": "专利权期限的补偿", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利权期限的补偿" },
+    { "name": "专利权质押登记", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利权质押登记公布的项目包括" },
+    { "name": "出质人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "质押登记日、出质人、质权人" },
+    { "name": "质权人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "质押登记日、出质人、质权人" },
+    { "name": "专利权的保全", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利权的保全及其解除" },
+    { "name": "专利申请权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利申请权、专利权的转移" },
+    { "name": "避免重复授权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "避免重复授权放弃实用新型专利权" },
+    { "name": "文件的公告送达", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "由于文件送交地址不清，专利局无法通知当事人在规定或者指定的期限内答复" },
+    { "name": "专利实施许可合同备案", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利实施许可合同备案的生效、变更及注销" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:03:00+08:00"
+}

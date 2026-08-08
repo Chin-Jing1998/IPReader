@@ -1,0 +1,16 @@
+{
+  "chunk": "implementation-rules/01/007",
+  "anchorNode": "rule-01-07",
+  "terms": [
+    { "name": "国防专利机构", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "由国防专利机构受理并进行审查" },
+    { "name": "国防专利权", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "由国务院专利行政部门作出授予国防专利权的决定" },
+    { "name": "保密专利申请", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "应当及时作出按照保密专利申请处理的决定" },
+    { "name": "保密专利权", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "以及保密专利权无效宣告的特殊程序" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

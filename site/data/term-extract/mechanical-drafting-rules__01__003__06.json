@@ -1,0 +1,17 @@
+{
+  "chunk": "mechanical-drafting-rules/01/003/06",
+  "anchorNode": "mech-01-03-06",
+  "terms": [
+    { "name": "具体实施方式", "aliases": [], "role": "used", "confidence": "high", "evidence": "3.6.具体实施方式" },
+    { "name": "公开充分性", "aliases": [], "role": "used", "confidence": "high", "evidence": "有助于本申请的公开充分性" },
+    { "name": "现有技术", "aliases": [], "role": "used", "confidence": "mid", "evidence": "该处的现有技术，应当公众所知" },
+    { "name": "保护范围", "aliases": [], "role": "used", "confidence": "high", "evidence": "支持权利要求覆盖的保护范围" },
+    { "name": "上位概念", "aliases": [], "role": "used", "confidence": "high", "evidence": "权利要求中的上位概念" },
+    { "name": "功能性描述", "aliases": [], "role": "used", "confidence": "mid", "evidence": "实施例中不能仅用功能性描述进行限定" },
+    { "name": "有益效果", "aliases": [], "role": "used", "confidence": "high", "evidence": "并最终推导至有益效果" },
+    { "name": "等同物", "aliases": [], "role": "used", "confidence": "mid", "evidence": "将后续出现的等同物排除在保护范围之外" },
+    { "name": "独立权利要求", "aliases": ["独权"], "role": "used", "confidence": "high", "evidence": "针对某一独权具有多个实施例，撰写时" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/02/022",
+  "anchorNode": "rule-02-22",
+  "terms": [
+    { "name": "经常居所", "aliases": [], "role": "used", "confidence": "high", "evidence": "在中国没有经常居所或者营业所的申请人" },
+    { "name": "营业所", "aliases": [], "role": "used", "confidence": "high", "evidence": "在中国没有经常居所或者营业所的申请人" },
+    { "name": "外国优先权", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请专利或者要求外国优先权的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/04/004/13",
+  "anchorNode": "04-04-13",
+  "terms": [
+    { "name": "和解", "aliases": [], "role": "used", "confidence": "high", "evidence": "无效宣告程序中的当事人有权与对方当事人和解" },
+    { "name": "撤回无效宣告请求", "aliases": [], "role": "used", "confidence": "high", "evidence": "无效宣告请求人有权请求撤回无效宣告请求" },
+    { "name": "撤回复审请求", "aliases": [], "role": "used", "confidence": "high", "evidence": "复审请求人有权撤回复审请求" },
+    { "name": "举证责任", "aliases": [], "role": "defined", "confidence": "high", "evidence": "当事人对自己提出的主张有举证责任" },
+    { "name": "中途退庭", "aliases": [], "role": "used", "confidence": "high", "evidence": "未经合议组许可不得中途退庭" },
+    { "name": "修改文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "有权提交修改文件" },
+    { "name": "权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利权人有权放弃部分或全部权利要求" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

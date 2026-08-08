@@ -1,0 +1,10 @@
+{
+  "chunk": "examination-guideline-2025/01/004/07",
+  "anchorNode": "01-04-07",
+  "terms": [
+    { "name": "发明信息", "aliases": [], "role": "used", "confidence": "mid", "evidence": "一起作为发明信息进行分类" },
+    { "name": "附加信息", "aliases": [], "role": "used", "confidence": "mid", "evidence": "附加信息进行分类或者引得" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

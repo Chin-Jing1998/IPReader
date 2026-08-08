@@ -1,0 +1,332 @@
+[
+ {
+  "termKey": "审查依据的文本",
+  "canonical": "审查依据的文本",
+  "decision": "merge-into:审查文本",
+  "note": "与审查文本同义，均指作为审查基础的申请文本，归并至更规范者。"
+ },
+ {
+  "termKey": "生物材料样品国际保藏单位",
+  "canonical": "生物材料样品国际保藏单位",
+  "decision": "keep",
+  "note": "特指国际承认的生物材料保藏机构，边界清晰，具独立检索价值。"
+ },
+ {
+  "termKey": "剩余大组",
+  "canonical": "剩余大组",
+  "decision": "keep",
+  "note": "IPC分类中以99/00表示的专门剩余大组，为具体分类术语。"
+ },
+ {
+  "termKey": "时间顺序原则",
+  "canonical": "时间顺序原则",
+  "decision": "keep",
+  "note": "办理手续时的时间顺序认定原则，属独立程序原则。"
+ },
+ {
+  "termKey": "实际损失",
+  "canonical": "实际损失",
+  "decision": "keep",
+  "note": "侵权赔偿计算中的法定概念，边界清晰。"
+ },
+ {
+  "termKey": "实施",
+  "canonical": "实施",
+  "decision": "drop",
+  "note": "作为独立检索节点过于宽泛，属泛词，具体行为已由许诺销售等术语覆盖。"
+ },
+ {
+  "termKey": "实施许可合同",
+  "canonical": "实施许可合同",
+  "decision": "merge-into:专利实施许可合同",
+  "note": "与专利实施许可合同同义，后者df更高更完整。"
+ },
+ {
+  "termKey": "实用新型的创造性",
+  "canonical": "实用新型的创造性",
+  "decision": "merge-into:实用新型创造性",
+  "note": "与种子词实用新型创造性仅差一助词，属同义。"
+ },
+ {
+  "termKey": "实用新型专利申请的初步审查",
+  "canonical": "实用新型专利申请的初步审查",
+  "decision": "keep",
+  "note": "实用新型初审为独立程序主题，具检索价值。"
+ },
+ {
+  "termKey": "实质审查程序的恢复",
+  "canonical": "实质审查程序的恢复",
+  "decision": "keep",
+  "note": "实审程序因法定事由恢复，属具体程序事件。"
+ },
+ {
+  "termKey": "实质审查程序的中止",
+  "canonical": "实质审查程序的中止",
+  "decision": "keep",
+  "note": "因权属纠纷等中止实审程序，与一般中止程序为上下位关系，属具体事件。"
+ },
+ {
+  "termKey": "实质审查程序的终止",
+  "canonical": "实质审查程序的终止",
+  "decision": "keep",
+  "note": "因撤回或视为撤回终止实审程序，属具体程序事件。"
+ },
+ {
+  "termKey": "实质审查请求之日",
+  "canonical": "实质审查请求之日",
+  "decision": "keep",
+  "note": "具法定定义的日期概念，用于期限起算，与申请日等日期术语同类。"
+ },
+ {
+  "termKey": "实质性非侵权用途",
+  "canonical": "实质性非侵权用途",
+  "decision": "keep",
+  "note": "帮助侵权判断中的法定标准，概念独立。"
+ },
+ {
+  "termKey": "实质支持",
+  "canonical": "实质支持",
+  "decision": "keep",
+  "note": "与形式支持相对的说明书支持概念，边界清晰。"
+ },
+ {
+  "termKey": "食品基本功能",
+  "canonical": "食品基本功能",
+  "decision": "drop",
+  "note": "修饰性窄概念，独立检索价值低，食品相关内容已由食品覆盖。"
+ },
+ {
+  "termKey": "视为撤回在先申请的程序",
+  "canonical": "视为撤回在先申请的程序",
+  "decision": "drop",
+  "note": "描述性程序短语，核心概念为视为撤回。"
+ },
+ {
+  "termKey": "视为放弃取得专利权",
+  "canonical": "视为放弃取得专利权",
+  "decision": "keep",
+  "note": "期满未办登记手续导致的法定后果，有专门通知书，概念独立。"
+ },
+ {
+  "termKey": "视为未办理登记手续",
+  "canonical": "视为未办理登记手续",
+  "decision": "keep",
+  "note": "期满未缴费的法定拟制后果，概念独立。"
+ },
+ {
+  "termKey": "适于工业应用",
+  "canonical": "适于工业应用",
+  "decision": "keep",
+  "note": "外观设计授权条件之一的法定要求，边界清晰。"
+ },
+ {
+  "termKey": "收到文件回执",
+  "canonical": "收到文件回执",
+  "decision": "keep",
+  "note": "载明收到日的具体受理凭证，属专门文书。"
+ },
+ {
+  "termKey": "收费减缴",
+  "canonical": "收费减缴",
+  "decision": "merge-into:费用减缴",
+  "note": "与种子词费用减缴同义，均指专利费用减缴。"
+ },
+ {
+  "termKey": "收件人",
+  "canonical": "收件人",
+  "decision": "drop",
+  "note": "通用泛词，缺乏专利特有的独立检索价值。"
+ },
+ {
+  "termKey": "受理部门",
+  "canonical": "受理部门",
+  "decision": "keep",
+  "note": "特指专利局受理机构，为具体组织实体。"
+ },
+ {
+  "termKey": "授予专利权的通知书",
+  "canonical": "授予专利权的通知书",
+  "decision": "merge-into:授予专利权通知",
+  "note": "与授予专利权通知同义，后者df更高。"
+ },
+ {
+  "termKey": "说明书公开不充分",
+  "canonical": "说明书公开不充分",
+  "decision": "merge-into:公开不充分",
+  "note": "与种子词公开不充分同义。"
+ },
+ {
+  "termKey": "说明书及附图的解释作用",
+  "canonical": "说明书及附图的解释作用",
+  "decision": "keep",
+  "note": "说明书及附图解释权项的法定作用，与简要说明的解释作用并列。"
+ },
+ {
+  "termKey": "诉前行为保全",
+  "canonical": "诉前行为保全",
+  "decision": "keep",
+  "note": "诉前禁令为独立救济手段，与一般行为保全为时点特定关系。"
+ },
+ {
+  "termKey": "诉前证据保全",
+  "canonical": "诉前证据保全",
+  "decision": "keep",
+  "note": "诉前证据保全为独立救济手段，与一般证据保全为时点特定关系。"
+ },
+ {
+  "termKey": "所属技术领域",
+  "canonical": "所属技术领域",
+  "decision": "merge-into:技术领域",
+  "note": "与技术领域同指发明所属技术领域，归并至df更高者。"
+ },
+ {
+  "termKey": "所属技术领域的技术人员能够实现",
+  "canonical": "所属技术领域的技术人员能够实现",
+  "decision": "merge-into:能够实现",
+  "note": "系充分公开中能够实现标准的完整表述，归并至能够实现。"
+ },
+ {
+  "termKey": "所要解决的技术问题",
+  "canonical": "所要解决的技术问题",
+  "decision": "merge-into:技术问题",
+  "note": "系技术问题的完整表述，二者同义。"
+ },
+ {
+  "termKey": "他人未经申请人同意而泄露其内容",
+  "canonical": "他人未经申请人同意而泄露其内容",
+  "decision": "keep",
+  "note": "复核改判：专利法第二十四条不丧失新颖性宽限期的法定情形之一，与已收录的国际展览会、学术会议或者技术会议并列，具独立检索价值，不应删除。"
+ },
+ {
+  "termKey": "特别授权的委托书",
+  "canonical": "特别授权的委托书",
+  "decision": "keep",
+  "note": "需特别授权的委托书为具体法定文书要求，概念独立。"
+ },
+ {
+  "termKey": "天然物质",
+  "canonical": "天然物质",
+  "decision": "keep",
+  "note": "天然物质可专利性的化学与生物审查概念，边界清晰。"
+ },
+ {
+  "termKey": "通式",
+  "canonical": "通式",
+  "decision": "keep",
+  "note": "主会话裁决：归并环拆解，通式为规范词（马库什通式惯用）"
+ },
+ {
+  "termKey": "同类独立权利要求",
+  "canonical": "同类独立权利要求",
+  "decision": "keep",
+  "note": "单一性判断中同类型独立权利要求概念，独立可检索。"
+ },
+ {
+  "termKey": "同日",
+  "canonical": "同日",
+  "decision": "keep",
+  "note": "具法定定义（申请日或优先权日），关涉抵触申请与同样发明，属定义性术语。"
+ },
+ {
+  "termKey": "同样产品",
+  "canonical": "同样产品",
+  "decision": "keep",
+  "note": "专利法第六十一条举证倒置中的法定定义概念。"
+ },
+ {
+  "termKey": "同一类别并且成套出售或者使用的产品",
+  "canonical": "同一类别并且成套出售或者使用的产品",
+  "decision": "merge-into:成套产品",
+  "note": "系成套产品的定义性表述，归并至种子词成套产品。"
+ },
+ {
+  "termKey": "突出的实质性特点和显著的进步",
+  "canonical": "突出的实质性特点和显著的进步",
+  "decision": "keep",
+  "note": "复核改判：系发明创造性的法定判断标准，与创造性为标准与概念的相关关系而非同义，且与实用新型的实质性特点和进步标准相区分，参考词表亦单列显著的进步，应独立保留。"
+ },
+ {
+  "termKey": "图案",
+  "canonical": "图案",
+  "decision": "keep",
+  "note": "外观设计三要素之一的法定定义，与色彩并列保留。"
+ },
+ {
+  "termKey": "图案和色彩结合的外观设计",
+  "canonical": "图案和色彩结合的外观设计",
+  "decision": "keep",
+  "note": "外观设计组合类型系列之一，与形状和色彩结合等并列。"
+ },
+ {
+  "termKey": "退款",
+  "canonical": "退款",
+  "decision": "keep",
+  "note": "复核改判：多缴、重缴、错缴专利费用自缴费日起三年内提出退款请求，为专利收费程序中设有法定期限的具体制度，具独立检索价值。"
+ },
+ {
+  "termKey": "外观设计分类",
+  "canonical": "外观设计分类",
+  "decision": "keep",
+  "note": "针对外观设计产品进行分类的概念，与国际外观设计分类法等具体系统相区分。"
+ },
+ {
+  "termKey": "外观设计实质相同",
+  "canonical": "外观设计实质相同",
+  "decision": "keep",
+  "note": "判断相同或相近似的实质相同标准，与外观设计相同相区分。"
+ },
+ {
+  "termKey": "外观设计相同主题",
+  "canonical": "外观设计相同主题",
+  "decision": "keep",
+  "note": "优先权认定中的相同主题，与相同主题的发明或者实用新型并列。"
+ },
+ {
+  "termKey": "外观设计要素",
+  "canonical": "外观设计要素",
+  "decision": "keep",
+  "note": "指形状图案色彩三要素的基础定义概念。"
+ },
+ {
+  "termKey": "外观设计专利权的保护范围",
+  "canonical": "外观设计专利权的保护范围",
+  "decision": "keep",
+  "note": "以图片照片为准的保护范围，与发明或实用新型专利权的保护范围并列。"
+ },
+ {
+  "termKey": "外国部分优先权",
+  "canonical": "外国部分优先权",
+  "decision": "keep",
+  "note": "外国优先权语境下的部分优先权具体概念，指南明确命名。"
+ },
+ {
+  "termKey": "外国首次申请",
+  "canonical": "外国首次申请",
+  "decision": "keep",
+  "note": "指南明确定义的简称，指作为优先权基础的外国首次申请。"
+ },
+ {
+  "termKey": "完全确定的化合物",
+  "canonical": "完全确定的化合物",
+  "decision": "keep",
+  "note": "化学审查中结构完全确定化合物的定义概念，边界清晰。"
+ },
+ {
+  "termKey": "微生物的分类命名",
+  "canonical": "微生物的分类命名",
+  "decision": "keep",
+  "note": "微生物以株名种名属名表述的具体命名要求。"
+ },
+ {
+  "termKey": "微生物发明",
+  "canonical": "微生物发明",
+  "decision": "keep",
+  "note": "利用微生物生产物质的发明类别，概念独立。"
+ },
+ {
+  "termKey": "违反法律的发明创造",
+  "canonical": "违反法律的发明创造",
+  "decision": "keep",
+  "note": "专利法第五条不授权情形的法定概念。"
+ }
+]

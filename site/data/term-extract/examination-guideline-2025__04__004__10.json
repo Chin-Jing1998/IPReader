@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/04/004/10",
+  "anchorNode": "04-04-10",
+  "terms": [
+    { "name": "证人出庭作证", "aliases": [], "role": "defined", "confidence": "high", "evidence": "证人出庭作证" },
+    { "name": "证言", "aliases": [], "role": "used", "confidence": "mid", "evidence": "出具过证言并在口头审理通知书回执中写明的证人" },
+    { "name": "作伪证", "aliases": [], "role": "used", "confidence": "mid", "evidence": "作伪证的法律责任" },
+    { "name": "交叉提问", "aliases": [], "role": "used", "confidence": "high", "evidence": "双方当事人可以对证人进行交叉提问" },
+    { "name": "证人对质", "aliases": [], "role": "used", "confidence": "mid", "evidence": "但需要证人对质的除外" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

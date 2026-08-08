@@ -1,0 +1,10 @@
+{
+  "chunk": "examination-guideline-2025/02/008/04/09",
+  "anchorNode": "02-08-04-09",
+  "terms": [
+    { "name": "公众意见", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利局对公众意见的处理情况，不必通知提出意见的公众" },
+    { "name": "授予专利权的通知", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员发出授予专利权的通知之后收到的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

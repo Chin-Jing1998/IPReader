@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/03/005",
+  "anchorNode": "rule-03-05",
+  "terms": [
+    { "name": "附图", "aliases": [], "role": "used", "confidence": "high", "evidence": "说明书中写有对附图的说明但无附图或者缺少部分附图的" },
+    { "name": "申请日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以向国务院专利行政部门提交或者邮寄附图之日为申请日" },
+    { "name": "原申请日", "aliases": [], "role": "used", "confidence": "mid", "evidence": "取消对附图的说明的，保留原申请日" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:51:42+08:00"
+}

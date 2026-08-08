@@ -1,0 +1,17 @@
+{
+  "chunk": "examination-guideline-2025/05/010/04",
+  "anchorNode": "05-10-04",
+  "terms": [
+    { "name": "背景文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "背景文件，即反映外观设计的部分设计特征或者有关的文件" },
+    { "name": "中间文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "中间文件，其公开日在外观设计专利的申请日与所要求的优先权日之间的文件" },
+    { "name": "对比文件类型X", "aliases": ["X"], "role": "defined", "confidence": "mid", "evidence": "单独导致外观设计专利不符合专利法第二十三条第一款或第二款规定的文件" },
+    { "name": "对比文件类型Y", "aliases": ["Y"], "role": "defined", "confidence": "mid", "evidence": "与报告中其他文件结合导致外观设计专利不符合专利法第二十三条第二款规定的文件" },
+    { "name": "抵触申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "与外观设计专利相同或者实质相同的抵触申请文件" },
+    { "name": "新颖性", "aliases": [], "role": "used", "confidence": "high", "evidence": "对于不具备新颖性和/或创造性的权利要求" },
+    { "name": "创造性", "aliases": [], "role": "used", "confidence": "high", "evidence": "对于不具备新颖性和/或创造性的权利要求" },
+    { "name": "从属权利要求", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对于多项从属权利要求，应当对其引用不同的权利要求时的技术方案分别进行评述" },
+    { "name": "优先权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "所要求的优先权日之间的文件" }
+  ],
+  "laws": ["专利法第23条第1款", "专利法第23条第2款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

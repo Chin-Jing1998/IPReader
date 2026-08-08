@@ -1,0 +1,11 @@
+{
+  "chunk": "patent-law/07/009",
+  "anchorNode": "law-07-09",
+  "terms": [
+    { "name": "诉前行为保全", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以在起诉前依法向人民法院申请采取财产保全、责令作出一定行为或者禁止作出一定行为" },
+    { "name": "财产保全", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请采取财产保全" },
+    { "name": "难以弥补的损害", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "将会使其合法权益受到难以弥补的损害的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

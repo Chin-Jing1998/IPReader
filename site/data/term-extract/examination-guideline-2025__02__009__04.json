@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/02/009/04",
+  "anchorNode": "02-09-04",
+  "terms": [
+    { "name": "汉字编码方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "汉字编码方法属于一种信息表述方法" },
+    { "name": "计算机汉字输入方法", "aliases": ["计算机汉字信息处理方法"], "role": "defined", "confidence": "high", "evidence": "构成计算机系统处理汉字的一种计算机汉字输入方法" },
+    { "name": "智力活动的规则和方法", "aliases": [], "role": "used", "confidence": "high", "evidence": "属于专利法第二十五条第一款第（二）项规定的智力活动的规则和方法" },
+    { "name": "技术方案", "aliases": [], "role": "used", "confidence": "high", "evidence": "构成专利法第二条第二款所说的技术方案" },
+    { "name": "专利保护的客体", "aliases": [], "role": "used", "confidence": "high", "evidence": "不属于专利保护的客体" }
+  ],
+  "laws": ["专利法第二十五条第一款第（二）项", "专利法第二条第二款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/01/001/04/03",
+  "anchorNode": "01-01-04-03",
+  "terms": [
+    { "name": "附图标记", "aliases": [], "role": "defined", "confidence": "high", "evidence": "附图标记应当使用阿拉伯数字编号" },
+    { "name": "剖面线", "aliases": [], "role": "used", "confidence": "mid", "evidence": "剖面图中的剖面线不得妨碍附图标记线和主线条的清楚识别" },
+    { "name": "局部放大图", "aliases": [], "role": "used", "confidence": "mid", "evidence": "为使其中某一组成部分清楚显示，可以另外增加一幅局部放大图" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

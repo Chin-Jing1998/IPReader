@@ -1,0 +1,11 @@
+{
+  "chunk": "patent-law/06/008",
+  "anchorNode": "law-06-08",
+  "terms": [
+    { "name": "强制许可", "aliases": [], "role": "used", "confidence": "high", "evidence": "地区的强制许可" },
+    { "name": "公共健康", "aliases": [], "role": "used", "confidence": "high", "evidence": "为了公共健康目的" },
+    { "name": "国际条约", "aliases": [], "role": "used", "confidence": "mid", "evidence": "中华人民共和国参加的有关国际条约" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

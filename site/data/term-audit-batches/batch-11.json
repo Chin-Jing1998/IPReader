@@ -1,0 +1,888 @@
+[
+ {
+  "termKey": "遗传资源的直接来源",
+  "canonical": "遗传资源的直接来源",
+  "aliases": [
+   "直接来源"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/09/05",
+    "text": "专利法所称遗传资源的直接来源，是指获取遗传资源的直接渠道"
+   }
+  ]
+ },
+ {
+  "termKey": "遗传资源的直接来源和原始来源",
+  "canonical": "遗传资源的直接来源和原始来源",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/03/001",
+    "text": "该遗传资源的直接来源和原始来源"
+   }
+  ]
+ },
+ {
+  "termKey": "遗传资源来源的披露",
+  "canonical": "遗传资源来源的披露",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/002/02",
+    "text": "及专利法实施细则第二十九条和第一百二十六条：遗传资源来源的披露"
+   }
+  ]
+ },
+ {
+  "termKey": "已知产品的新用途发明",
+  "canonical": "已知产品的新用途发明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/004/04",
+    "text": "是指将已知产品用于新的目的的发明"
+   }
+  ]
+ },
+ {
+  "termKey": "已知产品用途发明的创造性",
+  "canonical": "已知产品用途发明的创造性",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/06",
+    "text": "对于已知产品的用途发明，如果该新用途不能从产品本身的结构、组成、分子量"
+   }
+  ]
+ },
+ {
+  "termKey": "以制备方法界定产品的技术特征",
+  "canonical": "以制备方法界定产品的技术特征",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/01/003",
+    "text": "以制备方法界定产品的技术特征对于确定专利权的保护范围具有限定作用"
+   }
+  ]
+ },
+ {
+  "termKey": "意想不到的效果",
+  "canonical": "意想不到的效果",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/02/002",
+    "text": "但前提是这种组合方案会产生新效果或意想不到的效果"
+   }
+  ]
+ },
+ {
+  "termKey": "引用基础",
+  "canonical": "引用基础",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "mechanical-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "mechanical-drafting-rules/01/001/02",
+    "text": "不得作为另一项多项从属权利要求的引用基础"
+   }
+  ]
+ },
+ {
+  "termKey": "应用分类",
+  "canonical": "应用分类",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/004/04/02",
+    "text": "若技术主题属于下列情况，则将该技术主题按应用分类"
+   }
+  ]
+ },
+ {
+  "termKey": "用途限定",
+  "canonical": "用途限定",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/002/03/01",
+    "text": "主题名称中含有用途限定的产品权利要求，其中的用途限定在确定该产品权利要求的保护范围时应当予以考虑"
+   }
+  ]
+ },
+ {
+  "termKey": "用途原则",
+  "canonical": "用途原则",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/12",
+    "text": "外观设计分类一般应遵循用途原则，不考虑制造该产品的材料"
+   }
+  ]
+ },
+ {
+  "termKey": "用物理化学参数表征的化学产品",
+  "canonical": "用物理化学参数表征的化学产品",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/05",
+    "text": "如果无法依据所记载的参数对由该参数表征的产品与对比文件公开的产品进行比较"
+   }
+  ]
+ },
+ {
+  "termKey": "用原子核变换方法所获得的物质",
+  "canonical": "用原子核变换方法所获得的物质",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/001/04/05",
+    "text": "用原子核变换方法所获得的物质，主要是指用加速器、反应堆以及其他核反应装置生产"
+   }
+  ]
+ },
+ {
+  "termKey": "用制备方法表征的化学产品权利要求",
+  "canonical": "用制备方法表征的化学产品权利要求",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/05",
+    "text": "对于用制备方法表征的化学产品权利要求，其新颖性审查应针对该产品本身进行"
+   }
+  ]
+ },
+ {
+  "termKey": "优先权声明",
+  "canonical": "优先权声明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/03/005",
+    "text": "应当在申请的时候提出书面声明"
+   }
+  ]
+ },
+ {
+  "termKey": "优先权证明",
+  "canonical": "优先权证明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/001/06",
+    "text": "优先权证明（在先申请文件副本）"
+   }
+  ]
+ },
+ {
+  "termKey": "优先权转让证明材料",
+  "canonical": "优先权转让证明材料",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/02/018",
+    "text": "应当提交优先权转让证明材料"
+   }
+  ]
+ },
+ {
+  "termKey": "由产品功能决定的设计特征",
+  "canonical": "由产品功能决定的设计特征",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/04/_full-chapter",
+    "text": "由产品功能决定的设计特征，是指由功能有限或唯一决定、不考虑美学因素而形成的设计"
+   }
+  ]
+ },
+ {
+  "termKey": "由申请人引起的不合理延迟",
+  "canonical": "由申请人引起的不合理延迟",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/05/003",
+    "text": "由申请人引起的不合理延迟包括以下情形"
+   }
+  ]
+ },
+ {
+  "termKey": "邮戳日",
+  "canonical": "邮戳日",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/03/003",
+    "text": "如果申请文件是邮寄的，以寄出的邮戳日为申请日"
+   }
+  ]
+ },
+ {
+  "termKey": "邮寄送达",
+  "canonical": "邮寄送达",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/006/02",
+    "text": "邮寄送达文件是指通过邮局把通知和决定送交当事人"
+   }
+  ]
+ },
+ {
+  "termKey": "邮路查询时效",
+  "canonical": "邮路查询时效",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/006/03",
+    "text": "邮路查询时效为一年，自发文日起计算"
+   }
+  ]
+ },
+ {
+  "termKey": "预防和/或治疗",
+  "canonical": "预防和/或治疗",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/005/04",
+    "text": "权利要求中不应存在措词“预防和/或治疗”"
+   }
+  ]
+ },
+ {
+  "termKey": "域外证据",
+  "canonical": "域外证据",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/008/02",
+    "text": "域外证据是指在中华人民共和国领域外形成的证据"
+   }
+  ]
+ },
+ {
+  "termKey": "原生环境",
+  "canonical": "原生环境",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/09/05",
+    "text": "原生环境是指该生物体的自然生长环境"
+   }
+  ]
+ },
+ {
+  "termKey": "原说明书和权利要求书",
+  "canonical": "原说明书和权利要求书",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/002/03",
+    "text": "原说明书和权利要求书是指原始提交的国际申请的权利要求书、说明书及其附图"
+   }
+  ]
+ },
+ {
+  "termKey": "原图片或者照片表示的范围",
+  "canonical": "原图片或者照片表示的范围",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/03/008",
+    "text": "不得超出原图片或者照片表示的范围"
+   }
+  ]
+ },
+ {
+  "termKey": "原有范围",
+  "canonical": "原有范围",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/06/004",
+    "text": "“原有范围”包括：专利申请日前已有的生产规模"
+   }
+  ]
+ },
+ {
+  "termKey": "再次审查意见通知书",
+  "canonical": "再次审查意见通知书",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/04/11",
+    "text": "出现下列情况之一时，审查员应当再次发出审查意见通知书"
+   }
+  ]
+ },
+ {
+  "termKey": "在全国有重大影响的专利侵权纠纷",
+  "canonical": "在全国有重大影响的专利侵权纠纷",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/08/002",
+    "text": "在全国有重大影响的专利侵权纠纷"
+   }
+  ]
+ },
+ {
+  "termKey": "在先商标权",
+  "canonical": "在先商标权",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/07",
+    "text": "在先商标权是指在涉案专利申请日之前，他人在中华人民共和国法域内依法受到保护的商标"
+   }
+  ]
+ },
+ {
+  "termKey": "在先著作权",
+  "canonical": "在先著作权",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/07",
+    "text": "在先著作权，是指在涉案专利申请日之前，他人通过独立创作完成作品"
+   }
+  ]
+ },
+ {
+  "termKey": "在中国完成的发明",
+  "canonical": "在中国完成的发明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/07",
+    "text": "是指技术方案的实质性内容在中国境内完成的发明"
+   }
+  ]
+ },
+ {
+  "termKey": "在中国完成的发明或者实用新型",
+  "canonical": "在中国完成的发明或者实用新型",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/01/008",
+    "text": "是指技术方案的实质性内容在中国境内完成的发明或者实用新型"
+   }
+  ]
+ },
+ {
+  "termKey": "在中国完成的实用新型",
+  "canonical": "在中国完成的实用新型",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/002/14",
+    "text": "在中国完成的实用新型，是指技术方案的实质性内容在中国境内完成的实用新型"
+   }
+  ]
+ },
+ {
+  "termKey": "载体",
+  "canonical": "载体",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/09/03",
+    "text": "利用DNA的裂解图谱、分子量、碱基对数量、载体来源、生产该载体的方法"
+   }
+  ]
+ },
+ {
+  "termKey": "真实原则",
+  "canonical": "真实原则",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/004/02",
+    "text": "真实原则。收集的内容应当是申请人"
+   }
+  ]
+ },
+ {
+  "termKey": "诊断方法",
+  "canonical": "诊断方法",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/001/04/03",
+    "text": "诊断方法，是指为识别、研究和确定有生命的人体或动物体病因或病灶状态的过程"
+   }
+  ]
+ },
+ {
+  "termKey": "整体分类",
+  "canonical": "整体分类",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/004/04/01",
+    "text": "应当尽可能地将技术主题作为一个整体来分类，而不是对其各个组成部分分别进行分类"
+   }
+  ]
+ },
+ {
+  "termKey": "整体观察、综合判断",
+  "canonical": "整体观察、综合判断",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/05",
+    "text": "所谓整体观察、综合判断是指以一般消费者为判断主体"
+   }
+  ]
+ },
+ {
+  "termKey": "正式答复",
+  "canonical": "正式答复",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/05/01",
+    "text": "不视为正式答复，不具备法律效力"
+   }
+  ]
+ },
+ {
+  "termKey": "证据的合法性",
+  "canonical": "证据的合法性",
+  "aliases": [
+   "合法性"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/008/04",
+    "text": "合议组应当根据案件的具体情况，从以下方面审查证据的合法性"
+   }
+  ]
+ },
+ {
+  "termKey": "证据的真实性",
+  "canonical": "证据的真实性",
+  "aliases": [
+   "真实性"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/008/04",
+    "text": "合议组应当根据案件的具体情况，从以下方面审查证据的真实性"
+   }
+  ]
+ },
+ {
+  "termKey": "证人证言",
+  "canonical": "证人证言",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/008/04",
+    "text": "证人应当陈述其亲历的具体事实"
+   }
+  ]
+ },
+ {
+  "termKey": "证型",
+  "canonical": "证型",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/011/04",
+    "text": "可以出现不同的证候分型即证型"
+   }
+  ]
+ },
+ {
+  "termKey": "直接涉及共有权利的手续",
+  "canonical": "直接涉及共有权利的手续",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/04/01",
+    "text": "直接涉及共有权利的手续包括：提出专利申请，委托专利代理"
+   }
+  ]
+ },
+ {
+  "termKey": "指定管辖",
+  "canonical": "指定管辖",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/08/003",
+    "text": "由国务院专利行政部门指定管辖"
+   }
+  ]
+ },
+ {
+  "termKey": "指定期限不得延长",
+  "canonical": "指定期限不得延长",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/04/011",
+    "text": "国务院专利行政部门指定的期限不得延长"
+   }
+  ]
+ },
+ {
+  "termKey": "制备用途权利要求",
+  "canonical": "制备用途权利要求",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/005/06",
+    "text": "应改写为“制备用途”权利要求"
+   }
+  ]
+ },
+ {
+  "termKey": "制药方法类型的用途权利要求",
+  "canonical": "制药方法类型的用途权利要求",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/04",
+    "text": "属于制药方法类型的用途权利要求申请专利"
+   }
+  ]
+ },
+ {
+  "termKey": "治疗方法",
+  "canonical": "治疗方法",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/001/04/03",
+    "text": "治疗方法，是指为使有生命的人体或者动物体恢复或获得健康或减少痛苦"
+   }
+  ]
+ },
+ {
+  "termKey": "治疗目的外科手术方法",
+  "canonical": "治疗目的外科手术方法",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/005/06",
+    "text": "包括治疗目的外科手术方法"
+   }
+  ]
+ },
+ {
+  "termKey": "智力活动",
+  "canonical": "智力活动",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/001/04/02",
+    "text": "智力活动，是指人的思维运动，它源于人的思维"
+   }
+  ]
+ },
+ {
+  "termKey": "中国在后申请",
+  "canonical": "中国在后申请",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/003/04",
+    "text": "又在中国提出专利申请（以下简称中国在后申请）"
+   }
+  ]
+ },
+ {
+  "termKey": "中国政府承认的国际展览会",
+  "canonical": "中国政府承认的国际展览会",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/02/017",
+    "text": "是指国际展览会公约规定的在国际展览局注册或者由其认可的国际展览会"
+   }
+  ]
+ }
+]

@@ -1,0 +1,16 @@
+{
+  "chunk": "patent-law/07/017",
+  "anchorNode": "law-07-17",
+  "terms": [
+    { "name": "玩忽职守", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "玩忽职守" },
+    { "name": "滥用职权", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "滥用职权" },
+    { "name": "徇私舞弊", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "徇私舞弊" },
+    { "name": "国家机关工作人员", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "从事专利管理工作的国家机关工作人员以及其他有关国家机关工作人员" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:49:49+08:00"
+}

@@ -1,0 +1,20 @@
+{
+  "chunk": "examination-guideline-2025/02/010/09/04",
+  "anchorNode": "02-10-09-04",
+  "terms": [
+    { "name": "新颖性", "aliases": [], "role": "used", "confidence": "high", "evidence": "则编码该蛋白质的基因的发明也具有新颖性" },
+    { "name": "创造性", "aliases": [], "role": "used", "confidence": "high", "evidence": "生物技术领域发明创造性的判断" },
+    { "name": "实用性", "aliases": [], "role": "used", "confidence": "high", "evidence": "在生物技术领域中，某些发明由于不能重现而不具有工业实用性" },
+    { "name": "技术启示", "aliases": [], "role": "used", "confidence": "high", "evidence": "现有技术没有给出该序列差异带来上述性能变化的技术启示" },
+    { "name": "区别特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "确定发明与最接近的现有技术的区别特征" },
+    { "name": "最接近的现有技术", "aliases": [], "role": "used", "confidence": "high", "evidence": "确定发明与最接近的现有技术的区别特征" },
+    { "name": "发明实际解决的技术问题", "aliases": [], "role": "used", "confidence": "high", "evidence": "基于该区别特征在发明中所能达到的技术效果确定发明实际解决的技术问题" },
+    { "name": "预料不到的技术效果", "aliases": [], "role": "used", "confidence": "high", "evidence": "如果该融合细胞与现有技术相比具有预料不到的技术效果" },
+    { "name": "突出的实质性特点", "aliases": [], "role": "used", "confidence": "high", "evidence": "判断发明是否具备突出的实质性特点和显著的进步" },
+    { "name": "显著的进步", "aliases": [], "role": "used", "confidence": "high", "evidence": "判断发明是否具备突出的实质性特点和显著的进步" },
+    { "name": "生物材料保藏号", "aliases": [], "role": "used", "confidence": "mid", "evidence": "还包括生物材料保藏号等特殊方式" },
+    { "name": "分类学特征", "aliases": [], "role": "used", "confidence": "mid", "evidence": "与已知种的分类学特征明显不同的微生物（即新的种）具有创造性" }
+  ],
+  "laws": ["专利法第22条第4款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

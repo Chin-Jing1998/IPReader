@@ -1,0 +1,77 @@
+{
+ "batchNo": 65,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/02/006.md",
+   "chunkId": "oa-response-guide/02/006",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-02-06",
+   "breadcrumb": "《审意答复指引》 ｜ 第二节 创造性的答复方式 ｜ 6. 常见的反驳套话：",
+   "charLen": 539
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/02/007.md",
+   "chunkId": "oa-response-guide/02/007",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-02-07",
+   "breadcrumb": "《审意答复指引》 ｜ 第二节 创造性的答复方式 ｜ 7. 创造性的答复方式:",
+   "charLen": 5900
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/02/008.md",
+   "chunkId": "oa-response-guide/02/008",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-02-08",
+   "breadcrumb": "《审意答复指引》 ｜ 第二节 创造性的答复方式 ｜ 8. 本申请的权利要求具备创造性时的答复模板（不一定必须和模板一模一样，只要答复意见的思路类似即可）：",
+   "charLen": 1669
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/03/001.md",
+   "chunkId": "oa-response-guide/03/001",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-03-01",
+   "breadcrumb": "《审意答复指引》 ｜ 第三节 单一性的答复方式 ｜ 1. 单一性的理解",
+   "charLen": 90
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/03/002.md",
+   "chunkId": "oa-response-guide/03/002",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-03-02",
+   "breadcrumb": "《审意答复指引》 ｜ 第三节 单一性的答复方式 ｜ 2. 单一性的判断原则",
+   "charLen": 126
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/03/003.md",
+   "chunkId": "oa-response-guide/03/003",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-03-03",
+   "breadcrumb": "《审意答复指引》 ｜ 第三节 单一性的答复方式 ｜ 3. 单一性的答复步骤",
+   "charLen": 611
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/03/004.md",
+   "chunkId": "oa-response-guide/03/004",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-03-04",
+   "breadcrumb": "《审意答复指引》 ｜ 第三节 单一性的答复方式 ｜ 4. 单一性的答复思路（不一定必须和模板一模一样，只要答复意见的思路类似即可）",
+   "charLen": 323
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/04/001.md",
+   "chunkId": "oa-response-guide/04/001",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-04-01",
+   "breadcrumb": "《审意答复指引》 ｜ 第四节 权利要求能否得到说明书支持的答复方式 ｜ 1. 权利要求能否得到说明书支持的理解",
+   "charLen": 68
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/04/002.md",
+   "chunkId": "oa-response-guide/04/002",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-04-02",
+   "breadcrumb": "《审意答复指引》 ｜ 第四节 权利要求能否得到说明书支持的答复方式 ｜ 2. 权利要求得不到说明书支持的判断原则",
+   "charLen": 3218
+  }
+ ]
+}

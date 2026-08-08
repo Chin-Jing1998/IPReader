@@ -1,0 +1,15 @@
+{
+  "chunk": "patent-law/04/008",
+  "anchorNode": "law-04-08",
+  "terms": [
+    {
+      "name": "复审",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "可以自收到通知之日起三个月内向国务院专利行政部门请求复审"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

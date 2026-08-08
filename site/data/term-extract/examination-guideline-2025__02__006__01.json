@@ -1,0 +1,10 @@
+{
+  "chunk": "examination-guideline-2025/02/006/01",
+  "anchorNode": "02-06-01",
+  "terms": [
+    { "name": "单一性", "aliases": [], "role": "used", "confidence": "high", "evidence": "本章的单一性规定主要涉及发明专利申请" },
+    { "name": "分案", "aliases": [], "role": "used", "confidence": "high", "evidence": "对不符合单一性的专利申请的分案及其修改作了规定" }
+  ],
+  "laws": ["专利法第31条第1款", "专利法实施细则第39条", "专利法实施细则第48条", "专利法实施细则第49条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

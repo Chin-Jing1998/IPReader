@@ -1,0 +1,23 @@
+{
+  "chunk": "examination-guideline-2025/04/004/05",
+  "anchorNode": "04-04-05",
+  "terms": [
+    { "name": "口头审理", "aliases": [], "role": "used", "confidence": "high", "evidence": "口头审理按照通知书指定的日期进行" },
+    { "name": "合议组组长", "aliases": [], "role": "used", "confidence": "high", "evidence": "口头审理通常由合议组组长主持" },
+    { "name": "主审员", "aliases": [], "role": "used", "confidence": "mid", "evidence": "由主审员代表合议组出席并主持口头审理" },
+    { "name": "回避", "aliases": [], "role": "used", "confidence": "high", "evidence": "询问当事人是否请求审案人员回避" },
+    { "name": "证人", "aliases": [], "role": "used", "confidence": "high", "evidence": "是否请证人作证" },
+    { "name": "物证", "aliases": [], "role": "used", "confidence": "mid", "evidence": "请求演示物证" },
+    { "name": "无效宣告请求人", "aliases": [], "role": "used", "confidence": "high", "evidence": "先由无效宣告请求人陈述无效宣告请求的范围及其理由" },
+    { "name": "举证", "aliases": [], "role": "used", "confidence": "high", "evidence": "进行举证" },
+    { "name": "质证", "aliases": [], "role": "used", "confidence": "high", "evidence": "然后由专利权人进行质证" },
+    { "name": "反证", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利权人可以提出反证" },
+    { "name": "复审请求人", "aliases": [], "role": "used", "confidence": "high", "evidence": "由复审请求人进行陈述" },
+    { "name": "口头审理调查", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "开始进行口头审理调查" },
+    { "name": "口头审理辩论", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "进行口头审理辩论" },
+    { "name": "专利保护范围", "aliases": [], "role": "used", "confidence": "high", "evidence": "声明缩小专利保护范围" },
+    { "name": "权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "放弃部分或全部权利要求" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/02/006/02/01",
+  "anchorNode": "02-06-02-01",
+  "terms": [
+    { "name": "单一性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "单一性，是指一件发明或者实用新型专利申请应当限于一项发明或者实用新型" },
+    { "name": "总的发明构思", "aliases": [], "role": "defined", "confidence": "high", "evidence": "属于一个总的发明构思的两项以上发明或者实用新型" },
+    { "name": "特定技术特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "特定技术特征是指每一项发明或者实用新型作为整体，对现有技术作出贡献的技术特征" }
+  ],
+  "laws": ["专利法实施细则第39条", "专利法第31条第1款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

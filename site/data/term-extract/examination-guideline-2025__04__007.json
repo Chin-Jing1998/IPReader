@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/04/007",
+  "anchorNode": "04-07",
+  "terms": [
+    { "name": "同样的发明创造", "aliases": [], "role": "defined", "confidence": "high", "evidence": "同样的发明创造，对于发明和实用新型而言，是指要求保护的发明或者实用新型相同" },
+    { "name": "现有技术", "aliases": [], "role": "used", "confidence": "high", "evidence": "如果申请在先的专利已构成现有技术或者属于任何单位或者个人申请在先公开在后的专利" },
+    { "name": "现有设计", "aliases": [], "role": "used", "confidence": "high", "evidence": "如果申请在先的专利已构成现有设计或者属于任何单位或者个人申请在先公开在后的专利" },
+    { "name": "无效宣告理由", "aliases": [], "role": "used", "confidence": "mid", "evidence": "被授予专利权的发明创造不符合专利法第九条的，属于无效宣告理由" },
+    { "name": "优先权日", "aliases": [], "role": "used", "confidence": "mid", "evidence": "具有相同申请日（有优先权的，指优先权日）的两项专利权" },
+    { "name": "授权公告日", "aliases": [], "role": "used", "confidence": "mid", "evidence": "具有相同申请日（有优先权的，指优先权日）和相同授权公告日的两项专利权" },
+    { "name": "同日申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "同一专利权人同日（仅指申请日）申请的一项实用新型专利权和一项发明专利权" }
+  ],
+  "laws": ["专利法实施细则第69条", "专利法第9条", "专利法第22条", "专利法第23条", "专利法第9条第1款", "专利法实施细则第47条第2款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,18 @@
+{
+  "chunk": "examination-guideline-2025/04/008/04",
+  "anchorNode": "04-08-04",
+  "terms": [
+    { "name": "质证", "aliases": [], "role": "defined", "confidence": "high", "evidence": "证据应当由当事人质证，未经质证的证据，不能作为认定案件事实的依据" },
+    { "name": "证明力", "aliases": [], "role": "used", "confidence": "high", "evidence": "针对证据证明力有无以及证明力大小，进行质疑、说明和辩驳" },
+    { "name": "证据的关联性", "aliases": ["关联性"], "role": "used", "confidence": "high", "evidence": "质证时，当事人应当围绕证据的关联性、合法性、真实性" },
+    { "name": "证据的合法性", "aliases": ["合法性"], "role": "defined", "confidence": "high", "evidence": "合议组应当根据案件的具体情况，从以下方面审查证据的合法性" },
+    { "name": "证据的真实性", "aliases": ["真实性"], "role": "defined", "confidence": "high", "evidence": "合议组应当根据案件的具体情况，从以下方面审查证据的真实性" },
+    { "name": "证人证言", "aliases": [], "role": "defined", "confidence": "high", "evidence": "证人应当陈述其亲历的具体事实" },
+    { "name": "认可", "aliases": [], "role": "used", "confidence": "mid", "evidence": "一方当事人明确认可的另外一方当事人提交的证据，合议组应当予以确认" },
+    { "name": "承认", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "对一方当事人陈述的案件事实，另外一方当事人明确表示承认的，合议组应当予以确认" },
+    { "name": "公知常识", "aliases": [], "role": "defined", "confidence": "high", "evidence": "主张某技术手段是本领域公知常识的当事人，对其主张承担举证责任" },
+    { "name": "公证文书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "一方当事人将公证文书作为证据提交时，有效公证文书所证明的事实" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

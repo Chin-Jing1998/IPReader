@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/02/021",
+  "anchorNode": "rule-02-21",
+  "terms": [
+    { "name": "增加或者改正优先权要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "请求在请求书中增加或者改正优先权要求" },
+    { "name": "优先权日", "aliases": [], "role": "used", "confidence": "high", "evidence": "可以自优先权日起16个月内" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "infringement-guide/01/002",
+  "anchorNode": "infr-01-02",
+  "terms": [
+    { "name": "专利权保护范围", "aliases": [], "role": "defined", "confidence": "high", "evidence": "发明或者实用新型专利权的保护范围应当以权利要求记载的技术特征所确定的内容为准" },
+    { "name": "技术特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "技术特征是指在权利要求所限定的技术方案中，能够相对独立地执行一定的技术功能" },
+    { "name": "从属权利要求", "aliases": [], "role": "used", "confidence": "mid", "evidence": "权利人主张以从属权利要求确定保护范围的，应当以该从属权利要求记载的附加技术特征" },
+    { "name": "附加技术特征", "aliases": [], "role": "used", "confidence": "mid", "evidence": "附加技术特征及其直接或间接引用的权利要求记载的技术特征" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:20:00+08:00"
+}

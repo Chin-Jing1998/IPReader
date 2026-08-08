@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/05/001/03",
+  "anchorNode": "05-01-03",
+  "terms": [
+    { "name": "中文译文", "aliases": [], "role": "used", "confidence": "high", "evidence": "可以要求当事人在规定的期限内提交全文中文译文或者摘要中文译文" },
+    { "name": "中文题录译文", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当同时附具中文题录译文" },
+    { "name": "外文科技术语", "aliases": [], "role": "used", "confidence": "mid", "evidence": "外文科技术语应当按照规定译成中文，并采用规范用语" },
+    { "name": "国家法定计量单位", "aliases": [], "role": "used", "confidence": "mid", "evidence": "计量单位应当使用国家法定计量单位，包括国际单位制计量单位和国家选定的其他计量单位" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

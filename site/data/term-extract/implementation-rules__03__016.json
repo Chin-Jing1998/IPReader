@@ -1,0 +1,14 @@
+{
+  "chunk": "implementation-rules/03/016",
+  "anchorNode": "rule-03-16",
+  "terms": [
+    { "name": "主动修改", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "主动提出修改" },
+    { "name": "实质审查阶段", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "实质审查阶段" },
+    { "name": "审查意见通知书", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "审查意见通知书" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

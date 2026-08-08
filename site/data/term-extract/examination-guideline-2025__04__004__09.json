@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/04/004/09",
+  "anchorNode": "04-04-09",
+  "terms": [
+    { "name": "缺席审理", "aliases": [], "role": "defined", "confidence": "high", "evidence": "合议组可以缺席审理" },
+    { "name": "中途退庭", "aliases": [], "role": "used", "confidence": "high", "evidence": "当事人不得中途退庭" },
+    { "name": "责令退庭", "aliases": [], "role": "used", "confidence": "mid", "evidence": "而被合议组责令退庭的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,20 @@
+{
+  "chunk": "examination-guideline-2025/01/003/04/02",
+  "anchorNode": "01-03-04-02",
+  "terms": [
+    { "name": "外观设计专利权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "外观设计专利权的保护范围以表示在图片或者照片中的该产品的外观设计为准" },
+    { "name": "简要说明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "简要说明可以用于解释图片或者照片所表示的该产品的外观设计" },
+    { "name": "六面正投影视图", "aliases": [], "role": "defined", "confidence": "high", "evidence": "六面正投影视图的视图名称，是指主视图、后视图、左视图、右视图、俯视图和仰视图" },
+    { "name": "主视图", "aliases": [], "role": "defined", "confidence": "high", "evidence": "主视图所对应的面应当是使用时通常朝向消费者的面" },
+    { "name": "参考图", "aliases": [], "role": "defined", "confidence": "high", "evidence": "参考图通常用于表明使用外观设计的产品的用途、使用方法或者使用场所" },
+    { "name": "剖视图", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人还应当提交该外观设计产品的展开图、剖视图、剖面图、放大图以及变化状态图" },
+    { "name": "剖面图", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人还应当提交该外观设计产品的展开图、剖视图、剖面图、放大图以及变化状态图" },
+    { "name": "变化状态图", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人还应当提交该外观设计产品的展开图、剖视图、剖面图、放大图以及变化状态图" },
+    { "name": "组件产品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对于组装关系唯一的组件产品，应当提交组合状态的产品视图" },
+    { "name": "成套产品", "aliases": [], "role": "used", "confidence": "high", "evidence": "对于成套产品，应当在其中每件产品的视图名称前以阿拉伯数字顺序编号标注" },
+    { "name": "相似外观设计", "aliases": [], "role": "used", "confidence": "high", "evidence": "对于同一产品的相似外观设计，应当在每个设计的视图名称前以阿拉伯数字顺序编号标注" },
+    { "name": "透明产品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "透明产品的外观设计，外层与内层有两种以上形状、图案和色彩时" }
+  ],
+  "laws": ["专利法第64条第2款", "专利法第27条第2款", "专利法实施细则第30条第1款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,17 @@
+{
+  "chunk": "chemistry-drafting-rules/01/003/03",
+  "anchorNode": "chem-01-03-03",
+  "terms": [
+    { "name": "从属权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "布局从属权利要求的目的是，在无效阶段当独权方案不满足新创性而被无效的时候" },
+    { "name": "无效阶段", "aliases": [], "role": "used", "confidence": "high", "evidence": "因为无效阶段专利权人是不能从说明书中提取任何的技术特征或技术方案" },
+    { "name": "新创性", "aliases": [], "role": "used", "confidence": "mid", "evidence": "独权方案不满足新创性而被无效的时候" },
+    { "name": "附加技术特征", "aliases": ["附加的技术特征"], "role": "defined", "confidence": "high", "evidence": "附加的技术特征可以是进一步限定的技术特征，也可以是新引出的技术特征" },
+    { "name": "进一步限定的技术特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "当附加的技术特征为进一步限定的技术特征时" },
+    { "name": "新引出的技术特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "当附加的技术特征为新引出的技术特征时" },
+    { "name": "中位特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "而是应对上位特征进行层层限缩，即在上位特征和下位特征之间引出中位特征" },
+    { "name": "上位特征", "aliases": [], "role": "used", "confidence": "mid", "evidence": "从属权利要求应避免直接将上位特征限定到下位特征" },
+    { "name": "下位特征", "aliases": [], "role": "used", "confidence": "mid", "evidence": "从属权利要求应避免直接将上位特征限定到下位特征" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/04/005/08",
+  "anchorNode": "04-05-08",
+  "terms": [
+    {
+      "name": "同样的发明创造",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "专利法第九条所述的同样的发明创造对于外观设计而言，是指要求保护的产品外观设计相同"
+    }
+  ],
+  "laws": ["专利法第9条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

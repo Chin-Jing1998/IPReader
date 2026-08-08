@@ -1,0 +1,11 @@
+{
+  "chunk": "patent-law/06/007",
+  "anchorNode": "law-06-07",
+  "terms": [
+    { "name": "强制许可", "aliases": [], "role": "used", "confidence": "high", "evidence": "可以给予实施发明专利或者实用新型专利的强制许可" },
+    { "name": "紧急状态", "aliases": [], "role": "used", "confidence": "mid", "evidence": "国家出现紧急状态或者非常情况时" },
+    { "name": "公共利益", "aliases": [], "role": "used", "confidence": "mid", "evidence": "为了公共利益的目的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

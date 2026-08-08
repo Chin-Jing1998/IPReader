@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/02/009/06/03",
+  "anchorNode": "02-09-06-03",
+  "terms": [
+    { "name": "充分公开", "aliases": [], "role": "used", "confidence": "high", "evidence": "发明专利申请请求保护的解决方案在说明书中已被充分公开" },
+    { "name": "功能上彼此相互支持、存在相互作用关系", "aliases": [], "role": "used", "confidence": "high", "evidence": "可以进一步包含与技术特征功能上彼此相互支持、存在相互作用关系的" },
+    { "name": "算法特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "包含算法特征时，应当将抽象的算法与具体的技术领域结合" },
+    { "name": "商业规则和方法特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "包含商业规则和方法特征时，应当对解决技术问题的整个过程进行详细描述和说明" },
+    { "name": "人工智能模型", "aliases": [], "role": "used", "confidence": "mid", "evidence": "如果涉及人工智能模型的构建或者训练" },
+    { "name": "有益效果", "aliases": [], "role": "used", "confidence": "high", "evidence": "写明发明与现有技术相比所具有的有益效果" },
+    { "name": "用户体验", "aliases": [], "role": "used", "confidence": "mid", "evidence": "如果从用户的角度而言，客观上提升了用户体验" }
+  ],
+  "laws": ["专利法第二十六条第三款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

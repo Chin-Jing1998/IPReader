@@ -1,0 +1,17 @@
+{
+  "chunk": "examination-guideline-2025/04/002/02",
+  "anchorNode": "04-02-02",
+  "terms": [
+    { "name": "复审请求", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利申请人可以向复审和无效审理部提出复审请求" },
+    { "name": "复审和无效审理部", "aliases": [], "role": "used", "confidence": "high", "evidence": "复审和无效审理部收到复审请求书后，应当进行形式审查" },
+    { "name": "复审请求书", "aliases": [], "role": "used", "confidence": "high", "evidence": "复审请求人应当提交复审请求书，说明理由" },
+    { "name": "恢复权利请求", "aliases": [], "role": "used", "confidence": "high", "evidence": "复审请求人提出恢复权利请求的" },
+    { "name": "视为未提出", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "期满未补正的，其复审请求视为未提出" },
+    { "name": "不予受理", "aliases": [], "role": "used", "confidence": "mid", "evidence": "复审请求不是针对驳回决定的，不予受理" },
+    { "name": "视为未委托", "aliases": [], "role": "used", "confidence": "mid", "evidence": "未在指定期限内指定的，视为未委托" },
+    { "name": "复审费", "aliases": [], "role": "used", "confidence": "high", "evidence": "未缴纳或者未缴足复审费的" },
+    { "name": "专利代理机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "复审请求人委托专利代理机构请求复审" }
+  ],
+  "laws": ["专利法实施细则第6条", "专利法实施细则第116条第1款", "专利法第18条第1款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

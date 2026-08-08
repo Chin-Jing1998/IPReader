@@ -1,0 +1,10 @@
+{
+  "chunk": "mechanical-drafting-rules/02/003/01",
+  "anchorNode": "mech-02-03-01",
+  "terms": [
+    { "name": "技术领域", "aliases": [], "role": "defined", "confidence": "high", "evidence": "技术领域的作用在于方便分类，不是为了体现发明点" },
+    { "name": "审查指南", "aliases": [], "role": "used", "confidence": "high", "evidence": "根据审查指南中规定不能单纯的是上位的技术领域" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

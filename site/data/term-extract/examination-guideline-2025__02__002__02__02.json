@@ -1,0 +1,28 @@
+{
+  "chunk": "examination-guideline-2025/02/002/02/02",
+  "anchorNode": "02-02-02-02",
+  "terms": [
+    { "name": "技术领域", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "技术领域：写明要求保护的技术方案所属的技术领域" },
+    { "name": "背景技术", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "应当写明对发明或者实用新型的理解、检索、审查有用的背景技术" },
+    { "name": "发明内容", "aliases": ["发明或者实用新型内容"], "role": "defined",
+      "confidence": "high", "evidence": "写明发明或者实用新型所要解决的技术问题以及解决其技术问题采用的技术方案" },
+    { "name": "技术问题", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "发明或者实用新型所要解决的技术问题，是指发明或者实用新型要解决的现有技术中" },
+    { "name": "技术方案", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "写明发明或者实用新型解决其技术问题所采用的技术方案是指清楚、完整地描述" },
+    { "name": "有益效果", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "有益效果是指由构成发明或者实用新型的技术特征直接带来的" },
+    { "name": "附图说明", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "说明书有附图的，应当写明各幅附图的图名，并且对图示的内容作简要说明" },
+    { "name": "具体实施方式", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "实现发明或者实用新型的优选的具体实施方式是说明书的重要组成部分" },
+    { "name": "序列表", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "包含一个或者多个核苷酸或者氨基酸序列的，说明书应当包括符合规定的序列表" },
+    { "name": "显著的进步", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "确定发明是否具有“显著的进步”" }
+  ],
+  "laws": ["专利法实施细则第20条", "专利法实施细则第20条第1款第3项"],
+  "extractedAt": "2026-07-12T15:38:20+08:00"
+}

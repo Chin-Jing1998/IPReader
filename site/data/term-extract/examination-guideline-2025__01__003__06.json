@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/01/003/06",
+  "anchorNode": "01-03-06",
+  "terms": [
+    { "name": "违反法律", "aliases": [], "role": "defined", "confidence": "high", "evidence": "违反法律，是指外观设计专利申请的内容违反了由全国人民代表大会或者全国人民代表大会" },
+    { "name": "社会公德", "aliases": [], "role": "defined", "confidence": "high", "evidence": "社会公德，是指公众普遍认为是正当的、并被接受的伦理道德观念和行为准则。" },
+    { "name": "妨害公共利益", "aliases": [], "role": "defined", "confidence": "high", "evidence": "妨害公共利益，是指外观设计的实施或者使用会给公众或者社会造成危害" },
+    { "name": "主要起标识作用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "主要起标识作用是指所述外观设计的主要用途在于使公众识别所涉及的产品、服务的来源等" },
+    { "name": "平面印刷品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对平面印刷品的图案、色彩或者二者的结合作出的主要起标识作用的设计" },
+    { "name": "规范申请专利行为的规定", "aliases": [], "role": "used", "confidence": "high", "evidence": "适用《规范申请专利行为的规定》" }
+  ],
+  "laws": ["专利法第5条第1款", "专利法第25条第1款第6项", "专利法实施细则第11条", "专利法实施细则第50条第1款第3项"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

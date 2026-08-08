@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/05/011/04",
+  "anchorNode": "05-11-04",
+  "terms": [
+    { "name": "开放许可声明的撤回", "aliases": ["撤回开放许可声明"], "role": "defined",
+      "confidence": "high", "evidence": "专利权人可以依据专利法实施细则第八十六条规定或者基于其他正当理由撤回开放许可声明" },
+    { "name": "共有专利权", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "共有人就共有专利权撤回开放许可声明的，应当取得全体共有人的书面同意" }
+  ],
+  "laws": ["专利法实施细则第86条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/03/013",
+  "anchorNode": "rule-03-13",
+  "terms": [
+    { "name": "公众意见", "aliases": [], "role": "defined",
+      "confidence": "mid", "evidence": "任何人均可以对不符合专利法规定的专利申请向国务院专利行政部门提出意见" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

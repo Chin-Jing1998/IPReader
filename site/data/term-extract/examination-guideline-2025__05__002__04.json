@@ -1,0 +1,20 @@
+{
+  "chunk": "examination-guideline-2025/05/002/04",
+  "anchorNode": "05-02-04",
+  "terms": [
+    { "name": "暂存", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当将该款项暂存在专利局账户上" },
+    { "name": "退款", "aliases": [], "role": "defined", "confidence": "high", "evidence": "多缴、重缴、错缴专利费用的，当事人可以自缴费日起三年内，提出退款请求" },
+    { "name": "多缴", "aliases": [], "role": "used", "confidence": "high", "evidence": "多缴、重缴、错缴专利费用的" },
+    { "name": "重缴", "aliases": [], "role": "used", "confidence": "high", "evidence": "多缴、重缴、错缴专利费用的" },
+    { "name": "错缴", "aliases": [], "role": "used", "confidence": "high", "evidence": "多缴、重缴、错缴专利费用的" },
+    { "name": "权利丧失", "aliases": [], "role": "used", "confidence": "high", "evidence": "自收到专利局关于权利丧失的通知之日起两个月内" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利申请已被视为撤回、分案申请已被视为未提出或者撤回专利申请的声明已被批准" },
+    { "name": "分案申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利申请已被视为撤回、分案申请已被视为未提出或者撤回专利申请的声明已被批准" },
+    { "name": "恢复权利请求审批程序", "aliases": [], "role": "used", "confidence": "mid", "evidence": "恢复权利请求审批程序启动后，专利局作出不予恢复权利决定的" },
+    { "name": "第一次审查意见通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "在第一次审查意见通知书答复期限届满前主动申请撤回的" },
+    { "name": "专利权终止", "aliases": [], "role": "used", "confidence": "mid", "evidence": "当事人可以对在专利权终止或者宣告专利权全部无效的决定公告后" },
+    { "name": "宣告专利权全部无效", "aliases": [], "role": "used", "confidence": "mid", "evidence": "当事人可以对在专利权终止或者宣告专利权全部无效的决定公告后" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

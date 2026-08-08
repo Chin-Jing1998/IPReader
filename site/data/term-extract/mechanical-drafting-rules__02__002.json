@@ -1,0 +1,16 @@
+{
+  "chunk": "mechanical-drafting-rules/02/002",
+  "anchorNode": "mech-02-02",
+  "terms": [
+    { "name": "创造性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "我们申请时所说的创造性只是在具备新颖性的前提下" },
+    { "name": "新颖性", "aliases": [], "role": "used", "confidence": "high", "evidence": "考虑新颖性的问题，若不存在新颖性的问题" },
+    { "name": "对比文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "而非相对于对比文件而判断" },
+    { "name": "独立权利要求", "aliases": ["独权", "主权"], "role": "used", "confidence": "high", "evidence": "一般情况下，主权的设立，首要先考虑的是所设立的技术方案" },
+    { "name": "从属权利要求", "aliases": ["从权"], "role": "used", "confidence": "high", "evidence": "在从权的布置上，提倡先将主权中限定的上位特征" },
+    { "name": "保护范围", "aliases": [], "role": "used", "confidence": "high", "evidence": "以保证保护的范围更大一些" },
+    { "name": "上位特征", "aliases": [], "role": "used", "confidence": "mid", "evidence": "提倡先将主权中限定的上位特征进行进一步的限定" },
+    { "name": "回联", "aliases": [], "role": "used", "confidence": "mid", "evidence": "回联表述封口盖与抽料管的关系" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

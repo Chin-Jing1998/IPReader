@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/03/001/05/01",
+  "anchorNode": "03-01-05-01",
+  "terms": [
+    { "name": "委托书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "提交的委托书除应当符合本指南第一部分第一章第6.1.2节的规定外" },
+    { "name": "专利代理机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当委托专利代理机构办理有关事务" },
+    { "name": "委托人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人（即委托人）的原文姓名或名称" },
+    { "name": "经常居所", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在中国内地没有经常居所或者营业所的外国申请人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

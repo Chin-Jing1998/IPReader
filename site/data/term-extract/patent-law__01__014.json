@@ -1,0 +1,12 @@
+{
+  "chunk": "patent-law/01/014",
+  "anchorNode": "law-01-14",
+  "terms": [
+    { "name": "专利申请权", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利申请权或者专利权的共有人对权利的行使有约定的" },
+    { "name": "共有人", "aliases": [], "role": "used", "confidence": "high", "evidence": "共有人可以单独实施或者以普通许可方式许可他人实施该专利" },
+    { "name": "普通许可", "aliases": [], "role": "used", "confidence": "high", "evidence": "以普通许可方式许可他人实施该专利" },
+    { "name": "全体共有人的同意", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "行使共有的专利申请权或者专利权应当取得全体共有人的同意" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

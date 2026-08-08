@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/01/002/11",
+  "anchorNode": "01-02-11",
+  "terms": [
+    { "name": "新颖性", "aliases": [], "role": "used", "confidence": "high", "evidence": "是否明显不具备新颖性和创造性" },
+    { "name": "创造性", "aliases": [], "role": "used", "confidence": "high", "evidence": "是否明显不具备新颖性和创造性" },
+    { "name": "抵触申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "有关现有技术或者抵触申请的信息" },
+    { "name": "现有技术", "aliases": [], "role": "used", "confidence": "high", "evidence": "有关现有技术或者抵触申请的信息" }
+  ],
+  "laws": ["专利法第22条第2款", "专利法第22条第3款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

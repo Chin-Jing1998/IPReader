@@ -1,0 +1,21 @@
+{
+  "chunk": "examination-guideline-2025/01/002/15",
+  "anchorNode": "01-02-15",
+  "terms": [
+    { "name": "国际申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "要求获得实用新型专利保护的国际申请（以下简称国际申请）" },
+    { "name": "进入声明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "进入国家阶段的书面声明（以下简称进入声明）" },
+    { "name": "审查基础声明", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "作为审查基础的文本以审查基础声明中指明的为准" },
+    { "name": "援引加入", "aliases": [], "role": "defined", "confidence": "high", "evidence": "援引加入的项目或者部分是原始提交的申请文件的一部分" },
+    { "name": "单一性", "aliases": [], "role": "used", "confidence": "high", "evidence": "要求保护缺乏单一性的多项实用新型" },
+    { "name": "单一性恢复费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "发出缴纳单一性恢复费通知书" },
+    { "name": "分案申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人不得提出分案申请" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际申请中上述未经国际检索的部分将被视为撤回" },
+    { "name": "重复授权", "aliases": [], "role": "used", "confidence": "high", "evidence": "则可能造成重复授权" },
+    { "name": "视为未要求优先权", "aliases": [], "role": "used", "confidence": "high", "evidence": "如果出现视为未要求优先权的情况" },
+    { "name": "抵触申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "可能成为破坏该国际申请的新颖性的现有技术或抵触申请" },
+    { "name": "在先申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在中国提出的在先申请的优先权" },
+    { "name": "专利合作条约", "aliases": [], "role": "used", "confidence": "high", "evidence": "根据专利合作条约第19条提交的" }
+  ],
+  "laws": ["专利法实施细则第50条", "专利法实施细则第121条", "专利法实施细则第130条第1款", "专利合作条约第19条", "专利合作条约第28条", "专利合作条约第34条", "专利合作条约第41条", "专利法实施细则第133条第1款", "专利法实施细则第133条第2款", "专利法实施细则第48条第1款", "专利法第33条", "专利法实施细则第131条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,15 @@
+{
+  "chunk": "oa-response-guide/02/008",
+  "anchorNode": "oa-02-08",
+  "terms": [
+    { "name": "意见陈述书", "aliases": [], "role": "used", "confidence": "high", "evidence": "意见陈述书正文" },
+    { "name": "突出的实质性特点和显著的进步", "aliases": [], "role": "defined", "confidence": "high", "evidence": "具备突出的实质性特点和显著的进步" },
+    { "name": "惯用技术手段", "aliases": [], "role": "used", "confidence": "mid", "evidence": "本领域的惯用技术手段" },
+    { "name": "区别特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "至少包括以下区别特征" },
+    { "name": "从属权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "权利要求2-X为权利要求1的从属权利要求" },
+    { "name": "新颖性", "aliases": [], "role": "used", "confidence": "high", "evidence": "克服了审查意见通知书中指出的新颖性和创造性问题" },
+    { "name": "创造性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "符合《专利法》第22条第3款中关于创造性的规定" }
+  ],
+  "laws": ["专利法第33条", "专利法实施细则第51条第3款", "专利法第22条第3款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

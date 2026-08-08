@@ -1,0 +1,17 @@
+{
+  "chunk": "examination-guideline-2025/01/003/03",
+  "anchorNode": "01-03-03",
+  "terms": [
+    { "name": "补正通知书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "补正通知书除收件人信息、著录项目外，还应包括如下内容" },
+    { "name": "审查意见通知书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查意见通知书除收件人信息、著录项目外，还应包括如下内容" },
+    { "name": "明显实质性缺陷", "aliases": [], "role": "defined", "confidence": "high", "evidence": "存在不可能通过补正方式克服的明显实质性缺陷的专利申请" },
+    { "name": "驳回决定", "aliases": [], "role": "defined", "confidence": "high", "evidence": "驳回决定正文应当包括案由、驳回的理由和决定三部分内容" },
+    { "name": "复审请求", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人对驳回决定不服的，可以在规定的期限内提出复审请求" },
+    { "name": "视为撤回通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "发出视为撤回通知书或者其他通知书" },
+    { "name": "恢复权利的请求", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人可以在规定的期限内向专利局提出恢复权利的请求" },
+    { "name": "延长期限请求", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以提出延长期限请求" },
+    { "name": "授予外观设计专利权通知", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "审查员应当作出授予外观设计专利权通知" }
+  ],
+  "laws": ["专利法实施细则第50条第2款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

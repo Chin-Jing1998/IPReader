@@ -1,0 +1,33 @@
+{
+  "chunk": "examination-guideline-2025/01/001/07",
+  "anchorNode": "01-01-07",
+  "terms": [
+    { "name": "科学发现", "aliases": [], "role": "defined", "confidence": "high", "evidence": "（1）科学发现" },
+    { "name": "智力活动的规则和方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "（2）智力活动的规则和方法" },
+    { "name": "疾病的诊断和治疗方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "（3）疾病的诊断和治疗方法" },
+    { "name": "动物和植物品种", "aliases": [], "role": "defined", "confidence": "high", "evidence": "（4）动物和植物品种" },
+    { "name": "原子核变换方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "（5）原子核变换方法以及用原子核变换方法获得的物质" },
+    { "name": "单一性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "通知申请人修改其专利申请，使其符合单一性规定" },
+    { "name": "保密审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当事先报经专利局进行保密审查" },
+    { "name": "在中国完成的发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指技术方案的实质性内容在中国境内完成的发明" },
+    { "name": "修改超范围", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对专利申请文件的修改不得超出原说明书和权利要求书记载的范围" },
+    { "name": "主动修改", "aliases": [], "role": "used", "confidence": "mid", "evidence": "根据专利法实施细则第五十七条的规定提出了主动修改文本的" },
+    { "name": "商业性宣传用语", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不得使用商业性宣传用语以及贬低或者诽谤他人或者他人产品的词句" }
+  ],
+  "laws": [
+    "专利法第2条第2款",
+    "专利法第5条",
+    "专利法第19条第1款",
+    "专利法第19条第4款",
+    "专利法实施细则第50条",
+    "专利法实施细则第8条第1款",
+    "专利法第25条",
+    "专利法第31条第1款",
+    "专利法第33条",
+    "专利法实施细则第57条",
+    "专利法实施细则第20条",
+    "专利法实施细则第22条",
+    "专利法实施细则第11条"
+  ],
+  "extractedAt": "2026-07-12T15:38:10+08:00"
+}

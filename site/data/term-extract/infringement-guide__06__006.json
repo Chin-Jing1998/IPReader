@@ -1,0 +1,10 @@
+{
+  "chunk": "infringement-guide/06/006",
+  "anchorNode": "infr-06-06",
+  "terms": [
+    { "name": "合法来源抗辩", "aliases": [], "role": "defined", "confidence": "high", "evidence": "合法来源抗辩" },
+    { "name": "合法来源", "aliases": [], "role": "defined", "confidence": "high", "evidence": "合法来源是指通过合法的销售渠道、通常的买卖合同等正常商业方式取得被诉侵权产品" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

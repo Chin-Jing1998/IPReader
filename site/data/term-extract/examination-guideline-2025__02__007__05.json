@@ -1,0 +1,57 @@
+{
+  "chunk": "examination-guideline-2025/02/007/05",
+  "anchorNode": "02-07-05",
+  "terms": [
+    {
+      "name": "等同特征",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "等同特征是指与所记载的技术特征相比，以基本相同的手段，实现基本相同的功能，达到基"
+    },
+    {
+      "name": "基本检索要素",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "基本检索要素是体现技术方案的基本构思的可检索的要素"
+    },
+    {
+      "name": "国际专利分类号",
+      "aliases": ["分类号"],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "审查员应当先确定申请的国际专利分类号（简称分类号）"
+    },
+    {
+      "name": "国际专利分类表",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "审查员可以按照下面的步骤查阅国际专利分类表，确定检索的技术领域"
+    },
+    {
+      "name": "所属技术领域",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "所属技术领域是根据权利要求书中限定的内容来确定的"
+    },
+    {
+      "name": "功能类似或应用类似的技术领域",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "功能类似或应用类似的技术领域是根据申请文件中揭示出的申请的主题所必须具备的"
+    },
+    {
+      "name": "最后位置规则",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "如果选定的小组处于按“最后位置规则”分类的小类中"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:45:00+08:00"
+}

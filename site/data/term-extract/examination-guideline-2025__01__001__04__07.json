@@ -1,0 +1,23 @@
+{
+  "chunk": "examination-guideline-2025/01/001/04/07",
+  "anchorNode": "01-01-04-07",
+  "terms": [
+    { "name": "援引加入声明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当在首次递交专利申请时要求在先申请的优先权，提出援引加入声明" },
+    { "name": "确认援引加入声明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "提交确认援引加入声明，补交相关文件" },
+    { "name": "在先申请文件副本", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "应当提交原受理机构出具的在先申请文件副本" },
+    { "name": "重新确定申请日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查员应当发出重新确定申请日通知书，以补交权利要求书或者说明书之日为申请日" },
+    { "name": "撤销专利申请受理通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当发出撤销专利申请受理通知书" },
+    { "name": "分案申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "分案申请不适用专利法实施细则第四十五条的规定" },
+    { "name": "优先权", "aliases": [], "role": "used", "confidence": "high", "evidence": "要求本国优先权，并且写明在先申请号和申请日的" }
+  ],
+  "laws": [
+    "专利法实施细则第45条",
+    "专利法第29条",
+    "专利法实施细则第34条",
+    "专利法实施细则第35条",
+    "专利法实施细则第36条",
+    "专利法实施细则第37条",
+    "专利法实施细则第6条第2款"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

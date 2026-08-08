@@ -1,0 +1,18 @@
+{
+  "chunk": "examination-guideline-2025/01/001/06/07",
+  "anchorNode": "01-01-06-07",
+  "terms": [
+    { "name": "著录项目变更", "aliases": ["著录事项变更"], "role": "defined", "confidence": "high", "evidence": "著录项目（即著录事项）包括：申请号、申请日、发明创造名称、分类号、优先权事项" },
+    { "name": "著录项目变更申报书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "办理著录项目变更手续应当提交著录项目变更申报书" },
+    { "name": "著录事项变更费", "aliases": ["著录项目变更手续费"], "role": "defined", "confidence": "high", "evidence": "应当缴纳著录事项变更费，即著录项目变更手续费" },
+    { "name": "批量著录项目变更申报书", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "多件专利申请的同一著录项目发生变更，且变更的内容完全相同的，可以提交批量著录项目" },
+    { "name": "权利转移协议书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当提交全体当事人签字或者盖章的权利转移协议书" },
+    { "name": "转让或者赠与合同", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当提交双方签字或者盖章的转让或者赠与合同" },
+    { "name": "技术出口许可证", "aliases": ["技术出口合同登记证"], "role": "used", "confidence": "mid", "evidence": "应当出具国务院商务主管部门颁发的“技术出口许可证”" },
+    { "name": "解除委托", "aliases": [], "role": "used", "confidence": "mid", "evidence": "解除委托时，申请人（或专利权人）应当提交著录项目变更申报书" },
+    { "name": "辞去委托", "aliases": [], "role": "used", "confidence": "mid", "evidence": "辞去委托时，专利代理机构应当提交著录项目变更申报书" },
+    { "name": "诚实信用原则", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对于违反诚实信用原则的相关手续，例如提供虚假证明材料的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:38:10+08:00"
+}

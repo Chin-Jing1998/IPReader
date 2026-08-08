@@ -1,0 +1,683 @@
+{
+  "_说明": "原文附图索引：images 为正文实际引用并已复制入 assets/book-images/<domain>/ 的附图（build-quartz-md.mjs 据此嵌入文档站）；orphans 为源目录中从未被正文引用的孤儿图（未复制）。",
+  "generatedAt": "2026-08-08T02:35:42.109Z",
+  "counts": {
+    "images": 88,
+    "orphans": 10,
+    "byDomain": {
+      "examination-guideline-2025": 12,
+      "mechanical-drafting-rules": 65,
+      "chemistry-drafting-rules": 11
+    }
+  },
+  "images": [
+    {
+      "file": "image_1.png",
+      "domain": "examination-guideline-2025",
+      "nodeId": "02-10-06-01",
+      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-06-01.md",
+      "bytes": 14730
+    },
+    {
+      "file": "image_2.png",
+      "domain": "examination-guideline-2025",
+      "nodeId": "02-10-06-01",
+      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-06-01.md",
+      "bytes": 15874
+    },
+    {
+      "file": "image_3.png",
+      "domain": "examination-guideline-2025",
+      "nodeId": "02-10-06-01",
+      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-06-01.md",
+      "bytes": 25770
+    },
+    {
+      "file": "image_4.png",
+      "domain": "examination-guideline-2025",
+      "nodeId": "02-10-06-01",
+      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-06-01.md",
+      "bytes": 24294
+    },
+    {
+      "file": "image_5.png",
+      "domain": "examination-guideline-2025",
+      "nodeId": "02-10-06-01",
+      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-06-01.md",
+      "bytes": 26042
+    },
+    {
+      "file": "image_6.png",
+      "domain": "examination-guideline-2025",
+      "nodeId": "02-10-06-01",
+      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-06-01.md",
+      "bytes": 26866
+    },
+    {
+      "file": "image_7.png",
+      "domain": "examination-guideline-2025",
+      "nodeId": "02-10-08-01",
+      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-08-01.md",
+      "bytes": 6322
+    },
+    {
+      "file": "image_8.png",
+      "domain": "examination-guideline-2025",
+      "nodeId": "02-10-08-01",
+      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-08-01.md",
+      "bytes": 12795
+    },
+    {
+      "file": "image_9.png",
+      "domain": "examination-guideline-2025",
+      "nodeId": "02-10-08-01",
+      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-08-01.md",
+      "bytes": 8665
+    },
+    {
+      "file": "image_10.png",
+      "domain": "examination-guideline-2025",
+      "nodeId": "02-10-08-01",
+      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-08-01.md",
+      "bytes": 5073
+    },
+    {
+      "file": "image_11.png",
+      "domain": "examination-guideline-2025",
+      "nodeId": "02-10-08-02",
+      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-08-02.md",
+      "bytes": 9683
+    },
+    {
+      "file": "image_12.png",
+      "domain": "examination-guideline-2025",
+      "nodeId": "02-10-08-02",
+      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-08-02.md",
+      "bytes": 12888
+    },
+    {
+      "file": "c4712cc6326832be15154f14328f88abbe1ff5d72bc602929aaf59d13a3fb02a.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-02-01",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-02-01.md",
+      "bytes": 53227
+    },
+    {
+      "file": "bfcfa1f7c5ebcdba3f862826390106a9f779c8ea3b7b99fa96df9bcba49cc122.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-06",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-06.md",
+      "bytes": 20227
+    },
+    {
+      "file": "349ba4e4b33680f7c0b2379087b91979707f5b070783b293c9fdd8f8936ff85e.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-06",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-06.md",
+      "bytes": 33284
+    },
+    {
+      "file": "c37696a88421cf255cd917f108317b91017332efd81c310a0140481e23eec7d0.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-06",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-06.md",
+      "bytes": 39977
+    },
+    {
+      "file": "11784f22d9cde4e1cfb044b8d65a997c192b02467f252b2cc77e664361934fd4.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-06",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-06.md",
+      "bytes": 29300
+    },
+    {
+      "file": "067afe26cd8df3bff76c0cb3766f6174a967e43bde8dd2cb1438a49cef1da495.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-06",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-06.md",
+      "bytes": 41707
+    },
+    {
+      "file": "93a66b4f44f043e065f5156be97654b49b6ab6b88e6bdab61c977fdeaf05960b.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-06",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-06.md",
+      "bytes": 29683
+    },
+    {
+      "file": "3abeab5c9ce54f31b935916e97ef94f8d4d000b5f33c30ccfe07258bac6bbcbf.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-07",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-07.md",
+      "bytes": 57708
+    },
+    {
+      "file": "aecfe55095cf36bae8669d7b7e1c82fce0ac56487ad56fed9236d00aee5583b7.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-07",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-07.md",
+      "bytes": 44586
+    },
+    {
+      "file": "632c0e499aafef30dd8b58b324d4469f723c530529985f870c0d7da4135497d3.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-07",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-07.md",
+      "bytes": 53715
+    },
+    {
+      "file": "9aea0022d628fc8debddb0d16babca61c0445e0911a4ef0b61b2d62069dced1f.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-07",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-07.md",
+      "bytes": 90354
+    },
+    {
+      "file": "4d5170de72a137bfdce24f93e587e353a459f5ed6575e1a1f414e38469d7b210.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-07",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-07.md",
+      "bytes": 37207
+    },
+    {
+      "file": "92dce4786becbf376e0fa386de73d85300d3589fc25ff2968a84e274eec497bf.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-07",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-07.md",
+      "bytes": 46483
+    },
+    {
+      "file": "5c15b250f8d6023a744a2a6e5e79895c8dd49d83056ad871a10c2393ccc5b25a.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-07",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-07.md",
+      "bytes": 26819
+    },
+    {
+      "file": "8e6810fd91ca23a605f9ea33fae63475e46d85899d5b4c42fbe43eae02019ac9.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-07",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-07.md",
+      "bytes": 29002
+    },
+    {
+      "file": "1bc4628685585f119bd98e4496998838f3e113fac431e2c82a3ecdb0dc8c6646.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-07",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-07.md",
+      "bytes": 19003
+    },
+    {
+      "file": "b9e2278df927aaf509dc307f52c8711b2217e3b46bac6557a32c0ecc3bb3faf7.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-07",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-07.md",
+      "bytes": 20382
+    },
+    {
+      "file": "3aad8f5d0778d5dc9f8bb9587270fb156268b39e7bfeec9758fc17083e532cd8.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-07",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-07.md",
+      "bytes": 32485
+    },
+    {
+      "file": "bd3abb58e275a388ce13c11b0dbeb29c40924114c967c598577d72cbfee01998.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-07",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-07.md",
+      "bytes": 25862
+    },
+    {
+      "file": "c1eaede89d5041e4c40b837d25b81104e15a34e1a2db57b632beff5eeffa79d6.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-07",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-07.md",
+      "bytes": 73195
+    },
+    {
+      "file": "83642408a5e209dc5d1d64823772b07f882e307248563cb83a66acb5bf509fba.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-07",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-07.md",
+      "bytes": 19724
+    },
+    {
+      "file": "38fbff578a483ded3117c3a9e4110765adde22b97731a6fc3148702e283548da.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-07",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-07.md",
+      "bytes": 48120
+    },
+    {
+      "file": "c8c380089e4afcacef28e245a48dfe301e165e3b299d91dd5ad4c689e7379780.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-07",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-07.md",
+      "bytes": 28848
+    },
+    {
+      "file": "a5b15ac6dbf70d90ca504890291c265840cf0b3f9554842b1f1bea02b3dfa9b2.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-07",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-07.md",
+      "bytes": 21255
+    },
+    {
+      "file": "1e6a0efbe5556826260ea9ef2a951e96d515d32c760996c594dc54d7669ef2b8.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-01-03-07",
+      "page": "5-机械撰写规范/1-撰写规范/mech-01-03-07.md",
+      "bytes": 34077
+    },
+    {
+      "file": "958f41ded2b0dd68ff3bb1f8b04d1e7631d80e9cd5a6c5d3ee2b5bfe28ab1c83.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-01",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-01.md",
+      "bytes": 30685
+    },
+    {
+      "file": "219b8990182bc1a4f0c60ed51818e0f88f2df02d24970680fa2e078b91990167.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-02",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-02.md",
+      "bytes": 16783
+    },
+    {
+      "file": "c6cf30447bb49e5e03451e2e02744833f9686146ed41b36c8f57693919e9745f.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-02",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-02.md",
+      "bytes": 19745
+    },
+    {
+      "file": "805adb263228e833b57ced8a0b42bc9d4c9f7cc08798f46ae477ace8a5b2f790.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-02",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-02.md",
+      "bytes": 10657
+    },
+    {
+      "file": "69b8f7b095e0ab7cf786626d96e2244d7bfa440f39b17cc64caedd3407c28496.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-02",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-02.md",
+      "bytes": 20693
+    },
+    {
+      "file": "be855d6abbe4b3a46b9d64a3ed60f6d86d6491b1088bfdbd566601a87c8d2a69.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-02",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-02.md",
+      "bytes": 11584
+    },
+    {
+      "file": "34ab87646826898c133efcd57a61f4c2d1dc04b34f31865e687faac80abf9960.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-02",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-02.md",
+      "bytes": 11516
+    },
+    {
+      "file": "97ffba53491bf278ba96c757e301b6e4712b8751c5ef2449a7bdc9a2b93624c1.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-02",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-02.md",
+      "bytes": 16104
+    },
+    {
+      "file": "78f157f31ea75f615c29d347a5d78b2d01d16f147ed5792c9f259f11c9334486.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 26930
+    },
+    {
+      "file": "92fc78c172fe52adc3c27dbc5c6a720a4e32441dea27eaf67be85b7097f50f58.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 50520
+    },
+    {
+      "file": "aee45f6206e9cf675ec9f329730fe7f66efd6517ba3a0de11f23939f7d9f2cfa.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 16672
+    },
+    {
+      "file": "a470f156bbf177e520c3e2bbb0391b532baa8a5278df7358235f7551ff7971d5.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 11596
+    },
+    {
+      "file": "a83423f35638f89df7924151034e92c46d6c4be6eb9149d8249a089dd7682163.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 11868
+    },
+    {
+      "file": "25dcd6317724ddc741d64e12b0ed33baeb2ffc5031f56e7dacff3a7aaec74aba.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 15714
+    },
+    {
+      "file": "8a28313bef0010ca400aa7ad03e1972b705f5aaa2f0e25f314196510c2ad2fb8.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 16674
+    },
+    {
+      "file": "3f9b53cf3b7682dc25d3720a9333864a7a83ddaa2bed4e4c80c8adbf9cf6f016.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 8946
+    },
+    {
+      "file": "41a124a4c0b69d28e611593c0d5ad9eec125264315285171da59f3183b45e3af.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 18881
+    },
+    {
+      "file": "9daaa780d2994827d606c8fa37a832122b40c3c8d9bc9a0a942453eec7116f2d.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 9915
+    },
+    {
+      "file": "76082007b500dfff764390777cbb4c3b97dbb0e687410d7f0f025dc71cad122a.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 13801
+    },
+    {
+      "file": "589def394375711bf2c0995f3be8847f3c82f632a533627f316b6b901fee51fb.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 20630
+    },
+    {
+      "file": "cb5032da2ace305c21043444a2d7a30f7ba76b48fda21e6eafe9194b00e05efc.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 18880
+    },
+    {
+      "file": "4fe7531fc3eb872bcc1eb54dbaed784524a1fbd5dc46da2b9ed635140cd6efe4.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 10079
+    },
+    {
+      "file": "3ea056f7899fd7979b9cf03b8a4a1fea323dd68cfd16eaebf9bd255ba508d4f1.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 9222
+    },
+    {
+      "file": "5c9e5d692551c50cbc16347c9f0e822c35ae00ced8954302e3da375a93074f4c.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 16724
+    },
+    {
+      "file": "475caeef0e520d03d615073686512609f5cadb17d4abebaabf014a246a03f58e.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 11681
+    },
+    {
+      "file": "00326ab6b58c68d5c44dccb8a69c68e6e8395f7942576aac62c0e54347ab8947.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 11612
+    },
+    {
+      "file": "1418960ec0559c3eb02e26f5ecf6b8928dfe577130a3bdc29e6cc954944dbac1.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-05",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-05.md",
+      "bytes": 15627
+    },
+    {
+      "file": "925c38e2e0dfd09bbb6fb0a6787d675ec3394c0a156ea9c99bcfe2a209b064da.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-06",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-06.md",
+      "bytes": 30750
+    },
+    {
+      "file": "f2d8ce73638ce6b4715c1ad00a20cab665240c49bd8258ca3c1db9af6ffe226e.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-06",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-06.md",
+      "bytes": 34375
+    },
+    {
+      "file": "35c4429fed40fa855279c50fb0dc05adca9e0bb77be51ae7b160af5231eee4ee.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-06",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-06.md",
+      "bytes": 29739
+    },
+    {
+      "file": "7e4834d3baa5740a5052e4d2ac18bd5b84c85a134eaf0f2c9f6bba3f3b3a8295.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-06",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-06.md",
+      "bytes": 67697
+    },
+    {
+      "file": "4d6dae1617f42a33e5d9042551de5f022904cfcac4ec7fd857fb428bb186687b.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-06",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-06.md",
+      "bytes": 24696
+    },
+    {
+      "file": "f11b32a6a1ca8d929f3af1f627d31f53bc1a9d89a79529a0ff7e5abac94aaa09.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-06",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-06.md",
+      "bytes": 37933
+    },
+    {
+      "file": "d634cdad978fe61758b90d87a976bb95f8758601fcfd31f07e4abaa4d6050070.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-06",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-06.md",
+      "bytes": 29411
+    },
+    {
+      "file": "4c120f303e44b264a7ad12b25f969d635f3a6903fb5fc77adc702bb084901b86.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-06",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-06.md",
+      "bytes": 779
+    },
+    {
+      "file": "4aa46f8a2c86acd112a2e1bd61af349e337d65ad437e0bd327fb8fda59edb199.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-06",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-06.md",
+      "bytes": 29863
+    },
+    {
+      "file": "54a5746ace4ef9aa3e96b99085b072f298d365d262fc42f8a691268ba43e8618.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-06",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-06.md",
+      "bytes": 21988
+    },
+    {
+      "file": "0960de9bbcd6515cbd609d1665494852f9a943714a59c5a16cbe49565c5e5f32.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-06",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-06.md",
+      "bytes": 36202
+    },
+    {
+      "file": "7a4e8112cf0c43ac589e8f741a93849ef0a5ace72a018d6ce0145a9042986d80.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-06",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-06.md",
+      "bytes": 49673
+    },
+    {
+      "file": "95fd91091018c2a89ea95caed36d03a4390281ffb2e2d2a4cbf5066c84edab10.jpg",
+      "domain": "mechanical-drafting-rules",
+      "nodeId": "mech-02-03-06",
+      "page": "5-机械撰写规范/2-撰写示例及分析/mech-02-03-06.md",
+      "bytes": 37650
+    },
+    {
+      "file": "d7aec23327bbad05e2b1cb2ccb615ef2479aa2c468cefaba340b5d98f72f3478.jpg",
+      "domain": "chemistry-drafting-rules",
+      "nodeId": "chem-01-04-06",
+      "page": "6-化学撰写规范/1-撰写规范/chem-01-04-06.md",
+      "bytes": 52080
+    },
+    {
+      "file": "e15b5d1eeb8cafa08461c35eb86943503acda4f40e8c3bbc126af7296a7ab692.jpg",
+      "domain": "chemistry-drafting-rules",
+      "nodeId": "chem-01-04-06",
+      "page": "6-化学撰写规范/1-撰写规范/chem-01-04-06.md",
+      "bytes": 30242
+    },
+    {
+      "file": "5717412cff3be7f0f36a507371abbcc30b2ef4c65a7acc66197d35e5e078eaf2.jpg",
+      "domain": "chemistry-drafting-rules",
+      "nodeId": "chem-01-04-06",
+      "page": "6-化学撰写规范/1-撰写规范/chem-01-04-06.md",
+      "bytes": 38804
+    },
+    {
+      "file": "c42fa6aa1d5e6d26bfd4e38237a03f83689d613c30b4156542a9c87dae3d41c7.jpg",
+      "domain": "chemistry-drafting-rules",
+      "nodeId": "chem-01-04-06",
+      "page": "6-化学撰写规范/1-撰写规范/chem-01-04-06.md",
+      "bytes": 36425
+    },
+    {
+      "file": "c8b3c515d9d5bd1b501379b64f4ecc27ad9ffe44cbd8c5f5dccdca6ea1200251.jpg",
+      "domain": "chemistry-drafting-rules",
+      "nodeId": "chem-01-05-01",
+      "page": "6-化学撰写规范/1-撰写规范/chem-01-05-01.md",
+      "bytes": 10433
+    },
+    {
+      "file": "12a2e736c8026fc77412a88c04fa6d8cae890a5d4cbbbdc093852a4c2ed5986f.jpg",
+      "domain": "chemistry-drafting-rules",
+      "nodeId": "chem-01-05-01",
+      "page": "6-化学撰写规范/1-撰写规范/chem-01-05-01.md",
+      "bytes": 16831
+    },
+    {
+      "file": "82e9a002d7c130223e58873ddcac6c14340a91b0cb52aba797a93a97307c483d.jpg",
+      "domain": "chemistry-drafting-rules",
+      "nodeId": "chem-01-05-01",
+      "page": "6-化学撰写规范/1-撰写规范/chem-01-05-01.md",
+      "bytes": 24959
+    },
+    {
+      "file": "8fc19cc3f9830676d6bbeef2a2132504b94bfd803992225d178756d67400d3cc.jpg",
+      "domain": "chemistry-drafting-rules",
+      "nodeId": "chem-01-05-01",
+      "page": "6-化学撰写规范/1-撰写规范/chem-01-05-01.md",
+      "bytes": 86046
+    },
+    {
+      "file": "b170250108d78e3ccf31775fb4a5444fadcfd25342200eca4fe611d520da88c4.jpg",
+      "domain": "chemistry-drafting-rules",
+      "nodeId": "chem-01-05-01",
+      "page": "6-化学撰写规范/1-撰写规范/chem-01-05-01.md",
+      "bytes": 16376
+    },
+    {
+      "file": "11694c299fb4d26bf1c7020d4736a9f5562c7645720f2c99b876d43699db7648.jpg",
+      "domain": "chemistry-drafting-rules",
+      "nodeId": "chem-02-01",
+      "page": "6-化学撰写规范/2-撰写示例及分析/chem-02-01.md",
+      "bytes": 146311
+    },
+    {
+      "file": "b677ddbf46d40280ec3dc3d3fa79b9bd3cd7bf61e79a86ec486eb4a14f949219.jpg",
+      "domain": "chemistry-drafting-rules",
+      "nodeId": "chem-02-02",
+      "page": "6-化学撰写规范/2-撰写示例及分析/chem-02-02.md",
+      "bytes": 178792
+    }
+  ],
+  "orphans": [
+    {
+      "file": "04d0b2ce6bb44c3b6e407e867505769770a246d59864b0715b9f016424f4ec56.jpg",
+      "domain": "chemistry-drafting-rules",
+      "bytes": 31022
+    },
+    {
+      "file": "1891aa999ef5baa91bc23bbf2036e1b724599bde4de6853dd3d8636c139ba46e.jpg",
+      "domain": "chemistry-drafting-rules",
+      "bytes": 38617
+    },
+    {
+      "file": "32ff5a69c7d978740f5db461e48410ca2f51e19cf071616e3567a44cd4b6b0a0.jpg",
+      "domain": "chemistry-drafting-rules",
+      "bytes": 11967
+    },
+    {
+      "file": "4115d3ec68e1fb29d931b9e2deec0deb00390bd2b9d549385d0c9dbaaf50aadd.jpg",
+      "domain": "chemistry-drafting-rules",
+      "bytes": 22764
+    },
+    {
+      "file": "57d910dd411f3c09defea0c52f9390c571af07e947e20b220d73322d46ed82a3.jpg",
+      "domain": "chemistry-drafting-rules",
+      "bytes": 265387
+    },
+    {
+      "file": "631292060dcb52b886e6afb8f8fea0d8b8e1ae31407de9b5e38b453594848c92.jpg",
+      "domain": "chemistry-drafting-rules",
+      "bytes": 128870
+    },
+    {
+      "file": "902b18ee2d2eb393285d91c9c12838fd54d67e4a5cf4f7a3b16763e1ee09808a.jpg",
+      "domain": "chemistry-drafting-rules",
+      "bytes": 223886
+    },
+    {
+      "file": "9c988014135f4faae3f913d1bc31859c66c0855697b273aed5c8c2e489e9a922.jpg",
+      "domain": "chemistry-drafting-rules",
+      "bytes": 33049
+    },
+    {
+      "file": "a8240cd70b5cd1928d1167693db2595a26edcc89c06ec5459f9aeddb6b3c0538.jpg",
+      "domain": "chemistry-drafting-rules",
+      "bytes": 254688
+    },
+    {
+      "file": "d7fb5d6f702fd59c86c54672957a5a7e668e23c84f1c77f3cdf225a19af1a0d9.jpg",
+      "domain": "chemistry-drafting-rules",
+      "bytes": 48500
+    }
+  ]
+}

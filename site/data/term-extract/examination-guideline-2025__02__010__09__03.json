@@ -1,0 +1,16 @@
+{
+  "chunk": "examination-guideline-2025/02/010/09/03",
+  "anchorNode": "02-10-09-03",
+  "terms": [
+    { "name": "结构基因", "aliases": [], "role": "used", "confidence": "high", "evidence": "对于结构基因，可限定由所述基因编码的多肽或者蛋白质的氨基酸序列" },
+    { "name": "严格条件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在严格条件下与（a）限定的DNA序列杂交且编码具有酶A活性的蛋白质的DNA分子" },
+    { "name": "取代、缺失或添加", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在（a）限定的氨基酸序列中经过取代、缺失或添加一个或几个氨基酸且具有酶A活性" },
+    { "name": "单克隆抗体权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "针对单克隆抗体的权利要求可以用结构特征限定，也可以用产生它的杂交瘤来限定" },
+    { "name": "衍生物", "aliases": [], "role": "defined", "confidence": "high", "evidence": "由于“衍生物”含义不仅是指由该微生物产生的新的微生物菌株" },
+    { "name": "载体", "aliases": [], "role": "defined", "confidence": "high", "evidence": "利用DNA的裂解图谱、分子量、碱基对数量、载体来源、生产该载体的方法" },
+    { "name": "重组载体", "aliases": [], "role": "defined", "confidence": "high", "evidence": "重组载体可通过限定至少一个基因和载体来描述" },
+    { "name": "融合细胞", "aliases": [], "role": "defined", "confidence": "high", "evidence": "融合细胞可通过限定亲本细胞，融合细胞的功能和特征" }
+  ],
+  "laws": ["专利法第26条第4款", "专利法实施细则第23条第2款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

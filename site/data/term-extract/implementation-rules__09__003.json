@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/09/003",
+  "anchorNode": "rule-09-03",
+  "terms": [
+    { "name": "专利公报", "aliases": [], "role": "used", "confidence": "high", "evidence": "国务院专利行政部门应当提供专利公报" },
+    { "name": "实用新型专利", "aliases": [], "role": "used", "confidence": "high", "evidence": "以及发明专利、实用新型专利、外观设计专利单行本" },
+    { "name": "外观设计专利", "aliases": [], "role": "used", "confidence": "high", "evidence": "以及发明专利、实用新型专利、外观设计专利单行本" },
+    { "name": "发明专利申请单行本", "aliases": [], "role": "used", "confidence": "mid", "evidence": "发明专利申请单行本以及发明专利" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

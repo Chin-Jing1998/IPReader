@@ -1,0 +1,20 @@
+{
+  "chunk": "examination-guideline-2025/02/011/05",
+  "anchorNode": "02-11-05",
+  "terms": [
+    { "name": "组方结构", "aliases": [], "role": "used", "confidence": "high", "evidence": "通常具有一定的组方结构" },
+    { "name": "君臣佐使", "aliases": [], "role": "used", "confidence": "high", "evidence": "各中药原料或药味之间存在主次关系例如君臣佐使" },
+    { "name": "加减方发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "加减方发明，包括中药原料变更的组方发明和合方发明" },
+    { "name": "自组方发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "自组方发明，是指未以已知方为基础，而是依据中医药理论和用药经验进行直接遣药组方" },
+    { "name": "中药原料变更的组方发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "中药原料变更的组方发明，是指发明以现有技术某一已知方为基础方" },
+    { "name": "合方发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "合方发明，是指将两个及以上的已知方合并使用或合方化裁而形成的组方发明" },
+    { "name": "基础方", "aliases": [], "role": "used", "confidence": "mid", "evidence": "现有技术中已经公开了与其主证和主药相同或相似的基础方" },
+    { "name": "主药", "aliases": ["主要药味", "君药"], "role": "defined", "confidence": "high", "evidence": "起主要作用的中药原料（简称主要药味、主药或君药）" },
+    { "name": "理、法、方、药", "aliases": [], "role": "used", "confidence": "high", "evidence": "需要考量发明与现有技术中组合物的“理、法、方、药”" },
+    { "name": "技术启示", "aliases": [], "role": "used", "confidence": "high", "evidence": "如果现有技术不存在对已知方进行药味增减以解决发明实际解决的技术问题的技术启示" },
+    { "name": "预料不到的技术效果", "aliases": [], "role": "used", "confidence": "high", "evidence": "与基础方相比，发明没有取得预料不到的技术效果" },
+    { "name": "简单叠加", "aliases": [], "role": "used", "confidence": "high", "evidence": "发明属于简单的叠加，不具备创造性" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

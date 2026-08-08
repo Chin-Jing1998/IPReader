@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/07/001",
+  "anchorNode": "rule-07-01",
+  "terms": [
+    { "name": "产权激励", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "鼓励被授予专利权的单位实行产权激励" },
+    { "name": "奖励、报酬", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "专利法第十五条规定的奖励、报酬的方式和数额" }
+  ],
+  "laws": ["专利法第15条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

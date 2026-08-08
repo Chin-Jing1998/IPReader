@@ -1,0 +1,10 @@
+{
+  "chunk": "examination-guideline-2025/02/003/05",
+  "anchorNode": "02-03-05",
+  "terms": [
+    { "name": "宽限期", "aliases": ["优惠期"], "role": "defined", "confidence": "high", "evidence": "所说的六个月期限，称为宽限期，或者称为优惠期" },
+    { "name": "先申请原则", "aliases": [], "role": "used", "confidence": "mid", "evidence": "那么根据先申请原则，申请人就不能取得专利权" }
+  ],
+  "laws": ["专利法第24条", "专利法实施细则第33条第3款", "专利法实施细则第33条第4款"],
+  "extractedAt": "2026-07-12T15:37:35+08:00"
+}

@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/02/006",
+  "anchorNode": "rule-02-06",
+  "terms": [
+    { "name": "技术特征", "aliases": [], "role": "used", "confidence": "mid", "evidence": "权利要求书应当记载发明或者实用新型的技术特征" },
+    { "name": "附图标记", "aliases": [], "role": "used", "confidence": "high", "evidence": "附图标记不得解释为对权利要求的限制" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

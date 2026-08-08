@@ -1,0 +1,19 @@
+{
+  "chunk": "examination-guideline-2025/05/009/02",
+  "anchorNode": "05-09-02",
+  "terms": [
+    { "name": "专利权期限补偿", "aliases": [], "role": "defined", "confidence": "high", "evidence": "就发明专利在授权过程中的不合理延迟给予专利权期限补偿" },
+    { "name": "不合理延迟", "aliases": [], "role": "defined", "confidence": "high", "evidence": "补偿期限按照发明专利在授权过程中不合理延迟的实际天数计算" },
+    { "name": "合理延迟", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以下情形引起的延迟属于授权过程中的合理延迟" },
+    { "name": "申请人引起的不合理延迟", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以下由申请人引起的不合理延迟，延迟的天数为" },
+    { "name": "实质审查请求之日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "实质审查请求之日是指申请人依照专利法第三十五条第一款规定提出实质审查请求" },
+    { "name": "援引加入", "aliases": [], "role": "used", "confidence": "mid", "evidence": "援引加入引起的延迟" },
+    { "name": "恢复权利", "aliases": [], "role": "used", "confidence": "mid", "evidence": "请求恢复权利引起的延迟" },
+    { "name": "中止程序", "aliases": [], "role": "used", "confidence": "mid", "evidence": "依照专利法实施细则第一百零三条规定的中止程序" },
+    { "name": "保全措施", "aliases": [], "role": "used", "confidence": "mid", "evidence": "依照专利法实施细则第一百零四条规定的保全措施" },
+    { "name": "分案申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对于国际申请和分案申请，不合理延迟的实际天数是指" },
+    { "name": "延迟审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请延迟审查的，延迟的天数为实际延迟审查的天数" }
+  ],
+  "laws": ["专利法第42条第2款", "专利法实施细则第47条第4款", "专利法第35条第1款", "专利法实施细则第113条", "专利法第34条", "专利法实施细则第66条", "专利法实施细则第103条", "专利法实施细则第104条", "专利法实施细则第45条"],
+  "extractedAt": "2026-07-12T16:06:00+08:00"
+}

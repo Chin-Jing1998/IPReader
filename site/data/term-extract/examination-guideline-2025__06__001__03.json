@@ -1,0 +1,28 @@
+{
+  "chunk": "examination-guideline-2025/06/001/03",
+  "anchorNode": "06-01-03",
+  "terms": [
+    { "name": "国际注册日", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "该国际注册日视为专利法第二十八条所称的申请日" },
+    { "name": "国家申请号", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "专利局对国际局传送的外观设计国际申请给予国家申请号并进行后续审查" },
+    { "name": "分案申请", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "针对外观设计国际申请提出的分案申请" },
+    { "name": "国际注册号", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "原申请的申请号填写原申请的国际注册号" },
+    { "name": "外观设计专利的单行本", "aliases": [], "role": "defined",
+      "confidence": "mid", "evidence": "外观设计专利的单行本的内容包括扉页、图片或者照片以及简要说明" },
+    { "name": "专利登记簿副本", "aliases": ["外观设计国际申请专利登记簿副本"], "role": "used",
+      "confidence": "mid", "evidence": "外观设计国际申请专利登记簿副本，作为在中国给予保护的证明" },
+    { "name": "权利的部分放弃", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "该部分放弃的生效日为国际局登记之日" },
+    { "name": "视为撤回", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "其专利申请被视为撤回的" },
+    { "name": "续展手续", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "专利权人未按照海牙协定的规定办理续展手续的" },
+    { "name": "恢复权利", "aliases": ["权利的恢复"], "role": "used",
+      "confidence": "mid", "evidence": "当事人可按照本指南第五部分第七章第6节的相关规定请求恢复权利" }
+  ],
+  "laws": ["专利法第28条", "专利法第18条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

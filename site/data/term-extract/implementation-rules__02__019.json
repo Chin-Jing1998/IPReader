@@ -1,0 +1,14 @@
+{
+  "chunk": "implementation-rules/02/019",
+  "anchorNode": "rule-02-19",
+  "terms": [
+    { "name": "多项优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "要求多项优先权的，该申请的优先权期限从最早的优先权日起计算" },
+    { "name": "优先权期限", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "该申请的优先权期限从最早的优先权日起计算" },
+    { "name": "本国优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "发明或者实用新型专利申请人要求本国优先权" },
+    { "name": "相同主题", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以就相同主题提出发明或者实用新型专利申请" },
+    { "name": "分案申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "属于按照规定提出的分案申请的" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "其在先申请自后一申请提出之日起即视为撤回" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

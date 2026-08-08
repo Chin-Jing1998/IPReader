@@ -1,0 +1,535 @@
+@use "../../styles/variables.scss" as *;
+
+// ============================================================
+// 图谱总览专页（W3）：全幅图谱画布 + 顶部玻璃工具条 + 右侧玻璃阅读侧栏
+// 玻璃变量 --glass-bg / --glass-border / --glass-shadow 由主题层（custom.scss）
+// 定义；此处一律带回退值，变量未就绪时回落到主题基础色，构建与渲染均无害。
+// ============================================================
+
+// 仿宋栈（与 custom.scss 的 $fontFang 保持一致；组件 scss 不跨文件引 scss 变量，复制字体栈）
+$fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", serif;
+
+.graph-explorer {
+  // 高度占满视口扣除顶部（页头 + 面包屑 + 标题的常规占位），保证一屏内图谱尽量大
+  height: calc(100vh - 9rem);
+  min-height: 34rem;
+  margin: 1rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  // ---------- 顶部玻璃工具条：搜索定位 + 域图例 + 重置视图 ----------
+  .ge-toolbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 10px;
+    // 回退值为浅色 --light（#faf8f8）78% 透明的等效静态色（F12：不用颜色混合函数）
+    background: var(--glass-bg, rgba(250, 248, 248, 0.78));
+    border: 1px solid var(--glass-border, var(--lightgray));
+    box-shadow: var(--glass-shadow, 0 6px 20px rgba(0, 0, 0, 0.08));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    .ge-search {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex: 1 1 16rem;
+      min-width: 14rem;
+
+      .ge-search-input {
+        flex: 1;
+        min-width: 0;
+        padding: 0.35rem 0.7rem;
+        font-size: 0.9rem;
+        color: var(--dark);
+        background: var(--light);
+        border: 1px solid var(--lightgray);
+        border-radius: 6px;
+        outline: none;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+          border-color: var(--secondary);
+        }
+
+        &::placeholder {
+          color: var(--gray);
+        }
+      }
+
+      .ge-search-btn {
+        padding: 0.35rem 0.8rem;
+        font-size: 0.85rem;
+        color: var(--light);
+        background: var(--secondary);
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+          opacity: 0.85;
+        }
+      }
+
+      // 定位结果反馈（aria-live），单行省略避免撑破工具条
+      .ge-search-status {
+        font-size: 0.8rem;
+        color: var(--gray);
+        max-width: 14rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    // 域图例：七书 + 术语的静态色点
+    .ge-legend {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.3rem 0.8rem;
+
+      .ge-legend-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 0.78rem;
+        color: var(--darkgray);
+        white-space: nowrap;
+      }
+
+      .ge-legend-dot {
+        display: inline-block;
+        width: 0.65rem;
+        height: 0.65rem;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+    }
+
+    // 术语层三态分段钮（玻璃分段控件，与工具条其余控件同一形制）
+    .ge-termlayer {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+
+      .ge-termlayer-label {
+        font-size: 0.8rem;
+        color: var(--darkgray);
+        white-space: nowrap;
+      }
+
+      .ge-term-group {
+        display: inline-flex;
+        border: 1px solid var(--lightgray);
+        border-radius: 999px;
+        overflow: hidden;
+        background: var(--glass-inner-bg, transparent);
+      }
+
+      .ge-term-btn {
+        padding: 0.28rem 0.75rem;
+        font-size: 0.8rem;
+        line-height: 1.4;
+        color: var(--darkgray);
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        white-space: nowrap;
+        transition:
+          background-color 0.2s ease,
+          color 0.2s ease;
+
+        & + .ge-term-btn {
+          border-left: 1px solid var(--lightgray);
+        }
+
+        &:hover {
+          color: var(--dark);
+        }
+
+        &.active {
+          background: var(--secondary);
+          color: var(--light);
+        }
+      }
+    }
+
+    .ge-reset {
+      padding: 0.35rem 0.8rem;
+      font-size: 0.85rem;
+      color: var(--darkgray);
+      background: transparent;
+      border: 1px solid var(--lightgray);
+      border-radius: 6px;
+      cursor: pointer;
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+
+      &:hover {
+        background: var(--lightgray);
+        color: var(--dark);
+      }
+    }
+  }
+
+  // ---------- 主体：左画布 + 右侧栏 ----------
+  // 布局门槛（v7 需求3）：并排只在 $desktop（≥1200px）成立。
+  // 原先并排无门槛且面板固定 380px，平板宽度下容器仅 400 余像素、面板吃光后
+  // 画布只剩十几像素。1200px 以下改纵向堆叠——画布满宽比横向挤成一条更可用。
+  .ge-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-height: 0; // flex 子项允许收缩，保证画布/侧栏各自内滚
+
+    @media all and ($desktop) {
+      flex-direction: row;
+    }
+
+    .ge-canvas {
+      flex: 1;
+      min-width: 0;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--lightgray);
+      border-radius: 10px;
+      background: var(--light);
+
+      canvas {
+        display: block;
+      }
+    }
+
+    // 玻璃侧栏阅读面板
+    .ge-panel {
+      box-sizing: border-box; // 宽度含内边距与边框，窄屏 100% 宽时不外溢
+      overflow-y: auto;
+      // 纵向堆叠时占下半区；并排时按比例分配（见下方 $desktop 块）
+      flex: 1 1 auto;
+      min-height: 0;
+
+      @media all and ($desktop) {
+        // 按比例而非固定像素：面板至多占三分之一，画布永远保有三分之二。
+        // 上限 440px 避免宽屏下面板过宽而正文行长失控。
+        flex: 0 1 clamp(300px, 32%, 440px);
+        min-width: 0;
+      }
+      padding: 1rem 1.1rem;
+      border-radius: 10px;
+      // 回退值同工具条：浅色 --light 78% 透明的等效静态色（F12：不用颜色混合函数）
+      background: var(--glass-bg, rgba(250, 248, 248, 0.78));
+      border: 1px solid var(--glass-border, var(--lightgray));
+      box-shadow: var(--glass-shadow, 0 6px 20px rgba(0, 0, 0, 0.08));
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      // 空态提示
+      .ge-panel-empty {
+        color: var(--gray);
+        font-size: 0.9rem;
+        line-height: 1.7;
+        text-align: center;
+        padding: 3rem 0.5rem;
+      }
+
+      // ---------- 面板四段排版 ----------
+      .ge-title {
+        margin: 0 0 0.3rem;
+        font-size: 1.15rem;
+        line-height: 1.5;
+        color: var(--dark);
+      }
+
+      .ge-breadcrumb {
+        font-size: 0.78rem;
+        color: var(--gray);
+        line-height: 1.5;
+        margin-bottom: 0.8rem;
+        word-break: break-all;
+      }
+
+      .ge-sec-title {
+        margin: 1.1rem 0 0.4rem;
+        font-size: 0.85rem;
+        font-weight: $boldWeight;
+        color: var(--secondary);
+        letter-spacing: 0.05em;
+        // 正文直出后单段可达数千字，段标题吸顶以保持阅读位置感
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        padding: 0.35rem 0 0.25rem;
+        background: var(--glass-bg, rgba(250, 248, 248, 0.92));
+
+        // 分节小标题前置短竖条，强化四段节奏
+        &::before {
+          content: "";
+          display: inline-block;
+          width: 3px;
+          height: 0.8em;
+          margin-right: 0.4rem;
+          border-radius: 2px;
+          background: var(--secondary);
+          vertical-align: -0.08em;
+        }
+      }
+
+      .ge-brief {
+        margin: 0;
+        // 阅读面板正文与文档页体例一致：宋体（F4）
+        font-family: var(--bodyFont);
+        font-size: 0.9rem;
+        line-height: 1.75;
+        color: var(--darkgray);
+        text-align: justify;
+      }
+
+      .ge-muted {
+        color: var(--gray);
+      }
+
+      .ge-hint {
+        font-size: 0.88rem;
+        line-height: 1.7;
+        color: var(--darkgray);
+        background: var(--highlight);
+        border-radius: 6px;
+        padding: 0.5rem 0.7rem;
+      }
+
+      // 详解：正文可读行高，容器内滚动由面板整体承担；宋体与文档页体例一致（F4）
+      .ge-narrative {
+        font-family: var(--bodyFont);
+        font-size: 0.9rem;
+        line-height: 1.75;
+        color: var(--darkgray);
+
+        p {
+          margin: 0 0 0.6rem;
+          text-align: justify;
+        }
+
+        // 术语出处分组
+        .ge-occ-domain {
+          margin: 0.7rem 0 0.25rem;
+          font-size: 0.82rem;
+          color: var(--dark);
+        }
+
+        .ge-occ-list {
+          margin: 0 0 0.4rem;
+          padding-left: 1.1rem;
+
+          li {
+            margin: 0.15rem 0;
+          }
+        }
+
+        .ge-occ-link {
+          padding: 0;
+          font-size: 0.85rem;
+          line-height: 1.6;
+          color: var(--secondary);
+          background: none;
+          border: none;
+          cursor: pointer;
+          text-align: left;
+
+          &:hover {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+          }
+        }
+      }
+
+      // 章节正文（原「原文折叠」）：三段合一后直出，不再有 details/summary。
+      // 分段由脚本按空行切块产出 <p>/<h5>，故不需要 white-space: pre-wrap。
+      .ge-body-text {
+        // 原文与文档页「原文块」体例一致：仿宋（F4）
+        font-family: $fontFang;
+        font-size: 0.88rem;
+        line-height: 1.8;
+        color: var(--darkgray);
+        text-align: justify;
+
+        p {
+          margin: 0 0 0.7em;
+        }
+
+        // 原文内的小标题（234/1192 张卡含 markdown 标题行）
+        .ge-body-sub {
+          margin: 1em 0 0.45em;
+          font-family: var(--headerFont);
+          font-size: 0.92rem;
+          font-weight: $semiBoldWeight;
+          color: var(--dark);
+        }
+
+        > :last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      // 超长正文的续读钮（软上限 4000 字，命中 93/1192 张卡）
+      .ge-body-more {
+        display: block;
+        width: 100%;
+        margin: 0.2rem 0 0.6rem;
+        padding: 0.4rem 0.7rem;
+        font-family: var(--headerFont);
+        font-size: 0.82rem;
+        color: var(--secondary);
+        background: none;
+        border: 1px dashed var(--lightgray);
+        border-radius: 6px;
+        cursor: pointer;
+        transition:
+          border-color var(--duration-hover, 140ms) var(--ease-hover, ease),
+          background-color var(--duration-hover, 140ms) var(--ease-hover, ease);
+
+        &:hover {
+          border-color: var(--secondary);
+          background-color: var(--highlight);
+        }
+      }
+
+      // 相关知识点 chips
+      .ge-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+
+        .ge-chip {
+          padding: 0.2rem 0.6rem;
+          font-size: 0.78rem;
+          line-height: 1.5;
+          color: var(--darkgray);
+          background: var(--light);
+          border: 1px solid var(--lightgray);
+          border-radius: 999px;
+          cursor: pointer;
+          transition:
+            border-color 0.2s ease,
+            color 0.2s ease;
+          max-width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+
+          &:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
+          }
+        }
+      }
+
+      // 前往文档页
+      .ge-goto {
+        margin-top: 1.2rem;
+        text-align: center;
+
+        .ge-goto-btn {
+          width: 100%;
+          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+          color: var(--light);
+          background: var(--secondary);
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: opacity 0.2s ease;
+
+          &:hover {
+            opacity: 0.85;
+          }
+        }
+      }
+    }
+  }
+
+  // ---------- 平板/窄屏：画布在上、面板限高在下，各自内滚 ----------
+  @media all and not ($desktop) {
+    height: auto;
+
+    .ge-body {
+      .ge-canvas {
+        height: 55vh;
+        min-height: 18rem;
+        flex: none;
+      }
+
+      .ge-panel {
+        width: 100%;
+        max-height: 45vh;
+        border-radius: 10px 10px 0 0;
+      }
+    }
+  }
+}
+
+// （原有一条定向隐藏宿主页 .page-listing 的规则，已随 FolderPage 的
+//   showPageList:false 失去作用对象——全站目录页不再渲染该列表区，删除。）
+
+// 列表页布局的右侧栏为空（right: []），但仍会渲染出占位卡片并悬浮在
+// 全幅容器右端之上、遮挡阅读侧栏——宿主页定向隐藏该空栏。
+// 选择器带 #quartz-body 以压过 base.scss 中 `.page > #quartz-body .sidebar` 的 ID 特异性。
+body[data-slug="0-图谱总览/index"] .page > #quartz-body .sidebar.right {
+  display: none;
+}
+
+// ============================================================
+// 宿主页专属布局（v7 需求3）：本页是画布应用，不是阅读页
+// ============================================================
+// 原先的三处浪费：
+//   1. 右侧栏虽已 display:none，但 $desktopGrid 的第三列仍占 320px 实宽——
+//      1440px 视口下正文区凭空少掉近四分之一；
+//   2. 页头堆着面包屑（仅 Home › 图谱总览 两级）、"N 分钟阅读"、分隔线，
+//      把画布顶到首屏之外（实测容器 top=545px）；
+//   3. 画布宽度靠脚本内联 style.width 向右溢出补救，与 CSS 争夺同一属性。
+// 本节以 CSS 解决 1、2，脚本侧的 applyFullBleed 随之移除。
+body[data-slug="0-图谱总览/index"] {
+  // 专属栅格：删掉右列，左栏收窄。选择器含 #quartz-body，特异性高于 base.scss 同名规则
+  @media all and not ($mobile) {
+    .page > #quartz-body {
+      grid-template-columns: 240px minmax(0, 1fr);
+      grid-template-areas:
+        "grid-sidebar-left grid-header"
+        "grid-sidebar-left grid-center"
+        "grid-sidebar-left grid-footer";
+      column-gap: 1rem;
+    }
+  }
+
+  // 页头瘦身：面包屑与阅读时长对画布应用无信息量；标题保留作页面身份
+  .breadcrumb-container,
+  .content-meta {
+    display: none;
+  }
+
+  #quartz-body .center > .page-header {
+    margin-top: 1.5rem;
+  }
+
+  .article-title {
+    margin: 0 0 0.4rem;
+  }
+
+  // 正文只剩一句导语，与分隔线之间不需要额外留白
+  #quartz-body .center > hr {
+    display: none;
+  }
+
+  .graph-explorer {
+    // 页头瘦身后可用高度增加，同步上调
+    height: calc(100vh - 7rem);
+    margin-top: 0.6rem;
+  }
+}

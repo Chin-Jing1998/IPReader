@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/01/001/06/04",
+  "anchorNode": "01-01-06-04",
+  "terms": [
+    { "name": "实质审查请求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "实质审查请求应当在自申请日（有优先权的，指优先权日）起三年内提出" },
+    { "name": "实质审查费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "并在此期限内缴纳实质审查费" },
+    { "name": "期限届满前通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当发出期限届满前通知书" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:38:10+08:00"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/02/003",
+  "anchorNode": "rule-02-03",
+  "terms": [
+    { "name": "请求书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利申请的请求书应当写明下列事项" },
+    { "name": "统一社会信用代码", "aliases": [], "role": "used", "confidence": "mid", "evidence": "统一社会信用代码或者身份证件号码" },
+    { "name": "专利代理师", "aliases": [], "role": "used", "confidence": "mid", "evidence": "该机构指定的专利代理师的姓名" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

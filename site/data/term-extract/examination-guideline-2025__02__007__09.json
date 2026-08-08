@@ -1,0 +1,43 @@
+{
+  "chunk": "examination-guideline-2025/02/007/09",
+  "anchorNode": "02-07-09",
+  "terms": [
+    {
+      "name": "单一性",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "就能判断申请的主题之间缺乏单一性的"
+    },
+    {
+      "name": "不明显缺乏单一性的申请",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "不明显缺乏单一性的申请，是指只有经过检索，才能确定其申请的主题之间缺乏单一性的那"
+    },
+    {
+      "name": "明显缺乏单一性的申请",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "9.2.1对明显缺乏单一性的申请的检索"
+    },
+    {
+      "name": "独立权利要求",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "对第一独立权利要求进行检索，若发现它不具备新颖性或者创造性"
+    },
+    {
+      "name": "从属权利要求",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "从而导致其相互并列的从属权利要求之间缺乏单一性"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:45:00+08:00"
+}

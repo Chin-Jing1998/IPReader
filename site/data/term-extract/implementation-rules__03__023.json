@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/03/023",
+  "anchorNode": "rule-03-23",
+  "terms": [
+    { "name": "专利公告", "aliases": [], "role": "used", "confidence": "high", "evidence": "国务院专利行政部门对专利公告" },
+    { "name": "专利单行本", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利单行本中出现的错误" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

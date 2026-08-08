@@ -1,0 +1,10 @@
+{
+  "chunk": "examination-guideline-2025/02/007/02",
+  "anchorNode": "02-07-02",
+  "terms": [
+    { "name": "专利文献", "aliases": [], "role": "used", "confidence": "mid", "evidence": "发明专利申请实质审查程序中应当检索专利文献" },
+    { "name": "非专利文献", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员除在专利文献中进行检索外，还应当检索非专利文献" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

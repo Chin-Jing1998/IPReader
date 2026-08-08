@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/02/004/02",
+  "anchorNode": "02-04-02",
+  "terms": [
+    { "name": "创造性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指与现有技术相比，该发明有突出的实质性特点和显著的进步" },
+    { "name": "突出的实质性特点", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指对所属技术领域的技术人员来说，发明相对于现有技术是非显而易见的" },
+    { "name": "显著的进步", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指发明与现有技术相比能够产生有益的技术效果" },
+    { "name": "所属技术领域的技术人员", "aliases": ["本领域的技术人员"], "role": "defined", "confidence": "high", "evidence": "是指一种假设的“人”" }
+  ],
+  "laws": ["专利法第22条第3款", "专利法第22条第2款"],
+  "extractedAt": "2026-07-12T15:37:35+08:00"
+}

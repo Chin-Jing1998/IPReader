@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/04/003/05",
+  "anchorNode": "04-03-05",
+  "terms": [
+    { "name": "宣告专利权无效", "aliases": [], "role": "defined", "confidence": "high", "evidence": "宣告无效的专利权视为自始即不存在" },
+    { "name": "宣告专利权部分无效", "aliases": [], "role": "defined", "confidence": "high", "evidence": "无效宣告请求审查决定应当宣告上述无效宣告理由成立的部分权利要求无效" },
+    { "name": "维持专利权有效", "aliases": [], "role": "used", "confidence": "mid", "evidence": "维持专利权有效" },
+    { "name": "具有独立使用价值的产品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "具有独立使用价值的产品" },
+    { "name": "相似外观设计", "aliases": [], "role": "used", "confidence": "mid", "evidence": "同一产品两项以上的相似外观设计" }
+  ],
+  "laws": ["专利法第47条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

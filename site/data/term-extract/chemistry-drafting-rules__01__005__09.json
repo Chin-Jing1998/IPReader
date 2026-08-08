@@ -1,0 +1,14 @@
+{
+  "chunk": "chemistry-drafting-rules/01/005/09",
+  "anchorNode": "chem-01-05-09",
+  "terms": [
+    { "name": "生物材料的保藏", "aliases": [], "role": "defined", "confidence": "high", "evidence": "关于生物材料的保藏在生物技术这一特定的领域中" },
+    { "name": "公众不能得到的生物材料", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“公众不能得到的生物材料” 包括：个人或单位拥有的、由非专利程序的保藏机构保藏" },
+    { "name": "国家知识产权局认可的保藏单位", "aliases": ["中国典型培养物保藏中心", "中国普通微生物菌种保藏中心", "广东省微生物菌种保藏中心"], "role": "defined", "confidence": "high", "evidence": "“国家知识产权局认可的保藏单位”是指位于武汉的中国典型培养物保藏中心" },
+    { "name": "充分公开", "aliases": [], "role": "used", "confidence": "high", "evidence": "以满足充分公开的要求" },
+    { "name": "序列表", "aliases": [], "role": "defined", "confidence": "high", "evidence": "序列表应作为单独部分来描述并置于说明书的最后" },
+    { "name": "保藏证明和存活证明", "aliases": [], "role": "used", "confidence": "mid", "evidence": "必须递交保藏单位出具的保藏证明和存活证明的原件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

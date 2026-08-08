@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/05/010/02",
+  "anchorNode": "05-10-02",
+  "terms": [
+    { "name": "利害关系人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "利害关系人是指有权根据专利法第六十五条的规定就专利侵权纠纷向人民法院起诉" },
+    { "name": "被控侵权人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "收到专利权人发出的律师函、电商平台投诉通知书等的单位或者个人属于被控侵权人" },
+    { "name": "专利权评价报告请求书", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利权评价报告请求书" },
+    { "name": "专利实施独占许可合同", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利实施独占许可合同的被许可人" },
+    { "name": "专利实施普通许可合同", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利实施普通许可合同的被许可人" },
+    { "name": "视为未提出", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利权评价报告请求视为未提出" },
+    { "name": "补正", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在指定期限内补正" }
+  ],
+  "laws": ["专利法第65条", "专利法第18条第1款", "专利法实施细则第63条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

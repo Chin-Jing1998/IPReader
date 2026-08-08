@@ -1,0 +1,192 @@
+[
+  {
+    "id": "term-0384",
+    "canonical": "食品",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指食品本身概念，如“【食品】的制备”“【食品】级材料”“【食品】添加剂”；化学撰写规范chem-01-05-03另有正式释义与definition一致，“保健食品”命中已由更长词自动优先，不影响判定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0386",
+    "canonical": "中药",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "审查指南设有“关于中药领域发明专利申请审查的若干规定”专章，10条样例（“属于【中药】发明专利保护客体”“【中药】原料”“【中药】产品”等）均指向中药概念本身，未见语义漂移；poolReasons虽标注切分残词，但对应的是已剔除的误收别名（禁用药物/临床资质/生僻药），不否定“中药”词面本身的可靠用法。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0388",
+    "canonical": "社会公德",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均为专利法第五条“违反法律、【社会公德】或者妨害公共利益”及审查指南对应复述，与definition完全一致，语义无漂移。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0390",
+    "canonical": "核苷酸",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指核苷酸/氨基酸序列表相关规定，如“【核苷酸】或者氨基酸序列”“【核苷酸】的化合物库”，为化学生物领域专利申请的标准技术术语，语义单一无漂移。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0391",
+    "canonical": "背景技术",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指说明书法定组成部分“背景技术”，如“（二）【背景技术】：写明对发明或者实用新型的理解、检索、审查有用的背景技术”“属于【背景技术】中的技术方案”，与definition一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0412",
+    "canonical": "同类",
+    "unitType": "term",
+    "isTerm": false,
+    "nameComplete": true,
+    "inlineLink": "no",
+    "reason": "左邻字“不”占18/35（51%），10条样例中5条（term-0118、01-04-04-03、02-10-08-01、02-10-09-04、02-02-03-02）实为“不同类型/不同类别”被误切为“不+【同类】+型/别”，正确词界应是“不同/类型”而非“不/同类/型”；其余“【同类】产品”“【同类】缺陷”属通用形容词搭配而非可独立定义的专利术语，“同类独立权利要求”命中已由更长词自动优先接管。样例正确率约五成，未达85%阈值，且系源表格“同类/不同类独权的相应特征”硬切残留，按提示从严判定为no。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0419",
+    "canonical": "重复授权",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均为“避免/防止【重复授权】”语境，指向专利法第九条禁止重复授权原则，与definition一致，语义单一。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0425",
+    "canonical": "视为撤回",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例（“该申请即被【视为撤回】”“国际申请被撤回或者被【视为撤回】”等）均指专利程序中的法定拟制撤回状态，与definition一致；“视为撤回通知书”命中已由更长词自动优先接管。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0426",
+    "canonical": "优先权日",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均为“有优先权的，指【优先权日】”及相关期限起算语境，语义单一稳定，与definition一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0427",
+    "canonical": "审查意见通知书",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指审查程序中发出的正式文书，如“发出【审查意见通知书】”“第一次【审查意见通知书】应当包括标准表格”，与definition一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0429",
+    "canonical": "初步审查",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指专利受理后、公布前的初步审查程序，如“经【初步审查】认为符合本法要求”，与definition一致；“国际初步审查”等更长词命中已自动优先，不影响判定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0430",
+    "canonical": "对比文件",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指新创性判断中援引的现有技术文献，如“【对比文件】1化合物为87nM”“一份【对比文件】中记载了化合物的化学名称”，右邻字高频“1/2”即对比文件编号的常规用法，与definition一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0431",
+    "canonical": "国际申请",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例涵盖canonical“国际申请”与别名“专利国际申请”两种词面，均指按专利合作条约提出的国际专利申请，与definition完全一致；“国际申请日”等更长词命中已自动优先接管。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0432",
+    "canonical": "技术方案",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指专利法核心概念“技术方案”，如“对产品、方法或者其改进所提出的新的【技术方案】”，与definition一致，语义高度稳定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0433",
+    "canonical": "技术问题",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例涵盖canonical“技术问题”与别名“所要解决的技术问题”，均指创造性判断“技术领域、技术问题、技术方案、技术效果”四个相同要素之一，与definition一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0435",
+    "canonical": "补正通知书",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指审查员就可补正缺陷发出的法定文书，如“审查员应当发出【补正通知书】”，与definition一致，语义单一。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0436",
+    "canonical": "世界知识产权组织国际局",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例涵盖全称与别名“国际局”，均指PCT程序中的世界知识产权组织国际局这一特定机构，如“【国际局】通知效力丧失”“译文文本与【国际局】传送的原文文本相比”，语义无歧义；rawHits仅4但样例一致性充分。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0438",
+    "canonical": "附图标记",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例涵盖canonical“附图标记”与别名“标号”，均指说明书附图中标示技术特征的标记，如“说明书文字部分中未提及的【附图标记】不得在附图中出现”，与definition一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0439",
+    "canonical": "技术特征",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指权利要求中限定技术方案的技术特征概念，如“权利要求书应当记载发明或者实用新型的【技术特征】”，与definition一致。",
+    "confidence": "high"
+  }
+]

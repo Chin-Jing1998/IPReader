@@ -1,0 +1,14 @@
+{
+  "chunk": "mechanical-drafting-rules/01/003/03",
+  "anchorNode": "mech-01-03-03",
+  "terms": [
+    { "name": "现有技术", "aliases": [], "role": "used", "confidence": "high", "evidence": "禁止出现“现有技术”、 “传统技术”等字眼，建议使用“相关技术”、“关联技术”" },
+    { "name": "相关技术", "aliases": ["关联技术"], "role": "defined", "confidence": "high", "evidence": "禁止出现“现有技术”、 “传统技术”等字眼，建议使用“相关技术”、“关联技术”" },
+    { "name": "发明点", "aliases": [], "role": "used", "confidence": "high", "evidence": "避免写入本申请发明点或暗示本申请发明点的关键特征" },
+    { "name": "技术启示", "aliases": ["技术性启示"], "role": "used", "confidence": "high", "evidence": "所以设置杯盖（封堵件）有给本领域技术人员提供技术启示的嫌疑" },
+    { "name": "技术缺陷", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当写明以发明人角度出发认为相关技术中存在的技术缺陷" },
+    { "name": "交底书", "aliases": [], "role": "used", "confidence": "high", "evidence": "不提倡直接使用交底书中的现有技术内容" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

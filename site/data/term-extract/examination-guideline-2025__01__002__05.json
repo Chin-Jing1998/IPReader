@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/01/002/05",
+  "anchorNode": "01-02-05",
+  "terms": [
+    { "name": "不授予专利权的申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不授予专利权的申请" },
+    { "name": "《规范申请专利行为的规定》", "aliases": [], "role": "used", "confidence": "mid", "evidence": "适用《规范申请专利行为的规定》" }
+  ],
+  "laws": [
+    "专利法第五条",
+    "专利法第二十五条",
+    "专利法实施细则第十一条"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

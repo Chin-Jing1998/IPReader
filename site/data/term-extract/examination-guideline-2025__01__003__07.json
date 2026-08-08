@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/01/003/07",
+  "anchorNode": "01-03-07",
+  "terms": [
+    { "name": "外观设计", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利法所称外观设计，是指对产品的整体或者局部的形状、图案或者其结合以及色" },
+    { "name": "形状", "aliases": [], "role": "defined", "confidence": "high", "evidence": "形状，是指对产品造型的设计，也就是指产品外部的点、线、面的移动、变化、组合而呈现" },
+    { "name": "图案", "aliases": [], "role": "defined", "confidence": "high", "evidence": "图案，是指由任何线条、文字、符号、色块的排列或者组合而在产品的表面构成的图形。" },
+    { "name": "色彩", "aliases": [], "role": "defined", "confidence": "high", "evidence": "色彩，是指用于产品上的颜色或者颜色的组合，制造该产品所用材料的本色不是外观设计的" },
+    { "name": "适于工业应用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "适于工业应用，是指该外观设计能应用于产业上并形成批量生产。" },
+    { "name": "富有美感", "aliases": [], "role": "defined", "confidence": "high", "evidence": "富有美感，是指在判断是否属于外观设计专利权的保护客体时，关注的是产品的外观给人的" },
+    { "name": "外观设计专利权的保护客体", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在判断是否属于外观设计专利权的保护客体时" }
+  ],
+  "laws": ["专利法第2条第4款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

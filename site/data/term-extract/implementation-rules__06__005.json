@@ -1,0 +1,16 @@
+{
+  "chunk": "implementation-rules/06/005",
+  "anchorNode": "rule-06-05",
+  "terms": [
+    { "name": "未充分实施其专利", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "未充分实施其专利，是指专利权人及其被许可人实施其专利的方式或者规模不能满足国内对专利产品或者专利方法的需求" },
+    { "name": "取得专利权的药品", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "取得专利权的药品，是指解决公共健康问题所需的医药领域中的任何专利产品或者依照专利方法直接获得的产品" },
+    { "name": "活性成分", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "取得专利权的制造该产品所需的活性成分" },
+    { "name": "诊断用品", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "使用该产品所需的诊断用品" }
+  ],
+  "laws": ["专利法第53条第1项", "专利法第55条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

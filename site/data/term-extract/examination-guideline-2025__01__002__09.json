@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/01/002/09",
+  "anchorNode": "01-02-09",
+  "terms": [
+    { "name": "单一性", "aliases": [], "role": "used", "confidence": "high", "evidence": "对实用新型专利申请明显缺乏单一性的缺陷进行审查" },
+    { "name": "特定技术特征", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "确定特定技术特征时一般依据申请文件中所描述的背景技术" }
+  ],
+  "laws": [
+    "专利法第三十一条第一款",
+    "专利法实施细则第三十九条"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

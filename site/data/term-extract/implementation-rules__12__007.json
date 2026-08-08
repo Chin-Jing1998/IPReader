@@ -1,0 +1,14 @@
+{
+  "chunk": "implementation-rules/12/007",
+  "anchorNode": "rule-12-07",
+  "terms": [
+    { "name": "外观设计国际申请", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "外观设计国际申请中包括含设计要点的说明书的" },
+    { "name": "设计要点", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "包括含设计要点的说明书的" },
+    { "name": "简要说明", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "视为已经依照本细则第三十一条的规定提交了简要说明" }
+  ],
+  "laws": ["专利法实施细则第31条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

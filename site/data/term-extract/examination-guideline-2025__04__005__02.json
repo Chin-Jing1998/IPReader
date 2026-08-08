@@ -1,0 +1,36 @@
+{
+  "chunk": "examination-guideline-2025/04/005/02",
+  "anchorNode": "04-05-02",
+  "terms": [
+    {
+      "name": "现有设计",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "现有设计是指申请日（有优先权的，指优先权日）以前在国内外为公众所知的设计"
+    },
+    {
+      "name": "惯常设计",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "只要提到产品名称就能想到的相应设计，称为惯常设计"
+    },
+    {
+      "name": "优先权日",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "（有优先权的，指优先权日）"
+    },
+    {
+      "name": "一般消费者",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "现有设计中一般消费者所熟知的"
+    }
+  ],
+  "laws": ["专利法第23条第4款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

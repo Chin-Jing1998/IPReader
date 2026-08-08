@@ -1,0 +1,36 @@
+{
+  "chunk": "oa-response-guide/02/002",
+  "anchorNode": "oa-02-02",
+  "terms": [
+    {
+      "name": "所属技术领域的技术人员",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "所属技术领域的技术人员的知识和能力进行评价"
+    },
+    {
+      "name": "突出的实质性特点",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "判断发明是否具有突出的实质性特点，就是要判断对本领域的技术人"
+    },
+    {
+      "name": "显而易见",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "要求保护的发明相对于现有技术是否显而易见"
+    },
+    {
+      "name": "显著的进步",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "评价发明是否具有显著的进步时，主要应当考虑发明是否具有有益的技术效果"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

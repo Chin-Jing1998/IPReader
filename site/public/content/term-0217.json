@@ -1,0 +1,1 @@
+{"id":"term-0217","label":"期限计算","aliases":["开始日","届满日","休假日顺延"],"tier":"seed","df":0,"definition":"期限起算日加上法定或者指定的期限即为期限的届满日","occurrences":{"implementation-rules":[{"nodeId":"rule-01-05","nodeLabel":"第五条 · 期限计算","breadcrumb":["专利法实施细则","第一章 总 则"],"evidence":"","fullCites":[]}]},"laws":[{"lawKey":"专利法实施细则第5条","fullCite":"专利法实施细则第5条","nodeId":"rule-01-05"}],"relatedTerms":[]}

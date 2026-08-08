@@ -1,0 +1,11 @@
+{
+  "chunk": "patent-law/03/002",
+  "anchorNode": "law-03-02",
+  "terms": [
+    { "name": "外观设计简要说明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "该外观设计的简要说明" },
+    { "name": "请求书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当提交请求书" },
+    { "name": "图片或者照片", "aliases": [], "role": "used", "confidence": "mid", "evidence": "该外观设计的图片或者照片" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

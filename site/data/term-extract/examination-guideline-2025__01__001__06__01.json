@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/01/001/06/01",
+  "anchorNode": "01-01-06-01",
+  "terms": [
+    { "name": "委托专利代理机构", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当委托专利代理机构办理" },
+    { "name": "委托书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "委托书应当使用专利局制定的标准表格" },
+    { "name": "总委托书", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "专利局收到符合规定的总委托书后，应当给出总委托书编号" },
+    { "name": "专利代理师", "aliases": [], "role": "used", "confidence": "mid", "evidence": "被指定的专利代理师不得超过两名" },
+    { "name": "解除委托", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人（或专利权人）委托专利代理机构后，可以解除委托" },
+    { "name": "辞去委托", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利代理机构接受申请人（或专利权人）委托后，可以辞去委托" }
+  ],
+  "laws": ["专利法第18条第1款"],
+  "extractedAt": "2026-07-12T15:38:10+08:00"
+}

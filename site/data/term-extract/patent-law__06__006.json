@@ -1,0 +1,11 @@
+{
+  "chunk": "patent-law/06/006",
+  "anchorNode": "law-06-06",
+  "terms": [
+    { "name": "强制许可", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以给予实施发明专利或者实用新型专利的强制许可" },
+    { "name": "未实施或者未充分实施", "aliases": [], "role": "defined", "confidence": "high", "evidence": "无正当理由未实施或者未充分实施其专利的" },
+    { "name": "垄断行为", "aliases": [], "role": "used", "confidence": "mid", "evidence": "行使专利权的行为被依法认定为垄断行为" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

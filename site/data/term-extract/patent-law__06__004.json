@@ -1,0 +1,13 @@
+{
+  "chunk": "patent-law/06/004",
+  "anchorNode": "law-06-04",
+  "terms": [
+    { "name": "专利实施许可", "aliases": [], "role": "used", "confidence": "mid", "evidence": "即获得专利实施许可" },
+    { "name": "专利年费", "aliases": [], "role": "used", "confidence": "high", "evidence": "对专利权人缴纳专利年费相应给予减免" },
+    { "name": "普通许可", "aliases": [], "role": "used", "confidence": "mid", "evidence": "协商后给予普通许可" },
+    { "name": "独占许可", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不得就该专利给予独占或者排他许可" },
+    { "name": "排他许可", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不得就该专利给予独占或者排他许可" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

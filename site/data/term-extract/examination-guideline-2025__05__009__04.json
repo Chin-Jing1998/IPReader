@@ -1,0 +1,16 @@
+{
+  "chunk": "examination-guideline-2025/05/009/04",
+  "anchorNode": "05-09-04",
+  "terms": [
+    { "name": "专利权期满终止", "aliases": [], "role": "defined", "confidence": "high", "evidence": "发明专利权的期限为二十年，实用新型专利权期限为十年，外观设计专利权期限为十五年，" },
+    { "name": "专利权期满终止日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利权期满终止日为2009年9月6日" },
+    { "name": "年费", "aliases": [], "role": "defined", "confidence": "high", "evidence": "授予专利权当年的年费应当在办理登记手续的同时缴纳" },
+    { "name": "滞纳金", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利权人未按时缴纳年费（不包括授予专利权当年的年费）或者缴纳的数额不足的" },
+    { "name": "专利权终止通知书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查员应当发出专利权终止通知书" },
+    { "name": "放弃专利权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "授予专利权后，专利权人随时可以主动要求放弃专利权" },
+    { "name": "放弃专利权声明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利权人放弃专利权的，应当提交放弃专利权声明" },
+    { "name": "放弃实用新型专利权", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "依据专利法第九条第一款和专利法实施细则第四十七条第四款声明放弃实用新型专利权" }
+  ],
+  "laws": ["专利法第42条第2款", "专利法第42条第3款", "专利法第9条第1款", "专利法实施细则第47条第4款"],
+  "extractedAt": "2026-07-12T16:08:00+08:00"
+}

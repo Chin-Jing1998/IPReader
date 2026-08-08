@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/01/003/08",
+  "anchorNode": "01-03-08",
+  "terms": [
+    { "name": "现有设计", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当不属于现有设计" },
+    { "name": "抵触申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员可以根据其获得的有关现有设计或者抵触申请的信息" },
+    { "name": "相同或者实质相同", "aliases": [], "role": "used", "confidence": "high", "evidence": "相同或者实质相同的审查参照本指南第四部分第五章第5节的相关规定" },
+    { "name": "明显区别", "aliases": [], "role": "used", "confidence": "high", "evidence": "授予专利权的外观设计与现有设计或者现有设计特征的组合相比，应当具有明显区别" },
+    { "name": "现有设计特征的组合", "aliases": [], "role": "used", "confidence": "mid", "evidence": "现有设计或者现有设计特征的组合相比" }
+  ],
+  "laws": ["专利法第23条第1款", "专利法第23条第2款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

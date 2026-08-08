@@ -1,0 +1,14 @@
+{
+  "chunk": "implementation-rules/12/008",
+  "anchorNode": "rule-12-08",
+  "terms": [
+    { "name": "驳回理由", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "没有发现驳回理由的" },
+    { "name": "给予保护的决定", "aliases": [], "role": "defined",
+      "confidence": "mid", "evidence": "作出给予保护的决定" },
+    { "name": "外观设计专利权", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "该外观设计专利权自公告之日起生效" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

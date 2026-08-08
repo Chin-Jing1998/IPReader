@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/05/011/07",
+  "anchorNode": "05-11-07",
+  "terms": [
+    { "name": "专利开放许可实施合同备案", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "凭能够证明达成开放许可的书面文件向国家知识产权局办理备案手续" },
+    { "name": "专利实施许可合同备案办法", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "《专利实施许可合同备案办法》" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

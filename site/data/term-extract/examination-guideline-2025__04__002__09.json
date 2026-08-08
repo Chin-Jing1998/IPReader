@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/04/002/09",
+  "anchorNode": "04-02-09",
+  "terms": [
+    { "name": "复审程序终止", "aliases": [], "role": "defined", "confidence": "high", "evidence": "复审请求因期满未答复而被视为撤回的，复审程序终止" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "复审请求因期满未答复而被视为撤回的" },
+    { "name": "受理条件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "已受理的复审请求因不符合受理条件而被驳回请求的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

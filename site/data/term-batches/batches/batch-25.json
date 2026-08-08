@@ -1,0 +1,85 @@
+{
+ "batchNo": 25,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/001/05.md",
+   "chunkId": "examination-guideline-2025/05/001/05",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-01-05",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第一章专利申请文件及手续 ｜ 5.书写规则",
+   "charLen": 532
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/001/06.md",
+   "chunkId": "examination-guideline-2025/05/001/06",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-01-06",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第一章专利申请文件及手续 ｜ 6.证明文件",
+   "charLen": 411
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/001/07.md",
+   "chunkId": "examination-guideline-2025/05/001/07",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-01-07",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第一章专利申请文件及手续 ｜ 7.文件份数",
+   "charLen": 77
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/001/08.md",
+   "chunkId": "examination-guideline-2025/05/001/08",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-01-08",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第一章专利申请文件及手续 ｜ 8.签字或者盖章",
+   "charLen": 185
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/001/09.md",
+   "chunkId": "examination-guideline-2025/05/001/09",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-01-09",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第一章专利申请文件及手续 ｜ 9.专利业务办理系统的注册",
+   "charLen": 244
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/002/01.md",
+   "chunkId": "examination-guideline-2025/05/002/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-02-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第二章专利费用 ｜ 1.费用缴纳的期限",
+   "charLen": 667
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/002/02.md",
+   "chunkId": "examination-guideline-2025/05/002/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-02-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第二章专利费用 ｜ 2.费用支付和结算方式",
+   "charLen": 879
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/002/03.md",
+   "chunkId": "examination-guideline-2025/05/002/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-02-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第二章专利费用 ｜ 3.收费的减缴",
+   "charLen": 465
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/002/04.md",
+   "chunkId": "examination-guideline-2025/05/002/04",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-02-04",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第二章专利费用 ｜ 4.费用的暂存与退款",
+   "charLen": 1979
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/002/05.md",
+   "chunkId": "examination-guideline-2025/05/002/05",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-02-05",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第二章专利费用 ｜ 5.费用的查询",
+   "charLen": 101
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+  "chunk": "examination-guideline-2025/04/001/02",
+  "anchorNode": "04-01-02",
+  "terms": [
+    { "name": "复审程序", "aliases": [], "role": "defined", "confidence": "high", "evidence": "复审请求审查程序（简称复审程序）" },
+    { "name": "无效宣告程序", "aliases": [], "role": "defined", "confidence": "high", "evidence": "无效宣告请求审查程序（简称无效宣告程序）" },
+    { "name": "复审案件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "复审请求案件（简称复审案件）" },
+    { "name": "无效宣告案件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "无效宣告请求案件（简称无效宣告案件）" },
+    { "name": "合法原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "复审和无效审理部应当依法行政" },
+    { "name": "公正执法原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "复审和无效审理部以客观、公正、准确、及时为原则" },
+    { "name": "请求原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "复审程序和无效宣告程序均应当基于当事人的请求启动" },
+    { "name": "依职权审查原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "复审和无效审理部可以对所审查的案件依职权进行审查" },
+    { "name": "听证原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在作出审查决定之前，应当给予审查决定对其不利的当事人" },
+    { "name": "公开原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "其他各种案件的口头审理应当公开举行，审查决定应当公开" },
+    { "name": "口头审理", "aliases": [], "role": "used", "confidence": "high", "evidence": "其他各种案件的口头审理应当公开举行" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

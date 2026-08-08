@@ -1,0 +1,50 @@
+{
+  "chunk": "examination-guideline-2025/04/006",
+  "anchorNode": "04-06",
+  "terms": [
+    {
+      "name": "发明的创造性",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "发明的创造性，是指与现有技术相比，该发明具有突出的实质性特点和显著的进步"
+    },
+    {
+      "name": "实用新型的创造性",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "实用新型的创造性，是指与现有技术相比，该实用新型具有实质性特点和进步"
+    },
+    {
+      "name": "技术启示",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "现有技术中是否存在“技术启示”"
+    },
+    {
+      "name": "技术特征",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "应当考虑其技术方案中的所有技术特征，包括材料特征和方法特征"
+    },
+    {
+      "name": "简单的叠加",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "对于由现有技术通过“简单的叠加”而成的实用新型专利"
+    },
+    {
+      "name": "实用新型专利保护客体",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "有关实用新型专利保护客体的审查适用本指南第一部分第二章第6节的规定"
+    }
+  ],
+  "laws": ["专利法第2条第3款", "专利法第22条第2款", "专利法第22条第3款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

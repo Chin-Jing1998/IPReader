@@ -1,0 +1,10 @@
+{
+  "chunk": "examination-guideline-2025/04/002/07",
+  "anchorNode": "04-02-07",
+  "terms": [
+    { "name": "复审决定", "aliases": [], "role": "used", "confidence": "high", "evidence": "复审决定撤销原驳回决定的，复审和无效审理部应当将有关的案卷返回审查部门" },
+    { "name": "审查部门", "aliases": [], "role": "used", "confidence": "high", "evidence": "复审和无效审理部应当将有关的案卷返回审查部门，继续进行审查程序" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

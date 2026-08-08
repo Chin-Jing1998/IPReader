@@ -1,0 +1,13 @@
+{
+  "chunk": "patent-law/07/001",
+  "anchorNode": "law-07-01",
+  "terms": [
+    { "name": "发明或实用新型专利权的保护范围", "aliases": ["保护范围"], "role": "defined", "confidence": "high", "evidence": "发明或者实用新型专利权的保护范围以其权利要求的内容为准" },
+    { "name": "权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "权利要求的内容为准" },
+    { "name": "说明书及附图的解释作用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "说明书及附图可以用于解释权利要求的内容" },
+    { "name": "外观设计专利权的保护范围", "aliases": [], "role": "defined", "confidence": "high", "evidence": "外观设计专利权的保护范围以表示在图片或者照片中的该产品的外观设计为准" },
+    { "name": "简要说明的解释作用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "简要说明可以用于解释图片或者照片所表示的该产品的外观设计" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

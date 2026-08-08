@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/04/001/07",
+  "anchorNode": "04-01-07",
+  "terms": [
+    { "name": "受理的更正", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "复审或者无效宣告请求属于应当受理而不予受理的，或者已经受理而属于不予受理的" },
+    { "name": "审查决定的更正", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "对于复审或者无效宣告请求审查决定中的明显文字错误，发现后需要更正的" },
+    { "name": "视为撤回的更正", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "对于已经按照视为撤回处理的复审请求或者无效宣告请求，一旦发现不应被视为撤回的" },
+    { "name": "驳回请求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "作出驳回复审请求或者驳回无效宣告请求的决定" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

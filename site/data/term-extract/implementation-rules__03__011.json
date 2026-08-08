@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/03/011",
+  "anchorNode": "rule-03-11",
+  "terms": [
+    { "name": "早日公布", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "请求早日公布其发明专利申请" },
+    { "name": "初步审查", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "进行初步审查后" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

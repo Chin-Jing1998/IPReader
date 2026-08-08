@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/01/004/04/03",
+  "anchorNode": "01-04-04-03",
+  "terms": [
+    { "name": "多重分类", "aliases": [], "role": "defined", "confidence": "high", "evidence": "当专利申请涉及不同类型的技术主题，并且这些技术主题构成发明信息时" },
+    { "name": "多方面分类", "aliases": [], "role": "defined", "confidence": "high", "evidence": "技术主题的多方面分类代表一种特殊类型的多重分类" },
+    { "name": "二级分类表", "aliases": [], "role": "defined", "confidence": "high", "evidence": "二级分类表用于对已经分类在其他分类位置上的技术主题进行强制补充分类" },
+    { "name": "引得码", "aliases": [], "role": "defined", "confidence": "high", "evidence": "引得码只能与分类号联合使用，具有与分类号相同的格式，但通常使用一种独特的编号体系" },
+    { "name": "混合系统", "aliases": [], "role": "defined", "confidence": "high", "evidence": "混合系统由分类表的分类号和与其联合使用的引得码组成" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

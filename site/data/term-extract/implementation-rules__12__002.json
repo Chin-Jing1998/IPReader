@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/12/002",
+  "anchorNode": "rule-12-02",
+  "terms": [
+    { "name": "国际注册日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "按照海牙协定已确定国际注册日并指定中国的外观设计国际申请" },
+    { "name": "申请日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "该国际注册日视为专利法第二十八条所称的申请日" },
+    { "name": "外观设计国际申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "并指定中国的外观设计国际申请，视为向国务院专利行政部门提出" }
+  ],
+  "laws": ["专利法第28条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

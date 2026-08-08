@@ -1,0 +1,12 @@
+{
+  "chunk": "patent-law/07/011",
+  "anchorNode": "law-07-11",
+  "terms": [
+    { "name": "诉讼时效", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "侵犯专利权的诉讼时效为三年" },
+    { "name": "利害关系人", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "专利权人或者利害关系人知道或者应当知道侵权行为" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:49:49+08:00"
+}

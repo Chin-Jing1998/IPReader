@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/01/004/04/01",
+  "anchorNode": "01-04-04-01",
+  "terms": [
+    { "name": "整体分类", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当尽可能地将技术主题作为一个整体来分类，而不是对其各个组成部分分别进行分类" },
+    { "name": "发明信息", "aliases": [], "role": "used", "confidence": "mid", "evidence": "该组成部分构成发明信息，也应当对其进行分类" },
+    { "name": "现有技术", "aliases": [], "role": "used", "confidence": "high", "evidence": "但如果技术主题的某组成部分本身代表了对现有技术的贡献" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

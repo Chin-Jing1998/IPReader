@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/04/004",
+  "anchorNode": "rule-04-04",
+  "terms": [
+    { "name": "复审请求人", "aliases": [], "role": "used", "confidence": "high", "evidence": "复审请求人在国务院专利行政部门作出决定前" },
+    { "name": "复审程序", "aliases": [], "role": "used", "confidence": "high", "evidence": "撤回其复审请求的，复审程序终止" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

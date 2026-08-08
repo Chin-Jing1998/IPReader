@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/05/008",
+  "anchorNode": "rule-05-08",
+  "terms": [
+    { "name": "新药相关发明专利权期限补偿", "aliases": ["期限补偿"], "role": "used",
+      "confidence": "high", "evidence": "对依照专利法第四十二条第二款、第三款的规定提出的专利权期限补偿请求进行审查后" }
+  ],
+  "laws": ["专利法第42条第2款", "专利法第42条第3款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

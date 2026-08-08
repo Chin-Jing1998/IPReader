@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/04/004/03",
+  "anchorNode": "04-04-03",
+  "terms": [
+    { "name": "口头审理通知", "aliases": [], "role": "defined", "confidence": "high", "evidence": "合议组应当向当事人发出口头审理通知，通知进行口头审理的日期和地点等事项" },
+    { "name": "口头审理通知回执", "aliases": [], "role": "defined", "confidence": "high", "evidence": "口头审理通知回执中应当有当事人的签名或者盖章" },
+    { "name": "缺席审理", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利权人不参加口头审理的，可以缺席审理" },
+    { "name": "复审请求视为撤回", "aliases": [], "role": "defined", "confidence": "high", "evidence": "既未出席口头审理，也未在指定的期限内进行书面意见陈述，其复审请求视为撤回" },
+    { "name": "第一发言人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当指定其中之一作为第一发言人进行主要发言" },
+    { "name": "证人出庭作证", "aliases": [], "role": "used", "confidence": "mid", "evidence": "要求委派出具过证言的证人就其证言出庭作证的" }
+  ],
+  "laws": ["专利法第18条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

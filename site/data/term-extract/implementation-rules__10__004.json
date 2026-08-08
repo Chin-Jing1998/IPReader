@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/10/004",
+  "anchorNode": "rule-10-04",
+  "terms": [
+    { "name": "实质审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "当事人请求实质审查或者复审的" },
+    { "name": "复审", "aliases": [], "role": "used", "confidence": "high", "evidence": "或者复审的" },
+    { "name": "视为未提出请求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "期满未缴纳或者未缴足的，视为未提出请求" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

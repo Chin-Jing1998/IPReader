@@ -1,0 +1,12 @@
+{
+  "chunk": "patent-law/07/014",
+  "anchorNode": "law-07-14",
+  "terms": [
+    { "name": "合法来源抗辩", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "能证明该产品合法来源的，不承担赔偿责任" },
+    { "name": "生产经营目的", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "为生产经营目的使用、许诺销售或者销售" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:49:49+08:00"
+}

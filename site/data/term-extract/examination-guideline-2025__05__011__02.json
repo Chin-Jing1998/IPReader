@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/05/011/02",
+  "anchorNode": "05-11-02",
+  "terms": [
+    { "name": "自愿原则", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "当事人可以依照自愿原则设立" },
+    { "name": "合法原则", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "（2）合法原则" },
+    { "name": "公开原则", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "（3）公开原则" },
+    { "name": "开放许可声明", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利权人应当及时撤回开放许可声明，同时通知被许可人" },
+    { "name": "被许可人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "同时通知被许可人" }
+  ],
+  "laws": ["专利法实施细则第86条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

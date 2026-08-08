@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/02/023",
+  "anchorNode": "rule-02-23",
+  "terms": [
+    { "name": "一个总的发明构思", "aliases": [], "role": "defined", "confidence": "high", "evidence": "属于一个总的发明构思的两项以上的发明或者实用新型" },
+    { "name": "特定技术特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "特定技术特征是指每一项发明或者实用新型作为整体，对现有技术作出贡献的技术特征" },
+    { "name": "现有技术", "aliases": [], "role": "used", "confidence": "high", "evidence": "对现有技术作出贡献的技术特征" }
+  ],
+  "laws": ["专利法第31条第1款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/02/010/06",
+  "anchorNode": "02-10-06",
+  "terms": [
+    { "name": "技术启示", "aliases": [], "role": "defined", "confidence": "high", "evidence": "如果所属技术领域的技术人员在现有技术的基础上仅仅通过合乎逻辑的分析、推理" },
+    { "name": "预料不到的技术效果", "aliases": [], "role": "defined", "confidence": "high", "evidence": "如果这种用途的改变和/或效果的改进是预料不到的" },
+    { "name": "必然趋势", "aliases": [], "role": "defined", "confidence": "high", "evidence": "如果要求保护的技术方案的效果是已知的必然趋势所导致的，则该技术方案没有创造性" },
+    { "name": "电子等排体", "aliases": [], "role": "used", "confidence": "high", "evidence": "由于NH2与CH3是经典一价电子等排体" },
+    { "name": "新产品用途发明的创造性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对于新的化学产品，如果该用途不能从结构或者组成相似的已知产品预见到" },
+    { "name": "已知产品用途发明的创造性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对于已知产品的用途发明，如果该新用途不能从产品本身的结构、组成、分子量" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

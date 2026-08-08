@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/04/004/11",
+  "anchorNode": "04-04-11",
+  "terms": [
+    { "name": "书记员", "aliases": [], "role": "used", "confidence": "high", "evidence": "由书记员或者合议组组长指定的合议组成员进行记录" },
+    { "name": "笔录", "aliases": [], "role": "defined", "confidence": "high", "evidence": "合议组可以使用笔录、录音或者录像等方式进行记录" },
+    { "name": "案卷", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当由当事人签字并存入案卷" },
+    { "name": "权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "当事人声明放弃的权利要求" },
+    { "name": "无效宣告请求", "aliases": [], "role": "used", "confidence": "mid", "evidence": "无效宣告请求的范围、理由或者证据" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

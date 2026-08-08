@@ -1,0 +1,92 @@
+{
+  "chunk": "examination-guideline-2025/04/005/03",
+  "anchorNode": "04-05-03",
+  "terms": [
+    {
+      "name": "判断客体",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "将进行比较的对象称为判断客体"
+    },
+    {
+      "name": "涉案专利",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "被请求宣告无效的外观设计专利简称涉案专利"
+    },
+    {
+      "name": "对比设计",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "与涉案专利进行比较的判断客体简称对比设计"
+    },
+    {
+      "name": "简要说明",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "还应当根据简要说明中是否写明请求保护色彩"
+    },
+    {
+      "name": "请求保护色彩",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "简要说明中是否写明请求保护色彩"
+    },
+    {
+      "name": "不限定边界",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "平面产品单元图案两方连续或者四方连续等无限定边界的情况"
+    },
+    {
+      "name": "单纯形状的外观设计",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "单纯形状的外观设计是指无图案且未请求保护色彩的产品的形状设计"
+    },
+    {
+      "name": "单纯图案的外观设计",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "单纯图案的外观设计是指未请求保护色彩并且不限定边界的平面产品的图案设计"
+    },
+    {
+      "name": "形状和图案结合的外观设计",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "形状和图案结合的外观设计是指未请求保护色彩的产品的形状和图案设计"
+    },
+    {
+      "name": "形状和色彩结合的外观设计",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "形状和色彩结合的外观设计是指请求保护色彩的无图案产品的形状和色彩设计"
+    },
+    {
+      "name": "图案和色彩结合的外观设计",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "图案和色彩结合的外观设计是指请求保护色彩的并且不限定边界的平面产品的"
+    },
+    {
+      "name": "形状、图案和色彩结合的外观设计",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "形状、图案和色彩结合的外观设计是指请求保护色彩的产品的形状、图案和色彩设计"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

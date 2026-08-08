@@ -1,0 +1,1169 @@
+[
+ {
+  "termKey": "案卷",
+  "canonical": "案卷",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/004/11",
+    "text": "应当由当事人签字并存入案卷"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/004/01",
+    "text": "包括案卷和电子文档"
+   }
+  ]
+ },
+ {
+  "termKey": "巴黎公约",
+  "canonical": "巴黎公约",
+  "aliases": [
+   "保护工业产权巴黎公约"
+  ],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/04/01",
+    "text": "保护工业产权巴黎公约（以下简称巴黎公约）成员国"
+   },
+   {
+    "chunk": "examination-guideline-2025/01/001/06/02",
+    "text": "是否是在巴黎公约成员国内提出的"
+   }
+  ]
+ },
+ {
+  "termKey": "保密原则",
+  "canonical": "保密原则",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/02",
+    "text": "对于尚未公布、公告的专利申请文件和与专利申请有关的其他内容"
+   },
+   {
+    "chunk": "examination-guideline-2025/01/002/02",
+    "text": "以及其他不适宜公开的信息负有保密责任"
+   }
+  ]
+ },
+ {
+  "termKey": "保密专利申请",
+  "canonical": "保密专利申请",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/005/01",
+    "text": "应当及时作出按照保密专利申请处理的决定"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/005/03",
+    "text": "按照保密专利申请处理"
+   }
+  ]
+ },
+ {
+  "termKey": "被控侵权人",
+  "canonical": "被控侵权人",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/010/01",
+    "text": "专利权人、利害关系人或者被控侵权人"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/010/02",
+    "text": "收到专利权人发出的律师函、电商平台投诉通知书等的单位或者个人属于被控侵权人"
+   }
+  ]
+ },
+ {
+  "termKey": "补充检索",
+  "canonical": "补充检索",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/11",
+    "text": "为了获得更适合的对比文件，审查员应当对申请进行补充检索"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/008/04/11",
+    "text": "在继续审查（包括复审后的审查）中，必要时，审查员应当进行补充检索"
+   }
+  ]
+ },
+ {
+  "termKey": "不丧失新颖性的公开",
+  "canonical": "不丧失新颖性的公开",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/06/03",
+    "text": "申请专利的发明创造在申请日（享有优先权的指优先权日）之前六个月内有下列情况之一的"
+   },
+   {
+    "chunk": "examination-guideline-2025/01/002/04",
+    "text": "不丧失新颖性的公开"
+   }
+  ]
+ },
+ {
+  "termKey": "产品权利要求",
+  "canonical": "产品权利要求",
+  "aliases": [
+   "物的权利要求"
+  ],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "chemistry-drafting-rules",
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/003/01",
+    "text": "又可以采用将新化合物与其他物质组合形成新产品的“产品权利要求”来保护"
+   },
+   {
+    "chunk": "chemistry-drafting-rules/01/003/02",
+    "text": "通常将产品权利要求前置"
+   }
+  ]
+ },
+ {
+  "termKey": "程序节约原则",
+  "canonical": "程序节约原则",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/02",
+    "text": "审查员应当尽可能提高审查效率，缩短审查过程"
+   },
+   {
+    "chunk": "examination-guideline-2025/01/002/02",
+    "text": "审查员应当尽可能提高审查效率，缩短审查过程"
+   }
+  ]
+ },
+ {
+  "termKey": "第一次审查意见通知书",
+  "canonical": "第一次审查意见通知书",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/04/03",
+    "text": "审查员不必检索即可发出第一次审查意见通知书"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/008/04/04",
+    "text": "在第一次审查意见通知书中只针对第一独立权利要求"
+   }
+  ]
+ },
+ {
+  "termKey": "多项从属权利要求",
+  "canonical": "多项从属权利要求",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "chemistry-drafting-rules",
+   "examination-guideline-2025",
+   "implementation-rules",
+   "mechanical-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/001/02",
+    "text": "一项引用两项以上权利要求的多项从属权利要求"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/002/03/03",
+    "text": "多项从属权利要求是指引用两项以上权利要求的从属权利要求"
+   }
+  ]
+ },
+ {
+  "termKey": "发明实际解决的技术问题",
+  "canonical": "发明实际解决的技术问题",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "oa-response-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/004/03",
+    "text": "是指为获得更好的技术效果而需对最接近的现有技术进行改进的技术任务"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/010/09/04",
+    "text": "基于该区别特征在发明中所能达到的技术效果确定发明实际解决的技术问题"
+   }
+  ]
+ },
+ {
+  "termKey": "发明专利申请单行本",
+  "canonical": "发明专利申请单行本",
+  "aliases": [
+   "单行本"
+  ],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/06",
+    "text": "发明专利申请单行本的出版两种形式完成"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/004/05",
+    "text": "发明专利申请单行本，发明专利、实用新型专利和外观设计专利单行本"
+   }
+  ]
+ },
+ {
+  "termKey": "复审程序",
+  "canonical": "复审程序",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/02",
+    "text": "复审请求审查程序（简称复审程序）"
+   },
+   {
+    "chunk": "examination-guideline-2025/04/002/01",
+    "text": "复审程序是因申请人对驳回决定不服而启动的救济程序"
+   }
+  ]
+ },
+ {
+  "termKey": "复审决定",
+  "canonical": "复审决定",
+  "aliases": [
+   "复审请求审查决定"
+  ],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/002/05",
+    "text": "复审请求审查决定（简称复审决定）分为下列三种类型"
+   },
+   {
+    "chunk": "examination-guideline-2025/04/002/06",
+    "text": "复审决定应当送达复审请求人"
+   }
+  ]
+ },
+ {
+  "termKey": "公布印刷费",
+  "canonical": "公布印刷费",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/002/01",
+    "text": "公布印刷费是指发明专利申请公布需要缴纳的费用"
+   },
+   {
+    "chunk": "implementation-rules/10/001",
+    "text": "申请费、申请附加费、公布印刷费、优先权要求费"
+   }
+  ]
+ },
+ {
+  "termKey": "公告送达",
+  "canonical": "公告送达",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/003/07",
+    "text": "采用公告送达的，自公告之日起满一个月，视为已经送达"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/006/02",
+    "text": "在专利公报上通过公告方式通知当事人。自公告之日起满一个月，该文件视为已经送达"
+   }
+  ]
+ },
+ {
+  "termKey": "国际初步审查",
+  "canonical": "国际初步审查",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/01",
+    "text": "参考国际检索和国际初步审查结果进行的实质审查"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/001/03",
+    "text": "在国际初步审查过程中"
+   }
+  ]
+ },
+ {
+  "termKey": "国际注册日",
+  "canonical": "国际注册日",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/06/001/03",
+    "text": "该国际注册日视为专利法第二十八条所称的申请日"
+   },
+   {
+    "chunk": "examination-guideline-2025/06/002/04",
+    "text": "外观设计国际申请自国际注册日起享有与在中国提出的外观设计专利申请同等的效力"
+   }
+  ]
+ },
+ {
+  "termKey": "回避",
+  "canonical": "回避",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/05",
+    "text": "合议组成员有专利法实施细则第四十二条规定情形之一的，应当自行回避"
+   },
+   {
+    "chunk": "examination-guideline-2025/04/004/05",
+    "text": "询问当事人是否请求审案人员回避"
+   }
+  ]
+ },
+ {
+  "termKey": "生物材料样品保藏",
+  "canonical": "生物材料样品保藏",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/05",
+    "text": "将该生物材料样品提交至国家知识产权局认可的生物材料样品国际保藏单位保藏"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/001/05/05",
+    "text": "5.5生物材料样品保藏事项"
+   }
+  ]
+ },
+ {
+  "termKey": "替换页",
+  "canonical": "替换页",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/05/01",
+    "text": "经修改的申请文件（替换页和/或补正书）"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/008/05/02",
+    "text": "说明书或者权利要求书的修改部分，应当按照规定格式提交替换页"
+   }
+  ]
+ },
+ {
+  "termKey": "无效宣告理由",
+  "canonical": "无效宣告理由",
+  "aliases": [
+   "无效宣告请求的理由"
+  ],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/003/02",
+    "text": "无效宣告请求的理由（简称无效宣告理由）"
+   },
+   {
+    "chunk": "examination-guideline-2025/04/003/03",
+    "text": "无效宣告理由仅限于专利法实施细则第六十九条第二款规定的理由"
+   }
+  ]
+ },
+ {
+  "termKey": "相关技术",
+  "canonical": "相关技术",
+  "aliases": [
+   "关联技术",
+   "改进前的方案"
+  ],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "chemistry-drafting-rules",
+   "mechanical-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/004/03",
+    "text": "建议使用“相关技术”、“关联技术”或“改进前的方案”"
+   },
+   {
+    "chunk": "chemistry-drafting-rules/02/003/02",
+    "text": "建议使用“相关技术”、“关联技术”或“改进前的方案”"
+   }
+  ]
+ },
+ {
+  "termKey": "修改文本",
+  "canonical": "修改文本",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/002/03",
+    "text": "根据专利法实施细则第一百三十条第二款或第五十七条第一款提交的修改文本"
+   },
+   {
+    "chunk": "examination-guideline-2025/04/002/03",
+    "text": "以修改文本为基础进行前置审查"
+   }
+  ]
+ },
+ {
+  "termKey": "延长期限请求费",
+  "canonical": "延长期限请求费",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/002/01",
+    "text": "延长期限请求费的缴纳期限是在相应期限届满之日前"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/007/04",
+    "text": "并缴纳延长期限请求费。延长期限请求费以月计算"
+   }
+  ]
+ },
+ {
+  "termKey": "依赖遗传资源完成的发明创造",
+  "canonical": "依赖遗传资源完成的发明创造",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/001/03",
+    "text": "专利法所称依赖遗传资源完成的发明创造，是指利用了遗传资源的遗传功能完成的发明创造"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/010/09/05",
+    "text": "就依赖遗传资源完成的发明创造申请专利"
+   }
+  ]
+ },
+ {
+  "termKey": "遗传资源来源披露登记表",
+  "canonical": "遗传资源来源披露登记表",
+  "aliases": [
+   "登记表"
+  ],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/05",
+    "text": "填写遗传资源来源披露登记表，写明该遗传资源的直接来源和原始来源"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/008/04/07",
+    "text": "审查申请人是否提交了专利局制定的遗传资源来源披露登记表"
+   }
+  ]
+ },
+ {
+  "termKey": "译文错误",
+  "canonical": "译文错误",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/05/08",
+    "text": "译文错误是指译文文本与国际局传送的原文文本相比个别术语"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/002/05",
+    "text": "审查员应当判断是否属于译文错误"
+   }
+  ]
+ },
+ {
+  "termKey": "摘要",
+  "canonical": "摘要",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "infringement-guide",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/04/05",
+    "text": "申请发明专利的，应当提交说明书摘要（以下简称摘要）"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/002/02/04",
+    "text": "摘要是说明书记载内容的概述，它仅是一种技术信息，不具有法律效力"
+   }
+  ]
+ },
+ {
+  "termKey": "职务发明创造",
+  "canonical": "职务发明创造",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "implementation-rules",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/01/013",
+    "text": "执行本单位的任务所完成的职务发明创造"
+   },
+   {
+    "chunk": "implementation-rules/08/008",
+    "text": "职务发明创造的发明人、设计人的奖励和报酬纠纷"
+   }
+  ]
+ },
+ {
+  "termKey": "著录事项变更费",
+  "canonical": "著录事项变更费",
+  "aliases": [
+   "著录项目变更手续费"
+  ],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/06/07",
+    "text": "应当缴纳著录事项变更费，即著录项目变更手续费"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/002/01",
+    "text": "著录事项变更费、专利权评价报告请求费、无效宣告请求费的缴纳期限"
+   }
+  ]
+ },
+ {
+  "termKey": "专利申请权",
+  "canonical": "专利申请权",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/008/01/03",
+    "text": "专利申请权、专利权的转移"
+   },
+   {
+    "chunk": "implementation-rules/08/008",
+    "text": "专利申请权和专利权归属纠纷"
+   }
+  ]
+ },
+ {
+  "termKey": "组件产品",
+  "canonical": "组件产品",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/04/02",
+    "text": "对于组装关系唯一的组件产品，应当提交组合状态的产品视图"
+   },
+   {
+    "chunk": "examination-guideline-2025/01/003/09",
+    "text": "组件产品是指由多个构件相结合构成的一件产品。"
+   }
+  ]
+ },
+ {
+  "termKey": "保密责任",
+  "canonical": "保密责任",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/004/05",
+    "text": "专利局相关部门对尚未审结的复审和无效案卷负有保密责任"
+   },
+   {
+    "chunk": "patent-law/01/018",
+    "text": "对被代理人发明创造的内容，除专利申请已经公布或者公告的以外，负有保密责任"
+   }
+  ]
+ },
+ {
+  "termKey": "避免重复授权",
+  "canonical": "避免重复授权",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/06",
+    "text": "如果存在需要避免重复授权情形，应当进行避免重复授权结论确认"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/002/02",
+    "text": "专利法第九条第一款及专利法实施细则第四十七条：避免重复授权"
+   }
+  ]
+ },
+ {
+  "termKey": "不予受理",
+  "canonical": "不予受理",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/002/02",
+    "text": "复审请求不是针对驳回决定的，不予受理"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/004/05",
+    "text": "视为未提出、不予受理、主动撤回、视为撤回"
+   }
+  ]
+ },
+ {
+  "termKey": "发明名称",
+  "canonical": "发明名称",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "chemistry-drafting-rules",
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/001/02",
+    "text": "说明书中发明名称应当居中显示，不得加粗"
+   },
+   {
+    "chunk": "chemistry-drafting-rules/01/004/01",
+    "text": "发明名称应当清楚、简要、全面地反映要求保护的发明的主题和类型"
+   }
+  ]
+ },
+ {
+  "termKey": "发明信息",
+  "canonical": "发明信息",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/004/02",
+    "text": "发明信息是专利申请的全部文本"
+   },
+   {
+    "chunk": "examination-guideline-2025/01/004/04/01",
+    "text": "该组成部分构成发明信息，也应当对其进行分类"
+   }
+  ]
+ },
+ {
+  "termKey": "妨害公共利益",
+  "canonical": "妨害公共利益",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "chemistry-drafting-rules",
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/005/04",
+    "text": "否则有可能不符合A5的规定（妨害公共利益）"
+   },
+   {
+    "chunk": "examination-guideline-2025/01/003/06",
+    "text": "妨害公共利益，是指外观设计的实施或者使用会给公众或者社会造成危害"
+   }
+  ]
+ },
+ {
+  "termKey": "附图说明",
+  "canonical": "附图说明",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules",
+   "mechanical-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/002/02/02",
+    "text": "说明书有附图的，应当写明各幅附图的图名，并且对图示的内容作简要说明"
+   },
+   {
+    "chunk": "implementation-rules/02/004",
+    "text": "对各幅附图作简略说明"
+   }
+  ]
+ },
+ {
+  "termKey": "高分子化合物",
+  "canonical": "高分子化合物",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "chemistry-drafting-rules",
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/003/01",
+    "text": "对于高分子化合物发明，可以采用结构和/或组成特征来表征"
+   },
+   {
+    "chunk": "chemistry-drafting-rules/01/005/01",
+    "text": "高分子化合物实际上是混合物，并没有明确的化学结构"
+   }
+  ]
+ },
+ {
+  "termKey": "惯用手段的直接置换",
+  "canonical": "惯用手段的直接置换",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "oa-response-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/003/03",
+    "text": "所属技术领域的惯用手段的直接置换"
+   },
+   {
+    "chunk": "oa-response-guide/01/002",
+    "text": "惯用手段的直接置换是指：如果要求保护的发明或实用新型与对比文件的区别仅仅是"
+   }
+  ]
+ },
+ {
+  "termKey": "海牙协定",
+  "canonical": "海牙协定",
+  "aliases": [
+   "工业品外观设计国际注册海牙协定日内瓦文本",
+   "工业品外观设计国际注册海牙协定"
+  ],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/06/001/01",
+    "text": "工业品外观设计国际注册海牙协定日内瓦文本（以下简称海牙协定）"
+   },
+   {
+    "chunk": "examination-guideline-2025/06/002/01",
+    "text": "按照海牙协定提出并指定中国的外观设计国际注册申请的审查"
+   }
+  ]
+ },
+ {
+  "termKey": "技术缺陷",
+  "canonical": "技术缺陷",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "chemistry-drafting-rules",
+   "mechanical-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/004/03",
+    "text": "应当写明以发明人角度出发认为相关技术中存在的技术缺陷"
+   },
+   {
+    "chunk": "chemistry-drafting-rules/02/003/02",
+    "text": "背景技术中指出的技术缺陷和发明内容要解决的技术问题必然是绝对对应的"
+   }
+  ]
+ },
+ {
+  "termKey": "检索报告",
+  "canonical": "检索报告",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/01",
+    "text": "检索的结果应当记载在检索报告中"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/007/12",
+    "text": "检索报告用于记载检索的结果，特别是记载构成相关现有技术的文件"
+   }
+  ]
+ },
+ {
+  "termKey": "进入声明",
+  "canonical": "进入声明",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/002/15",
+    "text": "进入国家阶段的书面声明（以下简称进入声明）"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/001/05/11",
+    "text": "并且在进入声明中标明已经提出复查请求的事实"
+   }
+  ]
+ },
+ {
+  "termKey": "进入中国国家阶段",
+  "canonical": "进入中国国家阶段",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/11/001",
+    "text": "进入国务院专利行政部门处理阶段（以下称进入中国国家阶段）"
+   },
+   {
+    "chunk": "implementation-rules/11/003",
+    "text": "办理进入中国国家阶段的手续"
+   }
+  ]
+ },
+ {
+  "termKey": "举证期限",
+  "canonical": "举证期限",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/003/04",
+    "text": "举证期限"
+   },
+   {
+    "chunk": "examination-guideline-2025/04/008/02",
+    "text": "未在举证期限内提交中文译文的，该外文证据视为未提交"
+   }
+  ]
+ },
+ {
+  "termKey": "举证责任",
+  "canonical": "举证责任",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/003/02",
+    "text": "从而免去请求人对宣告该权利要求无效这一主张的举证责任"
+   },
+   {
+    "chunk": "examination-guideline-2025/04/004/13",
+    "text": "当事人对自己提出的主张有举证责任"
+   }
+  ]
+ },
+ {
+  "termKey": "开放式权利要求",
+  "canonical": "开放式权利要求",
+  "aliases": [
+   "开放式的权利要求"
+  ],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "chemistry-drafting-rules",
+   "examination-guideline-2025",
+   "mechanical-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/003/02",
+    "text": "开放式的权利要求提倡采用“包含”、“包括”、“主要由…… 组成”的表达方式"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/002/03/03",
+    "text": "开放式的权利要求宜采用“包含”“包括”“主要由……组成”的表达方式"
+   }
+  ]
+ },
+ {
+  "termKey": "缺席审理",
+  "canonical": "缺席审理",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/004/03",
+    "text": "专利权人不参加口头审理的，可以缺席审理"
+   },
+   {
+    "chunk": "examination-guideline-2025/04/004/09",
+    "text": "合议组可以缺席审理"
+   }
+  ]
+ },
+ {
+  "termKey": "使用费",
+  "canonical": "使用费",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/06/002",
+    "text": "由实施单位按照国家规定向专利权人支付使用费"
+   },
+   {
+    "chunk": "patent-law/06/015",
+    "text": "应当付给专利权人合理的使用费"
+   }
+  ]
+ },
+ {
+  "termKey": "视为未提交",
+  "canonical": "视为未提交",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/01",
+    "text": "直接作出文件视为未提交的决定"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/001/02",
+    "text": "不符合规定的，该文件视为未提交"
+   }
+  ]
+ },
+ {
+  "termKey": "书面审查原则",
+  "canonical": "书面审查原则",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/02",
+    "text": "审查员应当以申请人提交的书面文件为基础进行审查"
+   },
+   {
+    "chunk": "examination-guideline-2025/01/002/02",
+    "text": "审查员应当以申请人提交的书面文件为基础进行审查"
+   }
+  ]
+ }
+]

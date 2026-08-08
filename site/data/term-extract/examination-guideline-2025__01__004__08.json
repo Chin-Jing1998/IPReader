@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/01/004/08",
+  "anchorNode": "01-04-08",
+  "terms": [
+    { "name": "化学通式", "aliases": [], "role": "defined", "confidence": "high", "evidence": "化学通式是用来表示一类或者几类化合物的" },
+    { "name": "马库什化合物", "aliases": [], "role": "used", "confidence": "high", "evidence": "例如：马库什化合物" },
+    { "name": "完全确定的化合物", "aliases": ["完全确定"], "role": "defined", "confidence": "high", "evidence": "被认为是“完全确定”的化合物是指" },
+    { "name": "经验式", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不能认为仅由经验式代表的化合物" },
+    { "name": "组合库", "aliases": ["库"], "role": "defined", "confidence": "high", "evidence": "当技术主题以“库”的形式表示由很多化合物、生物实体或者其他物质组成的集合时" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

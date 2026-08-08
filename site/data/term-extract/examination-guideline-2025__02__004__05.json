@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/02/004/05",
+  "anchorNode": "02-04-05",
+  "terms": [
+    { "name": "技术偏见", "aliases": [], "role": "defined", "confidence": "high", "evidence": "技术偏见，是指在某段时间内、某个技术领域中" },
+    { "name": "预料不到的技术效果", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指发明同现有技术相比，其技术效果产生“质”的变化，具有新的性能" },
+    { "name": "发明在商业上获得成功", "aliases": [], "role": "defined", "confidence": "high", "evidence": "当发明的产品在商业上获得成功时，如果这种成功是由于发明的技术特征直接导致的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:37:35+08:00"
+}

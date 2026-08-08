@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/05/004/02",
+  "anchorNode": "05-04-02",
+  "terms": [
+    { "name": "案卷", "aliases": [], "role": "defined", "confidence": "high", "evidence": "案卷包括案卷夹和案卷夹内的各种文件" },
+    { "name": "案卷夹", "aliases": [], "role": "defined", "confidence": "high", "evidence": "案卷夹用于保存文件，同时也用于记录案卷的重要内容" },
+    { "name": "立卷", "aliases": [], "role": "defined", "confidence": "high", "evidence": "立卷时应当遵循以下原则" },
+    { "name": "真实原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "真实原则。收集的内容应当是申请人" },
+    { "name": "独立原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "独立原则。每一件专利申请应当建立一份独立的案卷" },
+    { "name": "时间顺序原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "时间顺序原则。当事人依法向专利局办理各种手续时" },
+    { "name": "案卷号", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以该专利申请的申请号作为该案卷的案卷号" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,890 @@
+[
+ {
+  "termKey": "聚合物限定方式",
+  "canonical": "聚合物限定方式",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/005/01",
+    "text": "高分子化合物在权利要求中的限定方式可以包括聚合单体的用量关系"
+   }
+  ]
+ },
+ {
+  "termKey": "决定的理由",
+  "canonical": "决定的理由",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/06",
+    "text": "决定的理由部分应当阐明审查决定所依据的法律、法规条款的规定"
+   }
+  ]
+ },
+ {
+  "termKey": "决定要点",
+  "canonical": "决定要点",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/06",
+    "text": "决定要点是决定正文中理由部分的实质性概括和核心论述"
+   }
+  ]
+ },
+ {
+  "termKey": "开放许可声明的撤回",
+  "canonical": "开放许可声明的撤回",
+  "aliases": [
+   "撤回开放许可声明"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/011/04",
+    "text": "专利权人可以依据专利法实施细则第八十六条规定或者基于其他正当理由撤回开放许可声明"
+   }
+  ]
+ },
+ {
+  "termKey": "科学理论",
+  "canonical": "科学理论",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/001/04/01",
+    "text": "科学理论是对自然界认识的总结，是更为广义的发现"
+   }
+  ]
+ },
+ {
+  "termKey": "科学研究和实验例外",
+  "canonical": "科学研究和实验例外",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/07/012",
+    "text": "专为科学研究和实验而使用有关专利的"
+   }
+  ]
+ },
+ {
+  "termKey": "口头审理通知",
+  "canonical": "口头审理通知",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/004/03",
+    "text": "合议组应当向当事人发出口头审理通知，通知进行口头审理的日期和地点等事项"
+   }
+  ]
+ },
+ {
+  "termKey": "口头审理通知回执",
+  "canonical": "口头审理通知回执",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/004/03",
+    "text": "口头审理通知回执中应当有当事人的签名或者盖章"
+   }
+  ]
+ },
+ {
+  "termKey": "口头审理终止",
+  "canonical": "口头审理终止",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/004/07",
+    "text": "均由合议组宣布口头审理终止"
+   }
+  ]
+ },
+ {
+  "termKey": "宽限期",
+  "canonical": "宽限期",
+  "aliases": [
+   "优惠期"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/003/05",
+    "text": "所说的六个月期限，称为宽限期，或者称为优惠期"
+   }
+  ]
+ },
+ {
+  "termKey": "扩展检索",
+  "canonical": "扩展检索",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/06",
+    "text": "扩展检索是在功能类似或应用类似的技术领域进行的检索。"
+   }
+  ]
+ },
+ {
+  "termKey": "立卷",
+  "canonical": "立卷",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/004/02",
+    "text": "立卷时应当遵循以下原则"
+   }
+  ]
+ },
+ {
+  "termKey": "联系人",
+  "canonical": "联系人",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/04/01",
+    "text": "联系人是该单位接收专利局所发信函的收件人"
+   }
+  ]
+ },
+ {
+  "termKey": "临时过境",
+  "canonical": "临时过境",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/06/004",
+    "text": "但是临时过境不包括用交通运输工具对专利产品的“转运”"
+   }
+  ]
+ },
+ {
+  "termKey": "六面正投影视图",
+  "canonical": "六面正投影视图",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/04/02",
+    "text": "六面正投影视图的视图名称，是指主视图、后视图、左视图、右视图、俯视图和仰视图"
+   }
+  ]
+ },
+ {
+  "termKey": "轮候保全",
+  "canonical": "轮候保全",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/007/07",
+    "text": "可以轮候保全。专利局应当进行轮候登记"
+   }
+  ]
+ },
+ {
+  "termKey": "马库什要素",
+  "canonical": "马库什要素",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/08",
+    "text": "这种可选择要素称为马库什要素"
+   }
+  ]
+ },
+ {
+  "termKey": "明确已知的现有技术方案",
+  "canonical": "明确已知的现有技术方案",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "mechanical-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "mechanical-drafting-rules/01/002/02",
+    "text": "明确已知的现有技术方案，一般情况下，是指在不需要进行检索的情况下"
+   }
+  ]
+ },
+ {
+  "termKey": "能够实现",
+  "canonical": "能够实现",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/002/02/01",
+    "text": "技术人员按照说明书记载的内容，就能够实现该发明或者实用新型的技术方案"
+   }
+  ]
+ },
+ {
+  "termKey": "排除法",
+  "canonical": "排除法",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/05",
+    "text": "权利要求采取排除法撰写形式，即指明不含C，则该权利要求仍有新颖性"
+   }
+  ]
+ },
+ {
+  "termKey": "判断客体",
+  "canonical": "判断客体",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/03",
+    "text": "将进行比较的对象称为判断客体"
+   }
+  ]
+ },
+ {
+  "termKey": "旁听",
+  "canonical": "旁听",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/004/12",
+    "text": "在口头审理中允许旁听，旁听者无发言权"
+   }
+  ]
+ },
+ {
+  "termKey": "烹调方法",
+  "canonical": "烹调方法",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/07",
+    "text": "依赖于厨师的技术、创作等不确定因素导致不能重复实施的烹调方法不适于在产业上应用"
+   }
+  ]
+ },
+ {
+  "termKey": "期限的届满日",
+  "canonical": "期限的届满日",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/007/02",
+    "text": "期限起算日加上法定或者指定的期限即为期限的届满日"
+   }
+  ]
+ },
+ {
+  "termKey": "期限的起算日",
+  "canonical": "期限的起算日",
+  "aliases": [
+   "起算日"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/007/02",
+    "text": "大部分法定期限是自申请日、优先权日、授权公告日等固定日期起计算的"
+   }
+  ]
+ },
+ {
+  "termKey": "期限届满日",
+  "canonical": "期限届满日",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/01/005",
+    "text": "以其最后一月的相应日为期限届满日"
+   }
+  ]
+ },
+ {
+  "termKey": "其他文件",
+  "canonical": "其他文件",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/001/01",
+    "text": "证明、证据材料，称为其他文件"
+   }
+  ]
+ },
+ {
+  "termKey": "起诉期限",
+  "canonical": "起诉期限",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/06/016",
+    "text": "可以自收到通知之日起三个月内向人民法院起诉"
+   }
+  ]
+ },
+ {
+  "termKey": "前置审查意见",
+  "canonical": "前置审查意见",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/002/03",
+    "text": "前置审查意见分为下列三种类型"
+   }
+  ]
+ },
+ {
+  "termKey": "侵权获利",
+  "canonical": "侵权获利",
+  "aliases": [
+   "侵权人获得的利益"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/07/008",
+    "text": "侵权人因侵权所获得的利益确定"
+   }
+  ]
+ },
+ {
+  "termKey": "取代、缺失或添加",
+  "canonical": "取代、缺失或添加",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/09/03",
+    "text": "在（a）限定的氨基酸序列中经过取代、缺失或添加一个或几个氨基酸且具有酶A活性"
+   }
+  ]
+ },
+ {
+  "termKey": "取得专利权的药品",
+  "canonical": "取得专利权的药品",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/06/005",
+    "text": "取得专利权的药品，是指解决公共健康问题所需的医药领域中的任何专利产品或者依照专利方法直接获得的产品"
+   }
+  ]
+ },
+ {
+  "termKey": "权利的部分放弃",
+  "canonical": "权利的部分放弃",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/06/001/03",
+    "text": "该部分放弃的生效日为国际局登记之日"
+   }
+  ]
+ },
+ {
+  "termKey": "权利要求的进一步限定",
+  "canonical": "权利要求的进一步限定",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/003/04",
+    "text": "权利要求的进一步限定是指在权利要求中补入其他权利要求中记载的一个或者多个技术特征"
+   }
+  ]
+ },
+ {
+  "termKey": "权利要求的删除",
+  "canonical": "权利要求的删除",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/003/04",
+    "text": "权利要求的删除是指从权利要求书中去掉某项或者某些项权利要求"
+   }
+  ]
+ },
+ {
+  "termKey": "权利要求书以说明书为依据",
+  "canonical": "权利要求书以说明书为依据",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/002/02",
+    "text": "权利要求书以说明书为依据，清楚、简要地限定要求专利保护的范围"
+   }
+  ]
+ },
+ {
+  "termKey": "确认援引加入声明",
+  "canonical": "确认援引加入声明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/04/07",
+    "text": "提交确认援引加入声明，补交相关文件"
+   }
+  ]
+ },
+ {
+  "termKey": "人类胚胎干细胞",
+  "canonical": "人类胚胎干细胞",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/09/01",
+    "text": "人类胚胎干细胞不属于处于各个形成和发育阶段的人体"
+   }
+  ]
+ },
+ {
+  "termKey": "融合细胞",
+  "canonical": "融合细胞",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/09/03",
+    "text": "融合细胞可通过限定亲本细胞，融合细胞的功能和特征"
+   }
+  ]
+ },
+ {
+  "termKey": "三位一体写法",
+  "canonical": "三位一体写法",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "mechanical-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "mechanical-drafting-rules/01/001/02",
+    "text": "“三位一体” （三段式）的写法"
+   }
+  ]
+ },
+ {
+  "termKey": "色彩",
+  "canonical": "色彩",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/07",
+    "text": "色彩，是指用于产品上的颜色或者颜色的组合，制造该产品所用材料的本色不是外观设计的"
+   }
+  ]
+ },
+ {
+  "termKey": "上位概念与下位概念",
+  "canonical": "上位概念与下位概念",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "mechanical-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "mechanical-drafting-rules/01/002/01",
+    "text": "既存在上位概念，又存在下位概念"
+   }
+  ]
+ },
+ {
+  "termKey": "上下位概念",
+  "canonical": "上下位概念",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/003/01",
+    "text": "同一权利要求中，避免上下位概念并列"
+   }
+  ]
+ },
+ {
+  "termKey": "设计构思相同",
+  "canonical": "设计构思相同",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/09",
+    "text": "设计构思相同，是指各产品的设计风格是统一的"
+   }
+  ]
+ },
+ {
+  "termKey": "设计特征",
+  "canonical": "设计特征",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/03/_full-chapter",
+    "text": "设计特征是指具有相对独立的视觉效果，具有完整性和可识别性的产品的形状、图案及"
+   }
+  ]
+ },
+ {
+  "termKey": "涉案专利",
+  "canonical": "涉案专利",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/03",
+    "text": "被请求宣告无效的外观设计专利简称涉案专利"
+   }
+  ]
+ },
+ {
+  "termKey": "涉及工艺的方法特征",
+  "canonical": "涉及工艺的方法特征",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/003/01",
+    "text": "涉及工艺的方法特征，包括：工艺步骤（反应步骤）、操作步骤及其顺序等"
+   }
+  ]
+ },
+ {
+  "termKey": "涉及计算机程序的发明",
+  "canonical": "涉及计算机程序的发明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/009/01",
+    "text": "本章所说的涉及计算机程序的发明是指为解决发明提出的问题"
+   }
+  ]
+ },
+ {
+  "termKey": "涉及设备的方法特征",
+  "canonical": "涉及设备的方法特征",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/003/01",
+    "text": "涉及设备的方法特征，包括：该方法所用设备的类型及其相关特性或功能等"
+   }
+  ]
+ },
+ {
+  "termKey": "涉及图形用户界面的产品外观设计",
+  "canonical": "涉及图形用户界面的产品外观设计",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/04/05",
+    "text": "涉及图形用户界面的产品外观设计是指产品设计要点包括图形用户界面的设计"
+   }
+  ]
+ },
+ {
+  "termKey": "涉及物质的方法特征",
+  "canonical": "涉及物质的方法特征",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/003/01",
+    "text": "涉及物质的方法特征，包括：原料和产品的化学成分、化学结构、理化性能参数等"
+   }
+  ]
+ },
+ {
+  "termKey": "申请人引起的不合理延迟",
+  "canonical": "申请人引起的不合理延迟",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/009/02",
+    "text": "以下由申请人引起的不合理延迟，延迟的天数为"
+   }
+  ]
+ },
+ {
+  "termKey": "申请日的更正",
+  "canonical": "申请日的更正",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/003/04",
+    "text": "可以请求专利局更正申请日"
+   }
+  ]
+ },
+ {
+  "termKey": "审查基础文本声明",
+  "canonical": "审查基础文本声明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/03",
+    "text": "审查基础文本声明中提及的国际阶段按照专利合作条约第19条的修改"
+   }
+  ]
+ },
+ {
+  "termKey": "审查文本",
+  "canonical": "审查文本",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/04/01",
+    "text": "以最后一次提交的申请文件为审查文本"
+   }
+  ]
+ }
+]

@@ -1,0 +1,20 @@
+{
+  "chunk": "patent-law/07/012",
+  "anchorNode": "law-07-12",
+  "terms": [
+    { "name": "权利用尽原则", "aliases": [], "role": "defined",
+      "confidence": "mid", "evidence": "专利产品或者依照专利方法直接获得的产品，由专利权人或者经其许可的单位、个人售出后" },
+    { "name": "先用权", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "在专利申请日前已经制造相同产品、使用相同方法或者已经作好制造、使用的必要准备" },
+    { "name": "临时过境例外", "aliases": [], "role": "defined",
+      "confidence": "mid", "evidence": "临时通过中国领陆、领水、领空的外国运输工具，依照其所属国同中国签订的协议" },
+    { "name": "科学研究和实验例外", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "专为科学研究和实验而使用有关专利的" },
+    { "name": "Bolar例外", "aliases": [], "role": "defined",
+      "confidence": "mid", "evidence": "为提供行政审批所需要的信息，制造、使用、进口专利药品或者专利医疗器械的" },
+    { "name": "许诺销售", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "使用、许诺销售、销售、进口该产品的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:49:49+08:00"
+}

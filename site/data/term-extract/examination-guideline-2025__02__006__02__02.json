@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/02/006/02/02",
+  "anchorNode": "02-06-02-02",
+  "terms": [
+    { "name": "特定技术特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "是否包含使它们在技术上相互关联的一个或者多个相同或者相应的特定技术特征" },
+    { "name": "总的发明构思", "aliases": [], "role": "used", "confidence": "high", "evidence": "属于一个总的发明构思的两项以上发明的权利要求可以按照以下六种方式之一撰写" },
+    { "name": "马库什权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "后一种情况经常出现在马库什权利要求中" },
+    { "name": "独立权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员只需要考虑独立权利要求之间的单一性" },
+    { "name": "从属权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "从属权利要求与其所从属的独立权利要求之间不存在缺乏单一性的问题" },
+    { "name": "同类独立权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "所述的“同类”是指独立权利要求的类型相同" }
+  ],
+  "laws": ["专利法第31条第1款", "专利法实施细则第39条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

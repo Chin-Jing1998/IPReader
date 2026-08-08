@@ -1,0 +1,11 @@
+{
+  "chunk": "mechanical-drafting-rules/02/001",
+  "anchorNode": "mech-02-01",
+  "terms": [
+    { "name": "说明书摘要", "aliases": [], "role": "defined", "confidence": "high", "evidence": "说明书摘要中至少包含保护主体的发明名称" },
+    { "name": "发明点", "aliases": [], "role": "used", "confidence": "mid", "evidence": "体现发明点的主要技术方案" },
+    { "name": "保护主体", "aliases": [], "role": "used", "confidence": "mid", "evidence": "保护主体的发明名称" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

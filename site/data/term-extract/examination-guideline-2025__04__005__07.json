@@ -1,0 +1,50 @@
+{
+  "chunk": "examination-guideline-2025/04/005/07",
+  "anchorNode": "04-05-07",
+  "terms": [
+    {
+      "name": "合法权利",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "合法权利，是指依照中华人民共和国法律享有并且在涉案专利申请日仍然有效的权利"
+    },
+    {
+      "name": "在先取得",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "是指在先合法权利的取得日在涉案专利申请日之前"
+    },
+    {
+      "name": "相冲突",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "相冲突，是指未经权利人许可，外观设计专利使用了在先合法权利的客体"
+    },
+    {
+      "name": "在先商标权",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "在先商标权是指在涉案专利申请日之前，他人在中华人民共和国法域内依法受到保护的商标"
+    },
+    {
+      "name": "在先著作权",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "在先著作权，是指在涉案专利申请日之前，他人通过独立创作完成作品"
+    },
+    {
+      "name": "他人",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "他人，是指专利权人以外的民事主体，包括自然人、法人或者其他组织"
+    }
+  ],
+  "laws": ["专利法第23条第3款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,113 @@
+{
+  "chunk": "examination-guideline-2025/04/005/05",
+  "anchorNode": "04-05-05",
+  "terms": [
+    {
+      "name": "抵触申请",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "申请日以后（含申请日）公告的同样的外观设计专利申请，称为抵触申请"
+    },
+    {
+      "name": "同样的外观设计",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "其中，同样的外观设计是指外观设计相同或者实质相同"
+    },
+    {
+      "name": "外观设计相同",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "外观设计相同，是指涉案专利与对比设计是相同种类产品的外观设计"
+    },
+    {
+      "name": "外观设计要素",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "其中外观设计要素是指形状、图案以及色彩"
+    },
+    {
+      "name": "相同种类产品",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "相同种类产品是指用途完全相同的产品"
+    },
+    {
+      "name": "局部外观设计",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "对于局部外观设计，相同种类产品是指产品的用途和该局部的用途均相同的产品"
+    },
+    {
+      "name": "外观设计实质相同",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "外观设计实质相同的判断仅限于相同或者相近种类的产品外观设计"
+    },
+    {
+      "name": "相近种类的产品",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "相近种类的产品是指用途相近的产品"
+    },
+    {
+      "name": "单独对比",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "一般应当用一项对比设计与涉案专利进行单独对比"
+    },
+    {
+      "name": "直接观察",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "在对比时应当通过视觉进行直接观察"
+    },
+    {
+      "name": "整体观察、综合判断",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "所谓整体观察、综合判断是指以一般消费者为判断主体"
+    },
+    {
+      "name": "组件产品",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "组件产品，是指由多个构件相结合构成的一件产品"
+    },
+    {
+      "name": "变化状态产品",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "变化状态产品，是指在销售和使用时呈现不同状态的产品"
+    },
+    {
+      "name": "惯常设计",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "该类产品的惯常设计的相应设计要素"
+    },
+    {
+      "name": "使用状态参考图",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "对比设计所公告的专利文件含有使用状态参考图"
+    }
+  ],
+  "laws": ["专利法第23条第1款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

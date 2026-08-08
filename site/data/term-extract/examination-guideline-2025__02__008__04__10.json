@@ -1,0 +1,18 @@
+{
+  "chunk": "examination-guideline-2025/02/008/04/10",
+  "anchorNode": "02-08-04-10",
+  "terms": [
+    { "name": "审查意见通知书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以审查意见通知书的形式，将审查的意见和倾向性结论通知申请人" },
+    { "name": "第一次审查意见通知书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "第一次审查意见通知书应当包括标准表格和通知书正文" },
+    { "name": "抵触申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对于抵触申请还应注明其申请日" },
+    { "name": "独立权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "首先阐述对独立权利要求的审查意见" },
+    { "name": "从属权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "其次是对从属权利要求的审查意见" },
+    { "name": "公知常识", "aliases": [], "role": "used", "confidence": "mid", "evidence": "本领域的公知常识应当是确凿的" },
+    { "name": "分案通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员可发出分案通知书，要求申请人修改申请文件" },
+    { "name": "新颖性", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请由于不具备新颖性或创造性而不可能被授予专利权的" },
+    { "name": "创造性", "aliases": [], "role": "used", "confidence": "high", "evidence": "有关新颖性和创造性的规定" },
+    { "name": "单一性", "aliases": [], "role": "used", "confidence": "high", "evidence": "不符合专利法第三十一条第一款有关单一性的规定" }
+  ],
+  "laws": ["专利法第33条", "专利法第38条", "专利法实施细则第59条", "专利法实施细则第20条", "专利法第31条第1款", "专利法第22条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

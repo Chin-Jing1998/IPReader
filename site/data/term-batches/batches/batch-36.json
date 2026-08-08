@@ -1,0 +1,77 @@
+{
+ "batchNo": 36,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/03/004.md",
+   "chunkId": "patent-law/03/004",
+   "domain": "patent-law",
+   "anchorNodeId": "law-03-04",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第三章 专利的申请 ｜ 第二十九条",
+   "charLen": 224
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/03/005.md",
+   "chunkId": "patent-law/03/005",
+   "domain": "patent-law",
+   "anchorNodeId": "law-03-05",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第三章 专利的申请 ｜ 第三十条",
+   "charLen": 169
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/03/006.md",
+   "chunkId": "patent-law/03/006",
+   "domain": "patent-law",
+   "anchorNodeId": "law-03-06",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第三章 专利的申请 ｜ 第三十一条",
+   "charLen": 151
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/03/007.md",
+   "chunkId": "patent-law/03/007",
+   "domain": "patent-law",
+   "anchorNodeId": "law-03-07",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第三章 专利的申请 ｜ 第三十二条",
+   "charLen": 31
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/03/008.md",
+   "chunkId": "patent-law/03/008",
+   "domain": "patent-law",
+   "anchorNodeId": "law-03-08",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第三章 专利的申请 ｜ 第三十三条",
+   "charLen": 96
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/04/001.md",
+   "chunkId": "patent-law/04/001",
+   "domain": "patent-law",
+   "anchorNodeId": "law-04-01",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第四章 专利申请的审查和批准 ｜ 第三十四条",
+   "charLen": 84
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/04/002.md",
+   "chunkId": "patent-law/04/002",
+   "domain": "patent-law",
+   "anchorNodeId": "law-04-02",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第四章 专利申请的审查和批准 ｜ 第三十五条",
+   "charLen": 121
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/04/003.md",
+   "chunkId": "patent-law/04/003",
+   "domain": "patent-law",
+   "anchorNodeId": "law-04-03",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第四章 专利申请的审查和批准 ｜ 第三十六条",
+   "charLen": 133
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/04/004.md",
+   "chunkId": "patent-law/04/004",
+   "domain": "patent-law",
+   "anchorNodeId": "law-04-04",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第四章 专利申请的审查和批准 ｜ 第三十七条",
+   "charLen": 98
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+  "chunk": "patent-law/01/003",
+  "anchorNode": "law-01-03",
+  "terms": [
+    { "name": "国务院专利行政部门", "aliases": [], "role": "defined", "confidence": "high", "evidence": "国务院专利行政部门负责管理全国的专利工作；统一受理和审查专利申请，依法授予专利权" },
+    { "name": "管理专利工作的部门", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "省、自治区、直辖市人民政府管理专利工作的部门" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

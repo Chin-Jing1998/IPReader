@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/01/001/04/02",
+  "anchorNode": "01-01-04-02",
+  "terms": [
+    { "name": "序列表", "aliases": ["计算机可读形式序列表"], "role": "defined", "confidence": "high", "evidence": "涉及核苷酸或者氨基酸序列的申请，应当将该序列表作为说明书的一个单独部分" },
+    { "name": "重新确定申请日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以向专利局提交或者邮寄补交附图之日为申请日" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "期满未补交的，审查员应当发出视为撤回通知书" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

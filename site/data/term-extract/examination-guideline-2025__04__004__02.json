@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/04/004/02",
+  "anchorNode": "04-04-02",
+  "terms": [
+    { "name": "巡回口头审理", "aliases": [], "role": "defined", "confidence": "high", "evidence": "复审和无效审理部可以进行巡回口头审理，就地审理办案" },
+    { "name": "线下审理", "aliases": [], "role": "used", "confidence": "mid", "evidence": "口头审理包括线下审理、线上审理以及线下与线上审理相结合等方式" },
+    { "name": "线上审理", "aliases": [], "role": "used", "confidence": "mid", "evidence": "口头审理包括线下审理、线上审理以及线下与线上审理相结合等方式" },
+    { "name": "口头质证和辩论", "aliases": [], "role": "used", "confidence": "mid", "evidence": "当事人一方要求同对方口头质证和辩论" },
+    { "name": "实物演示", "aliases": [], "role": "used", "confidence": "mid", "evidence": "需要实物演示" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

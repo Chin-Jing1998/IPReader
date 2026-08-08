@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/05/007/04",
+  "anchorNode": "05-07-04",
+  "terms": [
+    { "name": "延长期限请求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以请求延长的期限仅限于指定期限" },
+    { "name": "延长期限请求费", "aliases": [], "role": "defined", "confidence": "high", "evidence": "并缴纳延长期限请求费。延长期限请求费以月计算" },
+    { "name": "延长期限审批通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员应当发出延长期限审批通知书" },
+    { "name": "复审和无效审理部门", "aliases": [], "role": "used", "confidence": "high", "evidence": "复审和无效审理部门指定的期限不得延长" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

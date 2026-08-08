@@ -1,0 +1,18 @@
+{
+  "chunk": "examination-guideline-2025/02/004/04",
+  "anchorNode": "02-04-04",
+  "terms": [
+    { "name": "开拓性发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指一种全新的技术方案，在技术史上未曾有过先例" },
+    { "name": "组合发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指将某些技术方案进行组合，构成一项新的技术方案" },
+    { "name": "选择发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指从现有技术公开的宽范围中，有目的地选出现有技术中未提到的窄范围或者个体的发明" },
+    { "name": "转用发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指将某一技术领域的现有技术转用到其他技术领域中的发明" },
+    { "name": "已知产品的新用途发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指将已知产品用于新的目的的发明" },
+    { "name": "要素变更的发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "包括要素关系改变的发明、要素替代的发明和要素省略的发明" },
+    { "name": "要素关系改变的发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指发明与现有技术相比，其形状、尺寸、比例、位置及作用关系等发生了变化" },
+    { "name": "要素替代的发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指已知产品或者方法的某一要素由其他已知要素替代的发明" },
+    { "name": "要素省略的发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指省去已知产品或者方法中的某一项或者多项要素的发明" },
+    { "name": "预料不到的技术效果", "aliases": [], "role": "used", "confidence": "mid", "evidence": "而选出的方案未能取得预料不到的技术效果" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:37:35+08:00"
+}

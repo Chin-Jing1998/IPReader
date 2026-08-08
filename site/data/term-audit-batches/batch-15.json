@@ -1,0 +1,437 @@
+[
+ {
+  "termKey": "优先权要求的撤回",
+  "canonical": "优先权要求的撤回",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/06/02",
+    "text": "申请人要求优先权之后，可以撤回优先权要求"
+   },
+   {
+    "chunk": "examination-guideline-2025/06/002/06/02",
+    "text": "优先权要求的撤回"
+   }
+  ]
+ },
+ {
+  "termKey": "原始申请文件",
+  "canonical": "原始申请文件",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/03",
+    "text": "需查对的文件包括原始申请文件及公布的申请文件"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/008/04/01",
+    "text": "是原始申请文件的一部分"
+   }
+  ]
+ },
+ {
+  "termKey": "在后申请",
+  "canonical": "在后申请",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/04/06",
+    "text": "与要求优先权的在后申请相同的主题"
+   },
+   {
+    "chunk": "examination-guideline-2025/04/005/09",
+    "text": "在后申请的外观设计与其首次申请中表示的内容"
+   }
+  ]
+ },
+ {
+  "termKey": "指定中国",
+  "canonical": "指定中国",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/02",
+    "text": "只要国际申请指定了中国，根据专利法实施细则第一百一十九条的规定"
+   },
+   {
+    "chunk": "implementation-rules/12/001",
+    "text": "按照海牙协定提出并指定中国的外观设计国际注册申请"
+   }
+  ]
+ },
+ {
+  "termKey": "中国国家阶段",
+  "canonical": "中国国家阶段",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/11",
+    "text": "应当通过补充检索查看其是否进入了中国国家阶段并作出了中文公布"
+   },
+   {
+    "chunk": "implementation-rules/11/016",
+    "text": "在进入中国国家阶段时"
+   }
+  ]
+ },
+ {
+  "termKey": "中途退庭",
+  "canonical": "中途退庭",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/004/09",
+    "text": "当事人不得中途退庭"
+   },
+   {
+    "chunk": "examination-guideline-2025/04/004/13",
+    "text": "未经合议组许可不得中途退庭"
+   }
+  ]
+ },
+ {
+  "termKey": "中文译文",
+  "canonical": "中文译文",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/001/03",
+    "text": "可以要求当事人在规定的期限内提交全文中文译文或者摘要中文译文"
+   },
+   {
+    "chunk": "implementation-rules/11/006",
+    "text": "应当自进入日起2个月内提交修改部分的中文译文"
+   }
+  ]
+ },
+ {
+  "termKey": "主动撤回",
+  "canonical": "主动撤回",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/004/05",
+    "text": "视为未提出、不予受理、主动撤回、视为撤回"
+   },
+   {
+    "chunk": "implementation-rules/13/001",
+    "text": "已视为撤回、驳回和主动撤回的"
+   }
+  ]
+ },
+ {
+  "termKey": "主动提出修改",
+  "canonical": "主动提出修改",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/05/07",
+    "text": "对专利申请文件主动提出修改"
+   },
+   {
+    "chunk": "implementation-rules/11/013",
+    "text": "申请人可以自进入日起2个月内对专利申请文件主动提出修改"
+   }
+  ]
+ },
+ {
+  "termKey": "著录事项",
+  "canonical": "著录事项",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/008/01/02",
+    "text": "发明专利申请公布的内容包括：著录事项、摘要和摘要附图"
+   },
+   {
+    "chunk": "implementation-rules/09/002",
+    "text": "发明专利申请的著录事项和说明书摘要"
+   }
+  ]
+ },
+ {
+  "termKey": "专利产品",
+  "canonical": "专利产品",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/08/005",
+    "text": "在其专利产品或者该产品的包装上"
+   },
+   {
+    "chunk": "implementation-rules/08/007",
+    "text": "在专利产品、依照专利方法直接获得的产品"
+   }
+  ]
+ },
+ {
+  "termKey": "专利登记簿副本",
+  "canonical": "专利登记簿副本",
+  "aliases": [
+   "外观设计国际申请专利登记簿副本"
+  ],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/009/01",
+    "text": "专利登记簿副本依据专利登记簿制作"
+   },
+   {
+    "chunk": "examination-guideline-2025/06/001/03",
+    "text": "外观设计国际申请专利登记簿副本，作为在中国给予保护的证明"
+   }
+  ]
+ },
+ {
+  "termKey": "专利复审委员会",
+  "canonical": "专利复审委员会",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/005/04",
+    "text": "国防知识产权局专利复审委员会作出宣告国防专利权无效决定的"
+   },
+   {
+    "chunk": "infringement-guide/06/001",
+    "text": "应当向专利复审委员会提出"
+   }
+  ]
+ },
+ {
+  "termKey": "专利年费",
+  "canonical": "专利年费",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/007/03",
+    "text": "专利年费缴纳期限届满后一个月"
+   },
+   {
+    "chunk": "patent-law/06/004",
+    "text": "对专利权人缴纳专利年费相应给予减免"
+   }
+  ]
+ },
+ {
+  "termKey": "专利侵权纠纷",
+  "canonical": "专利侵权纠纷",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "implementation-rules",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/08/002",
+    "text": "请求国务院专利行政部门处理专利侵权纠纷"
+   },
+   {
+    "chunk": "patent-law/07/003",
+    "text": "专利侵权纠纷涉及新产品制造方法的发明专利的"
+   }
+  ]
+ },
+ {
+  "termKey": "专利权评价报告请求费",
+  "canonical": "专利权评价报告请求费",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/002/01",
+    "text": "著录事项变更费、专利权评价报告请求费、无效宣告请求费的缴纳期限"
+   },
+   {
+    "chunk": "implementation-rules/10/007",
+    "text": "专利权评价报告请求费"
+   }
+  ]
+ },
+ {
+  "termKey": "专利权无效宣告请求书",
+  "canonical": "专利权无效宣告请求书",
+  "aliases": [
+   "无效宣告请求书"
+  ],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/04/005",
+    "text": "应当向国务院专利行政部门提交专利权无效宣告请求书和必要的证据一式两份"
+   },
+   {
+    "chunk": "implementation-rules/04/008",
+    "text": "专利权无效宣告请求书和有关文件的副本"
+   }
+  ]
+ },
+ {
+  "termKey": "专利权质押",
+  "canonical": "专利权质押",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/06/002",
+    "text": "专利权被质押，未经质权人同意的"
+   },
+   {
+    "chunk": "implementation-rules/08/011",
+    "text": "专利权质押手续以及专利权期限届满前的终止手续"
+   }
+  ]
+ },
+ {
+  "termKey": "专利权质押登记",
+  "canonical": "专利权质押登记",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/008/01/03",
+    "text": "专利权质押登记公布的项目包括"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/011/09",
+    "text": "专利权人以实行开放许可的专利权出质的，办理专利权质押登记时"
+   }
+  ]
+ },
+ {
+  "termKey": "专利文献",
+  "canonical": "专利文献",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/02",
+    "text": "发明专利申请实质审查程序中应当检索专利文献"
+   },
+   {
+    "chunk": "implementation-rules/09/004",
+    "text": "区域性专利组织交换专利文献"
+   }
+  ]
+ },
+ {
+  "termKey": "最后位置规则",
+  "canonical": "最后位置规则",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/004/05",
+    "text": "优先规则（最先位置规则、最后位置规则）"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/007/05",
+    "text": "如果选定的小组处于按“最后位置规则”分类的小类中"
+   }
+  ]
+ }
+]

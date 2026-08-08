@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/05/004/04",
+  "anchorNode": "05-04-04",
+  "terms": [
+    { "name": "专利申请文档", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利申请文档是对专利审批、复审、无效宣告等法律程序" },
+    { "name": "权利归属纠纷", "aliases": [], "role": "used", "confidence": "high", "evidence": "涉及由权利归属纠纷引起的相关程序的真实记录" },
+    { "name": "无效宣告", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利申请文档是对专利审批、复审、无效宣告等法律程序" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

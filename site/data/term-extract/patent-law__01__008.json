@@ -1,0 +1,11 @@
+{
+  "chunk": "patent-law/01/008",
+  "anchorNode": "law-01-08",
+  "terms": [
+    { "name": "合作完成的发明创造", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "两个以上单位或者个人合作完成的发明创造" },
+    { "name": "委托完成的发明创造", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "接受其他单位或者个人委托所完成的发明创造" },
+    { "name": "申请专利的权利", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请专利的权利属于完成或者共同完成的单位或者个人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

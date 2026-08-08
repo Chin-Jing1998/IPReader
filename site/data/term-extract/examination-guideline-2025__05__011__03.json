@@ -1,0 +1,17 @@
+{
+  "chunk": "examination-guideline-2025/05/011/03",
+  "anchorNode": "05-11-03",
+  "terms": [
+    { "name": "独占许可", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利权处于独占或者排他许可有效期限内的" },
+    { "name": "排他许可", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利权处于独占或者排他许可有效期限内的" },
+    { "name": "质权人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利权被质押，未经质权人同意的" },
+    { "name": "开放许可声明", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利权人有意愿实行开放许可专利的，应当向国家知识产权局提交专利开放许可声明" },
+    { "name": "共有专利权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "共有人就共有专利权提出开放许可声明的" },
+    { "name": "净销售额提成", "aliases": [], "role": "used", "confidence": "mid", "evidence": "净销售额提成一般不高于20%" },
+    { "name": "利润额提成", "aliases": [], "role": "used", "confidence": "mid", "evidence": "利润额提成一般不高于40%" },
+    { "name": "提成费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以提成费支付的" },
+    { "name": "专利权评价报告", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利权评价报告结论认为实用新型或者外观设计专利权不符合授予专利权条件的" }
+  ],
+  "laws": ["专利法实施细则第85条第1款", "专利法第50条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

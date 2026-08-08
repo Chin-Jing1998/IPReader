@@ -1,0 +1,332 @@
+[
+ {
+  "termKey": "未充分实施其专利",
+  "canonical": "未充分实施其专利",
+  "decision": "merge-into:未实施或者未充分实施",
+  "note": "是对强制许可事由中未充分实施部分的界定，与法条情形未实施或者未充分实施指向同一事由"
+ },
+ {
+  "termKey": "未实施或者未充分实施",
+  "canonical": "未实施或者未充分实施",
+  "decision": "keep",
+  "note": "强制许可法定情形的核心术语，边界清晰"
+ },
+ {
+  "termKey": "无效宣告案件",
+  "canonical": "无效宣告案件",
+  "decision": "keep",
+  "note": "即无效宣告请求案件，类比参考词表中复审请求案件独立保留，指案件实体"
+ },
+ {
+  "termKey": "无效宣告程序的终止",
+  "canonical": "无效宣告程序的终止",
+  "decision": "keep",
+  "note": "无效程序何时终止的独立程序性概念，作为规范条目保留"
+ },
+ {
+  "termKey": "无效宣告理由和证据的补充",
+  "canonical": "无效宣告理由和证据的补充",
+  "decision": "keep",
+  "note": "实施细则关于理由与证据一并补充的完整规则，涵盖两方面不宜并入单一子概念"
+ },
+ {
+  "termKey": "无效宣告请求客体",
+  "canonical": "无效宣告请求客体",
+  "decision": "keep",
+  "note": "无效请求指向对象须为已公告授权专利，属独立要件概念"
+ },
+ {
+  "termKey": "无效宣告请求审查程序终止",
+  "canonical": "无效宣告请求审查程序终止",
+  "decision": "merge-into:无效宣告程序的终止",
+  "note": "与无效宣告程序的终止为同一程序性事件的不同表述"
+ },
+ {
+  "termKey": "无需经过创造性劳动就能够想到",
+  "canonical": "无需经过创造性劳动就能够想到",
+  "decision": "keep",
+  "note": "等同侵权判定中一非劳要件，与已保留的三基本要件平行"
+ },
+ {
+  "termKey": "物质的医药用途",
+  "canonical": "物质的医药用途",
+  "decision": "merge-into:医药用途",
+  "note": "物质用于医药之用途，与医药用途为同一概念"
+ },
+ {
+  "termKey": "显著经济意义的重大技术进步",
+  "canonical": "显著经济意义的重大技术进步",
+  "decision": "keep",
+  "note": "从属专利强制许可的法定实质条件，边界清晰"
+ },
+ {
+  "termKey": "现场调查",
+  "canonical": "现场调查",
+  "decision": "drop",
+  "note": "一般行政调查手段，非专利特有概念"
+ },
+ {
+  "termKey": "现有设计特征",
+  "canonical": "现有设计特征",
+  "decision": "keep",
+  "note": "外观设计现有设计要素的定义术语，有独立检索价值"
+ },
+ {
+  "termKey": "现有设计状况",
+  "canonical": "现有设计状况",
+  "decision": "keep",
+  "note": "外观设计相似性判断的背景概念，独立有内涵"
+ },
+ {
+  "termKey": "线路构造",
+  "canonical": "线路构造",
+  "decision": "keep",
+  "note": "实用新型保护的构造类型之一，与产品构造机械构造平行"
+ },
+ {
+  "termKey": "相冲突",
+  "canonical": "相冲突",
+  "decision": "merge-into:在先合法权利冲突",
+  "note": "即外观设计与在先合法权利相冲突，为该概念的简略表述"
+ },
+ {
+  "termKey": "相近似",
+  "canonical": "相近似",
+  "decision": "keep",
+  "note": "外观设计侵权判定的近似概念，独立术语"
+ },
+ {
+  "termKey": "相近种类的产品",
+  "canonical": "相近种类的产品",
+  "decision": "keep",
+  "note": "外观设计种类判断的定义术语"
+ },
+ {
+  "termKey": "相同种类产品",
+  "canonical": "相同种类产品",
+  "decision": "keep",
+  "note": "外观设计种类判断的定义术语，与相近种类的产品平行"
+ },
+ {
+  "termKey": "相同主题的发明或者实用新型",
+  "canonical": "相同主题的发明或者实用新型",
+  "decision": "merge-into:相同主题",
+  "note": "相同主题概念在发明与实用新型上的完整表述"
+ },
+ {
+  "termKey": "向外国申请专利",
+  "canonical": "向外国申请专利",
+  "decision": "keep",
+  "note": "保密审查制度的前提行为概念，审查指南有专门界定"
+ },
+ {
+  "termKey": "象形/拟物形式的描述",
+  "canonical": "象形/拟物形式的描述",
+  "decision": "merge-into:U 形象形描述禁忌",
+  "note": "同为禁止以象形字描述结构的撰写禁忌"
+ },
+ {
+  "termKey": "小分子化合物",
+  "canonical": "小分子化合物",
+  "decision": "keep",
+  "note": "化学领域基础概念，与高分子化合物平行"
+ },
+ {
+  "termKey": "新产品",
+  "canonical": "新产品",
+  "decision": "keep",
+  "note": "专利法上新产品制造方法举证责任倒置中的法定概念"
+ },
+ {
+  "termKey": "新产品用途发明的创造性",
+  "canonical": "新产品用途发明的创造性",
+  "decision": "keep",
+  "note": "化学发明创造性判断的具体情形，与已知产品用途发明的创造性对立平行"
+ },
+ {
+  "termKey": "新药相关技术方案",
+  "canonical": "新药相关技术方案",
+  "decision": "keep",
+  "note": "药品专利期限补偿中判断指定权项范围的具体概念"
+ },
+ {
+  "termKey": "新引出的技术特征",
+  "canonical": "新引出的技术特征",
+  "decision": "merge-into:新技术特征引出",
+  "note": "撰写中引出新技术特征的同一概念"
+ },
+ {
+  "termKey": "新种",
+  "canonical": "新种",
+  "decision": "keep",
+  "note": "微生物专利充分公开语境下的分类学概念，需记载分类学性质"
+ },
+ {
+  "termKey": "行政审批所需要的信息",
+  "canonical": "行政审批所需要的信息",
+  "decision": "keep",
+  "note": "Bolar例外的法定构成要件，独立有内涵"
+ },
+ {
+  "termKey": "形式支持",
+  "canonical": "形式支持",
+  "decision": "keep",
+  "note": "权利要求被说明书支持的形式层面，与实质支持成对"
+ },
+ {
+  "termKey": "形状、图案和色彩结合的外观设计",
+  "canonical": "形状、图案和色彩结合的外观设计",
+  "decision": "keep",
+  "note": "外观设计设计要素组合类型体系之一"
+ },
+ {
+  "termKey": "形状和色彩结合的外观设计",
+  "canonical": "形状和色彩结合的外观设计",
+  "decision": "keep",
+  "note": "外观设计设计要素组合类型体系之一"
+ },
+ {
+  "termKey": "形状和图案结合的外观设计",
+  "canonical": "形状和图案结合的外观设计",
+  "decision": "keep",
+  "note": "外观设计设计要素组合类型体系之一"
+ },
+ {
+  "termKey": "性能检测试验",
+  "canonical": "性能检测试验",
+  "decision": "merge-into:性能测试",
+  "note": "检测产品性能的试验，与性能测试同义"
+ },
+ {
+  "termKey": "修改超出原图片或者照片表示的范围",
+  "canonical": "修改超出原图片或者照片表示的范围",
+  "decision": "merge-into:修改超范围",
+  "note": "外观设计的修改超范围，属修改超范围概念的具体表述"
+ },
+ {
+  "termKey": "修改更正通知书",
+  "canonical": "修改更正通知书",
+  "decision": "keep",
+  "note": "特定官方文书类型，与补正通知书等并列保留"
+ },
+ {
+  "termKey": "选定",
+  "canonical": "选定",
+  "decision": "drop",
+  "note": "PCT历史性程序动作词，现制度下已泛化，缺乏清晰检索边界"
+ },
+ {
+  "termKey": "巡回口头审理",
+  "canonical": "巡回口头审理",
+  "decision": "keep",
+  "note": "口头审理就地巡回方式，有特定含义"
+ },
+ {
+  "termKey": "延期举证",
+  "canonical": "延期举证",
+  "decision": "drop",
+  "note": "请求延期提交证据的程序动作，已有举证期限延长期限请求等规范概念"
+ },
+ {
+  "termKey": "衍生物",
+  "canonical": "衍生物",
+  "decision": "keep",
+  "note": "化合物概括表征中的关键用词，含义边界在权利要求中有审查意义，保守保留"
+ },
+ {
+  "termKey": "样品或者模型",
+  "canonical": "样品或者模型",
+  "decision": "keep",
+  "note": "实用新型申请可要求提交样品或模型的特定规定，含尺寸限制"
+ },
+ {
+  "termKey": "药品专利链接制度",
+  "canonical": "药品专利链接制度",
+  "decision": "merge-into:药品专利链接",
+  "note": "同一制度，药品专利链接为其规范简称"
+ },
+ {
+  "termKey": "药品专利权期限补偿期间",
+  "canonical": "药品专利权期限补偿期间",
+  "decision": "merge-into:PTE 期间保护范围限定",
+  "note": "补偿期间内保护范围限于批准上市药品，与该seed为同一知识点"
+ },
+ {
+  "termKey": "要素变更的发明",
+  "canonical": "要素变更的发明",
+  "decision": "keep",
+  "note": "创造性判断中要素变更类发明的上位分类，涵盖关系改变替代省略三类"
+ },
+ {
+  "termKey": "要素关系改变的发明",
+  "canonical": "要素关系改变的发明",
+  "decision": "keep",
+  "note": "要素变更发明的具体类型之一"
+ },
+ {
+  "termKey": "要素省略的发明",
+  "canonical": "要素省略的发明",
+  "decision": "keep",
+  "note": "要素变更发明的具体类型之一"
+ },
+ {
+  "termKey": "要素替代的发明",
+  "canonical": "要素替代的发明",
+  "decision": "keep",
+  "note": "要素变更发明的具体类型之一"
+ },
+ {
+  "termKey": "一事不再理原则",
+  "canonical": "一事不再理原则",
+  "decision": "merge-into:一事不再理",
+  "note": "同一原则，原则为后缀"
+ },
+ {
+  "termKey": "依照该专利方法直接获得的产品",
+  "canonical": "依照该专利方法直接获得的产品",
+  "decision": "merge-into:依照专利方法直接获得的产品",
+  "note": "仅多一该字，与之字面同义"
+ },
+ {
+  "termKey": "依照专利方法直接获得的产品",
+  "canonical": "依照专利方法直接获得的产品",
+  "decision": "keep",
+  "note": "专利法第十一条方法专利保护范围延及产品的核心概念"
+ },
+ {
+  "termKey": "依职权审查原则",
+  "canonical": "依职权审查原则",
+  "decision": "merge-into:依职权审查",
+  "note": "同一审查原则，原则为后缀"
+ },
+ {
+  "termKey": "遗传工程",
+  "canonical": "遗传工程",
+  "decision": "keep",
+  "note": "审查指南定义的生物技术术语，指基因重组细胞融合等技术，有专利语境"
+ },
+ {
+  "termKey": "遗传功能",
+  "canonical": "遗传功能",
+  "decision": "keep",
+  "note": "审查指南定义的术语，判断生物材料可专利性相关"
+ },
+ {
+  "termKey": "遗传功能单位",
+  "canonical": "遗传功能单位",
+  "decision": "keep",
+  "note": "审查指南定义的术语，指基因或具有遗传功能的DNA或RNA片段"
+ },
+ {
+  "termKey": "遗传资源的原始来源",
+  "canonical": "遗传资源的原始来源",
+  "decision": "keep",
+  "note": "遗传资源来源披露中的具体概念，与遗传资源的直接来源平行"
+ },
+ {
+  "termKey": "相同侵权",
+  "canonical": "相同侵权",
+  "decision": "keep",
+  "note": "主会话补录：侵权判定核心概念，与等同侵权对偶，独立检索价值明确"
+ }
+]

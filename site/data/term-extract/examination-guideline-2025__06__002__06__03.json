@@ -1,0 +1,19 @@
+{
+  "chunk": "examination-guideline-2025/06/002/06/03",
+  "anchorNode": "06-02-06-03",
+  "terms": [
+    { "name": "不丧失新颖性的公开", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不丧失新颖性的公开" },
+    { "name": "证明文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "向专利局提交有关符合规定的证明文件" },
+    { "name": "证明材料", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当对证明材料中注明的相关日期" },
+    { "name": "指定期限", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以要求申请人在指定期限内向专利局提交证明文件" }
+  ],
+  "laws": [
+    "专利法实施细则第140条",
+    "专利法第24条第2项",
+    "专利法第24条第3项",
+    "专利法实施细则第33条第4款",
+    "专利法第24条第1项",
+    "专利法第24条第4项"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

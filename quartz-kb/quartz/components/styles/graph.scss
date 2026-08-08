@@ -1,0 +1,111 @@
+@use "../../styles/variables.scss" as *;
+@use "../../styles/glass.scss" as *;
+
+.graph {
+  & > h3 {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  & > .graph-outer {
+    // 右栏统一卡片化（F10a）：内层描边已删——外层玻璃卡自带描边，双层描边显脏
+    border-radius: 8px;
+    box-sizing: border-box;
+    height: 250px;
+    margin: 0.5em 0;
+    position: relative;
+    overflow: hidden;
+
+    & > .global-graph-icon {
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--dark);
+      opacity: 0.5;
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      padding: 0.2rem;
+      margin: 0.3rem;
+      top: 0;
+      right: 0;
+      border-radius: 4px;
+      background-color: transparent;
+      transition: background-color 0.5s ease;
+      cursor: pointer;
+      &:hover {
+        background-color: var(--lightgray);
+      }
+    }
+  }
+
+  & > .global-graph-outer {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    // 液态玻璃体系：全局图弹窗遮罩由 blur(4px) 升级为统一遮罩规格
+    @include glass-overlay;
+    display: none;
+    overflow: hidden;
+
+    &.active {
+      display: inline-block;
+    }
+
+    & > .global-graph-container {
+      // 全局图容器 → 玻璃面板
+      @include glass-panel(16px);
+      box-sizing: border-box;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 80vh;
+      width: 80vw;
+
+      @media all and not ($desktop) {
+        width: 90%;
+      }
+    }
+  }
+}
+
+// 局部图 top-60 截断提示 badge（V4-B1）：由 graph.inline.ts 在截断发生时挂到图容器内，
+// 玻璃小片贴右下角（图例位于左下，互不遮挡），点击 SPA 跳转图谱总览
+.graph-truncation-note {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  z-index: 2;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  font-family: inherit;
+  color: var(--darkgray);
+  // F12：原「--light 65%/85% 混透明」的等效静态色
+  //（浅色 --light=#faf8f8；深色对应值见下方 saved-theme 覆盖块）
+  background-color: rgba(250, 248, 248, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    color: var(--dark);
+    background-color: rgba(250, 248, 248, 0.85);
+  }
+}
+
+// 深色主题对应静态色（--light=#161618）
+:root[saved-theme="dark"] .graph-truncation-note {
+  background-color: rgba(22, 22, 24, 0.65);
+
+  &:hover {
+    background-color: rgba(22, 22, 24, 0.85);
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "chunk": "implementation-rules/05/002",
+  "anchorNode": "rule-05-02",
+  "terms": [
+    { "name": "专利权期限补偿", "aliases": [], "role": "defined", "confidence": "high", "evidence": "依照专利法第四十二条第二款的规定给予专利权期限补偿的" },
+    { "name": "不合理延迟", "aliases": [], "role": "defined", "confidence": "high", "evidence": "发明专利在授权过程中不合理延迟的实际天数" },
+    { "name": "合理延迟", "aliases": [], "role": "defined", "confidence": "high", "evidence": "下列情形属于合理延迟" },
+    { "name": "实质审查请求", "aliases": [], "role": "used", "confidence": "high", "evidence": "自实质审查请求之日起满3年之日" },
+    { "name": "同日申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "同一申请人同日对同样的发明创造既申请实用新型专利又申请发明专利" },
+    { "name": "专利权期限补偿的除外情形", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "该发明专利权的期限不适用专利法第四十二条第二款的规定" }
+  ],
+  "laws": ["专利法第42条第2款", "专利法实施细则第66条", "专利法实施细则第103条", "专利法实施细则第104条", "专利法实施细则第47条第4款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

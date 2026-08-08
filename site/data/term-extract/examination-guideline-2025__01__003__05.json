@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/01/003/05",
+  "anchorNode": "01-03-05",
+  "terms": [
+    { "name": "外国优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人自外观设计在外国第一次提出专利申请之日起六个月内" },
+    { "name": "本国优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人自外观设计在中国第一次提出专利申请之日起六个月内" },
+    { "name": "优先权转让证明文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "提交由在先申请的全体申请人签字或者盖章的优先权转让证明文件" },
+    { "name": "视为未要求优先权通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当发出视为未要求优先权通知书" },
+    { "name": "视为撤回通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当对在先申请发出视为撤回通知书" },
+    { "name": "巴黎公约", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以及巴黎公约的有关规定" }
+  ],
+  "laws": ["专利法第29条", "专利法第30条", "专利法实施细则第34条", "专利法实施细则第35条", "专利法第29条第1款", "专利法第29条第2款", "专利法实施细则第34条第4款", "专利法实施细则第35条第1款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

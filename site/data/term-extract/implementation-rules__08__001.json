@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/08/001",
+  "anchorNode": "rule-08-01",
+  "terms": [
+    { "name": "管理专利工作的部门", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "省、自治区、直辖市人民政府管理专利工作的部门" },
+    { "name": "专利纠纷", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "可以处理和调解专利纠纷" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

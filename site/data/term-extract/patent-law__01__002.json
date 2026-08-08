@@ -1,0 +1,10 @@
+{
+  "chunk": "patent-law/01/002",
+  "anchorNode": "law-01-02",
+  "terms": [
+    { "name": "实用新型", "aliases": [], "role": "defined", "confidence": "high", "evidence": "实用新型，是指对产品的形状、构造或者其结合所提出的适于实用的新的技术方案。" },
+    { "name": "外观设计", "aliases": [], "role": "defined", "confidence": "high", "evidence": "外观设计，是指对产品的整体或者局部的形状、图案" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

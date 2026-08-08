@@ -1,0 +1,70 @@
+{
+  "name": "patent-kb-desktop",
+  "private": true,
+  "version": "1.0.0",
+  "description": "专利知识库桌面端 · quartz 静态站 + Electron 本地 http 托管（纯离线）",
+  "author": "patent-kb",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "smoke": "electron smoke.cjs",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^43.3.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.patentkb.quartz",
+    "productName": "PatentKB",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "main.cjs",
+      "preload.cjs",
+      "server.cjs",
+      "!**/.DS_Store"
+    ],
+    "extraResources": [
+      {
+        "from": "../quartz-kb/public",
+        "to": "kb-public",
+        "filter": [
+          "**/*",
+          "!**/.DS_Store"
+        ]
+      }
+    ],
+    "asar": true,
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.education",
+      "darkModeSupport": true,
+      "icon": "build/icon.png",
+      "identity": null
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "专利知识库",
+      "uninstallDisplayName": "专利知识库"
+    }
+  }
+}

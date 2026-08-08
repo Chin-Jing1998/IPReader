@@ -1,0 +1,85 @@
+{
+ "batchNo": 48,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/020.md",
+   "chunkId": "implementation-rules/03/020",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-03-20",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第六十一条",
+   "charLen": 72
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/021.md",
+   "chunkId": "implementation-rules/03/021",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-03-21",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第六十二条",
+   "charLen": 237
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/022.md",
+   "chunkId": "implementation-rules/03/022",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-03-22",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第六十三条",
+   "charLen": 194
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/023.md",
+   "chunkId": "implementation-rules/03/023",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-03-23",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第六十四条",
+   "charLen": 57
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/04/001.md",
+   "chunkId": "implementation-rules/04/001",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-04-01",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第四章 专利申请的复审与专利权的无效宣告 ｜ 第六十五条",
+   "charLen": 182
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/04/002.md",
+   "chunkId": "implementation-rules/04/002",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-04-02",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第四章 专利申请的复审与专利权的无效宣告 ｜ 第六十六条",
+   "charLen": 82
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/04/003.md",
+   "chunkId": "implementation-rules/04/003",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-04-03",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第四章 专利申请的复审与专利权的无效宣告 ｜ 第六十七条",
+   "charLen": 262
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/04/004.md",
+   "chunkId": "implementation-rules/04/004",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-04-04",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第四章 专利申请的复审与专利权的无效宣告 ｜ 第六十八条",
+   "charLen": 74
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/04/005.md",
+   "chunkId": "implementation-rules/04/005",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-04-05",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第四章 专利申请的复审与专利权的无效宣告 ｜ 第六十九条",
+   "charLen": 281
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/04/006.md",
+   "chunkId": "implementation-rules/04/006",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-04-06",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第四章 专利申请的复审与专利权的无效宣告 ｜ 第七十条",
+   "charLen": 244
+  }
+ ]
+}

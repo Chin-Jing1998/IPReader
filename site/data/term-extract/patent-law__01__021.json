@@ -1,0 +1,11 @@
+{
+  "chunk": "patent-law/01/021",
+  "anchorNode": "law-01-21",
+  "terms": [
+    { "name": "专利信息公共服务体系", "aliases": [], "role": "used", "confidence": "mid", "evidence": "加强专利信息公共服务体系建设" },
+    { "name": "专利公报", "aliases": [], "role": "used", "confidence": "high", "evidence": "定期出版专利公报，促进专利信息传播与利用" },
+    { "name": "保密责任", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对其内容负有保密责任" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

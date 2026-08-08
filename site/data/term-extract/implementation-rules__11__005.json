@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/11/005",
+  "anchorNode": "rule-11-05",
+  "terms": [
+    { "name": "国际申请在中国的效力终止", "aliases": [], "role": "defined", "confidence": "high", "evidence": "国际申请有下列情形之一的，其在中国的效力终止" },
+    { "name": "优先权日", "aliases": [], "role": "used", "confidence": "high", "evidence": "优先权日起32个月内" },
+    { "name": "国际阶段", "aliases": [], "role": "used", "confidence": "high", "evidence": "在国际阶段，国际申请被撤回或者被视为撤回" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际申请被撤回或者被视为撤回" }
+  ],
+  "laws": ["专利法实施细则第120条", "专利法实施细则第121条", "专利法实施细则第6条", "专利法实施细则第6条第2款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

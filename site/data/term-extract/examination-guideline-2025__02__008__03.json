@@ -1,0 +1,18 @@
+{
+  "chunk": "examination-guideline-2025/02/008/03",
+  "anchorNode": "02-08-03",
+  "terms": [
+    { "name": "国际专利分类号", "aliases": [], "role": "used", "confidence": "mid", "evidence": "都应当首先核对申请的国际专利分类号" },
+    { "name": "实质审查请求书", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员应当查对申请文档中是否有实质审查请求书" },
+    { "name": "原始申请文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "需查对的文件包括原始申请文件及公布的申请文件" },
+    { "name": "援引在先申请文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以援引在先申请文件的方式进行了补交" },
+    { "name": "外国优先权", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人要求外国优先权的" },
+    { "name": "本国优先权", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人要求本国优先权的" },
+    { "name": "优先权恢复", "aliases": [], "role": "used", "confidence": "mid", "evidence": "还应当查对与优先权恢复、增加、改正等相关的文件" },
+    { "name": "提交资料通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以填写提交资料通知书" },
+    { "name": "分案申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "分案申请参见本指南第一部分第一章第5.1.2节" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "mid", "evidence": "该申请被视为撤回" }
+  ],
+  "laws": ["专利法实施细则第45条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

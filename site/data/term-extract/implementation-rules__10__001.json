@@ -1,0 +1,21 @@
+{
+  "chunk": "implementation-rules/10/001",
+  "anchorNode": "rule-10-01",
+  "terms": [
+    { "name": "申请费", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请费、申请附加费、公布印刷费、优先权要求费" },
+    { "name": "申请附加费", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请费、申请附加费、公布印刷费、优先权要求费" },
+    { "name": "公布印刷费", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请费、申请附加费、公布印刷费、优先权要求费" },
+    { "name": "优先权要求费", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请费、申请附加费、公布印刷费、优先权要求费" },
+    { "name": "实质审查费", "aliases": [], "role": "used", "confidence": "high", "evidence": "发明专利申请实质审查费、复审费" },
+    { "name": "复审费", "aliases": [], "role": "used", "confidence": "high", "evidence": "发明专利申请实质审查费、复审费" },
+    { "name": "年费", "aliases": [], "role": "used", "confidence": "high", "evidence": "年费" },
+    { "name": "恢复权利请求费", "aliases": [], "role": "used", "confidence": "high", "evidence": "恢复权利请求费、延长期限请求费" },
+    { "name": "延长期限请求费", "aliases": [], "role": "used", "confidence": "high", "evidence": "恢复权利请求费、延长期限请求费" },
+    { "name": "著录事项变更费", "aliases": [], "role": "used", "confidence": "high", "evidence": "著录事项变更费、专利权评价报告请求费" },
+    { "name": "专利权评价报告", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利权评价报告请求费、无效宣告请求费" },
+    { "name": "无效宣告请求费", "aliases": [], "role": "used", "confidence": "high", "evidence": "无效宣告请求费、专利文件副本证明费" },
+    { "name": "专利文件副本证明费", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利文件副本证明费" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

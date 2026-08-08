@@ -1,0 +1,13 @@
+{
+  "chunk": "implementation-rules/02/015",
+  "anchorNode": "rule-02-15",
+  "terms": [
+    { "name": "简要说明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "外观设计的简要说明应当写明外观设计产品的名称、用途" },
+    { "name": "局部外观设计", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请局部外观设计专利的" },
+    { "name": "基本设计", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "应当在简要说明中指定其中一项作为基本设计" },
+    { "name": "相似外观设计", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对同一产品的多项相似外观设计提出一件外观设计专利申请的" },
+    { "name": "设计要点", "aliases": [], "role": "used", "confidence": "mid", "evidence": "外观设计的设计要点" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/05/003/04",
+  "anchorNode": "05-03-04",
+  "terms": [
+    { "name": "申请日的更正", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以请求专利局更正申请日" },
+    { "name": "视为未提出通知书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查员应当发出视为未提出通知书，并说明理由" },
+    { "name": "修改更正通知书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查员应当发出修改更正通知书" },
+    { "name": "挂号号码", "aliases": [], "role": "used", "confidence": "mid", "evidence": "该证明中注明的寄出挂号号码与请求书中记录的挂号号码一致" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

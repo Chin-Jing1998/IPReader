@@ -1,0 +1,889 @@
+[
+ {
+  "termKey": "中间结果",
+  "canonical": "中间结果",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/001/04/03",
+    "text": "这些信息才能被认为是中间结果"
+   }
+  ]
+ },
+ {
+  "termKey": "中间体与最终产物的单一性",
+  "canonical": "中间体与最终产物的单一性",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/08",
+    "text": "中间体与最终产物有相同的基本结构单元，或者它们的化学结构在技术上密切相关"
+   }
+  ]
+ },
+ {
+  "termKey": "中间文件",
+  "canonical": "中间文件",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/010/04",
+    "text": "中间文件，其公开日在外观设计专利的申请日与所要求的优先权日之间的文件"
+   }
+  ]
+ },
+ {
+  "termKey": "中药材",
+  "canonical": "中药材",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/011/02",
+    "text": "经过产地加工得到的中药材"
+   }
+  ]
+ },
+ {
+  "termKey": "中药材正名",
+  "canonical": "中药材正名",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/011/03",
+    "text": "说明书中一般应当记载中药材正名"
+   }
+  ]
+ },
+ {
+  "termKey": "中药产品的制药用途",
+  "canonical": "中药产品的制药用途",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/011/02",
+    "text": "（4）中药产品的制药用途。"
+   }
+  ]
+ },
+ {
+  "termKey": "中药提取物",
+  "canonical": "中药提取物",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/011/02",
+    "text": "（4）中药提取物；"
+   }
+  ]
+ },
+ {
+  "termKey": "中药饮片",
+  "canonical": "中药饮片",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/011/02",
+    "text": "经过炮制加工得到的中药饮片"
+   }
+  ]
+ },
+ {
+  "termKey": "中药原料变更的组方发明",
+  "canonical": "中药原料变更的组方发明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/011/05",
+    "text": "中药原料变更的组方发明，是指发明以现有技术某一已知方为基础方"
+   }
+  ]
+ },
+ {
+  "termKey": "中药制剂",
+  "canonical": "中药制剂",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/011/02",
+    "text": "（5）中药制剂。"
+   }
+  ]
+ },
+ {
+  "termKey": "中止",
+  "canonical": "中止",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/007/07",
+    "text": "中止，是指当地方知识产权管理部门或者人民法院受理了专利申请权"
+   }
+  ]
+ },
+ {
+  "termKey": "中止处理",
+  "canonical": "中止处理",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/08/004",
+    "text": "可以请求管理专利工作的部门中止处理"
+   }
+  ]
+ },
+ {
+  "termKey": "中止口头审理",
+  "canonical": "中止口头审理",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/004/06",
+    "text": "有下列情形之一的，合议组可以宣布中止口头审理"
+   }
+  ]
+ },
+ {
+  "termKey": "中止期限",
+  "canonical": "中止期限",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/007/07",
+    "text": "中止期限一般不得超过一年，即自中止请求之日起满一年的"
+   }
+  ]
+ },
+ {
+  "termKey": "终止实施强制许可的决定",
+  "canonical": "终止实施强制许可的决定",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/06/013",
+    "text": "作出终止实施强制许可的决定"
+   }
+  ]
+ },
+ {
+  "termKey": "重组载体",
+  "canonical": "重组载体",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/09/03",
+    "text": "重组载体可通过限定至少一个基因和载体来描述"
+   }
+  ]
+ },
+ {
+  "termKey": "主药",
+  "canonical": "主药",
+  "aliases": [
+   "主要药味",
+   "君药"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/011/05",
+    "text": "起主要作用的中药原料（简称主要药味、主药或君药）"
+   }
+  ]
+ },
+ {
+  "termKey": "主要起标识作用",
+  "canonical": "主要起标识作用",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/06",
+    "text": "主要起标识作用是指所述外观设计的主要用途在于使公众识别所涉及的产品、服务的来源等"
+   }
+  ]
+ },
+ {
+  "termKey": "主要起标识作用的设计",
+  "canonical": "主要起标识作用的设计",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/02/004",
+    "text": "对平面印刷品的图案、色彩或者二者的结合作出的主要起标识作用的设计"
+   }
+  ]
+ },
+ {
+  "termKey": "主要是生物学的方法",
+  "canonical": "主要是生物学的方法",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/001/04/04",
+    "text": "一种方法是否属于“主要是生物学的方法”，取决于在该方法中人的技术介入程度"
+   }
+  ]
+ },
+ {
+  "termKey": "注册用户",
+  "canonical": "注册用户",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/001/09",
+    "text": "专利业务办理系统注册用户是指已经与国家知识产权局签订了"
+   }
+  ]
+ },
+ {
+  "termKey": "著录事项变更手续",
+  "canonical": "著录事项变更手续",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/13/002",
+    "text": "应当向国务院专利行政部门办理著录事项变更手续"
+   }
+  ]
+ },
+ {
+  "termKey": "专利合作条约第19条的修改",
+  "canonical": "专利合作条约第19条的修改",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/04",
+    "text": "按照专利合作条约第19条作出修改的权利要求书"
+   }
+  ]
+ },
+ {
+  "termKey": "专利合作条约第34条的修改",
+  "canonical": "专利合作条约第34条的修改",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/04",
+    "text": "按照专利合作条约第34条作出的修改"
+   }
+  ]
+ },
+ {
+  "termKey": "专利纠纷调解",
+  "canonical": "专利纠纷调解",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/08/008",
+    "text": "可以对下列专利纠纷进行调解"
+   }
+  ]
+ },
+ {
+  "termKey": "专利开放许可实施合同",
+  "canonical": "专利开放许可实施合同",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/011/06",
+    "text": "并依照公告支付许可使用费的，专利开放许可实施合同生效"
+   }
+  ]
+ },
+ {
+  "termKey": "专利开放许可实施合同备案",
+  "canonical": "专利开放许可实施合同备案",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/011/07",
+    "text": "凭能够证明达成开放许可的书面文件向国家知识产权局办理备案手续"
+   }
+  ]
+ },
+ {
+  "termKey": "专利开放许可实施期间",
+  "canonical": "专利开放许可实施期间",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/011/08",
+    "text": "专利开放许可实施期间是指专利开放许可实施合同生效之日至专利许可期限届满期间"
+   }
+  ]
+ },
+ {
+  "termKey": "专利年费减缴",
+  "canonical": "专利年费减缴",
+  "aliases": [
+   "专利年费的减缴"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/011/08",
+    "text": "专利权人可以在专利开放许可实施期间，按规定享有自备案日起尚未到期的专利年费的减缴"
+   }
+  ]
+ },
+ {
+  "termKey": "专利侵权",
+  "canonical": "专利侵权",
+  "aliases": [
+   "侵犯专利权"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/07/002",
+    "text": "未经专利权人许可，实施其专利，即侵犯其专利权"
+   }
+  ]
+ },
+ {
+  "termKey": "专利权期满终止",
+  "canonical": "专利权期满终止",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/009/04",
+    "text": "发明专利权的期限为二十年，实用新型专利权期限为十年，外观设计专利权期限为十五年，"
+   }
+  ]
+ },
+ {
+  "termKey": "专利权期满终止日",
+  "canonical": "专利权期满终止日",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/009/04",
+    "text": "专利权期满终止日为2009年9月6日"
+   }
+  ]
+ },
+ {
+  "termKey": "专利权宣告无效的追溯力",
+  "canonical": "专利权宣告无效的追溯力",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/05/006",
+    "text": "不具有追溯力"
+   }
+  ]
+ },
+ {
+  "termKey": "专利权终止通知书",
+  "canonical": "专利权终止通知书",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/009/04",
+    "text": "审查员应当发出专利权终止通知书"
+   }
+  ]
+ },
+ {
+  "termKey": "专利申请手续",
+  "canonical": "专利申请手续",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/001/01",
+    "text": "办理其他专利事务，统称为专利申请手续"
+   }
+  ]
+ },
+ {
+  "termKey": "专利审查档案",
+  "canonical": "专利审查档案",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/01/003",
+    "text": "本指南所称专利审查档案，包括专利审查、复审、无效程序中专利申请人"
+   }
+  ]
+ },
+ {
+  "termKey": "专利业务办理系统",
+  "canonical": "专利业务办理系统",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/001/09",
+    "text": "专利业务办理系统是专利局指定的特定电子系统"
+   }
+  ]
+ },
+ {
+  "termKey": "专为科学研究和实验",
+  "canonical": "专为科学研究和实验",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/06/004",
+    "text": "专为科学研究和实验,是指专门针对专利技术方案本身进行的科学研究和实验"
+   }
+  ]
+ },
+ {
+  "termKey": "专用产品",
+  "canonical": "专用产品",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/05/002",
+    "text": "为生产经营目的向他人提供该专用产品"
+   }
+  ]
+ },
+ {
+  "termKey": "转基因动物和植物",
+  "canonical": "转基因动物和植物",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/09/01",
+    "text": "转基因动物或者植物是通过基因工程的重组DNA技术等生物学方法得到的动物或者植物"
+   }
+  ]
+ },
+ {
+  "termKey": "自组方发明",
+  "canonical": "自组方发明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/011/05",
+    "text": "自组方发明，是指未以已知方为基础，而是依据中医药理论和用药经验进行直接遣药组方"
+   }
+  ]
+ },
+ {
+  "termKey": "总-分-总",
+  "canonical": "总-分-总",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "mechanical-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "mechanical-drafting-rules/02/003/05",
+    "text": "总体撰写逻辑可采用“总-分-总”的逻辑"
+   }
+  ]
+ },
+ {
+  "termKey": "组合发明",
+  "canonical": "组合发明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/004/04",
+    "text": "是指将某些技术方案进行组合，构成一项新的技术方案"
+   }
+  ]
+ },
+ {
+  "termKey": "组合库",
+  "canonical": "组合库",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/004/08",
+    "text": "当技术主题以“库”的形式表示由很多化合物、生物实体或者其他物质组成的集合时"
+   }
+  ]
+ },
+ {
+  "termKey": "组合物发明",
+  "canonical": "组合物发明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/003/01",
+    "text": "组合物发明（是指各组分混合得到的产品）"
+   }
+  ]
+ },
+ {
+  "termKey": "组合物权利要求",
+  "canonical": "组合物权利要求",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/04",
+    "text": "组合物权利要求应当用组合物的组分或者组分和含量等组成特征来表征"
+   }
+  ]
+ },
+ {
+  "termKey": "组长",
+  "canonical": "组长",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/03",
+    "text": "组长负责主持复审或者无效宣告程序的全面审查"
+   }
+  ]
+ },
+ {
+  "termKey": "最低限度数据库",
+  "canonical": "最低限度数据库",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/08",
+    "text": "最低限度数据库一般情况下应当包括中国专利文摘类数据库、中国专利全文类数据库、外文"
+   }
+  ]
+ },
+ {
+  "termKey": "最小保护主体",
+  "canonical": "最小保护主体",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "mechanical-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "mechanical-drafting-rules/01/002/02",
+    "text": "其保护主体应当是解决对应的技术问题的最小保护主体"
+   }
+  ]
+ },
+ {
+  "termKey": "a类文件",
+  "canonical": "A类文件",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/12",
+    "text": "A：背景技术文件，即反映权利要求的部分技术特征或者有关的现有技术的文件；"
+   }
+  ]
+ },
+ {
+  "termKey": "l类文件",
+  "canonical": "L类文件",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/12",
+    "text": "L：除X、Y、A、R、P、E和T类文件之外的原因引用的文件。"
+   }
+  ]
+ },
+ {
+  "termKey": "px类文件",
+  "canonical": "PX类文件",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/04/06",
+    "text": "即该对比文件构成PX或PY类文件"
+   }
+  ]
+ },
+ {
+  "termKey": "py类文件",
+  "canonical": "PY类文件",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/04/06",
+    "text": "即该对比文件构成PX或PY类文件"
+   }
+  ]
+ },
+ {
+  "termKey": "r类文件",
+  "canonical": "R类文件",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/12",
+    "text": "R：任何单位或个人在申请日向专利局提交的、属于同样的发明创造的专利或专利申请文件"
+   }
+  ]
+ },
+ {
+  "termKey": "t类文件",
+  "canonical": "T类文件",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/12",
+    "text": "T：申请日或优先权日当天或之后公布的，可以对所要求保护发明的理论或原理提供清楚解"
+   }
+  ]
+ }
+]

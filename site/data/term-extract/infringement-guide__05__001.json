@@ -1,0 +1,16 @@
+{
+  "chunk": "infringement-guide/05/001",
+  "anchorNode": "infr-05-01",
+  "terms": [
+    { "name": "临时保护期", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在发明专利公开日至授权公告日之间，即发明专利权的临时保护期内，实施该发明的单位" },
+    { "name": "许诺销售", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在销售侵犯他人专利权的产品行为实际发生前，被诉侵权人作出销售侵犯他人专利权产品" },
+    { "name": "进口专利产品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "进口专利产品，是指将落入产品专利权利要求保护范围的产品、依照专利方法直接获得的" },
+    { "name": "方法专利延及产品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "方法专利延及产品，指一项方法发明专利权被授予后，任何单位或个人未经专利权人许可" },
+    { "name": "依照专利方法直接获得的产品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "依照专利方法直接获得的产品，是指将原材料、物品按照方法专利权利要求记载的全部" },
+    { "name": "新产品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指在国内外第一次生产出的产品，该产品与专利申请日之前已有的同类产品相比" },
+    { "name": "同样产品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利法第六十一条规定的同样产品，是指被诉侵权产品与实施新产品制造方法直接得到" },
+    { "name": "仅具有技术功能", "aliases": [], "role": "defined", "confidence": "high", "evidence": "仅具有技术功能，是指该零部件构成最终产品的内部结构，在最终产品的正常使用中不产" }
+  ],
+  "laws": ["专利法第61条"],
+  "extractedAt": "2026-07-12T16:20:00+08:00"
+}

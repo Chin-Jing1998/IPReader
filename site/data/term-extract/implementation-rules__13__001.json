@@ -1,0 +1,20 @@
+{
+  "chunk": "implementation-rules/13/001",
+  "anchorNode": "rule-13-01",
+  "terms": [
+    { "name": "专利登记簿", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "并可以请求国务院专利行政部门出具专利登记簿副本" },
+    { "name": "案卷", "aliases": [], "role": "defined",
+      "confidence": "mid", "evidence": "已经公布或者公告的专利申请的案卷和专利登记簿" },
+    { "name": "视为撤回", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "已视为撤回、驳回和主动撤回的" },
+    { "name": "主动撤回", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "已视为撤回、驳回和主动撤回的" },
+    { "name": "宣告全部无效", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "宣告全部无效和终止的专利权" },
+    { "name": "专利权终止", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "终止的专利权" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

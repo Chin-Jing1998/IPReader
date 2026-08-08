@@ -1,0 +1,1041 @@
+@use "./base.scss";
+@use "./variables.scss" as *;
+@use "./glass.scss" as *;
+
+// ============================================================
+// 专利知识库定制样式 v3（W2）
+// 一、液态玻璃视觉体系：--glass-* token + 侧栏/卡片玻璃化
+// 二、中文四字体协同排版（公文体例）：
+//     标题=黑体（--headerFont，苹方栈，quartz.config.ts）
+//     正文=宋体（--bodyFont，宋体栈，quartz.config.ts）
+//     引用/摘句=楷体（blockquote 与 em）
+//     法条条文/原文块=仿宋（data-slug 前缀定位条文页）
+// 注意：绝不改动 --light/--lightgray/--secondary 等既有主题变量
+// （PixiJS 图谱经 getComputedStyle 读取它们）。
+// ============================================================
+
+// —— 楷体栈（引用块与词条页 evidence 摘句） ——
+$fontKai: "Kaiti SC", "KaiTi", "STKaiti", "Noto Serif CJK SC", serif;
+// —— 仿宋栈（法条条文与"原文"容器） ——
+$fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", serif;
+
+// ============================================================
+// 一、液态玻璃 token（浅/深两套；新增变量，不触碰既有主题变量）
+// ============================================================
+
+:root {
+  // 浅色玻璃：白玻璃 + 白色内描边高光 + 轻弥散阴影
+  // F7 对比度：--glass-bg 0.55→0.72、--glass-inner-bg 0.38→0.5，玻璃上文字更稳
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.65);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --glass-blur: 20px;
+  --glass-saturate: 1.5;
+  // 玻璃面板内的二级卡片底（不再叠加 blur，避免嵌套 backdrop-filter 开销）
+  --glass-inner-bg: rgba(255, 255, 255, 0.5);
+  // 回退近实底（不支持 backdrop-filter 或用户偏好降低透明度时）
+  --glass-bg-solid: #f7f5f5;
+  // 全屏遮罩着色
+  --glass-tint: rgba(255, 255, 255, 0.25);
+  // 图谱标签字体：黑体栈，与标题一致；由 theme.ts 输出 --graphFont，
+  // graph.inline.ts 改读 --graphFont 后生效（W3 领地，见交接说明）
+
+  // —— 图谱边色 token（F7）：graph.inline.ts 读取，变量缺失时回落旧 --lightgray/--gray ——
+  --graphLink: #c9ccd1;
+  --graphLinkActive: #8a8f98;
+
+  // —— CSS 颜色混合函数的等效静态色（F12：Electron 22 = Chromium 108 不支持该函数，
+  //     按原混合语义手算；深色对应值见下方 saved-theme="dark" 块）——
+  // 页面底衬渐变：≈ secondary(#284b63) 7% / tertiary(#84a59d) 8% 混透明
+  --page-tint-a: rgba(40, 75, 99, 0.07);
+  --page-tint-b: rgba(132, 165, 157, 0.08);
+  // 条文块/原文容器底色：≈ secondary 5% 混透明
+  --accent-wash: rgba(40, 75, 99, 0.05);
+  // 玻璃遮罩无模糊回退：≈ glass-tint 60% 混 --light(#faf8f8)
+  --glass-overlay-fallback: rgba(251, 250, 250, 0.55);
+  // 玻璃底上的悬停高亮：≈ lightgray(#e5e5e5) 55% 混透明
+  --glass-hover-wash: rgba(229, 229, 229, 0.55);
+  // 悬停预览弹窗底：阅读面近实底（弹窗的 backdrop-filter 因 Backdrop Root
+  // 隔离而失效，半透明底会与下层正文叠字，见 popover.scss）
+  --popover-bg: rgba(250, 249, 249, 0.98);
+}
+
+:root[saved-theme="dark"] {
+  // 深色玻璃：近黑玻璃 + 弱白描边 + 加深阴影
+  // F7 对比度：--glass-bg 0.55→0.68、--glass-inner-bg 0.05→0.15（与 bg 保持层次差）
+  --glass-bg: rgba(24, 24, 30, 0.68);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --glass-inner-bg: rgba(255, 255, 255, 0.15);
+  --glass-bg-solid: #1c1c22;
+  --glass-tint: rgba(10, 10, 14, 0.35);
+
+  // 图谱边色（F7 深色）
+  --graphLink: #55555c;
+  --graphLinkActive: #9a9aa2;
+
+  // 颜色混合等效静态色（F12 深色：secondary=#7b97aa、light=#161618、lightgray=#393639）
+  --page-tint-a: rgba(123, 151, 170, 0.07);
+  --page-tint-b: rgba(132, 165, 157, 0.08);
+  --accent-wash: rgba(123, 151, 170, 0.05);
+  --glass-overlay-fallback: rgba(18, 18, 21, 0.61);
+  --glass-hover-wash: rgba(57, 54, 57, 0.55);
+  --popover-bg: rgba(26, 26, 32, 0.98);
+}
+
+// 公共工具类：任何元素挂 .glass 即获得玻璃面板形态
+.glass {
+  @include glass-panel(14px);
+}
+
+// ============================================================
+// 二、页面底衬：极淡主题色渐变，衬托玻璃层次（背景色 --light 不动）
+// ============================================================
+
+body {
+  // 渐变着色取 --page-tint-*（F12：颜色混合的等效静态色，深浅主题各一套）
+  background-image:
+    radial-gradient(1100px 700px at 8% -10%, var(--page-tint-a), transparent 60%),
+    radial-gradient(900px 620px at 102% 0%, var(--page-tint-b), transparent 55%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+// ============================================================
+// 三、玻璃化覆盖：左右侧栏 + 右栏三卡统一卡片化
+//（搜索模态/popover/全局图弹窗/面包屑在各组件 scss 内玻璃化）
+// ============================================================
+
+// 左右侧栏容器 → 玻璃卡形态（视觉属性；布局属性仅在非移动端微调）。
+// 必须用 host 变体：侧栏内嵌搜索模态与全局图弹窗（position:fixed），
+// 直接上 backdrop-filter 会把二者的定位基准劫持为侧栏（弹窗溢出屏外）。
+.page > #quartz-body > .sidebar {
+  @include glass-panel-host(16px);
+}
+
+// 非移动端：侧栏上下略缩进悬浮，让圆角与描边完整可见。
+// v6 修复：显式恢复 position:sticky——glass-panel-host 的 position:relative
+//（glass.scss:38，为 ::before 模糊层提供包含块）与 base.scss 的 sticky 同特异性
+// 且打包序在后，曾把 sticky 静默覆盖，导致侧栏随正文一起滚走。
+// sticky 同为定位元素，::before 的包含块不变；sticky 不进入 fixed 后代的
+// 包含块链（backdrop-filter 只在 ::before 上），内嵌搜索模态与全局图弹窗
+//（position:fixed）的定位不回归。
+@media all and not ($mobile) {
+  .page > #quartz-body > .sidebar {
+    position: sticky;
+    // sticky 未吸附时 top 不产生偏移，用 margin-top 补回同等的常规流留白
+    margin-top: 0.75rem;
+    top: 0.75rem;
+    height: calc(100vh - 1.5rem);
+  }
+  // 平板断点下右栏本就退化为文末横排（base.scss 高优先级规则接管
+  // position/height），此处 top 对 position:initial 元素无副作用
+}
+
+// 平板段既存缺陷修复（v6）：base.scss 平板媒体块以 (1,3,0) 把 .sidebar.right
+// 设为 position:initial，宿主 ::before（absolute/inset:0 + backdrop-filter）
+// 失去包含块、逃逸到视口初始包含块，在 <1200px 内容页上形成覆盖正文的
+// 全屏毛玻璃薄片。以同等 (1,3,0) 在后位恢复 relative
+//（非 sticky——平板右栏本就该横排在文末）。
+@media all and not ($desktop) {
+  .page > #quartz-body > .sidebar.right {
+    position: relative;
+  }
+}
+
+// 移动端：左侧栏退化为顶部横条且 padding 为 0，玻璃框会紧贴内容，
+// 故还原为透明形态；右栏在移动端保持玻璃卡（有自身高度与内边距）
+@media all and ($mobile) {
+  .page > #quartz-body > .sidebar.left {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+
+    // host 变体的模糊层随之撤下
+    &::before {
+      display: none;
+    }
+  }
+}
+
+// 右侧栏配置为空（列表页 right: []）时仍会渲染空的 .sidebar 占位玻璃卡，
+// 悬浮遮挡内容——整体隐藏（F6）
+.page > #quartz-body > .sidebar.right:empty {
+  display: none;
+}
+
+// 右栏 graph / toc / backlinks → 统一二级卡片化：
+// 描边 + 内层浅底 + 圆角；不再叠加 backdrop-filter（父级玻璃已模糊）
+.page > #quartz-body > .sidebar.right {
+  & > .graph,
+  & > .toc,
+  & > .backlinks {
+    box-sizing: border-box;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    background-color: var(--glass-inner-bg);
+  }
+}
+
+// ============================================================
+// 四、四字体协同排版（公文体例）
+// ============================================================
+
+// —— UI 层统一黑体（F4）：站点骨架（侧栏/页头/工具条/页脚等）整体用黑体，
+//    覆盖 base.scss 的 body { font-family: var(--bodyFont) } 级联
+//    （custom.scss 在 base 之后输出，同特异性后者胜）；正文区随后显式恢复宋体。
+//    既有显式声明不受影响：楷体（blockquote/em）、仿宋（法条/原文块）、
+//    --codeFont（base.scss 直接命中 code 元素）、--graphFont（画布内读取）。
+body {
+  font-family: var(--headerFont);
+}
+
+// 正文阅读区与浮窗预览恢复宋体
+article,
+.popover .popover-inner {
+  font-family: var(--bodyFont);
+}
+
+// 列表页（文件夹/标签页）内的条目列表属导航而非正文 → 黑体
+article .page-listing {
+  font-family: var(--headerFont);
+}
+
+// —— 正文（宋体，17px / 行高 1.85 / 段距 0.9em / 最大行宽约 46em） ——
+article {
+  font-size: 17px;
+  line-height: 1.85;
+  // 宋体细横画在低倍屏易发虚：保持次像素渲染 + 连字微调
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+// 阅读区最大行宽约 46em（17px 下约 780px），超宽屏下居中
+.page .center > article {
+  max-width: 46em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+article p {
+  margin: 0.9em 0;
+  line-height: 1.85;
+  text-align: justify;
+  letter-spacing: 0.01em;
+}
+
+article li,
+.popover .popover-inner p,
+.popover .popover-inner li {
+  line-height: 1.85;
+}
+
+// —— 标题层级（黑体，字重/字距/上下留白节奏） ——
+// v6 排版节奏（P8，Apple tracking 分级）：字号越大字距越收紧（中文取值
+// 保守）、行高与字号反比；margin 成组——标题贴近它所领起的内容、与上一段
+// 拉开距离。字重与 font-family 不动。
+article h1 {
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+  margin-bottom: 0.7rem;
+}
+
+article h2 {
+  font-weight: 600;
+  letter-spacing: 0;
+  margin-top: 2.4rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.38;
+}
+
+article h3 {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-top: 1.9rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.45;
+}
+
+article h4,
+article h5,
+article h6 {
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  margin-top: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+// —— 引用块与词条页 evidence 摘句 → 楷体 ——
+// 词条页出处摘句以斜体 em 呈现；中文无斜体传统，改以楷体正体表达引文语气
+article blockquote {
+  font-family: $fontKai;
+}
+
+article em,
+.popover .popover-inner em {
+  font-family: $fontKai;
+  font-style: normal;
+}
+
+// —— 法条条文 → 仿宋 ——
+// 依据：法条/细则/判定指南词条页由 build-quartz-md.mjs 生成，结构固定为
+// 「首段 <p>上级：…</p> → 条文正文若干 <p> → <h2>关联/出处 → <ul>」；
+// 页面归属经 <body data-slug="…"> 的顶层目录前缀判定（见产物 HTML）。
+// 条文段落统一仿宋 + 左侧 3px 主题色细线 + 极浅主题色底，
+// margin 归零使相邻条文段连成完整"原文块"，段距转由 padding 承担。
+body[data-slug^="1-专利法"] article > p:not(:first-child),
+body[data-slug^="2-专利法实施细则"] article > p:not(:first-child),
+body[data-slug^="4-侵权判定指南"] article > p:not(:first-child) {
+  font-family: $fontFang;
+  border-left: 3px solid var(--secondary);
+  background-color: var(--accent-wash);
+  margin: 0;
+  padding: 0.45em 1em 0.45em 1.05em;
+}
+
+// 复位：h2（关联/出处/子节点）之后的段落不是条文，恢复宋体正文形态
+body[data-slug^="1-专利法"] article > h2 ~ p,
+body[data-slug^="2-专利法实施细则"] article > h2 ~ p,
+body[data-slug^="4-侵权判定指南"] article > h2 ~ p {
+  font-family: var(--bodyFont);
+  border-left: none;
+  background-color: transparent;
+  margin: 0.9em 0;
+  padding: 0;
+}
+
+// —— quote 类 callout → 仿宋（原文引用容器体例） ——
+// 注：法条页条文的仿宋带左线体例由上方 `article > p` 规则承担，与本节无关。
+//（原先并列的 `article details.original-fold` 一组规则已删除：该 class 全项目
+//  零使用者，且图谱面板的原文折叠已改为直出，"预留约定"的对象不复存在。）
+.callout[data-callout="quote"] {
+  font-family: $fontFang;
+}
+
+// ============================================================
+// 五、既有中文排版微调（v2 保留项）
+// ============================================================
+
+// 行内代码与中文混排：字号微降避免基线跳动；长串（条文编号/术语代号）允许折行
+article code {
+  font-size: 0.85em;
+  word-break: break-all;
+}
+
+// 代码块：恢复正常断词并加大行高（中文注释行更易读）
+article pre code {
+  line-height: 1.6;
+  word-break: normal;
+}
+
+// 表格：条文对照类表格常见，放宽单元格行高
+article table th,
+article table td {
+  line-height: 1.7;
+}
+
+// ============================================================
+// 五、布局气口 + 滚动条/边框打磨（v5.1 UI 缺陷修复）
+// ============================================================
+
+// 桌面/平板：整页可用宽度放宽（原 1500px），三栏气口从 5px 加大——
+// 侧栏玻璃卡不再紧贴正文，宽屏下向两侧舒展
+@media all and not ($mobile) {
+  .page {
+    max-width: min(1720px, calc(100vw - 3rem));
+  }
+  .page > #quartz-body {
+    column-gap: 2.25rem;
+  }
+}
+@media all and ($tablet) {
+  .page > #quartz-body {
+    column-gap: 1.25rem;
+  }
+}
+
+// 主题化细滚动条：胶囊拇指 + 透明轨道（WebKit 全兼容；
+// scrollbar-width/color 为新 Chromium/Firefox 渐进增强，旧核无害忽略）
+:root {
+  --scroll-thumb: rgba(60, 64, 72, 0.28);
+  --scroll-thumb-hover: rgba(60, 64, 72, 0.45);
+}
+:root[saved-theme="dark"] {
+  --scroll-thumb: rgba(220, 224, 235, 0.18);
+  --scroll-thumb-hover: rgba(220, 224, 235, 0.32);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) transparent;
+}
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb);
+  border-radius: 8px;
+  border: 2.5px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scroll-thumb-hover);
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+// 玻璃卡内滚动区：滚动条与圆角描边之间留出稳定内距，拇指不压边
+.page > #quartz-body > .sidebar.left,
+.explorer-content {
+  scrollbar-gutter: stable;
+}
+
+// 分隔线与代码块边框统一玻璃系弱化，去生硬实线
+article hr {
+  border: none;
+  border-top: 1px solid var(--glass-border);
+}
+article pre {
+  border-color: var(--glass-border);
+}
+
+// ============================================================
+// 列表页 / 页顶不显示 git 合成日期
+// 全库 frontmatter 无 date，日期来自构建机的 git 提交时间，对工具书无意义；
+// 法条页尤甚（读者会误读为法条生效日）。仅保留阅读时长。
+// 对应 quartz/components/PageList.tsx 与 ContentMeta.tsx 的日期渲染。
+// ============================================================
+
+// 一、列表行左列日期（FolderPage / TagPage 的 PageList）
+li.section-li > .section > .meta {
+  display: none;
+}
+// .meta 移出网格流后必须重排列宽（原 fit-content(8em) 3fr 1fr），否则 .desc 落进 8em 列被压扁
+li.section-li > .section {
+  grid-template-columns: 3fr 1fr;
+}
+.popover .section {
+  grid-template-columns: 1fr !important;
+}
+
+// 二、页顶 ContentMeta 的日期（保留「N分钟阅读」）
+// show-comma 的逗号挂在 time 自身的 ::after 上，随 time 一并隐藏，不留孤逗号
+.content-meta > time {
+  display: none;
+}
+
+// ============================================================
+// 六、视觉方向调整（v6）：动效 / 材质 / 导航 token
+// 参照 Apple 设计规范（临界阻尼缓动、时长 <300ms、材质厚度分级、
+// vibrancy 实色导航文本）。本节只定义 token；消费处一律带 fallback 值，
+// 使本节可独立 revert 而不破版。禁用 color-mix()（Chromium 108），
+// 全部为手算静态色，深浅主题各一套。
+// ============================================================
+
+:root {
+  // —— 缓动（默认临界阻尼，无过冲）——
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1); // UI 进入/退出
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); // 屏内移动/主题切换
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1); // 抽屉/折叠展开
+  --ease-hover: ease; // 悬停着色
+
+  // —— 时长分级（全部 <300ms；频率越高越短）——
+  --duration-press: 120ms; // 按压反馈
+  --duration-hover: 140ms; // 悬停着色
+  --duration-tooltip: 180ms; // 悬停预览浮窗
+  --duration-menu: 220ms; // 折叠展开/下拉
+  --duration-modal: 280ms; // 搜索/图谱弹窗
+  --duration-theme: 260ms; // 暗色切换
+
+  // —— 材质厚度分级：thick 用于导航层（左侧栏/模态面板）；
+  //    regular 沿用既有 --glass-*（数值不动）——
+  --glass-bg-thick: rgba(255, 255, 255, 0.86);
+  --glass-blur-thick: 30px;
+  --glass-saturate-thick: 1.7;
+  // 滚动边缘渐隐遮罩用色（scroll edge effect），与 thick 面同色系
+  --glass-scrim: rgba(255, 255, 255, 0.92);
+
+  // —— vibrancy：玻璃面上的导航文本用实色而非降透明度
+  //   （中文细笔画在半透明面上发虚）——
+  --nav-fg: #33383f;
+  --nav-fg-muted: #6b7280;
+  --nav-active-wash: rgba(40, 75, 99, 0.1);
+
+  // —— 阅读栏宽的 rem 等价值：正文 46em 基于 article 的 17px（=782px），
+  //    页头/页脚/翻页卡的字体上下文是 16px，直接写 46em 会窄 46px——
+  //    对齐一律用本变量（782px ÷ 16px = 48.875rem）——
+  --reading-col: 48.875rem;
+}
+
+:root[saved-theme="dark"] {
+  --glass-bg-thick: rgba(22, 22, 28, 0.82);
+  --glass-scrim: rgba(22, 22, 28, 0.9);
+  --nav-fg: #dcdde1;
+  --nav-fg-muted: #9aa0aa;
+  --nav-active-wash: rgba(123, 151, 170, 0.16);
+}
+
+// —— 目录树当前项高亮（P4）：vibrancy——玻璃面上用实色与字重表达层级，
+//    弃用降透明度（中文细笔画在半透明面上发虚）——
+.explorer-content ul li > a {
+  opacity: 1;
+  color: var(--nav-fg, var(--darkgray));
+  border-radius: 5px;
+  transition:
+    color var(--duration-hover, 140ms) var(--ease-hover, ease),
+    background-color var(--duration-hover, 140ms) var(--ease-hover, ease);
+}
+
+.explorer-content ul li > a.active {
+  color: var(--secondary);
+  font-weight: 500;
+  background-color: var(--nav-active-wash, rgba(40, 75, 99, 0.1));
+  // 负 margin 补偿 padding，保持文字缩进与相邻行对齐；指示条画在 padding 区内
+  padding: 0.05rem 0.35rem;
+  margin-left: -0.35rem;
+  box-shadow: inset 2px 0 0 var(--secondary);
+}
+
+// 目录页（folder index）当前态——上游从未给样式；标题本就是主题色，
+// 以字重与下划线表达「当前所在」
+.folder-container.active .folder-title,
+.folder-container.active > div > a {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+}
+
+// —— TOC 当前小节强调（P5）：上游 in-view 是「已越过」累积集合（读作进度），
+//    reading.inline.ts 取其最后一个打 .toc-current 表达「当前位置」——
+.toc-content a.toc-current {
+  opacity: 1;
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+// ============================================================
+// 七、动效体系归一（P6）：零散过渡统一到 token + 模态入场 + 三档无障碍
+// 原则：进入/退出 ease-out、屏内移动 ease-in-out、抽屉折叠 ease-drawer、
+// 悬停着色 ease；只动 transform/opacity/颜色，禁 transition:all；
+// 高频操作动效最短。重声明一律与上游同选择器（同特异性后位胜）。
+// ============================================================
+
+// —— 链接着色（原 base.scss a{transition:color .2s ease}）——
+a {
+  transition: color var(--duration-hover, 140ms) var(--ease-hover, ease);
+}
+
+// —— 目录树折叠箭头与文件夹图标（原 .3s/.35s ease）——
+.explorer .fold,
+.explorer svg,
+.folder-icon {
+  transition: transform var(--duration-menu, 220ms) var(--ease-out, ease-out);
+}
+
+// —— 目录树文件夹展开/收起（原 .3s ease-in-out；property 不动）——
+.explorer-content .folder-outer {
+  transition-duration: var(--duration-menu, 220ms);
+  transition-timing-function: var(--ease-drawer, ease-in-out);
+}
+
+// —— TOC 折叠箭头与条目着色（原 .3s / .5s+.3s）——
+button.toc-header .fold {
+  transition: transform var(--duration-menu, 220ms) var(--ease-out, ease-out);
+}
+ul.toc-content.overflow > li > a {
+  transition:
+    opacity var(--duration-hover, 140ms) var(--ease-hover, ease),
+    color var(--duration-hover, 140ms) var(--ease-hover, ease);
+}
+
+// —— callout 折叠（原 .1s 自定曲线）——
+.callout > .callout-content {
+  transition: grid-template-rows var(--duration-menu, 220ms) var(--ease-drawer, ease-in-out);
+}
+
+// —— 代码块复制按钮（原 transition:.2s 即 all，违反性能规则）——
+.clipboard-button,
+pre:hover > .clipboard-button {
+  transition:
+    opacity var(--duration-hover, 140ms) var(--ease-out, ease-out),
+    border-color var(--duration-hover, 140ms) var(--ease-hover, ease);
+}
+
+// —— 悬停预览浮窗入场（Apple：从触发点生长，scale 0.96→1，禁 scale(0)）——
+// 上游机制：.popover 默认 hidden，显示走 animation dropin（含 0.2s 悬停意图
+// 延迟）、关闭走 transition。此处 timing 归 token，并给 popover-inner 叠加
+// 同步的缩放入场；transform-origin 取左上（floating-ui 把浮窗定位在指针旁，
+// 左上角即触发方向）。不碰 .popover 自身的定位 transform。
+.popover {
+  transition:
+    opacity var(--duration-tooltip, 180ms) var(--ease-out, ease-out),
+    visibility var(--duration-tooltip, 180ms) var(--ease-out, ease-out);
+}
+.active-popover,
+.popover:hover {
+  animation: dropin var(--duration-tooltip, 180ms) var(--ease-out, ease-out) forwards;
+  animation-delay: 0.2s;
+}
+.popover > .popover-inner {
+  transform: scale(0.96);
+  transform-origin: 0 0;
+}
+.active-popover > .popover-inner,
+.popover:hover > .popover-inner {
+  animation: kb-pop-in var(--duration-tooltip, 180ms) var(--ease-out, ease-out) forwards;
+  animation-delay: 0.2s;
+}
+@keyframes kb-pop-in {
+  from {
+    transform: scale(0.96);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+// —— 搜索模态入场（display:none 切换 → 必须 keyframes；出场保持即时）——
+@keyframes kb-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes kb-panel-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.search > .search-container.active {
+  animation: kb-overlay-in var(--duration-modal, 280ms) var(--ease-out, ease-out) both;
+}
+.search > .search-container.active > .search-space > * {
+  animation: kb-panel-in var(--duration-modal, 280ms) var(--ease-out, ease-out) both;
+  transform-origin: 50% 0;
+}
+// 结果区随输入框 stagger（∈[30,80]ms）
+.search > .search-container.active > .search-space > *:nth-child(2) {
+  animation-delay: 50ms;
+}
+
+// —— 全局图弹窗入场（容器自带 translate(-50%,-50%) 居中，动画帧须合并）——
+@keyframes kb-graph-panel-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+.graph > .global-graph-outer.active {
+  animation: kb-overlay-in var(--duration-modal, 280ms) var(--ease-out, ease-out) both;
+}
+.graph > .global-graph-outer.active > .global-graph-container {
+  animation: kb-graph-panel-in var(--duration-modal, 280ms) var(--ease-out, ease-out) both;
+}
+
+// —— 暗色切换：仅对「面」列举式过渡（不用 * 通配；PixiJS 读变量瞬变无碍）——
+body,
+article,
+.popover > .popover-inner,
+.page > #quartz-body > .sidebar::before,
+.page > #quartz-body > .sidebar.right > .graph,
+.page > #quartz-body > .sidebar.right > .toc,
+.page > #quartz-body > .sidebar.right > .backlinks,
+.page-nav-item,
+.reading-fab {
+  transition:
+    background-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out),
+    color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
+}
+
+// ============================================================
+// 八、三档无障碍降级（P6）
+// ============================================================
+
+// 一、减弱动效：时长压至 80ms/1ms、缓动归 linear、位移类一律取消，
+// 保留短促 opacity 变化辅助理解；末尾通配兜底未走 token 的上游硬编码。
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-press: 1ms;
+    --duration-hover: 80ms;
+    --duration-tooltip: 80ms;
+    --duration-menu: 80ms;
+    --duration-modal: 80ms;
+    --duration-theme: 80ms;
+    --ease-out: linear;
+    --ease-in-out: linear;
+    --ease-drawer: linear;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  // 位移/缩放类取消（图弹窗容器靠 translate 居中，禁整体 transform:none，
+  // 仅停掉其缩放动画回到静态居中）
+  .popover > .popover-inner {
+    transform: none;
+    animation: none;
+  }
+  .search > .search-container.active > .search-space > * {
+    animation: none;
+  }
+  .graph > .global-graph-outer.active > .global-graph-container {
+    animation: none;
+  }
+  .reading-fab {
+    transform: none;
+  }
+  .page-nav-item:active,
+  .reading-fab:active {
+    transform: none;
+  }
+  .explorer .fold,
+  .explorer svg,
+  .folder-icon,
+  button.toc-header .fold {
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 80ms !important;
+    transition-duration: 80ms !important;
+  }
+}
+
+// 二、降低透明度：厚材质转实底、底衬撤除、阅读面去模糊
+//（glass.scss 已覆盖玻璃面板/遮罩本体，此处补 token 与个别件；
+// Electron 22 = Chromium 108 不支持本查询，仅浏览器与未来升级生效）
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass-bg-thick: var(--glass-bg-solid);
+    --glass-scrim: var(--glass-bg-solid);
+    --glass-inner-bg: rgba(0, 0, 0, 0.04);
+    --page-tint-a: transparent;
+    --page-tint-b: transparent;
+  }
+  :root[saved-theme="dark"] {
+    --glass-inner-bg: rgba(255, 255, 255, 0.08);
+  }
+  .popover > .popover-inner {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+// 三、高对比：玻璃实底、描边加深、正文内链下划线、导航文本满不透明
+@media (prefers-contrast: more) {
+  :root {
+    --glass-bg: var(--glass-bg-solid);
+    --glass-bg-thick: var(--glass-bg-solid);
+    --glass-border: var(--darkgray);
+    --nav-fg: var(--dark);
+  }
+  .page > #quartz-body > .sidebar {
+    box-shadow: none;
+  }
+  .page > #quartz-body > .sidebar::before {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  article a.internal {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .explorer-content ul li > a {
+    opacity: 1;
+  }
+  ul.toc-content.overflow > li > a {
+    opacity: 0.85;
+  }
+}
+
+// ============================================================
+// 九、材质层级 + 滚动边缘渐隐（P7）
+// Apple 材质规则：结构分区靠材质厚度而非硬边框；导航层（左侧栏/模态
+// 面板）用厚材质、辅助层（右侧栏）保持既有 regular、二级卡与阅读面
+// 不叠 blur（现状已合规）。厚材质实现＝宿主重定义 --glass-* 变量，
+// glass mixin 的取值随之切换——不改 glass.scss、不新增 mixin。
+// ============================================================
+
+// 左侧栏（导航主体）→ 厚材质；厚材质自足分区，描边随之减弱
+.page > #quartz-body > .sidebar.left {
+  --glass-bg: var(--glass-bg-thick, rgba(255, 255, 255, 0.86));
+  --glass-blur: var(--glass-blur-thick, 30px);
+  --glass-saturate: var(--glass-saturate-thick, 1.7);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+:root[saved-theme="dark"] .page > #quartz-body > .sidebar.left {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+// 搜索模态面板与全局图容器 → 厚材质（全屏遮罩之上的操作面）
+.search > .search-container > .search-space > *,
+.graph > .global-graph-outer > .global-graph-container {
+  --glass-bg: var(--glass-bg-thick, rgba(255, 255, 255, 0.86));
+  --glass-blur: var(--glass-blur-thick, 30px);
+  --glass-saturate: var(--glass-saturate-thick, 1.7);
+}
+
+// 目录树滚动边缘渐隐（scroll edge effect）：顶/底 22px 渐隐遮罩取代硬切边，
+// data-edge-* 属性由 explorer.inline.ts 随滚动位置翻转。
+// 用覆盖层而非 mask-image——后者会与 OverflowList 的渐变机制抢同一属性。
+@media all and not ($mobile) {
+  .explorer-content {
+    position: relative;
+  }
+  .explorer-content::before,
+  .explorer-content::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 22px;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity var(--duration-menu, 220ms) var(--ease-out, ease-out);
+  }
+  .explorer-content::before {
+    top: 0;
+    background: linear-gradient(
+      to bottom,
+      var(--glass-scrim, rgba(255, 255, 255, 0.92)),
+      transparent
+    );
+  }
+  .explorer-content::after {
+    bottom: 0;
+    background: linear-gradient(to top, var(--glass-scrim, rgba(255, 255, 255, 0.92)), transparent);
+  }
+  .explorer-content[data-edge-top]::before {
+    opacity: 1;
+  }
+  .explorer-content[data-edge-bottom]::after {
+    opacity: 1;
+  }
+}
+
+// 移动端 sticky 顶栏：var(--light) 实底硬切边 → 厚材质半透明底 + 底缘渐隐
+//（顶栏内嵌搜索模态，不能上 backdrop-filter——host 变体的 ::before 已在
+// 移动端撤下，0.86 高不透明度无模糊也可读）
+@media all and ($mobile) {
+  .page > #quartz-body > .sidebar.left:has(.explorer) {
+    background-color: var(--glass-bg-thick, rgba(255, 255, 255, 0.86));
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      height: 10px;
+      pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        var(--glass-scrim, rgba(255, 255, 255, 0.92)),
+        transparent
+      );
+    }
+  }
+}
+
+// ============================================================
+// 十、排版节奏补全（P8）：小字 UI 正字距 + 宽屏栏宽对齐
+//（标题字距/行高/间距分级已并入第四节标题块；正文 46em/17px/1.85 不动）
+// ============================================================
+
+// 小字 UI 统一 +0.02em（Apple tracking：小字放开字距助读）
+.content-meta,
+.breadcrumb-container,
+.explorer-content ul li > a,
+ul.toc-content.overflow > li > a {
+  letter-spacing: 0.02em;
+}
+
+// 宽屏栏宽对齐（wayfinding）：页头（面包屑/标题/meta）、分隔线、页脚
+//（翻页卡）与正文同限一栏居中——消除标题栏比正文宽出一截的视觉断裂。
+// 用 --reading-col（46em@17px 的 rem 等价）而非 46em：此处字体上下文为
+// 16px，直接 46em 会比正文窄 46px。图谱总览页除外（其 page-footer 承载
+// 全幅图谱应用）。
+// 选择器须含 #quartz-body：base 的 .page>#quartz-body .page-header 以
+// margin 简写（6rem 0 0）锁横向 margin 为 0，类选择器组合争不过 ID 特异性
+@media all and not ($mobile) {
+  body:not([data-slug="0-图谱总览/index"]) #quartz-body .center > .page-header,
+  body:not([data-slug="0-图谱总览/index"]) #quartz-body .center > hr,
+  body:not([data-slug="0-图谱总览/index"]) #quartz-body .center > .page-footer {
+    max-width: var(--reading-col, 48.875rem);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// ============================================================
+// 十一、术语链接的视觉分层（S1）
+// base.scss:96-100 给全部 a.internal 一律套灰胶囊（--highlight 底 +
+// 圆角 + padding）。法条页一段里常有数个术语链接，胶囊连片后条文被
+// 切成碎块。生成器侧已把行内术语收口到 seed 层（8342→3125 条），此处
+// 再做视觉分层：术语链接改「主题色文字 + 细下边框」的轻表现，章节内
+// 链保留胶囊——读者据此一眼区分「跳到词条」与「跳到章节」。
+// 只作用于 article 内，面包屑/关联区块/侧栏的链接不受影响。
+// ============================================================
+
+article a.internal[href*="9-关键词索引/"] {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  // 细下边框代替胶囊：占位不撑行高，密集段落也不连片
+  border-bottom: 1px solid var(--term-link-line, rgba(40, 75, 99, 0.28));
+  transition:
+    border-color var(--duration-hover, 140ms) var(--ease-hover, ease),
+    background-color var(--duration-hover, 140ms) var(--ease-hover, ease);
+
+  &:hover {
+    background-color: var(--highlight);
+    border-bottom-color: var(--tertiary);
+  }
+}
+
+:root[saved-theme="dark"] {
+  --term-link-line: rgba(123, 151, 170, 0.4);
+}
+
+// 高对比模式：细边框在实底背景下辨识度不足，回到实线下划线
+@media (prefers-contrast: more) {
+  article a.internal[href*="9-关键词索引/"] {
+    border-bottom-color: var(--secondary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
+// ============================================================
+// 十二、字号阶梯与侧栏层级（S6）
+// ============================================================
+// 实测三处失衡（1440 视口 computed style）：
+//   1. 侧栏站名 28px 与页面标题 28px 等大——导航层压过内容层；
+//   2. 目录树层级倒挂：叶子条目 16px/600 反而重于父级文件夹行 15.2px/600；
+//   3. 面包屑、阅读时长、页脚均为 16px，与正文 17px 仅差 1px，元信息与
+//      正文争夺视觉。
+// 根因是两套度量体系并存：正文 article 是 17px 绝对值，而 base.scss 的
+// h1–h6 与各组件均按 rem（root 16px）走，彼此不成比例。
+//
+// 取值原则（中文排版）：中文无升降部与大小写对比，层级差主要靠字号与字重，
+// 相邻档位需差 15% 以上才可辨——这正是现状 h3 只比正文大 5% 却显得扁平的
+// 原因。标题按 1.25 模数取 30 / 24 / 20 / 18，每档差 ≥2px；低于正文的
+// chrome 统一落到 14px 与 13px 两档，与 17px 明确分离。
+//
+// 红线复述：四字体的 font-family 声明与 article 的 17px / 1.85 / 46em
+// 全部不动，本节只动 font-size、font-weight、line-height。
+// ============================================================
+
+// —— 正文标题阶梯（内容中实际只用到 h2；h3–h6 为防御性设置，
+//    修正「h4–h6 比正文还小」这一潜在缺陷）——
+// 选择器含 #quartz-body 以压过 base.scss 的 `.page & article > h1`(0,1,2)
+#quartz-body .center > .page-header .article-title,
+#quartz-body article > h1 {
+  font-size: 1.875rem; // 30px：与 h2 拉开 6px，作全页视觉重心
+  line-height: 1.35;
+}
+
+article h2 {
+  font-size: 1.5rem; // 24px：24/17≈1.41，中文段落分界的最小可读比
+}
+
+article h3 {
+  font-size: 1.25rem; // 20px（原 17.92px，仅比正文大 5%）
+}
+
+article h4 {
+  font-size: 1.125rem; // 18px（原 16px，反小于正文）
+}
+
+article h5,
+article h6 {
+  font-size: 1.0625rem; // 17px：与正文等大，靠字重与字距分级
+}
+
+// —— 页头元信息：退到 14 / 13 两档，与正文 17px 明确分离 ——
+.content-meta {
+  font-size: 0.875rem; // 14px
+}
+
+.breadcrumb-container,
+.page-header .tags li a {
+  font-size: 0.8125rem; // 13px
+}
+
+// —— 侧栏站名：让位给页面标题 ——
+// PageTitle.tsx 内联 css 的 `.page-title` 特异性同为 (0,1,0)，custom.scss
+// 在组件 css 之后拼装，同级后位胜出
+.page-title {
+  font-size: 1.375rem; // 22px（原 28px，与页面标题撞档）
+}
+
+// —— 四个侧栏面板标题统一为四级信息 ——
+button.explorer-toggle > h2,
+button.toc-header > h3,
+.backlinks > h3,
+.graph > h3 {
+  font-size: 0.9375rem; // 15px
+}
+
+// —— 目录树：修层级倒挂（文件夹 15px/600 应重于叶子 14px/500）——
+.folder-container div > a,
+.folder-container div > button span {
+  font-size: 0.9375rem; // 15px
+}
+
+.explorer-content ul li > a {
+  font-size: 0.875rem; // 14px：小于父级文件夹行
+  // 字重由 600 降一档——实测导航条目比正文（400）还重，视觉上压过内容；
+  // 500 而非 400 是为在 14px 黑体小字下保住可点击感
+  font-weight: 500;
+}
+
+// —— 右栏辅助索引：最轻一档 ——
+ul.toc-content > li > a,
+.backlinks .overflow > li > a {
+  font-size: 0.875rem; // 14px
+}
+
+// —— 移动端：侧栏转抽屉后可读性优先，目录条目回到 15px；
+//    标题阶梯整体降一档，避免小屏下标题占满整行 ——
+@media all and ($mobile) {
+  #quartz-body .center > .page-header .article-title,
+  #quartz-body article > h1 {
+    font-size: 1.625rem; // 26px
+  }
+
+  article h2 {
+    font-size: 1.375rem; // 22px
+  }
+
+  article h3 {
+    font-size: 1.1875rem; // 19px
+  }
+
+  .explorer-content ul li > a {
+    font-size: 0.9375rem; // 15px：触屏下 14px 偏小
+  }
+
+  .page-title {
+    font-size: 1.25rem; // 20px
+  }
+}

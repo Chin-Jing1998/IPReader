@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/02/008",
+  "anchorNode": "rule-02-08",
+  "terms": [
+    { "name": "前序部分", "aliases": [], "role": "defined", "confidence": "high", "evidence": "前序部分：写明要求保护的发明或者实用新型技术方案的主题名称" },
+    { "name": "特征部分", "aliases": [], "role": "defined", "confidence": "high", "evidence": "特征部分：使用“其特征是……”或者类似的用语" },
+    { "name": "最接近的现有技术", "aliases": [], "role": "used", "confidence": "high", "evidence": "与最接近的现有技术共有的必要技术特征" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

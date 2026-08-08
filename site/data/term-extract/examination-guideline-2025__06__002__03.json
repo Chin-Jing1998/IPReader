@@ -1,0 +1,18 @@
+{
+  "chunk": "examination-guideline-2025/06/002/03",
+  "anchorNode": "06-02-03",
+  "terms": [
+    { "name": "给予保护的决定", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员应当作出给予保护的决定，向国际局发出给予保护声明" },
+    { "name": "给予保护声明", "aliases": [], "role": "used", "confidence": "high", "evidence": "向国际局发出给予保护声明" },
+    { "name": "驳回通知", "aliases": [], "role": "defined", "confidence": "high", "evidence": "驳回通知应当包含驳回所依据的全部理由以及相应的法律条款" },
+    { "name": "补正通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员应当进行全面审查，并向申请人发出补正通知书" },
+    { "name": "审查意见通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员应当向申请人发出审查意见通知书" },
+    { "name": "驳回决定", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员可以作出驳回决定" },
+    { "name": "前置审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "前置审查与复审后的处理" }
+  ],
+  "laws": [
+    "专利法第18条",
+    "专利法实施细则第3条第1款"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

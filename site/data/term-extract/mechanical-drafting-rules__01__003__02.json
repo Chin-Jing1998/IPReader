@@ -1,0 +1,10 @@
+{
+  "chunk": "mechanical-drafting-rules/01/003/02",
+  "anchorNode": "mech-01-03-02",
+  "terms": [
+    { "name": "两段式的写法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当采用两段式的写法，即先写大的领域，再写小的领域" },
+    { "name": "发明点", "aliases": [], "role": "used", "confidence": "high", "evidence": "不应写入发明点，导致对保护的范围直接或间接地构成限制" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

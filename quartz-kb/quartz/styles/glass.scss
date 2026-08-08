@@ -1,0 +1,90 @@
+// ============================================================
+// 液态玻璃材质 mixin（Apple HIG 材质规范）
+// —— 本文件只提供 mixin，不直接输出 CSS；token（--glass-*）统一
+//    定义在 custom.scss 的 :root / :root[saved-theme="dark"] 中。
+// —— 各组件样式通过 `@use "../../styles/glass.scss" as *;` 引入。
+// ============================================================
+
+// 玻璃面板：半透明底 + 背景模糊提饱和 + 1px 内描边高光 + 弥散阴影
+// $radius 默认 14px，可按组件传 10~16px
+@mixin glass-panel($radius: 14px) {
+  background-color: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: $radius;
+  box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+
+  // 回退一：环境不支持 backdrop-filter（含 -webkit- 前缀均不支持）时改近实底
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    background-color: var(--glass-bg-solid);
+  }
+
+  // 回退二：用户开启"降低透明度"偏好时同样改近实底并撤掉模糊
+  @media (prefers-reduced-transparency: reduce) {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background-color: var(--glass-bg-solid);
+  }
+}
+
+// 玻璃面板·宿主变体：视觉与 glass-panel 一致，但把 backdrop-filter 移到
+// ::before 伪元素上。用于**内部含 position:fixed 后代**的容器（左右侧栏——
+// 其中嵌着搜索模态与全局图弹窗）：带 backdrop-filter 的祖先会成为 fixed
+// 后代的包含块（CSS Filter Effects 规范），弹窗会错误地相对侧栏定位并溢出
+// 屏外；伪元素不在祖先链上，无此副作用。isolation 建立堆叠上下文使
+// z-index:-1 的伪元素垫底且不影响 fixed 定位基准。
+@mixin glass-panel-host($radius: 14px) {
+  position: relative;
+  isolation: isolate;
+  background-color: transparent;
+  border: 1px solid var(--glass-border);
+  border-radius: $radius;
+  box-shadow: var(--glass-shadow);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    background-color: var(--glass-bg);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  }
+
+  // 回退与 glass-panel 同语义：近实底落在元素本体上，伪元素撤下
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    background-color: var(--glass-bg-solid);
+    &::before {
+      display: none;
+    }
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    background-color: var(--glass-bg-solid);
+    &::before {
+      display: none;
+    }
+  }
+}
+
+// 全屏遮罩（搜索模态 / 全局图弹窗底层）：轻着色 + 模糊，弱于面板
+@mixin glass-overlay {
+  background-color: var(--glass-tint);
+  -webkit-backdrop-filter: blur(10px) saturate(1.2);
+  backdrop-filter: blur(10px) saturate(1.2);
+
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    // 无模糊能力时加深着色以保证前景面板可读；
+    // F12：--glass-overlay-fallback 为原「glass-tint 60% 混 --light」的
+    // 等效静态色（custom.scss 深浅主题各一套），字面回退值取浅色值
+    background-color: var(--glass-overlay-fallback, rgba(251, 250, 250, 0.55));
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background-color: var(--glass-overlay-fallback, rgba(251, 250, 250, 0.55));
+  }
+}

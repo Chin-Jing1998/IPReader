@@ -1,0 +1,192 @@
+[
+  {
+    "id": "term-0003",
+    "canonical": "遗传资源",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "四字高嵌入词（embedRate 0.989）但10条样例均指向遗传资源概念本身，如\"获取或者利用【遗传资源】\"\"专利法所称【遗传资源】，是指取自人体、动物、植物或者微生物\"；左邻字\"该/赖/用\"对应\"依赖该遗传资源\"\"利用遗传资源\"等固定搭配，语义未漂移。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0013",
+    "canonical": "比特流",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "3条样例均出自计算机程序发明审查若干规定章节，一致指向比特流概念，如\"单纯的【比特流】\"\"特定视频编码方法生成的【比特流】\"，embedRate为1但语义统一，无漂移迹象。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0016",
+    "canonical": "实施例",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例覆盖专利法、侵权判定指南、机械/化学撰写规范等多章节，均指专利文件中的具体实施方式；\"实施例1/2\"为编号实例仍属该概念（右邻字高频接数字1、2属正常引用模式），未见语义漂移。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0021",
+    "canonical": "独立权利要求",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例一致指向权利要求书中的独立权利要求概念，如\"权利要求书应当有【独立权利要求】\"\"【独立权利要求】应当包括前序部分和特征部分\"，语义高度稳定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0027",
+    "canonical": "新颖性",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例均对应专利法第22条新颖性要件，如\"应当具备【新颖性】、创造性和实用性\"\"《专利法》第22条第2款规定：【新颖性】，是指该发明或者实用新型不属于现有技术\"，右邻字\"。/和/、/或\"符合三性并列表述模式，语义无漂移。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0028",
+    "canonical": "现有技术",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例一致指向专利法所称现有技术概念，如\"不属于【现有技术】\"\"对照【现有技术】写明……有益效果\"\"最接近的【现有技术】\"，覆盖新颖性、创造性、侵权抗辩等章节但概念统一，无漂移。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0029",
+    "canonical": "抵触申请",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例均指同一法律概念——损害新颖性的在先申请，如\"根据其获得的有关现有技术或者【抵触申请】的信息\"\"将这种损害新颖性的专利申请，称为【抵触申请】\"，语义一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0033",
+    "canonical": "数值范围",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例一致指向权利要求/说明书中数值范围限定这一概念，如\"扩大了【数值范围】\"\"权利要求采用【数值范围】特征的\"\"数值或【数值范围】之后，不应缺乏单位\"，覆盖审查指南与化学撰写规范但语义统一。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0035",
+    "canonical": "创造性",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "左邻字以\"备\"（对应\"应当具备新颖性、创造性和实用性\"）居首位（102次），三性并列表述占主体；样例中另见\"创造性贡献/创造性劳动\"（发明人认定语境），二者共享\"实质性特点+创造性\"内核而非无关语义，故仍判可链，但因存在该关联但非完全重合的少数用法，置信度降为medium。",
+    "confidence": "medium"
+  },
+  {
+    "id": "term-0038",
+    "canonical": "区别特征",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指创造性判断中权利要求与最接近现有技术的区别技术特征，如\"指出独权与最接近的现有技术的【区别特征】\"\"该【区别特征】在要求保护的发明中所能达到的技术效果\"，语义高度一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0040",
+    "canonical": "技术启示",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例均指创造性判断三步法中的技术启示要件，如\"现有技术整体上是否给出了……【技术启示】\"\"判断过程中，要确定的是现有技术整体上是否存在某种【技术启示】\"，语义稳定统一。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0041",
+    "canonical": "所属技术领域的技术人员",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例一致指向专利法拟制的假设技术人员概念，如\"以【所属技术领域的技术人员】能够实现为准\"\"【所属技术领域的技术人员】在现有技术的基础上仅仅通过合乎逻辑的分析、推理\"，语义无漂移。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0042",
+    "canonical": "公知常识",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例均指创造性判断中的公知常识要件，如\"属于本领域的【公知常识】\"\"判断某一特征是否属于【公知常识】时\"\"技术词典、技术手册、教科书等……中的【公知常识】性证据\"，语义统一。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0051",
+    "canonical": "实用性",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例均指专利法第22条实用性要件，如\"应当具备新颖性、创造性和【实用性】\"\"【实用性】是指所申请的产品必须能够在产业中制造和应用\"，语义一致无漂移。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0052",
+    "canonical": "再现性",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例均指实用性判断中\"可重复实施\"这一子要件（含具体实施例中论证再现性满足该要件的用法），如\"应当具有【再现性】\"\"过度依赖个体行为，导致缺乏【再现性】，即不具实用性\"，语义统一。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0054",
+    "canonical": "单一性",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例一致指向专利申请单一性要求，如\"国际申请不符合……【单一性】要求\"\"分案申请存在【单一性】的缺陷\"\"判断……是否满足发明【单一性】的要求\"，语义无漂移。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0056",
+    "canonical": "分案申请",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例均指同一法律概念——从原申请中分出的新申请，如\"依照……规定提出【分案申请】\"\"【分案申请】应当在请求书中填写原申请的申请号和申请日\"，语义一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0057",
+    "canonical": "检索",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "no",
+    "reason": "evidenceCount为0且definition为空，属明确高危信号；样例中\"检索\"绝大多数为通用动词用法（\"进行检索\"\"经……检索\"\"检索到\"），未稳定指向审查指南\"检索\"章节的特定程序概念，且\"检索报告\"\"补充检索\"\"国际检索报告\"等更精确复合词已单独成词覆盖具体概念，裸词高频（416次/96页）泛链风险大，故不纳入行内链接。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0060",
+    "canonical": "答复期限",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例中9条指审查程序中通知书指定的答复期限（如\"补正通知书……同时指定【答复期限】\"\"审查意见通知书中……指定答复期限\"），仅1条（infr-06-07.md）指标准必要专利许可协商中的答复期限，属\"限期答复\"同一内核的关联用法而非无关语义，占比约90%达标，故判yes，因存在该少数关联语境置信度降为medium。",
+    "confidence": "medium"
+  }
+]

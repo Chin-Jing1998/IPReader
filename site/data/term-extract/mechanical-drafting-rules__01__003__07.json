@@ -1,0 +1,15 @@
+{
+  "chunk": "mechanical-drafting-rules/01/003/07",
+  "anchorNode": "mech-01-03-07",
+  "terms": [
+    { "name": "说明书附图", "aliases": [], "role": "used", "confidence": "high", "evidence": "3.7. 说明书附图" },
+    { "name": "标号引线", "aliases": [], "role": "used", "confidence": "high", "evidence": "标号引线不应过短或过长" },
+    { "name": "节点性特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "节点性特征应是存在于不同部件的连接处、或者部件上的不同位置处" },
+    { "name": "剖面线", "aliases": [], "role": "used", "confidence": "high", "evidence": "剖视图应当具有剖面线" },
+    { "name": "局部放大图", "aliases": [], "role": "used", "confidence": "high", "evidence": "可以另外增加一幅局部放大图" },
+    { "name": "爆炸图", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以采用爆炸图、截面图的方式引出该零部件的位置" },
+    { "name": "装配图", "aliases": [], "role": "used", "confidence": "mid", "evidence": "反映各部件相对位置关系的装配图以及爆炸图" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,16 @@
+{
+  "chunk": "examination-guideline-2025/03/001/05/11",
+  "anchorNode": "03-01-05-11",
+  "terms": [
+    { "name": "复查请求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "提出复查请求的情况是" },
+    { "name": "指定局", "aliases": [], "role": "used", "confidence": "high", "evidence": "允许申请人向作为指定局或选定" },
+    { "name": "受理局", "aliases": [], "role": "used", "confidence": "high", "evidence": "受理局拒绝给予国际申请日" },
+    { "name": "国际申请日", "aliases": [], "role": "used", "confidence": "high", "evidence": "受理局拒绝给予国际申请日" },
+    { "name": "登记本", "aliases": [], "role": "used", "confidence": "mid", "evidence": "没有收到国际申请的登记本" },
+    { "name": "国际局", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际局由于在规定期限内没有收到" },
+    { "name": "进入声明", "aliases": [], "role": "used", "confidence": "high", "evidence": "并且在进入声明中标明已经提出复查请求的事实" },
+    { "name": "国际公布", "aliases": [], "role": "used", "confidence": "high", "evidence": "没有完成国际公布的申请" }
+  ],
+  "laws": ["专利法实施细则第120条", "专利法实施细则第121条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "infringement-guide/06/001",
+  "anchorNode": "infr-06-01",
+  "terms": [
+    { "name": "专利权效力抗辩", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "专利权效力抗辩" },
+    { "name": "无效宣告请求", "aliases": [], "role": "used", "confidence": "high", "evidence": "其无效宣告请求应当向专利复审委员会提出" },
+    { "name": "专利复审委员会", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当向专利复审委员会提出" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

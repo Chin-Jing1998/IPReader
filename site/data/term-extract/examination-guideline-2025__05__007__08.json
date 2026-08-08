@@ -1,0 +1,16 @@
+{
+  "chunk": "examination-guideline-2025/05/007/08",
+  "anchorNode": "05-07-08",
+  "terms": [
+    { "name": "优先审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以优先审查，并在随后的审查过程中予以优先处理" },
+    { "name": "快速审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "符合快速审查相关规定的，可以快速审查" },
+    { "name": "延迟审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人可以对专利申请提出延迟审查请求" },
+    { "name": "合并审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以合并审查" },
+    { "name": "实质审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "启动实质审查程序的其他条件前提下" },
+    { "name": "初步审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "一般应当按照申请提交的先后顺序启动初步审查" },
+    { "name": "专利优先审查管理办法", "aliases": [], "role": "used", "confidence": "mid", "evidence": "适用优先审查的具体情形由《专利优先审查管理办法》规定" },
+    { "name": "预审", "aliases": [], "role": "used", "confidence": "mid", "evidence": "经国家级知识产权保护中心或者快速维权中心预审合格后提交的专利申请" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

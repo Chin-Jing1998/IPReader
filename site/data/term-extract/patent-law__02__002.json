@@ -1,0 +1,13 @@
+{
+  "chunk": "patent-law/02/002",
+  "anchorNode": "law-02-02",
+  "terms": [
+    { "name": "现有设计", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本法所称现有设计，是指申请日以前在国内外为公众所知的设计" },
+    { "name": "明显区别", "aliases": [], "role": "defined", "confidence": "high", "evidence": "授予专利权的外观设计与现有设计或者现有设计特征的组合相比，应当具有明显区别" },
+    { "name": "现有设计特征的组合", "aliases": [], "role": "used", "confidence": "mid", "evidence": "现有设计或者现有设计特征的组合相比" },
+    { "name": "在先合法权利", "aliases": [], "role": "used", "confidence": "mid", "evidence": "他人在申请日以前已经取得的合法权利相冲突" },
+    { "name": "申请日", "aliases": [], "role": "used", "confidence": "high", "evidence": "在申请日以前向国务院专利行政部门提出过申请" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

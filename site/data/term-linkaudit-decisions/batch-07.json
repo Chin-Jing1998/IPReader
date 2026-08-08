@@ -1,0 +1,192 @@
+[
+  {
+    "id": "term-0544",
+    "canonical": "代表人",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例一致指向专利申请人/专利权人未委托专利代理机构时法定的“代表人”概念，如“以第一申请人为【代表人】”“作为【代表人】与其他申请人共同申请专利”；左邻字“其/为/由/者”、右邻字“签/办”稳定对应“代表人签字”“代表人办理”的固定搭配，未见语义漂移。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0546",
+    "canonical": "对比例",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "4个样例页已覆盖firstLinkPages全部4页，均指化学撰写规范中与“实施例”对照设置的“对比例”概念，如“实施例、【对比例】中各组分的用量”“后续所设置的【对比例】和实施例之间也应具有可比性”；embedRate偏低（0.61）经核查系右邻多为编号数字（对比例1/2/3）而非词形碰撞，全库统计右邻字前列为空格、1、3、2，与假设一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0547",
+    "canonical": "发明构思",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例一致指向专利单一性与撰写规范中的“发明构思”概念，如“有一个总的【发明构思】使之相互关联”“最大程度地保护【发明构思】”；左邻字“的”占绝对多数，全库132次出现中右邻字亦稳定为“的/，/上”，无嵌入无关词证据。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0556",
+    "canonical": "国家阶段",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例一致指向PCT国际申请“进入中国国家阶段”这一程序概念，如“可以在……内办理进入中国【国家阶段】的手续”“在进入【国家阶段】时”；全库654次出现右邻字集中于“的/时/手（续）/通（知）”，语义高度稳定，“中国国家阶段”等更长词已在longerTermsContaining中自动优先接管，无需担心截断风险。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0562",
+    "canonical": "明显错误",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例一致指向专利文件文字和符号“明显错误”依职权修改这一特定审查制度，如“可以自行修改专利申请文件中文字和符号的【明显错误】”“审查员可以依职权自行修改”；左邻“的/对”、右邻“，/依（职权）”稳定，全库55次出现未见drift。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0565",
+    "canonical": "全面审查",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例一致指向初步审查/实质审查中“审查员应当进行全面审查，并尽可能一次指出全部缺陷”这一特定审查方式概念（与分次审查相对），左邻字“行（进行）”占比最高，全库73次出现右邻字集中于“，/的/和”，语义未漂移。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0566",
+    "canonical": "设计人",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "9/10样例一致指向专利法“发明人或者设计人”的法定署名概念，如“申请专利的权利属于发明人或者【设计人】”“专利法所称发明人或者【设计人】，是指对发明创造的实质性特点作出创造性贡献的人”，与definition完全吻合。经全文核查确认另有1处（4-侵权判定指南/4-外观设计专利的侵权判定/index.md：“不应以该外观设计产品的一般【设计人】员……的观察能力为标准”）实为“设计人员”被截断嵌入的无关概念，但全库扫描显示该碰撞仅1次（占全部73次原始出现的约1.4%），量级极小，不影响整体≥85%判断，建议后续对该页面留意但不改变本次判定。",
+    "confidence": "medium"
+  },
+  {
+    "id": "term-0567",
+    "canonical": "申请号",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例一致指向专利“申请号”概念，如“国务院专利行政部门应当给予【申请号】”“确认援引加入声明中写明的在先申请的【申请号】”；右邻字集中于“（/和/、/或”等标点或并列连词，未见被并入更长无关词的证据，“国家申请号”等更长词已由longerTermsContaining自动优先。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0569",
+    "canonical": "审查决定",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例一致指向复审、无效宣告程序中的“审查决定”文书概念，如“无效宣告请求【审查决定】应当宣告……”“合议组应当对审查决定的事实认定……负全面责任”；全库360次出现右邻字稳定为“的/，/被/所/应”，属稳定名词用法，无drift。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0570",
+    "canonical": "审查文本",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例覆盖canonical“审查文本”及其别名“审查依据的文本”“审查基础的文本”，均指国际申请国家阶段或主动修改后作为审查基础的文件版本这一概念，如“确认其希望专利局依据的【审查文本】”“作为【审查基础的文本】以审查基础声明中指明的为准”，语义统一无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0571",
+    "canonical": "事实认定",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "9/10样例一致指向复审无效案件审查决定“事实认定、法律适用、结论”三段式结构中的“事实认定”概念，如“合议组应当对审查决定的【事实认定】、法律适用、结论……负全面责任”“【事实认定】，确定区别技术特征”，语义稳定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0573",
+    "canonical": "收到日",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例一致指向程序期限计算基准的“收到日”概念，如“以国务院专利行政部门【收到日】为递交日”“确定【收到日】：记录受理部门收到申请文件的日期”；全库76次出现左邻字集中于“定/际/局/门”、右邻字集中于“为/：”，独立成词特征明显，未见被拼入其他无关长词的证据。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0576",
+    "canonical": "通式",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "8条样例（含别名“化学通式”）一致指向化学领域专利“马库什通式”这一化合物表示方式概念，如“通式不能破坏该通式中一个具体化合物的新颖性”“权利要求请求保护【通式】I化合物”；全库118次出现右邻字最高频为“化”（对应“通式化合物”）、左邻最高频为“学”（对应“化学通式”），排查后未见化学语境外的用法。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0584",
+    "canonical": "限定部分",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "9条样例一致指向从属权利要求“引用部分+限定部分”撰写结构中的“限定部分”概念，如“应当包括引用部分和【限定部分】”“限定部分：写明发明或者实用新型附加的技术特征”，与“引用部分”稳定配对出现，语义无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0588",
+    "canonical": "引得码",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "4个样例页已覆盖firstLinkPages全部4页，均指专利分类章节中与分类号联合使用的“引得码”概念，如“混合系统由分类表的分类号和与其联合使用的【引得码】组成”“与【引得码】组合的分类”，语义统一。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0589",
+    "canonical": "引用部分",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "9条样例一致指向从属权利要求撰写结构中的“引用部分”概念，如“应当包括【引用部分】和限定部分”“引用部分：写明引用的权利要求的编号及其主题名称”，与“限定部分”稳定配对出现，无drift。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0592",
+    "canonical": "暂存",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "4个样例页已覆盖firstLinkPages全部4页，均指专利费用规范中“费用暂时存入专利局账户（以下简称暂存）”这一明文定义的缩略概念，如“造成费用不能退回……费用暂时存入专利局账户（以下简称【暂存】）”“应当将该款项【暂存】在专利局账户上”；全库35次出现右邻字集中于“的/与/在/之”，未见被拼入“暂存储”等无关长词的证据，独立成词。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0595",
+    "canonical": "指定期限",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例一致指向审查员在通知书中限定答复/补正时限的“指定期限”概念（与“法定期限”相对），如“可以要求申请人在【指定期限】内提交”“通知申请人在【指定期限】内补正”；全库280次出现中右邻“内”占229次、左邻“在”占229次，搭配高度稳定，无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0596",
+    "canonical": "质证",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "5个样例页已覆盖firstLinkPages全部5页，均指无效宣告程序证据规则中“证据应当由当事人质证”的“质证”概念，如“证据应当由当事人【质证】，未经质证的证据，不能作为认定案件事实的依据”“当事人一方要求同对方口头【质证】和辩论”；左邻“行/经/头（口头）”、右邻“，/。/和”均支持独立成词，未见被拼入其他短语。",
+    "confidence": "high"
+  }
+]

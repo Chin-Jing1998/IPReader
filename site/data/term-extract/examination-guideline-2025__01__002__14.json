@@ -1,0 +1,10 @@
+{
+  "chunk": "examination-guideline-2025/01/002/14",
+  "anchorNode": "01-02-14",
+  "terms": [
+    { "name": "保密审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当事先报经专利局进行保密审查" },
+    { "name": "在中国完成的实用新型", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在中国完成的实用新型，是指技术方案的实质性内容在中国境内完成的实用新型" }
+  ],
+  "laws": ["专利法第19条第1款", "专利法实施细则第8条第1款", "专利法第19条第4款", "专利法实施细则第50条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

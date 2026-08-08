@@ -1,0 +1,16 @@
+{
+  "chunk": "examination-guideline-2025/03/001/05/12",
+  "anchorNode": "03-01-05-12",
+  "terms": [
+    { "name": "国际单位错误", "aliases": [], "role": "defined", "confidence": "high", "evidence": "要求改正国际单位错误" },
+    { "name": "意见陈述书", "aliases": [], "role": "used", "confidence": "high", "evidence": "该要求可以以“意见陈述书”的形式提出" },
+    { "name": "进入日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "规定的进入国家阶段手续之日为进入日" },
+    { "name": "生物材料样品保藏", "aliases": [], "role": "used", "confidence": "mid", "evidence": "提交生物材料样品保藏及存活证明" },
+    { "name": "不丧失新颖性公开", "aliases": [], "role": "used", "confidence": "mid", "evidence": "提交不丧失新颖性公开证明" },
+    { "name": "国际单位", "aliases": [], "role": "used", "confidence": "high", "evidence": "由于国际单位在事务处理上的疏忽" },
+    { "name": "国际公布文本", "aliases": [], "role": "used", "confidence": "mid", "evidence": "国际公布文本上出现了错误的记载" },
+    { "name": "选定通知书", "aliases": ["PCT/IB/331表"], "role": "used", "confidence": "high", "evidence": "“选定通知书”（PCT/IB/331表）的改正页" }
+  ],
+  "laws": ["专利法实施细则第121条第1款第1项至第3项"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

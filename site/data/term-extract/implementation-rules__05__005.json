@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/05/005",
+  "anchorNode": "rule-05-05",
+  "terms": [
+    { "name": "新药相关发明专利权期限补偿", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "请求给予新药相关发明专利权期限补偿的，应当符合下列要求" },
+    { "name": "上市许可", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "自该新药在中国获得上市许可之日起3个月内" }
+  ],
+  "laws": ["专利法第42条第3款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

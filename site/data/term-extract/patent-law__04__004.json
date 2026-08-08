@@ -1,0 +1,12 @@
+{
+  "chunk": "patent-law/04/004",
+  "anchorNode": "law-04-04",
+  "terms": [
+    { "name": "陈述意见", "aliases": [], "role": "defined", "confidence": "high", "evidence": "要求其在指定的期限内陈述意见" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "该申请即被视为撤回" },
+    { "name": "正当理由", "aliases": [], "role": "used", "confidence": "mid", "evidence": "无正当理由逾期不答复的" },
+    { "name": "实质审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对发明专利申请进行实质审查后" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

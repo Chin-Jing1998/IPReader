@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/05/007/05",
+  "anchorNode": "05-07-05",
+  "terms": [
+    { "name": "处分决定", "aliases": [], "role": "defined", "confidence": "high", "evidence": "因耽误期限作出的处分决定主要包括：视为撤回专利申请权、视为放弃取得专利权的权利" },
+    { "name": "视为撤回专利申请权", "aliases": [], "role": "used", "confidence": "high", "evidence": "视为撤回专利申请权" },
+    { "name": "视为放弃取得专利权的权利", "aliases": [], "role": "used", "confidence": "high", "evidence": "视为放弃取得专利权的权利" },
+    { "name": "专利权终止", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利权终止" },
+    { "name": "恢复权利请求期限", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当按照规定给予两个月（自该处分决定的送达日起算）的恢复权利请求期限" },
+    { "name": "失效处理", "aliases": [], "role": "used", "confidence": "mid", "evidence": "将专利申请进行失效处理" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

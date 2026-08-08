@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/04/003",
+  "anchorNode": "rule-04-03",
+  "terms": [
+    { "name": "复审决定", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当作出驳回复审请求的复审决定" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "该复审请求视为撤回" },
+    { "name": "驳回决定", "aliases": [], "role": "used", "confidence": "high", "evidence": "认为原驳回决定不符合专利法和本细则有关规定" },
+    { "name": "复审通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "原驳回决定和复审通知书指出的缺陷" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

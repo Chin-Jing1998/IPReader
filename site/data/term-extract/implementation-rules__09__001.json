@@ -1,0 +1,15 @@
+{
+  "chunk": "implementation-rules/09/001",
+  "anchorNode": "rule-09-01",
+  "terms": [
+    { "name": "专利登记簿", "aliases": [], "role": "defined", "confidence": "high", "evidence": "国务院专利行政部门设置专利登记簿，登记下列与专利申请和专利权有关的事项" },
+    { "name": "专利实施许可合同", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利实施许可合同的备案" },
+    { "name": "国防专利", "aliases": [], "role": "used", "confidence": "high", "evidence": "国防专利、保密专利的解密" },
+    { "name": "保密专利", "aliases": [], "role": "used", "confidence": "high", "evidence": "国防专利、保密专利的解密" },
+    { "name": "专利权期限的补偿", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利权期限的补偿" },
+    { "name": "开放许可", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利实施的开放许可" },
+    { "name": "强制许可", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利实施的强制许可" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/12/001",
+  "anchorNode": "rule-12-01",
+  "terms": [
+    { "name": "海牙协定", "aliases": ["工业品外观设计国际注册海牙协定"], "role": "defined", "confidence": "high", "evidence": "工业品外观设计国际注册海牙协定（1999年文本）（以下简称海牙协定）" },
+    { "name": "外观设计国际注册申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "提出的外观设计国际注册申请" },
+    { "name": "外观设计国际申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "（简称外观设计国际申请）" },
+    { "name": "指定中国", "aliases": [], "role": "used", "confidence": "mid", "evidence": "按照海牙协定提出并指定中国的外观设计国际注册申请" }
+  ],
+  "laws": ["专利法第19条第2款", "专利法第19条第3款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

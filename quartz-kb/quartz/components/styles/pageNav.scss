@@ -1,0 +1,124 @@
+@use "../../styles/variables.scss" as *;
+
+// 书籍式翻页导航（v6）。挂载于 .page-footer（afterBody），与正文同栏对齐；
+// 材质用二级卡层（--glass-inner-bg，不叠 backdrop-filter）；导航属 UI 层 → 黑体。
+// 动效 token 消费均带 fallback，保证 token 节独立 revert 不破版。
+
+.page-nav-wrapper {
+  // 与正文同栏对齐：--reading-col = 正文 46em@17px 的 rem 等价（782px）；
+  // 此处字体上下文 16px，直接 46em 会窄 46px
+  max-width: var(--reading-col, 48.875rem);
+  margin: 1.5rem auto 0;
+  box-sizing: border-box;
+}
+
+.page-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  align-items: stretch;
+
+  @media all and ($mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.page-nav-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  box-sizing: border-box;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background-color: var(--glass-inner-bg);
+  font-family: var(--headerFont);
+  text-decoration: none;
+  // 只动 transform / 颜色类属性，禁 transition:all
+  transition:
+    transform var(--duration-press, 120ms) var(--ease-out, ease-out),
+    border-color var(--duration-hover, 140ms) var(--ease-hover, ease),
+    background-color var(--duration-hover, 140ms) var(--ease-hover, ease);
+
+  &.next {
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  &.is-empty {
+    border-color: transparent;
+    background: none;
+    pointer-events: none;
+
+    // 移动端单栏无需占位
+    @media all and ($mobile) {
+      display: none;
+    }
+  }
+
+  &:hover {
+    border-color: var(--secondary);
+    background-color: var(--nav-active-wash, rgba(40, 75, 99, 0.1));
+  }
+
+  &:active {
+    transform: scale(0.985);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+  }
+}
+
+.page-nav-dir {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  // 小字正字距（Apple tracking 分级）
+  letter-spacing: 0.04em;
+  color: var(--secondary);
+  opacity: 0.9;
+
+  .next & {
+    flex-direction: row-reverse;
+  }
+
+  svg {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+.page-nav-title {
+  font-size: 0.98rem;
+  line-height: 1.45;
+  color: var(--dark);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.page-nav-book {
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--gray);
+}
+
+.page-nav-hint {
+  margin: 0.7rem 0 0;
+  text-align: center;
+  font-family: var(--headerFont);
+  font-size: 0.74rem;
+  letter-spacing: 0.05em;
+  color: var(--gray);
+  opacity: 0.75;
+
+  // 移动端无物理键盘，隐藏提示
+  @media all and ($mobile) {
+    display: none;
+  }
+}

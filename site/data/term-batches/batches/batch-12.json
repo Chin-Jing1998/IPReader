@@ -1,0 +1,85 @@
+{
+ "batchNo": 12,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/03.md",
+   "chunkId": "examination-guideline-2025/02/008/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-08-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 3.申请文件的核查与实审准备",
+   "charLen": 1265
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/04/01.md",
+   "chunkId": "examination-guideline-2025/02/008/04/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-08-04-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 4.实质审查 ｜ 4.1审查的文本",
+   "charLen": 661
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/04/02.md",
+   "chunkId": "examination-guideline-2025/02/008/04/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-08-04-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 4.实质审查 ｜ 4.2阅读申请文件并理解发明",
+   "charLen": 200
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/04/03.md",
+   "chunkId": "examination-guideline-2025/02/008/04/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-08-04-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 4.实质审查 ｜ 4.3不必检索即可发出审查意见通知书的情况",
+   "charLen": 147
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/04/04.md",
+   "chunkId": "examination-guideline-2025/02/008/04/04",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-08-04-04",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 4.实质审查 ｜ 4.4对缺乏单一性申请的处理",
+   "charLen": 1328
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/04/05.md",
+   "chunkId": "examination-guideline-2025/02/008/04/05",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-08-04-05",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 4.实质审查 ｜ 4.5检索",
+   "charLen": 66
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/04/06.md",
+   "chunkId": "examination-guideline-2025/02/008/04/06",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-08-04-06",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 4.实质审查 ｜ 4.6优先权的核实",
+   "charLen": 2089
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/04/07.md",
+   "chunkId": "examination-guideline-2025/02/008/04/07",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-08-04-07",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 4.实质审查 ｜ 4.7全面审查",
+   "charLen": 2790
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/04/08.md",
+   "chunkId": "examination-guideline-2025/02/008/04/08",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-08-04-08",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 4.实质审查 ｜ 4.8不全面审查的情况",
+   "charLen": 199
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/04/09.md",
+   "chunkId": "examination-guideline-2025/02/008/04/09",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-08-04-09",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 4.实质审查 ｜ 4.9对公众意见的处理",
+   "charLen": 127
+  }
+ ]
+}

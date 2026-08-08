@@ -1,0 +1,77 @@
+{
+ "batchNo": 37,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/04/005.md",
+   "chunkId": "patent-law/04/005",
+   "domain": "patent-law",
+   "anchorNodeId": "law-04-05",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第四章 专利申请的审查和批准 ｜ 第三十八条",
+   "charLen": 58
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/04/006.md",
+   "chunkId": "patent-law/04/006",
+   "domain": "patent-law",
+   "anchorNodeId": "law-04-06",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第四章 专利申请的审查和批准 ｜ 第三十九条",
+   "charLen": 84
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/04/007.md",
+   "chunkId": "patent-law/04/007",
+   "domain": "patent-law",
+   "anchorNodeId": "law-04-07",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第四章 专利申请的审查和批准 ｜ 第四十条",
+   "charLen": 112
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/04/008.md",
+   "chunkId": "patent-law/04/008",
+   "domain": "patent-law",
+   "anchorNodeId": "law-04-08",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第四章 专利申请的审查和批准 ｜ 第四十一条",
+   "charLen": 135
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/05/001.md",
+   "chunkId": "patent-law/05/001",
+   "domain": "patent-law",
+   "anchorNodeId": "law-05-01",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第五章 专利权的期限、终止和无效 ｜ 第四十二条",
+   "charLen": 252
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/05/002.md",
+   "chunkId": "patent-law/05/002",
+   "domain": "patent-law",
+   "anchorNodeId": "law-05-02",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第五章 专利权的期限、终止和无效 ｜ 第四十三条",
+   "charLen": 30
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/05/003.md",
+   "chunkId": "patent-law/05/003",
+   "domain": "patent-law",
+   "anchorNodeId": "law-05-03",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第五章 专利权的期限、终止和无效 ｜ 第四十四条",
+   "charLen": 92
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/05/004.md",
+   "chunkId": "patent-law/05/004",
+   "domain": "patent-law",
+   "anchorNodeId": "law-05-04",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第五章 专利权的期限、终止和无效 ｜ 第四十五条",
+   "charLen": 78
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/05/005.md",
+   "chunkId": "patent-law/05/005",
+   "domain": "patent-law",
+   "anchorNodeId": "law-05-05",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第五章 专利权的期限、终止和无效 ｜ 第四十六条",
+   "charLen": 163
+  }
+ ]
+}

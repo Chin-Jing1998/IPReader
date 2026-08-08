@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/02/008/04/11",
+  "anchorNode": "02-08-04-11",
+  "terms": [
+    { "name": "继续审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查员继续审查申请后，视不同情况，可对申请作如下不同的处理" },
+    { "name": "补充检索", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在继续审查（包括复审后的审查）中，必要时，审查员应当进行补充检索" },
+    { "name": "再次审查意见通知书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "出现下列情况之一时，审查员应当再次发出审查意见通知书" },
+    { "name": "听证原则", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在符合听证原则的前提下，审查员可以作出驳回申请的决定" },
+    { "name": "抵触申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "有可能构成抵触申请的指定中国的国际申请文件" },
+    { "name": "授予发明专利权通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当发出授予发明专利权通知书" }
+  ],
+  "laws": ["专利法第33条", "专利法实施细则第57条第3款", "专利法第22条", "专利法实施细则第59条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,10 @@
+{
+  "chunk": "examination-guideline-2025/05/002/07",
+  "anchorNode": "05-02-07",
+  "terms": [
+    { "name": "缴费信息的补充", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "费用通过邮局或者银行汇付时遗漏必要缴费信息的" },
+    { "name": "缴费日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以专利局收到完整缴费信息之日为缴费日" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

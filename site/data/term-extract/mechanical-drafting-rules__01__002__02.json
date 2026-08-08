@@ -1,0 +1,16 @@
+{
+  "chunk": "mechanical-drafting-rules/01/002/02",
+  "anchorNode": "mech-01-02-02",
+  "terms": [
+    { "name": "独立权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "独立权利要求应当至少包括“主题名称”、“其特征在于” “特征部分”" },
+    { "name": "前序部分", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“前序部分”（即与现有技术的共有特征）" },
+    { "name": "最小保护主体", "aliases": [], "role": "defined", "confidence": "high", "evidence": "其保护主体应当是解决对应的技术问题的最小保护主体" },
+    { "name": "并列的独立权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当至少将应用该最小保护主体的其他产品或者组件列入并列的独立权利要求" },
+    { "name": "上位概括", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当在独立权利要求中进行上位概括" },
+    { "name": "新颖性", "aliases": [], "role": "used", "confidence": "high", "evidence": "不应当存在新颖性的问题" },
+    { "name": "明确已知的现有技术方案", "aliases": [], "role": "defined", "confidence": "high", "evidence": "明确已知的现有技术方案，一般情况下，是指在不需要进行检索的情况下" },
+    { "name": "保护类型", "aliases": [], "role": "used", "confidence": "mid", "evidence": "每个独立权利要求应当明确其保护类型为产品或者方法" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

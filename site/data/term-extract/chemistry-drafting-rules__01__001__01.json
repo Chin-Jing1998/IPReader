@@ -1,0 +1,17 @@
+{
+  "chunk": "chemistry-drafting-rules/01/001/01",
+  "anchorNode": "chem-01-01-01",
+  "terms": [
+    { "name": "错别字", "aliases": [], "role": "defined", "confidence": "high", "evidence": "错别字为本义上并不影响到理解某词的清楚性" },
+    { "name": "语病", "aliases": [], "role": "defined", "confidence": "high", "evidence": "语病为本义上并不影响到清楚性或者理解该句所阐述的技术" },
+    { "name": "表达方式不规范", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "表达方式不规范为缺主、谓、宾等语法错误，导致阅读不通顺" },
+    { "name": "口语化", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "口语化为因撰写人的口音以及所在地的文化影响" },
+    { "name": "歧义词", "aliases": [], "role": "defined", "confidence": "high", "evidence": "歧义词为用词产生误解，在理解上产生两种或两种以上" },
+    { "name": "技术用语", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "技术用语为特定领域对一些特定事物的统一的业内称谓" },
+    { "name": "技术特征命名不一致", "aliases": [], "role": "defined", "confidence": "high", "evidence": "技术特征命名不一致为同一部件，出现多个不同的命名" },
+    { "name": "附图标记", "aliases": ["标号"], "role": "used", "confidence": "high", "evidence": "说明书附图中具有附图标记" },
+    { "name": "法定计量单位", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "计量单位应当使用国家法定计量单位" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

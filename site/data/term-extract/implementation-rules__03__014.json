@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/03/014",
+  "anchorNode": "rule-03-14",
+  "terms": [
+    { "name": "检索资料", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "无法提交专利法第三十六条规定的检索资料" },
+    { "name": "审查结果资料", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "或者审查结果资料的" }
+  ],
+  "laws": ["专利法第36条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

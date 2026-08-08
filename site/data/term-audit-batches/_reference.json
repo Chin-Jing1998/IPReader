@@ -1,0 +1,6077 @@
+[
+{
+"canonical": "客体审查",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "不授予专利权",
+"tier": "seed",
+"df": 4
+},
+{
+"canonical": "遗传资源",
+"tier": "seed",
+"df": 9
+},
+{
+"canonical": "不授予专利权的客体",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "科学发现",
+"tier": "seed",
+"df": 5
+},
+{
+"canonical": "智力活动规则方法",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "疾病的诊断和治疗方法",
+"tier": "seed",
+"df": 4
+},
+{
+"canonical": "外科手术方法",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "动物和植物品种",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "原子核变换方法",
+"tier": "seed",
+"df": 3
+},
+{
+"canonical": "计算机程序",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "人工智能",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "比特流",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "商业规则方法",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "说明书充分公开",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "实施例",
+"tier": "seed",
+"df": 4
+},
+{
+"canonical": "补交实验数据",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "权利要求清楚简要",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "以说明书为依据",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "必要技术特征",
+"tier": "seed",
+"df": 12
+},
+{
+"canonical": "独立权利要求",
+"tier": "seed",
+"df": 24
+},
+{
+"canonical": "从属权利要求",
+"tier": "seed",
+"df": 20
+},
+{
+"canonical": "功能性特征",
+"tier": "seed",
+"df": 3
+},
+{
+"canonical": "马库什权利要求",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "用途权利要求",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "瑞士型权利要求",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "新颖性",
+"tier": "seed",
+"df": 18
+},
+{
+"canonical": "现有技术",
+"tier": "seed",
+"df": 22
+},
+{
+"canonical": "抵触申请",
+"tier": "seed",
+"df": 19
+},
+{
+"canonical": "单独对比",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "上位下位概念",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "惯用手段直接置换",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "数值范围",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "制法限定的产品权要",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "创造性",
+"tier": "seed",
+"df": 18
+},
+{
+"canonical": "三步法",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "最接近的现有技术",
+"tier": "seed",
+"df": 10
+},
+{
+"canonical": "区别特征",
+"tier": "seed",
+"df": 3
+},
+{
+"canonical": "实际解决的技术问题",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "技术启示",
+"tier": "seed",
+"df": 10
+},
+{
+"canonical": "所属技术领域的技术人员",
+"tier": "seed",
+"df": 6
+},
+{
+"canonical": "公知常识",
+"tier": "seed",
+"df": 10
+},
+{
+"canonical": "事后诸葛亮",
+"tier": "seed",
+"df": 3
+},
+{
+"canonical": "预料不到的技术效果",
+"tier": "seed",
+"df": 7
+},
+{
+"canonical": "技术偏见",
+"tier": "seed",
+"df": 4
+},
+{
+"canonical": "商业成功",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "开拓性发明",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "选择发明",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "转用发明",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "已知产品新用途",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "实用性",
+"tier": "seed",
+"df": 15
+},
+{
+"canonical": "再现性",
+"tier": "seed",
+"df": 3
+},
+{
+"canonical": "永动机",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "单一性",
+"tier": "seed",
+"df": 21
+},
+{
+"canonical": "特定技术特征",
+"tier": "seed",
+"df": 8
+},
+{
+"canonical": "分案申请",
+"tier": "seed",
+"df": 22
+},
+{
+"canonical": "检索",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "实质审查程序",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "优先权审查",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "答复期限",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "主动修改时机",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "答复审查意见通知书时的修改",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "修改超范围",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "允许的修改",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "不允许的修改",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "数值范围放弃",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "依职权修改",
+"tier": "seed",
+"df": 5
+},
+{
+"canonical": "驳回决定",
+"tier": "seed",
+"df": 10
+},
+{
+"canonical": "十一种驳回情形",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "听证原则",
+"tier": "seed",
+"df": 6
+},
+{
+"canonical": "化学发明审查",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "化合物新颖性",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "化合物创造性",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "组合物",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "医药用途",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "制药用途新颖性",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "生物材料保藏",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "微生物",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "基因",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "转基因动植物",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "中药发明审查",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "中药组合物",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "加减方",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "中药制药用途的病与证",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "不丧失新颖性宽限期",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "同样的发明创造",
+"tier": "seed",
+"df": 11
+},
+{
+"canonical": "一案两请",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "优先权",
+"tier": "seed",
+"df": 10
+},
+{
+"canonical": "优先权恢复",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "优先权要求增加改正",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "援引加入",
+"tier": "seed",
+"df": 4
+},
+{
+"canonical": "实质审查请求",
+"tier": "seed",
+"df": 5
+},
+{
+"canonical": "提前公布声明",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "撤回专利申请声明",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "著录项目变更",
+"tier": "seed",
+"df": 5
+},
+{
+"canonical": "专利权转让",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "辞去委托",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "委托代理机构",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "实用新型客体",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "实用新型只保护产品",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "外观设计客体",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "不授予外观设计的 11 种情形",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "外观设计图片照片",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "简要说明",
+"tier": "seed",
+"df": 11
+},
+{
+"canonical": "局部外观设计",
+"tier": "seed",
+"df": 5
+},
+{
+"canonical": "图形用户界面",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "动态图形用户界面",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "相似外观设计",
+"tier": "seed",
+"df": 7
+},
+{
+"canonical": "成套产品",
+"tier": "seed",
+"df": 3
+},
+{
+"canonical": "平面印刷品标识性设计",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "外观设计相同",
+"tier": "seed",
+"df": 4
+},
+{
+"canonical": "一般消费者",
+"tier": "seed",
+"df": 3
+},
+{
+"canonical": "现有设计",
+"tier": "seed",
+"df": 5
+},
+{
+"canonical": "惯常设计",
+"tier": "seed",
+"df": 5
+},
+{
+"canonical": "外观设计转用",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "在先合法权利冲突",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "国际专利分类 IPC",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "多重分类",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "复审请求",
+"tier": "seed",
+"df": 4
+},
+{
+"canonical": "复审三个月期限",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "前置审查",
+"tier": "seed",
+"df": 5
+},
+{
+"canonical": "复审合议审查",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "复审依职权审查",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "复审修改限制",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "复审决定类型",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "复审决定的约束力",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "无效宣告请求",
+"tier": "seed",
+"df": 7
+},
+{
+"canonical": "无效法定理由",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "一事不再理",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "无效宣告理由增加",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "无效宣告证据补充",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "无效宣告修改原则",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "无效宣告修改方式",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "无效宣告修改时机限制",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "当事人处置原则",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "无效宣告决定类型",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "部分无效",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "药品专利纠纷早期解决机制",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "口头审理",
+"tier": "seed",
+"df": 7
+},
+{
+"canonical": "口审申请理由",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "口审通知答复期",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "口审四阶段",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "证人出庭作证",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "实用新型无效审查",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "实用新型创造性",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "同样发明创造无效宣告",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "无效宣告证据规则",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "公知常识证据",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "互联网证据",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "使用公开",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "申请文件形式",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "专利费用",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "受理",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "申请日更正",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "专利申请文档",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "案卷保存期限",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "保密申请",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "向外国申请专利的保密审查",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "通知和决定",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "送达方式",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "送达日推定",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "期限种类",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "期限延长",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "权利的恢复",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "中止程序",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "优先审查",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "快速审查",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "延迟审查",
+"tier": "seed",
+"df": 4
+},
+{
+"canonical": "专利公报",
+"tier": "seed",
+"df": 7
+},
+{
+"canonical": "专利单行本",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "专利权授予",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "专利证书",
+"tier": "seed",
+"df": 3
+},
+{
+"canonical": "专利登记簿",
+"tier": "seed",
+"df": 5
+},
+{
+"canonical": "专利权期限补偿",
+"tier": "seed",
+"df": 4
+},
+{
+"canonical": "新药专利期限补偿",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "专利权终止",
+"tier": "seed",
+"df": 5
+},
+{
+"canonical": "专利权评价报告",
+"tier": "seed",
+"df": 9
+},
+{
+"canonical": "专利开放许可",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "进入国家阶段国际申请",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "PCT 第 19/34 条修改",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "改正译文错误",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "国际单位错误改正",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "海牙协定外观设计国际申请",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "外观设计国际申请审查",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "给予保护决定",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "立法目的",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "发明创造定义",
+"tier": "seed",
+"df": 4
+},
+{
+"canonical": "职务发明",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "共有专利",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "保密审查",
+"tier": "seed",
+"df": 9
+},
+{
+"canonical": "诚实信用原则",
+"tier": "seed",
+"df": 6
+},
+{
+"canonical": "外观设计授权条件",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "申请文件",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "申请日",
+"tier": "seed",
+"df": 10
+},
+{
+"canonical": "早期公开",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "实质审查",
+"tier": "seed",
+"df": 11
+},
+{
+"canonical": "复审",
+"tier": "seed",
+"df": 4
+},
+{
+"canonical": "专利权期限",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "无效宣告",
+"tier": "seed",
+"df": 3
+},
+{
+"canonical": "开放许可",
+"tier": "seed",
+"df": 8
+},
+{
+"canonical": "强制许可",
+"tier": "seed",
+"df": 14
+},
+{
+"canonical": "保护范围解释",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "方法专利举证倒置",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "假冒专利",
+"tier": "seed",
+"df": 3
+},
+{
+"canonical": "惩罚性赔偿",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "行为保全",
+"tier": "seed",
+"df": 3
+},
+{
+"canonical": "证据保全",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "诉讼时效",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "专利权用尽",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "先用权",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "Bolar 例外",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "药品专利链接",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "合法来源抗辩",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "电子形式",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "中文与外文译文",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "递交日",
+"tier": "seed",
+"df": 5
+},
+{
+"canonical": "期限计算",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "权利恢复",
+"tier": "seed",
+"df": 6
+},
+{
+"canonical": "国防专利",
+"tier": "seed",
+"df": 3
+},
+{
+"canonical": "向外国申请前的保密审查",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "申请日与优先权日的区别",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "职务发明创造的范围",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "发明人",
+"tier": "seed",
+"df": 4
+},
+{
+"canonical": "专利权转移",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "委托代理与可自行办理事务",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "请求书记载事项",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "说明书撰写要求",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "附图与附图标记规则",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "权利要求书基本要求",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "独权",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "独权两段式",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "从权两段式",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "说明书摘要",
+"tier": "seed",
+"df": 9
+},
+{
+"canonical": "外观设计简要说明",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "国际展览会",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "优先权文件副本",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "多项优先权",
+"tier": "seed",
+"df": 11
+},
+{
+"canonical": "优先权要求的增加或改正",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "撤回申请的声明",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "审查人员回避",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "申请日与申请号的确定",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "不予受理的情形",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "援引在先申请补交",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "附图缺失的补交",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "同日同样发明双申请处理",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "分案申请的提出与时限",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "初步审查的范围",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "早日公布请求",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "第三人意见",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "主动实质审查",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "主动修改时限",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "修改替换页",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "实质审查驳回的法定情形",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "授权登记",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "复审审理与决定",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "无效宣告请求与法定理由",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "无效不予受理",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "无效证据补充时限",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "无效程序修改限制",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "无效口头审理",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "无效程序期限不得延长",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "PTA 请求时限",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "合理延迟",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "新药相关发明专利",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "PTE 期间保护范围限定",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "开放许可声明的内容与禁止情形",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "强制许可请求与决定程序",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "强制许可使用费裁决",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "职务发明奖金法定最低标准",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "全国有重大影响的侵权纠纷",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "行政处理地域管辖",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "行政处理中的中止",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "假冒专利行为的具体类型",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "权属纠纷",
+"tier": "seed",
+"df": 3
+},
+{
+"canonical": "专利公报公告事项",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "费用种类",
+"tier": "seed",
+"df": 5
+},
+{
+"canonical": "申请费缴费时限",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "年费",
+"tier": "seed",
+"df": 8
+},
+{
+"canonical": "费用减缴",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "PCT 进入中国国家阶段",
+"tier": "seed",
+"df": 3
+},
+{
+"canonical": "PCT 在华效力终止情形",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "PCT 国际阶段修改的中文译文",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "PCT 译文错误改正",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "PCT 临时保护",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "PCT 分案",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "译文错误对保护范围的影响",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "案卷查阅与保存期限",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "著录事项变更",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "邮寄规范",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "审查指南的制定依据",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "全面覆盖原则",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "下位概念",
+"tier": "seed",
+"df": 4
+},
+{
+"canonical": "封闭式权利要求",
+"tier": "seed",
+"df": 5
+},
+{
+"canonical": "捐献规则",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "等同侵权\"三基本+一非劳\"",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "禁止反悔",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "主题名称",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "使用环境特征",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "折衷原则",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "整体比对原则",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "设计空间",
+"tier": "seed",
+"df": 7
+},
+{
+"canonical": "现有技术抗辩",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "现有设计抗辩",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "恶意取得专利权",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "共同侵权",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "标准必要专利 SEP",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "临时保护期",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "用尽原则",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "方法专利延及产品",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "新产品举证倒置",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "错别字",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "附图标号多余",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "商业宣传",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "摘要 300 字",
+"tier": "seed",
+"df": 8
+},
+{
+"canonical": "字体字号行距",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "择一引用",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "附图引用不超 3 幅",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "三位一体 禁忌",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "技术特征功能逻辑拆解",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "新技术特征引出",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "用途表征",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "禁用\"例如/最好/约/包括但不限于/可\"",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "虚实分离",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "U 形象形描述禁忌",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "纯功能性限定禁忌",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "第一",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "命名层次",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "方位名词改相对关系",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "\"分别\"用法",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "子母特征不引连接关系",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "开放式",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "工艺步骤执行主体",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "独权最小保护主体",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "独权上位过大→新颖性问题",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "两种状态主体写法",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "中位特征",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "进一步限定 vs 附加技术特征",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "从权特征越简越好",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "发明名称合理上位",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "技术领域两段式",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "背景技术涉外禁忌",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "背景技术不写发明点关键特征",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "技术缺陷推导合理",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "发明内容不含绝对性词语",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "涉外不写从权内容",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "相关技术附图称呼",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "引证专利论文",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "模块化总分总",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "最小单位技术特征",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "上位概念至少两个实施例",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "动作主体",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "附图引用与文字匹配",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "量词前\"可以是\"",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "附图关联性",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "局部放大图规则",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "标号引线粗细",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "节点性虚拟部件标记",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "CAD 制图",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "附图中文注释规则",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "剖面线规则",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "附图竖向布置",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "多独权产业链布局示例",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "模块划分四步走",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "附图标记逐级编号体系",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "化合物表征",
+"tier": "seed",
+"df": 3
+},
+{
+"canonical": "高分子化合物表征",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "组合物表征",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "化学产品 表征",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "马库什权要",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "用途权要 vs 产品权要 vs 方法权要",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "制药用途 \"在制备……中的用途\"",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "封闭式权要\"由……组成\" vs 开放式\"包括/包含\"",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "计量单位",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "多独权产品+方法布局",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "实施例阵列",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "对比例与现有技术",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "实施例数据落入权要范围",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "实施例规模 与计量单位",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "实施例必须含具体物质",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "检测方法",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "化合物确认",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "性能测试",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "化妆品",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "食品",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "保健食品",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "中药",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "疾病诊断与治疗方法",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "社会公德",
+"tier": "seed",
+"df": 5
+},
+{
+"canonical": "生物保藏",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "核苷酸",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "背景技术",
+"tier": "seed",
+"df": 7
+},
+{
+"canonical": "禁止反悔与捐献规则的撰写规避",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "权要禁用措辞",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "同一权要禁上位下位并列",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "同符号在不同分子式中须区分",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "从权层层限缩",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "涉外案禁方法特征限定产品独权",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "附图引用顺序与单次幅数",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "发明名称字数",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "附图标号一致性",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "单独对比原则",
+"tier": "seed",
+"df": 3
+},
+{
+"canonical": "四个相同",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "抵触申请的 CN 代码",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "最接近现有技术",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "区别技术特征",
+"tier": "seed",
+"df": 4
+},
+{
+"canonical": "显著进步",
+"tier": "seed",
+"df": 6
+},
+{
+"canonical": "整体技术方案",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "公知常识三层次",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "抵触申请评创造性",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "等效手段",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "反向技术教导",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "同类",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "权利要求支持",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "功能性限定",
+"tier": "seed",
+"df": 4
+},
+{
+"canonical": "上位概念概括",
+"tier": "seed",
+"df": 2
+},
+{
+"canonical": "数值范围过宽",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "等同替代",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "必要技术特征判断",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "重复授权",
+"tier": "seed",
+"df": 6
+},
+{
+"canonical": "公开不充分",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "隐含公开",
+"tier": "seed",
+"df": 1
+},
+{
+"canonical": "实验数据要求",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "自认无创造性陷阱",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "意见陈述书模板",
+"tier": "seed",
+"df": 0
+},
+{
+"canonical": "视为撤回",
+"tier": "high",
+"df": 37
+},
+{
+"canonical": "优先权日",
+"tier": "high",
+"df": 13
+},
+{
+"canonical": "审查意见通知书",
+"tier": "high",
+"df": 11
+},
+{
+"canonical": "专利代理机构",
+"tier": "high",
+"df": 11
+},
+{
+"canonical": "充分公开",
+"tier": "high",
+"df": 10
+},
+{
+"canonical": "初步审查",
+"tier": "high",
+"df": 10
+},
+{
+"canonical": "对比文件",
+"tier": "high",
+"df": 10
+},
+{
+"canonical": "技术方案",
+"tier": "high",
+"df": 10
+},
+{
+"canonical": "利害关系人",
+"tier": "high",
+"df": 10
+},
+{
+"canonical": "外观设计国际申请",
+"tier": "high",
+"df": 10
+},
+{
+"canonical": "补正通知书",
+"tier": "high",
+"df": 9
+},
+{
+"canonical": "技术问题",
+"tier": "high",
+"df": 9
+},
+{
+"canonical": "世界知识产权组织国际局",
+"tier": "high",
+"df": 9
+},
+{
+"canonical": "外国优先权",
+"tier": "high",
+"df": 9
+},
+{
+"canonical": "附图标记",
+"tier": "high",
+"df": 8
+},
+{
+"canonical": "恢复权利",
+"tier": "high",
+"df": 8
+},
+{
+"canonical": "技术特征",
+"tier": "high",
+"df": 8
+},
+{
+"canonical": "技术效果",
+"tier": "high",
+"df": 8
+},
+{
+"canonical": "序列表",
+"tier": "high",
+"df": 8
+},
+{
+"canonical": "有益效果",
+"tier": "high",
+"df": 8
+},
+{
+"canonical": "智力活动的规则和方法",
+"tier": "high",
+"df": 8
+},
+{
+"canonical": "专利合作条约",
+"tier": "high",
+"df": 8
+},
+{
+"canonical": "保护范围",
+"tier": "high",
+"df": 7
+},
+{
+"canonical": "发明内容",
+"tier": "high",
+"df": 7
+},
+{
+"canonical": "国际申请",
+"tier": "high",
+"df": 7
+},
+{
+"canonical": "进入日",
+"tier": "high",
+"df": 7
+},
+{
+"canonical": "具体实施方式",
+"tier": "high",
+"df": 7
+},
+{
+"canonical": "明显实质性缺陷",
+"tier": "high",
+"df": 7
+},
+{
+"canonical": "权利要求书",
+"tier": "high",
+"df": 7
+},
+{
+"canonical": "上位概念",
+"tier": "high",
+"df": 7
+},
+{
+"canonical": "说明书",
+"tier": "high",
+"df": 7
+},
+{
+"canonical": "显著的进步",
+"tier": "high",
+"df": 7
+},
+{
+"canonical": "优先权要求费",
+"tier": "high",
+"df": 7
+},
+{
+"canonical": "驳回",
+"tier": "high",
+"df": 6
+},
+{
+"canonical": "驳回理由",
+"tier": "high",
+"df": 6
+},
+{
+"canonical": "管理专利工作的部门",
+"tier": "high",
+"df": 6
+},
+{
+"canonical": "技术领域",
+"tier": "high",
+"df": 6
+},
+{
+"canonical": "开放许可声明",
+"tier": "high",
+"df": 6
+},
+{
+"canonical": "前序部分",
+"tier": "high",
+"df": 6
+},
+{
+"canonical": "请求书",
+"tier": "high",
+"df": 6
+},
+{
+"canonical": "视为未提出",
+"tier": "high",
+"df": 6
+},
+{
+"canonical": "视为未提出通知书",
+"tier": "high",
+"df": 6
+},
+{
+"canonical": "无效宣告程序",
+"tier": "high",
+"df": 6
+},
+{
+"canonical": "主动修改",
+"tier": "high",
+"df": 6
+},
+{
+"canonical": "方法权利要求",
+"tier": "high",
+"df": 5
+},
+{
+"canonical": "附加技术特征",
+"tier": "high",
+"df": 5
+},
+{
+"canonical": "国际申请日",
+"tier": "high",
+"df": 5
+},
+{
+"canonical": "恢复优先权",
+"tier": "high",
+"df": 5
+},
+{
+"canonical": "申请附加费",
+"tier": "high",
+"df": 5
+},
+{
+"canonical": "视为未要求优先权",
+"tier": "high",
+"df": 5
+},
+{
+"canonical": "特征部分",
+"tier": "high",
+"df": 5
+},
+{
+"canonical": "在先申请",
+"tier": "high",
+"df": 5
+},
+{
+"canonical": "在先申请文件副本",
+"tier": "high",
+"df": 5
+},
+{
+"canonical": "著录项目",
+"tier": "high",
+"df": 5
+},
+{
+"canonical": "专利代理师",
+"tier": "high",
+"df": 5
+},
+{
+"canonical": "案卷",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "巴黎公约",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "保密原则",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "保密专利申请",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "被控侵权人",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "补充检索",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "不丧失新颖性的公开",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "产品权利要求",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "程序节约原则",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "第一次审查意见通知书",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "多项从属权利要求",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "发明实际解决的技术问题",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "发明专利申请单行本",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "复审程序",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "复审决定",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "公布印刷费",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "公告送达",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "国际初步审查",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "国际注册日",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "回避",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "生物材料样品保藏",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "替换页",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "无效宣告理由",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "相关技术",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "修改文本",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "延长期限请求费",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "依赖遗传资源完成的发明创造",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "遗传资源来源披露登记表",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "译文错误",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "摘要",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "职务发明创造",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "著录事项变更费",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "专利申请权",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "组件产品",
+"tier": "high",
+"df": 4
+},
+{
+"canonical": "保密责任",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "避免重复授权",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "不予受理",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "发明名称",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "发明信息",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "妨害公共利益",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "附图说明",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "高分子化合物",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "惯用手段的直接置换",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "海牙协定",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "技术缺陷",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "检索报告",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "进入声明",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "进入中国国家阶段",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "举证期限",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "举证责任",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "开放式权利要求",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "缺席审理",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "使用费",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "视为未提交",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "书面审查原则",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "说明书附图",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "外观设计专利权",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "委托书",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "先申请原则",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "显而易见",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "新药相关发明专利权期限补偿",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "许诺销售",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "宣告专利权无效",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "学术会议或者技术会议",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "延长期限请求",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "药品专利权期限补偿",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "要求优先权声明",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "原说明书和权利要求书记载的范围",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "择一引用方式",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "著录项目变更申报书",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "专利标识",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "专利国际申请",
+"tier": "high",
+"df": 3
+},
+{
+"canonical": "案由",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "保藏证明和存活证明",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "被许可人",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "表达方式不规范",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "驳回请求",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "补偿期限",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "不可抗拒的事由",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "部门负责人",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "查询时效",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "产品的形状",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "产权激励",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "撤回专利申请",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "陈述意见",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "代表人",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "登记手续",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "等同特征",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "电子文档",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "对比例",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "发明构思",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "发明专利申请公布",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "法定休假日",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "仿制药申请人",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "放弃专利权",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "非职务发明创造",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "非治疗目的的外科手术方法",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "分类号",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "负责专利执法的部门",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "附加信息",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "公开原则",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "公众不能得到的生物材料",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "公众意见",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "功能上彼此相互支持、存在相互作用关系",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "国际申请在中国的效力终止",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "国际专利分类",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "国家阶段",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "合法原则",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "基本检索要素",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "疾病的诊断方法",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "疾病的治疗方法",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "技术特征命名不一致",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "技术用语",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "进一步限定的技术特征",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "禁止重复授权原则",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "两段式的写法",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "明显错误",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "请求原则",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "全面审查",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "设计人",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "申请号",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "审查基础声明",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "审查决定",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "生物材料的保藏",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "事实认定",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "视为放弃",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "视为未提出请求",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "收到日",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "受理条件",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "授予专利权通知",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "说明书支持",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "提前公布",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "跳跃式引用",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "同样的发明或者实用新型",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "同样的外观设计",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "委托专利代理机构",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "文件不受理通知书",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "无效宣告请求审查通知书",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "五人合议组",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "限定部分",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "新颖性宽限期",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "宣告专利权部分无效",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "一个总的发明构思",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "医生处方",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "引得码",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "引用部分",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "优先权要求的恢复",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "优先权转让证明文件",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "原申请日",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "援引加入声明",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "暂存",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "增加或者改正优先权要求",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "直接地、毫无疑义地确定",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "植物品种",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "指定期限",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "质证",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "中止有关程序",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "重新确定申请日",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "主审员",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "主视图",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "专利权保护范围",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "专利申请文件",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "专利审查指南",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "专利许可使用费",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "转用",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "E类文件",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "P类文件",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "PE类文件",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "X类文件",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "Y类文件",
+"tier": "high",
+"df": 2
+},
+{
+"canonical": "案卷号",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "案卷夹",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "案卷销毁清册",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "办理登记手续通知",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "帮助他人实施侵犯专利权行为",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "保存期限",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "保健品功能范围",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "保密范围",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "保密请求",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "保密证明材料",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "保密状态",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "背景文件",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "本领域普通技术人员",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "笔录",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "必然趋势",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "变化状态产品",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "变劣技术方案",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "辨证论治",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "标准必要专利",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "标准表格",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "并列独立权利要求",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "并列选择法概括",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "补交遗漏文件",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "不得扩大原专利的保护范围",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "不经创造性劳动",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "不明显缺乏单一性的申请",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "不侵权抗辩",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "不视为侵权的抗辩",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "不受理的情形",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "不停止侵权抗辩",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "部分违反专利法第五条第一款的申请",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "部分优先权",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "菜肴",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "参考图",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "参考资料",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "参审员",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "产品",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "产品备案",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "产品的构造",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "产品名称",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "常规检索",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "常用设计手法",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "成套产品外观设计",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "成套出售或者使用",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "程序模块",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "出版物",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "初步审查合格",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "处分决定",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "处于各形成和发育阶段的人体",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "传送条件",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "纯功能性的权利要求",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "纯培养物",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "从属专利",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "单纯的美容方法",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "单纯图案的外观设计",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "单纯形状的外观设计",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "单克隆抗体",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "单克隆抗体权利要求",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "单因素",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "登记和公告",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "登记生效",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "等同侵权",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "第一独立权利要求",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "动植物品种的生产方法",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "独立原则",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "独任审查",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "独特视觉效果",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "独占的实施权",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "端点值和中间值",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "对比设计",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "对比实施例",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "多因素",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "二级分类表",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "发明的创造性",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "发明或实用新型专利权的保护范围",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "发明人奖金",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "发明在商业上获得成功",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "法定赔偿",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "法定期限",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "法律依据",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "方法受体",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "放弃专利权声明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "非生产经营目的",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "非书面公开",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "非显而易见性",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "非限定型权利要求",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "非形状、非构造技术特征",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "非职务发明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "费用种类的转换",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "符合发明目的原则",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "复查请求",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "复核组",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "复审案件",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "复审程序终止",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "复审请求案件",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "复审请求视为撤回",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "富有美感",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "改良型新药",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "割裂技术特征",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "公平、合理、无歧视许可义务",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "公认的同一化合物类别",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "公正执法原则",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "公证文书",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "功能分类",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "功能或者效果特征",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "供应国内市场",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "管辖权",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "国际单位错误",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "国际申请不能进入中国国家阶段通知书",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "国际申请在中国没有效力",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "国际外观设计分类法",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "国家公布",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "国家阶段的修改",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "国家知识产权局认可的保藏单位",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "汉字编码方法",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "合案申请",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "合并审理",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "合法来源",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "合法权利",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "合方发明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "合议审查",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "互联网证据的公开时间",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "化合物的新颖性",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "化合物权利要求",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "化学产品",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "化学产品的医药用途发明的新颖性",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "化学产品发明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "化学产品用途发明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "化学产品用途发明的新颖性",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "化学方法发明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "化学方法权利要求",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "化学结构片段",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "化学通式",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "恢复权利请求期限",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "会晤",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "会晤记录",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "混合系统",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "机械构造",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "积极效果",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "基本相同的功能",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "基本相同的手段",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "基本相同的效果",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "基因或者DNA片段",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "计算机程序产品",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "计算机汉字输入方法",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "技术方案的删除",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "技术主题",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "继续审查",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "加减方发明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "减缴",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "简要说明的解释作用",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "简要说明书",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "教唆他人实施侵犯专利权行为",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "节点性特征",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "解密请求",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "仅具有技术功能",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "进口专利产品",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "进入国家阶段的书面声明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "举证责任倒置",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "具体化合物",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "聚合物限定方式",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "决定的理由",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "决定要点",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "开放许可声明的撤回",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "科学理论",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "科学研究和实验例外",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "口头审理通知",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "口头审理通知回执",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "口头审理终止",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "宽限期",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "扩展检索",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "立卷",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "联系人",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "临时过境",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "六面正投影视图",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "轮候保全",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "马库什要素",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "明确已知的现有技术方案",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "能够实现",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "排除法",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "判断客体",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "旁听",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "烹调方法",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "期限的届满日",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "期限的起算日",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "期限届满日",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "其他文件",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "起诉期限",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "前置审查意见",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "侵权获利",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "取代、缺失或添加",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "取得专利权的药品",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "权利的部分放弃",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "权利要求的进一步限定",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "权利要求的删除",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "权利要求书以说明书为依据",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "确认援引加入声明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "人类胚胎干细胞",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "融合细胞",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "三位一体写法",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "色彩",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "上位概念与下位概念",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "上下位概念",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "设计构思相同",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "设计特征",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "涉案专利",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "涉及工艺的方法特征",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "涉及计算机程序的发明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "涉及设备的方法特征",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "涉及图形用户界面的产品外观设计",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "涉及物质的方法特征",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "申请人引起的不合理延迟",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "申请日的更正",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "审查基础文本声明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "审查文本",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "审查依据的文本",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "生物材料样品国际保藏单位",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "剩余大组",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "时间顺序原则",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "实际损失",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "实施",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "实施许可合同",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "实用新型的创造性",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "实用新型专利申请的初步审查",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "实质审查程序的恢复",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "实质审查程序的中止",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "实质审查程序的终止",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "实质审查请求之日",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "实质性非侵权用途",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "实质支持",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "食品基本功能",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "视为撤回在先申请的程序",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "视为放弃取得专利权",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "视为未办理登记手续",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "适于工业应用",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "收到文件回执",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "收费减缴",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "收件人",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "受理部门",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "授予专利权的通知书",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "说明书公开不充分",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "说明书及附图的解释作用",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "诉前行为保全",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "诉前证据保全",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "所属技术领域",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "所属技术领域的技术人员能够实现",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "所要解决的技术问题",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "他人未经申请人同意而泄露其内容",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "特别授权的委托书",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "天然物质",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "通式",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "同类独立权利要求",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "同日",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "同样产品",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "同一类别并且成套出售或者使用的产品",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "突出的实质性特点和显著的进步",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "图案",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "图案和色彩结合的外观设计",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "退款",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "外观设计分类",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "外观设计实质相同",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "外观设计相同主题",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "外观设计要素",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "外观设计专利权的保护范围",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "外国部分优先权",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "外国首次申请",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "完全确定的化合物",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "微生物的分类命名",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "微生物发明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "违反法律的发明创造",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "未充分实施其专利",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "未实施或者未充分实施",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "无效宣告案件",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "无效宣告程序的终止",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "无效宣告理由和证据的补充",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "无效宣告请求客体",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "无效宣告请求审查程序终止",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "无需经过创造性劳动就能够想到",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "物质的医药用途",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "显著经济意义的重大技术进步",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "现场调查",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "现有设计特征",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "现有设计状况",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "线路构造",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "相冲突",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "相近似",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "相近种类的产品",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "相同侵权",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "相同种类产品",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "相同主题的发明或者实用新型",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "向外国申请专利",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "象形/拟物形式的描述",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "小分子化合物",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "新产品",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "新产品用途发明的创造性",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "新药相关技术方案",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "新引出的技术特征",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "新种",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "行政审批所需要的信息",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "形式支持",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "形状、图案和色彩结合的外观设计",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "形状和色彩结合的外观设计",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "形状和图案结合的外观设计",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "性能检测试验",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "修改超出原图片或者照片表示的范围",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "修改更正通知书",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "选定",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "巡回口头审理",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "延期举证",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "衍生物",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "样品或者模型",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "药品专利链接制度",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "药品专利权期限补偿期间",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "要素变更的发明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "要素关系改变的发明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "要素省略的发明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "要素替代的发明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "一事不再理原则",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "依照该专利方法直接获得的产品",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "依照专利方法直接获得的产品",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "依职权审查原则",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "遗传工程",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "遗传功能",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "遗传功能单位",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "遗传资源的原始来源",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "遗传资源的直接来源",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "遗传资源的直接来源和原始来源",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "遗传资源来源的披露",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "已知产品的新用途发明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "已知产品用途发明的创造性",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "以制备方法界定产品的技术特征",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "意想不到的效果",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "引用基础",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "应用分类",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "用途限定",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "用途原则",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "用物理化学参数表征的化学产品",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "用原子核变换方法所获得的物质",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "用制备方法表征的化学产品权利要求",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "优先权声明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "优先权证明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "优先权转让证明材料",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "由产品功能决定的设计特征",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "由申请人引起的不合理延迟",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "邮戳日",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "邮寄送达",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "邮路查询时效",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "预防和/或治疗",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "域外证据",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "原生环境",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "原说明书和权利要求书",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "原图片或者照片表示的范围",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "原有范围",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "再次审查意见通知书",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "在全国有重大影响的专利侵权纠纷",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "在先商标权",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "在先著作权",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "在中国完成的发明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "在中国完成的发明或者实用新型",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "在中国完成的实用新型",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "载体",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "真实原则",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "诊断方法",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "整体分类",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "整体观察、综合判断",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "正式答复",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "证据的合法性",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "证据的真实性",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "证人证言",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "证型",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "直接涉及共有权利的手续",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "指定管辖",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "指定期限不得延长",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "制备用途权利要求",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "制药方法类型的用途权利要求",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "治疗方法",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "治疗目的外科手术方法",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "智力活动",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "中国在后申请",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "中国政府承认的国际展览会",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "中间结果",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "中间体与最终产物的单一性",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "中间文件",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "中药材",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "中药材正名",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "中药产品的制药用途",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "中药提取物",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "中药饮片",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "中药原料变更的组方发明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "中药制剂",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "中止",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "中止处理",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "中止口头审理",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "中止期限",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "终止实施强制许可的决定",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "重组载体",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "主药",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "主要起标识作用",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "主要起标识作用的设计",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "主要是生物学的方法",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "注册用户",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "著录事项变更手续",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "专利合作条约第19条的修改",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "专利合作条约第34条的修改",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "专利纠纷调解",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "专利开放许可实施合同",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "专利开放许可实施合同备案",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "专利开放许可实施期间",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "专利年费减缴",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "专利侵权",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "专利权期满终止",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "专利权期满终止日",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "专利权宣告无效的追溯力",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "专利权终止通知书",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "专利申请手续",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "专利审查档案",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "专利业务办理系统",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "专为科学研究和实验",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "专用产品",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "转基因动物和植物",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "自组方发明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "总-分-总",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "组合发明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "组合库",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "组合物发明",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "组合物权利要求",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "组长",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "最低限度数据库",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "最小保护主体",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "A类文件",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "L类文件",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "PX类文件",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "PY类文件",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "R类文件",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "T类文件",
+"tier": "high",
+"df": 1
+},
+{
+"canonical": "发明点",
+"tier": "mid",
+"df": 6
+},
+{
+"canonical": "视为撤回通知书",
+"tier": "mid",
+"df": 6
+},
+{
+"canonical": "本领域技术人员",
+"tier": "mid",
+"df": 5
+},
+{
+"canonical": "恢复权利请求费",
+"tier": "mid",
+"df": 5
+},
+{
+"canonical": "技术手段",
+"tier": "mid",
+"df": 5
+},
+{
+"canonical": "质权人",
+"tier": "mid",
+"df": 5
+},
+{
+"canonical": "存活证明",
+"tier": "mid",
+"df": 4
+},
+{
+"canonical": "单一性恢复费",
+"tier": "mid",
+"df": 4
+},
+{
+"canonical": "复审费",
+"tier": "mid",
+"df": 4
+},
+{
+"canonical": "国际公布",
+"tier": "mid",
+"df": 4
+},
+{
+"canonical": "基本设计",
+"tier": "mid",
+"df": 4
+},
+{
+"canonical": "权利要求",
+"tier": "mid",
+"df": 4
+},
+{
+"canonical": "实质审查费",
+"tier": "mid",
+"df": 4
+},
+{
+"canonical": "意见陈述书",
+"tier": "mid",
+"df": 4
+},
+{
+"canonical": "原申请",
+"tier": "mid",
+"df": 4
+},
+{
+"canonical": "证明文件",
+"tier": "mid",
+"df": 4
+},
+{
+"canonical": "专利权期限的补偿",
+"tier": "mid",
+"df": 4
+},
+{
+"canonical": "专利性国际初步报告",
+"tier": "mid",
+"df": 4
+},
+{
+"canonical": "保藏证明",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "独占许可",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "复审请求人",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "复审通知书",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "给予保护的决定",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "共有专利权",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "国际检索报告",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "国际阶段",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "合议组",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "互惠原则",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "排他许可",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "商业规则和方法特征",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "申请费",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "受理局",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "算法特征",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "同日申请",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "外观设计国际注册申请",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "无效宣告请求费",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "依职权审查",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "译文改正费",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "优先权期限",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "援引在先申请文件",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "指定局",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "专利保护的客体",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "专利权评价报告请求书",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "专利实施许可",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "专利实施许可合同",
+"tier": "mid",
+"df": 3
+},
+{
+"canonical": "《规范申请专利行为的规定》",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "保密基准",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "保密专利权",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "保全措施",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "变化状态图",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "补正",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "撤回无效宣告请求",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "出质人",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "传送编号",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "登记本",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "发明专利公报",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "反证",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "放弃实用新型专利权",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "分案通知书",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "附图",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "复审和无效审理部",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "复审和无效审理部门",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "复审请求书",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "公知常识性证据",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "关于微生物保藏的说明",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "国防专利权",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "国际外观设计分类表",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "国际注册号",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "国际专利分类号",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "国家申请号",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "和解",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "恢复权利请求",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "恢复权利请求书",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "计算机可读存储介质",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "检索资料",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "解除委托",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "经常居所",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "局部放大图",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "滥用专利权",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "垄断行为",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "密级",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "拼凑权项",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "剖面线",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "普通许可",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "请求保护色彩",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "确认援引项目或部分决定的通知书",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "商业性宣传用语",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "上位特征",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "申请专利的权利",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "生产经营目的",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "生物材料",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "生物材料样品保藏证明",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "实用新型专利权",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "实质审查请求书",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "视为未要求优先权通知书",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "首次申请",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "授予发明专利权通知书",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "违反法定程序",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "维持专利权",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "维持专利权有效",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "无效宣告请求人",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "物证",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "现有设计特征的组合",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "相同主题",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "形式审查",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "修改对照表",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "许可使用费",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "选定通知书",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "用户体验",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "用途发明",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "优先权要求的撤回",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "原始申请文件",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "在后申请",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "指定中国",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "中国国家阶段",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "中途退庭",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "中文译文",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "主动撤回",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "主动提出修改",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "著录事项",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "专利产品",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "专利登记簿副本",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "专利复审委员会",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "专利年费",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "专利侵权纠纷",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "专利权评价报告请求费",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "专利权无效宣告请求书",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "专利权质押",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "专利权质押登记",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "专利文献",
+"tier": "mid",
+"df": 2
+},
+{
+"canonical": "最后位置规则",
+"tier": "mid",
+"df": 2
+}
+]

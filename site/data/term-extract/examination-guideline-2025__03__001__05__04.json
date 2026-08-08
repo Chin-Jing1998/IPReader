@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/03/001/05/04",
+  "anchorNode": "03-01-05-04",
+  "terms": [
+    { "name": "不丧失新颖性的公开", "aliases": [], "role": "defined", "confidence": "high", "evidence": "5.4不丧失新颖性的公开" },
+    { "name": "不丧失新颖性宽限期", "aliases": [], "role": "used", "confidence": "high", "evidence": "在国际申请提出时要求过不丧失新颖性宽限期的" },
+    { "name": "视为未要求不丧失新颖性宽限期通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当发出视为未要求不丧失新颖性宽限期通知书" }
+  ],
+  "laws": ["专利法实施细则第一百二十四条", "专利法第二十四条第（二）项", "专利法第二十四条第（三）项", "专利法实施细则第三十三条第三款", "专利法实施细则第三十三条第一款", "专利法实施细则第三十三条第二款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

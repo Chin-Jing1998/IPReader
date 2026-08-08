@@ -1,0 +1,10 @@
+{
+  "chunk": "examination-guideline-2025/03/001/05/06",
+  "anchorNode": "03-01-05-06",
+  "terms": [
+    { "name": "遗传资源来源披露登记表", "aliases": [], "role": "defined", "confidence": "high", "evidence": "并填写遗传资源来源披露登记表" },
+    { "name": "遗传资源", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际申请涉及的发明创造的完成依赖于遗传资源的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "mechanical-drafting-rules/01/002/03",
+  "anchorNode": "mech-01-02-03",
+  "terms": [
+    { "name": "从属权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "从属权利要求中应当有附加的技术特征" },
+    { "name": "中位特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "所谓中位特征，可以理解为保护范围介于上位特征和下位特征之间" },
+    { "name": "附加技术特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在后的特征为附加技术特征时，应当写明附加的技术特征与对应的在先技术特征" },
+    { "name": "进一步限定的技术特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在后的特征为进一步限定的技术特征时，应当写明进一步限定的技术特征" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

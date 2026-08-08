@@ -1,0 +1,27 @@
+{
+  "chunk": "examination-guideline-2025/06/002/06/02",
+  "anchorNode": "06-02-06-02",
+  "terms": [
+    { "name": "国际注册日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "外观设计国际申请的国际注册日视为专利法第二十八条所称的申请日" },
+    { "name": "优先权要求费", "aliases": [], "role": "used", "confidence": "high", "evidence": "外观设计国际申请已提出优先权要求并被国际局接受的，不收取优先权要求费" },
+    { "name": "外国优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "视为根据专利法第二十九条第一款的规定要求外国优先权" },
+    { "name": "本国优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "视为根据专利法第二十九条第二款的规定要求本国优先权" },
+    { "name": "要求优先权声明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "要求优先权声明" },
+    { "name": "在先申请文件副本", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在先申请文件副本" },
+    { "name": "在后申请的申请人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在后申请的申请人" },
+    { "name": "视为撤回在先申请的程序", "aliases": [], "role": "defined", "confidence": "high", "evidence": "视为撤回在先申请的程序" },
+    { "name": "视为未要求优先权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人期满未提交的，视为未要求优先权" },
+    { "name": "优先权要求的撤回", "aliases": [], "role": "used", "confidence": "mid", "evidence": "优先权要求的撤回" },
+    { "name": "优先权要求的恢复", "aliases": [], "role": "used", "confidence": "mid", "evidence": "优先权要求的恢复" }
+  ],
+  "laws": [
+    "专利法实施细则第137条",
+    "专利法第28条",
+    "专利法实施细则第139条",
+    "专利法第29条第1款",
+    "专利法第30条",
+    "专利法实施细则第34条第3款",
+    "专利法第29条第2款"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,20 @@
+{
+  "chunk": "chemistry-drafting-rules/02/003/03",
+  "anchorNode": "chem-02-03-03",
+  "terms": [
+    { "name": "技术效果", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对应每个权项的技术方案之后均应当有技术效果的表述" },
+    { "name": "创造性", "aliases": [], "role": "used", "confidence": "high", "evidence": "特别提倡就那些对发明的创造性具有潜在影响的技术方案的效果进行重点描述" },
+    { "name": "具体实施方式", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当将相关/关联技术清楚且完整地写入具体实施方式的段落中" },
+    { "name": "充分公开", "aliases": ["公开充分"], "role": "used", "confidence": "high", "evidence": "使得本领域技术人员能够通过现有手段获取，以满足公开充分的需求" },
+    { "name": "本领域技术人员", "aliases": [], "role": "used", "confidence": "high", "evidence": "本领域技术人员在阅读完本说明书后可以根据需要对本实施例做出没有创造性贡献的修改" },
+    { "name": "有益效果", "aliases": [], "role": "defined", "confidence": "high", "evidence": "综上所述，本申请至少具有以下一种有益效果" },
+    { "name": "对比例", "aliases": [], "role": "defined", "confidence": "high", "evidence": "具体实施方式部分还应当提供现有技术作为对比例" },
+    { "name": "实施例", "aliases": [], "role": "defined", "confidence": "high", "evidence": "实施例应当支持独权配方的组成和配比范围" },
+    { "name": "性能检测试验", "aliases": [], "role": "defined", "confidence": "high", "evidence": "性能检测试验主要用于证明产品发明的技术效果，应清楚描述产品的检测试验方法" },
+    { "name": "端点值和中间值", "aliases": [], "role": "defined", "confidence": "high", "evidence": "至少能支持独立权利要求请求保护的配比范围的两个端点值和一个中间值" },
+    { "name": "现有技术", "aliases": [], "role": "used", "confidence": "high", "evidence": "具体实施方式部分还应当提供现有技术作为对比例" },
+    { "name": "发明内容", "aliases": [], "role": "used", "confidence": "mid", "evidence": "发明内容" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

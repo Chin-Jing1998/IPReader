@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/01/004/04/02",
+  "anchorNode": "01-04-04-02",
+  "terms": [
+    { "name": "功能分类", "aliases": [], "role": "defined", "confidence": "high", "evidence": "则将该技术主题按功能分类" },
+    { "name": "应用分类", "aliases": [], "role": "defined", "confidence": "high", "evidence": "若技术主题属于下列情况，则将该技术主题按应用分类" },
+    { "name": "既按功能分类又按应用分类", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "则既按功能分类又按应用分类" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

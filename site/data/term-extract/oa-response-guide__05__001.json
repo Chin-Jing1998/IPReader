@@ -1,0 +1,10 @@
+{
+  "chunk": "oa-response-guide/05/001",
+  "anchorNode": "oa-05-01",
+  "terms": [
+    { "name": "必要技术特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "记载解决技术问题的必要技术特征" },
+    { "name": "独立权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "独立权利要求应当从整体上反映发明或者实用新型的技术方案" }
+  ],
+  "laws": ["专利法实施细则第20条第2款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

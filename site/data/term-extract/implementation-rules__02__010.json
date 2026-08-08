@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/02/010",
+  "anchorNode": "rule-02-10",
+  "terms": [
+    { "name": "说明书摘要", "aliases": [], "role": "defined", "confidence": "high", "evidence": "说明书摘要应当写明发明或者实用新型专利申请所公开内容的概要" },
+    { "name": "摘要附图", "aliases": [], "role": "defined", "confidence": "high", "evidence": "指定一幅最能说明该发明或者实用新型技术特征的说明书附图作为摘要附图" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

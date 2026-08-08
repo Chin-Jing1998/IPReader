@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/02/008/04/12",
+  "anchorNode": "02-08-04-12",
+  "terms": [
+    { "name": "会晤", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在实质审查过程中，审查员可以约请申请人会晤，以加快审查程序" },
+    { "name": "会晤通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "可采用会晤通知书或通过电话来约定" },
+    { "name": "会晤记录", "aliases": [], "role": "defined", "confidence": "high", "evidence": "会晤记录不能代替申请人的正式书面答复或者修改" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人未按期答复的，该申请将被视为撤回" },
+    { "name": "专利代理机构", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人委托了专利代理机构的，会晤必须有代理师参加" },
+    { "name": "著录项目变更", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当办理著录项目变更手续" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

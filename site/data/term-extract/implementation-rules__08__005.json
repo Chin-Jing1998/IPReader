@@ -1,0 +1,16 @@
+{
+  "chunk": "implementation-rules/08/005",
+  "anchorNode": "rule-08-05",
+  "terms": [
+    { "name": "专利标识", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "在其专利产品或者该产品的包装上标明专利标识的" },
+    { "name": "专利产品", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "在其专利产品或者该产品的包装上" },
+    { "name": "专利执法", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "由县级以上负责专利执法的部门责令改正" },
+    { "name": "责令改正", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "由县级以上负责专利执法的部门责令改正" }
+  ],
+  "laws": ["专利法第16条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

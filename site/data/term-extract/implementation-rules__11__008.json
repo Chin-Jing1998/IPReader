@@ -1,0 +1,13 @@
+{
+  "chunk": "implementation-rules/11/008",
+  "anchorNode": "rule-11-08",
+  "terms": [
+    { "name": "生物材料样品保藏", "aliases": [], "role": "used", "confidence": "high", "evidence": "记载生物材料样品保藏事项的文件" },
+    { "name": "保藏证明", "aliases": [], "role": "used", "confidence": "high", "evidence": "提交生物材料样品保藏证明和存活证明的" },
+    { "name": "存活证明", "aliases": [], "role": "used", "confidence": "high", "evidence": "生物材料样品保藏证明和存活证明的" },
+    { "name": "视为未提交保藏", "aliases": [], "role": "used", "confidence": "high", "evidence": "期满未补正的，该生物材料视为未提交保藏" },
+    { "name": "进入日", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当自进入日起4个月内补正" }
+  ],
+  "laws": ["专利法实施细则第27条第3项", "专利法实施细则第27条第1项"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

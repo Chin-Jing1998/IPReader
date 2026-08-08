@@ -1,0 +1,14 @@
+{
+  "chunk": "implementation-rules/08/011",
+  "anchorNode": "rule-08-11",
+  "terms": [
+    { "name": "中止有关程序", "aliases": [], "role": "defined", "confidence": "high", "evidence": "中止有关程序，是指暂停专利申请的初步审查、实质审查、复审程序" },
+    { "name": "初步审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "暂停专利申请的初步审查、实质审查、复审程序" },
+    { "name": "实质审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "暂停专利申请的初步审查、实质审查、复审程序" },
+    { "name": "复审程序", "aliases": [], "role": "used", "confidence": "high", "evidence": "暂停专利申请的初步审查、实质审查、复审程序" },
+    { "name": "专利权无效宣告程序", "aliases": [], "role": "used", "confidence": "high", "evidence": "授予专利权程序和专利权无效宣告程序" },
+    { "name": "专利权质押", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利权质押手续以及专利权期限届满前的终止手续" }
+  ],
+  "laws": ["专利法实施细则第103条", "专利法实施细则第104条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

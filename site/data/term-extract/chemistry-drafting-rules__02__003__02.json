@@ -1,0 +1,14 @@
+{
+  "chunk": "chemistry-drafting-rules/02/003/02",
+  "anchorNode": "chem-02-03-02",
+  "terms": [
+    { "name": "背景技术", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对技术保护类案件，背景技术中不得对现有技术文献引证，不应当承认或暗示某些产品为前" },
+    { "name": "现有技术", "aliases": [], "role": "used", "confidence": "high", "evidence": "禁止出现“现有技术”、“传统技术”等字眼，建议使用“相关技术”、“关联技术”" },
+    { "name": "相关技术", "aliases": ["关联技术"], "role": "used", "confidence": "mid", "evidence": "建议使用“相关技术”、“关联技术”或“改进前的方案”" },
+    { "name": "技术问题", "aliases": [], "role": "defined", "confidence": "high", "evidence": "背景技术中指出的技术缺陷和发明内容要解决的技术问题必然是绝对对应的" },
+    { "name": "技术缺陷", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "背景技术中指出的技术缺陷和发明内容要解决的技术问题必然是绝对对应的" },
+    { "name": "发明内容", "aliases": [], "role": "used", "confidence": "mid", "evidence": "背景技术中指出的技术缺陷和发明内容要解决的技术问题必然是绝对对应的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,16 @@
+{
+  "chunk": "implementation-rules/09/002",
+  "anchorNode": "rule-09-02",
+  "terms": [
+    { "name": "专利公报", "aliases": [], "role": "defined", "confidence": "high", "evidence": "国务院专利行政部门定期出版专利公报，公布或者公告下列内容" },
+    { "name": "著录事项", "aliases": [], "role": "used", "confidence": "high", "evidence": "发明专利申请的著录事项和说明书摘要" },
+    { "name": "说明书摘要", "aliases": [], "role": "used", "confidence": "high", "evidence": "发明专利申请的著录事项和说明书摘要" },
+    { "name": "实质审查请求", "aliases": [], "role": "used", "confidence": "high", "evidence": "发明专利申请的实质审查请求" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "发明专利申请公布后的驳回、撤回、视为撤回、视为放弃、恢复和转移" },
+    { "name": "视为放弃", "aliases": [], "role": "used", "confidence": "high", "evidence": "发明专利申请公布后的驳回、撤回、视为撤回、视为放弃、恢复和转移" },
+    { "name": "公告送达", "aliases": [], "role": "used", "confidence": "mid", "evidence": "文件的公告送达" },
+    { "name": "专利权期限的补偿", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利权期限的补偿" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

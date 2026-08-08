@@ -1,0 +1,888 @@
+[
+ {
+  "termKey": "纯功能性的权利要求",
+  "canonical": "纯功能性的权利要求",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/002/03/02",
+    "text": "纯功能性的权利要求得不到说明书的支持，因而也是不允许的"
+   }
+  ]
+ },
+ {
+  "termKey": "纯培养物",
+  "canonical": "纯培养物",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/09/01",
+    "text": "只有当微生物经过分离成为纯培养物，并且具有特定的工业用途时"
+   }
+  ]
+ },
+ {
+  "termKey": "从属专利",
+  "canonical": "从属专利",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/02/002",
+    "text": "在后专利的某项权利要求记载了在先专利某项权利要求中记载的全部技术特征"
+   }
+  ]
+ },
+ {
+  "termKey": "单纯的美容方法",
+  "canonical": "单纯的美容方法",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/001/04/03",
+    "text": "单纯的美容方法，即不介入人体或不产生创伤的美容方法"
+   }
+  ]
+ },
+ {
+  "termKey": "单纯图案的外观设计",
+  "canonical": "单纯图案的外观设计",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/03",
+    "text": "单纯图案的外观设计是指未请求保护色彩并且不限定边界的平面产品的图案设计"
+   }
+  ]
+ },
+ {
+  "termKey": "单纯形状的外观设计",
+  "canonical": "单纯形状的外观设计",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/03",
+    "text": "单纯形状的外观设计是指无图案且未请求保护色彩的产品的形状设计"
+   }
+  ]
+ },
+ {
+  "termKey": "单克隆抗体",
+  "canonical": "单克隆抗体",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/09/02",
+    "text": "对于制备单克隆抗体的方法，应当描述获得或者制备免疫原的方法、免疫方法"
+   }
+  ]
+ },
+ {
+  "termKey": "单克隆抗体权利要求",
+  "canonical": "单克隆抗体权利要求",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/09/03",
+    "text": "针对单克隆抗体的权利要求可以用结构特征限定，也可以用产生它的杂交瘤来限定"
+   }
+  ]
+ },
+ {
+  "termKey": "单因素",
+  "canonical": "单因素",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/004/06",
+    "text": "“单因素”，更多的是指一个可能影响产品性能的变量"
+   }
+  ]
+ },
+ {
+  "termKey": "登记和公告",
+  "canonical": "登记和公告",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/003/06",
+    "text": "由专利局予以登记和公告"
+   }
+  ]
+ },
+ {
+  "termKey": "登记生效",
+  "canonical": "登记生效",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/01/010",
+    "text": "专利申请权或者专利权的转让自登记之日起生效"
+   }
+  ]
+ },
+ {
+  "termKey": "等同侵权",
+  "canonical": "等同侵权",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/02/003",
+    "text": "被诉侵权技术方案有一个或者一个以上技术特征与权利要求中的相应技术特征从字面上"
+   }
+  ]
+ },
+ {
+  "termKey": "第一独立权利要求",
+  "canonical": "第一独立权利要求",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/002/03/01",
+    "text": "写在最前面的独立权利要求被称为第一独立权利要求"
+   }
+  ]
+ },
+ {
+  "termKey": "动植物品种的生产方法",
+  "canonical": "动植物品种的生产方法",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/02/004",
+    "text": "对前款第（四）项所列产品的生产方法，可以依照本法规定授予专利权"
+   }
+  ]
+ },
+ {
+  "termKey": "独立原则",
+  "canonical": "独立原则",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/004/02",
+    "text": "独立原则。每一件专利申请应当建立一份独立的案卷"
+   }
+  ]
+ },
+ {
+  "termKey": "独任审查",
+  "canonical": "独任审查",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/04",
+    "text": "对于简单的案件，可以由一人独任审查"
+   }
+  ]
+ },
+ {
+  "termKey": "独特视觉效果",
+  "canonical": "独特视觉效果",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/06",
+    "text": "独特视觉效果，是指涉案专利相对于现有设计产生了预料不到的视觉效果"
+   }
+  ]
+ },
+ {
+  "termKey": "独占的实施权",
+  "canonical": "独占的实施权",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/06/014",
+    "text": "不享有独占的实施权"
+   }
+  ]
+ },
+ {
+  "termKey": "端点值和中间值",
+  "canonical": "端点值和中间值",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/02/003/03",
+    "text": "至少能支持独立权利要求请求保护的配比范围的两个端点值和一个中间值"
+   }
+  ]
+ },
+ {
+  "termKey": "对比设计",
+  "canonical": "对比设计",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/03",
+    "text": "与涉案专利进行比较的判断客体简称对比设计"
+   }
+  ]
+ },
+ {
+  "termKey": "对比实施例",
+  "canonical": "对比实施例",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/004/06",
+    "text": "此可视为对比实施例（注意，不是“对比例”）"
+   }
+  ]
+ },
+ {
+  "termKey": "多因素",
+  "canonical": "多因素",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/004/06",
+    "text": "“多因素”应是指多个技术手段"
+   }
+  ]
+ },
+ {
+  "termKey": "二级分类表",
+  "canonical": "二级分类表",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/004/04/03",
+    "text": "二级分类表用于对已经分类在其他分类位置上的技术主题进行强制补充分类"
+   }
+  ]
+ },
+ {
+  "termKey": "发明的创造性",
+  "canonical": "发明的创造性",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/006",
+    "text": "发明的创造性，是指与现有技术相比，该发明具有突出的实质性特点和显著的进步"
+   }
+  ]
+ },
+ {
+  "termKey": "发明或实用新型专利权的保护范围",
+  "canonical": "发明或实用新型专利权的保护范围",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/07/001",
+    "text": "发明或者实用新型专利权的保护范围以其权利要求的内容为准"
+   }
+  ]
+ },
+ {
+  "termKey": "发明人奖金",
+  "canonical": "发明人奖金",
+  "aliases": [
+   "奖金"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/07/002",
+    "text": "一项发明专利的奖金最低不少于4000元"
+   }
+  ]
+ },
+ {
+  "termKey": "发明在商业上获得成功",
+  "canonical": "发明在商业上获得成功",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/004/05",
+    "text": "当发明的产品在商业上获得成功时，如果这种成功是由于发明的技术特征直接导致的"
+   }
+  ]
+ },
+ {
+  "termKey": "法定赔偿",
+  "canonical": "法定赔偿",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/07/008",
+    "text": "确定给予三万元以上五百万元以下的赔偿"
+   }
+  ]
+ },
+ {
+  "termKey": "法定期限",
+  "canonical": "法定期限",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/007/01",
+    "text": "法定期限是指专利法及其实施细则规定的各种期限"
+   }
+  ]
+ },
+ {
+  "termKey": "法律依据",
+  "canonical": "法律依据",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/06",
+    "text": "审查决定的法律依据是指审查决定的理由所涉及的法律、法规条款"
+   }
+  ]
+ },
+ {
+  "termKey": "方法受体",
+  "canonical": "方法受体",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/004/06",
+    "text": "所述方法受体，是指方法所实际针对或者产出的对象"
+   }
+  ]
+ },
+ {
+  "termKey": "放弃专利权声明",
+  "canonical": "放弃专利权声明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/009/04",
+    "text": "专利权人放弃专利权的，应当提交放弃专利权声明"
+   }
+  ]
+ },
+ {
+  "termKey": "非生产经营目的",
+  "canonical": "非生产经营目的",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/06/003",
+    "text": "为私人利用等非生产经营目的实施他人专利的"
+   }
+  ]
+ },
+ {
+  "termKey": "非书面公开",
+  "canonical": "非书面公开",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/002/05",
+    "text": "非书面公开是指：在国际申请的申请日或者有效的优先权日之前"
+   }
+  ]
+ },
+ {
+  "termKey": "非显而易见性",
+  "canonical": "非显而易见性",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "oa-response-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "oa-response-guide/02/004",
+    "text": "即判断非显而易见性"
+   }
+  ]
+ },
+ {
+  "termKey": "非限定型权利要求",
+  "canonical": "非限定型权利要求",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/04",
+    "text": "当该组合物具有两种或者多种使用性能和应用领域时，可以允许用非限定型权利要求"
+   }
+  ]
+ },
+ {
+  "termKey": "非形状、非构造技术特征",
+  "canonical": "非形状、非构造技术特征",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/01/003",
+    "text": "非形状、非构造技术特征，是指实用新型专利权利要求中记载的不属于产品的形状"
+   }
+  ]
+ },
+ {
+  "termKey": "非职务发明",
+  "canonical": "非职务发明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/04/01",
+    "text": "非职务发明，申请专利的权利属于发明人"
+   }
+  ]
+ },
+ {
+  "termKey": "费用种类的转换",
+  "canonical": "费用种类的转换",
+  "aliases": [
+   "转换费用种类"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/002/06",
+    "text": "经专利局确认后可以对费用种类进行转换"
+   }
+  ]
+ },
+ {
+  "termKey": "符合发明目的原则",
+  "canonical": "符合发明目的原则",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/01/001",
+    "text": "符合发明目的原则。在确定专利权保护范围时，不应将不能实现发明目的"
+   }
+  ]
+ },
+ {
+  "termKey": "复查请求",
+  "canonical": "复查请求",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/05/11",
+    "text": "提出复查请求的情况是"
+   }
+  ]
+ },
+ {
+  "termKey": "复核组",
+  "canonical": "复核组",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/010/06",
+    "text": "由组长、主核员和参核员组成的三人复核组"
+   }
+  ]
+ },
+ {
+  "termKey": "复审案件",
+  "canonical": "复审案件",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/02",
+    "text": "复审请求案件（简称复审案件）"
+   }
+  ]
+ },
+ {
+  "termKey": "复审程序终止",
+  "canonical": "复审程序终止",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/002/09",
+    "text": "复审请求因期满未答复而被视为撤回的，复审程序终止"
+   }
+  ]
+ },
+ {
+  "termKey": "复审请求案件",
+  "canonical": "复审请求案件",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/01",
+    "text": "复审请求案件包括对初步审查和实质审查程序中驳回专利申请的决定不服而请求复审的案件"
+   }
+  ]
+ },
+ {
+  "termKey": "复审请求视为撤回",
+  "canonical": "复审请求视为撤回",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/004/03",
+    "text": "既未出席口头审理，也未在指定的期限内进行书面意见陈述，其复审请求视为撤回"
+   }
+  ]
+ },
+ {
+  "termKey": "富有美感",
+  "canonical": "富有美感",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/07",
+    "text": "富有美感，是指在判断是否属于外观设计专利权的保护客体时，关注的是产品的外观给人的"
+   }
+  ]
+ },
+ {
+  "termKey": "改良型新药",
+  "canonical": "改良型新药",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/009/03",
+    "text": "可以给予期限补偿的改良型新药限于国务院药品监督管理部门颁发的药品注册证书"
+   }
+  ]
+ },
+ {
+  "termKey": "割裂技术特征",
+  "canonical": "割裂技术特征",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "oa-response-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "oa-response-guide/02/007",
+    "text": "这些特征之间应当是作为一个整体不可分割的"
+   }
+  ]
+ },
+ {
+  "termKey": "公平、合理、无歧视许可义务",
+  "canonical": "公平、合理、无歧视许可义务",
+  "aliases": [
+   "公平、合理和无歧视的许可义务"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/06/007",
+    "text": "违反其在标准制定中承诺的公平、合理、无歧视的许可义务"
+   }
+  ]
+ },
+ {
+  "termKey": "公认的同一化合物类别",
+  "canonical": "公认的同一化合物类别",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/08",
+    "text": "是指根据本领域的知识可以预期到该类的成员对于要求保护的发明来说其表现是相同的"
+   }
+  ]
+ },
+ {
+  "termKey": "公正执法原则",
+  "canonical": "公正执法原则",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/02",
+    "text": "复审和无效审理部以客观、公正、准确、及时为原则"
+   }
+  ]
+ },
+ {
+  "termKey": "公证文书",
+  "canonical": "公证文书",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/008/04",
+    "text": "一方当事人将公证文书作为证据提交时，有效公证文书所证明的事实"
+   }
+  ]
+ },
+ {
+  "termKey": "功能分类",
+  "canonical": "功能分类",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/004/04/02",
+    "text": "则将该技术主题按功能分类"
+   }
+  ]
+ },
+ {
+  "termKey": "功能或者效果特征",
+  "canonical": "功能或者效果特征",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/002/07",
+    "text": "权利要求中应当尽量避免使用功能或者效果特征来限定实用新型"
+   }
+  ]
+ }
+]

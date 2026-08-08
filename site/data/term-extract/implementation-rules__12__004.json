@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/12/004",
+  "anchorNode": "rule-12-04",
+  "terms": [
+    { "name": "优先权", "aliases": [], "role": "used", "confidence": "high", "evidence": "外观设计国际申请中包括一项或者多项优先权的" },
+    { "name": "在先申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "3个月内提交在先申请文件副本" },
+    { "name": "外观设计国际申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际局公布的外观设计国际申请中包括一项或者多项优先权的" }
+  ],
+  "laws": ["专利法第30条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

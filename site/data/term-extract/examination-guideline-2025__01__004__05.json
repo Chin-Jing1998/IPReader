@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/01/004/05",
+  "anchorNode": "01-04-05",
+  "terms": [
+    { "name": "最先位置规则", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "优先规则（最先位置规则、最后位置规则）" },
+    { "name": "最后位置规则", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "优先规则（最先位置规则、最后位置规则）" },
+    { "name": "附注", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "附注只适用于相关的位置及其细分位置" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

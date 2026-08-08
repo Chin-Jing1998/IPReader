@@ -1,0 +1,11 @@
+{
+  "chunk": "patent-law/07/005",
+  "anchorNode": "law-07-05",
+  "terms": [
+    { "name": "假冒专利", "aliases": [], "role": "used", "confidence": "high", "evidence": "假冒专利的，除依法承担民事责任外" },
+    { "name": "负责专利执法的部门", "aliases": [], "role": "used", "confidence": "high", "evidence": "由负责专利执法的部门责令改正并予公告" },
+    { "name": "违法所得", "aliases": [], "role": "used", "confidence": "mid", "evidence": "没收违法所得，可以处违法所得五倍以下的罚款" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

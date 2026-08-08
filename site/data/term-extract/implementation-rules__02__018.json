@@ -1,0 +1,13 @@
+{
+  "chunk": "implementation-rules/02/018",
+  "anchorNode": "rule-02-18",
+  "terms": [
+    { "name": "外国优先权", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人依照专利法第三十条的规定要求外国优先权的" },
+    { "name": "本国优先权", "aliases": [], "role": "used", "confidence": "high", "evidence": "要求本国优先权，申请人在请求书中写明在先申请的申请日和申请号的" },
+    { "name": "在先申请文件副本", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人提交的在先申请文件副本应当经原受理机构证明" },
+    { "name": "优先权转让证明材料", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当提交优先权转让证明材料" },
+    { "name": "原受理机构", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当经原受理机构证明" }
+  ],
+  "laws": ["专利法第30条", "专利法实施细则第31条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

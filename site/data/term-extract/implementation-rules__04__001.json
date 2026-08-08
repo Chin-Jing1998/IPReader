@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/04/001",
+  "anchorNode": "rule-04-01",
+  "terms": [
+    { "name": "复审请求书", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当提交复审请求书，说明理由" },
+    { "name": "复审请求人", "aliases": [], "role": "used", "confidence": "high", "evidence": "书面通知复审请求人并说明理由" },
+    { "name": "复审", "aliases": [], "role": "used", "confidence": "mid", "evidence": "依照专利法第四十一条的规定向国务院专利行政部门请求复审的" }
+  ],
+  "laws": ["专利法第41条", "专利法第18条第1款", "专利法第41条第1款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

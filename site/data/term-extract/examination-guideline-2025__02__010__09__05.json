@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/02/010/09/05",
+  "anchorNode": "02-10-09-05",
+  "terms": [
+    { "name": "遗传资源的直接来源", "aliases": ["直接来源"], "role": "defined", "confidence": "high", "evidence": "专利法所称遗传资源的直接来源，是指获取遗传资源的直接渠道" },
+    { "name": "遗传资源的原始来源", "aliases": ["原始来源"], "role": "defined", "confidence": "high", "evidence": "专利法所称遗传资源的原始来源，是指遗传资源所属的生物体在原生环境中的采集地" },
+    { "name": "原生环境", "aliases": [], "role": "defined", "confidence": "high", "evidence": "原生环境是指该生物体的自然生长环境" },
+    { "name": "遗传资源来源披露登记表", "aliases": ["登记表"], "role": "defined", "confidence": "high", "evidence": "专利局制定的遗传资源来源披露登记表（以下简称为登记表）" },
+    { "name": "依赖遗传资源完成的发明创造", "aliases": [], "role": "used", "confidence": "mid", "evidence": "就依赖遗传资源完成的发明创造申请专利" },
+    { "name": "充分公开", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不能作为判断说明书是否充分公开的依据" }
+  ],
+  "laws": ["专利法第26条第5款", "专利法实施细则第29条第2款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

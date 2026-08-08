@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/06/003",
+  "anchorNode": "rule-06-03",
+  "terms": [
+    { "name": "开放许可", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "通过开放许可达成专利实施许可的" },
+    { "name": "专利实施许可", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "通过开放许可达成专利实施许可的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

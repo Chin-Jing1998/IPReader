@@ -1,0 +1,54 @@
+{
+  "chunk": "examination-guideline-2025/02/008/01",
+  "anchorNode": "02-08-01",
+  "terms": [
+    {
+      "name": "实质审查",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "本章所说的实质审查，是指中国发明专利申请的实质审查"
+    },
+    {
+      "name": "驳回",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "即仍然存在属于专利法实施细则第五十九条规定情形的缺陷的，应当予以驳回"
+    },
+    {
+      "name": "视为撤回",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "在实质审查程序中专利申请被视为撤回的情形"
+    },
+    {
+      "name": "撤回",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "申请人可以在被授予专利权之前随时撤回其专利申请"
+    },
+    {
+      "name": "进入中国国家阶段的国际申请",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "对于进入中国国家阶段的国际申请的实质审查"
+    }
+  ],
+  "laws": [
+    "专利法第35条",
+    "专利法第35条第1款",
+    "专利法第35条第2款",
+    "专利法第39条",
+    "专利法第38条",
+    "专利法实施细则第59条",
+    "专利法第32条",
+    "专利法第36条第2款",
+    "专利法第37条",
+    "专利法实施细则第48条第2款"
+  ],
+  "extractedAt": "2026-07-12T16:45:00+08:00"
+}

@@ -1,0 +1,10 @@
+{
+  "chunk": "examination-guideline-2025/04/003/06",
+  "anchorNode": "04-03-06",
+  "terms": [
+    { "name": "决定的送达", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "无效宣告请求审查决定应当送达双方当事人" },
+    { "name": "登记和公告", "aliases": [], "role": "defined", "confidence": "high", "evidence": "由专利局予以登记和公告" }
+  ],
+  "laws": ["专利法第46条第1款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

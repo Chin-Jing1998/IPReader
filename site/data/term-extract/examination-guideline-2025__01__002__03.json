@@ -1,0 +1,34 @@
+{
+  "chunk": "examination-guideline-2025/01/002/03",
+  "anchorNode": "01-02-03",
+  "terms": [
+    { "name": "授予专利权通知", "aliases": ["授予实用新型专利权通知"], "role": "defined", "confidence": "high", "evidence": "审查员应当作出授予实用新型专利权通知" },
+    { "name": "补正通知书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查员应当进行全面审查，并发出补正通知书" },
+    { "name": "审查意见通知书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当发出审查意见通知书" },
+    { "name": "明显实质性缺陷", "aliases": [], "role": "used", "confidence": "mid", "evidence": "存在不可能通过补正方式克服的明显实质性缺陷" },
+    { "name": "恢复权利", "aliases": ["恢复权利的请求"], "role": "used", "confidence": "mid", "evidence": "申请人可以在规定的期限内向专利局提出恢复权利的请求" },
+    { "name": "延长期限请求", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以提出延长期限请求" },
+    { "name": "视为撤回通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当根据情况发出视为撤回通知书或者其他通知书" },
+    { "name": "驳回决定", "aliases": [], "role": "defined", "confidence": "high", "evidence": "驳回决定正文包括案由、驳回的理由以及决定三个部分" },
+    { "name": "复审请求", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人对驳回决定不服的，可以在规定的期限内提出复审请求" },
+    { "name": "前置审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对复审请求的前置审查及复审后的处理" }
+  ],
+  "laws": [
+    "专利法实施细则第五十条",
+    "专利法第二条第三款",
+    "专利法第五条",
+    "专利法第九条",
+    "专利法第十九条第一款",
+    "专利法第二十二条",
+    "专利法第二十五条",
+    "专利法第二十六条第三款",
+    "专利法第二十六条第四款",
+    "专利法第三十一条第一款",
+    "专利法第三十三条",
+    "专利法实施细则第十一条",
+    "专利法实施细则第二十三条",
+    "专利法实施细则第四十九条第一款",
+    "专利法实施细则第五十条第二款"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

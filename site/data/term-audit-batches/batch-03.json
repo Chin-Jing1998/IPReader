@@ -1,0 +1,1149 @@
+[
+ {
+  "termKey": "说明书附图",
+  "canonical": "说明书附图",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "mechanical-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/002/07",
+    "text": "附图是说明书的一个组成部分"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/003/02",
+    "text": "实用新型专利申请文件中有说明书、说明书附图和权利要求书"
+   }
+  ]
+ },
+ {
+  "termKey": "外观设计专利权",
+  "canonical": "外观设计专利权",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/01",
+    "text": "作出授予外观设计专利权的决定"
+   },
+   {
+    "chunk": "examination-guideline-2025/01/003/04/02",
+    "text": "外观设计专利权的保护范围以表示在图片或者照片中的该产品的外观设计为准"
+   }
+  ]
+ },
+ {
+  "termKey": "委托书",
+  "canonical": "委托书",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/06/01",
+    "text": "委托书应当使用专利局制定的标准表格"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/001/05/01",
+    "text": "提交的委托书除应当符合本指南第一部分第一章第6.1.2节的规定外"
+   }
+  ]
+ },
+ {
+  "termKey": "先申请原则",
+  "canonical": "先申请原则",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/003/05",
+    "text": "那么根据先申请原则，申请人就不能取得专利权"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/002/02",
+    "text": "专利法第九条第二款：先申请原则"
+   }
+  ]
+ },
+ {
+  "termKey": "显而易见",
+  "canonical": "显而易见",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "oa-response-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/009/06/02",
+    "text": "要求保护的发明技术方案相对于对比文件1和对比文件2的结合是显而易见的"
+   },
+   {
+    "chunk": "oa-response-guide/02/002",
+    "text": "要求保护的发明相对于现有技术是否显而易见"
+   }
+  ]
+ },
+ {
+  "termKey": "新药相关发明专利权期限补偿",
+  "canonical": "新药相关发明专利权期限补偿",
+  "aliases": [
+   "期限补偿"
+  ],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/05/005",
+    "text": "请求给予新药相关发明专利权期限补偿的，应当符合下列要求"
+   },
+   {
+    "chunk": "implementation-rules/05/006",
+    "text": "依照专利法第四十二条第三款的规定给予专利权期限补偿的"
+   }
+  ]
+ },
+ {
+  "termKey": "许诺销售",
+  "canonical": "许诺销售",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "infringement-guide",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/05/001",
+    "text": "在销售侵犯他人专利权的产品行为实际发生前，被诉侵权人作出销售侵犯他人专利权产品"
+   },
+   {
+    "chunk": "patent-law/01/011",
+    "text": "许诺销售、销售、进口"
+   }
+  ]
+ },
+ {
+  "termKey": "宣告专利权无效",
+  "canonical": "宣告专利权无效",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/003/05",
+    "text": "宣告无效的专利权视为自始即不存在"
+   },
+   {
+    "chunk": "patent-law/05/004",
+    "text": "可以请求国务院专利行政部门宣告该专利权无效"
+   }
+  ]
+ },
+ {
+  "termKey": "学术会议或者技术会议",
+  "canonical": "学术会议或者技术会议",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/06/03",
+    "text": "国务院有关主管部门或者全国性学术团体组织召开的学术会议或者技术会议"
+   },
+   {
+    "chunk": "implementation-rules/02/017",
+    "text": "是指国务院有关主管部门或者全国性学术团体组织召开的学术会议或者技术会议"
+   }
+  ]
+ },
+ {
+  "termKey": "延长期限请求",
+  "canonical": "延长期限请求",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/002/03",
+    "text": "可以提出延长期限请求"
+   },
+   {
+    "chunk": "examination-guideline-2025/01/003/03",
+    "text": "可以提出延长期限请求"
+   }
+  ]
+ },
+ {
+  "termKey": "药品专利权期限补偿",
+  "canonical": "药品专利权期限补偿",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/008/01/03",
+    "text": "药品专利权期限补偿公布的项目包括"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/009/03",
+    "text": "专利局可以对符合条件的发明专利给予药品专利权期限补偿"
+   }
+  ]
+ },
+ {
+  "termKey": "要求优先权声明",
+  "canonical": "要求优先权声明",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/06/02",
+    "text": "申请人要求优先权的，应当在提出专利申请的同时在请求书中声明"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/001/05/02",
+    "text": "5.2.1要求优先权声明"
+   }
+  ]
+ },
+ {
+  "termKey": "原说明书和权利要求书记载的范围",
+  "canonical": "原说明书和权利要求书记载的范围",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/002/08",
+    "text": "对申请文件的修改不得超出原说明书和权利要求书记载的范围"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/008/05/02",
+    "text": "不得超出原说明书和权利要求书记载的范围"
+   }
+  ]
+ },
+ {
+  "termKey": "择一引用方式",
+  "canonical": "择一引用方式",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "chemistry-drafting-rules",
+   "examination-guideline-2025",
+   "mechanical-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/001/02",
+    "text": "权利要求应当采用择一引用方式表达"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/002/03/03",
+    "text": "其引用的权利要求的编号应当用“或”或者其他与“或”同义的择一引用方式表达"
+   }
+  ]
+ },
+ {
+  "termKey": "著录项目变更申报书",
+  "canonical": "著录项目变更申报书",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/06/07",
+    "text": "办理著录项目变更手续应当提交著录项目变更申报书"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/001/05/10",
+    "text": "著录项目变更申报书及缴纳变更手续费"
+   }
+  ]
+ },
+ {
+  "termKey": "专利标识",
+  "canonical": "专利标识",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "implementation-rules",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/08/005",
+    "text": "在其专利产品或者该产品的包装上标明专利标识的"
+   },
+   {
+    "chunk": "implementation-rules/08/007",
+    "text": "在未被授予专利权的产品或者其包装上标注专利标识"
+   }
+  ]
+ },
+ {
+  "termKey": "专利国际申请",
+  "canonical": "专利国际申请",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/005/06",
+    "text": "或者向有关国外机构提交专利国际申请的"
+   },
+   {
+    "chunk": "implementation-rules/01/008",
+    "text": "向有关国外机构提交专利国际申请"
+   }
+  ]
+ },
+ {
+  "termKey": "案由",
+  "canonical": "案由",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/06",
+    "text": "案由部分应当简要陈述申请的审查过程"
+   },
+   {
+    "chunk": "examination-guideline-2025/04/001/06",
+    "text": "案由部分可以按照时间顺序叙述复审或者无效宣告请求的提出、范围"
+   }
+  ]
+ },
+ {
+  "termKey": "保藏证明和存活证明",
+  "canonical": "保藏证明和存活证明",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "chemistry-drafting-rules",
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/005/09",
+    "text": "必须递交保藏单位出具的保藏证明和存活证明的原件"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/010/09/02",
+    "text": "未在申请日或者最迟自申请日起四个月内提交保藏单位出具的保藏证明和存活证明的"
+   }
+  ]
+ },
+ {
+  "termKey": "被许可人",
+  "canonical": "被许可人",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/011/02",
+    "text": "同时通知被许可人"
+   },
+   {
+    "chunk": "patent-law/01/012",
+    "text": "被许可人无权允许合同规定以外的任何单位或者个人实施该专利"
+   }
+  ]
+ },
+ {
+  "termKey": "表达方式不规范",
+  "canonical": "表达方式不规范",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "chemistry-drafting-rules",
+   "mechanical-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/001/01",
+    "text": "表达方式不规范为缺主、谓、宾等语法错误，导致阅读不通顺"
+   },
+   {
+    "chunk": "mechanical-drafting-rules/01/001/01",
+    "text": "表达方式不规范为缺主、谓、宾等语法错误，导致阅读不通顺"
+   }
+  ]
+ },
+ {
+  "termKey": "驳回请求",
+  "canonical": "驳回请求",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/07",
+    "text": "作出驳回复审请求或者驳回无效宣告请求的决定"
+   },
+   {
+    "chunk": "examination-guideline-2025/04/003/08",
+    "text": "因不符合受理条件而被驳回请求的"
+   }
+  ]
+ },
+ {
+  "termKey": "补偿期限",
+  "canonical": "补偿期限",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/009/03",
+    "text": "补偿期限按照该专利申请日"
+   },
+   {
+    "chunk": "implementation-rules/05/006",
+    "text": "补偿期限按照该专利申请日至该新药在中国获得上市许可之日的间隔天数减去5年"
+   }
+  ]
+ },
+ {
+  "termKey": "不可抗拒的事由",
+  "canonical": "不可抗拒的事由",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/02",
+    "text": "如果申请人提出耽误上述期限是由于不可抗拒的事由造成的"
+   },
+   {
+    "chunk": "implementation-rules/01/006",
+    "text": "当事人因不可抗拒的事由而延误"
+   }
+  ]
+ },
+ {
+  "termKey": "部门负责人",
+  "canonical": "部门负责人",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/03",
+    "text": "复审和无效审理部部门负责人（简称部门负责人）"
+   },
+   {
+    "chunk": "examination-guideline-2025/04/001/06",
+    "text": "属下列情形的，须经部门负责人审核批准"
+   }
+  ]
+ },
+ {
+  "termKey": "查询时效",
+  "canonical": "查询时效",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/002/05",
+    "text": "查询时效为一年，自汇出费用之日起算"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/003/06",
+    "text": "查询时效为一年，自提交该文件之日起算"
+   }
+  ]
+ },
+ {
+  "termKey": "产品的形状",
+  "canonical": "产品的形状",
+  "aliases": [
+   "形状"
+  ],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/002/06",
+    "text": "产品所具有的、可以从外部观察到的确定的空间形状"
+   },
+   {
+    "chunk": "examination-guideline-2025/01/003/07",
+    "text": "形状，是指对产品造型的设计，也就是指产品外部的点、线、面的移动、变化、组合而呈现"
+   }
+  ]
+ },
+ {
+  "termKey": "产权激励",
+  "canonical": "产权激励",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "implementation-rules",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/07/001",
+    "text": "鼓励被授予专利权的单位实行产权激励"
+   },
+   {
+    "chunk": "patent-law/01/015",
+    "text": "被授予专利权的单位实行产权激励，采取股权、期权、分红等方式"
+   }
+  ]
+ },
+ {
+  "termKey": "撤回专利申请",
+  "canonical": "撤回专利申请",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "implementation-rules",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/02/025",
+    "text": "申请人撤回专利申请的，应当向国务院专利行政部门提出声明"
+   },
+   {
+    "chunk": "patent-law/03/007",
+    "text": "可以在被授予专利权之前随时撤回其专利申请"
+   }
+  ]
+ },
+ {
+  "termKey": "陈述意见",
+  "canonical": "陈述意见",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "implementation-rules",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/03/009",
+    "text": "要求其在指定期限内陈述意见或者补正"
+   },
+   {
+    "chunk": "patent-law/04/004",
+    "text": "要求其在指定的期限内陈述意见"
+   }
+  ]
+ },
+ {
+  "termKey": "代表人",
+  "canonical": "代表人",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/04/01",
+    "text": "除本指南另有规定或者请求书中另有声明外，以第一署名申请人为代表人"
+   },
+   {
+    "chunk": "implementation-rules/02/001",
+    "text": "以请求书中指明的第一申请人为代表人"
+   }
+  ]
+ },
+ {
+  "termKey": "登记手续",
+  "canonical": "登记手续",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/03/019",
+    "text": "办理登记手续"
+   },
+   {
+    "chunk": "implementation-rules/10/005",
+    "text": "申请人办理登记手续时"
+   }
+  ]
+ },
+ {
+  "termKey": "等同特征",
+  "canonical": "等同特征",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/05",
+    "text": "等同特征是指与所记载的技术特征相比，以基本相同的手段，实现基本相同的功能，达到基"
+   },
+   {
+    "chunk": "infringement-guide/02/003",
+    "text": "等同特征，是指与权利要求所记载的技术特征以基本相同的手段，实现基本相同的功能"
+   }
+  ]
+ },
+ {
+  "termKey": "电子文档",
+  "canonical": "电子文档",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/004/01",
+    "text": "包括案卷和电子文档"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/004/03",
+    "text": "电子文档的建立应当参照本章第2.3节的原则"
+   }
+  ]
+ },
+ {
+  "termKey": "对比例",
+  "canonical": "对比例",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/004/06",
+    "text": "只有不能落入独立权利要求的保护范围的才能理解为对比例"
+   },
+   {
+    "chunk": "chemistry-drafting-rules/02/003/03",
+    "text": "具体实施方式部分还应当提供现有技术作为对比例"
+   }
+  ]
+ },
+ {
+  "termKey": "发明构思",
+  "canonical": "发明构思",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "chemistry-drafting-rules",
+   "oa-response-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/02/002",
+    "text": "尽可能保护发明构思"
+   },
+   {
+    "chunk": "oa-response-guide/03/001",
+    "text": "属于一个总的发明构思的两项以上的发明"
+   }
+  ]
+ },
+ {
+  "termKey": "发明专利申请公布",
+  "canonical": "发明专利申请公布",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/008/01/02",
+    "text": "自申请日（有优先权的，为优先权日）起满十八个月，即行公布"
+   },
+   {
+    "chunk": "patent-law/01/013",
+    "text": "发明专利申请公布后"
+   }
+  ]
+ },
+ {
+  "termKey": "法定休假日",
+  "canonical": "法定休假日",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/007/02",
+    "text": "法定休假日包括国务院发布的《全国年节及纪念日放假办法》第二条规定的"
+   },
+   {
+    "chunk": "implementation-rules/01/005",
+    "text": "期限届满日是法定休假日的"
+   }
+  ]
+ },
+ {
+  "termKey": "仿制药申请人",
+  "canonical": "仿制药申请人",
+  "aliases": [
+   "药品上市许可申请人"
+  ],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/003/09",
+    "text": "药品上市许可申请人（又称仿制药申请人）"
+   },
+   {
+    "chunk": "patent-law/07/013",
+    "text": "药品上市许可申请人与有关专利权人或者利害关系人"
+   }
+  ]
+ },
+ {
+  "termKey": "放弃专利权",
+  "canonical": "放弃专利权",
+  "aliases": [
+   "书面声明放弃其专利权"
+  ],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/009/04",
+    "text": "授予专利权后，专利权人随时可以主动要求放弃专利权"
+   },
+   {
+    "chunk": "patent-law/05/003",
+    "text": "专利权人以书面声明放弃其专利权的"
+   }
+  ]
+ },
+ {
+  "termKey": "非职务发明创造",
+  "canonical": "非职务发明创造",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/01/006",
+    "text": "非职务发明创造，申请专利的权利属于发明人或者设计人"
+   },
+   {
+    "chunk": "patent-law/01/007",
+    "text": "对发明人或者设计人的非职务发明创造专利申请"
+   }
+  ]
+ },
+ {
+  "termKey": "非治疗目的的外科手术方法",
+  "canonical": "非治疗目的的外科手术方法",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "chemistry-drafting-rules",
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/005/07",
+    "text": "非治疗目的的外科手术方法，例如，为美容而实施的外科手术方法"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/005",
+    "text": "非治疗目的的外科手术方法，由于是以有生命的人或者动物为实施对象"
+   }
+  ]
+ },
+ {
+  "termKey": "分类号",
+  "canonical": "分类号",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/12",
+    "text": "分类号由“LOC”“（版本号）”“Cl.”“大类号－小类号”组合而成"
+   },
+   {
+    "chunk": "examination-guideline-2025/01/004/01",
+    "text": "按照分类号编排发明专利申请和实用新型专利申请"
+   }
+  ]
+ },
+ {
+  "termKey": "负责专利执法的部门",
+  "canonical": "负责专利执法的部门",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/07/005",
+    "text": "由负责专利执法的部门责令改正并予公告"
+   },
+   {
+    "chunk": "patent-law/07/006",
+    "text": "负责专利执法的部门根据已经取得的证据，对涉嫌假冒专利行为进行查处时"
+   }
+  ]
+ },
+ {
+  "termKey": "附加信息",
+  "canonical": "附加信息",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/004/02",
+    "text": "附加信息本身不代表对现有技术的贡献，而是对检索可能是有用的信息"
+   },
+   {
+    "chunk": "examination-guideline-2025/01/004/07",
+    "text": "附加信息进行分类或者引得"
+   }
+  ]
+ },
+ {
+  "termKey": "公开原则",
+  "canonical": "公开原则",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/02",
+    "text": "其他各种案件的口头审理应当公开举行，审查决定应当公开"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/011/02",
+    "text": "（3）公开原则"
+   }
+  ]
+ },
+ {
+  "termKey": "公众不能得到的生物材料",
+  "canonical": "公众不能得到的生物材料",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "chemistry-drafting-rules",
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/005/09",
+    "text": "“公众不能得到的生物材料” 包括：个人或单位拥有的、由非专利程序的保藏机构保藏"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/010/09/02",
+    "text": "个人或者单位拥有的、由非专利程序的保藏机构保藏并对公众不公开发放的生物材料"
+   }
+  ]
+ },
+ {
+  "termKey": "公众意见",
+  "canonical": "公众意见",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/04/09",
+    "text": "专利局对公众意见的处理情况，不必通知提出意见的公众"
+   },
+   {
+    "chunk": "implementation-rules/03/013",
+    "text": "任何人均可以对不符合专利法规定的专利申请向国务院专利行政部门提出意见"
+   }
+  ]
+ },
+ {
+  "termKey": "功能上彼此相互支持、存在相互作用关系",
+  "canonical": "功能上彼此相互支持、存在相互作用关系",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/009/06/01",
+    "text": "是指算法特征或商业规则和方法特征与技术特征紧密结合"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/009/06/03",
+    "text": "可以进一步包含与技术特征功能上彼此相互支持、存在相互作用关系的"
+   }
+  ]
+ },
+ {
+  "termKey": "国际申请在中国的效力终止",
+  "canonical": "国际申请在中国的效力终止",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/02",
+    "text": "该国际申请在中国的效力终止，审查员应当发出国际申请不能进入中国国家阶段通知书"
+   },
+   {
+    "chunk": "implementation-rules/11/005",
+    "text": "国际申请有下列情形之一的，其在中国的效力终止"
+   }
+  ]
+ },
+ {
+  "termKey": "国际专利分类",
+  "canonical": "国际专利分类",
+  "aliases": [
+   "IPC",
+   "国际专利分类表"
+  ],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/004/01",
+    "text": "专利局采用国际专利分类对发明专利申请和实用新型专利申请进行分类"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/007/05",
+    "text": "审查员可以按照下面的步骤查阅国际专利分类表，确定检索的技术领域"
+   }
+  ]
+ },
+ {
+  "termKey": "国家阶段",
+  "canonical": "国家阶段",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/01",
+    "text": "向专利局办理进入中国国家阶段（以下简称国家阶段）的手续"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/001/05/09",
+    "text": "进入国家阶段的国际申请"
+   }
+  ]
+ },
+ {
+  "termKey": "合法原则",
+  "canonical": "合法原则",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/02",
+    "text": "复审和无效审理部应当依法行政"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/011/02",
+    "text": "（2）合法原则"
+   }
+  ]
+ },
+ {
+  "termKey": "基本检索要素",
+  "canonical": "基本检索要素",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/05",
+    "text": "基本检索要素是体现技术方案的基本构思的可检索的要素"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/007/06",
+    "text": "基本检索要素的表达形式主要包括：分类号、关键词等"
+   }
+  ]
+ },
+ {
+  "termKey": "疾病的诊断方法",
+  "canonical": "疾病的诊断方法",
+  "aliases": [],
+  "tier": "high",
+  "df": 2,
+  "domains": [
+   "chemistry-drafting-rules",
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/005/06",
+    "text": "疾病的诊断方法（识别、研究和确定有生命的人体或动物体病因或病灶状态的方法）"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/011/02",
+    "text": "属于专利法第二十五条第一款第（三）项规定的疾病的诊断方法"
+   }
+  ]
+ }
+]

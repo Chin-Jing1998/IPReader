@@ -1,0 +1,14 @@
+{
+  "chunk": "infringement-guide/06/007",
+  "anchorNode": "infr-06-07",
+  "terms": [
+    { "name": "不停止侵权抗辩", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不停止侵权抗辩" },
+    { "name": "标准必要专利", "aliases": [], "role": "defined", "confidence": "high", "evidence": "标准必要专利是指为实施技术标准而必须使用的专利" },
+    { "name": "公平、合理、无歧视许可义务", "aliases": ["公平、合理和无歧视的许可义务"], "role": "defined", "confidence": "high", "evidence": "违反其在标准制定中承诺的公平、合理、无歧视的许可义务" },
+    { "name": "许可协商", "aliases": [], "role": "used", "confidence": "high", "evidence": "被诉侵权人在标准必要专利的实施许可协商中也没有明显过错的" },
+    { "name": "合理对价", "aliases": [], "role": "used", "confidence": "high", "evidence": "能够举证证明其已支付该产品的合理对价的" },
+    { "name": "明显过错", "aliases": [], "role": "used", "confidence": "mid", "evidence": "被诉侵权人在标准必要专利许可协商过程中存在明显过错" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

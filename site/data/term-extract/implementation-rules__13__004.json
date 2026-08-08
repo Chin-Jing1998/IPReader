@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/13/004",
+  "anchorNode": "rule-13-04",
+  "terms": [
+    { "name": "专利审查指南", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "国务院专利行政部门根据专利法和本细则制定专利审查指南" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

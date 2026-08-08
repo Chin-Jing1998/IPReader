@@ -1,0 +1,11 @@
+{
+  "chunk": "patent-law/06/013",
+  "anchorNode": "law-06-13",
+  "terms": [
+    { "name": "强制许可", "aliases": [], "role": "used", "confidence": "high", "evidence": "作出的给予实施强制许可的决定" },
+    { "name": "强制许可的理由", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "根据强制许可的理由规定实施的范围和时间" },
+    { "name": "终止实施强制许可的决定", "aliases": [], "role": "defined", "confidence": "high", "evidence": "作出终止实施强制许可的决定" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

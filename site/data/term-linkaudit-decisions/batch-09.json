@@ -1,0 +1,192 @@
+[
+  {
+    "id": "term-0763",
+    "canonical": "图案",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "全库103处命中中仅“填充图案”（机械撰写规范mech-01-03-07剖面线示例）属通用图形义，其余均指向外观设计“形状、图案、色彩”三要素定义（含“无图案”“图案设计”“产品图案”等变体），占比约99%远超85%阈值；因确认存在该少数无关用法，置信度降为medium。",
+    "confidence": "medium"
+  },
+  {
+    "id": "term-0765",
+    "canonical": "退款",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "全部命中集中于专利费用暂存与退还章节（实施细则第10章、审查指南5-2专利费用），左邻“出/求”、右邻“请/审”对应“提出退款请求”“退款的审查”等固定搭配，6页命中经全文核验一致无例外。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0785",
+    "canonical": "相近似",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样本均出现于外观设计近似性判定语境（“相同或者相近似”“外观设计不相近似”），邻字“者/或/同”对应固定搭配，词义单一；但覆盖仅4页，证据面偏薄，置信度降为medium。",
+    "confidence": "medium"
+  },
+  {
+    "id": "term-0791",
+    "canonical": "新产品",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "核心定义源自专利法第61条举证责任倒置条款；化学审查若干规定中“新产品的用途发明”“全新产品”等用法场景不同但内核一致（均指“相对现有产品为首次制造/具备新颖性”），源文件已采用该词条链接；因跨程序语境存在细微诠释差异，置信度降为medium。",
+    "confidence": "medium"
+  },
+  {
+    "id": "term-0794",
+    "canonical": "新种",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "全库仅1页2处命中（化学领域发明专利审查若干规定·微生物条款），穷尽核验均为“属于新种时”“鉴定为新种的理由”，词义单一；但原始命中量极薄（4次/1页），置信度降为medium。",
+    "confidence": "medium"
+  },
+  {
+    "id": "term-0823",
+    "canonical": "邮戳日",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样本均为“以……邮戳日为申请日/缴费日/递交日”固定表述，邻字“的/为”高度一致，6页命中无例外。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0839",
+    "canonical": "证型",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "全库仅1页2处命中（中药领域发明专利审查若干规定），穷尽核验均在“证候分型即证型”“同一证型”语境中，词义单一；但原始命中量极薄（5次/1页），置信度降为medium。",
+    "confidence": "medium"
+  },
+  {
+    "id": "term-0846",
+    "canonical": "中药材",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样本均指中药审查规定中“中药材”审查客体/命名规则语境，与长词“中药材正名”共现一致，无通用义混入，7页命中覆盖尚可。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0857",
+    "canonical": "主药",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "含别名“主要药味”“君药”；全部命中集中于中药组方发明章节（02-11-03/05），“辅助主药”“主要药味葛根”等均指“起主要作用的中药原料”概念，穷尽核验一致；但覆盖仅3页/7次，证据量较薄，置信度降为medium。",
+    "confidence": "medium"
+  },
+  {
+    "id": "term-0863",
+    "canonical": "专利侵权",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "含别名“侵犯专利权”；样本“专利侵权的判决”“专利侵权案件”“专利侵权判定”为独立用法（更长词“专利侵权纠纷”已优先覆盖右邻高频“纠”字对应部分），25页命中词义稳定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0882",
+    "canonical": "发明点",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "13篇正文全部属机械/化学撰写规范说明书摘要与背景技术撰写指引及一篇侵权判定等同特征认定条款（目录核验与样本一致），“体现发明点”“非发明点技术特征”均指“申请核心创新点”概念。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0885",
+    "canonical": "技术手段",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "作为“技术方案=技术手段+技术问题+技术效果”三要素之一的专利法核心概念，样本与右邻高频“，”(45/139次)均对应标准名词短语用法，37页命中词义稳定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0886",
+    "canonical": "存活证明",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "与“保藏证明”固定搭配出现（左邻“和”占12/17次），样本全部指向生物材料保藏程序中的存活证明文件，10页命中无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0888",
+    "canonical": "复审费",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样本均在专利收费种类、减缴、缴纳期限语境中出现，指向同一费用科目，6页命中无例外。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0890",
+    "canonical": "国际公布",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样本均指PCT国际申请“国际公布”程序环节，右邻“文”占42/75次对应“国际公布文本”高频搭配，19页命中词义稳定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0892",
+    "canonical": "权利要求",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "全库最高频概念（215页/2418次），邻字（书/中/1/立/属）对应“权利要求书/中/1”“独立/从属权利要求”等稳定搭配，复合长词已在术语表单独列出并优先匹配，裸词指称单一稳定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0896",
+    "canonical": "原申请",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样本均指分案申请语境下的“原申请”（申请号/类别/优先权/记载范围）及审查意见答复语境下“原申请文件”，均为“原始提交申请”同一概念，27页命中无漂移。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0903",
+    "canonical": "国际阶段",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样本均指PCT“国际阶段”程序环节，左邻“在”占56/74次对应“在国际阶段”固定搭配，31页命中词义单一。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0904",
+    "canonical": "合议组",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "全库207次命中经目录核验全部落在“复审与无效请求的审查”章节及对应实施细则条款，指向专利局合议审查组织，64页命中未与法院“合议庭”等其他含义混淆。",
+    "confidence": "high"
+  }
+]

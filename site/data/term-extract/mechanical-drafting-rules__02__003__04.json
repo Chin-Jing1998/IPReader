@@ -1,0 +1,10 @@
+{
+  "chunk": "mechanical-drafting-rules/02/003/04",
+  "anchorNode": "mech-02-03-04",
+  "terms": [
+    { "name": "附图说明", "aliases": [], "role": "used", "confidence": "mid", "evidence": "### 附图说明" },
+    { "name": "轴侧剖视图", "aliases": [], "role": "used", "confidence": "mid", "evidence": "回压组件的轴侧剖视图" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

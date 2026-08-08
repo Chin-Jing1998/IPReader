@@ -1,0 +1,18 @@
+{
+  "chunk": "implementation-rules/06/002",
+  "anchorNode": "rule-06-02",
+  "terms": [
+    { "name": "开放许可", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "专利权有下列情形之一的，专利权人不得对其实行开放许可" },
+    { "name": "独占许可", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "专利权处于独占或者排他许可有效期限内的" },
+    { "name": "排他许可", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "专利权处于独占或者排他许可有效期限内的" },
+    { "name": "专利权质押", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "专利权被质押，未经质权人同意的" },
+    { "name": "质权人", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "专利权被质押，未经质权人同意的" }
+  ],
+  "laws": ["专利法实施细则第103条", "专利法实施细则第104条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

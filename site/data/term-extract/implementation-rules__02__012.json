@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/02/012",
+  "anchorNode": "rule-02-12",
+  "terms": [
+    { "name": "生物材料", "aliases": [], "role": "used", "confidence": "high", "evidence": "任何单位或者个人需要将该专利申请所涉及的生物材料作为实验目的使用的" },
+    { "name": "实验目的使用", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在授予专利权前，只作为实验目的使用的保证" }
+  ],
+  "laws": ["专利法实施细则第27条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

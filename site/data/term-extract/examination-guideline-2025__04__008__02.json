@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/04/008/02",
+  "anchorNode": "04-08-02",
+  "terms": [
+    { "name": "举证责任", "aliases": [], "role": "used", "confidence": "high", "evidence": "由负有举证责任的当事人承担不利后果" },
+    { "name": "举证期限", "aliases": [], "role": "used", "confidence": "high", "evidence": "未在举证期限内提交中文译文的，该外文证据视为未提交" },
+    { "name": "外文证据", "aliases": [], "role": "used", "confidence": "high", "evidence": "当事人提交外文证据的，应当提交中文译文" },
+    { "name": "域外证据", "aliases": [], "role": "defined", "confidence": "high", "evidence": "域外证据是指在中华人民共和国领域外形成的证据" },
+    { "name": "物证", "aliases": [], "role": "used", "confidence": "mid", "evidence": "当事人应当在本部分第三章第4.3节规定的举证期限内提交物证" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

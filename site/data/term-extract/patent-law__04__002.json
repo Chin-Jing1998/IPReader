@@ -1,0 +1,12 @@
+{
+  "chunk": "patent-law/04/002",
+  "anchorNode": "law-04-02",
+  "terms": [
+    { "name": "实质审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对其申请进行实质审查" },
+    { "name": "视为撤回", "aliases": [], "role": "defined", "confidence": "high", "evidence": "该申请即被视为撤回" },
+    { "name": "正当理由", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人无正当理由逾期不请求实质审查的" },
+    { "name": "依职权审查", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "可以自行对发明专利申请进行实质审查" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

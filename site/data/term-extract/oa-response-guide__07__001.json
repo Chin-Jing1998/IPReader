@@ -1,0 +1,16 @@
+{
+  "chunk": "oa-response-guide/07/001",
+  "anchorNode": "oa-07-01",
+  "terms": [
+    { "name": "说明书公开不充分", "aliases": ["公开不充分", "充分公开"], "role": "defined", "confidence": "high", "evidence": "则可认为该发明公开不充分" },
+    { "name": "本领域技术人员", "aliases": ["所属技术领域的技术人员"], "role": "used", "confidence": "high", "evidence": "使得所属技术领域的技术人员能够实现该发明" },
+    { "name": "必须依赖实验结果加以证实才能成立", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "必须依赖实验结果加以证实才能成立" },
+    { "name": "公知常识", "aliases": [], "role": "used", "confidence": "high", "evidence": "这在农药领域是公知常识" },
+    { "name": "简要公开", "aliases": [], "role": "used", "confidence": "mid", "evidence": "简要公开" },
+    { "name": "用途发明", "aliases": [], "role": "used", "confidence": "high", "evidence": "由于发现物质新的性质而导致的用途发明" },
+    { "name": "技术偏见", "aliases": [], "role": "used", "confidence": "mid", "evidence": "违反常规或克服了技术偏见的发明" },
+    { "name": "实验数据", "aliases": [], "role": "used", "confidence": "mid", "evidence": "而该案说明书中恰恰没有记载相关实验数据" }
+  ],
+  "laws": ["专利法第26条第3款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

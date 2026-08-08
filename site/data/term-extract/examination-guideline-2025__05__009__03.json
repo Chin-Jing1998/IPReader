@@ -1,0 +1,18 @@
+{
+  "chunk": "examination-guideline-2025/05/009/03",
+  "anchorNode": "05-09-03",
+  "terms": [
+    { "name": "药品专利权期限补偿", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利局可以对符合条件的发明专利给予药品专利权期限补偿" },
+    { "name": "创新药", "aliases": [], "role": "used", "confidence": "mid", "evidence": "国务院药品监督管理部门批准上市的创新药和符合规定的改良型新药" },
+    { "name": "改良型新药", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以给予期限补偿的改良型新药限于国务院药品监督管理部门颁发的药品注册证书" },
+    { "name": "药品上市许可持有人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利权人与药品上市许可持有人不一致的，应当征得药品上市许可持有人书面同意" },
+    { "name": "药品专利权期限补偿期间", "aliases": [], "role": "defined", "confidence": "high", "evidence": "药品专利权期限补偿期间内，该专利的保护范围限于国务院药品监督管理部门批准上市" },
+    { "name": "附条件上市许可", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对于获得附条件上市许可的药品" },
+    { "name": "补偿期限", "aliases": [], "role": "defined", "confidence": "high", "evidence": "补偿期限按照该专利申请日" },
+    { "name": "新药相关技术方案", "aliases": [], "role": "defined", "confidence": "high", "evidence": "指定权利要求未包括获得上市许可的新药相关技术方案的，不予期限补偿" },
+    { "name": "制备方法发明专利", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对于其中药物活性物质的产品发明专利、制备方法发明专利或者医药用途发明专利" },
+    { "name": "医药用途发明专利", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对于其中药物活性物质的产品发明专利、制备方法发明专利或者医药用途发明专利" }
+  ],
+  "laws": ["专利法第42条第3款", "专利法实施细则第80条至第84条", "专利法实施细则第80条"],
+  "extractedAt": "2026-07-12T16:07:00+08:00"
+}

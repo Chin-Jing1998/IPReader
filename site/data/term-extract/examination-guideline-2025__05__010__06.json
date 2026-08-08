@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/05/010/06",
+  "anchorNode": "05-10-06",
+  "terms": [
+    { "name": "更正程序", "aliases": [], "role": "used", "confidence": "high", "evidence": "更正程序启动后" },
+    { "name": "复核组", "aliases": [], "role": "defined", "confidence": "high", "evidence": "由组长、主核员和参核员组成的三人复核组" },
+    { "name": "意见陈述书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当以意见陈述书的形式书面提出" },
+    { "name": "补充检索", "aliases": [], "role": "used", "confidence": "mid", "evidence": "复核组一般不进行补充检索，除非因事实认定发生变化" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

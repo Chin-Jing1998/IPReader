@@ -1,0 +1,11 @@
+{
+  "chunk": "patent-law/06/010",
+  "anchorNode": "law-06-10",
+  "terms": [
+    { "name": "强制许可", "aliases": [], "role": "used", "confidence": "high", "evidence": "强制许可涉及的发明创造为半导体技术的" },
+    { "name": "半导体技术", "aliases": [], "role": "used", "confidence": "high", "evidence": "发明创造为半导体技术的" },
+    { "name": "公共利益", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "其实施限于公共利益的目的" }
+  ],
+  "laws": ["专利法第53条第2项"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

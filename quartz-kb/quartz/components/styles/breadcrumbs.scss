@@ -1,0 +1,29 @@
+@use "../../styles/glass.scss" as *;
+
+.breadcrumb-container {
+  // 液态玻璃体系：面包屑条 → 贴内容宽度的玻璃胶囊条
+  @include glass-panel(10px);
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  margin-top: 0.75rem;
+  padding: 0.35rem 0.9rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.breadcrumb-element {
+  p {
+    margin: 0;
+    margin-left: 0.5rem;
+    padding: 0;
+    line-height: normal;
+  }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

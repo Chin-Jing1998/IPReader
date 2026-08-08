@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/02/001/04/03",
+  "anchorNode": "02-01-04-03",
+  "terms": [
+    { "name": "疾病的诊断和治疗方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "疾病的诊断和治疗方法，是指以有生命的人体或者动物体为直接实施对象" },
+    { "name": "诊断方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "诊断方法，是指为识别、研究和确定有生命的人体或动物体病因或病灶状态的过程" },
+    { "name": "治疗方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "治疗方法，是指为使有生命的人体或者动物体恢复或获得健康或减少痛苦" },
+    { "name": "外科手术方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "外科手术方法，是指使用器械对有生命的人体或者动物体实施的剖开、切除、缝合、纹刺等" },
+    { "name": "中间结果", "aliases": [], "role": "defined", "confidence": "high", "evidence": "这些信息才能被认为是中间结果" },
+    { "name": "单纯的美容方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "单纯的美容方法，即不介入人体或不产生创伤的美容方法" }
+  ],
+  "laws": ["专利法第25条第1款第(3)项", "专利法第5条第1款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/05/001/02",
+  "anchorNode": "05-01-02",
+  "terms": [
+    { "name": "视为未提出", "aliases": [], "role": "defined", "confidence": "high", "evidence": "视为未提出，不产生法律效力，另有规定的除外" },
+    { "name": "视为未提交", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不符合规定的，该文件视为未提交" },
+    { "name": "电子形式", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人以电子形式提出专利申请并被受理的" },
+    { "name": "纸件形式", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人以纸件形式提出专利申请并被受理的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/04/002",
+  "anchorNode": "rule-04-02",
+  "terms": [
+    { "name": "复审通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "在对国务院专利行政部门的复审通知书作出答复时" },
+    { "name": "驳回决定", "aliases": [], "role": "used", "confidence": "high", "evidence": "消除驳回决定或者复审通知书指出的缺陷" },
+    { "name": "专利申请文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以修改专利申请文件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

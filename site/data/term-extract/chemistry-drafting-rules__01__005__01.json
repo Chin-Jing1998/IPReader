@@ -1,0 +1,16 @@
+{
+  "chunk": "chemistry-drafting-rules/01/005/01",
+  "anchorNode": "chem-01-05-01",
+  "terms": [
+    { "name": "充分公开", "aliases": [], "role": "defined", "confidence": "high", "evidence": "化合物类专利申请中，需要特别注意的是专利法 26.3 规定的充分公开问题" },
+    { "name": "化合物表征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "未知化合物在专利申请文件中必须得到表征，才能满足充分公开的规定" },
+    { "name": "小分子化合物", "aliases": [], "role": "defined", "confidence": "high", "evidence": "小分子化合物一般具有明确的化学结构" },
+    { "name": "高分子化合物", "aliases": [], "role": "defined", "confidence": "high", "evidence": "高分子化合物实际上是混合物，并没有明确的化学结构" },
+    { "name": "化学结构片段", "aliases": [], "role": "defined", "confidence": "high", "evidence": "化学结构片段可以是化学基团（例如双键、羰基、硅烷基团等）" },
+    { "name": "重复单元", "aliases": ["结构链段"], "role": "defined", "confidence": "high", "evidence": "也可以是结构链段（此时也可称为重复单元）" },
+    { "name": "聚合物限定方式", "aliases": [], "role": "defined", "confidence": "high", "evidence": "高分子化合物在权利要求中的限定方式可以包括聚合单体的用量关系" },
+    { "name": "术语解释", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "必须在说明书中写明所用术语的含义" }
+  ],
+  "laws": ["专利法第26条第3款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

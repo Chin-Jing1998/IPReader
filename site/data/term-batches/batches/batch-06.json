@@ -1,0 +1,85 @@
+{
+ "batchNo": 6,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/003/12.md",
+   "chunkId": "examination-guideline-2025/01/003/12",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-03-12",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第三章外观设计专利申请的初步审查 ｜ 12.外观设计分类",
+   "charLen": 1746
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/01.md",
+   "chunkId": "examination-guideline-2025/01/004/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-04-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 1.引言",
+   "charLen": 235
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/02.md",
+   "chunkId": "examination-guideline-2025/01/004/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-04-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 2.分类的内容",
+   "charLen": 312
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/03.md",
+   "chunkId": "examination-guideline-2025/01/004/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-04-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 3.技术主题",
+   "charLen": 1679
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/04/01.md",
+   "chunkId": "examination-guideline-2025/01/004/04/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-04-04-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 4.分类方法 ｜ 4.1整体分类",
+   "charLen": 393
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/04/02.md",
+   "chunkId": "examination-guideline-2025/01/004/04/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-04-04-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 4.分类方法 ｜ 4.2功能分类或者应用分类的确定",
+   "charLen": 1219
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/04/03.md",
+   "chunkId": "examination-guideline-2025/01/004/04/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-04-04-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 4.分类方法 ｜ 4.3多重分类",
+   "charLen": 843
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/04/04.md",
+   "chunkId": "examination-guideline-2025/01/004/04/04",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-04-04-04",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 4.分类方法 ｜ 4.4技术主题的特殊分类",
+   "charLen": 208
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/05.md",
+   "chunkId": "examination-guideline-2025/01/004/05",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-04-05",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 5.分类位置的规则简述",
+   "charLen": 121
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/06.md",
+   "chunkId": "examination-guideline-2025/01/004/06",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-04-06",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 6.分类的步骤",
+   "charLen": 49
+  }
+ ]
+}

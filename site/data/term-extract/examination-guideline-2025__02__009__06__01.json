@@ -1,0 +1,16 @@
+{
+  "chunk": "examination-guideline-2025/02/009/06/01",
+  "anchorNode": "02-09-06-01",
+  "terms": [
+    { "name": "算法特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "对于包含算法特征或商业规则和方法特征的发明专利申请" },
+    { "name": "商业规则和方法特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "该方法中包含的特征全部是与返利规则相关的商业规则和方法特征" },
+    { "name": "功能上彼此相互支持、存在相互作用关系", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指算法特征或商业规则和方法特征与技术特征紧密结合" },
+    { "name": "技术特征", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不应当简单割裂技术特征与算法特征或商业规则和方法特征等" },
+    { "name": "技术手段", "aliases": [], "role": "used", "confidence": "high", "evidence": "采用了利用自然规律的技术手段" },
+    { "name": "技术效果", "aliases": [], "role": "used", "confidence": "high", "evidence": "并且由此获得符合自然规律的技术效果" },
+    { "name": "新颖性", "aliases": [], "role": "used", "confidence": "high", "evidence": "对包含算法特征或商业规则和方法特征的发明专利申请进行新颖性审查时" },
+    { "name": "创造性", "aliases": [], "role": "used", "confidence": "high", "evidence": "进行创造性审查时，应将与技术特征功能上彼此相互支持" }
+  ],
+  "laws": ["专利法第五条第一款", "专利法第二十五条第一款第（二）项", "专利法第二条第二款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

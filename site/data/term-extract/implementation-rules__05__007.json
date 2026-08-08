@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/05/007",
+  "anchorNode": "rule-05-07",
+  "terms": [
+    { "name": "专利权期限补偿期间的保护范围", "aliases": [], "role": "defined",
+      "confidence": "mid", "evidence": "该专利的保护范围限于该新药及其经批准的适应症相关技术方案" },
+    { "name": "适应症", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "该新药及其经批准的适应症相关技术方案" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

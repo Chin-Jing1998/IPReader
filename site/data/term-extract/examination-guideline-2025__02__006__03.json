@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/02/006/03",
+  "anchorNode": "02-06-03",
+  "terms": [
+    { "name": "分案申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "分案申请的内容不得超出原申请记载的范围" },
+    { "name": "单一性", "aliases": [], "role": "used", "confidence": "high", "evidence": "一件申请有下列不符合单一性情况的" },
+    { "name": "原申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "分案以后的原申请与分案申请的权利要求书应当分别要求保护不同的发明" }
+  ],
+  "laws": ["专利法实施细则第49条第1款", "专利法第33条", "专利法实施细则第48条", "专利法实施细则第59条第3项", "专利法实施细则第48条第2款", "专利法第31条第1款", "专利法实施细则第39条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

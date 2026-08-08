@@ -1,0 +1,77 @@
+{
+ "batchNo": 41,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/011.md",
+   "chunkId": "patent-law/07/011",
+   "domain": "patent-law",
+   "anchorNodeId": "law-07-11",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第七十四条",
+   "charLen": 173
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/012.md",
+   "chunkId": "patent-law/07/012",
+   "domain": "patent-law",
+   "anchorNodeId": "law-07-12",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第七十五条",
+   "charLen": 318
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/013.md",
+   "chunkId": "patent-law/07/013",
+   "domain": "patent-law",
+   "anchorNodeId": "law-07-13",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第七十六条",
+   "charLen": 291
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/014.md",
+   "chunkId": "patent-law/07/014",
+   "domain": "patent-law",
+   "anchorNodeId": "law-07-14",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第七十七条",
+   "charLen": 71
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/015.md",
+   "chunkId": "patent-law/07/015",
+   "domain": "patent-law",
+   "anchorNodeId": "law-07-15",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第七十八条",
+   "charLen": 68
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/016.md",
+   "chunkId": "patent-law/07/016",
+   "domain": "patent-law",
+   "anchorNodeId": "law-07-16",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第七十九条",
+   "charLen": 117
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/017.md",
+   "chunkId": "patent-law/07/017",
+   "domain": "patent-law",
+   "anchorNodeId": "law-07-17",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第八十条",
+   "charLen": 82
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/08/001.md",
+   "chunkId": "patent-law/08/001",
+   "domain": "patent-law",
+   "anchorNodeId": "law-08-01",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第八章 附 则 ｜ 第八十一条",
+   "charLen": 40
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/08/002.md",
+   "chunkId": "patent-law/08/002",
+   "domain": "patent-law",
+   "anchorNodeId": "law-08-02",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第八章 附 则 ｜ 第八十二条",
+   "charLen": 23
+  }
+ ]
+}

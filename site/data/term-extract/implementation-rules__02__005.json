@@ -1,0 +1,9 @@
+{
+  "chunk": "implementation-rules/02/005",
+  "anchorNode": "rule-02-05",
+  "terms": [
+    { "name": "附图标记", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请文件中表示同一组成部分的附图标记应当一致" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

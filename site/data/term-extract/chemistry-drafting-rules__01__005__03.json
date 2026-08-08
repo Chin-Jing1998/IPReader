@@ -1,0 +1,12 @@
+{
+  "chunk": "chemistry-drafting-rules/01/005/03",
+  "anchorNode": "chem-01-05-03",
+  "terms": [
+    { "name": "食品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "食品，指各种供人食用或者饮用的成品和原料" },
+    { "name": "药食同源", "aliases": [], "role": "used", "confidence": "high", "evidence": "添加的中药原料，必须是药食同源的原料" },
+    { "name": "食品基本功能", "aliases": [], "role": "defined", "confidence": "high", "evidence": "技术问题应当是改善食品的基本功能" },
+    { "name": "保健功效", "aliases": [], "role": "used", "confidence": "high", "evidence": "改善口感等，而不是保健功效" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

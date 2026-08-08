@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/10/006",
+  "anchorNode": "rule-10-06",
+  "terms": [
+    { "name": "年费", "aliases": [], "role": "used", "confidence": "high", "evidence": "授予专利权当年以后的年费应当在上一年度期满前缴纳" },
+    { "name": "滞纳金", "aliases": [], "role": "defined", "confidence": "high", "evidence": "滞纳金的金额按照每超过规定的缴费时间1个月" },
+    { "name": "专利权终止", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利权自应当缴纳年费期满之日起终止" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

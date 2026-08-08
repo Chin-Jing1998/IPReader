@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/04/006",
+  "anchorNode": "rule-04-06",
+  "terms": [
+    { "name": "专利权无效宣告请求", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利权无效宣告请求不符合专利法第十八条第一款" },
+    { "name": "同样的理由和证据", "aliases": [], "role": "used", "confidence": "high", "evidence": "又以同样的理由和证据请求无效宣告的" },
+    { "name": "权利冲突", "aliases": [], "role": "used", "confidence": "high", "evidence": "但是未提交证明权利冲突的证据的" },
+    { "name": "无效宣告请求人", "aliases": [], "role": "used", "confidence": "high", "evidence": "无效宣告请求人应当在国务院专利行政部门指定的期限内补正" }
+  ],
+  "laws": ["专利法第18条第1款", "专利法实施细则第69条", "专利法第23条第3款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

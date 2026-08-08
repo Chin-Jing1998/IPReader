@@ -1,0 +1,14 @@
+{
+  "chunk": "implementation-rules/08/002",
+  "anchorNode": "rule-08-02",
+  "terms": [
+    { "name": "在全国有重大影响的专利侵权纠纷", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "在全国有重大影响的专利侵权纠纷" },
+    { "name": "专利侵权纠纷", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "请求国务院专利行政部门处理专利侵权纠纷" },
+    { "name": "利害关系人", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "专利权人或者利害关系人请求国务院专利行政部门处理" }
+  ],
+  "laws": ["专利法第70条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

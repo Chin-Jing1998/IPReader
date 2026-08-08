@@ -1,0 +1,18 @@
+{
+  "chunk": "examination-guideline-2025/02/008/04/07",
+  "anchorNode": "02-08-04-07",
+  "terms": [
+    { "name": "全面审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "即审查申请是否符合专利法及其实施细则有关实质方面和形式方面的所有规定" },
+    { "name": "实用性", "aliases": [], "role": "used", "confidence": "high", "evidence": "是否具有专利法第二十二条第四款所规定的实用性" },
+    { "name": "新颖性", "aliases": [], "role": "used", "confidence": "high", "evidence": "具备专利法第二十二条第二款和第三款规定的新颖性和创造性" },
+    { "name": "创造性", "aliases": [], "role": "used", "confidence": "high", "evidence": "具备专利法第二十二条第二款和第三款规定的新颖性和创造性" },
+    { "name": "独立权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "实质审查应当围绕权利要求书，特别是独立权利要求进行" },
+    { "name": "从属权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "进一步审查从属权利要求是否具备新颖性和创造性" },
+    { "name": "保密审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "向外国申请专利之前未报经专利局进行保密审查" },
+    { "name": "遗传资源来源披露登记表", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查申请人是否提交了专利局制定的遗传资源来源披露登记表" },
+    { "name": "同样的发明创造", "aliases": [], "role": "defined", "confidence": "high", "evidence": "如果两件或两件以上的发明专利申请涉及同样的发明创造" },
+    { "name": "重复授权", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当注意避免对相同权利要求的重复授权" }
+  ],
+  "laws": ["专利法实施细则第59条", "专利法第5条", "专利法第25条", "专利法第2条第2款", "专利法第22条第4款", "专利法第26条第3款", "专利法第22条第2款", "专利法第22条第3款", "专利法第26条第4款", "专利法第33条", "专利法实施细则第57条", "专利法实施细则第49条第1款", "专利法第26条第5款", "专利法第19条", "专利法实施细则第11条", "专利法第64条第1款", "专利法实施细则第23条第3款", "专利法实施细则第25条", "专利法实施细则第3条第1款", "专利法实施细则第20条", "专利法实施细则第20条第2款", "专利法实施细则第21条", "专利法实施细则第20条第1款第4项"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,85 @@
+{
+ "batchNo": 28,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/006/01.md",
+   "chunkId": "examination-guideline-2025/05/006/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-06-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第六章通知和决定 ｜ 1.通知和决定的产生",
+   "charLen": 684
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/006/02.md",
+   "chunkId": "examination-guideline-2025/05/006/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-06-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第六章通知和决定 ｜ 2.通知和决定的送达",
+   "charLen": 1077
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/006/03.md",
+   "chunkId": "examination-guideline-2025/05/006/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-06-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第六章通知和决定 ｜ 3.退件的处理和文件的查询",
+   "charLen": 483
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/007/01.md",
+   "chunkId": "examination-guideline-2025/05/007/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-07-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第七章期限、权利的恢复、中止、审查的顺序 ｜ 1.期限的种类",
+   "charLen": 474
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/007/02.md",
+   "chunkId": "examination-guideline-2025/05/007/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-07-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第七章期限、权利的恢复、中止、审查的顺序 ｜ 2.期限的计算",
+   "charLen": 909
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/007/03.md",
+   "chunkId": "examination-guideline-2025/05/007/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-07-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第七章期限、权利的恢复、中止、审查的顺序 ｜ 3.期限的监视",
+   "charLen": 626
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/007/04.md",
+   "chunkId": "examination-guideline-2025/05/007/04",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-07-04",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第七章期限、权利的恢复、中止、审查的顺序 ｜ 4.期限的延长",
+   "charLen": 434
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/007/05.md",
+   "chunkId": "examination-guideline-2025/05/007/05",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-07-05",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第七章期限、权利的恢复、中止、审查的顺序 ｜ 5.耽误期限的处置",
+   "charLen": 673
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/007/06.md",
+   "chunkId": "examination-guideline-2025/05/007/06",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-07-06",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第七章期限、权利的恢复、中止、审查的顺序 ｜ 6.权利的恢复",
+   "charLen": 784
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/007/07.md",
+   "chunkId": "examination-guideline-2025/05/007/07",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-07-07",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第七章期限、权利的恢复、中止、审查的顺序 ｜ 7.中止程序",
+   "charLen": 3873
+  }
+ ]
+}

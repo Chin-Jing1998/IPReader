@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/05/001/07",
+  "anchorNode": "05-01-07",
+  "terms": [
+    { "name": "专利代理委托书", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利代理委托书、实质审查请求书、著录项目变更申报书" },
+    { "name": "实质审查请求书", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利代理委托书、实质审查请求书、著录项目变更申报书" },
+    { "name": "著录项目变更申报书", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利代理委托书、实质审查请求书、著录项目变更申报书" },
+    { "name": "转让合同", "aliases": [], "role": "used", "confidence": "mid", "evidence": "著录项目变更申报书、转让合同等" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

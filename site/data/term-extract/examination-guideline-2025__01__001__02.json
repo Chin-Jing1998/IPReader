@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/01/001/02",
+  "anchorNode": "01-01-02",
+  "terms": [
+    { "name": "保密原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对于尚未公布、公告的专利申请文件和与专利申请有关的其他内容" },
+    { "name": "书面审查原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查员应当以申请人提交的书面文件为基础进行审查" },
+    { "name": "听证原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查员在作出驳回决定之前，应当将驳回所依据的事实、理由和证据通知申请人" },
+    { "name": "程序节约原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查员应当尽可能提高审查效率，缩短审查过程" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

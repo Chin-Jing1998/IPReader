@@ -1,0 +1,77 @@
+{
+ "batchNo": 64,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/01/001.md",
+   "chunkId": "oa-response-guide/01/001",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-01-01",
+   "breadcrumb": "《审意答复指引》 ｜ 第一节 新颖性的答复方式 ｜ 1. 新颖性的理解",
+   "charLen": 427
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/01/002.md",
+   "chunkId": "oa-response-guide/01/002",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-01-02",
+   "breadcrumb": "《审意答复指引》 ｜ 第一节 新颖性的答复方式 ｜ 2. 新颖性的判断原则",
+   "charLen": 872
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/01/003.md",
+   "chunkId": "oa-response-guide/01/003",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-01-03",
+   "breadcrumb": "《审意答复指引》 ｜ 第一节 新颖性的答复方式 ｜ 3. 新颖性的答复步骤：",
+   "charLen": 846
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/01/004.md",
+   "chunkId": "oa-response-guide/01/004",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-01-04",
+   "breadcrumb": "《审意答复指引》 ｜ 第一节 新颖性的答复方式 ｜ 4. 本申请的权利要求具备新颖性时的答复模板（不一定必须和模板一模一样，只要答复意见的思路类似即可）：",
+   "charLen": 3126
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/02/001.md",
+   "chunkId": "oa-response-guide/02/001",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-02-01",
+   "breadcrumb": "《审意答复指引》 ｜ 第二节 创造性的答复方式 ｜ 1. 创造性的理解",
+   "charLen": 75
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/02/002.md",
+   "chunkId": "oa-response-guide/02/002",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-02-02",
+   "breadcrumb": "《审意答复指引》 ｜ 第二节 创造性的答复方式 ｜ 2. 关于创造性判断原则",
+   "charLen": 290
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/02/003.md",
+   "chunkId": "oa-response-guide/02/003",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-02-03",
+   "breadcrumb": "《审意答复指引》 ｜ 第二节 创造性的答复方式 ｜ 3. 创造性的答复步骤",
+   "charLen": 789
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/02/004.md",
+   "chunkId": "oa-response-guide/02/004",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-02-04",
+   "breadcrumb": "《审意答复指引》 ｜ 第二节 创造性的答复方式 ｜ 4. 创造性的答复思路",
+   "charLen": 1877
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/02/005.md",
+   "chunkId": "oa-response-guide/02/005",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-02-05",
+   "breadcrumb": "《审意答复指引》 ｜ 第二节 创造性的答复方式 ｜ 5. 创造性答复中常见的反驳理由",
+   "charLen": 576
+  }
+ ]
+}

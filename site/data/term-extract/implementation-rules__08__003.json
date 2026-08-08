@@ -1,0 +1,14 @@
+{
+  "chunk": "implementation-rules/08/003",
+  "anchorNode": "rule-08-03",
+  "terms": [
+    { "name": "管辖权", "aliases": ["管辖"], "role": "defined",
+      "confidence": "high", "evidence": "两个以上管理专利工作的部门都有管辖权的专利纠纷" },
+    { "name": "指定管辖", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "由国务院专利行政部门指定管辖" },
+    { "name": "最先受理", "aliases": [], "role": "defined",
+      "confidence": "mid", "evidence": "由最先受理的管理专利工作的部门管辖" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

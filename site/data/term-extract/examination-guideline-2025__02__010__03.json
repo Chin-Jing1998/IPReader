@@ -1,0 +1,17 @@
+{
+  "chunk": "examination-guideline-2025/02/010/03",
+  "anchorNode": "02-10-03",
+  "terms": [
+    { "name": "化学产品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "化学产品包括化合物、组合物以及用结构和/或组成不能够清楚描述的化学产品" },
+    { "name": "高分子化合物", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对于高分子化合物，除了应当对其重复单元的名称、结构式或者分子式" },
+    { "name": "组合物", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对于组合物发明，说明书中除了应当记载组合物的组分外" },
+    { "name": "化学方法发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对于化学方法发明，无论是物质的制备方法还是其他方法" },
+    { "name": "化学产品用途发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对于化学产品用途发明，在说明书中应当记载所使用的化学产品" },
+    { "name": "实施例", "aliases": [], "role": "used", "confidence": "mid", "evidence": "说明书中实施例的数目，取决于权利要求的技术特征的概括程度" },
+    { "name": "补交实验数据", "aliases": [], "role": "defined", "confidence": "high", "evidence": "补交实验数据所证明的技术效果应当是所属技术领域的技术人员能够" },
+    { "name": "充分公开", "aliases": [], "role": "defined", "confidence": "high", "evidence": "判断说明书是否充分公开，以原说明书和权利要求书记载的内容为准" },
+    { "name": "有效量", "aliases": [], "role": "used", "confidence": "mid", "evidence": "还应当记载其有效量及使用方法" }
+  ],
+  "laws": ["专利法第22条第3款", "专利法第26条第3款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

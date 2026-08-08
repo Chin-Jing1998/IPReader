@@ -1,0 +1,9 @@
+{
+  "chunk": "implementation-rules/02/016",
+  "anchorNode": "rule-02-16",
+  "terms": [
+    { "name": "样品或者模型", "aliases": [], "role": "defined", "confidence": "high", "evidence": "样品或者模型的体积不得超过30厘米×30厘米×30厘米" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

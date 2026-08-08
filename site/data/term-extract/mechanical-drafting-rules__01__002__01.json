@@ -1,0 +1,19 @@
+{
+  "chunk": "mechanical-drafting-rules/01/002/01",
+  "anchorNode": "mech-01-02-01",
+  "terms": [
+    { "name": "用途表征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "用途表征是某个产品所依附的特征，该特征不属于申请方案本身具备的特征" },
+    { "name": "虚体特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "同时存在实体和虚体特征时，应避免出现虚体特征包括实体特征的描述" },
+    { "name": "象形/拟物形式的描述", "aliases": [], "role": "defined", "confidence": "high", "evidence": "禁止直接采用呈“凸”形、“凹” 等中文字的象形/拟物形式的描述" },
+    { "name": "功能性限定", "aliases": [], "role": "used", "confidence": "high", "evidence": "若采用功能性限定，则说明书中需有足够实施例进行支持" },
+    { "name": "开放式权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "开放式的权利要求提倡采用“包含”、“包括”、“主要由…… 组成”的表达方式" },
+    { "name": "封闭式权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "封闭式的权利要求提倡采用“由……组成”的表达方式" },
+    { "name": "上位概念与下位概念", "aliases": [], "role": "defined", "confidence": "high", "evidence": "既存在上位概念，又存在下位概念" },
+    { "name": "拼凑权项", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不应存在有拼凑权项的行为" },
+    { "name": "交底资料", "aliases": [], "role": "used", "confidence": "high", "evidence": "全面覆盖到交底资料所揭露的全部技术方案" },
+    { "name": "自定义命名", "aliases": [], "role": "used", "confidence": "mid", "evidence": "构造类案件的技术特征若采用自定义命名时" },
+    { "name": "含义不确定的用语", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不得使用含义不确定的用语，如“厚”、“薄”、“强”、“弱”" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

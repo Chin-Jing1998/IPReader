@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/03/002/01",
+  "anchorNode": "03-02-01",
+  "terms": [
+    { "name": "实质审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "进入国家阶段的国际申请的实质审查，是指对符合专利法" },
+    { "name": "国际初步审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "根据专利合作条约第39条经过国际初步审查的国际申请" },
+    { "name": "专利合作条约", "aliases": [], "role": "used", "confidence": "mid", "evidence": "根据专利合作条约第22条未经国际初步审查的国际申请" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

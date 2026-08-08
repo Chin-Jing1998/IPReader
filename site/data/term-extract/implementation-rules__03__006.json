@@ -1,0 +1,15 @@
+{
+  "chunk": "implementation-rules/03/006",
+  "anchorNode": "rule-03-06",
+  "terms": [
+    { "name": "同日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "同日（指申请日；有优先权的，指优先权日）" },
+    { "name": "同样的发明创造", "aliases": [], "role": "used", "confidence": "high", "evidence": "分别就同样的发明创造申请专利的" },
+    { "name": "优先权日", "aliases": [], "role": "used", "confidence": "high", "evidence": "有优先权的，指优先权日" },
+    { "name": "放弃实用新型专利权", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "国务院专利行政部门应当通知申请人在规定期限内声明放弃实用新型专利权" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人期满未答复的，视为撤回该发明专利申请" },
+    { "name": "驳回", "aliases": [], "role": "used", "confidence": "high", "evidence": "国务院专利行政部门应当驳回该发明专利申请" },
+    { "name": "实用新型专利权", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "实用新型专利权自公告授予发明专利权之日起终止" }
+  ],
+  "laws": ["专利法第9条第1款"],
+  "extractedAt": "2026-07-12T15:51:42+08:00"
+}

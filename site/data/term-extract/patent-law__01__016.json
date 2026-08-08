@@ -1,0 +1,10 @@
+{
+  "chunk": "patent-law/01/016",
+  "anchorNode": "law-01-16",
+  "terms": [
+    { "name": "署名权", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "发明人或者设计人有权在专利文件中写明自己是发明人或者设计人" },
+    { "name": "专利标识", "aliases": [], "role": "defined", "confidence": "high", "evidence": "有权在其专利产品或者该产品的包装上标明专利标识" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

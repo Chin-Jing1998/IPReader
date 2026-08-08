@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/11/011",
+  "anchorNode": "rule-11-11",
+  "terms": [
+    { "name": "恢复优先权", "aliases": [], "role": "used", "confidence": "high", "evidence": "已经批准恢复优先权的" },
+    { "name": "优先权期限", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际申请的申请日在优先权期限届满之后2个月内" },
+    { "name": "受理局", "aliases": [], "role": "used", "confidence": "high", "evidence": "在国际阶段受理局已经批准恢复优先权的" },
+    { "name": "正当理由", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人有正当理由的" }
+  ],
+  "laws": ["专利法实施细则第36条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

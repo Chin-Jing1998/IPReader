@@ -1,0 +1,10 @@
+{
+  "chunk": "oa-response-guide/03/002",
+  "anchorNode": "oa-03-02",
+  "terms": [
+    { "name": "特定技术特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "相同或者相应的特定技术特征" },
+    { "name": "单一性", "aliases": [], "role": "used", "confidence": "high", "evidence": "单一性的判断原则" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

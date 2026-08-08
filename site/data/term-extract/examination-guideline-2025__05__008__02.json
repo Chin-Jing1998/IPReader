@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/05/008/02",
+  "anchorNode": "05-08-02",
+  "terms": [
+    { "name": "单行本", "aliases": [], "role": "defined", "confidence": "high", "evidence": "单行本的种类包括：发明专利申请单行本、发明专利单行本" },
+    { "name": "发明专利申请单行本", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "发明专利申请单行本的文献种类代码为“A”" },
+    { "name": "发明专利单行本", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "发明专利单行本的文献种类代码为“B”" },
+    { "name": "实用新型专利单行本", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "实用新型专利单行本的文献种类代码为“U”" },
+    { "name": "外观设计专利单行本", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "外观设计专利单行本的文献种类代码为“S”" },
+    { "name": "文献种类代码", "aliases": [], "role": "used", "confidence": "mid", "evidence": "实用新型专利单行本的文献种类代码为“U”" },
+    { "name": "维持专利权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在无效宣告程序中权利要求书需要修改后才能维持专利权的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:04:00+08:00"
+}

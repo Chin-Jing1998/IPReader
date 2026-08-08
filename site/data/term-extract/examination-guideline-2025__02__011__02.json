@@ -1,0 +1,18 @@
+{
+  "chunk": "examination-guideline-2025/02/011/02",
+  "anchorNode": "02-11-02",
+  "terms": [
+    { "name": "中药材", "aliases": [], "role": "defined", "confidence": "high", "evidence": "经过产地加工得到的中药材" },
+    { "name": "中药饮片", "aliases": [], "role": "defined", "confidence": "high", "evidence": "经过炮制加工得到的中药饮片" },
+    { "name": "中药组合物", "aliases": ["中药组方", "中药复方"], "role": "defined", "confidence": "high", "evidence": "中药组合物，也称中药组方或者中药复方" },
+    { "name": "中药提取物", "aliases": [], "role": "defined", "confidence": "high", "evidence": "（4）中药提取物；" },
+    { "name": "中药制剂", "aliases": [], "role": "defined", "confidence": "high", "evidence": "（5）中药制剂。" },
+    { "name": "中药产品的制药用途", "aliases": [], "role": "defined", "confidence": "high", "evidence": "（4）中药产品的制药用途。" },
+    { "name": "科学发现", "aliases": [], "role": "used", "confidence": "high", "evidence": "属于专利法第二十五条第一款第（一）项规定的“科学发现”" },
+    { "name": "智力活动的规则和方法", "aliases": [], "role": "used", "confidence": "high", "evidence": "属于专利法第二十五条第一款第（二）项规定的智力活动的规则和方法" },
+    { "name": "疾病的诊断方法", "aliases": [], "role": "used", "confidence": "high", "evidence": "属于专利法第二十五条第一款第（三）项规定的疾病的诊断方法" },
+    { "name": "疾病的治疗方法", "aliases": [], "role": "used", "confidence": "high", "evidence": "均属于专利法第二十五条第一款第（三）项规定的疾病的治疗方法" }
+  ],
+  "laws": ["专利法第5条第1款", "专利法第25条第1款第1项", "专利法第25条第1款第2项", "专利法第25条第1款第3项"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

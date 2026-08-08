@@ -1,0 +1,13 @@
+{
+  "chunk": "implementation-rules/01/015",
+  "anchorNode": "rule-01-15",
+  "terms": [
+    { "name": "专利权转移", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利权因其他事由发生转移的" },
+    { "name": "专利实施许可合同", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利权人与他人订立的专利实施许可合同" },
+    { "name": "专利权出质", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以专利权出质的，由出质人和质权人共同" },
+    { "name": "出质人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "由出质人和质权人共同" },
+    { "name": "质权人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "由出质人和质权人共同" }
+  ],
+  "laws": ["专利法第10条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/05/001/01",
+  "anchorNode": "05-01-01",
+  "terms": [
+    { "name": "专利申请文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "简要说明等文件，称为专利申请文件" },
+    { "name": "其他文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "证明、证据材料，称为其他文件" },
+    { "name": "专利申请手续", "aliases": [], "role": "defined", "confidence": "high", "evidence": "办理其他专利事务，统称为专利申请手续" }
+  ],
+  "laws": ["专利法第26条", "专利法第27条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

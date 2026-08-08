@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/05/007/01",
+  "anchorNode": "05-07-01",
+  "terms": [
+    { "name": "法定期限", "aliases": [], "role": "defined", "confidence": "high", "evidence": "法定期限是指专利法及其实施细则规定的各种期限" },
+    { "name": "指定期限", "aliases": [], "role": "defined", "confidence": "high", "evidence": "指定期限是指审查员在根据专利法及其实施细则作出的各种通知中" },
+    { "name": "实质审查请求期限", "aliases": [], "role": "used", "confidence": "high", "evidence": "发明专利申请的实质审查请求期限" },
+    { "name": "办理登记手续的期限", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人办理登记手续的期限" }
+  ],
+  "laws": ["专利法第35条第1款", "专利法实施细则第60条第1款", "专利法第37条", "专利法实施细则第3条第2款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

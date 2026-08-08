@@ -1,0 +1,11 @@
+{
+  "chunk": "patent-law/01/005",
+  "anchorNode": "law-01-05",
+  "terms": [
+    { "name": "遗传资源", "aliases": [], "role": "used", "confidence": "high", "evidence": "获取或者利用遗传资源，并依赖该遗传资源完成的发明创造" },
+    { "name": "社会公德", "aliases": [], "role": "used", "confidence": "mid", "evidence": "违反法律、社会公德或者妨害公共利益" },
+    { "name": "公共利益", "aliases": [], "role": "used", "confidence": "mid", "evidence": "妨害公共利益的发明创造" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

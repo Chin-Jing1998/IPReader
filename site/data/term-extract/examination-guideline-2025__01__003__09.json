@@ -1,0 +1,17 @@
+{
+  "chunk": "examination-guideline-2025/01/003/09",
+  "anchorNode": "01-03-09",
+  "terms": [
+    { "name": "组件产品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "组件产品是指由多个构件相结合构成的一件产品。" },
+    { "name": "合案申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以作为一件申请提出（简称合案申请）" },
+    { "name": "相似外观设计", "aliases": [], "role": "used", "confidence": "high", "evidence": "一件外观设计专利申请中的相似外观设计不得超过10项" },
+    { "name": "成套产品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "成套产品是指由两件以上（含两件）属于同一大类、各自独立的产品组成" },
+    { "name": "成套出售或者使用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "成套出售或者使用，指习惯上同时出售或者同时使用并具有组合使用价值。" },
+    { "name": "设计构思相同", "aliases": [], "role": "defined", "confidence": "high", "evidence": "设计构思相同，是指各产品的设计风格是统一的" },
+    { "name": "国际外观设计分类表", "aliases": [], "role": "used", "confidence": "high", "evidence": "该两项以上外观设计的产品属于国际外观设计分类表中的同一大类" },
+    { "name": "分案申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "分案申请应当是原申请中的一项或者几项外观设计" },
+    { "name": "基本设计", "aliases": [], "role": "used", "confidence": "mid", "evidence": "简要说明中指定的基本设计" }
+  ],
+  "laws": ["专利法第31条第2款", "专利法实施细则第40条第1款", "专利法实施细则第40条第2款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

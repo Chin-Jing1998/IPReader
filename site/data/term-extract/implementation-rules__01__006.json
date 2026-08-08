@@ -1,0 +1,18 @@
+{
+  "chunk": "implementation-rules/01/006",
+  "anchorNode": "rule-01-06",
+  "terms": [
+    { "name": "恢复权利", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "可以向国务院专利行政部门请求恢复权利" },
+    { "name": "不可抗拒的事由", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "当事人因不可抗拒的事由而延误" },
+    { "name": "正当理由", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "当事人因其他正当理由延误" },
+    { "name": "恢复权利请求书", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "应当提交恢复权利请求书" },
+    { "name": "延长期限请求书", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "向国务院专利行政部门提交延长期限请求书" }
+  ],
+  "laws": ["专利法第24条", "专利法第29条", "专利法第42条", "专利法第74条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

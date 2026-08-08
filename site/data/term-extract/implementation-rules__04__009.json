@@ -1,0 +1,13 @@
+{
+  "chunk": "implementation-rules/04/009",
+  "anchorNode": "rule-04-09",
+  "terms": [
+    { "name": "无效宣告请求", "aliases": [], "role": "used", "confidence": "high", "evidence": "在无效宣告请求的审查过程中" },
+    { "name": "权利要求书的修改（无效宣告程序）", "aliases": ["权利要求书的修改"], "role": "defined", "confidence": "mid", "evidence": "专利权人可以修改其权利要求书" },
+    { "name": "不得扩大原专利的保护范围", "aliases": [], "role": "defined", "confidence": "high", "evidence": "但是不得扩大原专利的保护范围" },
+    { "name": "维持专利权有效", "aliases": [], "role": "used", "confidence": "high", "evidence": "作出维持专利权有效或者宣告专利权部分无效的决定" },
+    { "name": "宣告专利权部分无效", "aliases": [], "role": "used", "confidence": "high", "evidence": "或者宣告专利权部分无效的决定的，应当公告" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

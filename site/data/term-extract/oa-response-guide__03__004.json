@@ -1,0 +1,10 @@
+{
+  "chunk": "oa-response-guide/03/004",
+  "anchorNode": "oa-03-04",
+  "terms": [
+    { "name": "特定技术特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "而确定是否为特定技术特征时应当从创造性的角度去答复" },
+    { "name": "单一性", "aliases": [], "role": "used", "confidence": "high", "evidence": "属于一个总的发明构思，具有单一性" }
+  ],
+  "laws": ["专利法第31条第1款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

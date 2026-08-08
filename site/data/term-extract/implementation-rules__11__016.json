@@ -1,0 +1,18 @@
+{
+  "chunk": "implementation-rules/11/016",
+  "anchorNode": "rule-11-16",
+  "terms": [
+    { "name": "分案申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "依照本细则第四十八条第一款的规定提出分案申请" },
+    { "name": "国际阶段", "aliases": [], "role": "used", "confidence": "high", "evidence": "在国际阶段，国际检索单位或者国际初步审查单位认为国际申请" },
+    { "name": "国际检索单位", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际检索单位或者国际初步审查单位认为国际申请不符合" },
+    { "name": "国际初步审查单位", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际检索单位或者国际初步审查单位认为国际申请不符合" },
+    { "name": "单一性", "aliases": [], "role": "used", "confidence": "high", "evidence": "规定的单一性要求时" },
+    { "name": "专利合作条约", "aliases": [], "role": "used", "confidence": "high", "evidence": "不符合专利合作条约规定的单一性要求时" },
+    { "name": "附加费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人未按照规定缴纳附加费" },
+    { "name": "中国国家阶段", "aliases": [], "role": "used", "confidence": "high", "evidence": "在进入中国国家阶段时" },
+    { "name": "单一性恢复费", "aliases": [], "role": "used", "confidence": "high", "evidence": "缴纳单一性恢复费" },
+    { "name": "进入日", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人可以自进入日起" }
+  ],
+  "laws": ["专利法实施细则第48条第1款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

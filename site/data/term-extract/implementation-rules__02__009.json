@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/02/009",
+  "anchorNode": "rule-02-09",
+  "terms": [
+    { "name": "引用部分", "aliases": [], "role": "defined", "confidence": "high", "evidence": "引用部分：写明引用的权利要求的编号及其主题名称" },
+    { "name": "限定部分", "aliases": [], "role": "defined", "confidence": "high", "evidence": "限定部分：写明发明或者实用新型附加的技术特征" },
+    { "name": "多项从属权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "引用两项以上权利要求的多项从属权利要求，只能以择一方式引用在前的权利要求" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

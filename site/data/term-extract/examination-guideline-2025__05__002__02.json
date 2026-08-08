@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/05/002/02",
+  "anchorNode": "05-02-02",
+  "terms": [
+    { "name": "缴费日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以邮局取款通知单上的汇出日为缴费日" },
+    { "name": "暂存", "aliases": [], "role": "defined", "confidence": "high", "evidence": "费用暂时存入专利局账户（以下简称暂存）" },
+    { "name": "结汇", "aliases": [], "role": "used", "confidence": "mid", "evidence": "按照银行将该费用结汇至专利局账户之日的汇率结算" },
+    { "name": "汇出日", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以银行实际汇出日为缴费日" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

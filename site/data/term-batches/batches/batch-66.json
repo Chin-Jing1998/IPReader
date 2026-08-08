@@ -1,0 +1,69 @@
+{
+ "batchNo": 66,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/04/003.md",
+   "chunkId": "oa-response-guide/04/003",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-04-03",
+   "breadcrumb": "《审意答复指引》 ｜ 第四节 权利要求能否得到说明书支持的答复方式 ｜ 3. 权利要求得不到说明书支持的答复步骤",
+   "charLen": 396
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/04/004.md",
+   "chunkId": "oa-response-guide/04/004",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-04-04",
+   "breadcrumb": "《审意答复指引》 ｜ 第四节 权利要求能否得到说明书支持的答复方式 ｜ 4. 权利要求得不到说明书支持的常见套话（不一定必须和模板一模一样，只要答复意见的思路类似即可）",
+   "charLen": 293
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/05/001.md",
+   "chunkId": "oa-response-guide/05/001",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-05-01",
+   "breadcrumb": "《审意答复指引》 ｜ 第五节 缺乏必要技术特征的答复方式 ｜ 1.必要技术特征的理解",
+   "charLen": 76
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/05/002.md",
+   "chunkId": "oa-response-guide/05/002",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-05-02",
+   "breadcrumb": "《审意答复指引》 ｜ 第五节 缺乏必要技术特征的答复方式 ｜ 2.必要技术特征的判断原则",
+   "charLen": 463
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/05/003.md",
+   "chunkId": "oa-response-guide/05/003",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-05-03",
+   "breadcrumb": "《审意答复指引》 ｜ 第五节 缺乏必要技术特征的答复方式 ｜ 3.必要技术特征的答复步骤",
+   "charLen": 542
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/05/004.md",
+   "chunkId": "oa-response-guide/05/004",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-05-04",
+   "breadcrumb": "《审意答复指引》 ｜ 第五节 缺乏必要技术特征的答复方式 ｜ 4. 本申请的权利要求缺乏必要技术特征时的答复模板（不一定必须和模板一模一样，只要答复意见的思路类似即可）",
+   "charLen": 235
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/06/001.md",
+   "chunkId": "oa-response-guide/06/001",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-06-01",
+   "breadcrumb": "《审意答复指引》 ｜ 第六节 重复授权的答复方式 ｜ 1. 重复授权的答复模板（不一定必须和模板一模一样，只要答复意见的思路类似即可）",
+   "charLen": 882
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/07/001.md",
+   "chunkId": "oa-response-guide/07/001",
+   "domain": "oa-response-guide",
+   "anchorNodeId": "oa-07-01",
+   "breadcrumb": "《审意答复指引》 ｜ 第七节 说明书公开不充分的答复方式 ｜ 1. 说明书公开不充分的理解",
+   "charLen": 2807
+  }
+ ]
+}

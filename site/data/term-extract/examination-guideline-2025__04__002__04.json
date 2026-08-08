@@ -1,0 +1,21 @@
+{
+  "chunk": "examination-guideline-2025/04/002/04",
+  "anchorNode": "04-02-04",
+  "terms": [
+    { "name": "合议组", "aliases": [], "role": "used", "confidence": "high", "evidence": "合议组一般仅针对驳回决定所依据的理由和证据进行审查" },
+    { "name": "创造性", "aliases": [], "role": "used", "confidence": "high", "evidence": "相对于对比文件1和公知常识不具备创造性" },
+    { "name": "对比文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "权利要求1相对于对比文件1和公知常识不具备创造性" },
+    { "name": "从属权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "从属权利要求2-6进一步限定的附加技术特征" },
+    { "name": "最接近的现有技术", "aliases": [], "role": "used", "confidence": "high", "evidence": "变更最接近的现有技术或缺省其中的某份证据" },
+    { "name": "单一性", "aliases": [], "role": "used", "confidence": "high", "evidence": "所限定的技术方案缺乏单一性的技术方案" },
+    { "name": "修改文本", "aliases": [], "role": "defined", "confidence": "high", "evidence": "复审请求人对申请文件的修改应当仅限于消除驳回决定或者合议组指出的缺陷" },
+    { "name": "书面审理", "aliases": [], "role": "used", "confidence": "high", "evidence": "可以采取书面审理、口头审理或者书面审理与口头审理相结合的方式" },
+    { "name": "口头审理", "aliases": [], "role": "used", "confidence": "high", "evidence": "可以采取书面审理、口头审理或者书面审理与口头审理相结合的方式" },
+    { "name": "复审通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "合议组应当发出复审通知书（包括复审请求口头审理通知书）" },
+    { "name": "复审请求口头审理通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "复审通知书（包括复审请求口头审理通知书）" },
+    { "name": "视为撤回", "aliases": [], "role": "defined", "confidence": "high", "evidence": "期满未进行书面答复的，其复审请求视为撤回" },
+    { "name": "永动机", "aliases": [], "role": "used", "confidence": "mid", "evidence": "当该权利要求请求保护的明显是永动机时" }
+  ],
+  "laws": ["专利法实施细则第11条", "专利法第22条第3款", "专利法第22条第4款", "专利法第26条第3款", "专利法第26条第4款", "专利法第33条", "专利法实施细则第66条", "专利法实施细则第67条第1款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

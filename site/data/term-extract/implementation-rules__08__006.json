@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/08/006",
+  "anchorNode": "rule-08-06",
+  "terms": [
+    { "name": "警告", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "予以警告" },
+    { "name": "罚款", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "可以处10万元以下的罚款" }
+  ],
+  "laws": ["专利法实施细则第11条", "专利法实施细则第88条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

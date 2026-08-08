@@ -1,0 +1,17 @@
+{
+  "chunk": "examination-guideline-2025/03/001/05/10",
+  "anchorNode": "03-01-05-10",
+  "terms": [
+    { "name": "著录项目变更申报书", "aliases": [], "role": "used", "confidence": "high", "evidence": "著录项目变更申报书及缴纳变更手续费" },
+    { "name": "记录变更通知书", "aliases": ["PCT/IB/306表"], "role": "used", "confidence": "high", "evidence": "国际局“记录变更通知书”（PCT/IB/306表）" },
+    { "name": "指定局", "aliases": [], "role": "used", "confidence": "high", "evidence": "并书面通知指定局" },
+    { "name": "受理局", "aliases": [], "role": "used", "confidence": "mid", "evidence": "或受理局的要求" },
+    { "name": "国际局", "aliases": [], "role": "used", "confidence": "high", "evidence": "在国际阶段国际局应申请人或受理局的要求" },
+    { "name": "申请权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "变更后的申请人享有申请权的证明材料" },
+    { "name": "补正通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当发出补正通知书" },
+    { "name": "视为撤回通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当发出视为撤回通知书" },
+    { "name": "变更手续费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "缴纳变更手续费" }
+  ],
+  "laws": ["专利法实施细则第121条第1款第6项"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

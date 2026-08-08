@@ -1,0 +1,29 @@
+{
+  "chunk": "examination-guideline-2025/03/001/01",
+  "anchorNode": "03-01-01",
+  "terms": [
+    { "name": "专利合作条约", "aliases": ["PCT"], "role": "defined", "confidence": "high", "evidence": "按照专利合作条约（即PCT）提出的国际申请" },
+    { "name": "国家阶段", "aliases": [], "role": "defined", "confidence": "high", "evidence": "向专利局办理进入中国国家阶段（以下简称国家阶段）的手续" },
+    { "name": "国际申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "本章涉及国际申请进入国家阶段条件的审查" },
+    { "name": "国际检索", "aliases": [], "role": "used", "confidence": "mid", "evidence": "参考国际检索和国际初步审查结果进行的实质审查" },
+    { "name": "国际初步审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "参考国际检索和国际初步审查结果进行的实质审查" }
+  ],
+  "laws": [
+    "专利法实施细则第120条",
+    "专利法实施细则第121条",
+    "专利法实施细则第122条",
+    "专利法实施细则第50条",
+    "专利法实施细则第123条",
+    "专利法实施细则第124条",
+    "专利法实施细则第125条",
+    "专利法实施细则第126条",
+    "专利法实施细则第127条",
+    "专利法实施细则第128条",
+    "专利法实施细则第130条",
+    "专利法实施细则第131条",
+    "专利法第17条",
+    "专利法第18条第1款",
+    "专利法实施细则第132条"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

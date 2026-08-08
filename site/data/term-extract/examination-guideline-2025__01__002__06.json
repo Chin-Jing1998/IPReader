@@ -1,0 +1,20 @@
+{
+  "chunk": "examination-guideline-2025/01/002/06",
+  "anchorNode": "01-02-06",
+  "terms": [
+    { "name": "实用新型", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指对产品的形状、构造或者其结合所提出的适于实用的新的技术方案" },
+    { "name": "产品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "产品应当是经过产业方法制造的，有确定形状、构造且占据一定空间的实体" },
+    { "name": "产品的形状", "aliases": ["形状"], "role": "defined", "confidence": "high", "evidence": "产品所具有的、可以从外部观察到的确定的空间形状" },
+    { "name": "产品的构造", "aliases": ["构造"], "role": "defined", "confidence": "high", "evidence": "产品的各个组成部分的安排、组织和相互关系" },
+    { "name": "机械构造", "aliases": [], "role": "defined", "confidence": "high", "evidence": "构成产品的零部件的相对位置关系、连接关系和必要的机械配合关系" },
+    { "name": "线路构造", "aliases": [], "role": "defined", "confidence": "high", "evidence": "构成产品的元器件之间的确定的连接关系" },
+    { "name": "技术方案", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指对要解决的技术问题所采取的利用了自然规律的技术手段的集合" },
+    { "name": "技术手段", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "技术手段通常是由技术特征来体现的" },
+    { "name": "复合层", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "复合层可以认为是产品的构造" },
+    { "name": "实用新型专利保护的客体", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "不属于实用新型专利保护的客体" }
+  ],
+  "laws": [
+    "专利法第二条第三款"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

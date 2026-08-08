@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/03/001/05/07",
+  "anchorNode": "03-01-05-07",
+  "terms": [
+    { "name": "国家阶段的修改", "aliases": [], "role": "defined", "confidence": "high", "evidence": "此种修改称为国家阶段的修改" },
+    { "name": "主动提出修改", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对专利申请文件主动提出修改" },
+    { "name": "替换页", "aliases": [], "role": "used", "confidence": "mid", "evidence": "修改的内容应当以替换页的形式提交" }
+  ],
+  "laws": ["专利法实施细则第一百三十条", "专利法实施细则第五十七条第一款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

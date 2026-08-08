@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/05/006",
+  "anchorNode": "rule-05-06",
+  "terms": [
+    { "name": "补偿期限", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "补偿期限按照该专利申请日至该新药在中国获得上市许可之日的间隔天数减去5年" },
+    { "name": "新药相关发明专利权期限补偿", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "依照专利法第四十二条第三款的规定给予专利权期限补偿的" }
+  ],
+  "laws": ["专利法第42条第3款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

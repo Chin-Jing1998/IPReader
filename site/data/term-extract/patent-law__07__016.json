@@ -1,0 +1,14 @@
+{
+  "chunk": "patent-law/07/016",
+  "anchorNode": "law-07-16",
+  "terms": [
+    { "name": "管理专利工作的部门", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "管理专利工作的部门不得参与向社会推荐专利产品等经营活动" },
+    { "name": "监察机关", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "由其上级机关或者监察机关责令改正" },
+    { "name": "违法收入", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "有违法收入的予以没收" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:49:49+08:00"
+}

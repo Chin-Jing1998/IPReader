@@ -1,0 +1,11 @@
+{
+  "chunk": "patent-law/06/002",
+  "anchorNode": "law-06-02",
+  "terms": [
+    { "name": "推广应用", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以决定在批准的范围内推广应用" },
+    { "name": "指定单位实施", "aliases": [], "role": "used", "confidence": "mid", "evidence": "允许指定的单位实施" },
+    { "name": "使用费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "由实施单位按照国家规定向专利权人支付使用费" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

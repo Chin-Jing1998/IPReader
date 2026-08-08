@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/02/014",
+  "anchorNode": "rule-02-14",
+  "terms": [
+    { "name": "局部外观设计", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请局部外观设计专利的，应当提交整体产品的视图" },
+    { "name": "虚实线表示法", "aliases": ["虚线与实线相结合"], "role": "used", "confidence": "mid", "evidence": "用虚线与实线相结合或者其他方式表明所需要保护部分的内容" },
+    { "name": "色彩保护", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人请求保护色彩的，应当提交彩色图片或者照片" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,85 @@
+{
+ "batchNo": 26,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/002/06.md",
+   "chunkId": "examination-guideline-2025/05/002/06",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-02-06",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第二章专利费用 ｜ 6.费用种类的转换",
+   "charLen": 190
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/002/07.md",
+   "chunkId": "examination-guideline-2025/05/002/07",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-02-07",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第二章专利费用 ｜ 7.缴费信息的补充",
+   "charLen": 91
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/003/01.md",
+   "chunkId": "examination-guideline-2025/05/003/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-03-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第三章受理 ｜ 1.受理部门",
+   "charLen": 273
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/003/02.md",
+   "chunkId": "examination-guideline-2025/05/003/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-03-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第三章受理 ｜ 2.专利申请的受理与不受理",
+   "charLen": 2411
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/003/03.md",
+   "chunkId": "examination-guideline-2025/05/003/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-03-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第三章受理 ｜ 3.其他文件的受理与不受理",
+   "charLen": 551
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/003/04.md",
+   "chunkId": "examination-guideline-2025/05/003/04",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-03-04",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第三章受理 ｜ 4.申请日的更正",
+   "charLen": 351
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/003/05.md",
+   "chunkId": "examination-guideline-2025/05/003/05",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-03-05",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第三章受理 ｜ 5.受理程序中错误的更正",
+   "charLen": 142
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/003/06.md",
+   "chunkId": "examination-guideline-2025/05/003/06",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-03-06",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第三章受理 ｜ 6.查询",
+   "charLen": 106
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/004/01.md",
+   "chunkId": "examination-guideline-2025/05/004/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-04-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第四章专利申请文档 ｜ 1.文档及组成",
+   "charLen": 100
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/004/02.md",
+   "chunkId": "examination-guideline-2025/05/004/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-04-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第四章专利申请文档 ｜ 2.案卷",
+   "charLen": 796
+  }
+ ]
+}

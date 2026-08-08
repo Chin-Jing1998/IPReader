@@ -1,0 +1,13 @@
+{
+  "chunk": "infringement-guide/01/001",
+  "anchorNode": "infr-01-01",
+  "terms": [
+    { "name": "专利权有效原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利权有效原则。在权利人据以主张的专利权未被宣告无效之前" },
+    { "name": "公平原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "公平原则。解释权利要求时，不仅要充分考虑专利对现有技术所做的贡献" },
+    { "name": "折衷原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "折衷原则。解释权利要求时，应当以权利要求记载的技术内容为准" },
+    { "name": "符合发明目的原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "符合发明目的原则。在确定专利权保护范围时，不应将不能实现发明目的" },
+    { "name": "现有技术", "aliases": [], "role": "used", "confidence": "mid", "evidence": "整体上属于现有技术的技术方案" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:20:00+08:00"
+}

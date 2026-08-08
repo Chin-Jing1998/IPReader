@@ -1,0 +1,32 @@
+{
+  "chunk": "examination-guideline-2025/01/001/06/02",
+  "anchorNode": "01-01-06-02",
+  "terms": [
+    { "name": "优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人根据专利法第二十九条规定向专利局要求以其在先提出的专利申请为基础享有优先权" },
+    { "name": "外国优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "这种优先权称为外国优先权" },
+    { "name": "本国优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "这种优先权称为本国优先权" },
+    { "name": "在先申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在先申请应当是发明或者实用新型专利申请，不应当是外观设计专利申请" },
+    { "name": "巴黎公约", "aliases": [], "role": "used", "confidence": "mid", "evidence": "是否是在巴黎公约成员国内提出的" },
+    { "name": "优先权转让证明文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "提交由在先申请的全体申请人签字或者盖章的优先权转让证明文件" },
+    { "name": "优先权要求费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当在缴纳申请费的同时缴纳优先权要求费" },
+    { "name": "视为未要求优先权", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员应当发出视为未要求优先权通知书" },
+    { "name": "优先权要求的恢复", "aliases": [], "role": "defined", "confidence": "high", "evidence": "根据专利法实施细则第六条的规定请求恢复要求优先权的权利" },
+    { "name": "增加或者改正优先权要求", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "请求增加或者改正优先权要求" },
+    { "name": "优先权要求的撤回", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "申请人要求优先权之后，可以撤回优先权要求" },
+    { "name": "要求优先权声明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人要求优先权的，应当在提出专利申请的同时在请求书中声明" }
+  ],
+  "laws": [
+    "专利法第29条",
+    "专利法第30条",
+    "专利法实施细则第34条",
+    "专利法实施细则第35条",
+    "专利法实施细则第36条",
+    "专利法实施细则第37条",
+    "专利法第18条第1款",
+    "专利法实施细则第6条",
+    "专利法实施细则第6条第1款",
+    "专利法实施细则第6条第2款",
+    "专利法实施细则第35条第3款"
+  ],
+  "extractedAt": "2026-07-12T15:38:10+08:00"
+}

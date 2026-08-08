@@ -1,0 +1,15 @@
+{
+  "chunk": "patent-law/05/002",
+  "anchorNode": "law-05-02",
+  "terms": [
+    {
+      "name": "年费",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "应当自被授予专利权的当年开始缴纳年费"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

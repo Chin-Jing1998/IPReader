@@ -1,0 +1,13 @@
+{
+  "chunk": "patent-law/02/003",
+  "anchorNode": "law-02-03",
+  "terms": [
+    { "name": "新颖性宽限期", "aliases": [], "role": "defined", "confidence": "high", "evidence": "有下列情形之一的，不丧失新颖性" },
+    { "name": "紧急状态或者非常情况", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在国家出现紧急状态或者非常情况时，为公共利益目的首次公开的" },
+    { "name": "国际展览会", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在中国政府主办或者承认的国际展览会上首次展出的" },
+    { "name": "学术会议或者技术会议", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在规定的学术会议或者技术会议上首次发表的" },
+    { "name": "未经申请人同意泄露", "aliases": [], "role": "used", "confidence": "mid", "evidence": "他人未经申请人同意而泄露其内容的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

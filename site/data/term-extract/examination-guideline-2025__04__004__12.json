@@ -1,0 +1,10 @@
+{
+  "chunk": "examination-guideline-2025/04/004/12",
+  "anchorNode": "04-04-12",
+  "terms": [
+    { "name": "旁听", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在口头审理中允许旁听，旁听者无发言权" },
+    { "name": "旁听手续", "aliases": [], "role": "used", "confidence": "mid", "evidence": "合议组可以要求旁听者办理旁听手续" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

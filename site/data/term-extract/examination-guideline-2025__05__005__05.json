@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/05/005/05",
+  "anchorNode": "05-05-05",
+  "terms": [
+    { "name": "解密请求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "保密专利申请的申请人或者保密专利的专利权人可以书面提出解密请求" },
+    { "name": "密级", "aliases": [], "role": "used", "confidence": "mid", "evidence": "提交了有关部门确定密级的相关文件的" },
+    { "name": "解密标记", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员应当对已经解密的专利申请（或者专利）作出解密标记" },
+    { "name": "解密公告", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当进行解密公告、出版发明或者实用新型专利单行本" },
+    { "name": "国防专利", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利局接收国防知识产权局移交的解密国防专利后" },
+    { "name": "保密专利", "aliases": [], "role": "used", "confidence": "high", "evidence": "或者保密专利的专利权人可以书面提出解密请求" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

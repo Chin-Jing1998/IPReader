@@ -1,0 +1,17 @@
+{
+  "chunk": "chemistry-drafting-rules/01/004/04",
+  "anchorNode": "chem-01-04-04",
+  "terms": [
+    { "name": "发明内容", "aliases": [], "role": "defined", "confidence": "high", "evidence": "发明内容的主要作用是对权利要求书中所要求保护的技术方案进行支持" },
+    { "name": "形式支持", "aliases": [], "role": "defined", "confidence": "high", "evidence": "形式支持一般是指权利要求所记载的方案要完整记载在说明书中" },
+    { "name": "实质支持", "aliases": [], "role": "defined", "confidence": "high", "evidence": "实质支持可以理解为对权利要求所概括的技术方案进行解释和支撑" },
+    { "name": "独立权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "每个独立权利要求前，均应当另起一段" },
+    { "name": "从属权利要求", "aliases": ["从权"], "role": "used", "confidence": "high", "evidence": "在所有从权前，均应当写入" },
+    { "name": "上位概念", "aliases": [], "role": "used", "confidence": "high", "evidence": "如从上位概念— —中位概念—— 具体下位概念" },
+    { "name": "下位概念", "aliases": [], "role": "used", "confidence": "high", "evidence": "如从上位概念— —中位概念—— 具体下位概念" },
+    { "name": "中位概念", "aliases": [], "role": "used", "confidence": "mid", "evidence": "作为中位的数值范围的端点值" },
+    { "name": "简单效果叠加", "aliases": [], "role": "used", "confidence": "high", "evidence": "避免造成简单效果叠加的可能性" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

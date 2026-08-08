@@ -1,0 +1,888 @@
+[
+ {
+  "termKey": "未充分实施其专利",
+  "canonical": "未充分实施其专利",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/06/005",
+    "text": "未充分实施其专利，是指专利权人及其被许可人实施其专利的方式或者规模不能满足国内对专利产品或者专利方法的需求"
+   }
+  ]
+ },
+ {
+  "termKey": "未实施或者未充分实施",
+  "canonical": "未实施或者未充分实施",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/06/006",
+    "text": "无正当理由未实施或者未充分实施其专利的"
+   }
+  ]
+ },
+ {
+  "termKey": "无效宣告案件",
+  "canonical": "无效宣告案件",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/02",
+    "text": "无效宣告请求案件（简称无效宣告案件）"
+   }
+  ]
+ },
+ {
+  "termKey": "无效宣告程序的终止",
+  "canonical": "无效宣告程序的终止",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/003/08",
+    "text": "撤回其无效宣告请求的，无效宣告程序终止"
+   }
+  ]
+ },
+ {
+  "termKey": "无效宣告理由和证据的补充",
+  "canonical": "无效宣告理由和证据的补充",
+  "aliases": [
+   "增加理由或者补充证据"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/04/007",
+    "text": "增加理由或者补充证据"
+   }
+  ]
+ },
+ {
+  "termKey": "无效宣告请求客体",
+  "canonical": "无效宣告请求客体",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/003/03",
+    "text": "无效宣告请求的客体应当是已经公告授权的专利"
+   }
+  ]
+ },
+ {
+  "termKey": "无效宣告请求审查程序终止",
+  "canonical": "无效宣告请求审查程序终止",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/04/012",
+    "text": "无效宣告请求审查程序终止"
+   }
+  ]
+ },
+ {
+  "termKey": "无需经过创造性劳动就能够想到",
+  "canonical": "无需经过创造性劳动就能够想到",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/02/003",
+    "text": "无需经过创造性劳动就能够想到，是指对于本领域普通技术人员而言，被诉侵权技术"
+   }
+  ]
+ },
+ {
+  "termKey": "物质的医药用途",
+  "canonical": "物质的医药用途",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/02",
+    "text": "物质的医药用途如果是用于诊断或者治疗疾病"
+   }
+  ]
+ },
+ {
+  "termKey": "显著经济意义的重大技术进步",
+  "canonical": "显著经济意义的重大技术进步",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/06/009",
+    "text": "具有显著经济意义的重大技术进步"
+   }
+  ]
+ },
+ {
+  "termKey": "现场调查",
+  "canonical": "现场调查",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/04/14",
+    "text": "需要审查员到现场调查方能得到解决"
+   }
+  ]
+ },
+ {
+  "termKey": "现有设计特征",
+  "canonical": "现有设计特征",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/06",
+    "text": "现有设计特征，是指现有设计的部分设计要素或者其结合"
+   }
+  ]
+ },
+ {
+  "termKey": "现有设计状况",
+  "canonical": "现有设计状况",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/04/_full-chapter",
+    "text": "现有设计状况是指在外观设计专利申请日之前在国内外为公众所知的相同或相近种类产品"
+   }
+  ]
+ },
+ {
+  "termKey": "线路构造",
+  "canonical": "线路构造",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/002/06",
+    "text": "构成产品的元器件之间的确定的连接关系"
+   }
+  ]
+ },
+ {
+  "termKey": "相冲突",
+  "canonical": "相冲突",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/07",
+    "text": "相冲突，是指未经权利人许可，外观设计专利使用了在先合法权利的客体"
+   }
+  ]
+ },
+ {
+  "termKey": "相近似",
+  "canonical": "相近似",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/04/_full-chapter",
+    "text": "在整体视觉效果上无实质性差异的，应当认定两者构成相近似"
+   }
+  ]
+ },
+ {
+  "termKey": "相近种类的产品",
+  "canonical": "相近种类的产品",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/05",
+    "text": "相近种类的产品是指用途相近的产品"
+   }
+  ]
+ },
+ {
+  "termKey": "相同侵权",
+  "canonical": "相同侵权",
+  "aliases": [
+   "字面含义上的侵权"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/02/002",
+    "text": "被诉侵权技术方案包含了与权利要求限定的一项完整技术方案记载的全部技术特征相同"
+   }
+  ]
+ },
+ {
+  "termKey": "相同种类产品",
+  "canonical": "相同种类产品",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/05",
+    "text": "相同种类产品是指用途完全相同的产品"
+   }
+  ]
+ },
+ {
+  "termKey": "相同主题的发明或者实用新型",
+  "canonical": "相同主题的发明或者实用新型",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/003/04",
+    "text": "是指技术领域、所解决的技术问题、技术方案和预期的效果相同的发明或者实用新型"
+   }
+  ]
+ },
+ {
+  "termKey": "向外国申请专利",
+  "canonical": "向外国申请专利",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/005/06",
+    "text": "向外国申请专利是指向外国国家或外国政府间专利合作组织设立的专利主管机构"
+   }
+  ]
+ },
+ {
+  "termKey": "象形/拟物形式的描述",
+  "canonical": "象形/拟物形式的描述",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "mechanical-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "mechanical-drafting-rules/01/002/01",
+    "text": "禁止直接采用呈“凸”形、“凹” 等中文字的象形/拟物形式的描述"
+   }
+  ]
+ },
+ {
+  "termKey": "小分子化合物",
+  "canonical": "小分子化合物",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/005/01",
+    "text": "小分子化合物一般具有明确的化学结构"
+   }
+  ]
+ },
+ {
+  "termKey": "新产品",
+  "canonical": "新产品",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/05/001",
+    "text": "是指在国内外第一次生产出的产品，该产品与专利申请日之前已有的同类产品相比"
+   }
+  ]
+ },
+ {
+  "termKey": "新产品用途发明的创造性",
+  "canonical": "新产品用途发明的创造性",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/06",
+    "text": "对于新的化学产品，如果该用途不能从结构或者组成相似的已知产品预见到"
+   }
+  ]
+ },
+ {
+  "termKey": "新药相关技术方案",
+  "canonical": "新药相关技术方案",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/009/03",
+    "text": "指定权利要求未包括获得上市许可的新药相关技术方案的，不予期限补偿"
+   }
+  ]
+ },
+ {
+  "termKey": "新引出的技术特征",
+  "canonical": "新引出的技术特征",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/003/03",
+    "text": "当附加的技术特征为新引出的技术特征时"
+   }
+  ]
+ },
+ {
+  "termKey": "新种",
+  "canonical": "新种",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/09/02",
+    "text": "当涉及的微生物属于新种时，要详细记载其分类学性质，要写明鉴定为新种的理由"
+   }
+  ]
+ },
+ {
+  "termKey": "行政审批所需要的信息",
+  "canonical": "行政审批所需要的信息",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/06/004",
+    "text": "行政审批所需要的信息，是指《中华人民共和国药品管理法》"
+   }
+  ]
+ },
+ {
+  "termKey": "形式支持",
+  "canonical": "形式支持",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/004/04",
+    "text": "形式支持一般是指权利要求所记载的方案要完整记载在说明书中"
+   }
+  ]
+ },
+ {
+  "termKey": "形状、图案和色彩结合的外观设计",
+  "canonical": "形状、图案和色彩结合的外观设计",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/03",
+    "text": "形状、图案和色彩结合的外观设计是指请求保护色彩的产品的形状、图案和色彩设计"
+   }
+  ]
+ },
+ {
+  "termKey": "形状和色彩结合的外观设计",
+  "canonical": "形状和色彩结合的外观设计",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/03",
+    "text": "形状和色彩结合的外观设计是指请求保护色彩的无图案产品的形状和色彩设计"
+   }
+  ]
+ },
+ {
+  "termKey": "形状和图案结合的外观设计",
+  "canonical": "形状和图案结合的外观设计",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/03",
+    "text": "形状和图案结合的外观设计是指未请求保护色彩的产品的形状和图案设计"
+   }
+  ]
+ },
+ {
+  "termKey": "性能检测试验",
+  "canonical": "性能检测试验",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/02/003/03",
+    "text": "性能检测试验主要用于证明产品发明的技术效果，应清楚描述产品的检测试验方法"
+   }
+  ]
+ },
+ {
+  "termKey": "修改超出原图片或者照片表示的范围",
+  "canonical": "修改超出原图片或者照片表示的范围",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/10",
+    "text": "修改超出原图片或者照片表示的范围，是指修改后的外观设计与原始申请文件中表示的相应"
+   }
+  ]
+ },
+ {
+  "termKey": "修改更正通知书",
+  "canonical": "修改更正通知书",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/003/04",
+    "text": "审查员应当发出修改更正通知书"
+   }
+  ]
+ },
+ {
+  "termKey": "选定",
+  "canonical": "选定",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/02",
+    "text": "国际申请在规定的期限内选定中国，并且该选定直至进入国家阶段时仍然有效的"
+   }
+  ]
+ },
+ {
+  "termKey": "巡回口头审理",
+  "canonical": "巡回口头审理",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/004/02",
+    "text": "复审和无效审理部可以进行巡回口头审理，就地审理办案"
+   }
+  ]
+ },
+ {
+  "termKey": "延期举证",
+  "canonical": "延期举证",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/003/04",
+    "text": "当事人可以在所述期限内书面请求延期提交"
+   }
+  ]
+ },
+ {
+  "termKey": "衍生物",
+  "canonical": "衍生物",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/09/03",
+    "text": "由于“衍生物”含义不仅是指由该微生物产生的新的微生物菌株"
+   }
+  ]
+ },
+ {
+  "termKey": "样品或者模型",
+  "canonical": "样品或者模型",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/02/016",
+    "text": "样品或者模型的体积不得超过30厘米×30厘米×30厘米"
+   }
+  ]
+ },
+ {
+  "termKey": "药品专利链接制度",
+  "canonical": "药品专利链接制度",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/07/013",
+    "text": "药品上市审评审批过程中，药品上市许可申请人与有关专利权人或者利害关系人"
+   }
+  ]
+ },
+ {
+  "termKey": "药品专利权期限补偿期间",
+  "canonical": "药品专利权期限补偿期间",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/009/03",
+    "text": "药品专利权期限补偿期间内，该专利的保护范围限于国务院药品监督管理部门批准上市"
+   }
+  ]
+ },
+ {
+  "termKey": "要素变更的发明",
+  "canonical": "要素变更的发明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/004/04",
+    "text": "包括要素关系改变的发明、要素替代的发明和要素省略的发明"
+   }
+  ]
+ },
+ {
+  "termKey": "要素关系改变的发明",
+  "canonical": "要素关系改变的发明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/004/04",
+    "text": "是指发明与现有技术相比，其形状、尺寸、比例、位置及作用关系等发生了变化"
+   }
+  ]
+ },
+ {
+  "termKey": "要素省略的发明",
+  "canonical": "要素省略的发明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/004/04",
+    "text": "是指省去已知产品或者方法中的某一项或者多项要素的发明"
+   }
+  ]
+ },
+ {
+  "termKey": "要素替代的发明",
+  "canonical": "要素替代的发明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/004/04",
+    "text": "是指已知产品或者方法的某一要素由其他已知要素替代的发明"
+   }
+  ]
+ },
+ {
+  "termKey": "一事不再理原则",
+  "canonical": "一事不再理原则",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/003/02",
+    "text": "以相同或者实质相同的理由和证据再次提出无效宣告请求的，不予受理和审理"
+   }
+  ]
+ },
+ {
+  "termKey": "依照该专利方法直接获得的产品",
+  "canonical": "依照该专利方法直接获得的产品",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/01/011",
+    "text": "使用、许诺销售、销售、进口依照该专利方法直接获得的产品"
+   }
+  ]
+ },
+ {
+  "termKey": "依照专利方法直接获得的产品",
+  "canonical": "依照专利方法直接获得的产品",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/05/001",
+    "text": "依照专利方法直接获得的产品，是指将原材料、物品按照方法专利权利要求记载的全部"
+   }
+  ]
+ },
+ {
+  "termKey": "依职权审查原则",
+  "canonical": "依职权审查原则",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/02",
+    "text": "复审和无效审理部可以对所审查的案件依职权进行审查"
+   }
+  ]
+ },
+ {
+  "termKey": "遗传工程",
+  "canonical": "遗传工程",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/09/02",
+    "text": "术语“遗传工程”指基因重组、细胞融合等人工操作基因的技术"
+   }
+  ]
+ },
+ {
+  "termKey": "遗传功能",
+  "canonical": "遗传功能",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/001/03",
+    "text": "遗传功能是指生物体通过繁殖将性状或者特征代代相传或者使整个生物体得以复制的能力"
+   }
+  ]
+ },
+ {
+  "termKey": "遗传功能单位",
+  "canonical": "遗传功能单位",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/001/03",
+    "text": "遗传功能单位是指生物体的基因或者具有遗传功能的DNA或者RNA片段"
+   }
+  ]
+ },
+ {
+  "termKey": "遗传资源的原始来源",
+  "canonical": "遗传资源的原始来源",
+  "aliases": [
+   "原始来源"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/09/05",
+    "text": "专利法所称遗传资源的原始来源，是指遗传资源所属的生物体在原生环境中的采集地"
+   }
+  ]
+ }
+]

@@ -1,0 +1,9 @@
+{
+  "chunk": "oa-response-guide/04/001",
+  "anchorNode": "oa-04-01",
+  "terms": [
+    { "name": "说明书支持", "aliases": [], "role": "defined", "confidence": "high", "evidence": "权利要求书应当以说明书为依据" }
+  ],
+  "laws": ["专利法第26条第4款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

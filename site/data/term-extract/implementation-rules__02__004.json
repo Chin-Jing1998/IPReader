@@ -1,0 +1,17 @@
+{
+  "chunk": "implementation-rules/02/004",
+  "anchorNode": "rule-02-04",
+  "terms": [
+    { "name": "说明书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "说明书应当包括下列内容" },
+    { "name": "技术领域", "aliases": [], "role": "defined", "confidence": "high", "evidence": "写明要求保护的技术方案所属的技术领域" },
+    { "name": "背景技术", "aliases": [], "role": "defined", "confidence": "high", "evidence": "写明对发明或者实用新型的理解、检索、审查有用的背景技术" },
+    { "name": "发明内容", "aliases": [], "role": "defined", "confidence": "high", "evidence": "发明或者实用新型所要解决的技术问题" },
+    { "name": "有益效果", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "对照现有技术写明发明或者实用新型的有益效果" },
+    { "name": "附图说明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对各幅附图作简略说明" },
+    { "name": "具体实施方式", "aliases": [], "role": "defined", "confidence": "high", "evidence": "详细写明申请人认为实现发明或者实用新型的优选方式" },
+    { "name": "现有技术", "aliases": [], "role": "used", "confidence": "high", "evidence": "现有技术" },
+    { "name": "序列表", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "说明书应当包括符合国务院专利行政部门规定的序列表" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,886 @@
+[
+ {
+  "termKey": "审查依据的文本",
+  "canonical": "审查依据的文本",
+  "aliases": [
+   "审查基础的文本"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/06/002/04",
+    "text": "作为外观设计国际申请审查基础的文本可能包括"
+   }
+  ]
+ },
+ {
+  "termKey": "生物材料样品国际保藏单位",
+  "canonical": "生物材料样品国际保藏单位",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/05",
+    "text": "国家知识产权局认可的生物材料样品国际保藏单位"
+   }
+  ]
+ },
+ {
+  "termKey": "剩余大组",
+  "canonical": "剩余大组",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/004/04/04",
+    "text": "则将该技术主题分入以类号99/00表示的专门的剩余大组"
+   }
+  ]
+ },
+ {
+  "termKey": "时间顺序原则",
+  "canonical": "时间顺序原则",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/004/02",
+    "text": "时间顺序原则。当事人依法向专利局办理各种手续时"
+   }
+  ]
+ },
+ {
+  "termKey": "实际损失",
+  "canonical": "实际损失",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/07/008",
+    "text": "权利人因被侵权所受到的实际损失"
+   }
+  ]
+ },
+ {
+  "termKey": "实施",
+  "canonical": "实施",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/01/011",
+    "text": "不得实施其专利，即不得为生产经营目的制造、使用、许诺销售、销售、进口"
+   }
+  ]
+ },
+ {
+  "termKey": "实施许可合同",
+  "canonical": "实施许可合同",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/01/012",
+    "text": "应当与专利权人订立实施许可合同"
+   }
+  ]
+ },
+ {
+  "termKey": "实用新型的创造性",
+  "canonical": "实用新型的创造性",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/006",
+    "text": "实用新型的创造性，是指与现有技术相比，该实用新型具有实质性特点和进步"
+   }
+  ]
+ },
+ {
+  "termKey": "实用新型专利申请的初步审查",
+  "canonical": "实用新型专利申请的初步审查",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/002/01",
+    "text": "受理实用新型专利申请之后、授予专利权之前的一个必要程序"
+   }
+  ]
+ },
+ {
+  "termKey": "实质审查程序的恢复",
+  "canonical": "实质审查程序的恢复",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/07",
+    "text": "专利局恢复实质审查程序"
+   }
+  ]
+ },
+ {
+  "termKey": "实质审查程序的中止",
+  "canonical": "实质审查程序的中止",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/07",
+    "text": "实质审查程序可能因专利申请权归属纠纷的当事人根据专利法实施细则"
+   }
+  ]
+ },
+ {
+  "termKey": "实质审查程序的终止",
+  "canonical": "实质审查程序的终止",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/07",
+    "text": "或者因申请人主动撤回申请，或者因申请被视为撤回而终止"
+   }
+  ]
+ },
+ {
+  "termKey": "实质审查请求之日",
+  "canonical": "实质审查请求之日",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/009/02",
+    "text": "实质审查请求之日是指申请人依照专利法第三十五条第一款规定提出实质审查请求"
+   }
+  ]
+ },
+ {
+  "termKey": "实质性非侵权用途",
+  "canonical": "实质性非侵权用途",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/05/002",
+    "text": "具备实质性意义且具有“实质性非侵权用途”为判断标准"
+   }
+  ]
+ },
+ {
+  "termKey": "实质支持",
+  "canonical": "实质支持",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/004/04",
+    "text": "实质支持可以理解为对权利要求所概括的技术方案进行解释和支撑"
+   }
+  ]
+ },
+ {
+  "termKey": "食品基本功能",
+  "canonical": "食品基本功能",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/005/03",
+    "text": "技术问题应当是改善食品的基本功能"
+   }
+  ]
+ },
+ {
+  "termKey": "视为撤回在先申请的程序",
+  "canonical": "视为撤回在先申请的程序",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/06/002/06/02",
+    "text": "视为撤回在先申请的程序"
+   }
+  ]
+ },
+ {
+  "termKey": "视为放弃取得专利权",
+  "canonical": "视为放弃取得专利权",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/009/01",
+    "text": "应当发出视为放弃取得专利权通知书"
+   }
+  ]
+ },
+ {
+  "termKey": "视为未办理登记手续",
+  "canonical": "视为未办理登记手续",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/10/005",
+    "text": "期满未缴纳或者未缴足的，视为未办理登记手续"
+   }
+  ]
+ },
+ {
+  "termKey": "适于工业应用",
+  "canonical": "适于工业应用",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/07",
+    "text": "适于工业应用，是指该外观设计能应用于产业上并形成批量生产。"
+   }
+  ]
+ },
+ {
+  "termKey": "收到文件回执",
+  "canonical": "收到文件回执",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/003/03",
+    "text": "专利局出具收到文件回执，回执上应注明受理部门收到日"
+   }
+  ]
+ },
+ {
+  "termKey": "收费减缴",
+  "canonical": "收费减缴",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/002/03",
+    "text": "可以根据专利收费减缴办法向专利局提出收费减缴的请求"
+   }
+  ]
+ },
+ {
+  "termKey": "收件人",
+  "canonical": "收件人",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/006/02",
+    "text": "当事人未委托专利代理机构的，通知和决定的收件人为请求书中填写的联系人"
+   }
+  ]
+ },
+ {
+  "termKey": "受理部门",
+  "canonical": "受理部门",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/003/01",
+    "text": "专利局受理部门包括专利局初审及流程管理部受理处"
+   }
+  ]
+ },
+ {
+  "termKey": "授予专利权的通知书",
+  "canonical": "授予专利权的通知书",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/06",
+    "text": "应当发出授予发明专利权的通知书"
+   }
+  ]
+ },
+ {
+  "termKey": "说明书公开不充分",
+  "canonical": "说明书公开不充分",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "oa-response-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "oa-response-guide/07/001",
+    "text": "则可认为该发明公开不充分"
+   }
+  ]
+ },
+ {
+  "termKey": "说明书及附图的解释作用",
+  "canonical": "说明书及附图的解释作用",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/07/001",
+    "text": "说明书及附图可以用于解释权利要求的内容"
+   }
+  ]
+ },
+ {
+  "termKey": "诉前行为保全",
+  "canonical": "诉前行为保全",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/07/009",
+    "text": "可以在起诉前依法向人民法院申请采取财产保全、责令作出一定行为或者禁止作出一定行为"
+   }
+  ]
+ },
+ {
+  "termKey": "诉前证据保全",
+  "canonical": "诉前证据保全",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/07/010",
+    "text": "可以在起诉前依法向人民法院申请保全证据"
+   }
+  ]
+ },
+ {
+  "termKey": "所属技术领域",
+  "canonical": "所属技术领域",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/007/05",
+    "text": "所属技术领域是根据权利要求书中限定的内容来确定的"
+   }
+  ]
+ },
+ {
+  "termKey": "所属技术领域的技术人员能够实现",
+  "canonical": "所属技术领域的技术人员能够实现",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/002/07",
+    "text": "按照说明书记载的内容，就能够实现该实用新型的技术方案"
+   }
+  ]
+ },
+ {
+  "termKey": "所要解决的技术问题",
+  "canonical": "所要解决的技术问题",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "mechanical-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "mechanical-drafting-rules/01/003/04",
+    "text": "所要解决的技术问题中，不应含有绝对性的词语"
+   }
+  ]
+ },
+ {
+  "termKey": "他人未经申请人同意而泄露其内容",
+  "canonical": "他人未经申请人同意而泄露其内容",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/06/03",
+    "text": "他人未经申请人同意而泄露其内容所造成的公开"
+   }
+  ]
+ },
+ {
+  "termKey": "特别授权的委托书",
+  "canonical": "特别授权的委托书",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/003/03",
+    "text": "代理人需要具有特别授权的委托书"
+   }
+  ]
+ },
+ {
+  "termKey": "天然物质",
+  "canonical": "天然物质",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/02",
+    "text": "其结构、形态或者其他物理化学参数是现有技术中不曾认识的"
+   }
+  ]
+ },
+ {
+  "termKey": "通式",
+  "canonical": "通式",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/05",
+    "text": "通式不能破坏该通式中一个具体化合物的新颖性"
+   }
+  ]
+ },
+ {
+  "termKey": "同类独立权利要求",
+  "canonical": "同类独立权利要求",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/006/02/02",
+    "text": "所述的“同类”是指独立权利要求的类型相同"
+   }
+  ]
+ },
+ {
+  "termKey": "同日",
+  "canonical": "同日",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/03/006",
+    "text": "同日（指申请日；有优先权的，指优先权日）"
+   }
+  ]
+ },
+ {
+  "termKey": "同样产品",
+  "canonical": "同样产品",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/05/001",
+    "text": "专利法第六十一条规定的同样产品，是指被诉侵权产品与实施新产品制造方法直接得到"
+   }
+  ]
+ },
+ {
+  "termKey": "同一类别并且成套出售或者使用的产品",
+  "canonical": "同一类别并且成套出售或者使用的产品",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/02/024",
+    "text": "是指各产品属于分类表中同一大类，习惯上同时出售或者同时使用"
+   }
+  ]
+ },
+ {
+  "termKey": "突出的实质性特点和显著的进步",
+  "canonical": "突出的实质性特点和显著的进步",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "oa-response-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "oa-response-guide/02/008",
+    "text": "具备突出的实质性特点和显著的进步"
+   }
+  ]
+ },
+ {
+  "termKey": "图案",
+  "canonical": "图案",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/07",
+    "text": "图案，是指由任何线条、文字、符号、色块的排列或者组合而在产品的表面构成的图形。"
+   }
+  ]
+ },
+ {
+  "termKey": "图案和色彩结合的外观设计",
+  "canonical": "图案和色彩结合的外观设计",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/03",
+    "text": "图案和色彩结合的外观设计是指请求保护色彩的并且不限定边界的平面产品的"
+   }
+  ]
+ },
+ {
+  "termKey": "退款",
+  "canonical": "退款",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/002/04",
+    "text": "多缴、重缴、错缴专利费用的，当事人可以自缴费日起三年内，提出退款请求"
+   }
+  ]
+ },
+ {
+  "termKey": "外观设计分类",
+  "canonical": "外观设计分类",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/12",
+    "text": "外观设计分类是针对使用该外观设计的产品进行的"
+   }
+  ]
+ },
+ {
+  "termKey": "外观设计实质相同",
+  "canonical": "外观设计实质相同",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/05",
+    "text": "外观设计实质相同的判断仅限于相同或者相近种类的产品外观设计"
+   }
+  ]
+ },
+ {
+  "termKey": "外观设计相同主题",
+  "canonical": "外观设计相同主题",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/09",
+    "text": "外观设计相同主题的认定应当根据在后申请的外观设计与其首次申请中表示的内容进行判断"
+   }
+  ]
+ },
+ {
+  "termKey": "外观设计要素",
+  "canonical": "外观设计要素",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/05",
+    "text": "其中外观设计要素是指形状、图案以及色彩"
+   }
+  ]
+ },
+ {
+  "termKey": "外观设计专利权的保护范围",
+  "canonical": "外观设计专利权的保护范围",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/07/001",
+    "text": "外观设计专利权的保护范围以表示在图片或者照片中的该产品的外观设计为准"
+   }
+  ]
+ },
+ {
+  "termKey": "外国部分优先权",
+  "canonical": "外国部分优先权",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/003/04",
+    "text": "故称为外国部分优先权"
+   }
+  ]
+ },
+ {
+  "termKey": "外国首次申请",
+  "canonical": "外国首次申请",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/003/04",
+    "text": "在外国第一次提出专利申请（以下简称外国首次申请）"
+   }
+  ]
+ },
+ {
+  "termKey": "完全确定的化合物",
+  "canonical": "完全确定的化合物",
+  "aliases": [
+   "完全确定"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/004/08",
+    "text": "被认为是“完全确定”的化合物是指"
+   }
+  ]
+ },
+ {
+  "termKey": "微生物的分类命名",
+  "canonical": "微生物的分类命名",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/09/02",
+    "text": "经保藏的微生物应以分类鉴定的微生物株名、种名、属名进行表述"
+   }
+  ]
+ },
+ {
+  "termKey": "微生物发明",
+  "canonical": "微生物发明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/001/04/04",
+    "text": "所谓微生物发明是指利用各种细菌、真菌、病毒等微生物去生产一种化学物质"
+   }
+  ]
+ },
+ {
+  "termKey": "违反法律的发明创造",
+  "canonical": "违反法律的发明创造",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/01/010",
+    "text": "违反法律的发明创造，不包括仅其实施为法律所禁止的发明创造"
+   }
+  ]
+ }
+]

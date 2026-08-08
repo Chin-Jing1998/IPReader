@@ -1,0 +1,17 @@
+{
+  "chunk": "examination-guideline-2025/05/006/01",
+  "anchorNode": "05-06-01",
+  "terms": [
+    { "name": "审查意见通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查意见通知书" },
+    { "name": "补正通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "补正通知书" },
+    { "name": "视为撤回通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "视为撤回通知书" },
+    { "name": "驳回决定", "aliases": [], "role": "used", "confidence": "high", "evidence": "驳回决定" },
+    { "name": "复审决定书", "aliases": [], "role": "used", "confidence": "high", "evidence": "复审决定书" },
+    { "name": "无效宣告请求审查决定", "aliases": [], "role": "used", "confidence": "high", "evidence": "无效宣告请求审查决定" },
+    { "name": "授予发明专利权通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "授予发明专利权通知书" },
+    { "name": "恢复权利请求审批通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "恢复权利请求审批通知书" },
+    { "name": "著录项目", "aliases": [], "role": "defined", "confidence": "high", "evidence": "著录项目包括：申请号（或者专利号）、发明创造名称" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

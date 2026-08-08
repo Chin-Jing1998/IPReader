@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/02/011/04",
+  "anchorNode": "02-11-04",
+  "terms": [
+    { "name": "辨证论治", "aliases": [], "role": "defined", "confidence": "high", "evidence": "辨证论治是中医治疗疾病的基本原则" },
+    { "name": "证型", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以出现不同的证候分型即证型" },
+    { "name": "中医古方", "aliases": [], "role": "used", "confidence": "mid", "evidence": "当对比文件为中医古方时" },
+    { "name": "度量衡换算", "aliases": [], "role": "used", "confidence": "mid", "evidence": "由于历代度量衡多有变化，需要注意古方中用量单位的换算" },
+    { "name": "中医的病与证", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当注意中医的病与证，以及其与西医的病或药物作用机理之间的关系" },
+    { "name": "相同或实质相同", "aliases": [], "role": "used", "confidence": "high", "evidence": "只有对比文件与发明所涉及的疾病相同或实质相同，才破坏发明的新颖性" },
+    { "name": "对比文件破坏发明的新颖性", "aliases": [], "role": "used", "confidence": "mid", "evidence": "因此，对比文件破坏发明的新颖性" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

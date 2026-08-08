@@ -1,0 +1,18 @@
+{
+  "chunk": "examination-guideline-2025/01/001/03",
+  "anchorNode": "01-01-03",
+  "terms": [
+    { "name": "初步审查合格", "aliases": [], "role": "defined", "confidence": "high", "evidence": "包括经过补正符合初步审查要求的专利申请，应当认为初步审查合格" },
+    { "name": "补正通知书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "补正通知书中应当指明专利申请存在的缺陷，说明理由，同时指定答复期限" },
+    { "name": "审查意见通知书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查意见通知书中应当指明专利申请存在的实质性缺陷，说明理由，同时指定答复期限" },
+    { "name": "恢复权利", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人可以在规定的期限内向专利局提出恢复权利的请求" },
+    { "name": "延长期限", "aliases": [], "role": "used", "confidence": "mid", "evidence": "因正当理由难以在指定的期限内作出答复的，可以提出延长期限请求" },
+    { "name": "复审请求", "aliases": [], "role": "used", "confidence": "high", "evidence": "对驳回决定不服的，可以在规定的期限内提出复审请求" },
+    { "name": "前置审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对复审请求的前置审查及复审后的处理" },
+    { "name": "不可抗拒事由", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对于因不可抗拒事由或者因其他正当理由耽误期限而导致专利申请被视为撤回的" }
+  ],
+  "laws": [
+    "专利法实施细则第50条第2款"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

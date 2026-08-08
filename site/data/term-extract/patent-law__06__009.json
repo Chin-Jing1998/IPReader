@@ -1,0 +1,10 @@
+{
+  "chunk": "patent-law/06/009",
+  "anchorNode": "law-06-09",
+  "terms": [
+    { "name": "强制许可", "aliases": [], "role": "used", "confidence": "high", "evidence": "可以给予实施前一发明或者实用新型的强制许可" },
+    { "name": "显著经济意义的重大技术进步", "aliases": [], "role": "defined", "confidence": "high", "evidence": "具有显著经济意义的重大技术进步" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

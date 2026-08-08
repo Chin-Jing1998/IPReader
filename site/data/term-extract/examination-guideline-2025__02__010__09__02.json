@@ -1,0 +1,18 @@
+{
+  "chunk": "examination-guideline-2025/02/010/09/02",
+  "anchorNode": "02-10-09-02",
+  "terms": [
+    { "name": "生物材料的保藏", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应按规定将所涉及的生物材料提交到国家知识产权局认可的保藏单位进行保藏" },
+    { "name": "公众不能得到的生物材料", "aliases": [], "role": "defined", "confidence": "high", "evidence": "个人或者单位拥有的、由非专利程序的保藏机构保藏并对公众不公开发放的生物材料" },
+    { "name": "保藏证明和存活证明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "未在申请日或者最迟自申请日起四个月内提交保藏单位出具的保藏证明和存活证明的" },
+    { "name": "遗传工程", "aliases": [], "role": "defined", "confidence": "high", "evidence": "术语“遗传工程”指基因重组、细胞融合等人工操作基因的技术" },
+    { "name": "转化体", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "对于制备转化体的方法，应当描述导入的基因或者重组载体、宿主" },
+    { "name": "单克隆抗体", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对于制备单克隆抗体的方法，应当描述获得或者制备免疫原的方法、免疫方法" },
+    { "name": "杂交瘤", "aliases": [], "role": "used", "confidence": "high", "evidence": "所述杂交瘤应当按照专利法实施细则第二十七条的规定进行保藏" },
+    { "name": "序列表", "aliases": [], "role": "defined", "confidence": "high", "evidence": "当发明涉及由10个或者更多核苷酸组成的核苷酸序列" },
+    { "name": "微生物的分类命名", "aliases": [], "role": "defined", "confidence": "high", "evidence": "经保藏的微生物应以分类鉴定的微生物株名、种名、属名进行表述" },
+    { "name": "新种", "aliases": [], "role": "defined", "confidence": "high", "evidence": "当涉及的微生物属于新种时，要详细记载其分类学性质，要写明鉴定为新种的理由" }
+  ],
+  "laws": ["专利法第26条第3款", "专利法实施细则第27条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

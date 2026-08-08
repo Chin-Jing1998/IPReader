@@ -1,0 +1,43 @@
+{
+  "chunk": "examination-guideline-2025/02/008/02",
+  "anchorNode": "02-08-02",
+  "terms": [
+    {
+      "name": "请求原则",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "实质审查程序只有在申请人提出实质审查请求的前提下才能启动"
+    },
+    {
+      "name": "听证原则",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "在实质审查过程中，审查员在作出驳回决定之前，应当给申请人提供至少一次针对驳回所依"
+    },
+    {
+      "name": "程序节约原则",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "在对发明专利申请进行实质审查时，审查员应当尽可能地缩短审查过程"
+    },
+    {
+      "name": "驳回决定",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "审查员在作出驳回决定之前"
+    },
+    {
+      "name": "审查意见通知书",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "审查员发出通知书（审查意见通知书、分案通知书或提交资料通知书等）"
+    }
+  ],
+  "laws": ["专利法实施细则第59条"],
+  "extractedAt": "2026-07-12T16:45:00+08:00"
+}

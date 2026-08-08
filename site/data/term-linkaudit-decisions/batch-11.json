@@ -1,0 +1,128 @@
+[
+  {
+    "id": "term-0436",
+    "canonical": "世界知识产权组织国际局",
+    "alias": "国际局",
+    "unitType": "alias",
+    "inlineLink": "yes",
+    "reason": "词条定义原文明示“世界知识产权组织国际局（以下简称国际局）”，为官方声明简称；10条样例均为PCT国际阶段语境下国际局传送/公布/记录等职能描述，指代单一无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0438",
+    "canonical": "附图标记",
+    "alias": "标号",
+    "unitType": "alias",
+    "inlineLink": "yes",
+    "reason": "canonical库occurrence证实机械领域撰写规范原文以“标号”指代附图标记（如“同一技术特征的标号不一致”）；2条样例分别对应标号多余/错误/重复及标号引线长度问题，均为附图标记编号语境，未见歧义用法。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0444",
+    "canonical": "专利合作条约",
+    "alias": "PCT",
+    "unitType": "alias",
+    "inlineLink": "yes",
+    "reason": "词条定义原文“专利合作条约（即PCT）”官方括注等价，缩写指称单一稳定；虽多数命中嵌于“PCT/IB/xxx表”等表格编号中（embedRate仅0.265），但字面仍准确指向专利合作条约体系，“作为PCT受理局”一例更直接印证。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0469",
+    "canonical": "说明书附图",
+    "alias": "附图",
+    "unitType": "alias",
+    "inlineLink": "yes",
+    "reason": "canonical occurrence明确“附图是说明书的一个组成部分”；10条样例（“说明书及附图”“有附图”“附图中”等）用法清洁一致，且外观设计另用“图片、照片”术语体系，与“附图”不构成跨域混淆。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0483",
+    "canonical": "发明专利申请单行本",
+    "alias": "单行本",
+    "unitType": "alias",
+    "inlineLink": "no",
+    "reason": "canonical库自身occurrence列明“单行本的种类包括：发明专利申请单行本、发明专利单行本、实用新型专利单行本及外观设计专利单行本”四个并列子类；样例证实裸词“单行本”确指外观设计专利单行本等其他子类（如“外观设计专利的单行本”），链接到单一子类“发明专利申请单行本”存在系统性误导，故不建议自动链接。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0496",
+    "canonical": "遗传资源来源披露登记表",
+    "alias": "登记表",
+    "unitType": "alias",
+    "inlineLink": "yes",
+    "reason": "canonical occurrence原文明示“专利局制定的遗传资源来源披露登记表（以下简称为登记表）”，官方声明简称，且4条occurrence均限定于遗传资源披露审查语境，指代唯一；firstLinkPages=0表明当前语料中该别名多依附全称出现、实际链接量有限，但语义可靠性有保障。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0542",
+    "canonical": "产品的形状",
+    "alias": "形状",
+    "unitType": "alias",
+    "inlineLink": "yes",
+    "reason": "canonical库occurrence证实该词条officially横跨实用新型（专利法二条三款）与外观设计（专利法二条四款）两处定义语境，故样例中出现的外观设计场景（形状与图案、色彩并列）属词条设计覆盖范围而非误判；但“形状”属高频日常泛义词（167次/33页），且含1例机械撰写规范纯模板化泛指用法（“结构、形状、原理所做的等效变化”），置信度降为medium。",
+    "confidence": "medium"
+  },
+  {
+    "id": "term-0624",
+    "canonical": "产品的构造",
+    "alias": "构造",
+    "unitType": "alias",
+    "inlineLink": "yes",
+    "reason": "canonical occurrence仅见于实用新型语境（专利法二条三款），无外观设计交叉；样例全部对应法定表述“产品的形状、构造或其结合”及机械/化学撰写规范中结构类特征讨论，指代清晰稳定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0650",
+    "canonical": "发明人奖金",
+    "alias": "奖金",
+    "unitType": "alias",
+    "inlineLink": "yes",
+    "reason": "定义与样例完全吻合（“一项发明专利的奖金最低不少于4000元”），唯一出现语境为专利法实施细则第七章职务发明奖励条款，无歧义竞争概念。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0673",
+    "canonical": "管辖权",
+    "alias": "管辖",
+    "unitType": "alias",
+    "inlineLink": "yes",
+    "reason": "canonical定义句本身用全称“管辖权”，但样例中裸词“管辖”多作动词使用（“部门管辖”“指定管辖”），与名词“管辖权”存在词性差异；因二者同属专利法实施细则第八章地域管辖同一制度语境、概念紧密关联，判定可链但降级为medium。",
+    "confidence": "medium"
+  },
+  {
+    "id": "term-0720",
+    "canonical": "期限的起算日",
+    "alias": "起算日",
+    "unitType": "alias",
+    "inlineLink": "yes",
+    "reason": "7条样例高度一致，均为“期限起算日加上法定期限即为届满日”及其变体的规范定义句，左邻字“限”占比过半，指代单一明确。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0836",
+    "canonical": "证据的合法性",
+    "alias": "合法性",
+    "unitType": "alias",
+    "inlineLink": "no",
+    "reason": "canonical定义仅限于无效宣告证据质证章节（“审查证据的合法性”）；但样例2明确取自专利申请及事务处理/期限恢复章节，讨论“该手续在期限方面的合法性”（程序时效合法性），与证据合法性属不同概念，存在confirmed跨章节误判实例，故不建议自动链接。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0837",
+    "canonical": "证据的真实性",
+    "alias": "真实性",
+    "unitType": "alias",
+    "inlineLink": "yes",
+    "reason": "3条样例均落在证据（含书证、证人陈述）真实性范畴内，无术语混淆反例，与canonical定义（同章节“审查证据的真实性”）一致；但作为常见泛义词且样本量有限（rawHits仅8），保守评为medium。",
+    "confidence": "medium"
+  },
+  {
+    "id": "term-0857",
+    "canonical": "主药",
+    "alias": "君药",
+    "unitType": "alias",
+    "inlineLink": "yes",
+    "reason": "canonical定义原文明示“简称主要药味、主药或君药”，官方并列声明同义关系，与“国际局”“登记表”同属规范文本自证简称的强证据情形，指代可靠。",
+    "confidence": "high"
+  }
+]

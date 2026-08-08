@@ -1,0 +1,10 @@
+{
+  "chunk": "patent-law/06/011",
+  "anchorNode": "law-06-11",
+  "terms": [
+    { "name": "强制许可", "aliases": [], "role": "used", "confidence": "high", "evidence": "强制许可的实施应当主要为了供应国内市场" },
+    { "name": "供应国内市场", "aliases": [], "role": "defined", "confidence": "high", "evidence": "强制许可的实施应当主要为了供应国内市场" }
+  ],
+  "laws": ["专利法第53条第2项", "专利法第55条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

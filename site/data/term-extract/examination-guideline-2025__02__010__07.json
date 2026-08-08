@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/02/010/07",
+  "anchorNode": "02-10-07",
+  "terms": [
+    { "name": "菜肴", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不适于在产业上制造和不能重复实施的菜肴，不具备实用性，不能被授予专利权" },
+    { "name": "烹调方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "依赖于厨师的技术、创作等不确定因素导致不能重复实施的烹调方法不适于在产业上应用" },
+    { "name": "医生处方", "aliases": [], "role": "defined", "confidence": "high", "evidence": "医生处方，指医生根据具体病人的病情所开的药方" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

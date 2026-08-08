@@ -1,0 +1,11 @@
+{
+  "chunk": "oa-response-guide/03/003",
+  "anchorNode": "oa-03-03",
+  "terms": [
+    { "name": "特定技术特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "把确定出来的特定技术特征进行比较" },
+    { "name": "独立权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "对于同类独立权利要求" },
+    { "name": "分案申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "两个月期限届满之前）提出分案申请" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

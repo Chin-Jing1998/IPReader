@@ -1,0 +1,85 @@
+{
+ "batchNo": 50,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/05/005.md",
+   "chunkId": "implementation-rules/05/005",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-05-05",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第五章 专利权期限补偿 ｜ 第八十一条",
+   "charLen": 197
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/05/006.md",
+   "chunkId": "implementation-rules/05/006",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-05-06",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第五章 专利权期限补偿 ｜ 第八十二条",
+   "charLen": 94
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/05/007.md",
+   "chunkId": "implementation-rules/05/007",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-05-07",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第五章 专利权期限补偿 ｜ 第八十三条",
+   "charLen": 89
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/05/008.md",
+   "chunkId": "implementation-rules/05/008",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-05-08",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第五章 专利权期限补偿 ｜ 第八十四条",
+   "charLen": 120
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/06/001.md",
+   "chunkId": "implementation-rules/06/001",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-06-01",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第六章 专利实施的特别许可 ｜ 第八十五条",
+   "charLen": 147
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/06/002.md",
+   "chunkId": "implementation-rules/06/002",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-06-02",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第六章 专利实施的特别许可 ｜ 第八十六条",
+   "charLen": 139
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/06/003.md",
+   "chunkId": "implementation-rules/06/003",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-06-03",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第六章 专利实施的特别许可 ｜ 第八十七条",
+   "charLen": 62
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/06/004.md",
+   "chunkId": "implementation-rules/06/004",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-06-04",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第六章 专利实施的特别许可 ｜ 第八十八条",
+   "charLen": 58
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/06/005.md",
+   "chunkId": "implementation-rules/06/005",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-06-05",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第六章 专利实施的特别许可 ｜ 第八十九条",
+   "charLen": 171
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/06/006.md",
+   "chunkId": "implementation-rules/06/006",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-06-06",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第六章 专利实施的特别许可 ｜ 第九十条",
+   "charLen": 280
+  }
+ ]
+}

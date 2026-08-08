@@ -1,0 +1,12 @@
+{
+  "chunk": "patent-law/03/006",
+  "anchorNode": "law-03-06",
+  "terms": [
+    { "name": "单一性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "一件发明或者实用新型专利申请应当限于一项发明或者实用新型" },
+    { "name": "一个总的发明构思", "aliases": [], "role": "defined", "confidence": "high", "evidence": "属于一个总的发明构思的两项以上的发明或者实用新型" },
+    { "name": "相似外观设计", "aliases": [], "role": "defined", "confidence": "high", "evidence": "同一产品两项以上的相似外观设计" },
+    { "name": "成套产品外观设计", "aliases": [], "role": "defined", "confidence": "high", "evidence": "用于同一类别并且成套出售或者使用的产品的两项以上外观设计" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

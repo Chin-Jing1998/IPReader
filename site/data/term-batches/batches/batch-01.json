@@ -1,0 +1,85 @@
+{
+ "batchNo": 1,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/001/01.md",
+   "chunkId": "examination-guideline-2025/01/001/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-01-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第一章发明专利申请的初步审查 ｜ 1.引言",
+   "charLen": 1132
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/001/02.md",
+   "chunkId": "examination-guideline-2025/01/001/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-01-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第一章发明专利申请的初步审查 ｜ 2.审查原则",
+   "charLen": 570
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/001/03.md",
+   "chunkId": "examination-guideline-2025/01/001/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-01-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第一章发明专利申请的初步审查 ｜ 3.审查程序",
+   "charLen": 1061
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/001/04/01.md",
+   "chunkId": "examination-guideline-2025/01/001/04/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-01-04-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第一章发明专利申请的初步审查 ｜ 4.申请文件的形式审查 ｜ 4.1请求书",
+   "charLen": 3239
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/001/04/02.md",
+   "chunkId": "examination-guideline-2025/01/001/04/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-01-04-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第一章发明专利申请的初步审查 ｜ 4.申请文件的形式审查 ｜ 4.2说明书",
+   "charLen": 698
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/001/04/03.md",
+   "chunkId": "examination-guideline-2025/01/001/04/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-01-04-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第一章发明专利申请的初步审查 ｜ 4.申请文件的形式审查 ｜ 4.3说明书附图",
+   "charLen": 744
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/001/04/04.md",
+   "chunkId": "examination-guideline-2025/01/001/04/04",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-01-04-04",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第一章发明专利申请的初步审查 ｜ 4.申请文件的形式审查 ｜ 4.4权利要求书",
+   "charLen": 115
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/001/04/05.md",
+   "chunkId": "examination-guideline-2025/01/001/04/05",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-01-04-05",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第一章发明专利申请的初步审查 ｜ 4.申请文件的形式审查 ｜ 4.5说明书摘要",
+   "charLen": 558
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/001/04/06.md",
+   "chunkId": "examination-guideline-2025/01/001/04/06",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-01-04-06",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第一章发明专利申请的初步审查 ｜ 4.申请文件的形式审查 ｜ 4.6申请文件出版条件的格式审查",
+   "charLen": 237
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/001/04/07.md",
+   "chunkId": "examination-guideline-2025/01/001/04/07",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-01-04-07",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第一章发明专利申请的初步审查 ｜ 4.申请文件的形式审查 ｜ 4.7以援引在先申请文件的方式补交申请文件",
+   "charLen": 2202
+  }
+ ]
+}

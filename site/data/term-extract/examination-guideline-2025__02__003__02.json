@@ -1,0 +1,18 @@
+{
+  "chunk": "examination-guideline-2025/02/003/02",
+  "anchorNode": "02-03-02",
+  "terms": [
+    { "name": "新颖性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "新颖性，是指该发明或者实用新型不属于现有技术" },
+    { "name": "现有技术", "aliases": [], "role": "defined", "confidence": "high", "evidence": "现有技术是指申请日以前在国内外为公众所知的技术" },
+    { "name": "抵触申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "将这种损害新颖性的专利申请，称为抵触申请" },
+    { "name": "对比文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "包括专利文件和非专利文件，统称为对比文件" },
+    { "name": "出版物", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利法意义上的出版物是指记载有技术或者设计内容的独立存在的传播载体" },
+    { "name": "使用公开", "aliases": [], "role": "defined", "confidence": "high", "evidence": "这种公开方式称为使用公开" },
+    { "name": "以其他方式公开", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "为公众所知的其他方式，主要是指口头公开等" },
+    { "name": "保密状态", "aliases": [], "role": "defined", "confidence": "high", "evidence": "处于保密状态的技术内容不属于现有技术" },
+    { "name": "出版物公开", "aliases": [], "role": "used", "confidence": "mid", "evidence": "现有技术公开方式包括出版物公开、使用公开和以其他方式公开三种" },
+    { "name": "公开日", "aliases": [], "role": "used", "confidence": "mid", "evidence": "纸质出版物的印刷日和视听资料的出版日视为公开日" }
+  ],
+  "laws": ["专利法第22条第5款", "专利法第22条第2款"],
+  "extractedAt": "2026-07-12T15:37:35+08:00"
+}

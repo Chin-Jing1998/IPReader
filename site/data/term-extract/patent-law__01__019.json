@@ -1,0 +1,11 @@
+{
+  "chunk": "patent-law/01/019",
+  "anchorNode": "law-01-19",
+  "terms": [
+    { "name": "保密审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当事先报经国务院专利行政部门进行保密审查" },
+    { "name": "专利国际申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以根据中华人民共和国参加的有关国际条约提出专利国际申请" },
+    { "name": "国务院专利行政部门", "aliases": [], "role": "used", "confidence": "high", "evidence": "国务院专利行政部门依照中华人民共和国参加的有关国际条约" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

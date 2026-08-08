@@ -1,0 +1,10 @@
+{
+  "chunk": "examination-guideline-2025/02/011/01",
+  "anchorNode": "02-11-01",
+  "terms": [
+    { "name": "中医药理论", "aliases": [], "role": "used", "confidence": "mid", "evidence": "中药的创新是以中医药理论为指导" },
+    { "name": "病或证", "aliases": [], "role": "used", "confidence": "mid", "evidence": "中药所防治的疾病可以用中医的病或证表述" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

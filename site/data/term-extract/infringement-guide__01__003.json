@@ -1,0 +1,27 @@
+{
+  "chunk": "infringement-guide/01/003",
+  "anchorNode": "infr-01-03",
+  "terms": [
+    { "name": "本领域普通技术人员", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本领域普通技术人员，是一种假设的" },
+    { "name": "前序部分", "aliases": [], "role": "used", "confidence": "high", "evidence": "独立权利要求的前序部分、特征部分以及从属权利要求的引用部分、限定部分" },
+    { "name": "特征部分", "aliases": [], "role": "used", "confidence": "high", "evidence": "独立权利要求的前序部分、特征部分以及从属权利要求的引用部分、限定部分" },
+    { "name": "引用部分", "aliases": [], "role": "used", "confidence": "high", "evidence": "独立权利要求的前序部分、特征部分以及从属权利要求的引用部分、限定部分" },
+    { "name": "限定部分", "aliases": [], "role": "used", "confidence": "high", "evidence": "独立权利要求的前序部分、特征部分以及从属权利要求的引用部分、限定部分" },
+    { "name": "独立权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "独立权利要求的前序部分、特征部分以及从属权利要求的引用部分、限定部分" },
+    { "name": "并列技术方案", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "权利要求包含两个以上的并列技术方案的，应当将每个并列技术方案分别确定" },
+    { "name": "专利审查档案", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本指南所称专利审查档案，包括专利审查、复审、无效程序中专利申请人" },
+    { "name": "功能性特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "功能性特征，是指对于结构、组分、材料、步骤、条件或其之间的关系等" },
+    { "name": "以制备方法界定产品的技术特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以制备方法界定产品的技术特征对于确定专利权的保护范围具有限定作用" },
+    { "name": "非形状、非构造技术特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "非形状、非构造技术特征，是指实用新型专利权利要求中记载的不属于产品的形状" },
+    { "name": "使用环境特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "使用环境特征不同于主题名称，是指权利要求中用来描述发明或实用新型所使用的背景" },
+    { "name": "主题名称", "aliases": [], "role": "defined", "confidence": "high", "evidence": "主题名称是对权利要求包含的全部技术特征所构成的技术方案的抽象概括" },
+    { "name": "封闭式权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "权利要求为封闭式权利要求，一般应解释为不含有权利要求所述以外的结构组成部分" },
+    { "name": "自定义词", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对于专利权人在专利文件中的自定义词，应当依据说明书中的特定含义进行解释" },
+    { "name": "附图标记", "aliases": [], "role": "used", "confidence": "mid", "evidence": "附图标记可以用来帮助理解技术方案，当权利要求中引用了附图标记时" },
+    { "name": "实施例", "aliases": [], "role": "used", "confidence": "mid", "evidence": "实施例仅仅是权利要求范围内技术方案的示例，是专利申请人认为实现发明或者实" },
+    { "name": "摘要", "aliases": [], "role": "defined", "confidence": "high", "evidence": "摘要的作用是提供技术信息，便于公众进行检索，不能用于确定专利权的保护范围" },
+    { "name": "印刷错误", "aliases": [], "role": "used", "confidence": "mid", "evidence": "当专利文件中的印刷错误影响到专利权保护范围的确定时，可以依据专利审查档案" }
+  ],
+  "laws": ["专利法第26条第3款", "专利法第26条第4款"],
+  "extractedAt": "2026-07-12T16:20:00+08:00"
+}

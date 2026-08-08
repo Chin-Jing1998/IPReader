@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/02/009/01",
+  "anchorNode": "02-09-01",
+  "terms": [
+    { "name": "计算机程序", "aliases": ["计算机程序本身"], "role": "defined", "confidence": "high", "evidence": "本章所说的计算机程序本身是指为了能够得到某种结果" },
+    { "name": "源程序", "aliases": [], "role": "used", "confidence": "high", "evidence": "计算机程序本身包括源程序和目标程序" },
+    { "name": "目标程序", "aliases": [], "role": "used", "confidence": "high", "evidence": "计算机程序本身包括源程序和目标程序" },
+    { "name": "涉及计算机程序的发明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本章所说的涉及计算机程序的发明是指为解决发明提出的问题" },
+    { "name": "外部对象", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "所说的对外部对象的控制或处理包括对某种外部运行过程或外部运行装置进行控制" },
+    { "name": "内部对象", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "所说的对内部对象的控制或处理包括对计算机系统内部性能的改进" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

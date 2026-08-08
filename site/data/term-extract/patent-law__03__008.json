@@ -1,0 +1,10 @@
+{
+  "chunk": "patent-law/03/008",
+  "anchorNode": "law-03-08",
+  "terms": [
+    { "name": "原说明书和权利要求书记载的范围", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不得超出原说明书和权利要求书记载的范围" },
+    { "name": "原图片或者照片表示的范围", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不得超出原图片或者照片表示的范围" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

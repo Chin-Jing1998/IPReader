@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/02/001/03",
+  "anchorNode": "02-01-03",
+  "terms": [
+    { "name": "社会公德", "aliases": [], "role": "defined", "confidence": "high", "evidence": "社会公德，是指公众普遍认为是正当的、并被接受的伦理道德观念和行为准则" },
+    { "name": "妨害公共利益", "aliases": [], "role": "defined", "confidence": "high", "evidence": "妨害公共利益，是指发明创造的实施或使用会给公众或社会造成危害" },
+    { "name": "遗传资源", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利法所称遗传资源，是指取自人体、动物、植物或者微生物等含有遗传功能单位" },
+    { "name": "依赖遗传资源完成的发明创造", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利法所称依赖遗传资源完成的发明创造，是指利用了遗传资源的遗传功能完成的发明创造" },
+    { "name": "遗传功能", "aliases": [], "role": "defined", "confidence": "high", "evidence": "遗传功能是指生物体通过繁殖将性状或者特征代代相传或者使整个生物体得以复制的能力" },
+    { "name": "遗传功能单位", "aliases": [], "role": "defined", "confidence": "high", "evidence": "遗传功能单位是指生物体的基因或者具有遗传功能的DNA或者RNA片段" },
+    { "name": "部分违反专利法第五条第一款的申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "该专利申请称为部分违反专利法第五条第一款的申请" }
+  ],
+  "laws": ["专利法第5条第1款", "专利法第5条第2款", "专利法实施细则第10条", "专利法实施细则第29条第1款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/02/008/07",
+  "anchorNode": "02-08-07",
+  "terms": [
+    { "name": "实质审查程序的终止", "aliases": [], "role": "defined", "confidence": "high", "evidence": "或者因申请人主动撤回申请，或者因申请被视为撤回而终止" },
+    { "name": "实质审查程序的中止", "aliases": [], "role": "defined", "confidence": "high", "evidence": "实质审查程序可能因专利申请权归属纠纷的当事人根据专利法实施细则" },
+    { "name": "实质审查程序的恢复", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利局恢复实质审查程序" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "或者因申请被视为撤回而终止" },
+    { "name": "财产保全", "aliases": [], "role": "used", "confidence": "mid", "evidence": "或因财产保全而中止" },
+    { "name": "专利申请权归属纠纷", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利申请权归属纠纷的当事人" }
+  ],
+  "laws": ["专利法实施细则第103条第1款", "专利法实施细则第6条第1款", "专利法实施细则第6条第2款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,17 @@
+{
+  "chunk": "examination-guideline-2025/04/001/06",
+  "anchorNode": "04-01-06",
+  "terms": [
+    { "name": "审查决定", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查决定通常包括下列部分内容" },
+    { "name": "决定要点", "aliases": [], "role": "defined", "confidence": "high", "evidence": "决定要点是决定正文中理由部分的实质性概括和核心论述" },
+    { "name": "案由", "aliases": [], "role": "defined", "confidence": "high", "evidence": "案由部分可以按照时间顺序叙述复审或者无效宣告请求的提出、范围" },
+    { "name": "决定的理由", "aliases": [], "role": "defined", "confidence": "high", "evidence": "决定的理由部分应当阐明审查决定所依据的法律、法规条款的规定" },
+    { "name": "法律依据", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查决定的法律依据是指审查决定的理由所涉及的法律、法规条款" },
+    { "name": "著录项目", "aliases": [], "role": "defined", "confidence": "high", "evidence": "复审请求审查决定的著录项目应当包括决定号、决定日、发明创造名称" },
+    { "name": "部门负责人", "aliases": [], "role": "used", "confidence": "high", "evidence": "属下列情形的，须经部门负责人审核批准" },
+    { "name": "五人合议组", "aliases": [], "role": "used", "confidence": "high", "evidence": "组成五人合议组审查的案件" },
+    { "name": "结论", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "结论部分应当给出具体的审查结论" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

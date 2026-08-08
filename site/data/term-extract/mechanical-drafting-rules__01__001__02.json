@@ -1,0 +1,14 @@
+{
+  "chunk": "mechanical-drafting-rules/01/001/02",
+  "anchorNode": "mech-01-01-02",
+  "terms": [
+    { "name": "涉外案件", "aliases": [], "role": "used", "confidence": "high", "evidence": "涉外的案件，全文中应当将“发明”、“实用新型”用“申请” 等类似用词替代" },
+    { "name": "择一引用方式", "aliases": [], "role": "defined", "confidence": "high", "evidence": "权利要求应当采用择一引用方式表达" },
+    { "name": "多项从属权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "当从属权利要求是多项从属权利要求时" },
+    { "name": "引用基础", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不得作为另一项多项从属权利要求的引用基础" },
+    { "name": "跳跃式引用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "存在跳跃式引用，一次性引用超过3幅图的情形" },
+    { "name": "三位一体写法", "aliases": ["三段式"], "role": "defined", "confidence": "high", "evidence": "“三位一体” （三段式）的写法" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

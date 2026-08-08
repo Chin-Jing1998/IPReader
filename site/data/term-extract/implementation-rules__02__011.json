@@ -1,0 +1,15 @@
+{
+  "chunk": "implementation-rules/02/011",
+  "anchorNode": "rule-02-11",
+  "terms": [
+    { "name": "生物材料", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请专利的发明涉及新的生物材料，该生物材料公众不能得到" },
+    { "name": "所属领域的技术人员", "aliases": [], "role": "used", "confidence": "high", "evidence": "对该生物材料的说明不足以使所属领域的技术人员实施其发明的" },
+    { "name": "保藏单位", "aliases": [], "role": "used", "confidence": "high", "evidence": "提交国务院专利行政部门认可的保藏单位保藏" },
+    { "name": "保藏证明", "aliases": [], "role": "used", "confidence": "high", "evidence": "提交保藏单位出具的保藏证明和存活证明" },
+    { "name": "存活证明", "aliases": [], "role": "used", "confidence": "high", "evidence": "提交保藏单位出具的保藏证明和存活证明" },
+    { "name": "优先权日", "aliases": [], "role": "used", "confidence": "high", "evidence": "有优先权的，指优先权日" },
+    { "name": "保藏编号", "aliases": [], "role": "used", "confidence": "mid", "evidence": "保藏该生物材料样品的单位名称、地址、保藏日期和保藏编号" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

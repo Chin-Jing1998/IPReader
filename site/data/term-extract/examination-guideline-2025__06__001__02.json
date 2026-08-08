@@ -1,0 +1,20 @@
+{
+  "chunk": "examination-guideline-2025/06/001/02",
+  "anchorNode": "06-01-02",
+  "terms": [
+    { "name": "收到日", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "以专利局收到日视为国际局收到日，否则以国际局实际收到之日为收到日" },
+    { "name": "传送条件", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "外观设计国际注册申请符合下列条件的，专利局予以传送国际局" },
+    { "name": "传送程序", "aliases": [], "role": "defined",
+      "confidence": "mid", "evidence": "外观设计国际注册申请符合传送条件的，传送程序如下：" },
+    { "name": "不传送程序", "aliases": [], "role": "defined",
+      "confidence": "mid", "evidence": "外观设计国际注册申请不符合传送条件的" },
+    { "name": "提交编号", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "专利局按照收到外观设计国际注册申请的先后顺序给出提交编号" },
+    { "name": "传送编号", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "告知传送编号、传送期限及文件清单" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

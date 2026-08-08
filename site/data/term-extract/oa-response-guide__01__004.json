@@ -1,0 +1,43 @@
+{
+  "chunk": "oa-response-guide/01/004",
+  "anchorNode": "oa-01-04",
+  "terms": [
+    {
+      "name": "同样的发明创造",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "同样的发明创造，其规定可以归纳为：本申请与对比文件相"
+    },
+    {
+      "name": "单独对比原则",
+      "aliases": ["单独对比"],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "单独对比，应当将发明或实用新型专利申请的各项权利要求分别与每一项现有技术"
+    },
+    {
+      "name": "惯用手段的直接置换",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "要求保护的发明或实用新型与对比文件的区别仅仅是所属技术领域的惯用手段的直接置换"
+    },
+    {
+      "name": "专利审查指南",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "专利审查指南第二部分第三章"
+    },
+    {
+      "name": "新颖性",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "不具备专利第22条第2款规定的新颖性"
+    }
+  ],
+  "laws": ["专利法第22条第2款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

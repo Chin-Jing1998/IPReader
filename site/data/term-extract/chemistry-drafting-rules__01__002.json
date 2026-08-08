@@ -1,0 +1,11 @@
+{
+  "chunk": "chemistry-drafting-rules/01/002",
+  "anchorNode": "chem-01-02",
+  "terms": [
+    { "name": "说明书摘要", "aliases": [], "role": "defined", "confidence": "high", "evidence": "说明书摘要中至少包含保护主体所属技术领域、发明名称" },
+    { "name": "摘要附图", "aliases": [], "role": "defined", "confidence": "high", "evidence": "摘要附图为具有最能体现主要技术方案的说明书附图之一" },
+    { "name": "发明点", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "“体现发明点的主要技术方案”，一般是指本申请中最核心的主题的技术方案" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/02/010/08",
+  "anchorNode": "02-10-08",
+  "terms": [
+    { "name": "马库什权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "如果一项申请在一个权利要求中限定多个并列的可选择要素，则构成马库什权利要求" },
+    { "name": "马库什要素", "aliases": [], "role": "defined", "confidence": "high", "evidence": "这种可选择要素称为马库什要素" },
+    { "name": "单一性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "如果一项马库什权利要求中的可选择要素具有相类似的性质" },
+    { "name": "特定技术特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "具有相同或者相应的特定技术特征，该权利要求可被认为符合单一性的要求" },
+    { "name": "公认的同一化合物类别", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指根据本领域的知识可以预期到该类的成员对于要求保护的发明来说其表现是相同的" },
+    { "name": "中间体与最终产物的单一性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "中间体与最终产物有相同的基本结构单元，或者它们的化学结构在技术上密切相关" }
+  ],
+  "laws": ["专利法第31条第1款", "专利法实施细则第39条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

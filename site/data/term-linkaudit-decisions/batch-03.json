@@ -1,0 +1,193 @@
+[
+  {
+    "id": "term-0193",
+    "canonical": "申请文件",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指向\"专利申请文件\"这一完整概念，如\"记载在申请日以后公布的专利【申请文件】\"\"对【申请文件】的修改不得超出原说明书和权利要求书记载的范围\"；左邻字\"利/先\"对应\"专利申请文件\"\"在先申请文件\"，右邻字\"的/副/中\"对应\"申请文件的\"\"申请文件副本\"等固定搭配，embedRate 0.993，语义未漂移。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0194",
+    "canonical": "申请日",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均为法定\"申请日\"概念，如\"专利法所称【申请日】，有优先权的，指优先权日\"\"自【申请日】起满十八个月\"；右邻字\"起/以/之\"为\"申请日起\"\"申请日以前\"\"申请日之\"等典型搭配，无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0196",
+    "canonical": "实质审查",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指\"实质审查\"审查程序概念，如\"对其申请进行【实质审查】\"\"请求【实质审查】\"\"进入【实质审查】阶段通知书\"；右邻字\"请/程/费/阶\"对应\"实质审查请求/程序/费/阶段\"，搭配高度一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0197",
+    "canonical": "复审",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例含独立请求复审场景（\"向国务院专利行政部门请求【复审】\"）及嵌入\"专利复审委员会\"等场景，均指向复审概念本身，属嵌入但相关；右邻字\"请(复审请求)\"占比最高（169次），语义稳定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0199",
+    "canonical": "无效宣告",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例多以\"无效宣告请求/程序/理由/决定\"形式嵌入出现（右邻字请198/程93/理56居前），但均指向\"宣告专利权无效\"这一核心概念，属嵌入但相关；更长词命中时由系统自动优先链接，不影响本词面判定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0200",
+    "canonical": "开放许可",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均为\"实行开放许可\"\"开放许可声明\"\"开放许可实施合同\"等标准用法，embedRate=1，系专利法第四次修改新增的特有许可制度，语义单一无漂移。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0201",
+    "canonical": "强制许可",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均为\"给予强制许可\"\"请求强制许可\"\"专利实施的强制许可\"等标准法定用法，embedRate=1，语义单一无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0214",
+    "canonical": "电子形式",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指\"以电子形式提交/送达/公布\"等法定手续方式，如\"数据电文（以下统称【电子形式】），视为书面形式\"，与纸件形式对举使用，语义一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0216",
+    "canonical": "递交日",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均为确定文件提交时点的用法，如\"以寄出的邮戳日为【递交日】\"\"申请人在【递交日】要求了在先申请的优先权\"，与申请日、送达日等相邻概念区分清楚，正文用法稳定（注：definition字段疑似与\"送达日\"释义混同，但不影响样例呈现的正文实际语义）。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0223",
+    "canonical": "发明人",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指向真实自然人\"发明人\"概念，涵盖非职务发明创造权属、姓名著录、以发明人角度论述技术贡献等场景，无义项漂移。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0230",
+    "canonical": "独权",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例（\"多独权\"\"独权1\"\"独权与从权\"\"独权技术方案\"等）一致、明确指向\"独立权利要求\"概念，为专利代理行业对该概念的通用简称，残词出身经样例核验未影响词面可靠性；但原表evidenceCount与df均为0，缺乏独立佐证来源，confidence降级为medium。",
+    "confidence": "medium"
+  },
+  {
+    "id": "term-0274",
+    "canonical": "权属纠纷",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均为\"专利申请权（或专利权）权属纠纷\"语境，涉及中止程序、参加无效宣告程序等标准场景，语义一致无漂移。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0278",
+    "canonical": "年费",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均为\"缴纳年费\"\"年费减缴\"\"未缴年费\"等标准用法，如\"专利权人应当自被授予专利权的当年开始缴纳【年费】\"，与滞纳金、专利年费等被剔除的关联概念区分清楚。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0292",
+    "canonical": "下位概念",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例含独立使用（\"相应技术特征采用的是相应的【下位概念】的\"）及与\"上位概念\"并列嵌入（\"注意上【下位概念】\"即上下位概念）两种形式，均指向下位概念本身，属嵌入但相关，无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0297",
+    "canonical": "主题名称",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指权利要求前序部分\"主题名称\"撰写规范概念，如\"写明要求保护的发明或者实用新型技术方案的【主题名称】\"，与definition定义高度吻合，语义稳定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0311",
+    "canonical": "错别字",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均出现在撰写规范禁止性清单或审查中可修改缺陷清单语境中，如\"全文不应存在有【错别字】、语病\"\"改正【错别字】、错误的符号、标记等\"，明确指代该具体缺陷类型，语义单一稳定，evidenceCount=3佐证充分。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0326",
+    "canonical": "第一",
+    "unitType": "term",
+    "isTerm": false,
+    "nameComplete": false,
+    "suggestedName": "第一/第二顺序命名",
+    "inlineLink": "no",
+    "reason": "样例中仅2-3条（如\"包括【第一】连接部（1）和第二连接部（2）\"\"【第一】份和第二份水的重量比\"）契合源表\"第一/第二顺序命名\"本意，其余6-7条均为纯序数用法（第一款、第一个工作日、第一署名申请人、第一次生产/提出申请等），属典型嵌入且无关；右邻字\"章92/次59/部59/款45\"印证以章节条款、次数等纯序数为主导用法。系已确认的种子表切分残词，按判例锚必判no。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0331",
+    "canonical": "开放式",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "3条样例（\"【开放式】、封闭式及它们的使用要求\"\"权利要求采用【开放式】撰写形式，如'含有A+B'\"及索引条目）均一致指向权利要求\"开放式\"撰写类型这一专利特有概念，但样本量仅3条，证据面偏薄，confidence降级为medium。",
+    "confidence": "medium"
+  },
+  {
+    "id": "term-0373",
+    "canonical": "计量单位",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均为\"法定计量单位\"\"国家法定计量单位\"等专利文件撰写规范用法，如\"【计量单位】应当使用国家法定计量单位\"，左邻字\"定(14)\"、右邻字\"符(6)\"印证\"法定计量单位符号\"稳定搭配；但evidenceCount与df均为0且definition字段为空，原文佐证薄弱，confidence降级为medium。",
+    "confidence": "medium"
+  }
+]

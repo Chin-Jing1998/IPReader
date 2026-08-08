@@ -1,0 +1,11 @@
+{
+  "chunk": "mechanical-drafting-rules/02/003/03",
+  "anchorNode": "mech-02-03-03",
+  "terms": [
+    { "name": "发明内容", "aliases": [], "role": "used", "confidence": "mid", "evidence": "### 发明内容" },
+    { "name": "有益效果", "aliases": [], "role": "defined", "confidence": "high", "evidence": "说明书应当清楚、客观地写明发明或实用新型与现有技术相比所具有的有益效果" },
+    { "name": "技术问题", "aliases": [], "role": "used", "confidence": "mid", "evidence": "因此所解决的技术问题是使用者在使用中取拿物料不便" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

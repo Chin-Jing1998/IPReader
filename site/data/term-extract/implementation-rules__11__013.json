@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/11/013",
+  "anchorNode": "rule-11-13",
+  "terms": [
+    { "name": "主动提出修改", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人可以自进入日起2个月内对专利申请文件主动提出修改" },
+    { "name": "实用新型专利权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "要求获得实用新型专利权的国际申请" },
+    { "name": "发明专利权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "要求获得发明专利权的国际申请" }
+  ],
+  "laws": ["专利法实施细则第57条第1款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

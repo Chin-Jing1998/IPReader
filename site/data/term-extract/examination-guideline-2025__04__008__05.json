@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/04/008/05",
+  "anchorNode": "04-08-05",
+  "terms": [
+    { "name": "互联网证据的公开时间", "aliases": [], "role": "defined", "confidence": "high", "evidence": "公众能够浏览互联网信息的最早时间为该互联网信息的公开时间" },
+    { "name": "使用公开", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请日后（含申请日）形成的记载有使用公开或者口头公开内容的书证" },
+    { "name": "口头公开", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请日后（含申请日）形成的记载有使用公开或者口头公开内容的书证" },
+    { "name": "书证", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请日后（含申请日）形成的记载有使用公开或者口头公开内容的书证" },
+    { "name": "鉴定", "aliases": [], "role": "used", "confidence": "mid", "evidence": "必要时可以委托有关单位进行鉴定" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

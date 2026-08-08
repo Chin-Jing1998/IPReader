@@ -1,0 +1,11 @@
+{
+  "chunk": "infringement-guide/06/002",
+  "anchorNode": "infr-06-02",
+  "terms": [
+    { "name": "滥用专利权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不宜轻易认定为滥用专利权" },
+    { "name": "恶意取得专利权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "恶意取得专利权，是指将明知不应当获得专利保护的发明创造申请专利并获得了专利权" },
+    { "name": "技术标准", "aliases": [], "role": "used", "confidence": "mid", "evidence": "国家标准、行业标准等技术标准中的技术方案申请专利并取得专利权的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

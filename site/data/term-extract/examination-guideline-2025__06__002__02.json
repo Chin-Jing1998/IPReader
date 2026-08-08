@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/06/002/02",
+  "anchorNode": "06-02-02",
+  "terms": [
+    { "name": "海牙协定共同实施细则", "aliases": ["1999年文本和1960年文本共同实施细则"], "role": "used", "confidence": "mid", "evidence": "适用海牙协定以及1999年文本和1960年文本共同实施细则的规定" },
+    { "name": "形式缺陷", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员不得以申请文件的形式缺陷为由驳回外观设计国际申请" },
+    { "name": "明显实质性缺陷", "aliases": [], "role": "used", "confidence": "high", "evidence": "明显实质性缺陷以及其他文件和相关手续的审查" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

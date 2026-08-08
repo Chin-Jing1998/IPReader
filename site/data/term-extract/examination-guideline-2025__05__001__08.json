@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/05/001/08",
+  "anchorNode": "05-01-08",
+  "terms": [
+    { "name": "专利代理机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "委托专利代理机构的申请，应当由申请人" },
+    { "name": "利害关系人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "其他利害关系人或者其代表人签字或者盖章" },
+    { "name": "共有权利", "aliases": [], "role": "used", "confidence": "mid", "evidence": "办理直接涉及共有权利的手续" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

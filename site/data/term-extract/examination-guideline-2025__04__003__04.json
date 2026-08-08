@@ -1,0 +1,21 @@
+{
+  "chunk": "examination-guideline-2025/04/003/04",
+  "anchorNode": "04-03-04",
+  "terms": [
+    { "name": "无效宣告请求审查通知书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "合议组可以向双方当事人发出无效宣告请求审查通知书" },
+    { "name": "合并审理", "aliases": [], "role": "defined", "confidence": "high", "evidence": "复审和无效审理部可以对案件合并审理" },
+    { "name": "权利要求的删除", "aliases": [], "role": "defined", "confidence": "high", "evidence": "权利要求的删除是指从权利要求书中去掉某项或者某些项权利要求" },
+    { "name": "技术方案的删除", "aliases": [], "role": "defined", "confidence": "high", "evidence": "技术方案的删除是指从同一权利要求中并列的两种以上技术方案中删除一种" },
+    { "name": "权利要求的进一步限定", "aliases": [], "role": "defined", "confidence": "high", "evidence": "权利要求的进一步限定是指在权利要求中补入其他权利要求中记载的一个或者多个技术特征" },
+    { "name": "举证期限", "aliases": [], "role": "defined", "confidence": "high", "evidence": "举证期限" },
+    { "name": "延期举证", "aliases": [], "role": "defined", "confidence": "high", "evidence": "当事人可以在所述期限内书面请求延期提交" },
+    { "name": "依职权审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "合议组在下列情形可以依职权进行审查" },
+    { "name": "全文替换页", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利权人修改权利要求书的，应当提交全文替换页和修改对照表" },
+    { "name": "修改对照表", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利权人修改权利要求书的，应当提交全文替换页和修改对照表" },
+    { "name": "公知常识性证据", "aliases": [], "role": "used", "confidence": "mid", "evidence": "技术词典、技术手册、教科书等所属技术领域中的公知常识性证据" },
+    { "name": "反证", "aliases": [], "role": "used", "confidence": "low", "evidence": "针对专利权人提交的反证" },
+    { "name": "增加无效宣告理由", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "请求人在提出无效宣告请求之日起一个月内增加无效宣告理由的" }
+  ],
+  "laws": ["专利法实施细则第11条", "专利法第9条第1款", "专利法第22条第2款", "专利法第26条第4款", "专利法第33条", "专利法实施细则第49条第1款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

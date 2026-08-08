@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/04/004/04",
+  "anchorNode": "04-04-04",
+  "terms": [
+    { "name": "口头审理", "aliases": [], "role": "used", "confidence": "high", "evidence": "在口头审理开始前" },
+    { "name": "合议组", "aliases": [], "role": "used", "confidence": "high", "evidence": "合议组应当完成下列工作" },
+    { "name": "无效宣告程序", "aliases": [], "role": "used", "confidence": "high", "evidence": "无效宣告程序中当事人提交的有关文件转送对方" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

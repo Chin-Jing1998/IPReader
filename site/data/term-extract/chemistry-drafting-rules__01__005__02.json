@@ -1,0 +1,11 @@
+{
+  "chunk": "chemistry-drafting-rules/01/005/02",
+  "anchorNode": "chem-01-05-02",
+  "terms": [
+    { "name": "再现性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "因此，这种方案的“再现性”较差，即无“实用性”" },
+    { "name": "实用性", "aliases": [], "role": "used", "confidence": "high", "evidence": "这样专利申请的化妆品将毫无用处，即无“实用性”" },
+    { "name": "产品备案", "aliases": ["备案信息"], "role": "defined", "confidence": "high", "evidence": "如果备案信息没有公开该产品配方，则可同时保护产品和制备方法" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

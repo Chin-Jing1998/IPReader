@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/03/001/05/05",
+  "anchorNode": "03-01-05-05",
+  "terms": [
+    { "name": "生物材料样品保藏", "aliases": [], "role": "defined", "confidence": "high", "evidence": "5.5生物材料样品保藏事项" },
+    { "name": "生物材料样品视为未保藏通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当发出生物材料样品视为未保藏通知书" },
+    { "name": "关于微生物保藏的说明", "aliases": [], "role": "used", "confidence": "mid", "evidence": "“关于微生物保藏的说明”（PCT/RO/134表）" },
+    { "name": "生物材料样品保藏证明", "aliases": [], "role": "used", "confidence": "high", "evidence": "提交生物材料样品保藏证明和存活证明的期限是自进入日起四个月" },
+    { "name": "存活证明", "aliases": [], "role": "used", "confidence": "mid", "evidence": "生物材料样品保藏证明和存活证明的期限" }
+  ],
+  "laws": ["专利法实施细则第一百二十五条第一款", "专利法实施细则第一百二十五条", "专利法实施细则第二十七条第（三）项"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

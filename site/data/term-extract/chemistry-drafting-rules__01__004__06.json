@@ -1,0 +1,23 @@
+{
+  "chunk": "chemistry-drafting-rules/01/004/06",
+  "anchorNode": "chem-01-04-06",
+  "terms": [
+    { "name": "具体实施方式", "aliases": [], "role": "defined", "confidence": "high", "evidence": "具体实施方式是通过具体的实验证明权利要求所要求保护的技术方案确实是可以实现的" },
+    { "name": "实施例", "aliases": [], "role": "defined", "confidence": "high", "evidence": "实施例就是一个个具体的实验过程" },
+    { "name": "对比例", "aliases": [], "role": "defined", "confidence": "high", "evidence": "只有不能落入独立权利要求的保护范围的才能理解为对比例" },
+    { "name": "单因素", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“单因素”，更多的是指一个可能影响产品性能的变量" },
+    { "name": "多因素", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“多因素”应是指多个技术手段" },
+    { "name": "公开充分", "aliases": [], "role": "used", "confidence": "high", "evidence": "有助于本申请的公开充分性" },
+    { "name": "方法受体", "aliases": [], "role": "defined", "confidence": "high", "evidence": "所述方法受体，是指方法所实际针对或者产出的对象" },
+    { "name": "应用例", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当包括产品的具体应用例" },
+    { "name": "制备例", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当针对该原料/试剂提供具体的制备例" },
+    { "name": "意料不到的技术效果", "aliases": [], "role": "used", "confidence": "high", "evidence": "并不能认可本申请具有意料不到的技术效果" },
+    { "name": "本领域技术人员", "aliases": [], "role": "used", "confidence": "high", "evidence": "以保证本领域技术人员可以通过上述公开的来源" },
+    { "name": "小试", "aliases": [], "role": "defined", "confidence": "high", "evidence": "小试阶段是对实验室操作阶段原有的合成路线和方法进行全面的、系统的改革" },
+    { "name": "中试", "aliases": [], "role": "defined", "confidence": "high", "evidence": "中试不单是小试的简单的放大" },
+    { "name": "工业化生产", "aliases": [], "role": "used", "confidence": "mid", "evidence": "工业化生产阶段（使用方法，并根据变更情况以决定是否验证）" },
+    { "name": "对比实施例", "aliases": [], "role": "defined", "confidence": "high", "evidence": "此可视为对比实施例（注意，不是“对比例”）" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

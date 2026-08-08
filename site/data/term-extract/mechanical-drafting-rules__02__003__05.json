@@ -1,0 +1,12 @@
+{
+  "chunk": "mechanical-drafting-rules/02/003/05",
+  "anchorNode": "mech-02-03-05",
+  "terms": [
+    { "name": "总-分-总", "aliases": [], "role": "defined", "confidence": "high", "evidence": "总体撰写逻辑可采用“总-分-总”的逻辑" },
+    { "name": "模块划分", "aliases": [], "role": "used", "confidence": "high", "evidence": "首先按照功能对主题一进行模块划分" },
+    { "name": "保护范围", "aliases": [], "role": "used", "confidence": "high", "evidence": "均应涵盖于本申请的保护范围之内" },
+    { "name": "等效变化", "aliases": [], "role": "used", "confidence": "mid", "evidence": "凡依本申请的结构、形状、原理所做的等效变化" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

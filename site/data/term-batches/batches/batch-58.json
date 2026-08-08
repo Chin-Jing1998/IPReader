@@ -1,0 +1,69 @@
+{
+ "batchNo": 58,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/05/002.md",
+   "chunkId": "infringement-guide/05/002",
+   "domain": "infringement-guide",
+   "anchorNodeId": "infr-05-02",
+   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 五、专利侵权行为的认定 ｜ （二）共同侵犯专利权行为的认定",
+   "charLen": 859
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/06/001.md",
+   "chunkId": "infringement-guide/06/001",
+   "domain": "infringement-guide",
+   "anchorNodeId": "infr-06-01",
+   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 六、专利侵权抗辩 ｜ （一）专利权效力抗辩",
+   "charLen": 127
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/06/002.md",
+   "chunkId": "infringement-guide/06/002",
+   "domain": "infringement-guide",
+   "anchorNodeId": "infr-06-02",
+   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 六、专利侵权抗辩 ｜ （二）滥用专利权抗辩",
+   "charLen": 367
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/06/003.md",
+   "chunkId": "infringement-guide/06/003",
+   "domain": "infringement-guide",
+   "anchorNodeId": "infr-06-03",
+   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 六、专利侵权抗辩 ｜ （三）不侵权抗辩",
+   "charLen": 381
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/06/004.md",
+   "chunkId": "infringement-guide/06/004",
+   "domain": "infringement-guide",
+   "anchorNodeId": "infr-06-04",
+   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 六、专利侵权抗辩 ｜ （四）不视为侵权的抗辩",
+   "charLen": 1382
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/06/005.md",
+   "chunkId": "infringement-guide/06/005",
+   "domain": "infringement-guide",
+   "anchorNodeId": "infr-06-05",
+   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 六、专利侵权抗辩 ｜ （五）现有技术抗辩及现有设计抗辩",
+   "charLen": 855
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/06/006.md",
+   "chunkId": "infringement-guide/06/006",
+   "domain": "infringement-guide",
+   "anchorNodeId": "infr-06-06",
+   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 六、专利侵权抗辩 ｜ （六）合法来源抗辩",
+   "charLen": 237
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/06/007.md",
+   "chunkId": "infringement-guide/06/007",
+   "domain": "infringement-guide",
+   "anchorNodeId": "infr-06-07",
+   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 六、专利侵权抗辩 ｜ （七）不停止侵权抗辩",
+   "charLen": 1596
+  }
+ ]
+}

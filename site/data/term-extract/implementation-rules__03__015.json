@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/03/015",
+  "anchorNode": "rule-03-15",
+  "terms": [
+    { "name": "延迟审查", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "对专利申请提出延迟审查请求" },
+    { "name": "自行审查", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "对专利申请自行进行审查时" }
+  ],
+  "laws": ["专利法第35条第2款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

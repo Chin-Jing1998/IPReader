@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/12/005",
+  "anchorNode": "rule-12-05",
+  "terms": [
+    { "name": "外观设计国际申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "外观设计国际申请涉及的外观设计有专利法第二十四条" },
+    { "name": "证明文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "提交本细则第三十三条第三款规定的有关证明文件" }
+  ],
+  "laws": ["专利法第24条第2项", "专利法第24条第3项", "专利法实施细则第33条第3款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

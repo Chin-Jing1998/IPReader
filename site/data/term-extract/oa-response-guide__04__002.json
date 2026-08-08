@@ -1,0 +1,15 @@
+{
+  "chunk": "oa-response-guide/04/002",
+  "anchorNode": "oa-04-02",
+  "terms": [
+    { "name": "说明书支持", "aliases": [], "role": "defined", "confidence": "high", "evidence": "判断一项权利要求是否得到说明书的支持" },
+    { "name": "本领域技术人员", "aliases": ["所述领域的技术人员", "所属技术领域的技术人员", "所属领域的技术人员"], "role": "used", "confidence": "high", "evidence": "应当以所述领域的技术人员作为判断主体" },
+    { "name": "保护范围过宽", "aliases": [], "role": "used", "confidence": "mid", "evidence": "权利要求的保护范围过宽" },
+    { "name": "功能性限定", "aliases": [], "role": "defined", "confidence": "high", "evidence": "将这一、二种具体结构概括为用功能限定的技术特征" },
+    { "name": "上位概念", "aliases": [], "role": "defined", "confidence": "high", "evidence": "如果权利要求中对某一技术特征采用了上位概念或者并列选择概括" },
+    { "name": "并列选择概括", "aliases": [], "role": "used", "confidence": "mid", "evidence": "或者并列选择概括（比如在一组相当多数量的化合物" },
+    { "name": "数值范围过宽", "aliases": [], "role": "defined", "confidence": "high", "evidence": "权利要求中将某一技术特征限定在一个宽的数值范围" }
+  ],
+  "laws": ["专利法第26条第4款", "专利审查指南第二部分第二章第3.2.1节"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,14 @@
+{
+  "chunk": "implementation-rules/03/019",
+  "anchorNode": "rule-03-19",
+  "terms": [
+    { "name": "登记手续", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "办理登记手续" },
+    { "name": "视为放弃", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "视为放弃取得专利权的权利" },
+    { "name": "专利证书", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "颁发专利证书" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

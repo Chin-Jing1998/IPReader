@@ -1,0 +1,10 @@
+{
+  "chunk": "examination-guideline-2025/01/001/06/06",
+  "anchorNode": "01-01-06-06",
+  "terms": [
+    { "name": "撤回专利申请声明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人撤回专利申请的，应当提交撤回专利申请声明" },
+    { "name": "撤回专利申请的生效日", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "撤回专利申请的生效日为手续合格通知书的发文日" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:38:10+08:00"
+}

@@ -1,0 +1,15 @@
+{
+  "chunk": "implementation-rules/03/001",
+  "anchorNode": "rule-03-01",
+  "terms": [
+    { "name": "回避", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当自行回避，当事人或者其他利害关系人可以要求其回避" },
+    { "name": "初步审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "初步审查、实质审查、复审和无效宣告程序中" },
+    { "name": "实质审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "初步审查、实质审查、复审和无效宣告程序中" },
+    { "name": "复审", "aliases": [], "role": "used", "confidence": "high", "evidence": "初步审查、实质审查、复审和无效宣告程序中" },
+    { "name": "无效宣告程序", "aliases": [], "role": "used", "confidence": "high", "evidence": "初步审查、实质审查、复审和无效宣告程序中" },
+    { "name": "利害关系人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "当事人或者其他利害关系人可以要求其回避" },
+    { "name": "近亲属", "aliases": [], "role": "used", "confidence": "low", "evidence": "是当事人或者其代理人的近亲属的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:51:42+08:00"
+}

@@ -1,0 +1,13 @@
+{
+  "chunk": "chemistry-drafting-rules/01/005/06",
+  "anchorNode": "chem-01-05-06",
+  "terms": [
+    { "name": "疾病的诊断方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "疾病的诊断方法（识别、研究和确定有生命的人体或动物体病因或病灶状态的方法）" },
+    { "name": "疾病的治疗方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "疾病的治疗方法（阻断、缓解或者消除病因或病灶的方法" },
+    { "name": "治疗目的外科手术方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "包括治疗目的外科手术方法" },
+    { "name": "制备用途权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应改写为“制备用途”权利要求" },
+    { "name": "实用性", "aliases": [], "role": "used", "confidence": "high", "evidence": "所述方法往往直接实施于人体，难以具备实用性" }
+  ],
+  "laws": ["专利法第25条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

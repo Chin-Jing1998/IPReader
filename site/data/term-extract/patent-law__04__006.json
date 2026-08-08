@@ -1,0 +1,15 @@
+{
+  "chunk": "patent-law/04/006",
+  "anchorNode": "law-04-06",
+  "terms": [
+    {
+      "name": "实质审查",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "发明专利申请经实质审查没有发现驳回理由的"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

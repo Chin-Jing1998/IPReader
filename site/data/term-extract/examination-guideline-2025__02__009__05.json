@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/02/009/05",
+  "anchorNode": "02-09-05",
+  "terms": [
+    { "name": "计算机程序产品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "计算机程序产品应当理解为主要通过计算机程序实现其解决方案的软件产品" },
+    { "name": "程序模块", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当理解为实现该程序流程各步骤或该方法各步骤所必须建立的程序模块" },
+    { "name": "方法权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "如果写成方法权利要求，应当按照方法流程的步骤详细描述" },
+    { "name": "装置权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "如果写成装置权利要求，应当具体描述该装置的各个组成部分" },
+    { "name": "计算机可读存储介质", "aliases": [], "role": "used", "confidence": "high", "evidence": "一种计算机可读存储介质，其上存储有计算机程序" },
+    { "name": "必要技术特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "记载解决技术问题的必要技术特征" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

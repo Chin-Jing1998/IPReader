@@ -1,0 +1,13 @@
+{
+  "chunk": "implementation-rules/11/010",
+  "anchorNode": "rule-11-10",
+  "terms": [
+    { "name": "优先权要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "该优先权要求继续有效的" },
+    { "name": "优先权要求费", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当自进入日起２个月内缴纳优先权要求费" },
+    { "name": "在先申请文件副本", "aliases": [], "role": "used", "confidence": "high", "evidence": "提交过在先申请文件副本的" },
+    { "name": "视为未要求该优先权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "未缴纳或者未缴足的，视为未要求该优先权" },
+    { "name": "优先权要求视为未提出", "aliases": [], "role": "used", "confidence": "mid", "evidence": "其优先权要求视为未提出" }
+  ],
+  "laws": ["专利法第30条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

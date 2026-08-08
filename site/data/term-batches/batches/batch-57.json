@@ -1,0 +1,77 @@
+{
+ "batchNo": 57,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/01/001.md",
+   "chunkId": "infringement-guide/01/001",
+   "domain": "infringement-guide",
+   "anchorNodeId": "infr-01-01",
+   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 一、发明、实用新型专利权保护范围的确定 ｜ （一）确定保护范围的解释原则",
+   "charLen": 621
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/01/002.md",
+   "chunkId": "infringement-guide/01/002",
+   "domain": "infringement-guide",
+   "anchorNodeId": "infr-01-02",
+   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 一、发明、实用新型专利权保护范围的确定 ｜ （二）解释对象",
+   "charLen": 921
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/01/003.md",
+   "chunkId": "infringement-guide/01/003",
+   "domain": "infringement-guide",
+   "anchorNodeId": "infr-01-03",
+   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 一、发明、实用新型专利权保护范围的确定 ｜ （三）解释方法",
+   "charLen": 3683
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/02/001.md",
+   "chunkId": "infringement-guide/02/001",
+   "domain": "infringement-guide",
+   "anchorNodeId": "infr-02-01",
+   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 二、发明、实用新型专利权的侵权判定 ｜ （一）技术特征的比对原则及方法",
+   "charLen": 322
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/02/002.md",
+   "chunkId": "infringement-guide/02/002",
+   "domain": "infringement-guide",
+   "anchorNodeId": "infr-02-02",
+   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 二、发明、实用新型专利权的侵权判定 ｜ （二）相同侵权",
+   "charLen": 789
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/02/003.md",
+   "chunkId": "infringement-guide/02/003",
+   "domain": "infringement-guide",
+   "anchorNodeId": "infr-02-03",
+   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 二、发明、实用新型专利权的侵权判定 ｜ （三）等同侵权",
+   "charLen": 2508
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/03/_full-chapter.md",
+   "chunkId": "infringement-guide/03/_full-chapter",
+   "domain": "infringement-guide",
+   "anchorNodeId": "infr-03",
+   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 三、外观设计专利权保护范围的确定 ｜ 三、外观设计专利权保护范围的确定",
+   "charLen": 991
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/04/_full-chapter.md",
+   "chunkId": "infringement-guide/04/_full-chapter",
+   "domain": "infringement-guide",
+   "anchorNodeId": "infr-04",
+   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 四、外观设计专利的侵权判定 ｜ 四、外观设计专利的侵权判定",
+   "charLen": 3817
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/05/001.md",
+   "chunkId": "infringement-guide/05/001",
+   "domain": "infringement-guide",
+   "anchorNodeId": "infr-05-01",
+   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 五、专利侵权行为的认定 ｜ （一）直接侵犯专利权行为的认定",
+   "charLen": 2227
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+{
+  "chunk": "implementation-rules/01/004",
+  "anchorNode": "rule-01-04",
+  "terms": [
+    { "name": "递交日", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "以寄出的邮戳日为递交日" },
+    { "name": "送达日", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "以交付日为送达日" },
+    { "name": "推定", "aliases": [], "role": "defined",
+      "confidence": "mid", "evidence": "满15日，推定为当事人收到文件之日" },
+    { "name": "公告送达", "aliases": [], "role": "defined",
+      "confidence": "mid", "evidence": "可以通过公告的方式送达当事人" },
+    { "name": "专利代理机构", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "当事人委托专利代理机构的，文件送交专利代理机构" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

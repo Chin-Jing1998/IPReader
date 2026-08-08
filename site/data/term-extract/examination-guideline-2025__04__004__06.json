@@ -1,0 +1,10 @@
+{
+  "chunk": "examination-guideline-2025/04/004/06",
+  "anchorNode": "04-04-06",
+  "terms": [
+    { "name": "中止口头审理", "aliases": [], "role": "defined", "confidence": "high", "evidence": "有下列情形之一的，合议组可以宣布中止口头审理" },
+    { "name": "回避", "aliases": [], "role": "used", "confidence": "mid", "evidence": "当事人请求审案人员回避的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

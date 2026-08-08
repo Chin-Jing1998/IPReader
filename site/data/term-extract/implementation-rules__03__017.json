@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/03/017",
+  "anchorNode": "rule-03-17",
+  "terms": [
+    { "name": "替换页", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "提交替换页" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

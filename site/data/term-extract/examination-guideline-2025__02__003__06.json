@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/02/003/06",
+  "anchorNode": "02-03-06",
+  "terms": [
+    { "name": "同样的发明创造", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指两件或者两件以上申请（或者专利）中存在的保护范围相同的权利要求" },
+    { "name": "禁止重复授权原则", "aliases": ["不能重复授予专利权的原则"], "role": "defined", "confidence": "high", "evidence": "上述条款规定了不能重复授予专利权的原则" },
+    { "name": "保护范围", "aliases": [], "role": "defined", "confidence": "high", "evidence": "保护范围以其权利要求的内容为准" },
+    { "name": "抵触申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在先申请构成抵触申请或已公开构成现有技术的" }
+  ],
+  "laws": ["专利法第9条", "专利法实施细则第47条", "专利法第22条第2款、第3款", "专利法第64条第1款"],
+  "extractedAt": "2026-07-12T15:37:35+08:00"
+}

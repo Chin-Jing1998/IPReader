@@ -1,0 +1,77 @@
+{
+ "batchNo": 40,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/002.md",
+   "chunkId": "patent-law/07/002",
+   "domain": "patent-law",
+   "anchorNodeId": "law-07-02",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第六十五条",
+   "charLen": 296
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/003.md",
+   "chunkId": "patent-law/07/003",
+   "domain": "patent-law",
+   "anchorNodeId": "law-07-03",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第六十六条",
+   "charLen": 214
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/004.md",
+   "chunkId": "patent-law/07/004",
+   "domain": "patent-law",
+   "anchorNodeId": "law-07-04",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第六十七条",
+   "charLen": 59
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/005.md",
+   "chunkId": "patent-law/07/005",
+   "domain": "patent-law",
+   "anchorNodeId": "law-07-05",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第六十八条",
+   "charLen": 114
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/006.md",
+   "chunkId": "patent-law/07/006",
+   "domain": "patent-law",
+   "anchorNodeId": "law-07-06",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第六十九条",
+   "charLen": 295
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/007.md",
+   "chunkId": "patent-law/07/007",
+   "domain": "patent-law",
+   "anchorNodeId": "law-07-07",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第七十条",
+   "charLen": 153
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/008.md",
+   "chunkId": "patent-law/07/008",
+   "domain": "patent-law",
+   "anchorNodeId": "law-07-08",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第七十一条",
+   "charLen": 361
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/009.md",
+   "chunkId": "patent-law/07/009",
+   "domain": "patent-law",
+   "anchorNodeId": "law-07-09",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第七十二条",
+   "charLen": 121
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/010.md",
+   "chunkId": "patent-law/07/010",
+   "domain": "patent-law",
+   "anchorNodeId": "law-07-10",
+   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第七十三条",
+   "charLen": 69
+  }
+ ]
+}

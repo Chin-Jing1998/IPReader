@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/02/002/02/04",
+  "anchorNode": "02-02-02-04",
+  "terms": [
+    { "name": "摘要", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "摘要是说明书记载内容的概述，它仅是一种技术信息，不具有法律效力" },
+    { "name": "摘要附图", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "指定一幅最能反映该发明或者实用新型技术方案的主要技术特征的说明书附图作为摘要附图" },
+    { "name": "公开不充分", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "当说明书因公开不充分而不符合专利法第二十六条第三款的规定时" }
+  ],
+  "laws": ["专利法第26条第3款", "专利法实施细则第59条", "专利法实施细则第20条"],
+  "extractedAt": "2026-07-12T15:38:20+08:00"
+}

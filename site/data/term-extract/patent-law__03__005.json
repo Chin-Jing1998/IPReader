@@ -1,0 +1,12 @@
+{
+  "chunk": "patent-law/03/005",
+  "anchorNode": "law-03-05",
+  "terms": [
+    { "name": "优先权", "aliases": [], "role": "used", "confidence": "high", "evidence": "要求发明、实用新型专利优先权的" },
+    { "name": "优先权声明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当在申请的时候提出书面声明" },
+    { "name": "视为未要求优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "视为未要求优先权" },
+    { "name": "专利申请文件副本", "aliases": [], "role": "used", "confidence": "mid", "evidence": "提交第一次提出的专利申请文件的副本" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

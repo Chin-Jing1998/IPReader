@@ -1,0 +1,17 @@
+{
+  "chunk": "examination-guideline-2025/01/003/12",
+  "anchorNode": "01-03-12",
+  "terms": [
+    { "name": "外观设计分类", "aliases": [], "role": "defined", "confidence": "high", "evidence": "外观设计分类是针对使用该外观设计的产品进行的" },
+    { "name": "国际外观设计分类法", "aliases": ["洛迦诺分类法"], "role": "defined", "confidence": "high", "evidence": "专利局采用国际外观设计分类法（即洛迦诺分类法）对外观设计专利申请进行分类" },
+    { "name": "分类号", "aliases": [], "role": "defined", "confidence": "high", "evidence": "分类号由“LOC”“（版本号）”“Cl.”“大类号－小类号”组合而成" },
+    { "name": "用途原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "外观设计分类一般应遵循用途原则，不考虑制造该产品的材料" },
+    { "name": "简要说明", "aliases": [], "role": "used", "confidence": "mid", "evidence": "简要说明中应当写明外观设计产品的用途" },
+    { "name": "局部外观设计", "aliases": [], "role": "used", "confidence": "mid", "evidence": "外观设计专利申请为产品的局部外观设计的" },
+    { "name": "图形用户界面", "aliases": [], "role": "used", "confidence": "mid", "evidence": "涉及图形用户界面的产品外观设计的" },
+    { "name": "补正通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "外观设计分类出现以下情形的，应当发出补正通知书" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "期满未答复的，该申请将视为撤回" }
+  ],
+  "laws": ["专利法实施细则第31条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,19 @@
+{
+  "chunk": "examination-guideline-2025/03/001/05/02",
+  "anchorNode": "03-01-05-02",
+  "terms": [
+    { "name": "要求优先权声明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "5.2.1要求优先权声明" },
+    { "name": "撤回优先权要求通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "国际局曾经向专利局传送的“撤回优先权要求通知书”（PCT/IB/317表）" },
+    { "name": "优先权要求被认为未提出通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "或“优先权要求被认为未提出通知书”（PCT/IB/318表）" },
+    { "name": "视为未要求优先权通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当针对该项优先权要求发出视为未要求优先权通知书" },
+    { "name": "优先权要求费", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人应当自进入日起两个月内缴纳优先权要求费" },
+    { "name": "恢复优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以自进入日起两个月内请求恢复优先权" },
+    { "name": "恢复权利请求费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "缴纳恢复权利请求费、优先权要求费" },
+    { "name": "本国优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "要求优先权的国际申请进入国家阶段，应当看作是要求本国优先权" },
+    { "name": "在先申请文件副本", "aliases": [], "role": "used", "confidence": "high", "evidence": "提交过在先申请文件副本的" },
+    { "name": "优先权转让证明", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人未在规定期限内提交在先申请文件副本或者优先权转让证明" },
+    { "name": "优先权基础", "aliases": [], "role": "used", "confidence": "mid", "evidence": "作为优先权基础的在先申请是否在巴黎公约成员国" }
+  ],
+  "laws": ["专利法实施细则第一百二十七条第一款", "专利法第三十条", "专利法实施细则第一百二十八条", "专利法实施细则第六条第一款、第二款", "专利法实施细则第六条", "专利法实施细则第三十五条第二款第（一）、第（二）和第（三）项", "专利法实施细则第三十五条第三款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

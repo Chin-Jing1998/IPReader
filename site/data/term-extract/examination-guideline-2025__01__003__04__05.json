@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/01/003/04/05",
+  "anchorNode": "01-03-04-05",
+  "terms": [
+    { "name": "涉及图形用户界面的产品外观设计", "aliases": [], "role": "defined", "confidence": "high", "evidence": "涉及图形用户界面的产品外观设计是指产品设计要点包括图形用户界面的设计" },
+    { "name": "主视图", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人应当提交图形用户界面起始状态所涉及面的视图作为主视图" },
+    { "name": "变化状态图", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以提交图形用户界面关键帧的视图作为变化状态图" },
+    { "name": "动态图形用户界面", "aliases": [], "role": "used", "confidence": "mid", "evidence": "动态图形用户界面的产品名称要有" },
+    { "name": "正投影视图", "aliases": [], "role": "used", "confidence": "mid", "evidence": "图形用户界面所涉及面的产品正投影视图" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

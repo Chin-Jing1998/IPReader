@@ -1,0 +1,14 @@
+{
+  "chunk": "implementation-rules/10/007",
+  "anchorNode": "rule-10-07",
+  "terms": [
+    { "name": "恢复权利请求费", "aliases": [], "role": "used", "confidence": "high", "evidence": "恢复权利请求费应当在本细则规定的相关期限内缴纳" },
+    { "name": "延长期限请求费", "aliases": [], "role": "used", "confidence": "high", "evidence": "延长期限请求费应当在相应期限届满之日前缴纳" },
+    { "name": "著录事项变更费", "aliases": [], "role": "used", "confidence": "high", "evidence": "著录事项变更费、专利权评价报告请求费、无效宣告请求费" },
+    { "name": "专利权评价报告请求费", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利权评价报告请求费" },
+    { "name": "无效宣告请求费", "aliases": [], "role": "used", "confidence": "high", "evidence": "无效宣告请求费" },
+    { "name": "视为未提出请求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "期满未缴纳或者未缴足的，视为未提出请求" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

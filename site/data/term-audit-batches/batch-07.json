@@ -1,0 +1,892 @@
+[
+ {
+  "termKey": "供应国内市场",
+  "canonical": "供应国内市场",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/06/011",
+    "text": "强制许可的实施应当主要为了供应国内市场"
+   }
+  ]
+ },
+ {
+  "termKey": "管辖权",
+  "canonical": "管辖权",
+  "aliases": [
+   "管辖"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/08/003",
+    "text": "两个以上管理专利工作的部门都有管辖权的专利纠纷"
+   }
+  ]
+ },
+ {
+  "termKey": "国际单位错误",
+  "canonical": "国际单位错误",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/05/12",
+    "text": "要求改正国际单位错误"
+   }
+  ]
+ },
+ {
+  "termKey": "国际申请不能进入中国国家阶段通知书",
+  "canonical": "国际申请不能进入中国国家阶段通知书",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/02",
+    "text": "该国际申请在中国没有效力，审查员应当发出国际申请不能进入中国国家阶段通知书"
+   }
+  ]
+ },
+ {
+  "termKey": "国际申请在中国没有效力",
+  "canonical": "国际申请在中国没有效力",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/02",
+    "text": "该国际申请在中国没有效力，审查员应当发出国际申请不能进入中国国家阶段通知书"
+   }
+  ]
+ },
+ {
+  "termKey": "国际外观设计分类法",
+  "canonical": "国际外观设计分类法",
+  "aliases": [
+   "洛迦诺分类法"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/12",
+    "text": "专利局采用国际外观设计分类法（即洛迦诺分类法）对外观设计专利申请进行分类"
+   }
+  ]
+ },
+ {
+  "termKey": "国家公布",
+  "canonical": "国家公布",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/06",
+    "text": "国家公布仅适用于进入中国的发明专利的国际申请"
+   }
+  ]
+ },
+ {
+  "termKey": "国家阶段的修改",
+  "canonical": "国家阶段的修改",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/05/07",
+    "text": "此种修改称为国家阶段的修改"
+   }
+  ]
+ },
+ {
+  "termKey": "国家知识产权局认可的保藏单位",
+  "canonical": "国家知识产权局认可的保藏单位",
+  "aliases": [
+   "中国典型培养物保藏中心",
+   "中国普通微生物菌种保藏中心",
+   "广东省微生物菌种保藏中心"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/005/09",
+    "text": "“国家知识产权局认可的保藏单位”是指位于武汉的中国典型培养物保藏中心"
+   }
+  ]
+ },
+ {
+  "termKey": "汉字编码方法",
+  "canonical": "汉字编码方法",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/009/04",
+    "text": "汉字编码方法属于一种信息表述方法"
+   }
+  ]
+ },
+ {
+  "termKey": "合案申请",
+  "canonical": "合案申请",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/09",
+    "text": "可以作为一件申请提出（简称合案申请）"
+   }
+  ]
+ },
+ {
+  "termKey": "合并审理",
+  "canonical": "合并审理",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/003/04",
+    "text": "复审和无效审理部可以对案件合并审理"
+   }
+  ]
+ },
+ {
+  "termKey": "合法来源",
+  "canonical": "合法来源",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/06/006",
+    "text": "合法来源是指通过合法的销售渠道、通常的买卖合同等正常商业方式取得被诉侵权产品"
+   }
+  ]
+ },
+ {
+  "termKey": "合法权利",
+  "canonical": "合法权利",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/005/07",
+    "text": "合法权利，是指依照中华人民共和国法律享有并且在涉案专利申请日仍然有效的权利"
+   }
+  ]
+ },
+ {
+  "termKey": "合方发明",
+  "canonical": "合方发明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/011/05",
+    "text": "合方发明，是指将两个及以上的已知方合并使用或合方化裁而形成的组方发明"
+   }
+  ]
+ },
+ {
+  "termKey": "合议审查",
+  "canonical": "合议审查",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/03",
+    "text": "合议审查的案件，应当由三或五人组成的合议组负责审查"
+   }
+  ]
+ },
+ {
+  "termKey": "互联网证据的公开时间",
+  "canonical": "互联网证据的公开时间",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/008/05",
+    "text": "公众能够浏览互联网信息的最早时间为该互联网信息的公开时间"
+   }
+  ]
+ },
+ {
+  "termKey": "化合物的新颖性",
+  "canonical": "化合物的新颖性",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/05",
+    "text": "如果在一份对比文件中记载了化合物的化学名称、分子式（或者结构式）等结构信息"
+   }
+  ]
+ },
+ {
+  "termKey": "化合物权利要求",
+  "canonical": "化合物权利要求",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/04",
+    "text": "化合物权利要求应当用化合物的名称或者化合物的结构式或者分子式来表征"
+   }
+  ]
+ },
+ {
+  "termKey": "化学产品",
+  "canonical": "化学产品",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/03",
+    "text": "化学产品包括化合物、组合物以及用结构和/或组成不能够清楚描述的化学产品"
+   }
+  ]
+ },
+ {
+  "termKey": "化学产品的医药用途发明的新颖性",
+  "canonical": "化学产品的医药用途发明的新颖性",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/05",
+    "text": "对于涉及化学产品的医药用途发明，其新颖性审查应考虑以下方面"
+   }
+  ]
+ },
+ {
+  "termKey": "化学产品发明",
+  "canonical": "化学产品发明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/003/01",
+    "text": "化学产品发明（是指各组分之间发生化学反应得到的产品）"
+   }
+  ]
+ },
+ {
+  "termKey": "化学产品用途发明",
+  "canonical": "化学产品用途发明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/03",
+    "text": "对于化学产品用途发明，在说明书中应当记载所使用的化学产品"
+   }
+  ]
+ },
+ {
+  "termKey": "化学产品用途发明的新颖性",
+  "canonical": "化学产品用途发明的新颖性",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/05",
+    "text": "如果一项已知产品的新用途本身是一项发明，则已知产品不能破坏该新用途的新颖性"
+   }
+  ]
+ },
+ {
+  "termKey": "化学方法发明",
+  "canonical": "化学方法发明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/03",
+    "text": "对于化学方法发明，无论是物质的制备方法还是其他方法"
+   }
+  ]
+ },
+ {
+  "termKey": "化学方法权利要求",
+  "canonical": "化学方法权利要求",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/04",
+    "text": "其权利要求可以用涉及工艺、物质以及设备的方法特征来进行限定"
+   }
+  ]
+ },
+ {
+  "termKey": "化学结构片段",
+  "canonical": "化学结构片段",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "chemistry-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/005/01",
+    "text": "化学结构片段可以是化学基团（例如双键、羰基、硅烷基团等）"
+   }
+  ]
+ },
+ {
+  "termKey": "化学通式",
+  "canonical": "化学通式",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/004/08",
+    "text": "化学通式是用来表示一类或者几类化合物的"
+   }
+  ]
+ },
+ {
+  "termKey": "恢复权利请求期限",
+  "canonical": "恢复权利请求期限",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/007/05",
+    "text": "应当按照规定给予两个月（自该处分决定的送达日起算）的恢复权利请求期限"
+   }
+  ]
+ },
+ {
+  "termKey": "会晤",
+  "canonical": "会晤",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/04/12",
+    "text": "在实质审查过程中，审查员可以约请申请人会晤，以加快审查程序"
+   }
+  ]
+ },
+ {
+  "termKey": "会晤记录",
+  "canonical": "会晤记录",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/04/12",
+    "text": "会晤记录不能代替申请人的正式书面答复或者修改"
+   }
+  ]
+ },
+ {
+  "termKey": "混合系统",
+  "canonical": "混合系统",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/004/04/03",
+    "text": "混合系统由分类表的分类号和与其联合使用的引得码组成"
+   }
+  ]
+ },
+ {
+  "termKey": "机械构造",
+  "canonical": "机械构造",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/002/06",
+    "text": "构成产品的零部件的相对位置关系、连接关系和必要的机械配合关系"
+   }
+  ]
+ },
+ {
+  "termKey": "积极效果",
+  "canonical": "积极效果",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/005",
+    "text": "能够产生积极效果，是指发明或者实用新型专利申请在提出申请之日"
+   }
+  ]
+ },
+ {
+  "termKey": "基本相同的功能",
+  "canonical": "基本相同的功能",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/02/003",
+    "text": "基本相同的功能，是指被诉侵权技术方案中的技术特征与权利要求对应技术特征在"
+   }
+  ]
+ },
+ {
+  "termKey": "基本相同的手段",
+  "canonical": "基本相同的手段",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/02/003",
+    "text": "基本相同的手段，是指被诉侵权技术方案中的技术特征与权利要求对应技术特征在技术"
+   }
+  ]
+ },
+ {
+  "termKey": "基本相同的效果",
+  "canonical": "基本相同的效果",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/02/003",
+    "text": "基本相同的效果，是指被诉侵权技术方案中的技术特征与权利要求对应技术特征在"
+   }
+  ]
+ },
+ {
+  "termKey": "基因或者dna片段",
+  "canonical": "基因或者DNA片段",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/09/01",
+    "text": "无论是基因或是DNA片段，其实质是一种化学物质"
+   }
+  ]
+ },
+ {
+  "termKey": "计算机程序产品",
+  "canonical": "计算机程序产品",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/009/05",
+    "text": "计算机程序产品应当理解为主要通过计算机程序实现其解决方案的软件产品"
+   }
+  ]
+ },
+ {
+  "termKey": "计算机汉字输入方法",
+  "canonical": "计算机汉字输入方法",
+  "aliases": [
+   "计算机汉字信息处理方法"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/009/04",
+    "text": "构成计算机系统处理汉字的一种计算机汉字输入方法"
+   }
+  ]
+ },
+ {
+  "termKey": "技术方案的删除",
+  "canonical": "技术方案的删除",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/003/04",
+    "text": "技术方案的删除是指从同一权利要求中并列的两种以上技术方案中删除一种"
+   }
+  ]
+ },
+ {
+  "termKey": "技术主题",
+  "canonical": "技术主题",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/004/03",
+    "text": "发明创造的技术主题可以是方法、产品、设备或者材料"
+   }
+  ]
+ },
+ {
+  "termKey": "继续审查",
+  "canonical": "继续审查",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/04/11",
+    "text": "审查员继续审查申请后，视不同情况，可对申请作如下不同的处理"
+   }
+  ]
+ },
+ {
+  "termKey": "加减方发明",
+  "canonical": "加减方发明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/011/05",
+    "text": "加减方发明，包括中药原料变更的组方发明和合方发明"
+   }
+  ]
+ },
+ {
+  "termKey": "减缴",
+  "canonical": "减缴",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/10/008",
+    "text": "有困难的，可以按照规定向国务院专利行政部门提出减缴的请求"
+   }
+  ]
+ },
+ {
+  "termKey": "简要说明的解释作用",
+  "canonical": "简要说明的解释作用",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/07/001",
+    "text": "简要说明可以用于解释图片或者照片所表示的该产品的外观设计"
+   }
+  ]
+ },
+ {
+  "termKey": "简要说明书",
+  "canonical": "简要说明书",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/06/002/05",
+    "text": "外观设计国际申请简要说明书的内容用于解释图片或者照片所示的产品的外观设计"
+   }
+  ]
+ },
+ {
+  "termKey": "教唆他人实施侵犯专利权行为",
+  "canonical": "教唆他人实施侵犯专利权行为",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/05/002",
+    "text": "教唆他人实施侵犯专利权行为"
+   }
+  ]
+ },
+ {
+  "termKey": "节点性特征",
+  "canonical": "节点性特征",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "mechanical-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "mechanical-drafting-rules/01/003/07",
+    "text": "节点性特征应是存在于不同部件的连接处、或者部件上的不同位置处"
+   }
+  ]
+ },
+ {
+  "termKey": "解密请求",
+  "canonical": "解密请求",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/005/05",
+    "text": "保密专利申请的申请人或者保密专利的专利权人可以书面提出解密请求"
+   }
+  ]
+ },
+ {
+  "termKey": "仅具有技术功能",
+  "canonical": "仅具有技术功能",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/05/001",
+    "text": "仅具有技术功能，是指该零部件构成最终产品的内部结构，在最终产品的正常使用中不产"
+   }
+  ]
+ },
+ {
+  "termKey": "进口专利产品",
+  "canonical": "进口专利产品",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "infringement-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "infringement-guide/05/001",
+    "text": "进口专利产品，是指将落入产品专利权利要求保护范围的产品、依照专利方法直接获得的"
+   }
+  ]
+ },
+ {
+  "termKey": "进入国家阶段的书面声明",
+  "canonical": "进入国家阶段的书面声明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/03",
+    "text": "进入国家阶段的书面声明（以下简称进入声明）"
+   }
+  ]
+ },
+ {
+  "termKey": "举证责任倒置",
+  "canonical": "举证责任倒置",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "patent-law/07/003",
+    "text": "应当提供其产品制造方法不同于专利方法的证明"
+   }
+  ]
+ },
+ {
+  "termKey": "具体化合物",
+  "canonical": "具体化合物",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/010/05",
+    "text": "一个具体化合物的公开使包括该具体化合物的通式权利要求丧失新颖性"
+   }
+  ]
+ }
+]

@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/02/007/03",
+  "anchorNode": "02-07-03",
+  "terms": [
+    { "name": "独立权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员首先应当以独立权利要求所限定的技术方案作为检索的主题" },
+    { "name": "从属权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "评价从属权利要求进一步限定的技术方案" },
+    { "name": "公知常识", "aliases": [], "role": "used", "confidence": "high", "evidence": "其限定部分的附加技术特征属于公知常识范围的从属权利要求" },
+    { "name": "附加技术特征", "aliases": [], "role": "used", "confidence": "mid", "evidence": "其限定部分的附加技术特征属于公知常识范围" }
+  ],
+  "laws": ["专利法实施细则第50条", "专利法实施细则第57条第1款", "专利法第33条", "专利法第22条第2款", "专利法第22条第3款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/02/003/01",
+  "anchorNode": "02-03-01",
+  "terms": [
+    { "name": "新颖性", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "应当具备新颖性、创造性和实用性" },
+    { "name": "创造性", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "应当具备新颖性、创造性和实用性" },
+    { "name": "实用性", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "应当具备新颖性、创造性和实用性" }
+  ],
+  "laws": ["专利法第22条第1款"],
+  "extractedAt": "2026-07-12T15:38:20+08:00"
+}

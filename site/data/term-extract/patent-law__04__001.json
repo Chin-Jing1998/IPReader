@@ -1,0 +1,11 @@
+{
+  "chunk": "patent-law/04/001",
+  "anchorNode": "law-04-01",
+  "terms": [
+    { "name": "初步审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "经初步审查认为符合本法要求的" },
+    { "name": "早期公开", "aliases": [], "role": "defined", "confidence": "high", "evidence": "自申请日起满十八个月，即行公布" },
+    { "name": "提前公布", "aliases": ["早日公布"], "role": "defined", "confidence": "high", "evidence": "可以根据申请人的请求早日公布其申请" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

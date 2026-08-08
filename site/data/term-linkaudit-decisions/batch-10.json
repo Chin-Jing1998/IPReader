@@ -1,0 +1,192 @@
+[
+  {
+    "id": "term-0908",
+    "canonical": "申请费",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指“申请费”这一专利收费种类，常与申请附加费、公布印刷费等并列列出，邻字“纳/的”对应“缴纳申请费/申请费的缴纳期限”等固定搭配，语义一致无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0909",
+    "canonical": "受理局",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均为PCT“受理局”（Receiving Office）这一程序主体，邻字“由/但/过”与“确/审/未”落在“受理局确定/审查/批准/未确认”等标准搭配中，语义一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0915",
+    "canonical": "指定局",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "4条样例均为PCT“指定局”（Designated Office），如“任何指定局不应处理”“指定局或选定局”，语义一致；但原始命中仅6次、覆盖4页，证据量较薄，故confidence降为medium。",
+    "confidence": "medium"
+  },
+  {
+    "id": "term-0922",
+    "canonical": "保全措施",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "8条样例均为“（财产）保全措施”这一法律术语，邻字“产/取”对应“财产保全措施/采取保全措施”固定搭配，语义一致无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0925",
+    "canonical": "登记本",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "3条样例均指PCT“登记本”（国际局确认的登记副本）这一专名，常带引号标注、与“受理本”对举，语义一致；但原始命中仅5次，证据量薄，故confidence降为medium。",
+    "confidence": "medium"
+  },
+  {
+    "id": "term-0927",
+    "canonical": "反证",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "no",
+    "reason": "邻字画像左邻“相”、右邻“据”合计占7次原始命中中的4次（约57%），核读样例3“提出的相【反证】据不足以反驳”确认为“相反证据”跨词切分，并非“反证”本身；真实指向“反证”（专利权人提交的反证）概念的命中仅约3/7（约43%），低于85%阈值，故不参与自动链接。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0934",
+    "canonical": "和解",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "no",
+    "reason": "10条样例中至少3例为跨词拼接：“支持【和解】释权利要求”实为“支持+和+解释”、“线轮的锁定【和解】脱”实为“锁定+和+解脱”、“授予【和解】密的公告”实为“授予+和+解密”；真实指向“和解”（当事人和解）概念的命中约7/10（70%），低于85%阈值，故不参与自动链接。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0940",
+    "canonical": "经常居所",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "邻字画像左邻“有”占22次中20次、右邻“或”占21次，与专利法第十七/十八条固定表述“没有经常居所或者营业所”高度吻合，10条样例全部一致，无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0944",
+    "canonical": "剖面线",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "4条样例均为附图“剖面线”（hatching）这一制图术语，如“剖面图中的剖面线”“轮廓线、点划线、剖面线、中心线”，语义一致无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0951",
+    "canonical": "生物材料",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指专利法意义上的“生物材料”保藏制度，embedRate达0.985，样例语义高度一致，无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0953",
+    "canonical": "实用新型专利权",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均为“实用新型专利权”这一权利类型术语，用法一致（授予/放弃/终止实用新型专利权等），无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0956",
+    "canonical": "首次申请",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "9条样例均指优先权语境下的“首次申请”（中国首次申请/外国首次申请），与“在后申请”相对使用，语义一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0960",
+    "canonical": "形式审查",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例（含别名“申请文件的形式审查”及简称“形式审查”两种表面形式）均指初步审查、复审无效程序中的“形式审查”环节，语义一致无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0964",
+    "canonical": "用途发明",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指化学、医药领域“用途发明”这一专利类型术语，如“用途权利要求”“化学产品的用途发明”，语义一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0967",
+    "canonical": "在后申请",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均为优先权语境下的“在后申请”（与“在先申请”相对），如“中国在后申请”“在后申请之日”，语义一致无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0968",
+    "canonical": "指定中国",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均为PCT/海牙途径“指定中国”这一程序术语，如“指定中国的专利国际申请”“指定中国的外观设计国际注册申请”，语义一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0972",
+    "canonical": "著录事项",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指专利公布、专利证书中的“著录事项”（申请号、申请日、分类号等著录项目），语义一致无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0973",
+    "canonical": "专利产品",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指“专利产品”这一术语，涉及专利标识、侵权比对、进口等语境，语义一致无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0981",
+    "canonical": "专利文献",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指检索、引证语境下的“专利文献”，如“检索专利文献”，并常与“非专利文献”对照出现，语义一致。",
+    "confidence": "high"
+  }
+]

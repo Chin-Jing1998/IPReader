@@ -1,0 +1,15 @@
+{
+  "chunk": "chemistry-drafting-rules/01/001/02",
+  "anchorNode": "chem-01-01-02",
+  "terms": [
+    { "name": "说明书摘要", "aliases": [], "role": "defined", "confidence": "high", "evidence": "说明书摘要不能超过300 字（标点符号包含在内）" },
+    { "name": "择一引用方式", "aliases": [], "role": "defined", "confidence": "high", "evidence": "权利要求应当采用择一引用方式表达" },
+    { "name": "从属权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "从属权利要求撰写应当包括引用部分和限定部分，且引用的主题名称与独权一致" },
+    { "name": "独立权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在先独立权利要求不得引用在后独立权利要求" },
+    { "name": "多项从属权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "一项引用两项以上权利要求的多项从属权利要求" },
+    { "name": "发明名称", "aliases": [], "role": "used", "confidence": "high", "evidence": "说明书中发明名称应当居中显示，不得加粗" },
+    { "name": "跳跃式引用", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "不允许存在跳跃式引用的情形" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

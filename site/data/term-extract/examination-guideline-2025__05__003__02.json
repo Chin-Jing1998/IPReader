@@ -1,0 +1,23 @@
+{
+  "chunk": "examination-guideline-2025/05/003/02",
+  "anchorNode": "05-03-02",
+  "terms": [
+    { "name": "受理条件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利申请符合下列条件的，专利局应当受理" },
+    { "name": "不受理的情形", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利申请有下列情形之一的，专利局不予受理" },
+    { "name": "请求书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请文件中有请求书" },
+    { "name": "说明书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "发明专利申请文件中有说明书和权利要求书" },
+    { "name": "权利要求书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "发明专利申请文件中有说明书和权利要求书" },
+    { "name": "说明书附图", "aliases": [], "role": "defined", "confidence": "high", "evidence": "实用新型专利申请文件中有说明书、说明书附图和权利要求书" },
+    { "name": "简要说明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "外观设计专利申请文件中有图片或者照片和简要说明" },
+    { "name": "分案申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对于国家申请的分案申请除按照一般专利申请的受理条件对分案申请进行受理审查外" },
+    { "name": "援引加入声明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当在首次递交专利申请时提出援引加入声明" },
+    { "name": "补交遗漏文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利局发出补交遗漏文件通知书" },
+    { "name": "申请日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "电子申请以符合要求的申请文件进入专利局指定的特定电子系统的日期为申请日" },
+    { "name": "收到日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "记录受理部门收到申请文件的日期" },
+    { "name": "文件不受理通知书", "aliases": ["不受理通知书"], "role": "defined", "confidence": "high", "evidence": "专利局发出文件不受理通知书" },
+    { "name": "专利申请受理通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "发出专利申请受理通知书、缴纳申请费通知书或者收费减缴审批通知书" },
+    { "name": "申请号", "aliases": [], "role": "defined", "confidence": "high", "evidence": "按照专利申请的类别和专利申请的先后顺序给出相应的专利申请号" }
+  ],
+  "laws": ["专利法第18条第1款", "专利法第17条", "专利法实施细则第45条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

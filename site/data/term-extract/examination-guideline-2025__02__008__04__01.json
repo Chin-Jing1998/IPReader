@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/02/008/04/01",
+  "anchorNode": "02-08-04-01",
+  "terms": [
+    { "name": "审查文本", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以最后一次提交的申请文件为审查文本" },
+    { "name": "原始申请文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "是原始申请文件的一部分" },
+    { "name": "初步审查部门", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在初步审查部门审查的基础上" },
+    { "name": "主动修改", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对发明专利申请进行了主动修改的" },
+    { "name": "申请日", "aliases": [], "role": "used", "confidence": "mid", "evidence": "未包含的，应当重新确定申请日，以后补交文件的日期为申请日" },
+    { "name": "审查意见通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当发出审查意见通知书，给申请人至少一次陈述意见的机会" },
+    { "name": "援引在先申请文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "按照规定以援引在先申请文件的方式补交的权利要求书或说明书的内容" }
+  ],
+  "laws": ["专利法实施细则第57条第1款", "专利法第33条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

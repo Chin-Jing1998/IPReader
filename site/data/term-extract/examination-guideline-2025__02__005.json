@@ -1,0 +1,16 @@
+{
+  "chunk": "examination-guideline-2025/02/005",
+  "anchorNode": "02-05",
+  "terms": [
+    { "name": "实用性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "实用性，是指发明或者实用新型申请的主题必须能够在产业上制造或者使用" },
+    { "name": "再现性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "再现性，是指所属技术领域的技术人员，根据公开的技术内容，能够重复实施" },
+    { "name": "积极效果", "aliases": [], "role": "defined", "confidence": "high", "evidence": "能够产生积极效果，是指发明或者实用新型专利申请在提出申请之日" },
+    { "name": "非治疗目的的外科手术方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "非治疗目的的外科手术方法，由于是以有生命的人或者动物为实施对象" },
+    { "name": "测量人体或者动物体在极限情况下的生理参数的方法", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "测量人体或者动物体在极限情况下的生理参数需要将被测对象置于极限环境中" },
+    { "name": "利用独一无二的自然条件的产品", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "不得是由自然条件限定的独一无二的产品" },
+    { "name": "永动机", "aliases": [], "role": "used", "confidence": "high", "evidence": "违背能量守恒定律的发明或者实用新型专利申请的主题，例如永动机" },
+    { "name": "违背自然规律", "aliases": [], "role": "used", "confidence": "mid", "evidence": "违背自然规律的发明或者实用新型专利申请是不能实施的" }
+  ],
+  "laws": ["专利法第22条第1款", "专利法第22条第4款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,14 @@
+{
+  "chunk": "infringement-guide/06/004",
+  "anchorNode": "infr-06-04",
+  "terms": [
+    { "name": "不视为侵权的抗辩", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不视为侵权的抗辩" },
+    { "name": "先用权", "aliases": ["先用权抗辩"], "role": "defined", "confidence": "high", "evidence": "被诉侵权人以非法获得的技术或者设计主张先用权抗辩的" },
+    { "name": "原有范围", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“原有范围”包括：专利申请日前已有的生产规模" },
+    { "name": "临时过境", "aliases": [], "role": "defined", "confidence": "high", "evidence": "但是临时过境不包括用交通运输工具对专利产品的“转运”" },
+    { "name": "专为科学研究和实验", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专为科学研究和实验,是指专门针对专利技术方案本身进行的科学研究和实验" },
+    { "name": "行政审批所需要的信息", "aliases": [], "role": "defined", "confidence": "high", "evidence": "行政审批所需要的信息，是指《中华人民共和国药品管理法》" }
+  ],
+  "laws": ["中华人民共和国药品管理法", "中华人民共和国药品管理法实施条例", "药品注册管理办法"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/03/001/04",
+  "anchorNode": "03-01-04",
+  "terms": [
+    { "name": "专利合作条约第19条的修改", "aliases": [], "role": "defined", "confidence": "high", "evidence": "按照专利合作条约第19条作出修改的权利要求书" },
+    { "name": "专利合作条约第34条的修改", "aliases": [], "role": "defined", "confidence": "high", "evidence": "按照专利合作条约第34条作出的修改" },
+    { "name": "修改文件缺陷通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当发出修改文件缺陷通知书，通知申请人改正" },
+    { "name": "修改不予考虑通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当发出修改不予考虑通知书" },
+    { "name": "专利性国际初步报告附件", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利性国际初步报告附件译文" },
+    { "name": "修改页", "aliases": [], "role": "used", "confidence": "mid", "evidence": "互相替换的修改页" },
+    { "name": "修改文件表", "aliases": [], "role": "used", "confidence": "mid", "evidence": "补交修改文件的译文或修改文件表" }
+  ],
+  "laws": ["专利法实施细则第一百二十三条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

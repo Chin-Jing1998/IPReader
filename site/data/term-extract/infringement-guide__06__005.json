@@ -1,0 +1,16 @@
+{
+  "chunk": "infringement-guide/06/005",
+  "anchorNode": "infr-06-05",
+  "terms": [
+    { "name": "现有技术抗辩", "aliases": [], "role": "defined", "confidence": "high", "evidence": "现有技术抗辩，是指被诉落入专利权保护范围的全部技术特征" },
+    { "name": "现有技术", "aliases": [], "role": "defined", "confidence": "high", "evidence": "现有技术，是指专利申请日以前在国内外为公众所知的技术" },
+    { "name": "现有设计抗辩", "aliases": [], "role": "defined", "confidence": "high", "evidence": "现有设计抗辩，是指被诉侵权外观与一项现有设计相同或者相近似" },
+    { "name": "现有设计", "aliases": [], "role": "defined", "confidence": "high", "evidence": "现有设计是指申请日以前在国内外为公众所知的设计" },
+    { "name": "抵触申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "抵触申请不属于现有技术或现有设计，不能作为现有技术抗辩或现有设计抗辩的理由" },
+    { "name": "新颖性宽限期", "aliases": [], "role": "used", "confidence": "high", "evidence": "根据专利法第二十四条的规定享受新颖性宽限期的技术不得作为现有技术援引用于抗辩" },
+    { "name": "惯常设计", "aliases": [], "role": "used", "confidence": "high", "evidence": "被诉侵权产品的外观设计是一项现有外观设计与该产品的惯常设计的简单组合" },
+    { "name": "设计要点", "aliases": [], "role": "used", "confidence": "high", "evidence": "如果被诉侵权设计使用了专利外观设计的设计要点" }
+  ],
+  "laws": ["专利法第24条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

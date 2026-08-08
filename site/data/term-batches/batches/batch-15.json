@@ -1,0 +1,85 @@
+{
+ "batchNo": 15,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/010/02.md",
+   "chunkId": "examination-guideline-2025/02/010/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-10-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十章关于化学领域发明专利申请审查的若干规定 ｜ 2.不授予专利权的化学发明专利申请",
+   "charLen": 301
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/010/03.md",
+   "chunkId": "examination-guideline-2025/02/010/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-10-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十章关于化学领域发明专利申请审查的若干规定 ｜ 3.化学发明的充分公开",
+   "charLen": 2489
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/010/04.md",
+   "chunkId": "examination-guideline-2025/02/010/04",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-10-04",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十章关于化学领域发明专利申请审查的若干规定 ｜ 4.化学发明的权利要求",
+   "charLen": 3007
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/010/05.md",
+   "chunkId": "examination-guideline-2025/02/010/05",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-10-05",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十章关于化学领域发明专利申请审查的若干规定 ｜ 5.化学发明的新颖性",
+   "charLen": 1806
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/010/06.md",
+   "chunkId": "examination-guideline-2025/02/010/06",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-10-06",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十章关于化学领域发明专利申请审查的若干规定 ｜ 6.化学发明的创造性",
+   "charLen": 2093
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/010/07.md",
+   "chunkId": "examination-guideline-2025/02/010/07",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-10-07",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十章关于化学领域发明专利申请审查的若干规定 ｜ 7.化学发明的实用性",
+   "charLen": 201
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/010/08.md",
+   "chunkId": "examination-guideline-2025/02/010/08",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-10-08",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十章关于化学领域发明专利申请审查的若干规定 ｜ 8.化学发明的单一性",
+   "charLen": 2408
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/010/09/01.md",
+   "chunkId": "examination-guideline-2025/02/010/09/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-10-09-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十章关于化学领域发明专利申请审查的若干规定 ｜ 9.生物技术领域发明专利申请的审查 ｜ 9.1对要求保护的客体的审查",
+   "charLen": 1452
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/010/09/02.md",
+   "chunkId": "examination-guideline-2025/02/010/09/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-10-09-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十章关于化学领域发明专利申请审查的若干规定 ｜ 9.生物技术领域发明专利申请的审查 ｜ 9.2说明书的充分公开",
+   "charLen": 3650
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/010/09/03.md",
+   "chunkId": "examination-guideline-2025/02/010/09/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-10-09-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十章关于化学领域发明专利申请审查的若干规定 ｜ 9.生物技术领域发明专利申请的审查 ｜ 9.3生物技术领域发明的权利要求书",
+   "charLen": 2083
+  }
+ ]
+}

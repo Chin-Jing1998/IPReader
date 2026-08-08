@@ -1,0 +1,10 @@
+{
+  "chunk": "oa-response-guide/05/002",
+  "anchorNode": "oa-05-02",
+  "terms": [
+    { "name": "必要技术特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "判断某一技术特征是否为必要技术特征时" },
+    { "name": "独立权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "独立权利要求应当表述一个针对发明所要解决的技术问题的完整的技术方案" }
+  ],
+  "laws": ["专利审查指南第二部分第二章第3.1.2"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

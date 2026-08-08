@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/04/004/07",
+  "anchorNode": "04-04-07",
+  "terms": [
+    { "name": "口头审理终止", "aliases": [], "role": "defined", "confidence": "high", "evidence": "均由合议组宣布口头审理终止" },
+    { "name": "审查决定", "aliases": [], "role": "used", "confidence": "high", "evidence": "合议组可以当场宣布审查决定的结论" },
+    { "name": "部门负责人审核批准", "aliases": [], "role": "used", "confidence": "mid", "evidence": "需要经过部门负责人审核批准的案件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

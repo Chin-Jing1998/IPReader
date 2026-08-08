@@ -1,0 +1,10 @@
+{
+  "chunk": "examination-guideline-2025/04/002/05",
+  "anchorNode": "04-02-05",
+  "terms": [
+    { "name": "复审决定", "aliases": ["复审请求审查决定"], "role": "defined", "confidence": "high", "evidence": "复审请求审查决定（简称复审决定）分为下列三种类型" },
+    { "name": "违反法定程序", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查违反法定程序的，例如，驳回决定以申请人放弃的申请文本" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

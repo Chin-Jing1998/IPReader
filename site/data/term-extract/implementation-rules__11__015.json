@@ -1,0 +1,13 @@
+{
+  "chunk": "implementation-rules/11/015",
+  "anchorNode": "rule-11-15",
+  "terms": [
+    { "name": "初步审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "国务院专利行政部门经初步审查认为符合" },
+    { "name": "国际公布", "aliases": [], "role": "used", "confidence": "high", "evidence": "由国际局以中文进行国际公布的，自国际公布日或者" },
+    { "name": "国际局", "aliases": [], "role": "used", "confidence": "high", "evidence": "由国际局以中文以外的文字进行国际公布的" },
+    { "name": "专利公报", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当在专利公报上予以公布" },
+    { "name": "国际申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "对要求获得发明专利权的国际申请" }
+  ],
+  "laws": ["专利法第13条", "专利法第21条", "专利法第22条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/01/003/11",
+  "anchorNode": "01-03-11",
+  "terms": [
+    { "name": "同样的发明创造", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在判断是否构成专利法第九条所述的同样的发明创造时" },
+    { "name": "同样的外观设计", "aliases": [], "role": "defined", "confidence": "high", "evidence": "同样的外观设计是指两项外观设计相同或者实质相同。" },
+    { "name": "最先申请的人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利权授予最先申请的人" }
+  ],
+  "laws": ["专利法第9条第1款", "专利法第9条第2款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

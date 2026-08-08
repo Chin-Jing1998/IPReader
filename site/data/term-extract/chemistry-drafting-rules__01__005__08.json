@@ -1,0 +1,15 @@
+{
+  "chunk": "chemistry-drafting-rules/01/005/08",
+  "anchorNode": "chem-01-05-08",
+  "terms": [
+    { "name": "社会公德", "aliases": [], "role": "defined", "confidence": "high", "evidence": "发明创造与社会公德相违背的" },
+    { "name": "改变人生殖系遗传同一性的方法", "aliases": ["改变了生殖系遗传同一性的人"], "role": "used", "confidence": "mid", "evidence": "改变人生殖系遗传同一性的方法或改变了生殖系遗传同一性的人" },
+    { "name": "克隆人的方法", "aliases": ["克隆的人"], "role": "used", "confidence": "mid", "evidence": "克隆的人或克隆人的方法" },
+    { "name": "人胚胎的工业或商业目的的应用", "aliases": [], "role": "used", "confidence": "high", "evidence": "人胚胎的工业或商业目的的应用" },
+    { "name": "改变动物遗传同一性的方法", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可能导致动物痛苦而对人或动物的医疗没有实质性益处的改变动物遗传同一性的方法" },
+    { "name": "人与动物交配的方法", "aliases": [], "role": "used", "confidence": "mid", "evidence": "人与动物交配的方法" },
+    { "name": "非医疗目的的人造性器官", "aliases": [], "role": "used", "confidence": "mid", "evidence": "非医疗目的的人造性器官或者其替代物等" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

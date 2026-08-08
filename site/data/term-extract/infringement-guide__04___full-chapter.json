@@ -1,0 +1,17 @@
+{
+  "chunk": "infringement-guide/04/_full-chapter",
+  "anchorNode": "infr-04",
+  "terms": [
+    { "name": "一般消费者", "aliases": [], "role": "defined", "confidence": "high", "evidence": "一般消费者的知识水平和认知能力取决于现有设计的状况" },
+    { "name": "设计空间", "aliases": [], "role": "defined", "confidence": "high", "evidence": "设计空间是指设计者在创作特定产品外观设计时的自由度" },
+    { "name": "现有设计状况", "aliases": [], "role": "defined", "confidence": "high", "evidence": "现有设计状况是指在外观设计专利申请日之前在国内外为公众所知的相同或相近种类产品" },
+    { "name": "惯常设计", "aliases": [], "role": "defined", "confidence": "high", "evidence": "惯常设计，是指现有设计中一般消费者所熟知的、只要提到产品名称就能想到的相应设计" },
+    { "name": "由产品功能决定的设计特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "由产品功能决定的设计特征，是指由功能有限或唯一决定、不考虑美学因素而形成的设计" },
+    { "name": "相近似", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在整体视觉效果上无实质性差异的，应当认定两者构成相近似" },
+    { "name": "静态图形用户界面外观设计", "aliases": [], "role": "used", "confidence": "high", "evidence": "对于静态图形用户界面外观设计，应当主要考虑产品的图形用户界面部分" },
+    { "name": "组件产品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对于组装关系唯一的组件产品的外观设计专利，被诉侵权设计与该组件产品在组合状态下" },
+    { "name": "相同或者相近种类产品", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当首先审查被诉侵权产品与外观设计产品是否属于相同或者相近种类产品" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:20:00+08:00"
+}

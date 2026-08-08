@@ -1,0 +1,14 @@
+{
+  "chunk": "infringement-guide/02/002",
+  "anchorNode": "infr-02-02",
+  "terms": [
+    { "name": "相同侵权", "aliases": ["字面含义上的侵权"], "role": "defined", "confidence": "high", "evidence": "被诉侵权技术方案包含了与权利要求限定的一项完整技术方案记载的全部技术特征相同" },
+    { "name": "上位概念", "aliases": [], "role": "defined", "confidence": "high", "evidence": "当权利要求中记载的技术特征采用上位概念，而被诉侵权技术方案的相应技术特征采用" },
+    { "name": "下位概念", "aliases": [], "role": "defined", "confidence": "high", "evidence": "当权利要求中记载的技术特征采用上位概念，而被诉侵权技术方案的相应技术特征采用" },
+    { "name": "封闭式权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "被诉侵权技术方案在包含一项封闭式权利要求全部技术特征的基础上，增加其他技术特征" },
+    { "name": "功能性特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "对于包含功能性特征的权利要求，与本指南第19条所述的结构、步骤特征相比" },
+    { "name": "从属专利", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在后专利的某项权利要求记载了在先专利某项权利要求中记载的全部技术特征" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:20:00+08:00"
+}

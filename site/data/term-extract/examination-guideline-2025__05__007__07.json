@@ -1,0 +1,21 @@
+{
+  "chunk": "examination-guideline-2025/05/007/07",
+  "anchorNode": "05-07-07",
+  "terms": [
+    { "name": "中止", "aliases": [], "role": "defined", "confidence": "high", "evidence": "中止，是指当地方知识产权管理部门或者人民法院受理了专利申请权" },
+    { "name": "权属纠纷", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利申请权（或专利权）权属纠纷" },
+    { "name": "财产保全", "aliases": [], "role": "used", "confidence": "high", "evidence": "人民法院裁定对专利申请权（或专利权）采取财产保全措施" },
+    { "name": "中止程序请求书", "aliases": [], "role": "used", "confidence": "high", "evidence": "提交中止程序请求书并说明理由" },
+    { "name": "视为未提出通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员应当向中止程序请求人发出视为未提出通知书" },
+    { "name": "中止程序请求审批通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员向专利申请（或专利）权属纠纷的双方当事人发出中止程序请求审批通知书" },
+    { "name": "协助执行财产保全", "aliases": [], "role": "used", "confidence": "high", "evidence": "因人民法院要求协助执行财产保全措施需要中止有关程序的" },
+    { "name": "保全程序开始通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "向人民法院和申请人（或专利权人）发出保全程序开始通知书" },
+    { "name": "轮候保全", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以轮候保全。专利局应当进行轮候登记" },
+    { "name": "中止程序结束通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查员应当向权属纠纷的双方当事人发出中止程序结束通知书" },
+    { "name": "中止期限", "aliases": [], "role": "defined", "confidence": "high", "evidence": "中止期限一般不得超过一年，即自中止请求之日起满一年的" },
+    { "name": "办理手续补正通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员应当发出办理手续补正通知书" },
+    { "name": "不予执行财产保全通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当向人民法院发出不予执行财产保全通知书" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

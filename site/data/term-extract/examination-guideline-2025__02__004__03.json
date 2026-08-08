@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/02/004/03",
+  "anchorNode": "02-04-03",
+  "terms": [
+    { "name": "最接近的现有技术", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指现有技术中与要求保护的发明最密切相关的一个技术方案" },
+    { "name": "发明实际解决的技术问题", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指为获得更好的技术效果而需对最接近的现有技术进行改进的技术任务" },
+    { "name": "技术启示", "aliases": [], "role": "defined", "confidence": "high", "evidence": "现有技术整体上是否存在某种技术启示" },
+    { "name": "区别特征", "aliases": [], "role": "used", "confidence": "mid", "evidence": "要求保护的发明与最接近的现有技术相比有哪些区别特征" },
+    { "name": "公知常识", "aliases": [], "role": "used", "confidence": "mid", "evidence": "所述区别特征为公知常识" }
+  ],
+  "laws": ["专利法第22条第3款"],
+  "extractedAt": "2026-07-12T15:37:35+08:00"
+}

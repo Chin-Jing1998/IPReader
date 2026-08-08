@@ -1,0 +1,26 @@
+{
+  "chunk": "examination-guideline-2025/02/002/03/03",
+  "anchorNode": "02-02-03-03",
+  "terms": [
+    { "name": "开放式权利要求", "aliases": ["开放式的权利要求"], "role": "defined",
+      "confidence": "high", "evidence": "开放式的权利要求宜采用“包含”“包括”“主要由……组成”的表达方式" },
+    { "name": "封闭式权利要求", "aliases": ["封闭式的权利要求"], "role": "defined",
+      "confidence": "high", "evidence": "封闭式的权利要求宜采用“由……组成”的表达方式，其一般解释为不含有该权利要求所述" },
+    { "name": "上位概念概括", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "用上位概念概括。例如，用“气体激光器”概括氦氖激光器、氩离子激光器" },
+    { "name": "并列选择法概括", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "用并列选择法概括，即用“或者”或者“和”并列几个必择其一的具体特征" },
+    { "name": "前序部分", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "前序部分：写明要求保护的发明或者实用新型技术方案的主题名称和发明或者实用新型主题" },
+    { "name": "特征部分", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "特征部分：使用“其特征是……”或者类似的用语，写明发明或者实用新型区别于最接近的" },
+    { "name": "最接近的现有技术", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "在合适的情况下，选用一份与发明或者实用新型要求保护的主题最接近的现有技术文件进行" },
+    { "name": "多项从属权利要求", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "多项从属权利要求是指引用两项以上权利要求的从属权利要求" },
+    { "name": "择一引用方式", "aliases": [], "role": "defined",
+      "confidence": "mid", "evidence": "其引用的权利要求的编号应当用“或”或者其他与“或”同义的择一引用方式表达" }
+  ],
+  "laws": ["专利法实施细则第24条第1款", "专利法实施细则第24条第2款", "专利法实施细则第24条第3款", "专利法实施细则第25条第1款"],
+  "extractedAt": "2026-07-12T15:38:20+08:00"
+}

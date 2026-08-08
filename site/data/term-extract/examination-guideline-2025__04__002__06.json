@@ -1,0 +1,9 @@
+{
+  "chunk": "examination-guideline-2025/04/002/06",
+  "anchorNode": "04-02-06",
+  "terms": [
+    { "name": "复审决定", "aliases": [], "role": "used", "confidence": "high", "evidence": "复审决定应当送达复审请求人" }
+  ],
+  "laws": ["专利法第41条第1款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

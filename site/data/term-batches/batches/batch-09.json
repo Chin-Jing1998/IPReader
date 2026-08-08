@@ -1,0 +1,85 @@
+{
+ "batchNo": 9,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/003/02.md",
+   "chunkId": "examination-guideline-2025/02/003/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-03-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第三章新颖性 ｜ 2.新颖性的概念",
+   "charLen": 2878
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/003/03.md",
+   "chunkId": "examination-guideline-2025/02/003/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-03-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第三章新颖性 ｜ 3.新颖性的审查",
+   "charLen": 4271
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/003/04.md",
+   "chunkId": "examination-guideline-2025/02/003/04",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-03-04",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第三章新颖性 ｜ 4.优先权",
+   "charLen": 3328
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/003/05.md",
+   "chunkId": "examination-guideline-2025/02/003/05",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-03-05",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第三章新颖性 ｜ 5.不丧失新颖性的宽限期",
+   "charLen": 1223
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/003/06.md",
+   "chunkId": "examination-guideline-2025/02/003/06",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-03-06",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第三章新颖性 ｜ 6.对同样的发明创造的处理",
+   "charLen": 1803
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/004/01.md",
+   "chunkId": "examination-guideline-2025/02/004/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-04-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第四章创造性 ｜ 1.引言",
+   "charLen": 105
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/004/02.md",
+   "chunkId": "examination-guideline-2025/02/004/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-04-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第四章创造性 ｜ 2.发明创造性的概念",
+   "charLen": 751
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/004/03.md",
+   "chunkId": "examination-guideline-2025/02/004/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-04-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第四章创造性 ｜ 3.发明创造性的审查",
+   "charLen": 4252
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/004/04.md",
+   "chunkId": "examination-guideline-2025/02/004/04",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-04-04",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第四章创造性 ｜ 4.几种不同类型发明的创造性判断",
+   "charLen": 3886
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/004/05.md",
+   "chunkId": "examination-guideline-2025/02/004/05",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-04-05",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第四章创造性 ｜ 5.判断发明创造性时需考虑的其他因素",
+   "charLen": 951
+  }
+ ]
+}

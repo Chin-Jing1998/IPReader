@@ -1,0 +1,85 @@
+{
+ "batchNo": 7,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/07.md",
+   "chunkId": "examination-guideline-2025/01/004/07",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-04-07",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 7.对不同公布级专利申请的分类",
+   "charLen": 351
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/08.md",
+   "chunkId": "examination-guideline-2025/01/004/08",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "01-04-08",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 8.特定技术主题的分类方法",
+   "charLen": 2145
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/001/01.md",
+   "chunkId": "examination-guideline-2025/02/001/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-01-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第一章不授予专利权的申请 ｜ 1.引言",
+   "charLen": 311
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/001/02.md",
+   "chunkId": "examination-guideline-2025/02/001/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-01-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第一章不授予专利权的申请 ｜ 2.不符合专利法第二条第二款规定的客体",
+   "charLen": 258
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/001/03.md",
+   "chunkId": "examination-guideline-2025/02/001/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-01-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第一章不授予专利权的申请 ｜ 3.根据专利法第五条不授予专利权的发明创造",
+   "charLen": 2678
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/001/04/01.md",
+   "chunkId": "examination-guideline-2025/02/001/04/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-01-04-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第一章不授予专利权的申请 ｜ 4.根据专利法第二十五条不授予专利权的客体 ｜ 4.1科学发现",
+   "charLen": 423
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/001/04/02.md",
+   "chunkId": "examination-guideline-2025/02/001/04/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-01-04-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第一章不授予专利权的申请 ｜ 4.根据专利法第二十五条不授予专利权的客体 ｜ 4.2智力活动的规则和方法",
+   "charLen": 850
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/001/04/03.md",
+   "chunkId": "examination-guideline-2025/02/001/04/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-01-04-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第一章不授予专利权的申请 ｜ 4.根据专利法第二十五条不授予专利权的客体 ｜ 4.3疾病的诊断和治疗方法",
+   "charLen": 2458
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/001/04/04.md",
+   "chunkId": "examination-guideline-2025/02/001/04/04",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-01-04-04",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第一章不授予专利权的申请 ｜ 4.根据专利法第二十五条不授予专利权的客体 ｜ 4.4动物和植物品种",
+   "charLen": 559
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/001/04/05.md",
+   "chunkId": "examination-guideline-2025/02/001/04/05",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-01-04-05",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第一章不授予专利权的申请 ｜ 4.根据专利法第二十五条不授予专利权的客体 ｜ 4.5原子核变换方法以及用该方法获得的物质",
+   "charLen": 438
+  }
+ ]
+}

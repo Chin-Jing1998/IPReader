@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/10/002",
+  "anchorNode": "rule-10-02",
+  "terms": [
+    { "name": "缴费日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以缴纳当日为缴费日" },
+    { "name": "多缴、重缴、错缴", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "多缴、重缴、错缴专利费用的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,17 @@
+{
+  "chunk": "examination-guideline-2025/04/001/01",
+  "anchorNode": "04-01-01",
+  "terms": [
+    { "name": "复审和无效审理部", "aliases": [], "role": "used", "confidence": "high", "evidence": "复审和无效审理部对复审请求进行受理和审查" },
+    { "name": "复审请求案件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "复审请求案件包括对初步审查和实质审查程序中驳回专利申请的决定不服而请求复审的案件" },
+    { "name": "无效宣告请求", "aliases": [], "role": "used", "confidence": "high", "evidence": "对专利权无效宣告请求进行受理和审查" },
+    { "name": "复审员", "aliases": [], "role": "used", "confidence": "mid", "evidence": "设复审员和兼职复审员" },
+    { "name": "兼职复审员", "aliases": [], "role": "used", "confidence": "mid", "evidence": "设复审员和兼职复审员" }
+  ],
+  "laws": [
+    "专利法第41条",
+    "专利法第45条",
+    "专利法第46条第1款"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

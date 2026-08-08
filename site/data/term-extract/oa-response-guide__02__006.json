@@ -1,0 +1,12 @@
+{
+  "chunk": "oa-response-guide/02/006",
+  "anchorNode": "oa-02-06",
+  "terms": [
+    { "name": "对比文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对比文件Y中虽然公开了特征" },
+    { "name": "结合启示", "aliases": [], "role": "used", "confidence": "high", "evidence": "对比文件2没有给出将……应用到对比文件1中的结合启示" },
+    { "name": "公知常识", "aliases": [], "role": "used", "confidence": "high", "evidence": "该特征也并非本领域的公知常识" },
+    { "name": "事后诸葛亮", "aliases": [], "role": "used", "confidence": "high", "evidence": "属于事后诸葛亮" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

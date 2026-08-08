@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/06/007",
+  "anchorNode": "rule-06-07",
+  "terms": [
+    { "name": "裁决请求书", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "当事人应当提出裁决请求书" }
+  ],
+  "laws": ["专利法第62条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

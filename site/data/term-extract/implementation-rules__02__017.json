@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/02/017",
+  "anchorNode": "rule-02-17",
+  "terms": [
+    { "name": "中国政府承认的国际展览会", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指国际展览会公约规定的在国际展览局注册或者由其认可的国际展览会" },
+    { "name": "学术会议或者技术会议", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指国务院有关主管部门或者全国性学术团体组织召开的学术会议或者技术会议" }
+  ],
+  "laws": ["专利法第24条第1项", "专利法第24条第2项", "专利法第24条第3项", "专利法第24条第4项", "专利法第24条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

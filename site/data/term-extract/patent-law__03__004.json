@@ -1,0 +1,12 @@
+{
+  "chunk": "patent-law/03/004",
+  "anchorNode": "law-03-04",
+  "terms": [
+    { "name": "优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以享有优先权" },
+    { "name": "外国优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在外国第一次提出专利申请之日起十二个月内" },
+    { "name": "本国优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在中国第一次提出专利申请之日起十二个月内" },
+    { "name": "相同主题", "aliases": [], "role": "used", "confidence": "mid", "evidence": "就相同主题提出专利申请" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,15 @@
+{
+  "chunk": "patent-law/02/001",
+  "anchorNode": "law-02-01",
+  "terms": [
+    { "name": "新颖性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "新颖性，是指该发明或者实用新型不属于现有技术" },
+    { "name": "创造性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "创造性，是指与现有技术相比，该发明具有突出的实质性特点和显著的进步" },
+    { "name": "实用性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "实用性，是指该发明或者实用新型能够制造或者使用，并且能够产生积极效果" },
+    { "name": "现有技术", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本法所称现有技术，是指申请日以前在国内外为公众所知的技术" },
+    { "name": "突出的实质性特点", "aliases": [], "role": "used", "confidence": "mid", "evidence": "突出的实质性特点" },
+    { "name": "显著的进步", "aliases": [], "role": "used", "confidence": "mid", "evidence": "显著的进步" },
+    { "name": "申请日", "aliases": [], "role": "used", "confidence": "high", "evidence": "在申请日以前向国务院专利行政部门提出过申请" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,1147 @@
+[
+ {
+  "termKey": "发明点",
+  "canonical": "发明点",
+  "aliases": [],
+  "tier": "mid",
+  "df": 6,
+  "domains": [
+   "chemistry-drafting-rules",
+   "mechanical-drafting-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/002",
+    "text": "“体现发明点的主要技术方案”，一般是指本申请中最核心的主题的技术方案"
+   },
+   {
+    "chunk": "chemistry-drafting-rules/02/001",
+    "text": "体现发明点的技术方案的要点"
+   }
+  ]
+ },
+ {
+  "termKey": "视为撤回通知书",
+  "canonical": "视为撤回通知书",
+  "aliases": [],
+  "tier": "mid",
+  "df": 6,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/002/03",
+    "text": "审查员应当根据情况发出视为撤回通知书或者其他通知书"
+   },
+   {
+    "chunk": "examination-guideline-2025/01/003/03",
+    "text": "发出视为撤回通知书或者其他通知书"
+   }
+  ]
+ },
+ {
+  "termKey": "本领域技术人员",
+  "canonical": "本领域技术人员",
+  "aliases": [
+   "所述领域的技术人员"
+  ],
+  "tier": "mid",
+  "df": 5,
+  "domains": [
+   "chemistry-drafting-rules",
+   "oa-response-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "chemistry-drafting-rules/01/004/06",
+    "text": "以保证本领域技术人员可以通过上述公开的来源"
+   },
+   {
+    "chunk": "chemistry-drafting-rules/02/003/03",
+    "text": "本领域技术人员在阅读完本说明书后可以根据需要对本实施例做出没有创造性贡献的修改"
+   }
+  ]
+ },
+ {
+  "termKey": "恢复权利请求费",
+  "canonical": "恢复权利请求费",
+  "aliases": [],
+  "tier": "mid",
+  "df": 5,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/05/02",
+    "text": "缴纳恢复权利请求费、优先权要求费"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/002/01",
+    "text": "恢复权利请求费的缴纳期限是自当事人收到专利局确认权利丧失"
+   }
+  ]
+ },
+ {
+  "termKey": "技术手段",
+  "canonical": "技术手段",
+  "aliases": [],
+  "tier": "mid",
+  "df": 5,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/002/06",
+    "text": "技术手段通常是由技术特征来体现的"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/001/02",
+    "text": "技术手段通常是由技术特征来体现的"
+   }
+  ]
+ },
+ {
+  "termKey": "质权人",
+  "canonical": "质权人",
+  "aliases": [],
+  "tier": "mid",
+  "df": 5,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/008/01/03",
+    "text": "质押登记日、出质人、质权人"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/011/03",
+    "text": "专利权被质押，未经质权人同意的"
+   }
+  ]
+ },
+ {
+  "termKey": "存活证明",
+  "canonical": "存活证明",
+  "aliases": [],
+  "tier": "mid",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/05",
+    "text": "自申请日起四个月内提交保藏单位出具的保藏证明和存活证明"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/001/05/05",
+    "text": "生物材料样品保藏证明和存活证明的期限"
+   }
+  ]
+ },
+ {
+  "termKey": "单一性恢复费",
+  "canonical": "单一性恢复费",
+  "aliases": [],
+  "tier": "mid",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/002/15",
+    "text": "发出缴纳单一性恢复费通知书"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/001/07",
+    "text": "单一性恢复费，应当在审查员发出的缴纳单一性恢复费通知规定的期限内缴纳"
+   }
+  ]
+ },
+ {
+  "termKey": "复审费",
+  "canonical": "复审费",
+  "aliases": [],
+  "tier": "mid",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/07",
+    "text": "国际申请的申请人缴纳复审费和年费确有困难的"
+   },
+   {
+    "chunk": "examination-guideline-2025/04/002/02",
+    "text": "未缴纳或者未缴足复审费的"
+   }
+  ]
+ },
+ {
+  "termKey": "国际公布",
+  "canonical": "国际公布",
+  "aliases": [],
+  "tier": "mid",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/05/11",
+    "text": "没有完成国际公布的申请"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/001/06",
+    "text": "已由国际局自优先权日起满十八个月完成国际公布"
+   }
+  ]
+ },
+ {
+  "termKey": "基本设计",
+  "canonical": "基本设计",
+  "aliases": [],
+  "tier": "mid",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/04/03",
+    "text": "应当在简要说明中指定其中一项作为基本设计"
+   },
+   {
+    "chunk": "examination-guideline-2025/01/003/09",
+    "text": "简要说明中指定的基本设计"
+   }
+  ]
+ },
+ {
+  "termKey": "权利要求",
+  "canonical": "权利要求",
+  "aliases": [],
+  "tier": "mid",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/004/05",
+    "text": "放弃部分或全部权利要求"
+   },
+   {
+    "chunk": "examination-guideline-2025/04/004/11",
+    "text": "当事人声明放弃的权利要求"
+   }
+  ]
+ },
+ {
+  "termKey": "实质审查费",
+  "canonical": "实质审查费",
+  "aliases": [],
+  "tier": "mid",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/06/04",
+    "text": "并在此期限内缴纳实质审查费"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/001/05/09",
+    "text": "并缴纳实质审查费"
+   }
+  ]
+ },
+ {
+  "termKey": "意见陈述书",
+  "canonical": "意见陈述书",
+  "aliases": [],
+  "tier": "mid",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "oa-response-guide"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/05/01",
+    "text": "申请人的答复可以仅仅是意见陈述书"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/001/05/12",
+    "text": "该要求可以以“意见陈述书”的形式提出"
+   }
+  ]
+ },
+ {
+  "termKey": "原申请",
+  "canonical": "原申请",
+  "aliases": [],
+  "tier": "mid",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/05",
+    "text": "分案申请应当在请求书中填写原申请的申请号和申请日"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/006/03",
+    "text": "分案以后的原申请与分案申请的权利要求书应当分别要求保护不同的发明"
+   }
+  ]
+ },
+ {
+  "termKey": "证明文件",
+  "canonical": "证明文件",
+  "aliases": [],
+  "tier": "mid",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/001/06",
+    "text": "专利申请审批程序中常用的证明文件有国籍证明、注册地证明、优先权证明"
+   },
+   {
+    "chunk": "examination-guideline-2025/06/002/06/03",
+    "text": "向专利局提交有关符合规定的证明文件"
+   }
+  ]
+ },
+ {
+  "termKey": "专利权期限的补偿",
+  "canonical": "专利权期限的补偿",
+  "aliases": [],
+  "tier": "mid",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/008/01/02",
+    "text": "专利权期限的补偿"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/008/01/03",
+    "text": "专利权期限的补偿"
+   }
+  ]
+ },
+ {
+  "termKey": "专利性国际初步报告",
+  "canonical": "专利性国际初步报告",
+  "aliases": [],
+  "tier": "mid",
+  "df": 4,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/03",
+    "text": "专利性国际初步报告之后附有相应内容"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/001/07",
+    "text": "由中国专利局作出国际检索报告及专利性国际初步报告的国际申请"
+   }
+  ]
+ },
+ {
+  "termKey": "保藏证明",
+  "canonical": "保藏证明",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/05",
+    "text": "自申请日起四个月内提交保藏单位出具的保藏证明和存活证明"
+   },
+   {
+    "chunk": "implementation-rules/02/011",
+    "text": "提交保藏单位出具的保藏证明和存活证明"
+   }
+  ]
+ },
+ {
+  "termKey": "独占许可",
+  "canonical": "独占许可",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/011/03",
+    "text": "专利权处于独占或者排他许可有效期限内的"
+   },
+   {
+    "chunk": "implementation-rules/06/002",
+    "text": "专利权处于独占或者排他许可有效期限内的"
+   }
+  ]
+ },
+ {
+  "termKey": "复审请求人",
+  "canonical": "复审请求人",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/004/05",
+    "text": "由复审请求人进行陈述"
+   },
+   {
+    "chunk": "implementation-rules/04/001",
+    "text": "书面通知复审请求人并说明理由"
+   }
+  ]
+ },
+ {
+  "termKey": "复审通知书",
+  "canonical": "复审通知书",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/002/04",
+    "text": "合议组应当发出复审通知书（包括复审请求口头审理通知书）"
+   },
+   {
+    "chunk": "implementation-rules/04/002",
+    "text": "在对国务院专利行政部门的复审通知书作出答复时"
+   }
+  ]
+ },
+ {
+  "termKey": "给予保护的决定",
+  "canonical": "给予保护的决定",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/06/002/01",
+    "text": "由专利局作出给予保护的决定，并通知国际局"
+   },
+   {
+    "chunk": "examination-guideline-2025/06/002/03",
+    "text": "审查员应当作出给予保护的决定，向国际局发出给予保护声明"
+   }
+  ]
+ },
+ {
+  "termKey": "共有专利权",
+  "canonical": "共有专利权",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/003/03",
+    "text": "共有专利权的所有专利权人"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/011/03",
+    "text": "共有人就共有专利权提出开放许可声明的"
+   }
+  ]
+ },
+ {
+  "termKey": "国际检索报告",
+  "canonical": "国际检索报告",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/03",
+    "text": "国际检索报告不包含在首次公布的国际公布文本A2中"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/001/07",
+    "text": "由中国专利局作出国际检索报告及专利性国际初步报告的国际申请"
+   }
+  ]
+ },
+ {
+  "termKey": "国际阶段",
+  "canonical": "国际阶段",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/11/005",
+    "text": "在国际阶段，国际申请被撤回或者被视为撤回"
+   },
+   {
+    "chunk": "implementation-rules/11/006",
+    "text": "国际申请在国际阶段作过修改"
+   }
+  ]
+ },
+ {
+  "termKey": "合议组",
+  "canonical": "合议组",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/001/03",
+    "text": "其中包括组长一人、主审员一人、参审员一或三人"
+   },
+   {
+    "chunk": "examination-guideline-2025/04/002/04",
+    "text": "合议组一般仅针对驳回决定所依据的理由和证据进行审查"
+   }
+  ]
+ },
+ {
+  "termKey": "互惠原则",
+  "canonical": "互惠原则",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/001/04/01",
+    "text": "该国法律中是否订有依互惠原则给外国人以专利保护的条款"
+   },
+   {
+    "chunk": "implementation-rules/09/004",
+    "text": "国务院专利行政部门负责按照互惠原则"
+   }
+  ]
+ },
+ {
+  "termKey": "排他许可",
+  "canonical": "排他许可",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/011/03",
+    "text": "专利权处于独占或者排他许可有效期限内的"
+   },
+   {
+    "chunk": "implementation-rules/06/002",
+    "text": "专利权处于独占或者排他许可有效期限内的"
+   }
+  ]
+ },
+ {
+  "termKey": "商业规则和方法特征",
+  "canonical": "商业规则和方法特征",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/009/06/01",
+    "text": "该方法中包含的特征全部是与返利规则相关的商业规则和方法特征"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/009/06/02",
+    "text": "给出包含算法特征或商业规则和方法特征的发明专利申请的审查示例"
+   }
+  ]
+ },
+ {
+  "termKey": "申请费",
+  "canonical": "申请费",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/002/01",
+    "text": "申请费的缴纳期限是自申请日起两个月内"
+   },
+   {
+    "chunk": "implementation-rules/10/001",
+    "text": "申请费、申请附加费、公布印刷费、优先权要求费"
+   }
+  ]
+ },
+ {
+  "termKey": "受理局",
+  "canonical": "受理局",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/05/10",
+    "text": "或受理局的要求"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/001/05/11",
+    "text": "受理局拒绝给予国际申请日"
+   }
+  ]
+ },
+ {
+  "termKey": "算法特征",
+  "canonical": "算法特征",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/009/06/01",
+    "text": "对于包含算法特征或商业规则和方法特征的发明专利申请"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/009/06/02",
+    "text": "上述算法特征与技术特征在功能上彼此相互支持、存在相互作用关系"
+   }
+  ]
+ },
+ {
+  "termKey": "同日申请",
+  "canonical": "同日申请",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/007",
+    "text": "同一专利权人同日（仅指申请日）申请的一项实用新型专利权和一项发明专利权"
+   },
+   {
+    "chunk": "implementation-rules/05/002",
+    "text": "同一申请人同日对同样的发明创造既申请实用新型专利又申请发明专利"
+   }
+  ]
+ },
+ {
+  "termKey": "外观设计国际注册申请",
+  "canonical": "外观设计国际注册申请",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/06/001/01",
+    "text": "通过专利局提交外观设计国际注册申请、缴纳费用"
+   },
+   {
+    "chunk": "examination-guideline-2025/06/001/04",
+    "text": "外观设计国际注册申请的国际程序相关费用应当直接向国际局缴纳"
+   }
+  ]
+ },
+ {
+  "termKey": "无效宣告请求费",
+  "canonical": "无效宣告请求费",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/002/01",
+    "text": "著录事项变更费、专利权评价报告请求费、无效宣告请求费的缴纳期限"
+   },
+   {
+    "chunk": "implementation-rules/10/001",
+    "text": "无效宣告请求费、专利文件副本证明费"
+   }
+  ]
+ },
+ {
+  "termKey": "依职权审查",
+  "canonical": "依职权审查",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/002/01",
+    "text": "合议组可以依职权对驳回决定未提及的明显实质性缺陷进行审查"
+   },
+   {
+    "chunk": "examination-guideline-2025/04/003/04",
+    "text": "合议组在下列情形可以依职权进行审查"
+   }
+  ]
+ },
+ {
+  "termKey": "译文改正费",
+  "canonical": "译文改正费",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/05/08",
+    "text": "并且缴纳规定的译文改正费"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/001/07",
+    "text": "译文改正费应当在提出改正译文错误请求的同时缴纳"
+   }
+  ]
+ },
+ {
+  "termKey": "优先权期限",
+  "canonical": "优先权期限",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/007/06",
+    "text": "优先权期限"
+   },
+   {
+    "chunk": "implementation-rules/02/019",
+    "text": "该申请的优先权期限从最早的优先权日起计算"
+   }
+  ]
+ },
+ {
+  "termKey": "援引在先申请文件",
+  "canonical": "援引在先申请文件",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/008/03",
+    "text": "以援引在先申请文件的方式进行了补交"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/008/04/01",
+    "text": "按照规定以援引在先申请文件的方式补交的权利要求书或说明书的内容"
+   }
+  ]
+ },
+ {
+  "termKey": "指定局",
+  "canonical": "指定局",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/03",
+    "text": "指定局根据申请人的明确的请求"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/001/05/10",
+    "text": "并书面通知指定局"
+   }
+  ]
+ },
+ {
+  "termKey": "专利保护的客体",
+  "canonical": "专利保护的客体",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/02/009/02",
+    "text": "则该权利要求属于智力活动的规则和方法，不属于专利保护的客体"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/009/03",
+    "text": "不属于专利保护的客体"
+   }
+  ]
+ },
+ {
+  "termKey": "专利权评价报告请求书",
+  "canonical": "专利权评价报告请求书",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/010/02",
+    "text": "专利权评价报告请求书"
+   },
+   {
+    "chunk": "implementation-rules/03/021",
+    "text": "应当提交专利权评价报告请求书"
+   }
+  ]
+ },
+ {
+  "termKey": "专利实施许可",
+  "canonical": "专利实施许可",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/011/01",
+    "text": "支付许可使用费后，即获得专利实施许可"
+   },
+   {
+    "chunk": "implementation-rules/06/003",
+    "text": "通过开放许可达成专利实施许可的"
+   }
+  ]
+ },
+ {
+  "termKey": "专利实施许可合同",
+  "canonical": "专利实施许可合同",
+  "aliases": [],
+  "tier": "mid",
+  "df": 3,
+  "domains": [
+   "implementation-rules",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/01/015",
+    "text": "专利权人与他人订立的专利实施许可合同"
+   },
+   {
+    "chunk": "implementation-rules/09/001",
+    "text": "专利实施许可合同的备案"
+   }
+  ]
+ },
+ {
+  "termKey": "《规范申请专利行为的规定》",
+  "canonical": "《规范申请专利行为的规定》",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/002/05",
+    "text": "适用《规范申请专利行为的规定》"
+   },
+   {
+    "chunk": "examination-guideline-2025/02/001/05",
+    "text": "《规范申请专利行为的规定》"
+   }
+  ]
+ },
+ {
+  "termKey": "保密基准",
+  "canonical": "保密基准",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/005/02",
+    "text": "保密的基准按照国家有关规定执行"
+   },
+   {
+    "chunk": "examination-guideline-2025/05/005/03",
+    "text": "审查员应当根据保密基准对专利申请进行审查"
+   }
+  ]
+ },
+ {
+  "termKey": "保密专利权",
+  "canonical": "保密专利权",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "implementation-rules/01/007",
+    "text": "以及保密专利权无效宣告的特殊程序"
+   },
+   {
+    "chunk": "implementation-rules/03/020",
+    "text": "作出授予保密专利权的决定"
+   }
+  ]
+ },
+ {
+  "termKey": "保全措施",
+  "canonical": "保全措施",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/009/02",
+    "text": "依照专利法实施细则第一百零四条规定的保全措施"
+   },
+   {
+    "chunk": "implementation-rules/08/010",
+    "text": "人民法院在审理民事案件中裁定对专利申请权或者专利权采取保全措施的"
+   }
+  ]
+ },
+ {
+  "termKey": "变化状态图",
+  "canonical": "变化状态图",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/01/003/04/02",
+    "text": "申请人还应当提交该外观设计产品的展开图、剖视图、剖面图、放大图以及变化状态图"
+   },
+   {
+    "chunk": "examination-guideline-2025/01/003/04/05",
+    "text": "可以提交图形用户界面关键帧的视图作为变化状态图"
+   }
+  ]
+ },
+ {
+  "termKey": "补正",
+  "canonical": "补正",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/010/02",
+    "text": "在指定期限内补正"
+   },
+   {
+    "chunk": "implementation-rules/03/009",
+    "text": "要求其在指定期限内陈述意见或者补正"
+   }
+  ]
+ },
+ {
+  "termKey": "撤回无效宣告请求",
+  "canonical": "撤回无效宣告请求",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/04/004/13",
+    "text": "无效宣告请求人有权请求撤回无效宣告请求"
+   },
+   {
+    "chunk": "implementation-rules/04/012",
+    "text": "无效宣告请求人可以撤回其请求"
+   }
+  ]
+ },
+ {
+  "termKey": "出质人",
+  "canonical": "出质人",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/05/008/01/03",
+    "text": "质押登记日、出质人、质权人"
+   },
+   {
+    "chunk": "implementation-rules/01/015",
+    "text": "由出质人和质权人共同"
+   }
+  ]
+ },
+ {
+  "termKey": "传送编号",
+  "canonical": "传送编号",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/06/001/02",
+    "text": "告知传送编号、传送期限及文件清单"
+   },
+   {
+    "chunk": "examination-guideline-2025/06/001/04",
+    "text": "当事人应当以传送编号为依据"
+   }
+  ]
+ },
+ {
+  "termKey": "登记本",
+  "canonical": "登记本",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "examination-guideline-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline-2025/03/001/03",
+    "text": "经国际局确认的“登记本”副本"
+   },
+   {
+    "chunk": "examination-guideline-2025/03/001/05/11",
+    "text": "没有收到国际申请的登记本"
+   }
+  ]
+ }
+]

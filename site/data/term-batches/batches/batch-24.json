@@ -1,0 +1,85 @@
+{
+ "batchNo": 24,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/007.md",
+   "chunkId": "examination-guideline-2025/04/007",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "04-07",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第七章无效宣告程序中对于同样的发明创造的处理",
+   "charLen": 1678
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/008/01.md",
+   "chunkId": "examination-guideline-2025/04/008/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "04-08-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第八章无效宣告程序中有关证据问题的规定 ｜ 1.引言",
+   "charLen": 95
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/008/02.md",
+   "chunkId": "examination-guideline-2025/04/008/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "04-08-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第八章无效宣告程序中有关证据问题的规定 ｜ 2.当事人举证",
+   "charLen": 1294
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/008/03.md",
+   "chunkId": "examination-guideline-2025/04/008/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "04-08-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第八章无效宣告程序中有关证据问题的规定 ｜ 3.对证据的调查收集",
+   "charLen": 209
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/008/04.md",
+   "chunkId": "examination-guideline-2025/04/008/04",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "04-08-04",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第八章无效宣告程序中有关证据问题的规定 ｜ 4.证据的质证和审核认定",
+   "charLen": 1826
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/008/05.md",
+   "chunkId": "examination-guideline-2025/04/008/05",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "04-08-05",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第八章无效宣告程序中有关证据问题的规定 ｜ 5.其他",
+   "charLen": 529
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/001/01.md",
+   "chunkId": "examination-guideline-2025/05/001/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-01-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第一章专利申请文件及手续 ｜ 1.引言",
+   "charLen": 387
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/001/02.md",
+   "chunkId": "examination-guideline-2025/05/001/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-01-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第一章专利申请文件及手续 ｜ 2.办理专利申请手续的形式",
+   "charLen": 496
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/001/03.md",
+   "chunkId": "examination-guideline-2025/05/001/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-01-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第一章专利申请文件及手续 ｜ 3.适用文字",
+   "charLen": 530
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/001/04.md",
+   "chunkId": "examination-guideline-2025/05/001/04",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "05-01-04",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第一章专利申请文件及手续 ｜ 4.标准表格",
+   "charLen": 445
+  }
+ ]
+}

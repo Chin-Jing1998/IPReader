@@ -1,0 +1,13 @@
+{
+  "chunk": "implementation-rules/02/024",
+  "anchorNode": "rule-02-24",
+  "terms": [
+    { "name": "相似外观设计", "aliases": [], "role": "defined", "confidence": "high", "evidence": "一件外观设计专利申请中的相似外观设计不得超过10项" },
+    { "name": "基本设计", "aliases": [], "role": "used", "confidence": "high", "evidence": "简要说明中指定的基本设计相似" },
+    { "name": "同一类别并且成套出售或者使用的产品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指各产品属于分类表中同一大类，习惯上同时出售或者同时使用" },
+    { "name": "设计构思", "aliases": [], "role": "used", "confidence": "mid", "evidence": "各产品的外观设计具有相同的设计构思" },
+    { "name": "分类表", "aliases": [], "role": "used", "confidence": "mid", "evidence": "是指各产品属于分类表中同一大类" }
+  ],
+  "laws": ["专利法第31条第2款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

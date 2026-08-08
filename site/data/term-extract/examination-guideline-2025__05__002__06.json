@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/05/002/06",
+  "anchorNode": "05-02-06",
+  "terms": [
+    { "name": "费用种类的转换", "aliases": ["转换费用种类"], "role": "defined", "confidence": "high", "evidence": "经专利局确认后可以对费用种类进行转换" },
+    { "name": "依职权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查员可以依职权对费用种类进行转换" },
+    { "name": "缴费日", "aliases": [], "role": "used", "confidence": "mid", "evidence": "费用种类转换的，缴费日不变" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

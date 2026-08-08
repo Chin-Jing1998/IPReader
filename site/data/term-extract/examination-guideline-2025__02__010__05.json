@@ -1,0 +1,17 @@
+{
+  "chunk": "examination-guideline-2025/02/010/05",
+  "anchorNode": "02-10-05",
+  "terms": [
+    { "name": "化合物的新颖性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "如果在一份对比文件中记载了化合物的化学名称、分子式（或者结构式）等结构信息" },
+    { "name": "通式", "aliases": [], "role": "defined", "confidence": "high", "evidence": "通式不能破坏该通式中一个具体化合物的新颖性" },
+    { "name": "具体化合物", "aliases": [], "role": "defined", "confidence": "high", "evidence": "一个具体化合物的公开使包括该具体化合物的通式权利要求丧失新颖性" },
+    { "name": "排除法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "权利要求采取排除法撰写形式，即指明不含C，则该权利要求仍有新颖性" },
+    { "name": "用物理化学参数表征的化学产品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "如果无法依据所记载的参数对由该参数表征的产品与对比文件公开的产品进行比较" },
+    { "name": "用制备方法表征的化学产品权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对于用制备方法表征的化学产品权利要求，其新颖性审查应针对该产品本身进行" },
+    { "name": "化学产品用途发明的新颖性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "如果一项已知产品的新用途本身是一项发明，则已知产品不能破坏该新用途的新颖性" },
+    { "name": "上位概念", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "新用途是否属于原已知用途的上位概念" },
+    { "name": "化学产品的医药用途发明的新颖性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对于涉及化学产品的医药用途发明，其新颖性审查应考虑以下方面" }
+  ],
+  "laws": ["专利法第22条第2款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

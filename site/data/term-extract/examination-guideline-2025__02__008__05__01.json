@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/02/008/05/01",
+  "anchorNode": "02-08-05-01",
+  "terms": [
+    { "name": "意见陈述书", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人的答复可以仅仅是意见陈述书" },
+    { "name": "补正书", "aliases": [], "role": "used", "confidence": "high", "evidence": "经修改的申请文件（替换页和/或补正书）" },
+    { "name": "替换页", "aliases": [], "role": "used", "confidence": "high", "evidence": "经修改的申请文件（替换页和/或补正书）" },
+    { "name": "正式答复", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不视为正式答复，不具备法律效力" },
+    { "name": "答复期限", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人可以请求专利局延长指定的答复期限" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

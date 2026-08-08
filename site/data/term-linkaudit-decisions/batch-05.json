@@ -1,0 +1,192 @@
+[
+  {
+    "id": "term-0440",
+    "canonical": "技术效果",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指专利“技术方案所达到的技术效果”这一核心概念（如“预期的技术效果”“相对独立的技术效果”），邻字以“的+技术效果+，/。”句式为主，无歧义漂移。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0441",
+    "canonical": "视为未提出",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例（含别名“视为未提出请求”）均指费用未缴、优先权未补正等场景下的法定处分结果，邻字“求/出”对应“该请求视为未提出”“期满未缴纳…视为未提出”，右邻“通(35)”对应“视为未提出通知书”，语义单一。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0442",
+    "canonical": "序列表",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指核苷酸/氨基酸序列的“序列表”这一说明书组成部分，邻字“酸”对应“氨基酸序列的序列表”，与别名“计算机可读形式序列表”语义一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0443",
+    "canonical": "有益效果",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指发明与现有技术相比的“有益效果”这一说明书撰写要素，与技术问题、技术方案并列出现（“技术问题、技术方案和有益效果应当相互适应”），语义稳定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0444",
+    "canonical": "专利合作条约",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指PCT条约本身，邻字“照/据”对应“按照/根据专利合作条约”，右邻“第(45)”对应“专利合作条约第19/33条”等条款引用，embedRate为1，属专有名词无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0445",
+    "canonical": "保护范围",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "属特别提示中的超高频核心词，10条样例均指专利权保护范围这一核心概念（“专利权的保护范围以其权利要求的内容为准”“合理界定…限定的保护范围”），embedRate为1，无偏离样例。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0446",
+    "canonical": "发明内容",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例（含别名“发明或者实用新型内容”）均指说明书固定章节“发明内容”，右邻“部(9)”对应“发明内容部分”，语义一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0447",
+    "canonical": "技术领域",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例（含别名“所属技术领域”）均指专利技术领域概念；左邻“属(161)”多对应更长词“所属技术领域的技术人员”，该长词命中时自动优先，不影响本词单独出现时的判定，其余样例语义仍一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0448",
+    "canonical": "进入日",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指PCT国际申请进入中国国家阶段的日期这一专有程序术语，“自…进入日起N个月内”句式反复出现（左邻“自”22次、右邻“起”23次），embedRate为1，无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0451",
+    "canonical": "权利要求书",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "属特别提示中的超高频核心词，10条样例均指专利申请法定文件“权利要求书”，右邻“记(47)”对应“权利要求书记载的范围”等固定搭配，语义单一稳定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0452",
+    "canonical": "上位概念",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "9条样例明确指向权利要求解释、新颖性判断中的“上位概念”（与“下位概念”相对），右邻“概(4)”对应“上位概念/下位概念”并列表述；末例见于外观设计审查条款索引条目，仍属同一概念，无漂移证据。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0453",
+    "canonical": "说明书",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "属特别提示中的超高频核心词，10条样例均指专利文件“说明书”本身（“提交请求书、说明书及其摘要…”“说明书应当对发明…作出清楚、完整的说明”），右邻“中(276)”对应“说明书中记载…”等固定搭配，无偏离。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0455",
+    "canonical": "驳回",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "属特别提示中的超高频核心词；10条样例中8条指专利审查“驳回申请/驳回决定”（右邻“决”126次对应“驳回决定”，该长词命中时自动优先），2条（infr-01-02/infr-01-03）指法院“裁定驳回起诉/判决驳回诉讼请求”——二者均为“依法否准请求”这一同一核心语义在不同程序中的场景化使用，未见与“驳回”无关的多义漂移，按判例锚①判yes；因场景略有分化，confidence降为medium。",
+    "confidence": "medium"
+  },
+  {
+    "id": "term-0456",
+    "canonical": "驳回理由",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指专利审查中“（没有）发现驳回理由”“驳回理由部分”这一固定表述，左邻“现(27)”对应“没有发现驳回理由”，embedRate为1，语义高度一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0459",
+    "canonical": "前序部分",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指独立权利要求撰写中与“特征部分”相对的“前序部分”，右邻“和(4)”对应“前序部分和特征部分”固定搭配，概念单一稳定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0460",
+    "canonical": "请求书",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指专利申请法定文件“请求书”（“应当提交请求书、说明书…”），右邻“中(85)”对应“请求书中的发明名称/联系人”等固定搭配，语义一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0462",
+    "canonical": "无效宣告程序",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指专利“无效宣告程序”这一法定程序概念，右邻“中(46)”对应“无效宣告程序中…”固定搭配，语境稳定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0463",
+    "canonical": "主动修改",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指申请人对专利申请文件的“主动修改”这一程序性概念（“对…主动修改文本”“申请人的主动修改”），末例虽为外观设计审查索引条目但仍属同一概念。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0469",
+    "canonical": "说明书附图",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例中8例为别名“附图”、2例为canonical“说明书附图”，均指专利申请文件中的附图部分；rule-11-04样本以“有附图和摘要附图的”对举，印证裸词“附图”即指“说明书附图”而非摘要附图，语义一致。",
+    "confidence": "high"
+  }
+]

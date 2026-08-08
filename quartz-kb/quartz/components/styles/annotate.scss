@@ -1,0 +1,462 @@
+@use "../../styles/variables.scss" as *;
+
+// 选中文本标注（v7 需求7）：工具条 / 正文标记 / 批注抽屉。
+// 材质与动效一律消费 custom.scss 的既有 token 并带 fallback，token 节独立
+// revert 不破版。z-index 站位：popover 999 > 本工具条 900 > 抽屉 300 > FAB 20。
+
+// —— 五档标注色（Chromium 108 禁 color-mix，全部手算静态色）——
+// 底色透明度压在 0.28–0.42：宋体细横画压在过重底色上会糊
+:root {
+  --kb-anno-yellow-bg: rgba(255, 224, 102, 0.42);
+  --kb-anno-yellow-line: #c9a227;
+  --kb-anno-green-bg: rgba(132, 197, 152, 0.38);
+  --kb-anno-green-line: #3f8f5c;
+  --kb-anno-blue-bg: rgba(122, 168, 214, 0.38);
+  --kb-anno-blue-line: #3d6f9e;
+  --kb-anno-pink-bg: rgba(240, 150, 170, 0.36);
+  --kb-anno-pink-line: #b0546e;
+}
+
+:root[saved-theme="dark"] {
+  --kb-anno-yellow-bg: rgba(214, 178, 48, 0.3);
+  --kb-anno-yellow-line: #d6b230;
+  --kb-anno-green-bg: rgba(94, 168, 120, 0.28);
+  --kb-anno-green-line: #6cbf8c;
+  --kb-anno-blue-bg: rgba(96, 144, 196, 0.28);
+  --kb-anno-blue-line: #7fb0e0;
+  --kb-anno-pink-bg: rgba(200, 120, 145, 0.28);
+  --kb-anno-pink-line: #e08fa8;
+}
+
+// ---------- 正文标记 ----------
+
+mark.kb-mark {
+  // 复位 UA 默认的黄底黑字
+  background: none;
+  color: inherit;
+  border-radius: 2px;
+  cursor: pointer;
+
+  &[data-color="yellow"] {
+    --kb-bg: var(--kb-anno-yellow-bg);
+    --kb-line: var(--kb-anno-yellow-line);
+  }
+  &[data-color="green"] {
+    --kb-bg: var(--kb-anno-green-bg);
+    --kb-line: var(--kb-anno-green-line);
+  }
+  &[data-color="blue"] {
+    --kb-bg: var(--kb-anno-blue-bg);
+    --kb-line: var(--kb-anno-blue-line);
+  }
+  &[data-color="pink"] {
+    --kb-bg: var(--kb-anno-pink-bg);
+    --kb-line: var(--kb-anno-pink-line);
+  }
+
+  &[data-kind="highlight"],
+  &[data-kind="note"] {
+    background-color: var(--kb-bg);
+  }
+
+  // 下划线走 text-decoration —— 这正是 CSS Custom Highlight API 在
+  // Chromium 108 上做不到的那一项（其 ::highlight() 不绘制 text-decoration）
+  &[data-kind="underline"] {
+    text-decoration: underline;
+    text-decoration-color: var(--kb-line);
+    text-decoration-thickness: 2px;
+    // 中文无降部，offset 可比拉丁大
+    text-underline-offset: 3px;
+  }
+
+  &[data-has-note]::after {
+    content: "✎";
+    font-size: 0.65em;
+    vertical-align: super;
+    color: var(--kb-line);
+    margin-left: 1px;
+  }
+
+  // 从抽屉点条目定位过来时的短暂闪烁
+  &.is-flash {
+    outline: 2px solid var(--secondary);
+    outline-offset: 1px;
+  }
+}
+
+// ---------- 选区工具条 ----------
+
+.kb-anno-toolbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.3rem 0.45rem;
+  border-radius: 10px;
+  font-family: var(--headerFont);
+  font-size: 0.8rem;
+  // 与 popover 同理：外层用 transform 定位会建立 Backdrop Root 使
+  // backdrop-filter 失效，故用近实底而非玻璃
+  background-color: var(--popover-bg, #faf9f9);
+  border: 1px solid var(--glass-border, var(--lightgray));
+  box-shadow: var(--glass-shadow, 0 6px 20px rgba(0, 0, 0, 0.12));
+  // 关键：工具条自身不可选中，否则点按钮会破坏正在处理的选区
+  user-select: none;
+  -webkit-user-select: none;
+
+  &[hidden] {
+    display: none;
+  }
+
+  // 动作行（复制/划线/笔记/四色）
+  .kb-anno-acts {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  button {
+    padding: 0.2rem 0.45rem;
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--dark);
+    background: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color var(--duration-hover, 140ms) var(--ease-hover, ease);
+
+    &:hover {
+      background-color: var(--highlight);
+    }
+
+    &:active {
+      transform: scale(0.96);
+    }
+  }
+
+  // 四个色块
+  button[data-act="color"] {
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    border: 1px solid var(--glass-border, var(--lightgray));
+    border-radius: 50%;
+
+    &[data-color="yellow"] {
+      background-color: var(--kb-anno-yellow-bg);
+    }
+    &[data-color="green"] {
+      background-color: var(--kb-anno-green-bg);
+    }
+    &[data-color="blue"] {
+      background-color: var(--kb-anno-blue-bg);
+    }
+    &[data-color="pink"] {
+      background-color: var(--kb-anno-pink-bg);
+    }
+  }
+}
+
+.kb-anno-sep {
+  width: 1px;
+  height: 14px;
+  margin: 0 0.15rem;
+  background: var(--lightgray);
+}
+
+// —— 内联笔记输入（取代阻塞式 prompt）——
+.kb-anno-compose {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  width: 17rem;
+  max-width: calc(100vw - 3rem);
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.kb-anno-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.35rem 0.45rem;
+  font-family: var(--bodyFont);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--dark);
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  resize: vertical;
+  // 输入框自身必须可选中，否则打不了字（工具条整体是 user-select: none）
+  user-select: text;
+  -webkit-user-select: text;
+
+  &:focus {
+    outline: none;
+    border-color: var(--secondary);
+  }
+}
+
+.kb-anno-compose-acts {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: flex-end;
+}
+
+// —— 就地提示（取代阻塞式 alert）——
+.kb-anno-tip,
+.kb-anno-drawer-tip {
+  margin: 0;
+  padding: 0.2rem 0.3rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--secondary);
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.kb-anno-drawer-tip {
+  padding: 0.3rem 0.1rem 0;
+  color: var(--darkgray);
+}
+
+// ---------- 唤起按钮（回顶 FAB 正上方） ----------
+
+.kb-anno-fab {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 5rem;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--secondary);
+  background-color: var(--glass-bg-thick, rgba(255, 255, 255, 0.86));
+  border: 1px solid var(--glass-border, var(--lightgray));
+  border-radius: 50%;
+  box-shadow: var(--glass-shadow, 0 6px 20px rgba(0, 0, 0, 0.1));
+  cursor: pointer;
+  transition:
+    transform var(--duration-press, 120ms) var(--ease-out, ease-out),
+    border-color var(--duration-hover, 140ms) var(--ease-hover, ease);
+
+  &:hover {
+    border-color: var(--secondary);
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+
+  // 移动端抽屉展开时隐藏，避免 fixed 浮层被 transform 俘获
+  html.mobile-no-scroll &,
+  #quartz-body.lock-scroll & {
+    display: none;
+  }
+
+  @media all and ($mobile) {
+    right: 1rem;
+    bottom: 4.5rem;
+  }
+}
+
+// ---------- 批注抽屉 ----------
+
+.kb-anno-drawer {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 9.5rem;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  width: 22rem;
+  max-width: calc(100vw - 3rem);
+  max-height: 60vh;
+  padding: 0.8rem 0.9rem;
+  border-radius: 12px;
+  font-family: var(--headerFont);
+  background-color: var(--glass-bg-thick, rgba(255, 255, 255, 0.86));
+  border: 1px solid var(--glass-border, var(--lightgray));
+  box-shadow: var(--glass-shadow, 0 10px 30px rgba(0, 0, 0, 0.14));
+  backdrop-filter: blur(var(--glass-blur-thick, 30px));
+  -webkit-backdrop-filter: blur(var(--glass-blur-thick, 30px));
+
+  &[hidden] {
+    display: none;
+  }
+
+  @media all and ($mobile) {
+    right: 1rem;
+    left: 1rem;
+    bottom: 8.5rem;
+    width: auto;
+  }
+}
+
+.kb-anno-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+
+  h3 {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--dark);
+  }
+
+  .kb-anno-close {
+    padding: 0 0.3rem;
+    font-size: 1.1rem;
+    line-height: 1;
+    color: var(--gray);
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--dark);
+    }
+  }
+}
+
+.kb-anno-list {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.kb-anno-empty {
+  margin: 0.6rem 0;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: var(--gray);
+}
+
+.kb-anno-row {
+  position: relative;
+  padding: 0.45rem 3rem 0.45rem 0.6rem;
+  margin-bottom: 0.4rem;
+  border-radius: 8px;
+  border-left: 3px solid var(--lightgray);
+  background-color: var(--glass-inner-bg, rgba(255, 255, 255, 0.5));
+  cursor: pointer;
+
+  &[data-color="yellow"] {
+    border-left-color: var(--kb-anno-yellow-line);
+  }
+  &[data-color="green"] {
+    border-left-color: var(--kb-anno-green-line);
+  }
+  &[data-color="blue"] {
+    border-left-color: var(--kb-anno-blue-line);
+  }
+  &[data-color="pink"] {
+    border-left-color: var(--kb-anno-pink-line);
+  }
+
+  // 定位失败的条目：灰显但保留，绝不自动删除
+  &[data-orphan] {
+    opacity: 0.6;
+    border-left-style: dashed;
+  }
+
+  &:hover {
+    background-color: var(--highlight);
+  }
+
+  // 从正文点标记跳转过来时的短暂强调
+  &.is-active {
+    background-color: var(--highlight);
+    box-shadow: inset 0 0 0 1px var(--secondary);
+  }
+}
+
+.kb-anno-quote {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--dark);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.kb-anno-note {
+  margin: 0.25rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--darkgray);
+}
+
+.kb-anno-warn {
+  margin: 0.25rem 0 0;
+  font-size: 0.72rem;
+  color: var(--gray);
+}
+
+.kb-anno-del {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.45rem;
+  padding: 0.1rem 0.35rem;
+  font-family: inherit;
+  font-size: 0.72rem;
+  color: var(--gray);
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--secondary);
+    border-color: var(--lightgray);
+  }
+}
+
+.kb-anno-foot {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 0.6rem;
+  margin-top: 0.4rem;
+  border-top: 1px solid var(--lightgray);
+
+  button,
+  .kb-anno-import-label {
+    flex: 1;
+    padding: 0.35rem 0.5rem;
+    font-family: inherit;
+    font-size: 0.78rem;
+    text-align: center;
+    color: var(--secondary);
+    background: none;
+    border: 1px solid var(--lightgray);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color var(--duration-hover, 140ms) var(--ease-hover, ease);
+
+    &:hover {
+      border-color: var(--secondary);
+    }
+  }
+}
+
+// 高对比模式：半透明底色辨识度不足，标记一律补下划线
+@media (prefers-contrast: more) {
+  mark.kb-mark[data-kind="highlight"],
+  mark.kb-mark[data-kind="note"] {
+    text-decoration: underline;
+    text-decoration-color: var(--kb-line);
+    text-underline-offset: 3px;
+  }
+}

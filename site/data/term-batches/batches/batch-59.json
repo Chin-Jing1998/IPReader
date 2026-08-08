@@ -1,0 +1,85 @@
+{
+ "batchNo": 59,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/001/01.md",
+   "chunkId": "mechanical-drafting-rules/01/001/01",
+   "domain": "mechanical-drafting-rules",
+   "anchorNodeId": "mech-01-01-01",
+   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 1. 形式及格式要求 ｜ 1.1.形式要求",
+   "charLen": 1766
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/001/02.md",
+   "chunkId": "mechanical-drafting-rules/01/001/02",
+   "domain": "mechanical-drafting-rules",
+   "anchorNodeId": "mech-01-01-02",
+   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 1. 形式及格式要求 ｜ 1.2.格式要求",
+   "charLen": 1526
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/002/01.md",
+   "chunkId": "mechanical-drafting-rules/01/002/01",
+   "domain": "mechanical-drafting-rules",
+   "anchorNodeId": "mech-01-02-01",
+   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 2. 权利要求书 ｜ 2.1.整体技术方案",
+   "charLen": 4778
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/002/02.md",
+   "chunkId": "mechanical-drafting-rules/01/002/02",
+   "domain": "mechanical-drafting-rules",
+   "anchorNodeId": "mech-01-02-02",
+   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 2. 权利要求书 ｜ 2.2.独立权利要求",
+   "charLen": 1066
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/002/03.md",
+   "chunkId": "mechanical-drafting-rules/01/002/03",
+   "domain": "mechanical-drafting-rules",
+   "anchorNodeId": "mech-01-02-03",
+   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 2. 权利要求书 ｜ 2.3.从属权利要求",
+   "charLen": 849
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/003/01.md",
+   "chunkId": "mechanical-drafting-rules/01/003/01",
+   "domain": "mechanical-drafting-rules",
+   "anchorNodeId": "mech-01-03-01",
+   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 3. 说明书 ｜ 3.1.发明名称",
+   "charLen": 90
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/003/02.md",
+   "chunkId": "mechanical-drafting-rules/01/003/02",
+   "domain": "mechanical-drafting-rules",
+   "anchorNodeId": "mech-01-03-02",
+   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 3. 说明书 ｜ 3.2.技术领域",
+   "charLen": 239
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/003/03.md",
+   "chunkId": "mechanical-drafting-rules/01/003/03",
+   "domain": "mechanical-drafting-rules",
+   "anchorNodeId": "mech-01-03-03",
+   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 3. 说明书 ｜ 3.3.背景技术",
+   "charLen": 1508
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/003/04.md",
+   "chunkId": "mechanical-drafting-rules/01/003/04",
+   "domain": "mechanical-drafting-rules",
+   "anchorNodeId": "mech-01-03-04",
+   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 3. 说明书 ｜ 3.4. 发明/实用新型内容",
+   "charLen": 447
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/003/05.md",
+   "chunkId": "mechanical-drafting-rules/01/003/05",
+   "domain": "mechanical-drafting-rules",
+   "anchorNodeId": "mech-01-03-05",
+   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 3. 说明书 ｜ 3.5.附图说明",
+   "charLen": 415
+  }
+ ]
+}

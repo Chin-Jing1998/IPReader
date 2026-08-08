@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/05/004/01",
+  "anchorNode": "05-04-01",
+  "terms": [
+    { "name": "专利申请文档", "aliases": [], "role": "defined", "confidence": "high", "evidence": "作为原始记录保存起来以备查考的各种文件的集合" },
+    { "name": "案卷", "aliases": [], "role": "used", "confidence": "high", "evidence": "包括案卷和电子文档" },
+    { "name": "电子文档", "aliases": [], "role": "used", "confidence": "mid", "evidence": "包括案卷和电子文档" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

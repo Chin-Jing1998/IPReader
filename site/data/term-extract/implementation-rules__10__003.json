@@ -1,0 +1,14 @@
+{
+  "chunk": "implementation-rules/10/003",
+  "anchorNode": "rule-10-03",
+  "terms": [
+    { "name": "申请费", "aliases": [], "role": "used", "confidence": "high", "evidence": "缴纳申请费、公布印刷费和必要的申请附加费" },
+    { "name": "公布印刷费", "aliases": [], "role": "used", "confidence": "high", "evidence": "公布印刷费" },
+    { "name": "申请附加费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "必要的申请附加费" },
+    { "name": "优先权要求费", "aliases": [], "role": "used", "confidence": "high", "evidence": "缴纳优先权要求费" },
+    { "name": "视为撤回", "aliases": [], "role": "defined", "confidence": "high", "evidence": "期满未缴纳或者未缴足的，其申请视为撤回" },
+    { "name": "视为未要求优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "期满未缴纳或者未缴足的，视为未要求优先权" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

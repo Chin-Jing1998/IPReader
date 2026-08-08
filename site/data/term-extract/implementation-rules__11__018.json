@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/11/018",
+  "anchorNode": "rule-11-18",
+  "terms": [
+    { "name": "保护范围", "aliases": [], "role": "defined", "confidence": "high", "evidence": "依照专利法第六十四条规定确定的保护范围超出国际申请的原文所表达的范围的" },
+    { "name": "译文错误", "aliases": [], "role": "used", "confidence": "high", "evidence": "由于译文错误，致使依照专利法第六十四条规定确定的保护范围" }
+  ],
+  "laws": ["专利法第64条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

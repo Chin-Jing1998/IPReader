@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/11/017",
+  "anchorNode": "rule-11-17",
+  "terms": [
+    { "name": "国际申请日", "aliases": [], "role": "used", "confidence": "high", "evidence": "拒绝给予国际申请日或者宣布视为撤回的" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "宣布视为撤回的，申请人在收到通知之日起2个月内" },
+    { "name": "国际局", "aliases": [], "role": "used", "confidence": "high", "evidence": "可以请求国际局将国际申请档案中任何文件的副本转交" },
+    { "name": "复查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对国际单位作出的决定是否正确进行复查" }
+  ],
+  "laws": ["专利法实施细则第120条"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

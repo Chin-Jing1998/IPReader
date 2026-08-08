@@ -1,0 +1,17 @@
+{
+  "chunk": "examination-guideline-2025/02/003/03",
+  "anchorNode": "02-03-03",
+  "terms": [
+    { "name": "同样的发明或者实用新型", "aliases": [], "role": "defined", "confidence": "high", "evidence": "则认为两者为同样的发明或者实用新型" },
+    { "name": "单独对比", "aliases": [], "role": "defined", "confidence": "high", "evidence": "判断发明或者实用新型专利申请的新颖性适用单独对比的原则" },
+    { "name": "上位概念", "aliases": ["一般概念"], "role": "defined", "confidence": "high", "evidence": "前者采用一般（上位）概念" },
+    { "name": "下位概念", "aliases": ["具体概念"], "role": "defined", "confidence": "high", "evidence": "后者采用具体（下位）概念限定同类性质的技术特征" },
+    { "name": "惯用手段的直接置换", "aliases": [], "role": "defined", "confidence": "high", "evidence": "所属技术领域的惯用手段的直接置换" },
+    { "name": "数值范围限定的技术特征", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以数值或者连续变化的数值范围限定的技术特征" },
+    { "name": "包含性能、参数特征的产品权利要求", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "（1）包含性能、参数特征的产品权利要求" },
+    { "name": "包含用途特征的产品权利要求", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "（2）包含用途特征的产品权利要求" },
+    { "name": "包含制备方法特征的产品权利要求", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "（3）包含制备方法特征的产品权利要求" }
+  ],
+  "laws": ["专利法第22条第2款"],
+  "extractedAt": "2026-07-12T15:37:35+08:00"
+}

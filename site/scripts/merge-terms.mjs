@@ -1,0 +1,367 @@
+#!/usr/bin/env node
+// 数据管线 D3-3：术语合并 —— LLM 提取产物 + 种子词表 → 最终词表
+//   输入：
+//     - data/term-extract/*.json（可用第一个位置参数改目录）：wf-extract-terms 逐片产物
+//     - data/terms-seed.json（D1 产出 424 种子词）
+//     - data/term-merges.json / data/term-blacklist.json（若存在；由 apply-term-audit.mjs 固化）
+//   处理：
+//     1. evidence 校验：必须是对应切片原文的连续子串（读原片验证），不过则该词降为 low 并计数；
+//     2. 归一（NFKC 全半角/空白/大小写）后并入种子词（命中 canonical 或 aliases → 并入，
+//        sources 增补该片 anchorNode）；停用词直接丢弃；
+//     3. 纯新词入图门槛：df≥2 切片 或 跨≥2 域 或 (role=defined 且 confidence=high 且 evidence 有效)；
+//        其余进候选池 data/term-candidates.json（不入图）；
+//     4. 应用 term-merges（词条归并）与 term-blacklist（剔除）；
+//     5. 分级 tier：seed（种子）> high（defined+high 新词）> mid（多处 used 新词）。
+//   产物：
+//     - data/terms-merged.json   最终词表（termKey/canonical/aliases/matchers/topicKey/sources/
+//                                lawKeys/tier/df/evidence 样例）
+//     - data/term-candidates.json 候选池
+//     - audit/terms/term-audit.csv 审校表（UTF-8 BOM；decision 列留空供审校填写，
+//       审校结果经 apply-term-audit.mjs 固化后重跑本脚本即生效——本 CSV 每次重跑会重新生成）
+//   末尾断言：合并后总词数（seed+入图新词）落 400~700 区间，超限 exit 1。
+//   运行：node scripts/merge-terms.mjs [extractDir]
+import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync } from 'node:fs';
+import { join, dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { cn2num } from './lib/cn-num.mjs';
+import { projectRoot } from './lib/domains.mjs';
+import { STOPWORDS } from './lib/term-stopwords.mjs';
+import { TOPICS } from './lib/topics.mjs';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = projectRoot(__dirname);
+const DATA_DIR = join(__dirname, '..', 'data');
+const AUDIT_DIR = join(__dirname, '..', 'audit', 'terms');
+mkdirSync(AUDIT_DIR, { recursive: true });
+
+const EXTRACT_DIR = process.argv[2] ? resolve(process.argv[2]) : join(DATA_DIR, 'term-extract');
+const EVIDENCE_SAMPLES = 3; // 每词保留的 evidence 样例上限
+const TOP_SOURCES = 5; // 审校表「topN出处」列上限
+const TOTAL_MIN = 400;
+// 上限由 700 放宽至 1000：审校复核后 keep 数（545）高于预估，且前端按 hub 分层显隐、
+//   图渲染量级无压力；与 build-term-nodes.mjs 的 ≤1000 硬断言保持同一口径。
+const TOTAL_MAX = 1000;
+
+// 归一化：与 build-seed-lexicon.mjs / prep-term-extraction.mjs 同口径
+const norm = (s) => (s || '').normalize('NFKC').replace(/\s+/g, '').toLowerCase();
+const STOP_NORM = new Set([...STOPWORDS].map(norm));
+
+// 法条引用（agent 产物 laws 数组的元素）→ 条级 lawKey（如「专利法第22条」），与 laws.json 键位对齐
+const LAW_KEY_RE = /^《?(专利法实施细则|专利法|实施细则)》?第([0-9]+|[一二三四五六七八九十百零〇两]+)条(?:之([0-9]+|[一二三四五六七八九十]+))?/;
+function toLawKey(cite) {
+  const m = String(cite || '').match(LAW_KEY_RE);
+  if (!m) return null;
+  const law = m[1] === '实施细则' ? '专利法实施细则' : m[1];
+  const art = cn2num(m[2]);
+  if (!Number.isFinite(art)) return null;
+  const zhi = m[3] ? cn2num(m[3]) : null;
+  return `${law}第${art}条${Number.isFinite(zhi) ? `之${zhi}` : ''}`;
+}
+
+// ============ 词条累加器 ============
+//   index: normKey（canonical 或 alias）→ entry；entry.key 为 termKey（canonical 归一）
+const index = new Map();
+const entries = []; // 保持出现顺序（种子在前）
+function registerAlias(entry, raw) {
+  const k = norm(raw);
+  if (!k || k === entry.key || k.length < 2 || STOP_NORM.has(k)) return;
+  if (index.has(k)) return; // 已被其他词条占用（含已独立成词），不抢占
+  entry.aliasMap.set(k, raw);
+  index.set(k, entry);
+}
+function newEntry(canonical, isSeed, seed = null) {
+  const entry = {
+    key: norm(canonical),
+    canonical,
+    isSeed,
+    aliasMap: new Map(),
+    matchers: seed ? [...(seed.matchers || [])] : [],
+    topicKey: seed?.topicKey,
+    sources: new Map(), // domain → Set(nodeId)
+    lawKeys: new Set(seed ? seed.lawKeys || [] : []),
+    chunks: new Set(), // 提取来源切片（df 口径）
+    extractDomains: new Set(), // 提取来源域（跨域门槛口径）
+    evid: [], // {chunk, text}
+    definedHigh: false, // 存在 role=defined 且 confidence=high 且 evidence 有效的提取
+    demoted: 0, // evidence 校验失败而降 low 的次数
+  };
+  entries.push(entry);
+  index.set(entry.key, entry);
+  return entry;
+}
+function addSource(entry, domain, nodeId) {
+  if (!entry.sources.has(domain)) entry.sources.set(domain, new Set());
+  entry.sources.get(domain).add(nodeId);
+}
+
+// ---- 种子词注册 ----
+const seeds = JSON.parse(readFileSync(join(DATA_DIR, 'terms-seed.json'), 'utf8'));
+for (const s of seeds) {
+  const entry = newEntry(s.canonical, true, s);
+  for (const [dom, ids] of Object.entries(s.sources || {})) for (const id of ids) addSource(entry, dom, id);
+  for (const a of s.aliases || []) registerAlias(entry, a);
+}
+
+// ============ 读提取产物并校验合入 ============
+const stats = {
+  files: 0, parseFail: 0, termOcc: 0, stopword: 0, tooShort: 0,
+  evidenceBad: 0, mergedToSeed: 0, newOcc: 0,
+};
+const chunkTextCache = new Map();
+function chunkText(chunkId) {
+  if (!chunkTextCache.has(chunkId)) {
+    const segs = chunkId.split('/');
+    const p = join(ROOT, segs[0], '_chunks', ...segs.slice(1)) + '.md';
+    let text = null;
+    try {
+      text = readFileSync(p, 'utf8');
+    } catch {
+      text = null; // 原片缺失：evidence 一律视为未通过
+    }
+    chunkTextCache.set(chunkId, text);
+  }
+  return chunkTextCache.get(chunkId);
+}
+
+const extractFiles = existsSync(EXTRACT_DIR)
+  ? readdirSync(EXTRACT_DIR).filter((f) => f.endsWith('.json')).sort()
+  : [];
+if (!extractFiles.length) console.log(`（提取目录 ${EXTRACT_DIR} 为空或不存在：按空转模式仅基于种子词产出）`);
+
+for (const f of extractFiles) {
+  let rec;
+  try {
+    rec = JSON.parse(readFileSync(join(EXTRACT_DIR, f), 'utf8'));
+  } catch {
+    stats.parseFail++;
+    console.warn(`⚠ 解析失败，跳过：${f}`);
+    continue;
+  }
+  stats.files++;
+  const chunkId = rec.chunk || f.replace(/\.json$/, '').split('__').join('/');
+  const domain = chunkId.split('/')[0];
+  const anchorNode = rec.anchorNode;
+  const text = chunkText(chunkId);
+  const chunkLawKeys = [...new Set((rec.laws || []).map(toLawKey).filter(Boolean))];
+
+  for (const t of rec.terms || []) {
+    const name = String(t.name || '').trim();
+    const key = norm(name);
+    stats.termOcc++;
+    if (!key || key.length < 2) {
+      stats.tooShort++;
+      continue;
+    }
+    if (STOP_NORM.has(key)) {
+      stats.stopword++;
+      continue;
+    }
+    // evidence 校验：必须是原片的连续子串；不过则降 low
+    const evRaw = typeof t.evidence === 'string' ? t.evidence : '';
+    const evidenceOk = !!(evRaw.trim() && text && text.includes(evRaw));
+    let confidence = t.confidence === 'high' || t.confidence === 'mid' ? t.confidence : 'low';
+    if (!evidenceOk) {
+      confidence = 'low';
+      stats.evidenceBad++;
+    }
+
+    let entry = index.get(key);
+    if (entry) {
+      if (entry.isSeed) stats.mergedToSeed++;
+      else stats.newOcc++;
+      if (norm(entry.canonical) !== key || entry.canonical !== name) registerAlias(entry, name);
+    } else {
+      entry = newEntry(name, false);
+      stats.newOcc++;
+    }
+    if (anchorNode) addSource(entry, domain, anchorNode);
+    entry.chunks.add(chunkId);
+    entry.extractDomains.add(domain);
+    for (const a of t.aliases || []) registerAlias(entry, String(a).trim());
+    if (evidenceOk && entry.evid.length < EVIDENCE_SAMPLES) entry.evid.push({ chunk: chunkId, text: evRaw });
+    if (!evidenceOk) entry.demoted++;
+    if (t.role === 'defined' && confidence === 'high') entry.definedHigh = true;
+    // 新词的 lawKeys 取所在切片的条级引用（种子词 lawKeys 由 D1 归集，保持不动）
+    if (!entry.isSeed) for (const lk of chunkLawKeys) entry.lawKeys.add(lk);
+  }
+}
+
+// ============ 应用审校固化产物：term-merges（归并）→ term-blacklist（剔除） ============
+function readJsonIf(p, fallback) {
+  return existsSync(p) ? JSON.parse(readFileSync(p, 'utf8')) : fallback;
+}
+const mergesRaw = readJsonIf(join(DATA_DIR, 'term-merges.json'), {});
+const blacklist = new Set(readJsonIf(join(DATA_DIR, 'term-blacklist.json'), []).map(norm));
+
+// 归并链解析（含环保护）：a→b→c 时 a 直接并入 c
+function resolveMergeTarget(fromKey) {
+  let cur = fromKey;
+  const seen = new Set([cur]);
+  while (mergesRaw[cur] != null) {
+    const next = norm(mergesRaw[cur]);
+    if (seen.has(next)) {
+      console.warn(`⚠ term-merges 存在环：${[...seen].join(' → ')} → ${next}，该链不生效`);
+      return null;
+    }
+    seen.add(next);
+    cur = next;
+  }
+  return cur === fromKey ? null : cur;
+}
+let mergeApplied = 0;
+for (const fromRaw of Object.keys(mergesRaw)) {
+  const fromKey = norm(fromRaw);
+  const from = index.get(fromKey);
+  const targetKey = resolveMergeTarget(fromKey);
+  if (!from || !targetKey) continue;
+  const to = index.get(targetKey);
+  if (!to || to === from || norm(from.canonical) !== fromKey) {
+    if (!to) console.warn(`⚠ term-merges 目标不存在：${fromRaw} → ${mergesRaw[fromRaw]}`);
+    continue;
+  }
+  // 并入：from 的 canonical/aliases 成为 to 的别名；来源/切片/法条/证据合并
+  //   canonical 直接写入别名表（其归一键此刻仍指向 from 自身，不能走 registerAlias 的占用检查）
+  if (fromKey !== to.key && !to.aliasMap.has(fromKey)) to.aliasMap.set(fromKey, from.canonical);
+  for (const [k, v] of from.aliasMap) {
+    if (!index.has(k) || index.get(k) === from) {
+      index.set(k, to);
+      if (k !== to.key && !to.aliasMap.has(k)) to.aliasMap.set(k, v);
+    }
+  }
+  for (const [dom, ids] of from.sources) for (const id of ids) addSource(to, dom, id);
+  for (const c of from.chunks) to.chunks.add(c);
+  for (const d of from.extractDomains) to.extractDomains.add(d);
+  for (const lk of from.lawKeys) if (!to.isSeed || from.isSeed) to.lawKeys.add(lk);
+  for (const e of from.evid) if (to.evid.length < EVIDENCE_SAMPLES) to.evid.push(e);
+  to.definedHigh = to.definedHigh || from.definedHigh;
+  index.set(fromKey, to);
+  entries.splice(entries.indexOf(from), 1);
+  mergeApplied++;
+}
+let blacklisted = 0;
+for (let i = entries.length - 1; i >= 0; i--) {
+  if (blacklist.has(entries[i].key)) {
+    for (const [k, e] of index) if (e === entries[i]) index.delete(k);
+    entries.splice(i, 1);
+    blacklisted++;
+  }
+}
+
+// ============ 新词入图门槛 + 分级 ============
+const kept = [];
+const candidates = [];
+for (const e of entries) {
+  const df = e.chunks.size;
+  if (e.isSeed) {
+    e.tier = 'seed';
+    e.df = df;
+    kept.push(e);
+    continue;
+  }
+  const pass = df >= 2 || e.extractDomains.size >= 2 || e.definedHigh;
+  e.df = df;
+  e.tier = e.definedHigh ? 'high' : 'mid';
+  (pass ? kept : candidates).push(e);
+}
+
+// 新词主题归并（与 build-seed-lexicon 同思路：canonical/aliases 命中主题 name 或 kw）
+for (const e of kept) {
+  if (e.isSeed || e.topicKey) continue;
+  const selfKeys = new Set([e.key, ...e.aliasMap.keys()]);
+  outer: for (const topic of TOPICS) {
+    if (selfKeys.has(norm(topic.name))) {
+      e.topicKey = topic.key;
+      break;
+    }
+    for (const k of topic.kw) {
+      if (selfKeys.has(norm(k))) {
+        e.topicKey = topic.key;
+        break outer;
+      }
+    }
+  }
+}
+
+// 排序：种子按原序在前；新词 high 在前、df 降序、canonical 升序
+const seedPart = kept.filter((e) => e.isSeed);
+const newPart = kept
+  .filter((e) => !e.isSeed)
+  .sort(
+    (a, b) =>
+      (a.tier === b.tier ? 0 : a.tier === 'high' ? -1 : 1) ||
+      b.df - a.df ||
+      a.canonical.localeCompare(b.canonical, 'zh'),
+  );
+const finalTerms = [...seedPart, ...newPart];
+
+// ============ 输出 ============
+function serialize(e) {
+  const out = {
+    termKey: e.key,
+    canonical: e.canonical,
+    aliases: [...e.aliasMap.values()],
+    matchers: e.matchers,
+  };
+  if (e.topicKey) out.topicKey = e.topicKey;
+  out.sources = Object.fromEntries([...e.sources.entries()].map(([d, set]) => [d, [...set].sort()]));
+  out.lawKeys = [...e.lawKeys].sort();
+  out.tier = e.tier;
+  out.df = e.df;
+  out.evidence = e.evid;
+  return out;
+}
+writeFileSync(join(DATA_DIR, 'terms-merged.json'), JSON.stringify(finalTerms.map(serialize), null, 2));
+writeFileSync(
+  join(DATA_DIR, 'term-candidates.json'),
+  JSON.stringify(
+    candidates
+      .sort((a, b) => b.df - a.df || a.canonical.localeCompare(b.canonical, 'zh'))
+      .map((e) => ({ ...serialize(e), reason: '入图门槛未达（df<2 且未跨域 且非 defined+high）' })),
+    null,
+    2,
+  ),
+);
+
+// 审校表 CSV（UTF-8 BOM）：decision 填 keep / merge-into:<termKey> / drop，note 自由填写
+const csvEsc = (s) => (/[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s);
+const csvRows = finalTerms.map((e) => {
+  const srcFlat = [...e.sources.entries()].flatMap(([d, set]) => [...set].sort().map((id) => `${d}:${id}`));
+  return [
+    e.key,
+    e.canonical,
+    [...e.aliasMap.values()].join('；'),
+    e.tier,
+    String(e.df),
+    String(e.sources.size),
+    srcFlat.slice(0, TOP_SOURCES).join('；'),
+    e.evid[0]?.text || '',
+    '', // decision（审校填写）
+    '', // note
+  ].map((x) => csvEsc(String(x))).join(',');
+});
+writeFileSync(
+  join(AUDIT_DIR, 'term-audit.csv'),
+  '﻿' + ['termKey,canonical,aliases,tier,df,domains,topN出处,sampleEvidence,decision,note', ...csvRows].join('\n') + '\n',
+);
+
+// ============ 统计与断言 ============
+const tierCount = finalTerms.reduce((a, e) => ((a[e.tier] = (a[e.tier] || 0) + 1), a), {});
+console.log('—— 合并统计 ——');
+console.log(
+  `提取片文件: ${stats.files}（解析失败 ${stats.parseFail}）| 术语出现次数: ${stats.termOcc}` +
+  `（并入种子 ${stats.mergedToSeed} / 新词出现 ${stats.newOcc} / 停用词丢弃 ${stats.stopword} / 过短 ${stats.tooShort}）`,
+);
+console.log(`evidence 校验失败降 low: ${stats.evidenceBad}`);
+console.log(`审校固化应用: 归并 ${mergeApplied} 条 / 剔除 ${blacklisted} 条`);
+console.log(`最终词表: ${finalTerms.length} 词 ${JSON.stringify(tierCount)} | 候选池: ${candidates.length} 词`);
+console.log(
+  `产物: data/terms-merged.json、data/term-candidates.json、audit/terms/term-audit.csv（${finalTerms.length} 行）`,
+);
+
+let ok = true;
+if (finalTerms.length < TOTAL_MIN || finalTerms.length > TOTAL_MAX) {
+  ok = false;
+  console.error(`✗ 断言失败：合并后总词数 ${finalTerms.length} 不在 ${TOTAL_MIN}~${TOTAL_MAX} 区间`);
+}
+console.log(ok ? '✓ 断言全部通过' : '✗ 断言未通过');
+if (!ok) process.exit(1);

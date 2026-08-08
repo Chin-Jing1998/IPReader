@@ -1,0 +1,17 @@
+{
+  "chunk": "examination-guideline-2025/02/008/04/06",
+  "anchorNode": "02-08-04-06",
+  "terms": [
+    { "name": "优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "核实优先权是指核查申请人要求的优先权是否能依照专利法第二十九条的规定成立" },
+    { "name": "PX类文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "即该对比文件构成PX或PY类文件" },
+    { "name": "PY类文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "即该对比文件构成PX或PY类文件" },
+    { "name": "PE类文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "即任何单位或者个人在专利局的申请构成PE类文件" },
+    { "name": "部分优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "这种情况称为部分优先权" },
+    { "name": "多项优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "如果一件具有单一性的专利申请要求了多项优先权" },
+    { "name": "在先申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "作为要求优先权的基础的在先申请" },
+    { "name": "在后申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "与要求优先权的在后申请相同的主题" },
+    { "name": "首次申请", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "该在先申请是否是记载了同一主题的首次申请" }
+  ],
+  "laws": ["专利法第29条", "专利法实施细则第36条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

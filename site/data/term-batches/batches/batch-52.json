@@ -1,0 +1,85 @@
+{
+ "batchNo": 52,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/08/007.md",
+   "chunkId": "implementation-rules/08/007",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-08-07",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第八章 专利权的保护 ｜ 第一百零一条",
+   "charLen": 417
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/08/008.md",
+   "chunkId": "implementation-rules/08/008",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-08-08",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第八章 专利权的保护 ｜ 第一百零二条",
+   "charLen": 202
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/08/009.md",
+   "chunkId": "implementation-rules/08/009",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-08-09",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第八章 专利权的保护 ｜ 第一百零三条",
+   "charLen": 339
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/08/010.md",
+   "chunkId": "implementation-rules/08/010",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-08-10",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第八章 专利权的保护 ｜ 第一百零四条",
+   "charLen": 144
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/08/011.md",
+   "chunkId": "implementation-rules/08/011",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-08-11",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第八章 专利权的保护 ｜ 第一百零五条",
+   "charLen": 135
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/09/001.md",
+   "chunkId": "implementation-rules/09/001",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-09-01",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第九章 专利登记和专利公报 ｜ 第一百零六条",
+   "charLen": 214
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/09/002.md",
+   "chunkId": "implementation-rules/09/002",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-09-02",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第九章 专利登记和专利公报 ｜ 第一百零七条",
+   "charLen": 387
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/09/003.md",
+   "chunkId": "implementation-rules/09/003",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-09-03",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第九章 专利登记和专利公报 ｜ 第一百零八条",
+   "charLen": 67
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/09/004.md",
+   "chunkId": "implementation-rules/09/004",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-09-04",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第九章 专利登记和专利公报 ｜ 第一百零九条",
+   "charLen": 54
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/10/001.md",
+   "chunkId": "implementation-rules/10/001",
+   "domain": "implementation-rules",
+   "anchorNodeId": "rule-10-01",
+   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十章 费 用 ｜ 第一百一十条",
+   "charLen": 261
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+  "chunk": "implementation-rules/08/007",
+  "anchorNode": "rule-08-07",
+  "terms": [
+    { "name": "假冒专利", "aliases": ["假冒专利行为"], "role": "defined", "confidence": "high", "evidence": "下列行为属于专利法第六十八条规定的假冒专利的行为" },
+    { "name": "专利标识", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在未被授予专利权的产品或者其包装上标注专利标识" },
+    { "name": "专利证书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "伪造或者变造专利证书、专利文件或者专利申请文件" },
+    { "name": "专利产品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在专利产品、依照专利方法直接获得的产品" },
+    { "name": "专利方法", "aliases": [], "role": "used", "confidence": "mid", "evidence": "依照专利方法直接获得的产品或者其包装上" },
+    { "name": "专利技术", "aliases": [], "role": "used", "confidence": "mid", "evidence": "将未被授予专利权的技术或者设计称为专利技术或者专利设计" },
+    { "name": "专利设计", "aliases": [], "role": "used", "confidence": "mid", "evidence": "称为专利技术或者专利设计，将专利申请称为专利" }
+  ],
+  "laws": ["专利法第68条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

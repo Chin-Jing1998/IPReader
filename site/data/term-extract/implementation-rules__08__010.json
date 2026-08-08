@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/08/010",
+  "anchorNode": "rule-08-10",
+  "terms": [
+    { "name": "保全措施", "aliases": [], "role": "used", "confidence": "high", "evidence": "人民法院在审理民事案件中裁定对专利申请权或者专利权采取保全措施的" },
+    { "name": "协助执行通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "收到写明申请号或者专利号的裁定书和协助执行通知书之日" },
+    { "name": "保全期限", "aliases": [], "role": "used", "confidence": "mid", "evidence": "保全期限届满，人民法院没有裁定继续采取保全措施的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

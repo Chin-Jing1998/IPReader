@@ -1,0 +1,12 @@
+{
+  "chunk": "patent-law/01/011",
+  "anchorNode": "law-01-11",
+  "terms": [
+    { "name": "实施", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不得实施其专利，即不得为生产经营目的制造、使用、许诺销售、销售、进口" },
+    { "name": "许诺销售", "aliases": [], "role": "used", "confidence": "high", "evidence": "许诺销售、销售、进口" },
+    { "name": "依照该专利方法直接获得的产品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "使用、许诺销售、销售、进口依照该专利方法直接获得的产品" },
+    { "name": "生产经营目的", "aliases": [], "role": "used", "confidence": "high", "evidence": "为生产经营目的制造、使用、许诺销售、销售、进口" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

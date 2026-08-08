@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/05/006/03",
+  "anchorNode": "05-06-03",
+  "terms": [
+    { "name": "退件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "邮寄退回的通知和决定由发文部门作计算机登录" },
+    { "name": "邮路查询", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当办理邮路查询手续" },
+    { "name": "邮路查询时效", "aliases": [], "role": "defined", "confidence": "high", "evidence": "邮路查询时效为一年，自发文日起计算" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

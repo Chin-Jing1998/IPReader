@@ -1,0 +1,50 @@
+{
+  "chunk": "examination-guideline-2025/04/005/09",
+  "anchorNode": "04-05-09",
+  "terms": [
+    {
+      "name": "外国优先权",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "外观设计优先权的核实包括外国优先权和本国优先权的核实"
+    },
+    {
+      "name": "本国优先权",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "外观设计优先权的核实包括外国优先权和本国优先权的核实"
+    },
+    {
+      "name": "外观设计相同主题",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "外观设计相同主题的认定应当根据在后申请的外观设计与其首次申请中表示的内容进行判断"
+    },
+    {
+      "name": "首次申请",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "在后申请的外观设计与其首次申请中表示的内容"
+    },
+    {
+      "name": "在后申请",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "在后申请的外观设计与其首次申请中表示的内容"
+    },
+    {
+      "name": "多项优先权",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "在一件外观设计专利中，可以要求一项或者多项优先权"
+    }
+  ],
+  "laws": ["专利法实施细则第35条第1款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

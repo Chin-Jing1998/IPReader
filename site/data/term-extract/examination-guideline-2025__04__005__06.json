@@ -1,0 +1,64 @@
+{
+  "chunk": "examination-guideline-2025/04/005/06",
+  "anchorNode": "04-05-06",
+  "terms": [
+    {
+      "name": "明显区别",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "涉案专利与现有设计或者现有设计特征的组合相比不具有明显区别是指如下几种情形"
+    },
+    {
+      "name": "现有设计特征",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "现有设计特征，是指现有设计的部分设计要素或者其结合"
+    },
+    {
+      "name": "转用",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "转用，是指将产品的外观设计应用于其他种类的产品"
+    },
+    {
+      "name": "组合",
+      "aliases": ["拼合", "替换"],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "组合包括拼合和替换，是指将两项或者两项以上设计或者设计特征拼合成一项外观设计"
+    },
+    {
+      "name": "独特视觉效果",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "独特视觉效果，是指涉案专利相对于现有设计产生了预料不到的视觉效果"
+    },
+    {
+      "name": "惯常设计",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "产品上某些设计被证明是该类产品的惯常设计"
+    },
+    {
+      "name": "图形用户界面",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "对于包括图形用户界面的产品外观设计"
+    },
+    {
+      "name": "显著影响",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "二者的差别对于产品外观设计的整体视觉效果不具有显著影响"
+    }
+  ],
+  "laws": ["专利法第23条第2款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/05/004",
+  "anchorNode": "rule-05-04",
+  "terms": [
+    { "name": "新药相关发明专利", "aliases": [], "role": "defined", "confidence": "high", "evidence": "新药相关发明专利是指符合规定的新药产品专利、制备方法专利、医药用途专利" },
+    { "name": "新药产品专利", "aliases": [], "role": "used", "confidence": "high", "evidence": "新药产品专利、制备方法专利、医药用途专利" },
+    { "name": "制备方法专利", "aliases": [], "role": "used", "confidence": "high", "evidence": "制备方法专利、医药用途专利" },
+    { "name": "医药用途专利", "aliases": [], "role": "used", "confidence": "high", "evidence": "医药用途专利" }
+  ],
+  "laws": ["专利法第42条第3款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/01/010",
+  "anchorNode": "rule-01-10",
+  "terms": [
+    { "name": "违反法律的发明创造", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "违反法律的发明创造，不包括仅其实施为法律所禁止的发明创造" }
+  ],
+  "laws": ["专利法第5条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

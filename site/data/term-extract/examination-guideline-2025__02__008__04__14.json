@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/02/008/04/14",
+  "anchorNode": "02-08-04-14",
+  "terms": [
+    { "name": "现场调查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "需要审查员到现场调查方能得到解决" },
+    { "name": "实物模型", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人提供实物模型进行演示，以证明其申请具有实用性" },
+    { "name": "实用性", "aliases": [], "role": "used", "confidence": "high", "evidence": "以证明其申请具有实用性" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/05/003/01",
+  "anchorNode": "05-03-01",
+  "terms": [
+    { "name": "受理部门", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利局受理部门包括专利局初审及流程管理部受理处" },
+    { "name": "初审及流程管理部受理处", "aliases": [], "role": "used", "confidence": "high", "evidence": "初审及流程管理部受理处负责受理专利申请及其他有关文件" },
+    { "name": "复审和无效审理部立案及流程管理处", "aliases": [], "role": "used", "confidence": "high", "evidence": "复审和无效审理部立案及流程管理处受理与复审和无效宣告请求有关的文件" },
+    { "name": "代办处", "aliases": ["各代办处"], "role": "used", "confidence": "mid", "evidence": "各代办处按照相关规定受理专利申请及其他有关文件" },
+    { "name": "受理登记", "aliases": [], "role": "used", "confidence": "mid", "evidence": "未经过受理登记的文件，不得进入审批程序" },
+    { "name": "申请日", "aliases": [], "role": "used", "confidence": "high", "evidence": "确定申请日和递交日的效力" },
+    { "name": "递交日", "aliases": [], "role": "used", "confidence": "high", "evidence": "确定申请日和递交日的效力" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

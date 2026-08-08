@@ -1,0 +1,22 @@
+{
+  "chunk": "oa-response-guide/01/001",
+  "anchorNode": "oa-01-01",
+  "terms": [
+    {
+      "name": "新颖性",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "新颖性，是指该发明或者实用新型不属于现有技术"
+    },
+    {
+      "name": "单独对比原则",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "此处的单独对比原则，是指每一对比文件的一个完整的技术方案"
+    }
+  ],
+  "laws": ["专利法第22条第2款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

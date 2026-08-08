@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/02/004/06",
+  "anchorNode": "02-04-06",
+  "terms": [
+    { "name": "事后诸葛亮", "aliases": [], "role": "used", "confidence": "high", "evidence": "避免“事后诸葛亮”" },
+    { "name": "预料不到的技术效果", "aliases": [], "role": "used", "confidence": "high", "evidence": "如果发明与现有技术相比具有预料不到的技术效果" },
+    { "name": "突出的实质性特点", "aliases": [], "role": "used", "confidence": "high", "evidence": "发明具有突出的实质性特点和显著的进步，具备创造性" },
+    { "name": "显著的进步", "aliases": [], "role": "used", "confidence": "high", "evidence": "发明具有突出的实质性特点和显著的进步，具备创造性" },
+    { "name": "技术偏见", "aliases": [], "role": "used", "confidence": "mid", "evidence": "或者体现发明克服技术偏见的技术特征" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

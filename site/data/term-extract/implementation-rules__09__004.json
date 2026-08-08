@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/09/004",
+  "anchorNode": "rule-09-04",
+  "terms": [
+    { "name": "互惠原则", "aliases": [], "role": "used", "confidence": "high", "evidence": "国务院专利行政部门负责按照互惠原则" },
+    { "name": "专利文献", "aliases": [], "role": "used", "confidence": "high", "evidence": "区域性专利组织交换专利文献" },
+    { "name": "区域性专利组织", "aliases": [], "role": "used", "confidence": "mid", "evidence": "或者区域性专利组织交换专利文献" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

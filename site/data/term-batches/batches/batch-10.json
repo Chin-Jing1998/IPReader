@@ -1,0 +1,85 @@
+{
+ "batchNo": 10,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/004/06.md",
+   "chunkId": "examination-guideline-2025/02/004/06",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-04-06",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第四章创造性 ｜ 6.审查创造性时应当注意的问题",
+   "charLen": 1276
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/005.md",
+   "chunkId": "examination-guideline-2025/02/005",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-05",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第五章实用性",
+   "charLen": 2074
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/006/01.md",
+   "chunkId": "examination-guideline-2025/02/006/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-06-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第六章单一性和分案申请 ｜ 1.引言",
+   "charLen": 234
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/006/02/01.md",
+   "chunkId": "examination-guideline-2025/02/006/02/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-06-02-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第六章单一性和分案申请 ｜ 2.单一性 ｜ 2.1单一性的基本概念",
+   "charLen": 728
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/006/02/02.md",
+   "chunkId": "examination-guideline-2025/02/006/02/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-06-02-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第六章单一性和分案申请 ｜ 2.单一性 ｜ 2.2单一性的审查",
+   "charLen": 7483
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/006/03.md",
+   "chunkId": "examination-guideline-2025/02/006/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-06-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第六章单一性和分案申请 ｜ 3.分案申请",
+   "charLen": 1934
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/007/01.md",
+   "chunkId": "examination-guideline-2025/02/007/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-07-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第七章检索 ｜ 1.引言",
+   "charLen": 212
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/007/02.md",
+   "chunkId": "examination-guideline-2025/02/007/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-07-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第七章检索 ｜ 2.审查用检索资源",
+   "charLen": 228
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/007/03.md",
+   "chunkId": "examination-guideline-2025/02/007/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-07-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第七章检索 ｜ 3.检索的主题",
+   "charLen": 1377
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/007/04.md",
+   "chunkId": "examination-guideline-2025/02/007/04",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "02-07-04",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第七章检索 ｜ 4.检索的时间界限",
+   "charLen": 449
+  }
+ ]
+}

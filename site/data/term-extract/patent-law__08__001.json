@@ -1,0 +1,10 @@
+{
+  "chunk": "patent-law/08/001",
+  "anchorNode": "law-08-01",
+  "terms": [
+    { "name": "国务院专利行政部门", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "向国务院专利行政部门申请专利和办理其他手续" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:49:49+08:00"
+}

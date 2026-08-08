@@ -1,0 +1,13 @@
+{
+  "chunk": "examination-guideline-2025/05/001/05",
+  "anchorNode": "05-01-05",
+  "terms": [
+    { "name": "权利要求书", "aliases": [], "role": "used", "confidence": "high", "evidence": "请求书、权利要求书、说明书、说明书摘要、说明书附图和摘要附图中" },
+    { "name": "说明书摘要", "aliases": [], "role": "used", "confidence": "mid", "evidence": "说明书、说明书摘要、说明书附图和摘要附图中文字部分" },
+    { "name": "摘要附图", "aliases": [], "role": "used", "confidence": "mid", "evidence": "说明书、说明书摘要、说明书附图和摘要附图中文字部分" },
+    { "name": "简要说明", "aliases": [], "role": "used", "confidence": "mid", "evidence": "摘要附图中文字部分以及简要说明应当打字或者印刷" },
+    { "name": "纸件申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "纸件申请的字高应当不低于3.5毫米" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

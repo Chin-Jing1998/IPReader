@@ -1,0 +1,11 @@
+{
+  "chunk": "mechanical-drafting-rules/01/003/04",
+  "anchorNode": "mech-01-03-04",
+  "terms": [
+    { "name": "所要解决的技术问题", "aliases": [], "role": "defined", "confidence": "high", "evidence": "所要解决的技术问题中，不应含有绝对性的词语" },
+    { "name": "技术效果", "aliases": [], "role": "used", "confidence": "high", "evidence": "技术效果与当前的技术方案应当具有严谨、合理且较为准确的关联性" },
+    { "name": "发明内容", "aliases": [], "role": "defined", "confidence": "high", "evidence": "该类案件在发明内容部分不写入从属权利要求的内容，仅记载所有独权的方案" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

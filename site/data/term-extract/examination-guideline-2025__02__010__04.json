@@ -1,0 +1,21 @@
+{
+  "chunk": "examination-guideline-2025/02/010/04",
+  "anchorNode": "02-10-04",
+  "terms": [
+    { "name": "化合物权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "化合物权利要求应当用化合物的名称或者化合物的结构式或者分子式来表征" },
+    { "name": "组合物权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "组合物权利要求应当用组合物的组分或者组分和含量等组成特征来表征" },
+    { "name": "开放式", "aliases": [], "role": "defined", "confidence": "high", "evidence": "开放式表示组合物中并不排除权利要求中未指出的组分" },
+    { "name": "封闭式", "aliases": [], "role": "defined", "confidence": "high", "evidence": "封闭式则表示组合物中仅包括所指出的组分而排除所有其他的组分" },
+    { "name": "必要技术特征", "aliases": [], "role": "used", "confidence": "mid", "evidence": "否则该权利要求就不完整，缺少必要技术特征" },
+    { "name": "非限定型权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "当该组合物具有两种或者多种使用性能和应用领域时，可以允许用非限定型权利要求" },
+    { "name": "性能限定型权利要求", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "通常需要写成性能限定型或者用途限定型" },
+    { "name": "用途限定型权利要求", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "通常需要写成性能限定型或者用途限定型" },
+    { "name": "化学方法权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "其权利要求可以用涉及工艺、物质以及设备的方法特征来进行限定" },
+    { "name": "用途权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "用途发明是一种方法发明，其权利要求属于方法类型" },
+    { "name": "制药方法类型的用途权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "属于制药方法类型的用途权利要求申请专利" },
+    { "name": "独立权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对于封闭式的A＋B＋C权利要求而言，含D的这项为独立权利要求" },
+    { "name": "从属权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "则对于开放式的A＋B＋C权利要求而言，含D的这项为从属权利要求" }
+  ],
+  "laws": ["专利法实施细则第24条第2款", "专利法第25条第1款第(三)项"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

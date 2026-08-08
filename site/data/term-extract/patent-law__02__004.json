@@ -1,0 +1,15 @@
+{
+  "chunk": "patent-law/02/004",
+  "anchorNode": "law-02-04",
+  "terms": [
+    { "name": "科学发现", "aliases": [], "role": "defined", "confidence": "high", "evidence": "科学发现" },
+    { "name": "智力活动的规则和方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "智力活动的规则和方法" },
+    { "name": "疾病的诊断和治疗方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "疾病的诊断和治疗方法" },
+    { "name": "动物和植物品种", "aliases": [], "role": "defined", "confidence": "high", "evidence": "动物和植物品种" },
+    { "name": "原子核变换方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "原子核变换方法以及用原子核变换方法获得的物质" },
+    { "name": "主要起标识作用的设计", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对平面印刷品的图案、色彩或者二者的结合作出的主要起标识作用的设计" },
+    { "name": "动植物品种的生产方法", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对前款第（四）项所列产品的生产方法，可以依照本法规定授予专利权" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

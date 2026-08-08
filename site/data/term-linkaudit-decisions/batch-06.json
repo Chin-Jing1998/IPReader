@@ -1,0 +1,192 @@
+[
+  {
+    "id": "term-0470",
+    "canonical": "特征部分",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "8条样例均稳定指向权利要求“前序部分+特征部分”撰写结构中的“特征部分”概念（如rule-02-08、01-02-07-04、chem-01-03-01），右邻字“，/：/记”对应“特征部分，按照…”“特征部分记载的技术特征”等固定搭配，语义一致无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0471",
+    "canonical": "在先申请",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例（含别名“第一次提出的专利申请”）均指优先权项下的原始申请，rule-02-02明确以“第一次提出的专利申请（以下简称在先申请）”给出同义关系，embedRate 0.996且语境高度一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0472",
+    "canonical": "著录项目",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例均指专利申请/决定书的著录事项集合（申请号、申请日、发明创造名称等），如01-01-06-07“著录项目（即著录事项）包括…”，各页语境统一。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0477",
+    "canonical": "补充检索",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "9条样例均指审查员依职权开展的补充性检索行为（继续审查、抵触申请核实、权利要求修改后等多个触发场景），核心动作概念一致，无假拼接风险。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0484",
+    "canonical": "分类号",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例覆盖发明/实用新型IPC分类号与外观设计洛迦诺分类号两类子场景，但均指“为专利/外观设计分配的分类代码”这一统一概念，属嵌入但相关，未见语义割裂。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0485",
+    "canonical": "复审决定",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例（含别名“复审请求审查决定”）均指复审程序的审查决定，04-02-05给出“复审请求审查决定（简称复审决定）”的同义关系，语境高度统一。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0490",
+    "canonical": "进入声明",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例（含别名“进入国家阶段的书面声明”）均指PCT国家阶段声明文件，01-02-15-01明确“进入国家阶段的书面声明（以下简称进入声明）”，embedRate 1，语境无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0491",
+    "canonical": "相关技术",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "no",
+    "reason": "10条样例中仅约3条（mech-01-03-03“相关技术或者关联技术”、term-0515索引“相关技术中存在的技术缺陷”、mech-01-03-05“不得写为‘现有技术’”）真正指撰写规范中替代“现有技术”表述的专指概念；其余7条（law-07-13“药品相关技术方案”、rule-05-07“适应症相关技术方案”、01-01-04-03/01-02-07-03“相关技术内容”、infr-01-03“相关技术特征”、chem-01-03-01“相关技术领域”、oa-01-02“相关技术内容”）中“相关”均为泛义修饰词，实际语义单元是“相关+技术方案/内容/特征/领域”，“相关技术”并非独立语义单位，与词条定义域（撰写规范用语）无关。右邻字分布印证：方(10)+特(7)+内(5)=22/54≈41%指向“方案/特征/内容”假拼接模式，远超15%容错，属判例锚②“嵌入且无关→no”。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0504",
+    "canonical": "不予受理",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例覆盖申请受理审查、复审/无效请求受理审查等多个触发场景，但均指专利局/复审无效审理部门作出的“不予受理”这一统一程序性决定动作，无语义分裂。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0505",
+    "canonical": "发明名称",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例均指专利申请文件中的“发明名称”法定著录项目/文本要素，跨初步审查、机械/化学撰写规范章节语境统一。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0506",
+    "canonical": "发明信息",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例集中于专利分类章节，均指用于确定分类号的“发明信息”这一专利分类学概念（与“附加信息”相对），语境高度一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0512",
+    "canonical": "海牙协定",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例（含两条全称别名）均指《工业品外观设计国际注册海牙协定》，embedRate 1，属公认专有名词简称，无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0515",
+    "canonical": "技术缺陷",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指背景技术/相关技术中待克服的技术不足，与“技术缺陷—技术问题”对应关系的定义完全吻合，覆盖侵权判定指南、机械/化学撰写规范、答复审查意见指南等章节但语义统一，未见“技术”被其他名词拼接割裂的情形。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0516",
+    "canonical": "检索报告",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例均指记载检索结果（含国际检索报告）的正式文书，语境一致，无歧义搭配。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0526",
+    "canonical": "委托书",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例均指专利代理委托权限文件，覆盖初步审查、实质审查、复审无效、专利权评价报告等章节但概念统一。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0528",
+    "canonical": "显而易见",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例含“非显而易见”“是否显而易见”等否定/疑问搭配，但均围绕创造性判断中的“显而易见性”这一统一评判标准展开，属判例锚①“嵌入但相关”，非语义割裂。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0529",
+    "canonical": "相同主题",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例（含发明实用新型场景与外观设计场景）均指优先权项下“在后申请与在先申请主题相同”这一统一法律要件，逐条核读未见“相同”脱离“主题”另修饰其他名词的假拼接现象，边界词经核实后语义稳定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0538",
+    "canonical": "被许可人",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "样例均指专利实施许可合同中获得实施权的一方，覆盖专利法、实施细则、审查指南、侵权判定指南多章节但概念统一，无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0542",
+    "canonical": "产品的形状",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "no",
+    "reason": "canonical“产品的形状”4条样例稳定指向实用新型客体条款（“形状、构造或其结合”，law-01-02、01-02-06-02设有专门6.2.1节定义），但别名“形状”样例出现明显语义漂移：infr-01-03、term-0105指向外观设计“形状、图案、色彩”设计要素（与本词条definition字段吻合但与canonical取向不同的另一概念），mech-01-02-01、mech-02-03-05则是机械撰写规范中“结构、形状、原理”泛泛套话，属通用汉语词而非专指概念。“形状”系高频通用词（poolReasons: E-高频词），二者混合计入同一链接目标后可靠率难以达到85%门槛，存在跨外观设计/实用新型两套子概念误导链接的风险。",
+    "confidence": "medium"
+  }
+]

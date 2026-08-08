@@ -1,0 +1,16 @@
+{
+  "chunk": "chemistry-drafting-rules/01/003/02",
+  "anchorNode": "chem-01-03-02",
+  "terms": [
+    { "name": "独立权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "独立权利要求作为侵权判断的第一标准，其作用是最大程度地保护发明构思" },
+    { "name": "开放式权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "开放式的权利要求提倡采用“包含”、“包括”、“主要由…… 组成”的表达方式" },
+    { "name": "封闭式权利要求", "aliases": [], "role": "defined", "confidence": "high", "evidence": "封闭式的权利要求提倡采用“由……组成”的表达方式" },
+    { "name": "多独权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "撰写多独权时，应在保证多独权符合单一性的同时" },
+    { "name": "单一性", "aliases": [], "role": "used", "confidence": "high", "evidence": "撰写多独权时，应在保证多独权符合单一性的同时" },
+    { "name": "产品权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "通常将产品权利要求前置" },
+    { "name": "方法权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "涉及方法权利要求后置" },
+    { "name": "涉外案", "aliases": [], "role": "used", "confidence": "mid", "evidence": "针对涉外案，禁止用方法特征限定产品独立权利要求" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

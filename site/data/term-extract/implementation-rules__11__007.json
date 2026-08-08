@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/11/007",
+  "anchorNode": "rule-11-07",
+  "terms": [
+    { "name": "进入中国国家阶段的书面声明", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当在进入中国国家阶段的书面声明中予以说明" },
+    { "name": "证明文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "提交本细则第三十三条第三款规定的有关证明文件" },
+    { "name": "进入日", "aliases": [], "role": "used", "confidence": "high", "evidence": "自进入日起2个月内提交本细则第三十三条第三款规定的有关证明文件" }
+  ],
+  "laws": ["专利法第24条第2项", "专利法第24条第3项", "专利法实施细则第33条第3款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

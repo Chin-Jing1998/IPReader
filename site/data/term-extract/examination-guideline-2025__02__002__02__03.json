@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/02/002/02/03",
+  "anchorNode": "02-02-02-03",
+  "terms": [
+    { "name": "附图标记", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "表示同一组成部分（同一技术特征或者同一对象）的附图标记应当一致" },
+    { "name": "附图", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "附图是说明书的一个组成部分" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:38:20+08:00"
+}

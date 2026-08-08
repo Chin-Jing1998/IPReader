@@ -1,0 +1,11 @@
+{
+  "chunk": "patent-law/06/016",
+  "anchorNode": "law-06-16",
+  "terms": [
+    { "name": "强制许可", "aliases": [], "role": "used", "confidence": "high", "evidence": "关于实施强制许可的决定不服" },
+    { "name": "使用费", "aliases": [], "role": "used", "confidence": "high", "evidence": "关于实施强制许可的使用费的裁决不服" },
+    { "name": "起诉期限", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以自收到通知之日起三个月内向人民法院起诉" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

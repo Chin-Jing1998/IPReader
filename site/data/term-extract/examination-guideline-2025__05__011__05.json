@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/05/011/05",
+  "anchorNode": "05-11-05",
+  "terms": [
+    { "name": "专利登记簿", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "专利开放许可声明有关事项在专利登记簿上登记" },
+    { "name": "专利公报", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "并在专利公报上公告" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

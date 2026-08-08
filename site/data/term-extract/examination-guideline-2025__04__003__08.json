@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/04/003/08",
+  "anchorNode": "04-03-08",
+  "terms": [
+    { "name": "无效宣告程序的终止", "aliases": [], "role": "defined", "confidence": "high", "evidence": "撤回其无效宣告请求的，无效宣告程序终止" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "mid", "evidence": "其无效宣告请求被视为撤回的" },
+    { "name": "驳回请求", "aliases": [], "role": "used", "confidence": "mid", "evidence": "因不符合受理条件而被驳回请求的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

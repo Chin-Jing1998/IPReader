@@ -1,0 +1,85 @@
+{
+ "batchNo": 20,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/002/02.md",
+   "chunkId": "examination-guideline-2025/04/002/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "04-02-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第二章复审请求的审查 ｜ 2.复审请求的形式审查",
+   "charLen": 1736
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/002/03.md",
+   "chunkId": "examination-guideline-2025/04/002/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "04-02-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第二章复审请求的审查 ｜ 3.前置审查",
+   "charLen": 1042
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/002/04.md",
+   "chunkId": "examination-guideline-2025/04/002/04",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "04-02-04",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第二章复审请求的审查 ｜ 4.复审请求的合议审查",
+   "charLen": 1873
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/002/05.md",
+   "chunkId": "examination-guideline-2025/04/002/05",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "04-02-05",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第二章复审请求的审查 ｜ 5.复审请求审查决定的类型",
+   "charLen": 316
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/002/06.md",
+   "chunkId": "examination-guideline-2025/04/002/06",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "04-02-06",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第二章复审请求的审查 ｜ 6.复审决定的送达",
+   "charLen": 43
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/002/07.md",
+   "chunkId": "examination-guideline-2025/04/002/07",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "04-02-07",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第二章复审请求的审查 ｜ 7.复审决定的约束力",
+   "charLen": 101
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/002/08.md",
+   "chunkId": "examination-guideline-2025/04/002/08",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "04-02-08",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第二章复审请求的审查 ｜ 8.复审程序的中止",
+   "charLen": 31
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/002/09.md",
+   "chunkId": "examination-guideline-2025/04/002/09",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "04-02-09",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第二章复审请求的审查 ｜ 9.复审程序的终止",
+   "charLen": 98
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/003/01.md",
+   "chunkId": "examination-guideline-2025/04/003/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "04-03-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第三章无效宣告请求的审查 ｜ 1.引言",
+   "charLen": 101
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/003/02.md",
+   "chunkId": "examination-guideline-2025/04/003/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "04-03-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第三章无效宣告请求的审查 ｜ 2.审查原则",
+   "charLen": 817
+  }
+ ]
+}

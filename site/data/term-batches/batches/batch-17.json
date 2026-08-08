@@ -1,0 +1,85 @@
+{
+ "batchNo": 17,
+ "chunks": [
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/001/03.md",
+   "chunkId": "examination-guideline-2025/03/001/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "03-01-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第一章进入国家阶段的国际申请的初步审查和事务处理 ｜ 3.进入国家阶段时提交的申请文件的审查",
+   "charLen": 5852
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/001/04.md",
+   "chunkId": "examination-guideline-2025/03/001/04",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "03-01-04",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第一章进入国家阶段的国际申请的初步审查和事务处理 ｜ 4.国际阶段的修改文件译文的审查",
+   "charLen": 1417
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/001/05/01.md",
+   "chunkId": "examination-guideline-2025/03/001/05/01",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "03-01-05-01",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第一章进入国家阶段的国际申请的初步审查和事务处理 ｜ 5.其他文件的审查 ｜ 5.1委托和委托书",
+   "charLen": 477
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/001/05/02.md",
+   "chunkId": "examination-guideline-2025/03/001/05/02",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "03-01-05-02",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第一章进入国家阶段的国际申请的初步审查和事务处理 ｜ 5.其他文件的审查 ｜ 5.2要求优先权",
+   "charLen": 3370
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/001/05/03.md",
+   "chunkId": "examination-guideline-2025/03/001/05/03",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "03-01-05-03",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第一章进入国家阶段的国际申请的初步审查和事务处理 ｜ 5.其他文件的审查 ｜ 5.3援引加入",
+   "charLen": 761
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/001/05/04.md",
+   "chunkId": "examination-guideline-2025/03/001/05/04",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "03-01-05-04",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第一章进入国家阶段的国际申请的初步审查和事务处理 ｜ 5.其他文件的审查 ｜ 5.4不丧失新颖性的公开",
+   "charLen": 481
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/001/05/05.md",
+   "chunkId": "examination-guideline-2025/03/001/05/05",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "03-01-05-05",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第一章进入国家阶段的国际申请的初步审查和事务处理 ｜ 5.其他文件的审查 ｜ 5.5生物材料样品保藏事项",
+   "charLen": 1437
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/001/05/06.md",
+   "chunkId": "examination-guideline-2025/03/001/05/06",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "03-01-05-06",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第一章进入国家阶段的国际申请的初步审查和事务处理 ｜ 5.其他文件的审查 ｜ 5.6遗传资源的来源",
+   "charLen": 140
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/001/05/07.md",
+   "chunkId": "examination-guideline-2025/03/001/05/07",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "03-01-05-07",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第一章进入国家阶段的国际申请的初步审查和事务处理 ｜ 5.其他文件的审查 ｜ 5.7进入国家阶段后对申请文件的修改",
+   "charLen": 451
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/001/05/08.md",
+   "chunkId": "examination-guideline-2025/03/001/05/08",
+   "domain": "examination-guideline-2025",
+   "anchorNodeId": "03-01-05-08",
+   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第一章进入国家阶段的国际申请的初步审查和事务处理 ｜ 5.其他文件的审查 ｜ 5.8改正译文错误",
+   "charLen": 441
+  }
+ ]
+}

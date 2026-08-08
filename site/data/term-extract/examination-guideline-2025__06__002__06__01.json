@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/06/002/06/01",
+  "anchorNode": "06-02-06-01",
+  "terms": [
+    { "name": "专利代理机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "已经委托了符合专利法第十八条规定的专利代理机构" },
+    { "name": "解除委托和辞去委托", "aliases": [], "role": "used", "confidence": "mid", "evidence": "解除和辞去委托的规定适用本指南第一部分第一章第6.1.3节的规定" }
+  ],
+  "laws": [
+    "专利法第18条第1款",
+    "专利法实施细则第18条",
+    "专利法第18条"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

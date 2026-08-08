@@ -1,0 +1,16 @@
+{
+  "chunk": "implementation-rules/13/002",
+  "anchorNode": "rule-13-02",
+  "terms": [
+    { "name": "利害关系人", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "其他利害关系人或者其代表人签字" },
+    { "name": "专利代理机构", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "委托专利代理机构的，由专利代理机构盖章" },
+    { "name": "著录事项变更手续", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "应当向国务院专利行政部门办理著录事项变更手续" },
+    { "name": "专利代理师", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "专利代理师姓名的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

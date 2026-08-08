@@ -1,0 +1,23 @@
+{
+  "chunk": "examination-guideline-2025/03/002/03",
+  "anchorNode": "03-02-03",
+  "terms": [
+    { "name": "审查基础声明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查基础声明包括：进入声明规定栏目中的指明" },
+    { "name": "进入声明", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际申请的申请人需要在进入声明中确认其希望专利局依据的审查文本" },
+    { "name": "补充声明", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以补充声明的形式对审查基础的补充指明" },
+    { "name": "援引加入", "aliases": [], "role": "defined", "confidence": "high", "evidence": "提交的援引加入的项目或部分应当是原始申请文件的一部分" },
+    { "name": "确认援引项目或部分决定的通知书", "aliases": ["PCT/RO/114表"], "role": "used", "confidence": "high", "evidence": "“确认援引项目或部分决定的通知书”（PCT/RO/114表）" },
+    { "name": "修改文本", "aliases": [], "role": "used", "confidence": "mid", "evidence": "根据专利法实施细则第一百三十条第二款或第五十七条第一款提交的修改文本" },
+    { "name": "原说明书和权利要求书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "原说明书和权利要求书是指原始提交的国际申请的权利要求书、说明书及其附图" },
+    { "name": "国际公布", "aliases": [], "role": "used", "confidence": "high", "evidence": "对于以中文作出国际公布的国际申请" }
+  ],
+  "laws": [
+    "专利法实施细则第50条",
+    "专利法实施细则第121条",
+    "专利法实施细则第130条第2款",
+    "专利法实施细则第57条第1款",
+    "专利法实施细则第57条",
+    "专利法第33条"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

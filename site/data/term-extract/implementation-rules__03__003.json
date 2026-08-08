@@ -1,0 +1,14 @@
+{
+  "chunk": "implementation-rules/03/003",
+  "anchorNode": "rule-03-03",
+  "terms": [
+    { "name": "不予受理", "aliases": [], "role": "defined", "confidence": "high", "evidence": "国务院专利行政部门不予受理，并通知申请人" },
+    { "name": "专利申请类别", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利申请类别（发明、实用新型或者外观设计）不明确或者难以确定的" },
+    { "name": "请求书", "aliases": [], "role": "used", "confidence": "high", "evidence": "缺少请求书、说明书（实用新型无附图）或者权利要求书的" },
+    { "name": "说明书", "aliases": [], "role": "used", "confidence": "high", "evidence": "缺少请求书、说明书（实用新型无附图）或者权利要求书的" },
+    { "name": "权利要求书", "aliases": [], "role": "used", "confidence": "high", "evidence": "缺少请求书、说明书（实用新型无附图）或者权利要求书的" },
+    { "name": "简要说明", "aliases": [], "role": "used", "confidence": "high", "evidence": "缺少请求书、图片或者照片、简要说明的" }
+  ],
+  "laws": ["专利法第17条", "专利法第18条第1款"],
+  "extractedAt": "2026-07-12T15:51:42+08:00"
+}

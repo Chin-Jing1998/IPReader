@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/02/002",
+  "anchorNode": "rule-02-02",
+  "terms": [
+    { "name": "在先申请", "aliases": ["第一次提出的专利申请"], "role": "defined", "confidence": "high", "evidence": "第一次提出的专利申请（以下简称在先申请）" },
+    { "name": "优先权", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请要求优先权的" },
+    { "name": "专利代理机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "委托专利代理机构在中国申请专利和办理其他专利事务" }
+  ],
+  "laws": ["专利法第18条第1款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

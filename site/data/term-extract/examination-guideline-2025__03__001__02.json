@@ -1,0 +1,33 @@
+{
+  "chunk": "examination-guideline-2025/03/001/02",
+  "anchorNode": "03-01-02",
+  "terms": [
+    { "name": "最早优先权日", "aliases": [], "role": "used", "confidence": "high", "evidence": "记录的最早优先权日起算" },
+    { "name": "世界知识产权组织国际局", "aliases": ["国际局"], "role": "defined", "confidence": "high", "evidence": "世界知识产权组织国际局（以下简称国际局）" },
+    { "name": "撤回优先权要求", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人在办理进入国家阶段手续时提出撤回优先权要求的" },
+    { "name": "国际申请在中国没有效力", "aliases": [], "role": "defined", "confidence": "high", "evidence": "该国际申请在中国没有效力，审查员应当发出国际申请不能进入中国国家阶段通知书" },
+    { "name": "国际申请不能进入中国国家阶段通知书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "该国际申请在中国没有效力，审查员应当发出国际申请不能进入中国国家阶段通知书" },
+    { "name": "国际申请在中国的效力终止", "aliases": [], "role": "defined", "confidence": "high", "evidence": "该国际申请在中国的效力终止，审查员应当发出国际申请不能进入中国国家阶段通知书" },
+    { "name": "选定", "aliases": [], "role": "defined", "confidence": "high", "evidence": "国际申请在规定的期限内选定中国，并且该选定直至进入国家阶段时仍然有效的" },
+    { "name": "选定通知书", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "以国际局传送的“选定通知书”（PCT/IB/331表）为依据" },
+    { "name": "指定中国", "aliases": [], "role": "used", "confidence": "high", "evidence": "只要国际申请指定了中国，根据专利法实施细则第一百一十九条的规定" },
+    { "name": "进入日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "进入日是指向专利局办理并满足专利法实施细则第一百二十一条第一款" },
+    { "name": "恢复权利请求", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人按照专利法实施细则第六条第二款提出恢复权利请求的" },
+    { "name": "不可抗拒的事由", "aliases": [], "role": "used", "confidence": "high", "evidence": "如果申请人提出耽误上述期限是由于不可抗拒的事由造成的" }
+  ],
+  "laws": [
+    "专利法实施细则第120条",
+    "专利法实施细则第121条",
+    "专利法实施细则第119条",
+    "专利法实施细则第122条第1款第1项",
+    "专利法实施细则第122条第1款第2项",
+    "专利法实施细则第122条第1款第3项",
+    "专利法实施细则第121条第1款第1项至第3项",
+    "专利法实施细则第121条第1款第2项",
+    "专利法实施细则第6条第2款",
+    "专利法实施细则第122条第2款",
+    "专利法实施细则第6条第1款",
+    "专利合作条约第11条"
+  ],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

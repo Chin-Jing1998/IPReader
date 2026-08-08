@@ -1,0 +1,43 @@
+{
+  "chunk": "oa-response-guide/01/002",
+  "anchorNode": "oa-01-02",
+  "terms": [
+    {
+      "name": "单独对比原则",
+      "aliases": ["单独对比"],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "判断发明或者实用新型专利申请的新颖性适用单独对比的原则"
+    },
+    {
+      "name": "惯用手段的直接置换",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "惯用手段的直接置换是指：如果要求保护的发明或实用新型与对比文件的区别仅仅是"
+    },
+    {
+      "name": "四个相同",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "四个相同必须同时满足（技术领域、技术问题、技术方案、技术效果）"
+    },
+    {
+      "name": "实质上相同",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "此处需要明白什么是“实质上相同”"
+    },
+    {
+      "name": "同样的发明或者实用新型",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "则认为两者为同样的发明或者实用新型"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/03/010",
+  "anchorNode": "rule-03-10",
+  "terms": [
+    { "name": "视为未提交", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "视为未提交" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

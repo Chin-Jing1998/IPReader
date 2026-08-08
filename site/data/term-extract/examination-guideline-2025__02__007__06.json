@@ -1,0 +1,78 @@
+{
+  "chunk": "examination-guideline-2025/02/007/06",
+  "anchorNode": "02-07-06",
+  "terms": [
+    {
+      "name": "抵触申请",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "抵触申请的检索应当完成到尽可能完善的程度"
+    },
+    {
+      "name": "常规检索",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "常规检索是在申请的主题的所属技术领域进行的检索。"
+    },
+    {
+      "name": "扩展检索",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "扩展检索是在功能类似或应用类似的技术领域进行的检索。"
+    },
+    {
+      "name": "初步检索",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "审查员应利用申请人、发明人、优先权等信息检索申请的同族申请、母案/分案申请"
+    },
+    {
+      "name": "现有技术",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "同时也要注意和创造性有关的现有技术"
+    },
+    {
+      "name": "最接近的现有技术文件",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "最接近的现有技术文件"
+    },
+    {
+      "name": "权利要求前序部分",
+      "aliases": ["前序部分"],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "审查员要求申请人改写独立权利要求前序部分及说明书的有关部分"
+    },
+    {
+      "name": "检索策略",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "制定检索策略通常包括选择检索系统或数据库、表达基本检索要素、构建检索式和调整检索"
+    },
+    {
+      "name": "同族申请",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "审查员应利用申请人、发明人、优先权等信息检索申请的同族申请、母案/分案申请"
+    },
+    {
+      "name": "基本检索要素",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "基本检索要素的表达形式主要包括：分类号、关键词等"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:45:00+08:00"
+}

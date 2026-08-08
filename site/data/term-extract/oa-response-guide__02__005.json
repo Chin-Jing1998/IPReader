@@ -1,0 +1,43 @@
+{
+  "chunk": "oa-response-guide/02/005",
+  "anchorNode": "oa-02-05",
+  "terms": [
+    {
+      "name": "等效手段",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "认定为等效手段的理由不充分，并不能解决相同的技术问题"
+    },
+    {
+      "name": "公知常识",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "不能直接说技术手段为公知常识，必须要在解决技术问题的前提下"
+    },
+    {
+      "name": "抵触申请",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "用抵触申请评价创造性不合理"
+    },
+    {
+      "name": "预料不到的技术效果",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "产生预料不到的技术效果"
+    },
+    {
+      "name": "相反的技术教导",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "对比文件2其他部分存在与对比文件1相反的技术教导"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,193 @@
+[
+  {
+    "id": "term-0068",
+    "canonical": "驳回决定",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指审查/复审程序中的“驳回决定”本身，如“消除驳回决定或者复审通知书指出的缺陷”“审查员在作出驳回决定之前应当…告知”；左邻字“出(38)/对(14)”对应“作出驳回决定”“对驳回决定不服”等固定搭配，语义无漂移。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0074",
+    "canonical": "组合物",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指化学/医药专利中的“组合物”产品类型，如“中药组合物，也称中药组方或者中药复方”“组合物产品独立权利要求”；definition字段实际摘自“封闭式”撰写规则例句而非组合物释义本身，但样例语义一致，不影响判定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0075",
+    "canonical": "医药用途",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指专利意义上的“医药用途”（新药相关专利类型、医药用途权利要求、中药组合物的医药用途等），左邻字“的(11)”对应“物质的医药用途”固定搭配，用法单一。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0078",
+    "canonical": "微生物",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指生物学/专利法“微生物”概念，如“取自…植物或者微生物等含有遗传功能单位的材料”“微生物发明是指利用各种细菌、真菌、病毒等微生物…”，无通用词混用。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0079",
+    "canonical": "基因",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例（含“转基因”“基因工程”“基因重组”“基因筛查”等嵌入形式）均围绕“基因”概念展开，属嵌入但相关（如“转【基因】动物…通过基因工程的重组DNA技术”仍以基因为核心）。但该词为二字词且embedRate达0.926，多以复合词出现，样例外场景未逐一核实，结构性风险偏高，置信度降为medium。",
+    "confidence": "medium"
+  },
+  {
+    "id": "term-0088",
+    "canonical": "优先权",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指专利法“优先权”制度（要求优先权、优先权日、优先权要求费等），左邻字“求(142)/国(92)”、右邻字“日(119)”对应高频固定搭配，语义高度统一。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0091",
+    "canonical": "援引加入",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "8条样例均指国际申请特有的“援引加入”程序（援引加入声明、援引加入的项目或部分等），右邻字“声(25)”对应“援引加入声明”高频搭配，用法一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0104",
+    "canonical": "简要说明",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": false,
+    "suggestedName": "外观设计简要说明",
+    "inlineLink": "no",
+    "reason": "10条样例中仅5条（rule-12-07、侵权判定指南index、law-03-02、rule-02-15、01-03-04-02）指向外观设计简要说明文件本身；另5条（law-03-01“摘要应当简要说明技术要点”、01-02-07-02与term-0509“对图示内容作简要说明”、mech-01-03-03与chem-01-04-03“对相关技术作简要说明”）系通用动词短语，分别用于摘要、附图、背景技术，与该文件概念无关。占比50%，远低于约85%阈值，属多义漂移（判例锚③）。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0109",
+    "canonical": "成套产品",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "8条样例均指外观设计“成套产品”特定概念（成套产品外观设计、成套产品视图编号规则等），无通用词混用。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0113",
+    "canonical": "现有设计",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指专利法“现有设计”概念（不属于现有设计、现有设计特征、现有设计抗辩等），左邻字“与(16)/者(13)/于(11)”对应“不属于现有设计”“区别于现有设计”等固定搭配。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0119",
+    "canonical": "复审请求",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指“复审请求”法定程序（提出复审请求、复审请求期限、复审请求人等），右邻字“人(65)”对应“复审请求人”高频搭配，语义一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0121",
+    "canonical": "前置审查",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "8条样例均指驳回复审中审查部门的“前置审查”程序（对复审请求的前置审查、以修改文本为基础进行前置审查等），用法单一稳定。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0127",
+    "canonical": "无效宣告请求",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指“无效宣告请求”法定程序（提出无效宣告请求、无效宣告请求书、无效宣告请求的理由等），右邻字“审(32)/人(18)”对应固定搭配，语义高度一致。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0137",
+    "canonical": "部分无效",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "no",
+    "reason": "10条样例中8条为“宣告专利权（全部或者）部分无效”标准表述（04-03-05明确三分法列举：宣告专利权全部无效/部分无效/维持专利权有效），语义清晰；另2条（term-0135索引与04-03-02-02正文，系同一条款“请求人可以放弃全部或者部分无效宣告请求的范围、理由及证据”重复引用）中“部分”实际修饰“无效宣告请求的范围”而非构成“部分无效”概念，属切分边界误读。样例正确率约80%，未稳定达到约85%阈值，按从严原则判定不链。",
+    "confidence": "low"
+  },
+  {
+    "id": "term-0139",
+    "canonical": "口头审理",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指无效/复审程序中的“口头审理”听证程序（决定进行口头审理、口头审理通知、缺席审理等），语义单一，无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0153",
+    "canonical": "受理",
+    "unitType": "term",
+    "isTerm": false,
+    "nameComplete": true,
+    "inlineLink": "no",
+    "reason": "definition为空、evidenceCount=0，属高危信号；“受理”是各类行政、司法程序通用的动词（法院、行政机关均适用），非专利领域独有概念。样例中约半数为泛化动词用法（“统一受理和审查专利申请”“受理按照专利合作条约提出的专利国际申请”），其余多是“受理通知书”“受理机构”“受理条件”等复合搭配中的语素，更精确的复合词（受理局、受理部门等）已在术语表中独立成词，裸词链接将造成大范围泛链接且落地页释义为空。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0169",
+    "canonical": "专利公报",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指官方出版物“专利公报”（定期出版专利公报、在专利公报上予以公告、专利公报有发明/实用新型/外观设计三种等），语义单一。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0172",
+    "canonical": "专利证书",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指“专利证书”法定文件（发给发明专利证书、颁发保密专利证书、伪造或者变造专利证书等），语义一致无歧义。",
+    "confidence": "high"
+  },
+  {
+    "id": "term-0190",
+    "canonical": "保密审查",
+    "unitType": "term",
+    "isTerm": true,
+    "nameComplete": true,
+    "inlineLink": "yes",
+    "reason": "10条样例均指专利法第十九条“保密审查”程序（应当事先报经专利局进行保密审查、保密审查请求的提出等），右邻字“请(13)”对应“保密审查请求”固定搭配，embedRate偏低(0.868)源于章节编号（如“6.1.1保密审查”）紧邻数字，非语义漂移。",
+    "confidence": "high"
+  }
+]

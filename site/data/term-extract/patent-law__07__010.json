@@ -1,0 +1,9 @@
+{
+  "chunk": "patent-law/07/010",
+  "anchorNode": "law-07-10",
+  "terms": [
+    { "name": "诉前证据保全", "aliases": ["证据保全"], "role": "defined", "confidence": "high", "evidence": "可以在起诉前依法向人民法院申请保全证据" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

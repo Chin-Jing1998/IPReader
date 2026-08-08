@@ -1,0 +1,25 @@
+node_modules/
+dist/
+release/
+.DS_Store
+*.log
+
+# Electron 桌面封装产物（由 electron-builder 生成）
+# 本地辅助/中间文件
+.t4-progress.json
+.t4-next.mjs
+.playwright-mcp/
+
+# 数据管线中间产物（可由脚本重建，无需入库）
+data/wave-src/
+data/wave-*.json
+data/node-bodies.json
+# 内容精构波次的 per-part id 清单：运行时不使用，仅精构调度用
+data/ids-*.json
+.gstack/
+.superpowers/
+.worktrees/
+.cache/mansions/
+
+# 关联复核数据备份（回滚用，可由 git 历史/脚本重建，不入库）
+audit/backup/

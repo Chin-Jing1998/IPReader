@@ -1,0 +1,15 @@
+{
+  "chunk": "patent-law/03/001",
+  "anchorNode": "law-03-01",
+  "terms": [
+    { "name": "请求书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "请求书应当写明发明或者实用新型的名称，发明人的姓名" },
+    { "name": "说明书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "说明书应当对发明或者实用新型作出清楚、完整的说明" },
+    { "name": "所属技术领域的技术人员", "aliases": [], "role": "used", "confidence": "high", "evidence": "以所属技术领域的技术人员能够实现为准" },
+    { "name": "摘要", "aliases": [], "role": "defined", "confidence": "high", "evidence": "摘要应当简要说明发明或者实用新型的技术要点" },
+    { "name": "权利要求书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "权利要求书应当以说明书为依据，清楚、简要地限定要求专利保护的范围" },
+    { "name": "依赖遗传资源完成的发明创造", "aliases": [], "role": "used", "confidence": "high", "evidence": "依赖遗传资源完成的发明创造" },
+    { "name": "遗传资源的直接来源和原始来源", "aliases": [], "role": "defined", "confidence": "high", "evidence": "该遗传资源的直接来源和原始来源" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

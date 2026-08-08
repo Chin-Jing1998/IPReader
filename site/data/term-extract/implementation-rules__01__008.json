@@ -1,0 +1,14 @@
+{
+  "chunk": "implementation-rules/01/008",
+  "anchorNode": "rule-01-08",
+  "terms": [
+    { "name": "在中国完成的发明或者实用新型", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "是指技术方案的实质性内容在中国境内完成的发明或者实用新型" },
+    { "name": "保密审查", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "请求国务院专利行政部门进行保密审查" },
+    { "name": "专利国际申请", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "向有关国外机构提交专利国际申请" }
+  ],
+  "laws": ["专利法第19条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

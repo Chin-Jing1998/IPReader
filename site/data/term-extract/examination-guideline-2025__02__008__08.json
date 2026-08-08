@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/02/008/08",
+  "anchorNode": "02-08-08",
+  "terms": [
+    { "name": "前置审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查员应当对转送的复审请求书进行前置审查并作出前置审查意见" },
+    { "name": "复审和无效审理部门", "aliases": [], "role": "used", "confidence": "high", "evidence": "复审和无效审理部门作出撤销驳回决定的复审决定后" },
+    { "name": "撤销驳回决定", "aliases": [], "role": "used", "confidence": "mid", "evidence": "复审和无效审理部门作出撤销驳回决定的复审决定后" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

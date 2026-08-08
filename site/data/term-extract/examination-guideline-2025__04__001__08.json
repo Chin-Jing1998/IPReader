@@ -1,0 +1,11 @@
+{
+  "chunk": "examination-guideline-2025/04/001/08",
+  "anchorNode": "04-01-08",
+  "terms": [
+    { "name": "重新作出审查决定", "aliases": [], "role": "used", "confidence": "high", "evidence": "复审请求或者无效宣告请求审查决定被人民法院的生效判决撤销后，应当重新作出审查决定" },
+    { "name": "法律适用错误", "aliases": [], "role": "used", "confidence": "mid", "evidence": "因主要证据不足或者法律适用错误导致审查决定被撤销的" },
+    { "name": "违反法定程序", "aliases": [], "role": "used", "confidence": "mid", "evidence": "因违反法定程序导致审查决定被撤销的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

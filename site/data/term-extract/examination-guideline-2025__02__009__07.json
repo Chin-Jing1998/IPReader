@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/02/009/07",
+  "anchorNode": "02-09-07",
+  "terms": [
+    { "name": "比特流", "aliases": [], "role": "used", "confidence": "high", "evidence": "各种类型的数据一般以比特流的形式生成、存储、传输等" },
+    { "name": "视频编码方法", "aliases": [], "role": "used", "confidence": "high", "evidence": "生成比特流的特定视频编码方法" },
+    { "name": "视频解码方法", "aliases": [], "role": "used", "confidence": "high", "evidence": "比特流通过视频解码方法生成视频数据" },
+    { "name": "计算机可读存储介质", "aliases": [], "role": "used", "confidence": "high", "evidence": "存储该比特流的计算机可读存储介质" },
+    { "name": "智力活动的规则和方法", "aliases": [], "role": "used", "confidence": "high", "evidence": "属于专利法第二十五条第一款第（二）项规定的智力活动的规则和方法" },
+    { "name": "技术方案", "aliases": [], "role": "used", "confidence": "high", "evidence": "属于专利法第二条第二款所述的技术方案，属于专利保护的客体" },
+    { "name": "存储或者传输资源的优化配置", "aliases": [], "role": "used", "confidence": "mid", "evidence": "能够实现存储或者传输资源的优化配置等" }
+  ],
+  "laws": ["专利法第二十五条第一款第（二）项", "专利法第二条第二款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

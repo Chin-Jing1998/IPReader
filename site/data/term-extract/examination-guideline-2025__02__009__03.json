@@ -1,0 +1,16 @@
+{
+  "chunk": "examination-guideline-2025/02/009/03",
+  "anchorNode": "02-09-03",
+  "terms": [
+    { "name": "智力活动的规则和方法", "aliases": [], "role": "used", "confidence": "high", "evidence": "属于专利法第二十五条第一款第（二）项规定的智力活动的规则和方法" },
+    { "name": "技术方案", "aliases": [], "role": "used", "confidence": "high", "evidence": "属于专利法第二条第二款规定的技术方案，属于专利保护的客体" },
+    { "name": "专利保护的客体", "aliases": [], "role": "used", "confidence": "high", "evidence": "不属于专利保护的客体" },
+    { "name": "数学计算方法", "aliases": ["数学运算方法"], "role": "used", "confidence": "mid", "evidence": "该解决方案整体仍旧属于一种数学计算方法" },
+    { "name": "工业过程控制", "aliases": [], "role": "used", "confidence": "high", "evidence": "该发明专利申请是一种通过执行计算机程序实现工业过程控制的解决方案" },
+    { "name": "计算机系统内部性能改进", "aliases": [], "role": "used", "confidence": "high", "evidence": "计算机系统内部性能改进的解决方案" },
+    { "name": "外部技术数据处理", "aliases": [], "role": "used", "confidence": "mid", "evidence": "外部技术数据处理的解决方案" },
+    { "name": "测量或者测试过程控制", "aliases": [], "role": "used", "confidence": "mid", "evidence": "测量或者测试过程控制的解决方案" }
+  ],
+  "laws": ["专利法第二十五条第一款第（二）项", "专利法第二条第二款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

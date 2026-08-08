@@ -1,0 +1,11 @@
+{
+  "chunk": "implementation-rules/03/004",
+  "anchorNode": "rule-03-04",
+  "terms": [
+    { "name": "优先权", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人在递交日要求了优先权的" },
+    { "name": "援引在先申请文件", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "以援引在先申请文件的方式补交" },
+    { "name": "递交日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以首次提交文件的递交日为申请日" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:51:42+08:00"
+}

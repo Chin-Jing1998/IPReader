@@ -1,0 +1,9 @@
+{
+  "chunk": "implementation-rules/05/001",
+  "anchorNode": "rule-05-01",
+  "terms": [
+    { "name": "专利权期限补偿", "aliases": [], "role": "used", "confidence": "high", "evidence": "请求给予专利权期限补偿的" }
+  ],
+  "laws": ["专利法第42条第2款"],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

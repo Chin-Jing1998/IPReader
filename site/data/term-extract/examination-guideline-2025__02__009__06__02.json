@@ -1,0 +1,21 @@
+{
+  "chunk": "examination-guideline-2025/02/009/06/02",
+  "anchorNode": "02-09-06-02",
+  "terms": [
+    { "name": "社会公德", "aliases": [], "role": "used", "confidence": "high", "evidence": "该发明创造含有违反社会公德的内容，根据专利法第五条第一款的规定，不能被授予专利权" },
+    { "name": "公共安全", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当为维护公共安全所必需" },
+    { "name": "抽象数学方法", "aliases": [], "role": "used", "confidence": "mid", "evidence": "属于对抽象数学方法的优化，且整个方案并不包括任何技术特征" },
+    { "name": "算法特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "上述算法特征与技术特征在功能上彼此相互支持、存在相互作用关系" },
+    { "name": "商业规则和方法特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "给出包含算法特征或商业规则和方法特征的发明专利申请的审查示例" },
+    { "name": "技术问题", "aliases": [], "role": "used", "confidence": "high", "evidence": "属于提高区块链数据安全性的技术问题" },
+    { "name": "技术手段", "aliases": [], "role": "used", "confidence": "high", "evidence": "利用的是遵循自然规律的技术手段" },
+    { "name": "技术效果", "aliases": [], "role": "used", "confidence": "high", "evidence": "获得了业务节点间安全通信和减少业务节点泄露隐私数据可能性的技术效果" },
+    { "name": "用户体验", "aliases": [], "role": "used", "confidence": "mid", "evidence": "用户体验的提升" },
+    { "name": "最接近的现有技术", "aliases": [], "role": "used", "confidence": "high", "evidence": "要求保护的发明技术方案相对于最接近的现有技术是非显而易见的" },
+    { "name": "显而易见", "aliases": [], "role": "used", "confidence": "high", "evidence": "要求保护的发明技术方案相对于对比文件1和对比文件2的结合是显而易见的" },
+    { "name": "对比文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "对比文件1公开了仿人机器人的步态规划" },
+    { "name": "技术启示", "aliases": [], "role": "used", "confidence": "high", "evidence": "现有技术整体上并不存在使本领域技术人员改进对比文件1以获得要求保护发明的启示" }
+  ],
+  "laws": ["专利法第五条第一款", "专利法第二十五条第一款第（二）项", "专利法第二条第二款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

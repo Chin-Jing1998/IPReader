@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/05/011/08",
+  "anchorNode": "05-11-08",
+  "terms": [
+    { "name": "专利开放许可实施期间", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "专利开放许可实施期间是指专利开放许可实施合同生效之日至专利许可期限届满期间" },
+    { "name": "专利年费减缴", "aliases": ["专利年费的减缴"], "role": "defined",
+      "confidence": "high", "evidence": "专利权人可以在专利开放许可实施期间，按规定享有自备案日起尚未到期的专利年费的减缴" },
+    { "name": "普通许可合同", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "签订普通许可合同的，不属于开放许可" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

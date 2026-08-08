@@ -1,0 +1,12 @@
+{
+  "chunk": "examination-guideline-2025/02/007/01",
+  "anchorNode": "02-07-01",
+  "terms": [
+    { "name": "抵触申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "或者找出抵触申请文件和防止重复授权的文件" },
+    { "name": "对比文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "现有技术中的对比文件" },
+    { "name": "重复授权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "防止重复授权的文件" },
+    { "name": "检索报告", "aliases": [], "role": "used", "confidence": "high", "evidence": "检索的结果应当记载在检索报告中" }
+  ],
+  "laws": ["专利法第22条第2款", "专利法第22条第3款", "专利法第9条第1款"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

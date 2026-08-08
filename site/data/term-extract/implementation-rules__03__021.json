@@ -1,0 +1,12 @@
+{
+  "chunk": "implementation-rules/03/021",
+  "anchorNode": "rule-03-21",
+  "terms": [
+    { "name": "专利权评价报告", "aliases": [], "role": "used", "confidence": "high", "evidence": "可以请求国务院专利行政部门作出专利权评价报告" },
+    { "name": "专利权评价报告请求书", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当提交专利权评价报告请求书" },
+    { "name": "利害关系人", "aliases": [], "role": "used", "confidence": "high", "evidence": "专利权人、利害关系人、被控侵权人可以请求" },
+    { "name": "被控侵权人", "aliases": [], "role": "used", "confidence": "high", "evidence": "利害关系人、被控侵权人可以请求国务院专利行政部门" }
+  ],
+  "laws": ["专利法第66条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

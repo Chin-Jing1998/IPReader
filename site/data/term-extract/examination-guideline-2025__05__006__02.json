@@ -1,0 +1,15 @@
+{
+  "chunk": "examination-guideline-2025/05/006/02",
+  "anchorNode": "05-06-02",
+  "terms": [
+    { "name": "邮寄送达", "aliases": [], "role": "defined", "confidence": "high", "evidence": "邮寄送达文件是指通过邮局把通知和决定送交当事人" },
+    { "name": "直接送交", "aliases": [], "role": "used", "confidence": "mid", "evidence": "2.1.2直接送交" },
+    { "name": "电子形式送达", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "专利局通过指定的特定电子系统以电子形式向申请人送达各种通知书" },
+    { "name": "公告送达", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在专利公报上通过公告方式通知当事人。自公告之日起满一个月，该文件视为已经送达" },
+    { "name": "送达日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "自发文日起满十五日推定为当事人收到通知和决定之日" },
+    { "name": "发文日", "aliases": [], "role": "used", "confidence": "mid", "evidence": "进入当事人认可的电子系统的日期与通知书和决定的发文日不一致时" },
+    { "name": "收件人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "当事人未委托专利代理机构的，通知和决定的收件人为请求书中填写的联系人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

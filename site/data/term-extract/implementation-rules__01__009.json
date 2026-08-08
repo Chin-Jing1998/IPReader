@@ -1,0 +1,10 @@
+{
+  "chunk": "implementation-rules/01/009",
+  "anchorNode": "rule-01-09",
+  "terms": [
+    { "name": "保密审查通知", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "向申请人发出保密审查通知" }
+  ],
+  "laws": ["专利法实施细则第8条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}

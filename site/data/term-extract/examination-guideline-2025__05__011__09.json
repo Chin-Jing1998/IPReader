@@ -1,0 +1,14 @@
+{
+  "chunk": "examination-guideline-2025/05/011/09",
+  "anchorNode": "05-11-09",
+  "terms": [
+    { "name": "著录项目变更", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "因专利权转让，提出著录项目变更请求的" },
+    { "name": "专利权质押登记", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "专利权人以实行开放许可的专利权出质的，办理专利权质押登记时" },
+    { "name": "质权人", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "应当提供质权人同意继续实行专利开放许可的书面声明" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-07-12T16:00:00+08:00"
+}

@@ -1,0 +1,13 @@
+{
+  "chunk": "chemistry-drafting-rules/01/005/04",
+  "anchorNode": "chem-01-05-04",
+  "terms": [
+    { "name": "保健食品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "保健食品，是食品的一种，是指具有特定保健功能或者以补充维生素、矿物质为目的的食品" },
+    { "name": "药食两用", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当在药食两用的名单和保健食品可用物品名单之内" },
+    { "name": "妨害公共利益", "aliases": [], "role": "defined", "confidence": "high", "evidence": "否则有可能不符合A5的规定（妨害公共利益）" },
+    { "name": "保健品功能范围", "aliases": [], "role": "defined", "confidence": "high", "evidence": "保健品的功能范围共计27 种，因此权利要求主题名称需要符合这27 种的规定" },
+    { "name": "预防和/或治疗", "aliases": [], "role": "defined", "confidence": "high", "evidence": "权利要求中不应存在措词“预防和/或治疗”" }
+  ],
+  "laws": ["专利法第5条"],
+  "extractedAt": "2026-07-12T15:30:00+08:00"
+}
