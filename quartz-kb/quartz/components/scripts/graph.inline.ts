@@ -619,7 +619,10 @@ async function createGraphInstance(
     autoStart: false,
     autoDensity: true,
     backgroundAlpha: 0,
-    preference: "webgpu",
+    // WebGPU 渲染器在 Electron 桌面端（Chromium WebGPU 实现）下创建上下文成功但
+    // 画布输出空白，仅浏览器环境正常；WebGL 在两类环境均稳定，故显式选用。
+    // （2026-08-09 排查：Electron 43 图谱总览页画布空白）
+    preference: "webgl",
     resolution: window.devicePixelRatio,
     eventMode: "static",
   })
