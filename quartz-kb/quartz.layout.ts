@@ -1,7 +1,5 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
-// 仅作类型使用（type-only），不会进入运行时代码
-import type { FileTrieNode } from "./quartz/util/fileTrie"
 
 /**
  * Explorer 共用配置（内容页与列表页保持一致）。
@@ -13,30 +11,8 @@ const explorerConfig = {
   title: "知识库目录",
   // 注意：函数体内不得定义具名内部函数（const fn = …），否则 esbuild 的 keep-names
   // 转换会注入 __name() 包装，序列化到浏览器后 __name 未定义导致排序失效
-  sortFn: (a: FileTrieNode, b: FileTrieNode) => {
-    // 排序规则：文件夹在前、文件在后；同类之间按名称的数字前缀升序
-    //（内容目录形如「1-审查指南/…」「9-关键词索引/…」，文件形如「3-2-xxx.md」）
-    if (a.isFolder !== b.isFolder) {
-      return a.isFolder ? -1 : 1
-    }
-
-    // 提取名称开头的数字前缀：优先取 slug 段（保留原始文件名编号），回退显示名；
-    // 无数字前缀的节点统一排在有前缀的节点之后
-    const aMatch = (a.slugSegment || a.displayName || "").match(/^(\d+)/)
-    const bMatch = (b.slugSegment || b.displayName || "").match(/^(\d+)/)
-    const na = aMatch ? parseInt(aMatch[1], 10) : Number.MAX_SAFE_INTEGER
-    const nb = bMatch ? parseInt(bMatch[1], 10) : Number.MAX_SAFE_INTEGER
-    if (na !== nb) {
-      return na - nb
-    }
-
-    // 首段数字相同（或均无前缀）时按显示名比较；
-    // numeric: true 使「1-2」<「1-10」按数值序，中文按 zh-CN 语序
-    return (a.displayName || "").localeCompare(b.displayName || "", "zh-CN", {
-      numeric: true,
-      sensitivity: "base",
-    })
-  },
+  // 排序规则已内联到 explorer.inline.ts 的 sortNodes——原先经 toString() 传给
+  // 浏览器再 eval，迫使 CSP 放行 'unsafe-eval'。此处不再配置，避免两份真相。
   // 默认展开到第一层目录（Explorer.tsx Options.openLevels，F5 已实现）
   openLevels: 1,
 }

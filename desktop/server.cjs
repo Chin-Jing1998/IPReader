@@ -54,15 +54,14 @@ let gzipCacheBytes = 0;
  */
 const CSP = [
   "default-src 'self'",
-  // 'unsafe-eval' 是当前必需，有两个确切来源（均已实证定位，非猜测）：
-  //   1. PixiJS 8 内部以字符串生成 shader/uniform 同步代码。去除办法是引入官方的
-  //      pixi.js/unsafe-eval 子模块（node_modules 中已随 pixi 8.15.0 提供）替换掉
-  //      这些代码路径，需改 graph.inline.ts 并重跑 quartz build；
-  //   2. explorer.inline.ts:217-219 用 new Function 反序列化 quartz.layout.ts 的 sortFn。
-  //      本项目只配了 sortFn，把排序逻辑直接内联进 inline 脚本即可去除。
-  // 两处都清掉之后，这一项应删除。在此之前保留它——功能不可回归，
-  // 且 script-src 因每页 2 个内联 script 本已带 'unsafe-inline'，边际损失有限。
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+  // 不含 'unsafe-eval'——两个来源均已在源码侧消除：
+  //   1. PixiJS 8 内部以字符串生成 shader/uniform/UBO/粒子同步代码，已由
+  //      graph.inline.ts 导入官方的 pixi.js/unsafe-eval 子模块整体替换为 polyfill；
+  //   2. explorer.inline.ts 原用 new Function 还原 Explorer.tsx 序列化的三个函数，
+  //      已改为直接内联（sortNodes / keepNode）。
+  // 'unsafe-inline' 仍不可去：quartz 每页有 2 个内联 script（contentIndex 的
+  // fetchData 与 callout 折叠），去掉需改上游的产物生成方式。
+  "script-src 'self' 'unsafe-inline'",
   "style-src 'self' 'unsafe-inline'",
   // blob: 是 PixiJS 8 的图谱渲染所必需——它用 createObjectURL 建 worker 与纹理源；
   // 漏掉这一项会让图谱总览页静默出不来图（本轮冒烟已实证）

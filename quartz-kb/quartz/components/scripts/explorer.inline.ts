@@ -38,6 +38,39 @@ function folderDepth(path: string): number {
  * folderDefaultState 为 "collapsed" 且深度超出 openLevels 才折叠——
  * openLevels: 1 时顶层目录默认展开、二级及更深仍折叠；openLevels: 0 保持旧全折叠行为。
  */
+// ==== patent-kb: 消除 new Function ====
+// 上游把 Explorer.tsx 的三个函数 toString() 塞进 data 属性，再在浏览器侧 eval 回来，
+// 这使产物必须放行 CSP 的 'unsafe-eval'。它们本就是编译期固定的三段逻辑，
+// 绕这一趟字符串没有换来任何灵活性，故直接内联。
+// 顺带解掉了 quartz.layout.ts 上那两条脆弱约束：函数必须是纯函数、且体内不得定义
+// 具名内部函数（否则 esbuild 的 keep-names 会注入运行期未定义的 __name 包装）。
+
+/** 目录树排序：文件夹在前；同类先比名称的数字前缀，再按中文语序 */
+function sortNodes(a: FileTrieNode, b: FileTrieNode): number {
+  if (a.isFolder !== b.isFolder) {
+    return a.isFolder ? -1 : 1
+  }
+  // 内容目录形如「1-专利法/…」、文件形如「3-2-xxx.md」，数字前缀即文档序
+  const aMatch = (a.slugSegment || a.displayName || "").match(/^(\d+)/)
+  const bMatch = (b.slugSegment || b.displayName || "").match(/^(\d+)/)
+  const na = aMatch ? parseInt(aMatch[1], 10) : Number.MAX_SAFE_INTEGER
+  const nb = bMatch ? parseInt(bMatch[1], 10) : Number.MAX_SAFE_INTEGER
+  if (na !== nb) {
+    return na - nb
+  }
+  // numeric 使「1-2」<「1-10」按数值序；zh-CN 使无前缀项按中文语序
+  return (a.displayName || "").localeCompare(b.displayName || "", "zh-CN", {
+    numeric: true,
+    sensitivity: "base",
+  })
+}
+
+/** 标签目录不进侧栏（tags 页仍可经搜索与页内标签抵达）——沿用上游默认行为 */
+function keepNode(node: FileTrieNode): boolean {
+  return node.slugSegment !== "tags"
+}
+// ==== /patent-kb ====
+
 function defaultCollapsed(path: string, opts: ParsedOptions): boolean {
   return opts.folderDefaultState === "collapsed" && folderDepth(path) > opts.openLevels
 }
@@ -220,9 +253,11 @@ async function setupExplorer(currentSlug: FullSlug) {
       useSavedState: explorer.dataset.savestate === "true",
       openLevels: parseInt(explorer.dataset.openLevels ?? "0", 10) || 0,
       order: dataFns.order || ["filter", "map", "sort"],
-      sortFn: new Function("return " + (dataFns.sortFn || "undefined"))(),
-      filterFn: new Function("return " + (dataFns.filterFn || "undefined"))(),
-      mapFn: new Function("return " + (dataFns.mapFn || "undefined"))(),
+      // ==== patent-kb: 见文件末尾 sortNodes / keepNode 的说明 ====
+      sortFn: sortNodes,
+      filterFn: keepNode,
+      mapFn: () => {},
+      // ==== /patent-kb ====
     }
 
     // Get folder state from local storage

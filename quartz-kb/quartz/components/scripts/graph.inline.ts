@@ -17,6 +17,13 @@ import {
   type ZoomTransform,
 } from "d3"
 import { Text, Graphics, Application, Container, Circle } from "pixi.js"
+// ==== patent-kb: 让 PixiJS 不依赖 'unsafe-eval' ====
+// PixiJS 8 默认以字符串生成 shader / uniform / UBO / 粒子的同步代码，需要 CSP 放行
+// 'unsafe-eval'。官方为此提供了本子模块：副作用导入即执行 selfInstall()，把这些
+// 代码路径整体替换为等价的 polyfill 实现，并关掉内部的 unsafeEval 可用性检查。
+// 有了它，desktop/server.cjs 下发的 CSP 才能去掉 'unsafe-eval'。
+import "pixi.js/unsafe-eval"
+// ==== /patent-kb ====
 import { Group as TweenGroup, Tween as Tweened } from "@tweenjs/tween.js"
 import { registerEscapeHandler, removeAllChildren } from "./util"
 import { FullSlug, SimpleSlug, getFullSlug, resolveRelative, simplifySlug } from "../../util/path"

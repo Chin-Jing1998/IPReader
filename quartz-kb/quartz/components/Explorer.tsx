@@ -28,6 +28,12 @@ export interface Options {
   order: OrderEntries[]
 }
 
+// ==== patent-kb: sortFn / filterFn / mapFn 已不再传给浏览器 ====
+// 上游把这三个函数 toString() 写进 data-data-fns，由 explorer.inline.ts 用
+// new Function 还原，迫使产物的 CSP 必须放行 'unsafe-eval'。现改为在
+// explorer.inline.ts 内直接实现（sortNodes / keepNode），那里是唯一真相；
+// 此处保留字段仅为满足 Options 类型与上游结构，其取值不再有任何运行时作用。
+// ==== /patent-kb ====
 const defaultOptions: Options = {
   folderDefaultState: "collapsed",
   folderClickBehavior: "link",
@@ -76,12 +82,7 @@ export default ((userOpts?: Partial<Options>) => {
         data-collapsed={opts.folderDefaultState}
         data-savestate={opts.useSavedState}
         data-open-levels={opts.openLevels ?? 0}
-        data-data-fns={JSON.stringify({
-          order: opts.order,
-          sortFn: opts.sortFn.toString(),
-          filterFn: opts.filterFn.toString(),
-          mapFn: opts.mapFn.toString(),
-        })}
+        data-data-fns={JSON.stringify({ order: opts.order })}
       >
         <button
           type="button"
