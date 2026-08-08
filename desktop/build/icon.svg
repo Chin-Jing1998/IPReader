@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  PatentKB 应用图标 · 源文件
+  意象：四条「条文行」+ 一条把两个术语节点连起来的曲线——正文与术语链接，
+        正是本产品的核心（2217 页条文、7571 处行内术语成链）。
+  配色取自文档站自身的 token（quartz.config.ts）：
+        底  #284b63 secondary（靛青）
+        线  #faf8f8 light（米白）
+        节点 #84a59d tertiary（青灰）提亮至 #8fb3a8，以在深底上保持对比
+  规格：1024 画布，图形占 824 居中（macOS Big Sur+ 图标模板），圆角 185。
+  改动后用 build/make-icon.mjs 重新生成 icon.png。
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#31607e"/>
+      <stop offset="0.5" stop-color="#284b63"/>
+      <stop offset="1" stop-color="#1a3547"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="0.45" stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 底板 -->
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bg)"/>
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#gloss)"/>
+  <!-- 极细内描边，给深底一点边缘的定义 -->
+  <rect x="101.5" y="101.5" width="821" height="821" rx="183.5"
+        fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="3"/>
+
+  <!-- 条文行：长度不齐，读起来像真的段落而非装饰性等长条。
+       只用三行、行高 88、行距 44——四行在 Dock 的 32px 下会糊成一片。 -->
+  <g fill="#faf8f8" fill-opacity="0.94">
+    <rect x="250" y="336" width="430" height="88" rx="44"/>
+    <rect x="250" y="468" width="340" height="88" rx="44"/>
+    <rect x="250" y="600" width="390" height="88" rx="44"/>
+  </g>
+
+  <!-- 术语关联：两个节点 + 一条向外绕行的连线 -->
+  <path d="M 688 380 C 790 430, 790 594, 648 644"
+        fill="none" stroke="#8fb3a8" stroke-opacity="0.95"
+        stroke-width="20" stroke-linecap="round"/>
+  <circle cx="688" cy="380" r="36" fill="#8fb3a8"/>
+  <circle cx="648" cy="644" r="36" fill="#8fb3a8"/>
+</svg>
