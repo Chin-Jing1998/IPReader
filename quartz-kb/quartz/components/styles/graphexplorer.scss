@@ -552,16 +552,27 @@ html:has(body[data-slug="0-图谱总览/index"]) {
 // 高度沿用内容页侧栏形态（custom.scss：sticky、margin-top/top 0.75rem、
 // height calc(100vh - 1.5rem)），不再自动隐藏、不做边缘呼出；画布占其余列，
 // 右栏（.ge-panel）点击节点后显现。
+// v11 协调：
+//   ① column-gap 0.75rem 使左栏↔画布间隙与画布↔右栏（.ge-body gap 0.75rem）一致；
+//   ② row-gap 归零 + .page-footer margin-top 归零（其 16px 与画布 12px 外边距折叠
+//     取大，使画布整体下移 9px），画布顶部=12px、底部=视口-12px，与左栏完全平齐；
+//   ③ 状态栏（.ge-toolbar）与画布同为画布区首元素，左端天然平齐。
 body[data-slug="0-图谱总览/index"] {
   .page > #quartz-body {
     grid-template-columns: 320px minmax(0, 1fr);
-    column-gap: 0;
+    column-gap: 0.75rem;
+    row-gap: 0;
   }
 
   // 显式指定 grid-center：避免 .center 无 grid-area 时被自动放置到
   // 非预期列导致塌陷
   .page > #quartz-body .center {
     grid-area: grid-center;
+  }
+
+  // 消除画布容器（.page-footer）的外边距折叠偏移，使画布顶/底与左栏平齐
+  .page > #quartz-body .center > .page-footer {
+    margin-top: 0;
   }
 
   // v9：删除页面上方「图谱总览」标题区，画布上移顶格
