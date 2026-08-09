@@ -65,11 +65,15 @@ export const sharedPageComponents: SharedLayout = {
   // PageNav（v6）：书籍式上一节/下一节翻页，链外页面（首页/图谱页）自行返回 null
   // ReadingAids（v6）：回顶进度环 FAB + TOC 当前节强调（图谱页自行返回 null）
   // Annotate（v7）：选中文本的复制/高亮/划线/笔记（图谱页自行返回 null）
+  // Settings（v8）：设置模态。必须挂 afterBody 而非 left 栏——left 栏 sticky z-1
+  // 会创建层叠上下文，fixed 遮罩的 z-850 被限制在上下文内，盖不住
+  // 正文 sticky z-50 的 .article-title（实测图谱页顶部标题穿透遮罩）
   afterBody: [
     Component.GraphExplorer(),
     Component.PageNav(),
     Component.ReadingAids(),
     Component.Annotate(),
+    Component.Settings(),
   ],
   // 离线化：清空页脚外链（GitHub/Discord 在离线环境为死链）
   footer: Component.Footer({
@@ -97,7 +101,6 @@ export const defaultContentPageLayout: PageLayout = {
           Component: Component.Search(),
           grow: true,
         },
-        { Component: Component.Settings() },
         { Component: Component.ReaderMode() },
       ],
     }),
@@ -122,7 +125,6 @@ export const defaultListPageLayout: PageLayout = {
           Component: Component.Search(),
           grow: true,
         },
-        { Component: Component.Settings() },
       ],
     }),
     Component.Explorer(explorerConfig),

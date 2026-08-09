@@ -50,7 +50,7 @@
   display: grid;
   place-items: center;
   padding: 1rem;
-  background-color: rgba(18, 18, 22, 0.3);
+  background-color: rgba(14, 14, 18, 0.42);
   // 注意：-webkit- 必须写在无前缀之前——lightningcss 对「无前缀在前」的
   // 双写声明会吞掉无前缀版（构建 targets 判定），现代 Chromium 只认无前缀，
   // 顺序反了磨砂效果会整体失效
@@ -63,9 +63,10 @@
   }
 }
 
-// 深色模式遮罩更浓，衬托亮色面板
+// 深色模式遮罩更浓，衬托亮色面板；图谱画布为 WebGL 合成层、backdrop-filter
+// 无法采样模糊，只能靠不透明度压暗——故深色下刻意加重（用户实测反馈）
 :root[saved-theme="dark"] .kb-settings-overlay {
-  background-color: rgba(8, 8, 12, 0.5);
+  background-color: rgba(6, 6, 10, 0.66);
 }
 
 @keyframes kb-overlay-in {
@@ -82,11 +83,11 @@
 .kb-settings-panel {
   width: 30rem;
   max-width: calc(100vw - 2rem);
-  max-height: min(78vh, 46rem);
+  max-height: min(88vh, 48rem);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  padding: 1.2rem 1.3rem 1.3rem;
+  padding: 1.1rem 1.2rem 1.2rem;
   font-family: var(--headerFont);
   // 近实底玻璃：面板自身不叠 backdrop-filter（配合缩放动画时会被 Backdrop Root 吞掉），
   // 磨砂效果由遮罩层承担
@@ -98,6 +99,22 @@
     0 4px 14px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
   animation: kb-panel-in 0.18s cubic-bezier(0.32, 0.72, 0.24, 1);
+
+  // 滚动条克制化：细、圆角、hover 才加深（内容超高的视口下不喧宾夺主）
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--lightgray);
+    border-radius: 3px;
+
+    &:hover {
+      background-color: var(--gray);
+    }
+  }
 
   @media all and ($mobile) {
     width: 100%;
@@ -165,12 +182,12 @@
 .kb-settings-body {
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 0.9rem;
 }
 
 .kb-settings-sec {
   h4 {
-    margin: 0 0 0.3rem;
+    margin: 0 0 0.25rem;
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--dark);
@@ -178,9 +195,9 @@
 }
 
 .kb-settings-desc {
-  margin: 0 0 0.55rem;
-  font-size: 0.75rem;
-  line-height: 1.6;
+  margin: 0 0 0.45rem;
+  font-size: 0.73rem;
+  line-height: 1.55;
   color: var(--darkgray);
 }
 
@@ -304,7 +321,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.6rem;
-  margin-top: 0.45rem;
+  margin-top: 0.35rem;
   font-size: 0.8rem;
   color: var(--dark);
 
