@@ -95,8 +95,9 @@ function isTermSlug(id: string): boolean {
 const MAX_LOCAL_NODES = 60
 // 术语层 dimmed 模式下节点/边的透明度
 const DIMMED_ALPHA = 0.15
-// 节点半径上限：2 + sqrt(degree) 截顶，避免高度数枢纽节点吞掉版面
-const MAX_NODE_RADIUS = 10
+// 节点半径上限：一级（书根）与总入口基础半径 + 弱化度数修正后截顶，
+// 避免高度数枢纽节点吞掉版面
+const MAX_NODE_RADIUS = 13
 
 const localStorageKey = "graph-visited"
 // ==== patent-kb: localStorage 加固 ====
@@ -392,20 +393,25 @@ async function createGraphInstance(
     nodeDegree.set(l.target.id, (nodeDegree.get(l.target.id) ?? 0) + 1)
   }
   /** 目录层级（slug 段数）→ 基础半径；层级越深越小（v13）。
-   * 2 段=书根 8px / 3 段=章·节 5.5px / 4 段+（审查指南小节）3.5px；
+   * 0 段总入口（图谱总览=专利知识库）12px / 2 段=书根 10px /
+   * 3 段=章·节·条款 5.5px / 4 段+（审查指南小节）3.5px；
    * 术语层节点单独下调一档（shown 全量 1000 节点时避免拥挤）；tags 回落 3px。 */
   function levelRadius(id: string): number {
     if (id.startsWith("tags/")) return 3
     const depth = id.split("/").filter(Boolean).length
+    if (id.startsWith("0-")) return 12
     if (isTermSlug(id)) return depth >= 3 ? 3.5 : 5.5
     if (depth >= 4) return 3.5
     if (depth === 3) return 5.5
-    return 8
+    return 10
   }
 
   function nodeRadius(d: NodeData) {
-    // 层级基础半径 + 弱化度数修正（同层级内 hub 节点略大），仍受 MAX_NODE_RADIUS 封顶
-    return Math.min(levelRadius(d.id) + 0.3 * Math.sqrt(nodeDegree.get(d.id) ?? 0), MAX_NODE_RADIUS)
+    // 层级基础半径 + 弱化度数修正（同层级内 hub 节点略大），仍受 MAX_NODE_RADIUS 封顶。
+    // 一级（书根/总入口）不带度数修正——固定尺寸保持一级间视觉梯度，避免全部冲顶
+    const base = levelRadius(d.id)
+    const boost = base >= 10 ? 0 : 0.3 * Math.sqrt(nodeDegree.get(d.id) ?? 0)
+    return Math.min(base + boost, MAX_NODE_RADIUS)
   }
 
   const width = graph.offsetWidth
