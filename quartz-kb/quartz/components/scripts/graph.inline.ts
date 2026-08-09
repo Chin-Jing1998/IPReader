@@ -169,6 +169,8 @@ export interface GraphController {
   getSelected(): SimpleSlug | null
   /** 当前选中跳数（无选中时 1） */
   getSelectedHops(): 1 | 2
+  /** 节点是否属于当前选中集（选中节点 + 相关节点；无选中时 false） */
+  isInSelectedSet(nodeId: SimpleSlug): boolean
   /** 当前缩放平移快照（含画布尺寸）；未启用 zoom 时返回 null */
   getTransform(): SavedTransform | null
   /** 恢复快照的缩放平移（按新画布尺寸保持视野中心），并停用本实例的自动 zoomToFit */
@@ -191,6 +193,8 @@ type GraphInstance = {
   setSelected(nodeId: SimpleSlug | null, hops?: 1 | 2): void
   /** 当前选中节点（无则 null） */
   getSelected(): SimpleSlug | null
+  /** 节点是否属于当前选中集（选中节点 + 相关节点；无选中时 false） */
+  isInSelectedSet(nodeId: SimpleSlug): boolean
   getTransform(): SavedTransform | null
   applyTransform(saved: SavedTransform): void
   resetView(): void
@@ -529,13 +533,11 @@ async function createGraphInstance(
     markDirty()
   }
 
-  // ---------- 选中态（v14）：单击选中节点 → 选中集常亮闪烁、其余灰度 ----------
-  // selectedNodeId 选中节点；selectedHops 1=一跳邻居 / 2=二跳展开（双击）；
-  // 选中集 = 选中节点 + 其 N 跳邻居（由邻接表推导，渲染分级在 renderNodes/drawLinks）
+  // ---------- 选中态（v14）：选中节点 → 相关节点常亮、其余变暗 ----------
+  // v15：不闪烁（常亮）；单击不切换选中（仅面板），双击才切换（见 graphexplorer）
   let selectedNodeId: SimpleSlug | null = null
   let selectedHops: 1 | 2 = 1
   let selectedSet: Set<string> = new Set()
-  let pulsePhase = 0 // 脉动相位（闪烁动画用）
 
   function computeSelectedSet(): Set<string> {
     const set = new Set<string>()
@@ -568,7 +570,6 @@ async function createGraphInstance(
     if (hoveredNodeId !== null) {
       updateHoverInfo(null)
     }
-    pulsePhase = 0
     if (selectedNodeId !== null) {
       // 选中：立即按选中态重绘边与节点分级（相关边加亮、其余淡化；
       // 选中集常亮、其余灰度 0.2），随后的闪烁帧只动节点 alpha
@@ -711,8 +712,8 @@ async function createGraphInstance(
       let alpha = 1
 
       if (selectedNodeId !== null) {
-        // 选中态（v14）：选中集节点常亮（脉动由闪烁帧驱动），其余灰度 0.2；
-        // hover 高亮让位——移开鼠标选中态保持
+        // 选中态（v15）：选中集节点常亮（alpha 1，不闪烁）、其余变暗 0.2——
+        // 与鼠标悬浮时的非邻节点状态一致；hover 高亮让位（移开鼠标选中态保持）
         alpha = selectedSet.has(n.simulationData.id) ? 1 : 0.2
       } else if (hoveredNodeId !== null && focusOnHover) {
         // if we are hovering over a node, we want to highlight the immediate neighbours
@@ -1167,16 +1168,7 @@ async function createGraphInstance(
     })
     if (tweensActive) dirty = true
 
-    if (selectedNodeId !== null) {
-      // 闪烁帧（v14）：脉动 alpha 驱动选中集节点，轻量渲染——不动边/位置，
-      // 避免全量图 ~7000 边每帧重绘；边在 setSelected 时已按选中态画好
-      pulsePhase += 16 // ~60fps 近似
-      const pulse = 0.65 + 0.35 * Math.sin(pulsePhase / 100) // 周期 ~650ms
-      for (const n of nodeRenderData) {
-        if (selectedSet.has(n.simulationData.id)) n.gfx.alpha = pulse
-      }
-      app.renderer.render(stage)
-    } else if (dirty) {
+    if (dirty) {
       syncPositions()
       drawLinks()
       drawFocusRing()
@@ -1271,6 +1263,7 @@ async function createGraphInstance(
     setSectionHidden,
     setSelected,
     getSelected,
+    isInSelectedSet: (nodeId: SimpleSlug) => selectedNodeId !== null && selectedSet.has(nodeId),
     getTransform,
     applyTransform,
     resetView,
@@ -1336,6 +1329,7 @@ async function renderGraph(
     },
     getSelected: () => instance.getSelected(),
     getSelectedHops: () => instance.getSelected() === null ? 1 : (selectedBox.hops),
+    isInSelectedSet: (nodeId: SimpleSlug) => instance.isInSelectedSet(nodeId),
     setTermLayer: (mode: TermLayerMode): Promise<void> => {
       switching = switching.then(async () => {
         if (destroyed) return
