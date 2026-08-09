@@ -8,22 +8,42 @@
 // sticky 必须挂在 .page-footer——其父 .center 高度=整页，sticky 才有滑动空间；
 // 挂在 .page-nav-wrapper 上时父容器（.page-footer）高度=元素高度，sticky 失效
 // （Electron 实测：滚动后翻页栏随页滚走）。
+// Apple 毛玻璃：悬浮卡片（距底 0.75rem + 圆角）+ 半透明 + blur；与标题区同质。
+// -webkit- 必须写在无前缀之前（lightningcss 顺序陷阱，见 settings.scss）。
 .page-footer {
   position: sticky;
-  bottom: 0;
+  bottom: 0.75rem;
   z-index: 50;
-  /* sticky 元素必须不透明背景，否则正文从下方透出 */
-  background-color: var(--glass-bg-solid, var(--light));
+  max-width: var(--reading-col, 48.875rem);
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: var(--glass-bg, rgba(250, 248, 248, 0.72));
+  -webkit-backdrop-filter: blur(18px) saturate(1.6);
+  backdrop-filter: blur(18px) saturate(1.6);
+  border: 1px solid var(--glass-border, var(--lightgray));
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+// 图谱总览页：GraphExplorer 渲染在 .page-footer 内，重置毛玻璃卡片样式，
+// 否则画布会被圆角/边框/背景包裹（图谱页不滚动，sticky 无意义）
+body[data-slug^="0-图谱总览"] .page-footer {
+  position: static;
+  max-width: none;
+  margin: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .page-nav-wrapper {
-  // 与正文同栏对齐：--reading-col = 正文 46em@17px 的 rem 等价（782px）；
-  // 此处字体上下文 16px，直接 46em 会窄 46px
-  max-width: var(--reading-col, 48.875rem);
-  margin: 1.5rem auto 0;
+  // 与正文同栏对齐：page-footer 卡片已 max-width: --reading-col + margin auto，
+  // 卡片内直接铺内容（页脚自身边框即分隔线）
   box-sizing: border-box;
-  padding: 0.6rem 0;
-  border-top: 1px solid var(--glass-border, var(--lightgray));
+  padding: 0.6rem 0.9rem 0.75rem;
 }
 
 .page-nav {

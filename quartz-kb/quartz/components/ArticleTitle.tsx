@@ -11,17 +11,22 @@ const ArticleTitle: QuartzComponent = ({ fileData, displayClass }: QuartzCompone
 }
 
 ArticleTitle.css = `
-/* v8 三明治滚动：整个标题区（面包屑+标题）固定视口顶部，仅正文滚动。
+/* v8 三明治滚动：整个标题区（面包屑+标题）滚动时固定，只稍微上移（距顶 0.75rem 留缝）。
    sticky 必须挂在 .page-header——其父 .center 高度=整页，sticky 才有滑动空间；
    挂在 .article-title 上时父容器（.popover-hint）高度=元素高度，sticky 失效
-   （Electron 实测：滚动 400px 后标题 top=-173px 直接滚走）。 */
+   （Electron 实测：滚动 400px 后标题 top=-173px 直接滚走）。
+   Apple 毛玻璃：半透明背景 + blur；-webkit- 必须写在无前缀之前
+   （lightningcss 对「无前缀在前」的双写会吞掉无前缀版，现代 Chromium 只认无前缀）。 */
 .page-header {
   position: sticky;
-  top: 0;
+  top: 0.75rem;
   z-index: 50;
-  /* sticky 元素必须不透明背景，否则正文从下方透出 */
-  background-color: var(--glass-bg-solid, var(--light));
-  border-bottom: 1px solid var(--glass-border, var(--lightgray));
+  background-color: var(--glass-bg, rgba(250, 248, 248, 0.72));
+  -webkit-backdrop-filter: blur(18px) saturate(1.6);
+  backdrop-filter: blur(18px) saturate(1.6);
+  border: 1px solid var(--glass-border, var(--lightgray));
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 .article-title {
   margin: 2rem 0 0 0;
