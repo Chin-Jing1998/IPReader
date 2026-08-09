@@ -391,8 +391,21 @@ async function createGraphInstance(
     nodeDegree.set(l.source.id, (nodeDegree.get(l.source.id) ?? 0) + 1)
     nodeDegree.set(l.target.id, (nodeDegree.get(l.target.id) ?? 0) + 1)
   }
+  /** 目录层级（slug 段数）→ 基础半径；层级越深越小（v13）。
+   * 2 段=书根 8px / 3 段=章·节 5.5px / 4 段+（审查指南小节）3.5px；
+   * 术语层节点单独下调一档（shown 全量 1000 节点时避免拥挤）；tags 回落 3px。 */
+  function levelRadius(id: string): number {
+    if (id.startsWith("tags/")) return 3
+    const depth = id.split("/").filter(Boolean).length
+    if (isTermSlug(id)) return depth >= 3 ? 3.5 : 5.5
+    if (depth >= 4) return 3.5
+    if (depth === 3) return 5.5
+    return 8
+  }
+
   function nodeRadius(d: NodeData) {
-    return Math.min(2 + Math.sqrt(nodeDegree.get(d.id) ?? 0), MAX_NODE_RADIUS)
+    // 层级基础半径 + 弱化度数修正（同层级内 hub 节点略大），仍受 MAX_NODE_RADIUS 封顶
+    return Math.min(levelRadius(d.id) + 0.3 * Math.sqrt(nodeDegree.get(d.id) ?? 0), MAX_NODE_RADIUS)
   }
 
   const width = graph.offsetWidth
