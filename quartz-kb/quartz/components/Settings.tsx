@@ -18,8 +18,8 @@ const Settings: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
       <button class="kb-settings-btn" type="button" aria-label="设置" title="设置">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
+          width="20"
+          height="20"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -33,14 +33,16 @@ const Settings: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
         </svg>
       </button>
 
-      <div class="kb-settings-panel" hidden role="dialog" aria-label="设置">
-        <header class="kb-settings-head">
-          <h3>设置</h3>
-          <button class="kb-settings-close" type="button" aria-label="关闭">
-            ×
-          </button>
-        </header>
-        <div class="kb-settings-body">
+      {/* 居中模态：遮罩磨砂 + 面板（Apple 规范） */}
+      <div class="kb-settings-overlay" hidden>
+        <div class="kb-settings-panel" role="dialog" aria-label="设置" aria-modal="true">
+          <header class="kb-settings-head">
+            <h3>设置</h3>
+            <button class="kb-settings-close" type="button" aria-label="关闭">
+              ×
+            </button>
+          </header>
+          <div class="kb-settings-body">
           <section class="kb-settings-sec">
             <h4>主题模式</h4>
             <p class="kb-settings-desc">选择界面亮暗；「跟随系统」将随操作系统外观自动切换。</p>
@@ -146,6 +148,7 @@ const Settings: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
               </button>
             </div>
           </section>
+          </div>
         </div>
       </div>
     </div>

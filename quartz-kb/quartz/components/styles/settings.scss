@@ -1,29 +1,34 @@
 @use "../../styles/variables.scss" as *;
 
-// 设置面板（v8）：齿轮按钮 + 右侧滑出面板。
-// 材质与动效消费 custom.scss 既有 token 并带 fallback；z-index 站位：
-// 工具条 900 > 本面板 800 > 抽屉 300。
-// 控件造型按 Apple 规范：分段控件（segmented）、圆角卡片、系统红破坏色。
+// 设置面板（v8）：齿轮按钮 + 居中模态（遮罩磨砂）。
+// 按钮与阅读按钮（readermode.scss）同构：20×32 尺寸、20px SVG 绝对居中、darkgray 色。
+// 模态按 Apple 规范：居中大圆角卡片、近实底玻璃、柔和阴影、淡入缩放动画；
+// 遮罩层无 transform（backdrop-filter 在 transform 定位元素上会失效，见 popover 注释）。
+// z-index 站位：工具条 900 > 遮罩 850 > 抽屉 300。
 
-// ---------- 齿轮按钮（左栏顶部，替代原 Darkmode 位置） ----------
+// ---------- 齿轮按钮（与 .readermode 协调） ----------
 
 .kb-settings-btn {
   cursor: pointer;
   padding: 0;
+  position: relative;
   background: none;
   border: none;
   width: 20px;
   height: 32px;
   margin: 0;
+  text-align: inherit;
   flex-shrink: 0;
   color: var(--darkgray);
-  display: grid;
-  place-items: center;
 
-  svg {
-    width: 18px;
-    height: 18px;
-    transition: transform var(--duration-press, 120ms) var(--ease-out, ease-out);
+  & svg {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: calc(50% - 10px);
+    left: 0;
+    stroke: currentColor;
+    transition: color 0.1s ease;
   }
 
   &:hover {
@@ -31,73 +36,133 @@
   }
 
   &:active svg {
-    transform: rotate(30deg) scale(0.94);
+    transform: rotate(30deg);
+    transition: transform 0.12s ease;
   }
 }
 
-// ---------- 设置面板 ----------
+// ---------- 遮罩（磨砂） ----------
 
-.kb-settings-panel {
+.kb-settings-overlay {
   position: fixed;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 800;
-  display: flex;
-  flex-direction: column;
-  width: 23rem;
-  max-width: calc(100vw - 2rem);
-  padding: 1rem 1.1rem;
-  box-sizing: border-box;
-  font-family: var(--headerFont);
-  background-color: var(--glass-bg-thick, rgba(255, 255, 255, 0.92));
-  border-left: 1px solid var(--glass-border, var(--lightgray));
-  box-shadow: var(--glass-shadow, -8px 0 28px rgba(0, 0, 0, 0.12));
-  backdrop-filter: blur(var(--glass-blur-thick, 30px));
-  -webkit-backdrop-filter: blur(var(--glass-blur-thick, 30px));
-  overflow-y: auto;
+  inset: 0;
+  z-index: 850;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background-color: rgba(18, 18, 22, 0.3);
+  // 注意：-webkit- 必须写在无前缀之前——lightningcss 对「无前缀在前」的
+  // 双写声明会吞掉无前缀版（构建 targets 判定），现代 Chromium 只认无前缀，
+  // 顺序反了磨砂效果会整体失效
+  -webkit-backdrop-filter: blur(10px) saturate(1.25);
+  backdrop-filter: blur(10px) saturate(1.25);
+  animation: kb-overlay-in 0.16s ease-out;
 
   &[hidden] {
     display: none;
   }
+}
+
+// 深色模式遮罩更浓，衬托亮色面板
+:root[saved-theme="dark"] .kb-settings-overlay {
+  background-color: rgba(8, 8, 12, 0.5);
+}
+
+@keyframes kb-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// ---------- 居中模态面板（Apple 规范） ----------
+
+.kb-settings-panel {
+  width: 30rem;
+  max-width: calc(100vw - 2rem);
+  max-height: min(78vh, 46rem);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 1.2rem 1.3rem 1.3rem;
+  font-family: var(--headerFont);
+  // 近实底玻璃：面板自身不叠 backdrop-filter（配合缩放动画时会被 Backdrop Root 吞掉），
+  // 磨砂效果由遮罩层承担
+  background-color: var(--popover-bg, rgba(250, 249, 249, 0.98));
+  border: 1px solid var(--glass-border, var(--lightgray));
+  border-radius: 16px;
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.22),
+    0 4px 14px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  animation: kb-panel-in 0.18s cubic-bezier(0.32, 0.72, 0.24, 1);
 
   @media all and ($mobile) {
     width: 100%;
-    max-width: 100vw;
+    max-width: none;
+    max-height: 85vh;
+    border-radius: 14px;
+  }
+}
+
+@keyframes kb-panel-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
 .kb-settings-head {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-bottom: 0.6rem;
-  margin-bottom: 0.4rem;
+  justify-content: center;
+  position: relative;
+  padding-bottom: 0.7rem;
+  margin-bottom: 0.6rem;
   border-bottom: 1px solid var(--lightgray);
 
   h3 {
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.05rem;
+    font-weight: 600;
     color: var(--dark);
   }
 
   .kb-settings-close {
-    padding: 0 0.3rem;
-    font-size: 1.2rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    font-size: 1.15rem;
     line-height: 1;
     color: var(--gray);
     background: none;
     border: none;
+    border-radius: 50%;
     cursor: pointer;
+    transition:
+      color var(--duration-hover, 140ms) var(--ease-hover, ease),
+      background-color var(--duration-hover, 140ms) var(--ease-hover, ease);
 
     &:hover {
       color: var(--dark);
+      background-color: var(--glass-hover-wash, rgba(229, 229, 229, 0.55));
     }
   }
 }
 
 .kb-settings-body {
-  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
@@ -107,6 +172,7 @@
   h4 {
     margin: 0 0 0.3rem;
     font-size: 0.875rem;
+    font-weight: 600;
     color: var(--dark);
   }
 }
@@ -118,7 +184,7 @@
   color: var(--darkgray);
 }
 
-// ---------- 分段控件（主题模式） ----------
+// ---------- 分段控件（主题模式，Apple segmented） ----------
 
 .kb-settings-seg {
   display: grid;

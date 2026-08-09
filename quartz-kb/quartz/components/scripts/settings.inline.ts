@@ -161,22 +161,39 @@ applyFonts(initial.fonts)
 
 document.addEventListener("nav", () => {
   const btn = document.querySelector<HTMLElement>(".kb-settings-btn")
-  const panel = document.querySelector<HTMLElement>(".kb-settings-panel")
-  const closeBtn = document.querySelector<HTMLElement>(".kb-settings-close")
-  if (!btn || !panel) {
+  const overlay = document.querySelector<HTMLElement>(".kb-settings-overlay")
+  const panel = overlay?.querySelector<HTMLElement>(".kb-settings-panel")
+  const closeBtn = panel?.querySelector<HTMLElement>(".kb-settings-close")
+  if (!btn || !overlay || !panel) {
     return
   }
 
   const open = () => {
-    panel.hidden = false
+    overlay.hidden = false
     syncUI()
   }
   const close = () => {
-    panel.hidden = true
+    overlay.hidden = true
   }
-  const toggle = () => (panel.hidden ? open() : close())
+  const toggle = () => (overlay.hidden ? open() : close())
   btn.addEventListener("click", toggle)
   closeBtn?.addEventListener("click", close)
+
+  // 点击遮罩空白处关闭（面板内部点击不冒泡到遮罩目标判定）
+  const onOverlayClick = (e: MouseEvent) => {
+    if (e.target === overlay) {
+      close()
+    }
+  }
+  overlay.addEventListener("click", onOverlayClick)
+
+  // Esc 关闭（与批注右键菜单的 Esc 互不冲突：两者均监听 document keydown）
+  const onOverlayKey = (e: KeyboardEvent) => {
+    if (e.key === "Escape" && !overlay.hidden) {
+      close()
+    }
+  }
+  document.addEventListener("keydown", onOverlayKey)
 
   function syncUI(): void {
     const s = loadSettings()
@@ -279,6 +296,8 @@ document.addEventListener("nav", () => {
   window.addCleanup(() => {
     btn.removeEventListener("click", toggle)
     closeBtn?.removeEventListener("click", close)
+    overlay.removeEventListener("click", onOverlayClick)
+    document.removeEventListener("keydown", onOverlayKey)
     panel.removeEventListener("click", onPanelClick)
     panel.removeEventListener("change", onPanelChange)
     if (systemMedia !== null) {
