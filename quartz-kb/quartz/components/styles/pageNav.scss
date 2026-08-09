@@ -4,19 +4,25 @@
 // 材质用二级卡层（--glass-inner-bg，不叠 backdrop-filter）；导航属 UI 层 → 黑体。
 // 动效 token 消费均带 fallback，保证 token 节独立 revert 不破版。
 
+// v8 三明治滚动：翻页栏固定视口底部，仅正文滚动。
+// sticky 必须挂在 .page-footer——其父 .center 高度=整页，sticky 才有滑动空间；
+// 挂在 .page-nav-wrapper 上时父容器（.page-footer）高度=元素高度，sticky 失效
+// （Electron 实测：滚动后翻页栏随页滚走）。
+.page-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 50;
+  /* sticky 元素必须不透明背景，否则正文从下方透出 */
+  background-color: var(--glass-bg-solid, var(--light));
+}
+
 .page-nav-wrapper {
   // 与正文同栏对齐：--reading-col = 正文 46em@17px 的 rem 等价（782px）；
   // 此处字体上下文 16px，直接 46em 会窄 46px
   max-width: var(--reading-col, 48.875rem);
   margin: 1.5rem auto 0;
   box-sizing: border-box;
-  // v8 三明治滚动：翻页栏固定视口底部，仅正文滚动。
-  // sticky 元素必须不透明背景，否则正文从下方透出
-  position: sticky;
-  bottom: 0;
-  z-index: 50;
   padding: 0.6rem 0;
-  background-color: var(--glass-bg-solid, var(--light));
   border-top: 1px solid var(--glass-border, var(--lightgray));
 }
 
