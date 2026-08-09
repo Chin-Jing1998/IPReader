@@ -168,6 +168,13 @@ document.addEventListener("nav", () => {
     return
   }
 
+  // 遮罩挂到 body：按钮留在 left 栏（sticky z-1 创建层叠上下文），若遮罩
+  // 留在栏内，fixed z-850 会被限制在该上下文、盖不住正文 sticky z-50 的标题。
+  // 每次 nav 幂等执行（micromorph 换页后组件树重建，遮罩回到原位再迁移）。
+  if (overlay.parentElement !== document.body) {
+    document.body.appendChild(overlay)
+  }
+
   const open = () => {
     overlay.hidden = false
     syncUI()
