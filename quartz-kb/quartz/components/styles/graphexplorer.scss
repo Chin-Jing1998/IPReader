@@ -548,56 +548,25 @@ html:has(body[data-slug="0-图谱总览/index"]) {
   overflow: hidden;
 }
 
-// v9：左栏与右栏对称——右栏（.ge-panel）是占位式，画布让位；左栏同型：
-// 呼出时 grid 首列 0→240px 画布让位，左栏在网格中占位，不再以 fixed 浮层压盖画布。
-// 默认隐藏（0 列 + translateX 移出视口），左边缘热区呼出（.kb-ge-left-shown 滑入）；
-// 收起时先滑出左栏（画布保持让位），动画完成后 inline 脚本再移除
-// .kb-ge-left-visible 收回列宽——全程无重叠瞬间。
+// v10：图谱页左栏常显——左栏在网格中占位（240px 列），高度还原为内容页
+// 侧栏形态（custom.scss：sticky、margin-top/top 0.75rem、height calc(100vh - 1.5rem)），
+// 不再自动隐藏、不做边缘呼出；画布占其余列，右栏（.ge-panel）点击节点后显现。
 body[data-slug="0-图谱总览/index"] {
   .page > #quartz-body {
-    grid-template-columns: 0 minmax(0, 1fr);
+    grid-template-columns: 240px minmax(0, 1fr);
     column-gap: 0;
   }
 
-  // 左栏脱离 grid 流后第一列空，.center 无 grid-area 会被自动放置到
-  // 0 宽第一列导致塌陷——必须显式指定 grid-center
+  // 显式指定 grid-center：避免 .center 无 grid-area 时被自动放置到
+  // 非预期列导致塌陷
   .page > #quartz-body .center {
     grid-area: grid-center;
   }
 
-  // 左栏回到常规流占位（sticky 悬浮形态同内容页侧栏，custom.scss 提供
-  // margin-top/top/height）；仅宽度收窄为 240px 并保留滑入/滑出动画。
-  // 顶/底与右侧栏对齐：--ge-left-top / --ge-left-bottom 由 inline 脚本实测
-  // .ge-body（右栏所在容器）顶部与底部写入，使左栏与右栏（.ge-panel）
-  // 同顶同底
+  // 左栏常显占位：仅宽度收窄为 240px，sticky 悬浮与高度沿用
+  // custom.scss 的侧栏规则（与内容页一致）
   .page > #quartz-body .sidebar.left {
-    position: sticky;
     width: 240px;
-    margin-top: 0;
-    top: var(--ge-left-top, 0.75rem);
-    height: calc(100vh - var(--ge-left-top, 0.75rem) - var(--ge-left-bottom, 0.75rem));
-    transform: translateX(-100%);
-    transition: transform 0.25s ease;
-    background: var(--glass-bg-solid, var(--light));
-    border-right: 1px solid var(--glass-border, var(--lightgray));
-  }
-
-  &.kb-ge-left-shown .page > #quartz-body .sidebar.left {
-    transform: translateX(0);
-  }
-
-  // 呼出：画布立即让位 240px；收起：inline 脚本在滑出动画完成后移除本类
-  &.kb-ge-left-visible .page > #quartz-body {
-    grid-template-columns: 240px minmax(0, 1fr);
-  }
-
-  .kb-ge-hotzone {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 14px;
-    z-index: 550;
   }
 
   // v9：删除页面上方「图谱总览」标题区，画布上移顶格
