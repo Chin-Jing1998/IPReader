@@ -616,8 +616,8 @@ document.addEventListener("nav", async () => {
   // ---------- 事件挂载 ----------
 
   // 图内点击：panel 模式的 graphnodeselect 自 canvas 冒泡至此。
-  // v15 语义：单击不切换选中——相关节点/选中节点仅刷新右栏信息；
-  // 暗色（非相关）节点单击不响应，须双击才显示信息与相关节点；
+  // v16 语义：无选中时单击即选中该节点（相关节点常亮、其余变暗）；
+  // 选中后单击选中集内节点仅刷新右栏；暗色节点单击不响应，双击才切换选中；
   // 空白点击（detail.slug === null）清除选中并隐藏面板
   const onNodeSelect = (ev: Event) => {
     const detail = (ev as CustomEvent<{ slug?: unknown; dbl?: unknown }>).detail
@@ -638,11 +638,21 @@ document.addEventListener("nav", async () => {
       void showPanel(simple)
       return
     }
-    // 单击：有选中且目标为暗色（非选中集）节点 → 不响应（须双击）
-    if (selectedSlug !== null && controller !== null && !controller.isInSelectedSet(simple)) {
+    // 单击（v16）：
+    // - 无选中：选中该节点（相关节点常亮、其余变暗），右栏显示其信息；
+    // - 有选中且目标在选中集内（选中节点/相关节点）：仅刷新右栏，不切换选中；
+    // - 有选中且目标为暗色（非选中集）节点：不响应（须双击切换）。
+    if (selectedSlug === null) {
+      controller?.setSelected(simple, 1)
+      selectedSlug = simple
+      selectedHops = 1
+      void showPanel(simple)
       return
     }
-    // 单击选中节点/相关节点（或无选中时的任意节点）：仅刷新右栏，不切换选中
+    if (controller !== null && !controller.isInSelectedSet(simple)) {
+      return
+    }
+    // 单击选中集内节点：仅刷新右栏，不切换选中
     void showPanel(simple)
   }
   explorer.addEventListener("graphnodeselect", onNodeSelect)

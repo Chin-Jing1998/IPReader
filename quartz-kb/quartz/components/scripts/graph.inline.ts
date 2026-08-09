@@ -163,7 +163,7 @@ export interface GraphController {
   setSectionHidden(sectionId: string, hidden: boolean): void
   /** 当前隐藏的域集合副本 */
   getHiddenSections(): Set<string>
-  /** 选中节点（null 清除）：选中节点与相关节点常亮闪烁、其余灰度；hops 2=二跳展开 */
+  /** 选中节点（null 清除）：选中集常亮、其余灰度 0.2；hops 2=二跳展开 */
   setSelected(nodeId: SimpleSlug | null, hops?: 1 | 2): void
   /** 当前选中节点（无则 null） */
   getSelected(): SimpleSlug | null
@@ -189,7 +189,7 @@ type GraphInstance = {
   getTermMode(): TermLayerMode
   /** 就地切换某域节点与相关边可见性（不重建、不改变力导布局） */
   setSectionHidden(sectionId: string, hidden: boolean): void
-  /** 选中节点（null 清除）：选中节点与相关节点常亮闪烁、其余灰度；hops 2=二跳展开 */
+  /** 选中节点（null 清除）：选中集常亮、其余灰度 0.2；hops 2=二跳展开 */
   setSelected(nodeId: SimpleSlug | null, hops?: 1 | 2): void
   /** 当前选中节点（无则 null） */
   getSelected(): SimpleSlug | null
@@ -534,7 +534,8 @@ async function createGraphInstance(
   }
 
   // ---------- 选中态（v14）：选中节点 → 相关节点常亮、其余变暗 ----------
-  // v15：不闪烁（常亮）；单击不切换选中（仅面板），双击才切换（见 graphexplorer）
+  // v16：常亮不闪烁；单击语义见 graphexplorer（无选中单击即选中、选中集内仅刷右栏、
+  // 暗色单击不响应、双击切换）
   let selectedNodeId: SimpleSlug | null = null
   let selectedHops: 1 | 2 = 1
   let selectedSet: Set<string> = new Set()
@@ -712,7 +713,7 @@ async function createGraphInstance(
       let alpha = 1
 
       if (selectedNodeId !== null) {
-        // 选中态（v15）：选中集节点常亮（alpha 1，不闪烁）、其余变暗 0.2——
+        // 选中态（v16）：选中集节点常亮（alpha 1）、其余变暗 0.2——
         // 与鼠标悬浮时的非邻节点状态一致；hover 高亮让位（移开鼠标选中态保持）
         alpha = selectedSet.has(n.simulationData.id) ? 1 : 0.2
       } else if (hoveredNodeId !== null && focusOnHover) {
