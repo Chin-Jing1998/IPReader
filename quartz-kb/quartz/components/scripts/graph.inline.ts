@@ -570,9 +570,10 @@ async function createGraphInstance(
     }
     pulsePhase = 0
     if (selectedNodeId !== null) {
-      // 选中：立即按选中态重绘边（相关边加亮/其余淡化），
-      // 随后的闪烁帧只动节点 alpha、不再重绘边
+      // 选中：立即按选中态重绘边与节点分级（相关边加亮、其余淡化；
+      // 选中集常亮、其余灰度 0.2），随后的闪烁帧只动节点 alpha
       drawLinks()
+      renderNodes()
     } else {
       // 清除：完整恢复一帧（节点 alpha 经 tween 过渡回默认、边恢复默认、hover 恢复）
       renderPixiFromD3()
