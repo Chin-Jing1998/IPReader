@@ -207,6 +207,9 @@ document.addEventListener("nav", async () => {
     explorer.querySelectorAll<HTMLButtonElement>(".ge-legend-item[data-section]"),
   )
   const hiddenSections = new Set<string>()
+  // 选中态（v14）：graphexplorer 侧持有，重建（theme/resize/术语层）后恢复
+  let selectedSlug: SimpleSlug | null = null
+  let selectedHops: 1 | 2 = 1
 
   function syncLegendButtons() {
     for (const btn of legendButtons) {
@@ -224,6 +227,12 @@ document.addEventListener("nav", async () => {
       hiddenSections.delete(section)
     }
     controller?.setSectionHidden(section, hidden)
+    // v14：选中节点所在域被图例隐藏 → 清除选中态（节点不可见，闪烁无意义）
+    if (hidden && selectedSlug !== null && selectedSlug.startsWith(section + "-")) {
+      controller?.setSelected(null)
+      selectedSlug = null
+      showEmptyState()
+    }
     syncLegendButtons()
   }
 
@@ -256,6 +265,8 @@ document.addEventListener("nav", async () => {
     if (restoreTransform) controller.applyTransform(restoreTransform)
     // 重建后恢复域隐藏状态（v12：themechange/resize 重建路径不丢图例状态）
     for (const s of hiddenSections) controller.setSectionHidden(s, true)
+    // 重建后恢复选中态（v14）
+    if (selectedSlug !== null) controller.setSelected(selectedSlug, selectedHops)
     // 重建后按 controller 实际术语层模式同步三态钮（传 termOverride 时不回落）
     syncTermButtons()
   }
@@ -570,12 +581,23 @@ document.addEventListener("nav", async () => {
     const simple = simplifySlug(target)
     void showPanel(simple)
     if (controller !== null) {
-      if (controller.focus(simple)) return
+      if (controller.focus(simple)) {
+        // v14：定位成功 → 图内选中该节点（相关节点亮起闪烁）
+        controller.setSelected(simple, 1)
+        selectedSlug = simple
+        selectedHops = 1
+        return
+      }
       if (simple.startsWith("9-")) {
         await controller.setTermLayer("dimmed")
         syncTermButtons()
         setStatus("已临时显示术语层")
-        if (controller.focus(simple)) return
+        if (controller.focus(simple)) {
+          controller.setSelected(simple, 1)
+          selectedSlug = simple
+          selectedHops = 1
+          return
+        }
       }
       // v12：目标节点所在文档域被图例隐藏——focus 必然未命中且重建后仍
       // 不可见（renderCanvas 会恢复域隐藏状态），直接提示，不做无意义重建
@@ -585,6 +607,9 @@ document.addEventListener("nav", async () => {
         return
       }
     }
+    // 重建兜底：以目标为中心重渲染，重建后由 renderCanvas 恢复选中态
+    selectedSlug = simple
+    selectedHops = 1
     void renderCanvas(target)
   }
 
@@ -598,6 +623,7 @@ document.addEventListener("nav", async () => {
     if (!detail) return
     if (detail.slug === null) {
       controller?.setSelected(null)
+      selectedSlug = null
       showEmptyState()
       return
     }
@@ -608,8 +634,12 @@ document.addEventListener("nav", async () => {
       const current = controller?.getSelected()
       const hops: 1 | 2 = current === simple && controller?.getSelectedHops() === 1 ? 2 : 1
       controller?.setSelected(simple, hops)
+      selectedSlug = simple
+      selectedHops = hops
     } else {
       controller?.setSelected(simple, 1)
+      selectedSlug = simple
+      selectedHops = 1
     }
     void showPanel(simple)
   }
@@ -647,6 +677,10 @@ document.addEventListener("nav", async () => {
     setStatus("")
     if (searchInput) searchInput.value = ""
     showEmptyState()
+    // v14：重置同时清除选中态（恢复默认全景）
+    controller?.setSelected(null)
+    selectedSlug = null
+    selectedHops = 1
     if (controller !== null) {
       controller.resetView()
     } else {
