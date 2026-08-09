@@ -529,12 +529,13 @@ body[data-slug="0-图谱总览/index"] {
 
   .graph-explorer {
     // 页头瘦身后可用高度增加，同步上调
-    // v8 实测修正：顶部占用 = 标题区 151px + margin-top 0.6rem + 底部 margin
-    // 2rem ≈ 205px，7rem(112px) 不够导致页面被撑高可滚（滚轮滚整个页面而非
-    // 右栏内容）；13rem(208px) 覆盖占用并留 ~15px 余量
-    height: calc(100vh - 13rem);
+    // v8 实测修正：元素 top = 标题区 151px + margin-top 0.6rem ≈ 160.6px，
+    // 故高度 = calc(100vh - 10rem)（160px）使元素底部 ≈ 视口底部，与左栏
+    // （sticky 100vh）平齐；margin-bottom 归零去除底部留白
+    height: calc(100vh - 10rem);
     min-height: 22rem;
     margin-top: 0.6rem;
+    margin-bottom: 0;
   }
 }
 
