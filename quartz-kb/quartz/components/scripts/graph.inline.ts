@@ -695,8 +695,12 @@ async function createGraphInstance(
     for (const n of nodeRenderData) {
       let alpha = 1
 
-      // if we are hovering over a node, we want to highlight the immediate neighbours
-      if (hoveredNodeId !== null && focusOnHover) {
+      if (selectedNodeId !== null) {
+        // 选中态（v14）：选中集节点常亮（脉动由闪烁帧驱动），其余灰度 0.2；
+        // hover 高亮让位——移开鼠标选中态保持
+        alpha = selectedSet.has(n.simulationData.id) ? 1 : 0.2
+      } else if (hoveredNodeId !== null && focusOnHover) {
+        // if we are hovering over a node, we want to highlight the immediate neighbours
         alpha = n.active ? 1 : 0.2
       }
 
@@ -1021,6 +1025,30 @@ async function createGraphInstance(
     linkGfx.clear()
     const ox = width / 2
     const oy = height / 2
+
+    // 选中态（v14）：相关边（两端任一在选中集）全亮加宽，其余边淡化 0.2；
+    // hover overlay 批不参与（hover 高亮已让位）。闪烁帧不重绘此处（见 animate）
+    if (selectedNodeId !== null) {
+      let hasRelated = false
+      let hasOther = false
+      for (const l of linkRenderData) {
+        const d = l.simulationData
+        if (d.source.x === undefined || d.source.y === undefined) continue
+        if (d.target.x === undefined || d.target.y === undefined) continue
+        if (isSectionHiddenLink(d)) continue
+        const related = selectedSet.has(d.source.id) || selectedSet.has(d.target.id)
+        linkGfx.moveTo(d.source.x + ox, d.source.y + oy)
+        linkGfx.lineTo(d.target.x + ox, d.target.y + oy)
+        if (related) {
+          hasRelated = true
+        } else {
+          hasOther = true
+        }
+      }
+      if (hasRelated) linkGfx.stroke({ width: 1.6, color: linkActiveColor, alpha: 1 })
+      if (hasOther) linkGfx.stroke({ width: 1, color: linkColor, alpha: 0.2 })
+      return
+    }
 
     // 批 1：普通边（dimmed 模式下术语边另批），整批一次 stroke
     let hasNormal = false
