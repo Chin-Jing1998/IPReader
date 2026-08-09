@@ -87,7 +87,7 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
       }
     }
 
-    // 域图例：七书 + 术语的静态色点
+    // 域图例：七书 + 术语的色点；v12 起七部文档域项为可点击按钮
     .ge-legend {
       display: flex;
       align-items: center;
@@ -101,6 +101,35 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
         font-size: 0.78rem;
         color: var(--darkgray);
         white-space: nowrap;
+      }
+
+      // 按钮化（v12）：重置 button 默认样式，与纯展示 span 视觉一致；
+      // hover/焦点给出可点击提示，隐藏态整体淡化
+      button.ge-legend-item {
+        padding: 0;
+        border: none;
+        background: none;
+        cursor: pointer;
+        border-radius: 0.35rem;
+        transition: opacity 0.15s ease;
+
+        &:hover,
+        &:focus-visible {
+          opacity: 0.75;
+          outline: none;
+          text-decoration: underline;
+          text-underline-offset: 2px;
+        }
+
+        &.hidden {
+          opacity: 0.38;
+          text-decoration: line-through;
+          text-underline-offset: 2px;
+
+          .ge-legend-dot {
+            background-color: var(--gray) !important;
+          }
+        }
       }
 
       .ge-legend-dot {

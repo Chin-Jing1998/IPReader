@@ -199,6 +199,44 @@ document.addEventListener("nav", async () => {
   //   承担——删掉空置的右栏网格列后，正文区本就铺满可用宽度，无需再用内联
   //   style.width 向右溢出。脚本与样式不再争夺同一属性。）
 
+  // ---------- 域图例点击切换（v12） ----------
+  // 七部文档域图例按钮（data-section = slug 顶层数字前缀）：点击切换
+  // 该域全部节点与连接关系的隐藏/显示；状态在重建（themechange/resize/
+  // 术语层 hidden）后经 renderCanvas 恢复。
+  const legendButtons = Array.from(
+    explorer.querySelectorAll<HTMLButtonElement>(".ge-legend-item[data-section]"),
+  )
+  const hiddenSections = new Set<string>()
+
+  function syncLegendButtons() {
+    for (const btn of legendButtons) {
+      const section = btn.dataset.section!
+      const hidden = hiddenSections.has(section)
+      btn.classList.toggle("hidden", hidden)
+      btn.setAttribute("aria-pressed", String(!hidden))
+    }
+  }
+
+  function applySectionHidden(section: string, hidden: boolean) {
+    if (hidden) {
+      hiddenSections.add(section)
+    } else {
+      hiddenSections.delete(section)
+    }
+    controller?.setSectionHidden(section, hidden)
+    syncLegendButtons()
+  }
+
+  for (const btn of legendButtons) {
+    const toggle = () => {
+      const section = btn.dataset.section!
+      applySectionHidden(section, !hiddenSections.has(section))
+    }
+    btn.addEventListener("click", toggle)
+    window.addCleanup?.(() => btn.removeEventListener("click", toggle))
+  }
+  syncLegendButtons()
+
   // ---------- 图谱渲染（复用 graph.inline.ts 暴露的入口） ----------
   // termOverride（V5-B BUG-1）：themechange/resize 重建路径传入上一实例的术语层
   // 模式，重建后不回落 data-cfg 默认（hidden）；未传时按 data-cfg 初始值渲染。
@@ -216,6 +254,8 @@ document.addEventListener("nav", async () => {
     controller = null
     controller = await render(canvas!, slug, termOverride)
     if (restoreTransform) controller.applyTransform(restoreTransform)
+    // 重建后恢复域隐藏状态（v12：themechange/resize 重建路径不丢图例状态）
+    for (const s of hiddenSections) controller.setSectionHidden(s, true)
     // 重建后按 controller 实际术语层模式同步三态钮（传 termOverride 时不回落）
     syncTermButtons()
   }
@@ -536,6 +576,13 @@ document.addEventListener("nav", async () => {
         syncTermButtons()
         setStatus("已临时显示术语层")
         if (controller.focus(simple)) return
+      }
+      // v12：目标节点所在文档域被图例隐藏——focus 必然未命中且重建后仍
+      // 不可见（renderCanvas 会恢复域隐藏状态），直接提示，不做无意义重建
+      const sectionMatch = simple.match(/^(\d+)-/)
+      if (sectionMatch !== null && controller.getHiddenSections().has(sectionMatch[1])) {
+        setStatus("该文档域已隐藏，请先在顶部图例中恢复显示")
+        return
       }
     }
     void renderCanvas(target)

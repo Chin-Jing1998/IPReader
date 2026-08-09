@@ -41,15 +41,18 @@ const explorerGraphConfig: D3Config = {
   excludeSlugs: ["0-图谱总览/"],
 }
 
-// 域图例：与 graph.inline.ts 的 SECTION_COLORS 一致（七部工具书 + 术语靛蓝）
-const LEGEND_ITEMS: Array<{ label: string; color: string }> = [
-  { label: "专利法", color: "#d1495b" },
-  { label: "实施细则", color: "#e07b39" },
-  { label: "审查指南", color: "#b8860b" },
-  { label: "侵权判定", color: "#4c9f70" },
-  { label: "机械撰写", color: "#2a9d8f" },
-  { label: "化学撰写", color: "#4381c1" },
-  { label: "答复OA", color: "#8e6bbf" },
+// 域图例：与 graph.inline.ts 的 SECTION_COLORS 一致（七部工具书 + 术语靛蓝）。
+// v12：七部文档域项为可点击按钮（data-section 对应 slug 顶层数字前缀），
+// 点击切换该域全部节点与连接关系的隐藏/显示；术语（9-）由术语层三态钮
+// 单独控制，此处保持纯展示。
+const LEGEND_ITEMS: Array<{ label: string; color: string; section?: string }> = [
+  { label: "专利法", color: "#d1495b", section: "1" },
+  { label: "实施细则", color: "#e07b39", section: "2" },
+  { label: "审查指南", color: "#b8860b", section: "3" },
+  { label: "侵权判定", color: "#4c9f70", section: "4" },
+  { label: "机械撰写", color: "#2a9d8f", section: "5" },
+  { label: "化学撰写", color: "#4381c1", section: "6" },
+  { label: "答复OA", color: "#8e6bbf", section: "7" },
   { label: "术语", color: "#3f51b5" },
 ]
 
@@ -74,12 +77,25 @@ const GraphExplorer: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
           <span class="ge-search-status" aria-live="polite"></span>
         </div>
         <div class="ge-legend" aria-label="知识域图例">
-          {LEGEND_ITEMS.map((item) => (
-            <span class="ge-legend-item">
-              <i class="ge-legend-dot" style={`background-color: ${item.color}`}></i>
-              {item.label}
-            </span>
-          ))}
+          {LEGEND_ITEMS.map((item) =>
+            item.section !== undefined ? (
+              <button
+                class="ge-legend-item"
+                type="button"
+                data-section={item.section}
+                aria-pressed="false"
+                title={`点击隐藏/显示「${item.label}」的节点与连接`}
+              >
+                <i class="ge-legend-dot" style={`background-color: ${item.color}`}></i>
+                {item.label}
+              </button>
+            ) : (
+              <span class="ge-legend-item">
+                <i class="ge-legend-dot" style={`background-color: ${item.color}`}></i>
+                {item.label}
+              </span>
+            ),
+          )}
         </div>
         {/* 术语层三态分段钮：默认隐藏（与 explorerGraphConfig.termLayer 一致），
             绑定见 graphexplorer.inline.ts */}

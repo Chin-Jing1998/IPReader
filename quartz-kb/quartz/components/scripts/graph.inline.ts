@@ -158,6 +158,10 @@ export interface GraphController {
   setTermLayer(mode: TermLayerMode): Promise<void>
   /** 当前术语层模式 */
   getTermLayer(): TermLayerMode
+  /** 切换某域（slug 顶层数字前缀）节点与相关边的可见性（就地切换，不重建） */
+  setSectionHidden(sectionId: string, hidden: boolean): void
+  /** 当前隐藏的域集合副本 */
+  getHiddenSections(): Set<string>
   /** 当前缩放平移快照（含画布尺寸）；未启用 zoom 时返回 null */
   getTransform(): SavedTransform | null
   /** 恢复快照的缩放平移（按新画布尺寸保持视野中心），并停用本实例的自动 zoomToFit */
@@ -174,6 +178,8 @@ type GraphInstance = {
   /** dimmed↔shown 的纯透明度切换（不重建数据集） */
   applyTermMode(mode: Exclude<TermLayerMode, "hidden">): void
   getTermMode(): TermLayerMode
+  /** 就地切换某域节点与相关边可见性（不重建、不改变力导布局） */
+  setSectionHidden(sectionId: string, hidden: boolean): void
   getTransform(): SavedTransform | null
   applyTransform(saved: SavedTransform): void
   resetView(): void
@@ -458,6 +464,40 @@ async function createGraphInstance(
   const isDimmedNode = (id: string): boolean => termMode === "dimmed" && isTermSlug(id)
   const isDimmedLink = (l: LinkData): boolean =>
     termMode === "dimmed" && (isTermSlug(l.source.id) || isTermSlug(l.target.id))
+
+  // 域隐藏（v12）：图例点击切换某文档域（slug 顶层数字前缀）的节点与相关边可见性。
+  // 就地切换——不动数据集、不改力导布局，仅控制 Sprite visible 与边绘制过滤；
+  // 与术语层 hidden（重建数据集）互不干扰。
+  const hiddenSections = new Set<string>()
+  const sectionOf = (id: string): string | undefined => id.match(/^(\d+)-/)?.[1]
+  const isSectionHiddenNode = (id: string): boolean =>
+    hiddenSections.size > 0 && sectionOf(id) !== undefined && hiddenSections.has(sectionOf(id)!)
+  const isSectionHiddenLink = (l: LinkData): boolean =>
+    isSectionHiddenNode(l.source.id) || isSectionHiddenNode(l.target.id)
+
+  function setSectionHidden(sectionId: string, hidden: boolean) {
+    if (hidden) {
+      hiddenSections.add(sectionId)
+    } else {
+      hiddenSections.delete(sectionId)
+    }
+    // 节点与标签 Sprite 直接切换 visible（隐藏后不参与命中测试）
+    for (const n of nodeRenderData) {
+      if (sectionOf(n.simulationData.id) !== sectionId) continue
+      n.gfx.visible = !hidden
+      n.label.visible = !hidden
+    }
+    // 被隐藏域内的 focus 高亮环一并清除（drawFocusRing 按帧绘制，避免悬空圆环）
+    if (hidden && focusedNodeId !== null && sectionOf(focusedNodeId) === sectionId) {
+      focusedNodeId = null
+    }
+    // hover 邻居信息若引用被隐藏节点，立即清空（避免 active 边引用不可见端点）
+    if (hoveredNodeId !== null && isSectionHiddenNode(hoveredNodeId)) {
+      updateHoverInfo(null)
+      renderPixiFromD3()
+    }
+    markDirty()
+  }
 
   let hoveredNodeId: string | null = null
   let hoveredNeighbours: Set<string> = new Set()
@@ -914,6 +954,7 @@ async function createGraphInstance(
       if (d.source.x === undefined || d.source.y === undefined) continue
       if (d.target.x === undefined || d.target.y === undefined) continue
       if (isDimmedLink(d)) continue
+      if (isSectionHiddenLink(d)) continue
       linkGfx.moveTo(d.source.x + ox, d.source.y + oy)
       linkGfx.lineTo(d.target.x + ox, d.target.y + oy)
       hasNormal = true
@@ -931,6 +972,7 @@ async function createGraphInstance(
         if (d.source.x === undefined || d.source.y === undefined) continue
         if (d.target.x === undefined || d.target.y === undefined) continue
         if (!isDimmedLink(d)) continue
+        if (isSectionHiddenLink(d)) continue
         linkGfx.moveTo(d.source.x + ox, d.source.y + oy)
         linkGfx.lineTo(d.target.x + ox, d.target.y + oy)
         hasDimmed = true
@@ -953,6 +995,7 @@ async function createGraphInstance(
         const d = l.simulationData
         if (d.source.x === undefined || d.source.y === undefined) continue
         if (d.target.x === undefined || d.target.y === undefined) continue
+        if (isSectionHiddenLink(d)) continue
         linkGfx.moveTo(d.source.x + ox, d.source.y + oy)
         linkGfx.lineTo(d.target.x + ox, d.target.y + oy)
         hasActive = true
@@ -1003,6 +1046,8 @@ async function createGraphInstance(
   function focusNode(target: SimpleSlug): boolean {
     const n = nodeRenderDataById.get(target)
     if (n === undefined) return false
+    // 域隐藏的节点不可见：定位无效（调用方应提示“该域已隐藏”）
+    if (isSectionHiddenNode(target)) return false
     // BUG-2（V5-B）：定位一旦发生，本实例的自动 zoomToFit 作废——
     // 置完成标志并清 800ms 兜底定时器；力导 tick 的 alpha 首降触发分支
     // 同受 zoomToFitDone 约束，不会再把 focus 居中拉回全景
@@ -1076,6 +1121,7 @@ async function createGraphInstance(
     focus: focusNode,
     applyTermMode,
     getTermMode: () => termMode,
+    setSectionHidden,
     getTransform,
     applyTransform,
     resetView,
@@ -1099,6 +1145,12 @@ async function renderGraph(
   let destroyed = false
   // 术语层 hidden↔其它的重建是串行的：切换期间的并发调用按顺序排队
   let switching: Promise<void> = Promise.resolve()
+  // 域隐藏状态（v12）：controller 级持有，重建（术语层 hidden / 外部重建）后恢复
+  const hiddenSections = new Set<string>()
+  const applyHiddenTo = (inst: GraphInstance) => {
+    for (const s of hiddenSections) inst.setSectionHidden(s, true)
+  }
+  applyHiddenTo(instance)
 
   const destroy = () => {
     if (destroyed) return
@@ -1110,6 +1162,16 @@ async function renderGraph(
     destroy,
     focus: (slug: SimpleSlug) => (destroyed ? false : instance.focus(slug)),
     getTermLayer: () => instance.getTermMode(),
+    setSectionHidden: (sectionId: string, hidden: boolean) => {
+      if (destroyed) return
+      if (hidden) {
+        hiddenSections.add(sectionId)
+      } else {
+        hiddenSections.delete(sectionId)
+      }
+      instance.setSectionHidden(sectionId, hidden)
+    },
+    getHiddenSections: () => new Set(hiddenSections),
     setTermLayer: (mode: TermLayerMode): Promise<void> => {
       switching = switching.then(async () => {
         if (destroyed) return
@@ -1126,6 +1188,8 @@ async function renderGraph(
             return
           }
           instance = next
+          // 重建后恢复域隐藏状态（v12）
+          applyHiddenTo(instance)
         } else {
           // dimmed↔shown：仅透明度切换，不重建
           instance.applyTermMode(mode as Exclude<TermLayerMode, "hidden">)
