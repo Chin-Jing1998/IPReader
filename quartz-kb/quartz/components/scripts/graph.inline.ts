@@ -633,6 +633,9 @@ async function createGraphInstance(
   let dragging = false
   // 双击判定（v14）：两次单击间隔 <350ms 视为双击（展开二跳连接）
   let lastClickAt = 0
+  // 空白点击判定（v14）：节点命中（pointerdown）时间戳，canvas 原生 click
+  // 距此 <300ms 视为节点点击（忽略），否则为空白点击（清除选中+隐藏右栏）
+  let lastNodeHitAt = 0
 
   // 边高亮 tween 状态（V4-B1）：原每边独立 alpha tween 改为驱动两个整体量——
   // fade：普通边批次的整体透明度（hover 时降到 0.2，保持“非邻边变淡”语义）；
@@ -759,6 +762,17 @@ async function createGraphInstance(
   })
   graph.appendChild(app.canvas)
 
+  // 空白点击（v14）：canvas 原生 click 且距最近节点命中 >300ms → 派发
+  // graphnodeselect {slug: null}，由图谱总览脚本清除选中并隐藏右栏。
+  // 拖拽平移画布同样会触发 click，但期间无节点命中、且本事件仅清除选中态，
+  // 不产生跳转副作用，符合"点击空白恢复"语义。
+  app.canvas.addEventListener("click", () => {
+    if (Date.now() - lastNodeHitAt < 300) return
+    graph.dispatchEvent(
+      new CustomEvent("graphnodeselect", { detail: { slug: null }, bubbles: true }),
+    )
+  })
+
   const stage = app.stage
   stage.interactive = false
 
@@ -806,6 +820,10 @@ async function createGraphInstance(
     })
       .circle(0, 0, r)
       .fill({ color: isTagNode ? computedStyleMap["--light"] : color(n) })
+      .on("pointerdown", () => {
+        // 空白点击判定（v14）：记录节点命中时刻
+        lastNodeHitAt = Date.now()
+      })
       .on("pointerover", (e) => {
         updateHoverInfo(e.target.label)
         oldLabelOpacity = label.alpha
