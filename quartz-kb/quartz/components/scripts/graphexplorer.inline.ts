@@ -60,7 +60,7 @@ const NODE_ID_RE = /^[A-Za-z0-9][A-Za-z0-9-]*$/
 const DOMAIN_NAMES: Record<string, string> = {
   "patent-law": "专利法",
   "implementation-rules": "实施细则",
-  "examination-guideline-2025": "审查指南",
+  "examination-guideline": "审查指南",
   "infringement-guide": "侵权判定指南",
   "mechanical-drafting-rules": "机械撰写规范",
   "chemistry-drafting-rules": "化学撰写规范",
