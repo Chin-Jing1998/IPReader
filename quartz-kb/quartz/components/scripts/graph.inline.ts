@@ -163,6 +163,12 @@ export interface GraphController {
   setSectionHidden(sectionId: string, hidden: boolean): void
   /** 当前隐藏的域集合副本 */
   getHiddenSections(): Set<string>
+  /** 选中节点（null 清除）：选中节点与相关节点常亮闪烁、其余灰度；hops 2=二跳展开 */
+  setSelected(nodeId: SimpleSlug | null, hops?: 1 | 2): void
+  /** 当前选中节点（无则 null） */
+  getSelected(): SimpleSlug | null
+  /** 当前选中跳数（无选中时 1） */
+  getSelectedHops(): 1 | 2
   /** 当前缩放平移快照（含画布尺寸）；未启用 zoom 时返回 null */
   getTransform(): SavedTransform | null
   /** 恢复快照的缩放平移（按新画布尺寸保持视野中心），并停用本实例的自动 zoomToFit */
@@ -181,6 +187,10 @@ type GraphInstance = {
   getTermMode(): TermLayerMode
   /** 就地切换某域节点与相关边可见性（不重建、不改变力导布局） */
   setSectionHidden(sectionId: string, hidden: boolean): void
+  /** 选中节点（null 清除）：选中节点与相关节点常亮闪烁、其余灰度；hops 2=二跳展开 */
+  setSelected(nodeId: SimpleSlug | null, hops?: 1 | 2): void
+  /** 当前选中节点（无则 null） */
+  getSelected(): SimpleSlug | null
   getTransform(): SavedTransform | null
   applyTransform(saved: SavedTransform): void
   resetView(): void
@@ -516,6 +526,53 @@ async function createGraphInstance(
       renderPixiFromD3()
     }
     markDirty()
+  }
+
+  // ---------- 选中态（v14）：单击选中节点 → 选中集常亮闪烁、其余灰度 ----------
+  // selectedNodeId 选中节点；selectedHops 1=一跳邻居 / 2=二跳展开（双击）；
+  // 选中集 = 选中节点 + 其 N 跳邻居（由邻接表推导，渲染分级在 renderNodes/drawLinks）
+  let selectedNodeId: SimpleSlug | null = null
+  let selectedHops: 1 | 2 = 1
+  let selectedSet: Set<string> = new Set()
+  let pulsePhase = 0 // 脉动相位（闪烁动画用）
+
+  function computeSelectedSet(): Set<string> {
+    const set = new Set<string>()
+    if (selectedNodeId === null) return set
+    set.add(selectedNodeId)
+    let frontier = new Set<SimpleSlug>([selectedNodeId])
+    for (let hop = 0; hop < selectedHops; hop++) {
+      const next = new Set<SimpleSlug>()
+      for (const id of frontier) {
+        for (const nb of adjacency.get(id) ?? []) {
+          if (!set.has(nb)) {
+            next.add(nb)
+            set.add(nb)
+          }
+        }
+      }
+      frontier = next
+    }
+    return set
+  }
+
+  function setSelected(nodeId: SimpleSlug | null, hops: 1 | 2 = 1) {
+    // 节点不在当前数据集（如术语层 hidden 剔除/域隐藏）：忽略
+    if (nodeId !== null && nodeRenderDataById.get(nodeId) === undefined) return
+    selectedNodeId = nodeId
+    selectedHops = hops
+    selectedSet = computeSelectedSet()
+    // 选中态与 focus 高亮环 / hover 高亮互斥：两者都清除，避免叠加
+    focusedNodeId = null
+    if (hoveredNodeId !== null) {
+      updateHoverInfo(null)
+    }
+    pulsePhase = 0
+    markDirty()
+  }
+
+  function getSelected(): SimpleSlug | null {
+    return selectedNodeId
   }
 
   let hoveredNodeId: string | null = null
@@ -1141,6 +1198,8 @@ async function createGraphInstance(
     applyTermMode,
     getTermMode: () => termMode,
     setSectionHidden,
+    setSelected,
+    getSelected,
     getTransform,
     applyTransform,
     resetView,
@@ -1170,6 +1229,13 @@ async function renderGraph(
     for (const s of hiddenSections) inst.setSectionHidden(s, true)
   }
   applyHiddenTo(instance)
+  // 选中态（v14）：controller 级持有，重建后恢复（renderCanvas 重建路径由调用方恢复）。
+  // 用 const 对象包装规避 TS 对闭包捕获 let 变量的流分析收窄
+  const selectedBox: { nodeId: SimpleSlug | null; hops: 1 | 2 } = { nodeId: null, hops: 1 }
+  const applySelectedTo = (inst: GraphInstance) => {
+    if (selectedBox.nodeId !== null) inst.setSelected(selectedBox.nodeId, selectedBox.hops)
+  }
+  applySelectedTo(instance)
 
   const destroy = () => {
     if (destroyed) return
@@ -1191,6 +1257,14 @@ async function renderGraph(
       instance.setSectionHidden(sectionId, hidden)
     },
     getHiddenSections: () => new Set(hiddenSections),
+    setSelected: (nodeId: SimpleSlug | null, hops: 1 | 2 = 1) => {
+      if (destroyed) return
+      selectedBox.nodeId = nodeId
+      selectedBox.hops = hops
+      instance.setSelected(nodeId, hops)
+    },
+    getSelected: () => instance.getSelected(),
+    getSelectedHops: () => instance.getSelected() === null ? 1 : (selectedBox.hops),
     setTermLayer: (mode: TermLayerMode): Promise<void> => {
       switching = switching.then(async () => {
         if (destroyed) return
@@ -1209,6 +1283,8 @@ async function renderGraph(
           instance = next
           // 重建后恢复域隐藏状态（v12）
           applyHiddenTo(instance)
+          // 重建后恢复选中态（v14）
+          applySelectedTo(instance)
         } else {
           // dimmed↔shown：仅透明度切换，不重建
           instance.applyTermMode(mode as Exclude<TermLayerMode, "hidden">)
