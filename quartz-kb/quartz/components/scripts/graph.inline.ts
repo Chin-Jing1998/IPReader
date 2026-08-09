@@ -795,10 +795,6 @@ async function createGraphInstance(
   linkContainer.addChild(linkGfx)
   const focusGfx = new Graphics({ interactive: false, eventMode: "none" })
   focusContainer.addChild(focusGfx)
-  // 选中集描边环层（v16）：与 focus 环同容器（两者互斥出现，setSelected 清 focus），
-  // 独立 Graphics 避免 drawFocusRing 的 clear 抹掉选中环
-  const selectedRingGfx = new Graphics({ interactive: false, eventMode: "none" })
-  focusContainer.addChild(selectedRingGfx)
 
   for (const n of graphData.nodes) {
     const nodeId = n.id
@@ -1167,22 +1163,6 @@ async function createGraphInstance(
       .stroke({ width: 2, color: computedStyleMap["--secondary"], alpha: 0.9 })
   }
 
-  // 选中集描边环（v16）：选中节点与全部相关节点画亮色圆环，增强“簇亮起”显示效果，
-  // 与用户确认的 hover 式显示（节点+连线+标签常亮）对齐。环色用 --dark：
-  // 暗主题下近白（亮白描边）、亮主题下近黑，随主题保持对比清晰。
-  function drawSelectedRing() {
-    selectedRingGfx.clear()
-    if (selectedNodeId === null || selectedSet.size === 0) return
-    for (const id of selectedSet) {
-      const n = nodeRenderDataById.get(id as SimpleSlug)
-      if (n === undefined) continue
-      const { x, y } = n.simulationData
-      if (x === undefined || y === undefined) continue
-      selectedRingGfx.circle(x + width / 2, y + height / 2, n.radius + 2)
-    }
-    selectedRingGfx.stroke({ width: 1.5, color: computedStyleMap["--dark"], alpha: 0.9 })
-  }
-
   let stopAnimation = false
   function animate(time: number) {
     if (stopAnimation) return
@@ -1198,7 +1178,6 @@ async function createGraphInstance(
       syncPositions()
       drawLinks()
       drawFocusRing()
-      drawSelectedRing()
       app.renderer.render(stage)
       dirty = false
     }
