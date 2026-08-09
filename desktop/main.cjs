@@ -14,6 +14,7 @@
 //                             运行时经 process.resourcesPath 解析。
 const { app, BrowserWindow, shell, nativeTheme, ipcMain, dialog } = require('electron');
 const path = require('path');
+const fs = require('fs');
 const { startStaticServer, probeHealth, DEFAULT_PORT } = require('./server.cjs');
 
 const DIST = app.isPackaged
@@ -171,6 +172,51 @@ ipcMain.on('set-theme-source', (_e, mode) => {
   if (mode === 'light' || mode === 'dark' || mode === 'system') {
     nativeTheme.themeSource = mode;
   }
+});
+
+// ── 批注 md 落盘（v8）──────────────────────────────────────────────
+// 渲染层（annotate.inline.ts）在批注变更后调 saveAnnoMarkdown 写 Markdown 文件。
+// 安全模型：只接受「本会话内经 anno-choose-dir 选定的目录」为根，
+// relativePath 解析后必须仍位于根内（防目录穿越），根目录按 webContents 隔离。
+const annoDirs = new Map(); // webContents.id -> 根目录
+
+ipcMain.handle('anno-choose-dir', async (e) => {
+  const win = BrowserWindow.fromWebContents(e.sender);
+  if (!win) return null;
+  const r = await dialog.showOpenDialog(win, {
+    title: '选择批注保存目录',
+    buttonLabel: '选择',
+    properties: ['openDirectory', 'createDirectory'],
+  });
+  if (r.canceled || r.filePaths.length === 0) return null;
+  const dir = r.filePaths[0];
+  annoDirs.set(e.sender.id, dir);
+  return dir;
+});
+
+ipcMain.handle('anno-save-md', (e, payload) => {
+  const root = annoDirs.get(e.sender.id);
+  if (!root || !payload || typeof payload !== 'object') {
+    throw new Error('未选择批注保存目录，请在设置中先选择目录');
+  }
+  const { relativePath, content, remove } = payload;
+  if (typeof relativePath !== 'string' || relativePath.length === 0 || relativePath.includes('\0')) {
+    throw new Error('非法文件路径');
+  }
+  const target = path.resolve(root, relativePath);
+  if (target !== root && !target.startsWith(root + path.sep)) {
+    throw new Error('路径越界，拒绝写入');
+  }
+  if (remove) {
+    fs.rmSync(target, { force: true });
+    return true;
+  }
+  if (typeof content !== 'string') {
+    throw new Error('文件内容非法');
+  }
+  fs.mkdirSync(path.dirname(target), { recursive: true });
+  fs.writeFileSync(target, content, 'utf8');
+  return true;
 });
 
 // ── Dock 图标随系统深浅色自动切换 ──────────────────────────────────────

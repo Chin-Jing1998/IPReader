@@ -7,4 +7,7 @@ contextBridge.exposeInMainWorld('desktop', {
   isDesktop: true,
   // mode: 'light' | 'dark' | 'system'
   setThemeSource: (mode) => ipcRenderer.send('set-theme-source', mode),
+  // 批注 md 落盘（v8）：选择保存目录 + 写入/删除 Markdown 文件
+  chooseAnnoDir: () => ipcRenderer.invoke('anno-choose-dir'),
+  saveAnnoMarkdown: (payload) => ipcRenderer.invoke('anno-save-md', payload),
 });
