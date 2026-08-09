@@ -529,7 +529,20 @@ body[data-slug="0-图谱总览/index"] {
 
   .graph-explorer {
     // 页头瘦身后可用高度增加，同步上调
-    height: calc(100vh - 7rem);
+    // v8 实测修正：顶部占用 = 标题区 151px + margin-top 0.6rem + 底部 margin
+    // 2rem ≈ 205px，7rem(112px) 不够导致页面被撑高可滚（滚轮滚整个页面而非
+    // 右栏内容）；13rem(208px) 覆盖占用并留 ~15px 余量
+    height: calc(100vh - 13rem);
+    min-height: 22rem;
     margin-top: 0.6rem;
   }
+}
+
+// v8 图谱页是画布应用：禁止页面滚动（html+body 双重锁），
+// 滚轮只作用于右栏 .ge-panel / 左栏目录 / 画布缩放，页面不再整体上移
+body[data-slug="0-图谱总览/index"] {
+  overflow: hidden;
+}
+html:has(body[data-slug="0-图谱总览/index"]) {
+  overflow: hidden;
 }
