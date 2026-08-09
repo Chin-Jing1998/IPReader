@@ -17,6 +17,7 @@ import {
 } from "./annotate-anchor"
 import type { Annotation, ColorKey } from "./annotate-store"
 import { applyImport, buildExport, load, loadAll, newId, save } from "./annotate-store"
+import { buildMarkdownFiles } from "./annotate-md"
 
 const COLORS: { key: ColorKey; label: string }[] = [
   { key: "yellow", label: "黄" },
@@ -80,7 +81,7 @@ function wrapRange(range: Range, anno: Annotation): void {
     mark.dataset.color = anno.color
     if (anno.note) {
       mark.dataset.hasNote = "1"
-      mark.title = anno.note
+      // 不用 title：原生提示与自绘 tooltip 会双弹，且样式不可控
     }
     piece.replaceWith(mark)
     mark.appendChild(piece)
@@ -197,7 +198,41 @@ document.addEventListener("nav", () => {
   function persist(): void {
     if (!save(slug, items)) {
       tip("本地存储已满，请先导出备份")
+      return
     }
+    syncMarkdown()
+  }
+
+  // ---------- md 落盘（v8）：批注变更后重建该页 md 文件 ----------
+  // 仅桌面端（window.desktop）且设置了保存目录时生效；浏览器环境静默跳过。
+  // 目标文件与上次文件集的差集 → 删除，保证删除批注后文件同步消失。
+  let lastMdPaths = new Set<string>()
+
+  function syncMarkdown(): void {
+    const desktop = (window as unknown as {
+      desktop?: { saveAnnoMarkdown?: (p: unknown) => Promise<unknown> }
+    }).desktop
+    const dir = (window as unknown as {
+      kbSettings?: { getAnnoDir: () => string }
+    }).kbSettings?.getAnnoDir()
+    if (!desktop?.saveAnnoMarkdown || !dir) {
+      lastMdPaths = new Set()
+      return
+    }
+    const pageTitle =
+      document.querySelector<HTMLElement>(".article-title")?.textContent ?? slug
+    const files = buildMarkdownFiles(article!, pageTitle, items)
+    const next = new Set<string>()
+    for (const f of files) {
+      next.add(f.relativePath)
+      void desktop.saveAnnoMarkdown({ relativePath: f.relativePath, content: f.content })
+    }
+    for (const p of lastMdPaths) {
+      if (!next.has(p)) {
+        void desktop.saveAnnoMarkdown({ relativePath: p, remove: true })
+      }
+    }
+    lastMdPaths = next
   }
 
   // ---------- 工具条 ----------
@@ -418,9 +453,10 @@ document.addEventListener("nav", () => {
   }
 
   // 按下工具条时阻止焦点转移，否则选区会被清空。
-  // 笔记输入框例外——它需要拿到焦点才能打字。
+  // 笔记输入区（.kb-anno-compose 整体）例外——它需要拿到焦点才能打字，
+  // 若只放行 textarea 本身，点击输入框内边距/空白处仍会被 preventDefault 吞掉焦点
   const onToolbarDown = (e: Event) => {
-    if ((e.target as HTMLElement).closest(".kb-anno-input") === null) {
+    if ((e.target as HTMLElement).closest(".kb-anno-compose") === null) {
       e.preventDefault()
     }
   }
@@ -463,7 +499,9 @@ document.addEventListener("nav", () => {
     if (act === "note") {
       if (composeBox) {
         composeBox.hidden = false
-        noteInput?.focus()
+        // mousedown 的 preventDefault 吞掉了隐式焦点转移，须在下一帧显式聚焦，
+        // 否则输入框出现但无法直接打字（现状问题）
+        requestAnimationFrame(() => noteInput?.focus())
       }
       return
     }
@@ -472,33 +510,162 @@ document.addEventListener("nav", () => {
     }
   }
 
-  // 点击正文里已有的标记 → 打开抽屉并定位到该条（笔记全文在那里可读可改）。
-  // 标记自身的 title 已带笔记内容，悬停即可速览。
-  const onArticleClick = (e: Event) => {
-    const mark = (e.target as HTMLElement).closest<HTMLElement>("mark.kb-mark")
-    if (!mark) {
+  // 右键正文里已有的标记 → 自定义菜单：删除该批注 / 取消。
+  // 阻断默认菜单（Electron/浏览器），否则原生菜单会盖住自绘菜单。
+  const ctxMenu = document.querySelector<HTMLElement>(".kb-anno-ctxmenu")
+  let ctxTarget: string | null = null
+
+  function hideCtxMenu(): void {
+    if (ctxMenu) {
+      ctxMenu.hidden = true
+    }
+    ctxTarget = null
+  }
+
+  function showCtxMenu(x: number, y: number, annoId: string): void {
+    if (!ctxMenu) {
       return
     }
-    drawer!.hidden = false
-    renderDrawer()
-    const row = drawer!.querySelector<HTMLElement>(`[data-anno-row="${mark.dataset.annoId}"]`)
-    if (row) {
-      row.scrollIntoView({ block: "nearest" })
-      row.classList.add("is-active")
-      setTimeout(() => row.classList.remove("is-active"), 1500)
+    ctxTarget = annoId
+    ctxMenu.hidden = false
+    // fixed 定位贴近视口边缘，避免菜单溢出被裁
+    const rect = ctxMenu.getBoundingClientRect()
+    const left = Math.min(x, window.innerWidth - rect.width - 8)
+    const top = Math.min(y, window.innerHeight - rect.height - 8)
+    ctxMenu.style.left = `${Math.max(8, left)}px`
+    ctxMenu.style.top = `${Math.max(8, top)}px`
+  }
+
+  const onArticleCtx = (e: MouseEvent) => {
+    const mark = (e.target as HTMLElement).closest<HTMLElement>("mark.kb-mark")
+    if (!mark?.dataset.annoId) {
+      hideCtxMenu()
+      return
+    }
+    e.preventDefault()
+    showCtxMenu(e.clientX, e.clientY, mark.dataset.annoId)
+  }
+
+  const onCtxMenuClick = (e: Event) => {
+    const btn = (e.target as HTMLElement).closest<HTMLElement>("[data-ctx]")
+    if (!btn) {
+      return
+    }
+    if (btn.dataset.ctx === "remove" && ctxTarget !== null) {
+      removeAnno(ctxTarget)
+    }
+    hideCtxMenu()
+  }
+
+  // 点击菜单外任意处关闭（mousedown 先于 click，避免与正文点击逻辑竞争）
+  const onDocDown = (e: Event) => {
+    if (ctxMenu?.hidden) {
+      return
+    }
+    if ((e.target as HTMLElement).closest(".kb-anno-ctxmenu") === null) {
+      hideCtxMenu()
     }
   }
 
-  const fab = document.querySelector<HTMLElement>(".kb-anno-fab")
-  const onFab = () => {
-    drawer.hidden = !drawer.hidden
-    if (!drawer.hidden) {
-      renderDrawer()
+  const onCtxKey = (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      e.stopPropagation()
+      hideCtxMenu()
     }
   }
+
+  // ---------- 笔记气泡（左键点击标记弹出） ----------
+
+  const popBox = document.querySelector<HTMLElement>(".kb-anno-pop")
+  const popBody = popBox?.querySelector<HTMLElement>(".kb-anno-pop-body")
+  const popQuote = popBox?.querySelector<HTMLElement>(".kb-anno-pop-quote")
+  const popClose = popBox?.querySelector<HTMLElement>(".kb-anno-pop-close")
+
+  function hidePop(): void {
+    if (popBox) {
+      popBox.hidden = true
+    }
+  }
+
+  // 左键点击：仅有笔记的标记弹气泡（划线/高亮标记仅查看，不响应）
+  const onArticleClick = (e: Event) => {
+    const mark = (e.target as HTMLElement).closest<HTMLElement>("mark.kb-mark")
+    if (!mark) {
+      hidePop()
+      return
+    }
+    const anno = items.find((a) => a.id === mark.dataset.annoId)
+    if (!anno?.note || !popBox || !popBody) {
+      hidePop()
+      return
+    }
+    popBody.textContent = anno.note
+    if (popQuote) {
+      popQuote.textContent = `原文：${anno.selector.exact}`
+    }
+    popBox.hidden = false
+    const rect = mark.getBoundingClientRect()
+    const virtual = {
+      getBoundingClientRect: () => rect,
+      getClientRects: () => [rect] as unknown as DOMRectList,
+    }
+    void computePosition(virtual, popBox, {
+      strategy: "fixed",
+      placement: "top",
+      middleware: [offset(8), inline(), flip({ padding: 8 }), shift({ padding: 8 })],
+    }).then(({ x, y }) => {
+      popBox.style.transform = `translate(${Math.round(x)}px, ${Math.round(y)}px)`
+    })
+  }
+
+  // ---------- 悬浮预览（mouseenter 延迟 300ms） ----------
+
+  const tipPop = document.querySelector<HTMLElement>(".kb-anno-tip-pop")
+  let hoverTimer: ReturnType<typeof setTimeout> | undefined
+
+  const onMarkHover = (e: MouseEvent) => {
+    const mark = (e.target as HTMLElement).closest<HTMLElement>("mark.kb-mark")
+    const anno = mark ? items.find((a) => a.id === mark.dataset.annoId) : undefined
+    clearTimeout(hoverTimer)
+    if (!mark || !anno?.note || !tipPop) {
+      if (tipPop) {
+        tipPop.hidden = true
+      }
+      return
+    }
+    hoverTimer = setTimeout(() => {
+      tipPop.textContent = anno.note
+      tipPop.hidden = false
+      const rect = mark.getBoundingClientRect()
+      const virtual = {
+        getBoundingClientRect: () => rect,
+        getClientRects: () => [rect] as unknown as DOMRectList,
+      }
+      void computePosition(virtual, tipPop, {
+        strategy: "fixed",
+        placement: "top",
+        middleware: [offset(6), flip({ padding: 8 }), shift({ padding: 8 })],
+      }).then(({ x, y }) => {
+        tipPop.style.transform = `translate(${Math.round(x)}px, ${Math.round(y)}px)`
+      })
+    }, 300)
+  }
+
+  const onMarkHoverEnd = () => {
+    clearTimeout(hoverTimer)
+    if (tipPop) {
+      tipPop.hidden = true
+    }
+  }
+
   const closeBtn = drawer.querySelector<HTMLElement>(".kb-anno-close")
   const onClose = () => {
     drawer.hidden = true
+  }
+  // 抽屉入口已从 FAB 移入设置面板：设置侧经 kb-anno-open-drawer 事件唤起
+  const openDrawer = () => {
+    drawer.hidden = false
+    renderDrawer()
   }
   // 标识符与选择器都避开小写「export」子串：inline 脚本装载器
   // （quartz/cli/handlers.js:274）对源码做无边界的 text.replace("export", "")，
@@ -542,8 +709,15 @@ document.addEventListener("nav", () => {
   toolbar.addEventListener("click", onToolbarClick)
   noteInput?.addEventListener("keydown", onNoteKey)
   article.addEventListener("click", onArticleClick)
-  fab?.addEventListener("click", onFab)
+  article.addEventListener("contextmenu", onArticleCtx)
+  article.addEventListener("mouseover", onMarkHover)
+  article.addEventListener("mouseout", onMarkHoverEnd)
+  ctxMenu?.addEventListener("click", onCtxMenuClick)
+  popClose?.addEventListener("click", hidePop)
+  document.addEventListener("mousedown", onDocDown)
+  document.addEventListener("keydown", onCtxKey)
   closeBtn?.addEventListener("click", onClose)
+  document.addEventListener("kb-anno-open-drawer", openDrawer)
   dumpBtn?.addEventListener("click", doExport)
   importInput?.addEventListener("change", onImportPick)
 
@@ -561,8 +735,15 @@ document.addEventListener("nav", () => {
     toolbar.removeEventListener("click", onToolbarClick)
     noteInput?.removeEventListener("keydown", onNoteKey)
     article.removeEventListener("click", onArticleClick)
-    fab?.removeEventListener("click", onFab)
+    article.removeEventListener("contextmenu", onArticleCtx)
+    article.removeEventListener("mouseover", onMarkHover)
+    article.removeEventListener("mouseout", onMarkHoverEnd)
+    ctxMenu?.removeEventListener("click", onCtxMenuClick)
+    popClose?.removeEventListener("click", hidePop)
+    document.removeEventListener("mousedown", onDocDown)
+    document.removeEventListener("keydown", onCtxKey)
     closeBtn?.removeEventListener("click", onClose)
+    document.removeEventListener("kb-anno-open-drawer", openDrawer)
     dumpBtn?.removeEventListener("click", doExport)
     importInput?.removeEventListener("change", onImportPick)
     unwrapAll()

@@ -228,45 +228,154 @@ mark.kb-mark {
   color: var(--darkgray);
 }
 
-// ---------- 唤起按钮（回顶 FAB 正上方） ----------
+// ---------- 标记右键菜单 ----------
 
-.kb-anno-fab {
+.kb-anno-ctxmenu {
   position: fixed;
-  right: 1.5rem;
-  bottom: 5rem;
-  z-index: 20;
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  color: var(--secondary);
-  background-color: var(--glass-bg-thick, rgba(255, 255, 255, 0.86));
+  left: 0;
+  top: 0;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  min-width: 9rem;
+  padding: 0.25rem;
+  border-radius: 10px;
+  font-family: var(--headerFont);
+  font-size: 0.8rem;
+  background-color: var(--popover-bg, #faf9f9);
   border: 1px solid var(--glass-border, var(--lightgray));
-  border-radius: 50%;
-  box-shadow: var(--glass-shadow, 0 6px 20px rgba(0, 0, 0, 0.1));
-  cursor: pointer;
-  transition:
-    transform var(--duration-press, 120ms) var(--ease-out, ease-out),
-    border-color var(--duration-hover, 140ms) var(--ease-hover, ease);
+  box-shadow: var(--glass-shadow, 0 6px 20px rgba(0, 0, 0, 0.12));
+  user-select: none;
+  -webkit-user-select: none;
 
-  &:hover {
-    border-color: var(--secondary);
-  }
-
-  &:active {
-    transform: scale(0.96);
-  }
-
-  // 移动端抽屉展开时隐藏，避免 fixed 浮层被 transform 俘获
-  html.mobile-no-scroll &,
-  #quartz-body.lock-scroll & {
+  &[hidden] {
     display: none;
   }
 
-  @media all and ($mobile) {
-    right: 1rem;
-    bottom: 4.5rem;
+  button {
+    padding: 0.35rem 0.6rem;
+    text-align: left;
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--dark);
+    background: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color var(--duration-hover, 140ms) var(--ease-hover, ease);
+
+    &:hover {
+      background-color: var(--highlight);
+    }
+
+    // 破坏性动作：Apple 规范用系统红 #FF3B30 的深色版
+    &[data-ctx="remove"] {
+      color: #d0342c;
+
+      &:hover {
+        background-color: rgba(208, 52, 44, 0.12);
+      }
+    }
   }
+}
+
+// ---------- 悬浮笔记预览（轻量 tooltip） ----------
+
+.kb-anno-tip-pop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 900;
+  max-width: 20rem;
+  padding: 0.4rem 0.55rem;
+  border-radius: 8px;
+  font-family: var(--headerFont);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--dark);
+  background-color: var(--popover-bg, #faf9f9);
+  border: 1px solid var(--glass-border, var(--lightgray));
+  box-shadow: var(--glass-shadow, 0 4px 14px rgba(0, 0, 0, 0.1));
+  pointer-events: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+// ---------- 笔记气泡（左键点击） ----------
+
+.kb-anno-pop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 19rem;
+  max-width: calc(100vw - 3rem);
+  padding: 0.7rem 0.8rem;
+  border-radius: 12px;
+  font-family: var(--headerFont);
+  background-color: var(--popover-bg, #faf9f9);
+  border: 1px solid var(--glass-border, var(--lightgray));
+  box-shadow: var(--glass-shadow, 0 8px 24px rgba(0, 0, 0, 0.14));
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.kb-anno-pop-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h4 {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--dark);
+  }
+
+  .kb-anno-pop-close {
+    padding: 0 0.3rem;
+    font-size: 1.05rem;
+    line-height: 1;
+    color: var(--gray);
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--dark);
+    }
+  }
+}
+
+.kb-anno-pop-body {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--dark);
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 12rem;
+  overflow-y: auto;
+}
+
+.kb-anno-pop-quote {
+  margin: 0;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--lightgray);
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--darkgray);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 // ---------- 批注抽屉 ----------

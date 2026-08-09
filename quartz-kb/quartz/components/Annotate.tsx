@@ -53,22 +53,28 @@ const Annotate: QuartzComponent = ({ fileData, displayClass }: QuartzComponentPr
         <p class="kb-anno-tip" hidden />
       </div>
 
-      {/* 唤起批注抽屉；位置在回顶 FAB 上方，见 annotate.scss */}
-      <button class="kb-anno-fab" type="button" aria-label="本页批注" title="本页批注">
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M12 20h9" />
-          <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
-        </svg>
-      </button>
+      {/* 标记右键菜单：仅经 contextmenu 唤起，定位在鼠标处 */}
+      <div class="kb-anno-ctxmenu" hidden>
+        <button type="button" data-ctx="remove">删除该批注</button>
+        <button type="button" data-ctx="close">取消</button>
+      </div>
+
+      {/* 悬浮笔记预览：mouseenter 后延迟出现 */}
+      <div class="kb-anno-tip-pop" hidden />
+
+      {/* 笔记气泡：左键点击笔记标记弹出 */}
+      <div class="kb-anno-pop" hidden>
+        <header class="kb-anno-pop-head">
+          <h4>笔记</h4>
+          <button class="kb-anno-pop-close" type="button" aria-label="关闭">
+            ×
+          </button>
+        </header>
+        <div class="kb-anno-pop-body" />
+        <p class="kb-anno-pop-quote" />
+      </div>
+
+      {/* 批注抽屉改由设置面板的「批注管理」经 kb-anno-open-drawer 事件唤起 */}
 
       <aside class="kb-anno-drawer" hidden>
         <header class="kb-anno-head">
