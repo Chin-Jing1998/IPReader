@@ -35,6 +35,20 @@
           "**/*",
           "!**/.DS_Store"
         ]
+      },
+      {
+        "from": "build/icon.png",
+        "to": "icons/icon-light.png",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "build/icon-dark.png",
+        "to": "icons/icon-dark.png",
+        "filter": [
+          "**/*"
+        ]
       }
     ],
     "asar": true,

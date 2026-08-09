@@ -173,7 +173,29 @@ ipcMain.on('set-theme-source', (_e, mode) => {
   }
 });
 
-app.whenReady().then(createWindow);
+// ── Dock 图标随系统深浅色自动切换 ──────────────────────────────────────
+// 浅色模式用浅底图标（方案 A），深色模式用深蓝底图标（方案 B）。
+// macOS Dock 图标支持运行时替换；Finder/启动台中的包图标（icns）保持浅底不变。
+const DOCK_ICON_LIGHT = app.isPackaged
+  ? path.join(process.resourcesPath, 'icons', 'icon-light.png')
+  : path.join(__dirname, 'build', 'icon.png');
+const DOCK_ICON_DARK = app.isPackaged
+  ? path.join(process.resourcesPath, 'icons', 'icon-dark.png')
+  : path.join(__dirname, 'build', 'icon-dark.png');
+
+function applyDockIcon() {
+  if (process.platform !== 'darwin') return;
+  const file = nativeTheme.shouldUseDarkColors ? DOCK_ICON_DARK : DOCK_ICON_LIGHT;
+  app.dock.setIcon(file);
+}
+
+// 系统外观变化（浅色↔深色、手动切换）时即时跟随
+nativeTheme.on('updated', applyDockIcon);
+
+app.whenReady().then(() => {
+  createWindow();
+  applyDockIcon();
+});
 
 // 第二次启动：聚焦已有窗口而非再开一个（配合单实例锁）
 app.on('second-instance', () => {
