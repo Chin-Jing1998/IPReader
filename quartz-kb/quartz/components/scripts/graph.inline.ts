@@ -579,6 +579,8 @@ async function createGraphInstance(
     } else {
       // 清除：完整恢复一帧（节点 alpha 经 tween 过渡回默认、边恢复默认、hover 恢复）
       renderPixiFromD3()
+      // 选中节点标签回落为缩放透明度（v16）
+      updateLabelOpacities()
     }
     markDirty()
   }
@@ -671,8 +673,9 @@ async function createGraphInstance(
     for (const n of nodeRenderData) {
       const nodeId = n.simulationData.id
 
-      // dimmed 术语节点无标签：悬停也不拉起标签透明度
-      if (hoveredNodeId === nodeId && !isDimmedNode(nodeId)) {
+      // dimmed 术语节点无标签：悬停也不拉起标签透明度；
+      // v16：选中节点标签同样拉起（节点+连线+标签常亮的显示效果）
+      if ((hoveredNodeId === nodeId || selectedNodeId === nodeId) && !isDimmedNode(nodeId)) {
         tweenGroup.add(
           new Tweened<Text>(n.label).to(
             {
@@ -792,6 +795,10 @@ async function createGraphInstance(
   linkContainer.addChild(linkGfx)
   const focusGfx = new Graphics({ interactive: false, eventMode: "none" })
   focusContainer.addChild(focusGfx)
+  // 选中集描边环层（v16）：与 focus 环同容器（两者互斥出现，setSelected 清 focus），
+  // 独立 Graphics 避免 drawFocusRing 的 clear 抹掉选中环
+  const selectedRingGfx = new Graphics({ interactive: false, eventMode: "none" })
+  focusContainer.addChild(selectedRingGfx)
 
   for (const n of graphData.nodes) {
     const nodeId = n.id
@@ -935,6 +942,8 @@ async function createGraphInstance(
     for (const n of nodeRenderData) {
       // hover 高亮中的标签透明度交给 tween，缩放不覆盖
       if (n.active) continue
+      // 选中节点标签由 renderLabels 拉起（v16），缩放不覆盖
+      if (selectedNodeId !== null && n.simulationData.id === selectedNodeId) continue
       n.label.alpha = isDimmedNode(n.simulationData.id) ? 0 : scaleOpacity
     }
   }
@@ -1158,6 +1167,22 @@ async function createGraphInstance(
       .stroke({ width: 2, color: computedStyleMap["--secondary"], alpha: 0.9 })
   }
 
+  // 选中集描边环（v16）：选中节点与全部相关节点画亮色圆环，增强“簇亮起”显示效果，
+  // 与用户确认的 hover 式显示（节点+连线+标签常亮）对齐。环色用 --dark：
+  // 暗主题下近白（亮白描边）、亮主题下近黑，随主题保持对比清晰。
+  function drawSelectedRing() {
+    selectedRingGfx.clear()
+    if (selectedNodeId === null || selectedSet.size === 0) return
+    for (const id of selectedSet) {
+      const n = nodeRenderDataById.get(id as SimpleSlug)
+      if (n === undefined) continue
+      const { x, y } = n.simulationData
+      if (x === undefined || y === undefined) continue
+      selectedRingGfx.circle(x + width / 2, y + height / 2, n.radius + 2)
+    }
+    selectedRingGfx.stroke({ width: 1.5, color: computedStyleMap["--dark"], alpha: 0.9 })
+  }
+
   let stopAnimation = false
   function animate(time: number) {
     if (stopAnimation) return
@@ -1173,6 +1198,7 @@ async function createGraphInstance(
       syncPositions()
       drawLinks()
       drawFocusRing()
+      drawSelectedRing()
       app.renderer.render(stage)
       dirty = false
     }
