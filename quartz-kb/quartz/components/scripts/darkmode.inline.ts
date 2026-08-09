@@ -1,37 +1,7 @@
+// 主题初始化（v8 起主题控制权移交 settings.inline.ts）：
+// 本脚本只负责首帧初始值（兼容无设置桶的旧会话，行为与 darkmode.inline 原逻辑一致）。
+// 按钮绑定、系统偏好监听与 themechange 派发均由 settings.inline.ts 按主题模式统一管理；
+// 主页面亮暗切换按钮已随布局移除。
 const userPref = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"
 const currentTheme = localStorage.getItem("theme") ?? userPref
 document.documentElement.setAttribute("saved-theme", currentTheme)
-
-const emitThemeChangeEvent = (theme: "light" | "dark") => {
-  const event: CustomEventMap["themechange"] = new CustomEvent("themechange", {
-    detail: { theme },
-  })
-  document.dispatchEvent(event)
-}
-
-document.addEventListener("nav", () => {
-  const switchTheme = () => {
-    const newTheme =
-      document.documentElement.getAttribute("saved-theme") === "dark" ? "light" : "dark"
-    document.documentElement.setAttribute("saved-theme", newTheme)
-    localStorage.setItem("theme", newTheme)
-    emitThemeChangeEvent(newTheme)
-  }
-
-  const themeChange = (e: MediaQueryListEvent) => {
-    const newTheme = e.matches ? "dark" : "light"
-    document.documentElement.setAttribute("saved-theme", newTheme)
-    localStorage.setItem("theme", newTheme)
-    emitThemeChangeEvent(newTheme)
-  }
-
-  for (const darkmodeButton of document.getElementsByClassName("darkmode")) {
-    darkmodeButton.addEventListener("click", switchTheme)
-    window.addCleanup(() => darkmodeButton.removeEventListener("click", switchTheme))
-  }
-
-  // Listen for changes in prefers-color-scheme
-  const colorSchemeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
-  colorSchemeMediaQuery.addEventListener("change", themeChange)
-  window.addCleanup(() => colorSchemeMediaQuery.removeEventListener("change", themeChange))
-})

@@ -1,0 +1,307 @@
+@use "../../styles/variables.scss" as *;
+
+// 设置面板（v8）：齿轮按钮 + 右侧滑出面板。
+// 材质与动效消费 custom.scss 既有 token 并带 fallback；z-index 站位：
+// 工具条 900 > 本面板 800 > 抽屉 300。
+// 控件造型按 Apple 规范：分段控件（segmented）、圆角卡片、系统红破坏色。
+
+// ---------- 齿轮按钮（左栏顶部，替代原 Darkmode 位置） ----------
+
+.kb-settings-btn {
+  cursor: pointer;
+  padding: 0;
+  background: none;
+  border: none;
+  width: 20px;
+  height: 32px;
+  margin: 0;
+  flex-shrink: 0;
+  color: var(--darkgray);
+  display: grid;
+  place-items: center;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    transition: transform var(--duration-press, 120ms) var(--ease-out, ease-out);
+  }
+
+  &:hover {
+    color: var(--dark);
+  }
+
+  &:active svg {
+    transform: rotate(30deg) scale(0.94);
+  }
+}
+
+// ---------- 设置面板 ----------
+
+.kb-settings-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 800;
+  display: flex;
+  flex-direction: column;
+  width: 23rem;
+  max-width: calc(100vw - 2rem);
+  padding: 1rem 1.1rem;
+  box-sizing: border-box;
+  font-family: var(--headerFont);
+  background-color: var(--glass-bg-thick, rgba(255, 255, 255, 0.92));
+  border-left: 1px solid var(--glass-border, var(--lightgray));
+  box-shadow: var(--glass-shadow, -8px 0 28px rgba(0, 0, 0, 0.12));
+  backdrop-filter: blur(var(--glass-blur-thick, 30px));
+  -webkit-backdrop-filter: blur(var(--glass-blur-thick, 30px));
+  overflow-y: auto;
+
+  &[hidden] {
+    display: none;
+  }
+
+  @media all and ($mobile) {
+    width: 100%;
+    max-width: 100vw;
+  }
+}
+
+.kb-settings-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.4rem;
+  border-bottom: 1px solid var(--lightgray);
+
+  h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--dark);
+  }
+
+  .kb-settings-close {
+    padding: 0 0.3rem;
+    font-size: 1.2rem;
+    line-height: 1;
+    color: var(--gray);
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--dark);
+    }
+  }
+}
+
+.kb-settings-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.kb-settings-sec {
+  h4 {
+    margin: 0 0 0.3rem;
+    font-size: 0.875rem;
+    color: var(--dark);
+  }
+}
+
+.kb-settings-desc {
+  margin: 0 0 0.55rem;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--darkgray);
+}
+
+// ---------- 分段控件（主题模式） ----------
+
+.kb-settings-seg {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 9px;
+  background-color: var(--glass-inner-bg, rgba(255, 255, 255, 0.5));
+  border: 1px solid var(--glass-border, var(--lightgray));
+
+  button {
+    padding: 0.35rem 0.4rem;
+    font-family: inherit;
+    font-size: 0.78rem;
+    color: var(--darkgray);
+    background: none;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition:
+      background-color var(--duration-hover, 140ms) var(--ease-hover, ease),
+      color var(--duration-hover, 140ms) var(--ease-hover, ease);
+
+    &:hover {
+      color: var(--dark);
+    }
+
+    &.is-active {
+      color: var(--light);
+      background-color: var(--secondary);
+    }
+  }
+}
+
+// ---------- 界面风格卡片 ----------
+
+.kb-settings-styles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.45rem;
+
+  button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.55rem 0.3rem 0.45rem;
+    font-family: inherit;
+    font-size: 0.75rem;
+    color: var(--darkgray);
+    background: none;
+    border: 1px solid var(--glass-border, var(--lightgray));
+    border-radius: 10px;
+    cursor: pointer;
+    transition:
+      border-color var(--duration-hover, 140ms) var(--ease-hover, ease),
+      color var(--duration-hover, 140ms) var(--ease-hover, ease);
+
+    &:hover {
+      border-color: var(--secondary);
+      color: var(--dark);
+    }
+
+    &.is-active {
+      border-color: var(--secondary);
+      color: var(--dark);
+      box-shadow: inset 0 0 0 1px var(--secondary);
+    }
+  }
+}
+
+// 风格色板：上半亮态、下半暗态，直观呈现风格双色
+.kb-style-swatch {
+  width: 100%;
+  height: 1.6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  background: linear-gradient(
+    to bottom,
+    var(--swatch-light, #faf8f8) 0%,
+    var(--swatch-light, #faf8f8) 50%,
+    var(--swatch-dark, #161618) 50%,
+    var(--swatch-dark, #161618) 100%
+  );
+
+  &.kb-style-default {
+    --swatch-light: #faf8f8;
+    --swatch-dark: #161618;
+  }
+  &.kb-style-paper {
+    --swatch-light: #f7f3ec;
+    --swatch-dark: #262019;
+  }
+  &.kb-style-ink {
+    --swatch-light: #f1f4f3;
+    --swatch-dark: #14181a;
+  }
+  &.kb-style-ocean {
+    --swatch-light: #f0f5fa;
+    --swatch-dark: #0f1b2d;
+  }
+  &.kb-style-midnight {
+    --swatch-light: #f4f2f8;
+    --swatch-dark: #0e0e14;
+  }
+  &.kb-style-graphite {
+    --swatch-light: #f2f2f7;
+    --swatch-dark: #1c1c1e;
+  }
+}
+
+// ---------- 字体字段 ----------
+
+.kb-settings-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-top: 0.45rem;
+  font-size: 0.8rem;
+  color: var(--dark);
+
+  span {
+    flex-shrink: 0;
+  }
+
+  select {
+    flex: 1;
+    max-width: 11rem;
+    padding: 0.3rem 0.45rem;
+    font-family: inherit;
+    font-size: 0.78rem;
+    color: var(--dark);
+    background-color: var(--glass-inner-bg, rgba(255, 255, 255, 0.5));
+    border: 1px solid var(--lightgray);
+    border-radius: 7px;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      border-color: var(--secondary);
+    }
+  }
+}
+
+// ---------- 批注保存位置 ----------
+
+.kb-settings-dir {
+  margin: 0 0 0.5rem;
+  padding: 0.4rem 0.5rem;
+  font-family: var(--codeFont);
+  font-size: 0.72rem;
+  line-height: 1.5;
+  word-break: break-all;
+  color: var(--darkgray);
+  background-color: var(--glass-inner-bg, rgba(255, 255, 255, 0.5));
+  border: 1px dashed var(--lightgray);
+  border-radius: 7px;
+}
+
+.kb-settings-row {
+  display: flex;
+  gap: 0.5rem;
+
+  button {
+    flex: 1;
+    padding: 0.4rem 0.5rem;
+    font-family: inherit;
+    font-size: 0.78rem;
+    text-align: center;
+    color: var(--secondary);
+    background: none;
+    border: 1px solid var(--lightgray);
+    border-radius: 7px;
+    cursor: pointer;
+    transition:
+      border-color var(--duration-hover, 140ms) var(--ease-hover, ease),
+      background-color var(--duration-hover, 140ms) var(--ease-hover, ease);
+
+    &:hover {
+      border-color: var(--secondary);
+      background-color: var(--highlight);
+    }
+  }
+}

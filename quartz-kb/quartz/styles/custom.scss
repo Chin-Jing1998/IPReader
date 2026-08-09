@@ -1039,3 +1039,257 @@ ul.toc-content > li > a,
     font-size: 1.25rem; // 20px
   }
 }
+
+// ============================================================
+// 界面风格（v8）：6 套 × 亮暗两态。data-style 挂在 <html> 上，
+// saved-theme 区分亮暗。每套覆盖核心主题变量；图谱（PixiJS 经
+// getComputedStyle 读取）自动跟随。配色遵循 Apple 设计规范：
+// 每套一个明确强调色（非灰阶）、亮暗两态同色相深浅变体、
+// 正文/背景对比 ≥ 4.5:1、强调色 ≥ 3:1。
+// 批注五色与玻璃模糊/阴影 token 不随风格变，保持全站统一。
+// ============================================================
+
+// —— 侧栏字体独立变量默认值（settings.inline.ts 可覆盖） ——
+:root {
+  --leftFont: var(--headerFont);
+}
+
+// —— 纸张 paper：暖米白 / 暖棕黑 ——
+:root[data-style="paper"] {
+  --light: #f7f3ec;
+  --lightgray: #e3dccd;
+  --gray: #b3a992;
+  --darkgray: #6b6150;
+  --dark: #3a3226;
+  --secondary: #a2845e;
+  --tertiary: #b9a37e;
+  --highlight: rgba(162, 132, 94, 0.14);
+  --textHighlight: #f2d8a0aa;
+  --glass-bg: rgba(255, 252, 245, 0.78);
+  --glass-border: rgba(255, 252, 245, 0.7);
+  --glass-bg-solid: #f5efe2;
+  --glass-inner-bg: rgba(255, 252, 245, 0.55);
+  --glass-overlay-fallback: rgba(250, 247, 238, 0.55);
+  --glass-hover-wash: rgba(227, 220, 205, 0.55);
+  --popover-bg: rgba(253, 250, 243, 0.98);
+  --page-tint-a: rgba(162, 132, 94, 0.07);
+  --page-tint-b: rgba(185, 163, 126, 0.08);
+  --accent-wash: rgba(162, 132, 94, 0.06);
+  --graphLink: #cfc6b2;
+  --graphLinkActive: #a2845e;
+}
+:root[data-style="paper"][saved-theme="dark"] {
+  --light: #262019;
+  --lightgray: #3d362b;
+  --gray: #5c5343;
+  --darkgray: #b5a98f;
+  --dark: #f5ead8;
+  --secondary: #c9a87c;
+  --tertiary: #a98f64;
+  --highlight: rgba(201, 168, 124, 0.16);
+  --textHighlight: #7a5f30aa;
+  --glass-bg: rgba(46, 39, 30, 0.8);
+  --glass-border: rgba(46, 39, 30, 0.72);
+  --glass-bg-solid: #2e2a20;
+  --glass-inner-bg: rgba(46, 39, 30, 0.6);
+  --glass-overlay-fallback: rgba(40, 34, 26, 0.55);
+  --glass-hover-wash: rgba(61, 54, 43, 0.6);
+  --popover-bg: rgba(42, 36, 28, 0.98);
+  --page-tint-a: rgba(201, 168, 124, 0.06);
+  --page-tint-b: rgba(169, 143, 100, 0.07);
+  --accent-wash: rgba(201, 168, 124, 0.05);
+  --graphLink: #4a4234;
+  --graphLinkActive: #c9a87c;
+}
+
+// —— 水墨 ink：低饱和青灰 / 墨黑 ——
+:root[data-style="ink"] {
+  --light: #f1f4f3;
+  --lightgray: #dde3e0;
+  --gray: #9fb0a8;
+  --darkgray: #5c6b64;
+  --dark: #23302b;
+  --secondary: #2e7d5b;
+  --tertiary: #4d9d7d;
+  --highlight: rgba(46, 125, 91, 0.13);
+  --textHighlight: #bfe3d0aa;
+  --glass-bg: rgba(250, 252, 251, 0.78);
+  --glass-border: rgba(250, 252, 251, 0.7);
+  --glass-bg-solid: #eef2f0;
+  --glass-inner-bg: rgba(250, 252, 251, 0.55);
+  --glass-overlay-fallback: rgba(248, 251, 249, 0.55);
+  --glass-hover-wash: rgba(221, 227, 224, 0.55);
+  --popover-bg: rgba(249, 251, 250, 0.98);
+  --page-tint-a: rgba(46, 125, 91, 0.06);
+  --page-tint-b: rgba(77, 157, 125, 0.07);
+  --accent-wash: rgba(46, 125, 91, 0.05);
+  --graphLink: #c5d0cb;
+  --graphLinkActive: #2e7d5b;
+}
+:root[data-style="ink"][saved-theme="dark"] {
+  --light: #14181a;
+  --lightgray: #262c2e;
+  --gray: #4a5450;
+  --darkgray: #b8c4be;
+  --dark: #d8e2dc;
+  --secondary: #6fbf9e;
+  --tertiary: #4e9279;
+  --highlight: rgba(111, 191, 158, 0.15);
+  --textHighlight: #2e5c47aa;
+  --glass-bg: rgba(26, 31, 33, 0.8);
+  --glass-border: rgba(26, 31, 33, 0.72);
+  --glass-bg-solid: #1a2022;
+  --glass-inner-bg: rgba(26, 31, 33, 0.6);
+  --glass-overlay-fallback: rgba(22, 27, 29, 0.55);
+  --glass-hover-wash: rgba(38, 44, 46, 0.6);
+  --popover-bg: rgba(24, 29, 31, 0.98);
+  --page-tint-a: rgba(111, 191, 158, 0.06);
+  --page-tint-b: rgba(78, 146, 121, 0.07);
+  --accent-wash: rgba(111, 191, 158, 0.05);
+  --graphLink: #39433f;
+  --graphLinkActive: #6fbf9e;
+}
+
+// —— 海洋 ocean：浅蓝白 / 深蓝黑 ——
+:root[data-style="ocean"] {
+  --light: #f0f5fa;
+  --lightgray: #d7e2ec;
+  --gray: #9db3c5;
+  --darkgray: #5a6d7e;
+  --dark: #1b2a38;
+  --secondary: #0a6fd8;
+  --tertiary: #4a94d6;
+  --highlight: rgba(10, 111, 216, 0.12);
+  --textHighlight: #bfd9f0aa;
+  --glass-bg: rgba(248, 251, 254, 0.78);
+  --glass-border: rgba(248, 251, 254, 0.7);
+  --glass-bg-solid: #edf3f8;
+  --glass-inner-bg: rgba(248, 251, 254, 0.55);
+  --glass-overlay-fallback: rgba(247, 250, 253, 0.55);
+  --glass-hover-wash: rgba(215, 226, 236, 0.55);
+  --popover-bg: rgba(249, 252, 255, 0.98);
+  --page-tint-a: rgba(10, 111, 216, 0.06);
+  --page-tint-b: rgba(74, 148, 214, 0.07);
+  --accent-wash: rgba(10, 111, 216, 0.05);
+  --graphLink: #c6d4e0;
+  --graphLinkActive: #0a6fd8;
+}
+:root[data-style="ocean"][saved-theme="dark"] {
+  --light: #0f1b2d;
+  --lightgray: #1c2c40;
+  --gray: #3d5168;
+  --darkgray: #a9bdd1;
+  --dark: #d6e4f2;
+  --secondary: #4da3ff;
+  --tertiary: #2f7fc4;
+  --highlight: rgba(77, 163, 255, 0.16);
+  --textHighlight: #1d4a75aa;
+  --glass-bg: rgba(18, 29, 45, 0.8);
+  --glass-border: rgba(18, 29, 45, 0.72);
+  --glass-bg-solid: #142236;
+  --glass-inner-bg: rgba(18, 29, 45, 0.6);
+  --glass-overlay-fallback: rgba(16, 27, 43, 0.55);
+  --glass-hover-wash: rgba(28, 44, 64, 0.6);
+  --popover-bg: rgba(17, 28, 44, 0.98);
+  --page-tint-a: rgba(77, 163, 255, 0.06);
+  --page-tint-b: rgba(47, 127, 196, 0.07);
+  --accent-wash: rgba(77, 163, 255, 0.05);
+  --graphLink: #2c4057;
+  --graphLinkActive: #4da3ff;
+}
+
+// —— 午夜 midnight：银紫 / 近黑蓝紫 ——
+:root[data-style="midnight"] {
+  --light: #f4f2f8;
+  --lightgray: #ddd8e8;
+  --gray: #a49eb5;
+  --darkgray: #5f5a70;
+  --dark: #23212e;
+  --secondary: #5e5ce6;
+  --tertiary: #8b88ea;
+  --highlight: rgba(94, 92, 230, 0.12);
+  --textHighlight: #d2cff6aa;
+  --glass-bg: rgba(251, 250, 254, 0.78);
+  --glass-border: rgba(251, 250, 254, 0.7);
+  --glass-bg-solid: #f1eff7;
+  --glass-inner-bg: rgba(251, 250, 254, 0.55);
+  --glass-overlay-fallback: rgba(249, 248, 253, 0.55);
+  --glass-hover-wash: rgba(221, 216, 232, 0.55);
+  --popover-bg: rgba(251, 250, 254, 0.98);
+  --page-tint-a: rgba(94, 92, 230, 0.06);
+  --page-tint-b: rgba(139, 136, 234, 0.07);
+  --accent-wash: rgba(94, 92, 230, 0.05);
+  --graphLink: #cfcadb;
+  --graphLinkActive: #5e5ce6;
+}
+:root[data-style="midnight"][saved-theme="dark"] {
+  --light: #0e0e14;
+  --lightgray: #1f1e29;
+  --gray: #3d3b4d;
+  --darkgray: #b4b0c6;
+  --dark: #e4e2f0;
+  --secondary: #7b78f0;
+  --tertiary: #5a57b8;
+  --highlight: rgba(123, 120, 240, 0.16);
+  --textHighlight: #34315eaa;
+  --glass-bg: rgba(18, 18, 26, 0.8);
+  --glass-border: rgba(18, 18, 26, 0.72);
+  --glass-bg-solid: #14141c;
+  --glass-inner-bg: rgba(18, 18, 26, 0.6);
+  --glass-overlay-fallback: rgba(15, 15, 21, 0.55);
+  --glass-hover-wash: rgba(31, 30, 41, 0.6);
+  --popover-bg: rgba(16, 16, 23, 0.98);
+  --page-tint-a: rgba(123, 120, 240, 0.06);
+  --page-tint-b: rgba(90, 87, 184, 0.07);
+  --accent-wash: rgba(123, 120, 240, 0.05);
+  --graphLink: #2e2c3d;
+  --graphLinkActive: #7b78f0;
+}
+
+// —— 石墨 graphite：Apple systemGray 中性调 ——
+:root[data-style="graphite"] {
+  --light: #f2f2f7;
+  --lightgray: #dddee3;
+  --gray: #a2a3a9;
+  --darkgray: #5f6066;
+  --dark: #1c1c1e;
+  --secondary: #5e5e64;
+  --tertiary: #8e8e93;
+  --highlight: rgba(94, 94, 100, 0.12);
+  --textHighlight: #c9c9ceaa;
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.72);
+  --glass-bg-solid: #f4f4f7;
+  --glass-inner-bg: rgba(255, 255, 255, 0.58);
+  --glass-overlay-fallback: rgba(250, 250, 252, 0.55);
+  --glass-hover-wash: rgba(221, 222, 227, 0.55);
+  --popover-bg: rgba(252, 252, 254, 0.98);
+  --page-tint-a: rgba(94, 94, 100, 0.06);
+  --page-tint-b: rgba(142, 142, 147, 0.07);
+  --accent-wash: rgba(94, 94, 100, 0.05);
+  --graphLink: #c9c9ce;
+  --graphLinkActive: #5e5e64;
+}
+:root[data-style="graphite"][saved-theme="dark"] {
+  --light: #1c1c1e;
+  --lightgray: #2a2a2d;
+  --gray: #48484d;
+  --darkgray: #b0b0b5;
+  --dark: #f5f5f7;
+  --secondary: #98989d;
+  --tertiary: #7d7d83;
+  --highlight: rgba(152, 152, 157, 0.15);
+  --textHighlight: #4a4a50aa;
+  --glass-bg: rgba(30, 30, 33, 0.8);
+  --glass-border: rgba(30, 30, 33, 0.72);
+  --glass-bg-solid: #242427;
+  --glass-inner-bg: rgba(30, 30, 33, 0.6);
+  --glass-overlay-fallback: rgba(28, 28, 31, 0.55);
+  --glass-hover-wash: rgba(42, 42, 45, 0.6);
+  --popover-bg: rgba(29, 29, 32, 0.98);
+  --page-tint-a: rgba(152, 152, 157, 0.06);
+  --page-tint-b: rgba(125, 125, 131, 0.07);
+  --accent-wash: rgba(152, 152, 157, 0.05);
+  --graphLink: #3c3c40;
+  --graphLinkActive: #98989d;
+}

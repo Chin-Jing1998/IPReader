@@ -168,7 +168,8 @@ button.desktop-explorer {
 
   & div > a {
     color: var(--secondary);
-    font-family: var(--headerFont);
+    // 侧栏字体独立变量（v8 字体设置）：默认等价 --headerFont
+    font-family: var(--leftFont, var(--headerFont));
     font-size: 0.95rem;
     font-weight: $semiBoldWeight;
     line-height: 1.5rem;
@@ -189,7 +190,7 @@ button.desktop-explorer {
     padding-right: 0;
     display: flex;
     align-items: center;
-    font-family: var(--headerFont);
+    font-family: var(--leftFont, var(--headerFont));
 
     & span {
       font-size: 0.95rem;
