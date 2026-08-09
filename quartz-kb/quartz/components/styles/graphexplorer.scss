@@ -547,3 +547,46 @@ body[data-slug="0-图谱总览/index"] {
 html:has(body[data-slug="0-图谱总览/index"]) {
   overflow: hidden;
 }
+
+// v8：左栏自动隐藏——fixed 脱离 grid（grid 首列改 0，画布全宽），
+// transform 移出视口；左边缘热区（.kb-ge-hotzone）呼出，.kb-ge-left-visible 滑入
+body[data-slug="0-图谱总览/index"] {
+  .page > #quartz-body {
+    grid-template-columns: 0 minmax(0, 1fr);
+    column-gap: 0;
+  }
+
+  // 左栏 fixed 脱离 grid 后第一列空，.center 无 grid-area 会被自动放置到
+  // 0 宽第一列导致塌陷——必须显式指定 grid-center
+  .page > #quartz-body .center {
+    grid-area: grid-center;
+  }
+
+  // 选择器含 #quartz-body：base.scss 的 .page > #quartz-body .sidebar 同为
+  // 0,2,1 特异性且顺序在后（position:sticky），必须含 ID 才能覆盖
+  .page > #quartz-body .sidebar.left {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 600;
+    width: 240px;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    background: var(--glass-bg-solid, var(--light));
+    border-right: 1px solid var(--glass-border, var(--lightgray));
+  }
+
+  &.kb-ge-left-visible .page > #quartz-body .sidebar.left {
+    transform: translateX(0);
+  }
+
+  .kb-ge-hotzone {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 14px;
+    z-index: 550;
+  }
+}

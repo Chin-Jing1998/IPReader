@@ -170,6 +170,43 @@ document.addEventListener("nav", async () => {
   const resetBtn = explorer.querySelector(".ge-reset") as HTMLButtonElement | null
   if (!canvas || !panelEmpty || !panelContent) return
 
+  // v8：右侧栏未点击节点时整体隐藏，点击节点后显现
+  const panelBox = panelContent!.closest(".ge-panel") as HTMLElement | null
+  if (panelBox) panelBox.hidden = true
+
+  // v8：左栏自动隐藏 + 左边缘热区呼出（图谱页是画布应用，左栏默认收起）
+  const hostBody = document.body
+  const leftSidebar = document.querySelector<HTMLElement>(".sidebar.left")
+  if (hostBody.dataset.slug === "0-图谱总览/index" && leftSidebar) {
+    let hideTimer: ReturnType<typeof setTimeout> | undefined
+    // 加载初期抑制呼出：页面初始化瞬间可能触发 mousemove（如鼠标恰在左边缘），
+    // 1.2s 内忽略，避免加载即误显示
+    const suppressUntil = Date.now() + 1200
+    const showLeft = () => {
+      if (Date.now() < suppressUntil) return
+      clearTimeout(hideTimer)
+      hostBody.classList.add("kb-ge-left-visible")
+    }
+    const scheduleHideLeft = () => {
+      clearTimeout(hideTimer)
+      hideTimer = setTimeout(() => hostBody.classList.remove("kb-ge-left-visible"), 250)
+    }
+    // 左边缘热区：固定 14px 透明条（z 550，低于左栏 600）
+    const hotzone = document.createElement("div")
+    hotzone.className = "kb-ge-hotzone"
+    explorer.appendChild(hotzone)
+    hotzone.addEventListener("mouseenter", showLeft)
+    hotzone.addEventListener("mousemove", showLeft)
+    leftSidebar.addEventListener("mouseenter", showLeft)
+    leftSidebar.addEventListener("mouseleave", scheduleHideLeft)
+    // 鼠标快速划到左边缘也能呼出（不依赖进入热区）
+    document.addEventListener("mousemove", (e) => {
+      if (e.clientX <= 14) showLeft()
+    })
+    // 初始隐藏
+    hostBody.classList.remove("kb-ge-left-visible")
+  }
+
   // 宿主页自身的 FullSlug（0-图谱总览/index），作为全景渲染与相对路径解析的基准
   const hostSlug = getFullSlug(window)
   // 当前图谱渲染中心（重建兜底时会切到目标节点以获得高亮色）
@@ -331,13 +368,19 @@ document.addEventListener("nav", async () => {
     panelContent!.scrollTop = 0
     // 面板本身是滚动容器，重置滚动位置
     const panel = panelContent!.closest(".ge-panel") as HTMLElement | null
-    if (panel) panel.scrollTop = 0
+    if (panel) {
+      panel.hidden = false
+      panel.scrollTop = 0
+    }
   }
 
   function showEmptyState() {
     panelContent!.hidden = true
     panelContent!.replaceChildren()
     panelEmpty!.hidden = false
+    // v8：未点击节点时右栏整体隐藏
+    const panel = panelContent!.closest(".ge-panel") as HTMLElement | null
+    if (panel) panel.hidden = true
   }
 
   function setStatus(text: string) {
