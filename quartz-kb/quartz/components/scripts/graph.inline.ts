@@ -568,6 +568,14 @@ async function createGraphInstance(
       updateHoverInfo(null)
     }
     pulsePhase = 0
+    if (selectedNodeId !== null) {
+      // 选中：立即按选中态重绘边（相关边加亮/其余淡化），
+      // 随后的闪烁帧只动节点 alpha、不再重绘边
+      drawLinks()
+    } else {
+      // 清除：完整恢复一帧（节点 alpha 经 tween 过渡回默认、边恢复默认、hover 恢复）
+      renderPixiFromD3()
+    }
     markDirty()
   }
 
@@ -1133,7 +1141,16 @@ async function createGraphInstance(
     })
     if (tweensActive) dirty = true
 
-    if (dirty) {
+    if (selectedNodeId !== null) {
+      // 闪烁帧（v14）：脉动 alpha 驱动选中集节点，轻量渲染——不动边/位置，
+      // 避免全量图 ~7000 边每帧重绘；边在 setSelected 时已按选中态画好
+      pulsePhase += 16 // ~60fps 近似
+      const pulse = 0.65 + 0.35 * Math.sin(pulsePhase / 100) // 周期 ~650ms
+      for (const n of nodeRenderData) {
+        if (selectedSet.has(n.simulationData.id)) n.gfx.alpha = pulse
+      }
+      app.renderer.render(stage)
+    } else if (dirty) {
       syncPositions()
       drawLinks()
       drawFocusRing()
