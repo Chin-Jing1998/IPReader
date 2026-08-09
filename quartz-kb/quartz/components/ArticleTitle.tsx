@@ -20,7 +20,7 @@ ArticleTitle.css = `
   top: 0;
   z-index: 50;
   padding: 0.8rem 0 0.6rem;
-  background-color: var(--glass-bg-solid, var(--light));
+  /* 无背景色块：融入页面底色，仅保留底部细分隔线 */
   border-bottom: 1px solid var(--glass-border, var(--lightgray));
 }
 `
