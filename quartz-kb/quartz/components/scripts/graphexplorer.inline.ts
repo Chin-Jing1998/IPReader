@@ -175,23 +175,38 @@ document.addEventListener("nav", async () => {
   if (panelBox) panelBox.hidden = true
 
   // v8：左栏自动隐藏 + 左边缘热区呼出（图谱页是画布应用，左栏默认收起）
+  // v9：与右栏对称——呼出时画布让位（.kb-ge-left-visible 控制 grid 首列 0→240px），
+  // 左栏在网格中占位滑入（.kb-ge-left-shown）；收起时先滑出左栏、动画完成后
+  // （约 0.3s）再移除 visible 收回列宽，避免滑出期间压盖画布。
   const hostBody = document.body
   const leftSidebar = document.querySelector<HTMLElement>(".sidebar.left")
   if (hostBody.dataset.slug === "0-图谱总览/index" && leftSidebar) {
     let hideTimer: ReturnType<typeof setTimeout> | undefined
+    let retractTimer: ReturnType<typeof setTimeout> | undefined
     // 加载初期抑制呼出：页面初始化瞬间可能触发 mousemove（如鼠标恰在左边缘），
     // 1.2s 内忽略，避免加载即误显示
     const suppressUntil = Date.now() + 1200
     const showLeft = () => {
       if (Date.now() < suppressUntil) return
       clearTimeout(hideTimer)
+      clearTimeout(retractTimer)
+      // 画布让位（瞬时）+ 左栏滑入（0.25s）：滑入期间覆盖的是已让出的空白列
       hostBody.classList.add("kb-ge-left-visible")
+      hostBody.classList.add("kb-ge-left-shown")
     }
     const scheduleHideLeft = () => {
       clearTimeout(hideTimer)
-      hideTimer = setTimeout(() => hostBody.classList.remove("kb-ge-left-visible"), 250)
+      hideTimer = setTimeout(() => {
+        // 左栏先滑出，画布保持让位；动画完成后若未重新呼出再收回列宽
+        hostBody.classList.remove("kb-ge-left-shown")
+        retractTimer = setTimeout(() => {
+          if (hostBody.classList.contains("kb-ge-left-shown")) return
+          hostBody.classList.remove("kb-ge-left-visible")
+        }, 300)
+      }, 250)
     }
-    // 左边缘热区：固定 14px 透明条（z 550，低于左栏 600）
+    // 左边缘热区：固定 14px 透明条（z 550，位于左栏之上但只占左边缘 14px，
+    // 不挡左栏内容；左栏其余区域由 mouseenter 保持呼出）
     const hotzone = document.createElement("div")
     hotzone.className = "kb-ge-hotzone"
     explorer.appendChild(hotzone)
@@ -205,6 +220,7 @@ document.addEventListener("nav", async () => {
     })
     // 初始隐藏
     hostBody.classList.remove("kb-ge-left-visible")
+    hostBody.classList.remove("kb-ge-left-shown")
   }
 
   // 宿主页自身的 FullSlug（0-图谱总览/index），作为全景渲染与相对路径解析的基准

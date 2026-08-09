@@ -548,28 +548,27 @@ html:has(body[data-slug="0-图谱总览/index"]) {
   overflow: hidden;
 }
 
-// v8：左栏自动隐藏——fixed 脱离 grid（grid 首列改 0，画布全宽），
-// transform 移出视口；左边缘热区（.kb-ge-hotzone）呼出，.kb-ge-left-visible 滑入
+// v9：左栏与右栏对称——右栏（.ge-panel）是占位式，画布让位；左栏同型：
+// 呼出时 grid 首列 0→240px 画布让位，左栏在网格中占位，不再以 fixed 浮层压盖画布。
+// 默认隐藏（0 列 + translateX 移出视口），左边缘热区呼出（.kb-ge-left-shown 滑入）；
+// 收起时先滑出左栏（画布保持让位），动画完成后 inline 脚本再移除
+// .kb-ge-left-visible 收回列宽——全程无重叠瞬间。
 body[data-slug="0-图谱总览/index"] {
   .page > #quartz-body {
     grid-template-columns: 0 minmax(0, 1fr);
     column-gap: 0;
   }
 
-  // 左栏 fixed 脱离 grid 后第一列空，.center 无 grid-area 会被自动放置到
+  // 左栏脱离 grid 流后第一列空，.center 无 grid-area 会被自动放置到
   // 0 宽第一列导致塌陷——必须显式指定 grid-center
   .page > #quartz-body .center {
     grid-area: grid-center;
   }
 
-  // 选择器含 #quartz-body：base.scss 的 .page > #quartz-body .sidebar 同为
-  // 0,2,1 特异性且顺序在后（position:sticky），必须含 ID 才能覆盖
+  // 左栏回到常规流占位（sticky 悬浮形态同内容页侧栏，custom.scss 提供
+  // margin-top/top/height）；仅宽度收窄为 240px 并保留滑入/滑出动画
   .page > #quartz-body .sidebar.left {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 600;
+    position: sticky;
     width: 240px;
     transform: translateX(-100%);
     transition: transform 0.25s ease;
@@ -577,8 +576,13 @@ body[data-slug="0-图谱总览/index"] {
     border-right: 1px solid var(--glass-border, var(--lightgray));
   }
 
-  &.kb-ge-left-visible .page > #quartz-body .sidebar.left {
+  &.kb-ge-left-shown .page > #quartz-body .sidebar.left {
     transform: translateX(0);
+  }
+
+  // 呼出：画布立即让位 240px；收起：inline 脚本在滑出动画完成后移除本类
+  &.kb-ge-left-visible .page > #quartz-body {
+    grid-template-columns: 240px minmax(0, 1fr);
   }
 
   .kb-ge-hotzone {
@@ -588,5 +592,18 @@ body[data-slug="0-图谱总览/index"] {
     bottom: 0;
     width: 14px;
     z-index: 550;
+  }
+
+  // v9：删除页面上方「图谱总览」标题区，画布上移顶格
+  .page > #quartz-body .center > .page-header {
+    display: none;
+  }
+
+  // 页头移除后画布可用高度增加：原 calc(100vh - 10rem) 预留标题区 151px +
+  // margin，现仅余自身 margin 与底部留白（与左栏 100vh 底边平齐）
+  .graph-explorer {
+    height: calc(100vh - 1.5rem);
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
   }
 }
