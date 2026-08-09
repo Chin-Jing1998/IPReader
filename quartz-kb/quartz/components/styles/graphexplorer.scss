@@ -548,12 +548,13 @@ html:has(body[data-slug="0-图谱总览/index"]) {
   overflow: hidden;
 }
 
-// v10：图谱页左栏常显——左栏在网格中占位（240px 列），高度还原为内容页
-// 侧栏形态（custom.scss：sticky、margin-top/top 0.75rem、height calc(100vh - 1.5rem)），
-// 不再自动隐藏、不做边缘呼出；画布占其余列，右栏（.ge-panel）点击节点后显现。
+// v10：图谱页左栏常显——左栏在网格中占位（320px 列，与内容页侧栏同宽），
+// 高度沿用内容页侧栏形态（custom.scss：sticky、margin-top/top 0.75rem、
+// height calc(100vh - 1.5rem)），不再自动隐藏、不做边缘呼出；画布占其余列，
+// 右栏（.ge-panel）点击节点后显现。
 body[data-slug="0-图谱总览/index"] {
   .page > #quartz-body {
-    grid-template-columns: 240px minmax(0, 1fr);
+    grid-template-columns: 320px minmax(0, 1fr);
     column-gap: 0;
   }
 
@@ -561,12 +562,6 @@ body[data-slug="0-图谱总览/index"] {
   // 非预期列导致塌陷
   .page > #quartz-body .center {
     grid-area: grid-center;
-  }
-
-  // 左栏常显占位：仅宽度收窄为 240px，sticky 悬浮与高度沿用
-  // custom.scss 的侧栏规则（与内容页一致）
-  .page > #quartz-body .sidebar.left {
-    width: 240px;
   }
 
   // v9：删除页面上方「图谱总览」标题区，画布上移顶格

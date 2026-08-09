@@ -127,6 +127,8 @@ export const defaultListPageLayout: PageLayout = {
           grow: true,
         },
         { Component: Component.Settings() },
+        // 图谱总览等目录页与内容页左栏保持一致（v10）：阅读模式按钮同排
+        { Component: Component.ReaderMode() },
       ],
     }),
     Component.Explorer(explorerConfig),
