@@ -254,11 +254,12 @@ async function createGraphInstance(
   // - navigate（默认，未配置时走此分支）：保持原有行为，SPA 跳转到目标页；
   // - panel：不跳转，从图容器冒泡派发 graphnodeselect 自定义事件，
   //   由图谱总览专页的侧栏脚本（graphexplorer.inline.ts）接管展示。
-  const onNodeClick = (targetId: SimpleSlug) => {
+  // v14：dbl=true 为双击（展开二跳连接），detail 携带 dbl 标志
+  const onNodeClick = (targetId: SimpleSlug, dbl = false) => {
     if (nodeClickMode === "panel") {
       graph.dispatchEvent(
         new CustomEvent("graphnodeselect", {
-          detail: { slug: targetId },
+          detail: dbl ? { slug: targetId, dbl: true } : { slug: targetId },
           bubbles: true,
         }),
       )
@@ -630,6 +631,8 @@ async function createGraphInstance(
 
   let dragStartTime = 0
   let dragging = false
+  // 双击判定（v14）：两次单击间隔 <350ms 视为双击（展开二跳连接）
+  let lastClickAt = 0
 
   // 边高亮 tween 状态（V4-B1）：原每边独立 alpha tween 改为驱动两个整体量——
   // fade：普通边批次的整体透明度（hover 时降到 0.2，保持“非邻边变淡”语义）；
@@ -888,7 +891,11 @@ async function createGraphInstance(
 
           // if the time between mousedown and mouseup is short, we consider it a click
           if (Date.now() - dragStartTime < 500) {
-            onNodeClick((event.subject as NodeData).id)
+            const now = Date.now()
+            const isDbl = now - lastClickAt < 350
+            // 双击后重置计时，避免三连击把第三次也当双击
+            lastClickAt = isDbl ? 0 : now
+            onNodeClick((event.subject as NodeData).id, isDbl)
           }
         }),
     )

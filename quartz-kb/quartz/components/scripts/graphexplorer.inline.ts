@@ -591,11 +591,27 @@ document.addEventListener("nav", async () => {
   // ---------- 事件挂载 ----------
 
   // 图内点击：panel 模式的 graphnodeselect 自 canvas 冒泡至此。
-  // 仅刷新面板、不重渲染图（节点已在视野内，保留用户当前缩放与布局）
+  // 单击（detail.slug）刷新面板并选中该节点；双击（detail.dbl）在该节点
+  // 的一跳/二跳间展开折叠；空白点击（detail.slug === null）清除选中并隐藏面板
   const onNodeSelect = (ev: Event) => {
-    const detail = (ev as CustomEvent<{ slug?: unknown }>).detail
-    if (!detail || typeof detail.slug !== "string") return
-    void showPanel(detail.slug as SimpleSlug)
+    const detail = (ev as CustomEvent<{ slug?: unknown; dbl?: unknown }>).detail
+    if (!detail) return
+    if (detail.slug === null) {
+      controller?.setSelected(null)
+      showEmptyState()
+      return
+    }
+    if (typeof detail.slug !== "string") return
+    const simple = simplifySlug(detail.slug as FullSlug)
+    if (detail.dbl === true) {
+      // 双击：同节点已选中 → 二跳展开，再次双击折叠回一跳
+      const current = controller?.getSelected()
+      const hops: 1 | 2 = current === simple && controller?.getSelectedHops() === 1 ? 2 : 1
+      controller?.setSelected(simple, hops)
+    } else {
+      controller?.setSelected(simple, 1)
+    }
+    void showPanel(simple)
   }
   explorer.addEventListener("graphnodeselect", onNodeSelect)
 
