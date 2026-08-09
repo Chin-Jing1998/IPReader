@@ -193,6 +193,8 @@ document.addEventListener("nav", async () => {
       // 画布让位（瞬时）+ 左栏滑入（0.25s）：滑入期间覆盖的是已让出的空白列
       hostBody.classList.add("kb-ge-left-visible")
       hostBody.classList.add("kb-ge-left-shown")
+      // 呼出后画布变窄，工具条可能换行导致 .ge-body 下移——重测对齐变量
+      setTimeout(syncLeftTop, 60)
     }
     const scheduleHideLeft = () => {
       clearTimeout(hideTimer)
@@ -202,6 +204,8 @@ document.addEventListener("nav", async () => {
         retractTimer = setTimeout(() => {
           if (hostBody.classList.contains("kb-ge-left-shown")) return
           hostBody.classList.remove("kb-ge-left-visible")
+          // 列宽收回后画布变宽，工具条可能恢复单行——重测对齐变量
+          setTimeout(syncLeftTop, 60)
         }, 300)
       }, 250)
     }
@@ -218,6 +222,18 @@ document.addEventListener("nav", async () => {
     document.addEventListener("mousemove", (e) => {
       if (e.clientX <= 14) showLeft()
     })
+    // v9：左栏与右侧栏同顶同底——实测 .ge-body 顶部与底部（相对视口）写入
+    // --ge-left-top / --ge-left-bottom，左栏 top/height 据此对齐右栏（.ge-panel）；
+    // 窗口尺寸变化（工具条换行等）时重测
+    const geBody = explorer.querySelector<HTMLElement>(".ge-body")
+    const syncLeftTop = () => {
+      if (!geBody) return
+      const r = geBody.getBoundingClientRect()
+      document.documentElement.style.setProperty("--ge-left-top", `${r.top}px`)
+      document.documentElement.style.setProperty("--ge-left-bottom", `${window.innerHeight - r.bottom}px`)
+    }
+    window.addEventListener("resize", syncLeftTop)
+    syncLeftTop()
     // 初始隐藏
     hostBody.classList.remove("kb-ge-left-visible")
     hostBody.classList.remove("kb-ge-left-shown")

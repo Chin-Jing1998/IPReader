@@ -566,10 +566,16 @@ body[data-slug="0-图谱总览/index"] {
   }
 
   // 左栏回到常规流占位（sticky 悬浮形态同内容页侧栏，custom.scss 提供
-  // margin-top/top/height）；仅宽度收窄为 240px 并保留滑入/滑出动画
+  // margin-top/top/height）；仅宽度收窄为 240px 并保留滑入/滑出动画。
+  // 顶/底与右侧栏对齐：--ge-left-top / --ge-left-bottom 由 inline 脚本实测
+  // .ge-body（右栏所在容器）顶部与底部写入，使左栏与右栏（.ge-panel）
+  // 同顶同底
   .page > #quartz-body .sidebar.left {
     position: sticky;
     width: 240px;
+    margin-top: 0;
+    top: var(--ge-left-top, 0.75rem);
+    height: calc(100vh - var(--ge-left-top, 0.75rem) - var(--ge-left-bottom, 0.75rem));
     transform: translateX(-100%);
     transition: transform 0.25s ease;
     background: var(--glass-bg-solid, var(--light));
