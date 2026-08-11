@@ -3,8 +3,8 @@
   "anchorNode": "oa-05-04",
   "terms": [
     { "name": "必要技术特征", "aliases": [], "role": "used", "confidence": "mid", "evidence": "是该技术问题所必不可少的技术特征" },
-    { "name": "独立权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "独立权利要求X符合专利法实施细则第20条第2款的规定" }
+    { "name": "独立权利要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "独立权利要求X符合专利法实施细则第23条第2款的规定" }
   ],
-  "laws": ["专利法实施细则第20条第2款"],
+  "laws": ["专利法实施细则第23条第2款"],
   "extractedAt": "2026-07-12T15:30:00+08:00"
 }

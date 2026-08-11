@@ -8,6 +8,10 @@
 //       laws: [ { lawKey, fullCite, nodeId } ],         // 词表 lawKeys → 法/细则"第X条"节点
 //       relatedTerms: [ { id, label, relation } ] }     // termrel 上下位（broader=上位组长 / narrower=下位组员）
 //   evidence 取自 data/term-extract/ 636 片提取产物（只读）；运行时机在 npm run data 全链之后。
+//   ⚠ term-extract 为 LLM 一次性提取产物（2026-06 冻结），不随正文修订自动更新：凡涉及法条条号、
+//     机构名的内容修订，须先同步定向修订 data/term-extract/（外层与 patent-kb 两份，映射见外层
+//     .hermes/plans/引用台账.md），再重跑本脚本；否则会把 public/content 中已修订的 evidence/definition
+//     静默改回旧文（2026-08-11 曾回退 term-0021/0127/0975，已随 9 片产物定向修订一并修复）。
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';

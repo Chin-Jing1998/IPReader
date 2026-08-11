@@ -6,6 +6,6 @@
     { "name": "保护范围", "aliases": ["专利权的保护范围"], "role": "defined", "confidence": "high", "evidence": "专利权的保护范围是以其权利要求的内容为准" },
     { "name": "对比文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "本申请的权利要求及对比文件Y认为" }
   ],
-  "laws": ["专利法第9条第1款", "专利法第59条第1款"],
+  "laws": ["专利法第9条第1款", "专利法第64条第1款"],
   "extractedAt": "2026-07-12T15:30:00+08:00"
 }

@@ -16,6 +16,6 @@
     { "name": "意想不到的效果", "aliases": [], "role": "defined", "confidence": "high", "evidence": "但前提是这种组合方案会产生新效果或意想不到的效果" },
     { "name": "对比文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "这个要结合撰写阶段检索到的最接近的对比文件加以确定" }
   ],
-  "laws": ["专利法实施细则第20条"],
+  "laws": ["专利法实施细则第23条"],
   "extractedAt": "2026-07-12T16:00:00+08:00"
 }

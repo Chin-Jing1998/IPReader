@@ -11,6 +11,6 @@
     { "name": "同样产品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利法第六十一条规定的同样产品，是指被诉侵权产品与实施新产品制造方法直接得到" },
     { "name": "仅具有技术功能", "aliases": [], "role": "defined", "confidence": "high", "evidence": "仅具有技术功能，是指该零部件构成最终产品的内部结构，在最终产品的正常使用中不产" }
   ],
-  "laws": ["专利法第61条"],
+  "laws": ["专利法第66条"],
   "extractedAt": "2026-07-12T16:20:00+08:00"
 }
