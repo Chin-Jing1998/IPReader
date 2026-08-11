@@ -63,6 +63,51 @@ async function resolvePortConflict(err) {
   return null;
 }
 
+// ── 窗口底色持久化 ────────────────────────────────────────────────────
+// 原生窗口背景色是「网页首帧渲染出来之前」和「关窗合成间隙」用户唯一看得见的颜色。
+// 曾硬编码为浅色，深色主题下关窗那一瞬会露出白底（白闪）。因此：渲染层每次主题/风格
+// 变化都把当前实际底色报上来，主进程即时改窗口底色并落盘，下次冷启动直接用对的颜色建窗。
+// 路径惰性解析：app.getPath('userData') 依赖 app.name，模块加载期取值存在拿到
+// 默认名目录（.../Electron）的风险；本文件所有调用点都在 app ready 之后。
+const windowStateFile = () => path.join(app.getPath('userData'), 'window-state.json');
+// 回落值 = 默认主题「宣纸」的亮/暗底色（与 quartz-kb 的 [data-style="xuanzhi"] 保持一致）
+const DEFAULT_BG = { light: '#f6f1e7', dark: '#201c16' };
+const THEME_MODES = ['light', 'dark', 'system'];
+// 只接受 hex 颜色：这个值会直接进原生 API，来源虽是本地渲染层也不做无校验透传
+const HEX_COLOR_RE = /^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/;
+
+/**
+ * 读取持久化的主题状态。文件不存在（首次运行）或损坏一律回落默认值——
+ * 一个装饰性的颜色偏好绝不该阻断启动。
+ * @returns {{ mode: string, byScheme: { light: string, dark: string } }}
+ */
+function readWindowState() {
+  try {
+    const raw = JSON.parse(fs.readFileSync(windowStateFile(), 'utf8'));
+    const byScheme = (raw && raw.byScheme) || {};
+    return {
+      mode: THEME_MODES.includes(raw && raw.mode) ? raw.mode : 'system',
+      byScheme: {
+        light: HEX_COLOR_RE.test(byScheme.light) ? byScheme.light : DEFAULT_BG.light,
+        dark: HEX_COLOR_RE.test(byScheme.dark) ? byScheme.dark : DEFAULT_BG.dark,
+      },
+    };
+  } catch {
+    return { mode: 'system', byScheme: { ...DEFAULT_BG } };
+  }
+}
+
+function writeWindowState(state) {
+  try {
+    const file = windowStateFile();
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, JSON.stringify(state, null, 2), 'utf8');
+  } catch (e) {
+    // 落盘失败只影响「下次启动的首帧颜色」，不影响本次会话，记录即可
+    console.error('窗口底色持久化失败', e);
+  }
+}
+
 async function createWindow() {
   let port;
   try {
@@ -75,15 +120,24 @@ async function createWindow() {
     }
   }
 
+  // 建窗底色取上次会话上报的实际底色，按当前亮/暗态二选一。
+  // themeSource 已在 whenReady 中按持久化的 mode 设好，故此处 shouldUseDarkColors
+  // 反映的是「用户在应用内选定的模式」而非单纯的系统外观。
+  const { byScheme } = readWindowState();
+
   const win = new BrowserWindow({
     width: 1440,
     height: 900,
     minWidth: 1080,
     minHeight: 700,
-    // quartz 亮色主题底色，避免启动白闪/黑闪失衡
-    backgroundColor: '#faf8f8',
+    backgroundColor: nativeTheme.shouldUseDarkColors ? byScheme.dark : byScheme.light,
+    // 首帧渲染完成前不显示：即便底色已持久化，仍要避免空窗口先亮一下再上内容
+    show: false,
     title: '专利知识库',
     autoHideMenuBar: true,
+    // 仅 macOS 启用自绘标题条：Windows 上 hiddenInset 会退化为 hidden，且未配合
+    // titleBarOverlay 时窗口控制按钮（最小化/最大化/关闭）会消失，必须平台门控
+    ...(process.platform === 'darwin' ? { titleBarStyle: 'hiddenInset' } : {}),
     webPreferences: {
       preload: path.join(__dirname, 'preload.cjs'),
       contextIsolation: true,
@@ -93,7 +147,11 @@ async function createWindow() {
       sandbox: true,
     },
   });
+  // SPA 每次导航都会改 document.title，不拦截会让调度中心/窗口菜单标题随页面漂移；
+  // 窗口标题固定为构造时的"专利知识库"
+  win.on('page-title-updated', (e) => { e.preventDefault(); });
   win.setMenuBarVisibility(false);
+  win.once('ready-to-show', () => win.show());
 
   // 站内页面均在本地端口；万一出现外链（正常构建不应有）交给系统浏览器
   win.webContents.setWindowOpenHandler(({ url }) => {
@@ -167,10 +225,34 @@ process.on('unhandledRejection', (reason) => {
   console.error('未处理的 Promise 拒绝：', reason);
 });
 
-// 渲染层主题模式 → 原生窗口/标题栏外观（沿用 site 的主题 IPC 协议）
-ipcMain.on('set-theme-source', (_e, mode) => {
-  if (mode === 'light' || mode === 'dark' || mode === 'system') {
-    nativeTheme.themeSource = mode;
+// 渲染层主题模式 + 当前主题实际底色 → 原生窗口/标题栏外观（协议见 preload.cjs）。
+// 载荷双形态容错：新 preload 发对象 { mode, bgColor }，历史版本发裸字符串 mode——
+// 打包产物与站点产物可能不同步更新，收窄成单一形态会在混搭时静默丢主题。
+ipcMain.on('set-theme-source', (e, arg) => {
+  const payload = typeof arg === 'string' ? { mode: arg } : arg || {};
+  const mode = THEME_MODES.includes(payload.mode) ? payload.mode : null;
+  // 先落 themeSource，下面才能按「生效后的亮暗态」判断该写哪一槽
+  if (mode) nativeTheme.themeSource = mode;
+
+  const bgColor = HEX_COLOR_RE.test(payload.bgColor) ? payload.bgColor : null;
+  if (bgColor) {
+    // 即时生效：本次会话内切过主题后再关窗，也不会闪出建窗时那个旧色
+    const win = BrowserWindow.fromWebContents(e.sender);
+    if (win && !win.isDestroyed()) win.setBackgroundColor(bgColor);
+  }
+  if (!mode && !bgColor) return;
+
+  // 双槽持久化：渲染层单次只能报出当前亮暗侧的颜色，故只覆写对应那一槽，
+  // 另一槽保留上次记录——否则跨模式冷启动会拿错颜色。
+  const state = readWindowState();
+  const scheme = nativeTheme.shouldUseDarkColors ? 'dark' : 'light';
+  const next = {
+    mode: mode || state.mode,
+    byScheme: bgColor ? { ...state.byScheme, [scheme]: bgColor } : state.byScheme,
+  };
+  // 值未变不写盘：主题上报是高频动作（每次导航初始化也会报一次），无谓的同步写会拖慢主进程
+  if (next.mode !== state.mode || next.byScheme[scheme] !== state.byScheme[scheme]) {
+    writeWindowState(next);
   }
 });
 
@@ -239,6 +321,9 @@ function applyDockIcon() {
 nativeTheme.on('updated', applyDockIcon);
 
 app.whenReady().then(() => {
+  // 建窗前先恢复主题模式：createWindow 与 applyDockIcon 都读 shouldUseDarkColors，
+  // 不先设 themeSource，用户选定的 light/dark 在首帧会被系统外观顶掉。
+  nativeTheme.themeSource = readWindowState().mode;
   createWindow();
   applyDockIcon();
 });
