@@ -1,0 +1,17 @@
+复测时间：2026-08-10T20:50:02.604Z
+外部请求尝试：0
+
+      目录树初始：folder-outer 10/123 展开，folder-icon 123 个，folder-button 0 个（link 模式下应为 0）
+PASS  ⑧ .explorer-ul 无横向溢出（默认态）  —— scrollWidth=267 clientWidth=267（纵向 667/2574）
+PASS  ⑧ .explorer-ul 无横向溢出（全展开后）  —— 展开点击 113 次，folder-outer 123/123 展开；scrollWidth=267 clientWidth=267；纵向 667/62954，li=2203；最右链接边 312px vs 容器右边 323px
+      滚轮方向标定：deltaY=-240 使文档下滚至 1019.5
+PASS  ⑨ 正对照：正对正文注滚轮可驱动文档滚动  —— deltaY=-240 × 5 → scrollTop=1019.5
+PASS  ⑨ 滚轮穿透已断 .explorer-ul  —— 可滚=true(667/62954)；底边界：滚动器 scrollTop=62288，文档 400 → 400；顶边界：滚动器 scrollTop=0，文档 400 → 400
+FAIL  ⑨ 滚轮穿透已断 .toc-content  —— 可滚=false(0/0)（TOC 全站最多 4 条，已压 max-height=40px 造可滚态）；底边界：滚动器 scrollTop=0，文档 400 → 1019.5；顶边界：滚动器 scrollTop=0，文档 400 → 0
+PASS  ⑨ 滚轮穿透已断 .backlinks > ul  —— 可滚=true(401/3669)；底边界：滚动器 scrollTop=3268，文档 400 → 400；顶边界：滚动器 scrollTop=0，文档 400 → 400
+PASS  ⑪-1 关键词索引/01-新颖性 子树顺序为 term-0027→0028→0029  —— DOM 顺序 = term-0027 → term-0028 → term-0029
+PASS  ⑪-2 机械「撰写示例及分析」子树首项为「说明书摘要」  —— 首项 = 说明书摘要（mech-02-01）；全序 = mech-02-01, mech-02-02, mech-02-03, mech-02-03-01, mech-02-03-02, mech-02-03-03, mech-02-03-04, mech-02-03-05, mech-02-03-06
+PASS  ⑪-3 化学 chem-01-05 位于其子项之前  —— chem-01-05 @17，chem-01-05-01 @18，末子项 chem-01-05-0x @26；局部序 = chem-01-04-06, chem-01-05, chem-01-05-01, chem-01-05-02, chem-01-05-03, chem-01-05-04, chem-01-05-05, chem-01-05-06, chem-01-05-07, chem-01-05-08, chem-01-05-09
+PASS  ⑪-4 目录树不含「设置」节点  —— 全展开后节点共 2202 条，命中「设置」文本 0 条 / href 0 条
+
+结果：9/10 PASS

@@ -1,4 +1,4 @@
-冒烟时间：2026-08-09T07:14:58.377Z
+冒烟时间：2026-08-11T04:49:12.948Z
 离线护栏：全程阻断非 127.0.0.1 请求（等效断网），页面均正常渲染
 外部请求尝试次数：0
 
@@ -10,6 +10,14 @@
   PASS  尾斜杠目录 URL 直达容器页
   PASS  SPA 点进章节页 law-01-01
   PASS  无扩展名 URL 直达章节页 rule-01-01（title=第1条 · 立法依据）
-  PASS  词条页 term-0001
+  PASS  词条页 term-0001（title=客体审查）
   PASS  图谱总览页出图
   PASS  搜索「新颖性」返回结果（命中 15 条）
+  PASS  设置页可达
+  PASS  主题卡持久化（点击生效 + reload 后仍保留）（点击后=zhulin, reload后=zhulin, localStorage=zhulin）
+  PASS  快捷钮脱离跟随系统（saved-theme: light→dark, themeMode=dark）
+  PASS  桌面标题条（data-desktop=true + 38px + flex）（data-desktop=true, height=38px, display=flex）
+  PASS  全局偏移（body padding-top 38px + 左栏 top≥38）（bodyPaddingTop=38px, sidebarTop=50）
+  PASS  设置页沉浸（双栏隐藏 + 正文让位 + 返回钮/标题/六卡在场）（left隐=true, right隐=true, article隐=true, 返回钮=true, 标题=true, 主题卡=6）
+  PASS  深链返回兜底（history.length===1 → 回首页，R12）（historyLenBefore=1, pathAfterClick=/）
+  PASS  overlay 滚动条零挤压（.kb-oscroll 可见 + clientWidth 滚动前后相等）（轨道存在=true, is-visible=true, clientWidth 278→278）

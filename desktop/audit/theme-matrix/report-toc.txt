@@ -1,0 +1,3 @@
+【诊断】.toc-content：class="toc-content overflow" display=block max-height=calc(100% - 32px) height=87.8047px overflow-y=auto 盒=247x88 client/scroll=88/88 条目=4
+【诊断】.toc 容器：class="toc desktop-only" display=block flex=0 0.5 auto min-height=22.4px overflow-y=hidden 盒=278x154 aria-expanded=true 右栏高=844
+PASS  ⑨ 滚轮穿透已断 .toc-content（撑开 .toc 至 160px + 压 ul max-height=36px 造可滚态）  —— 可滚=true(36/88) overscroll-behavior-y=contain；底边界：ul.scrollTop=52，文档 104.5 → 104.5；顶边界：ul.scrollTop=0，文档 104.5 → 104.5

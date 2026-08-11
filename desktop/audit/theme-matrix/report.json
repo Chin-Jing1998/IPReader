@@ -1,0 +1,1356 @@
+{
+  "results": [
+    {
+      "step": "F3 主题矩阵 xuanzhi-light",
+      "ok": false,
+      "detail": "--light=#f6f1e7(want #f6f1e7) 变量空=0 WCAG dark=11.21/darkgray=5.36/secondary=5.12/gray=3.09 canvas 局部247x250 弹窗1152x694 总览1060x746"
+    },
+    {
+      "step": "F3 主题矩阵 xuanzhi-dark",
+      "ok": true,
+      "detail": "--light=#201c16(want #201c16) 变量空=0 WCAG dark=10.98/darkgray=5.88/secondary=6.43/gray=3.06 canvas 局部247x250 弹窗1152x694 总览1060x746"
+    },
+    {
+      "step": "F3 主题矩阵 shuimo-light",
+      "ok": false,
+      "detail": "--light=#f2f4f3(want #f2f4f3) 变量空=0 WCAG dark=11.4/darkgray=5.35/secondary=6.12/gray=3.06 canvas 局部247x250 弹窗1152x694 总览1060x746"
+    },
+    {
+      "step": "F3 主题矩阵 shuimo-dark",
+      "ok": true,
+      "detail": "--light=#171a1c(want #171a1c) 变量空=0 WCAG dark=11.28/darkgray=5.98/secondary=6.44/gray=3.08 canvas 局部247x250 弹窗1152x694 总览1060x746"
+    },
+    {
+      "step": "F3 主题矩阵 qingci-light",
+      "ok": false,
+      "detail": "--light=#eef4f2(want #eef4f2) 变量空=0 WCAG dark=10.15/darkgray=4.88/secondary=5.07/gray=3.08 canvas 局部247x250 弹窗1152x694 总览1060x746"
+    },
+    {
+      "step": "F3 主题矩阵 qingci-dark",
+      "ok": true,
+      "detail": "--light=#14201d(want #14201d) 变量空=0 WCAG dark=11.1/darkgray=5.99/secondary=6.33/gray=3.09 canvas 局部247x250 弹窗1152x694 总览1060x746"
+    },
+    {
+      "step": "F3 主题矩阵 zhulin-light",
+      "ok": false,
+      "detail": "--light=#f1f5ec(want #f1f5ec) 变量空=0 WCAG dark=9.94/darkgray=4.81/secondary=4.46/gray=3.08 canvas 局部247x250 弹窗1152x694 总览1060x746"
+    },
+    {
+      "step": "F3 主题矩阵 zhulin-dark",
+      "ok": true,
+      "detail": "--light=#181f15(want #181f15) 变量空=0 WCAG dark=11.23/darkgray=6.03/secondary=6.37/gray=3.07 canvas 局部247x250 弹窗1152x694 总览1060x746"
+    },
+    {
+      "step": "F3 主题矩阵 mushan-light",
+      "ok": false,
+      "detail": "--light=#f4f1f6(want #f4f1f6) 变量空=0 WCAG dark=10.94/darkgray=5.19/secondary=5.35/gray=3.06 canvas 局部247x250 弹窗1152x694 总览1060x746"
+    },
+    {
+      "step": "F3 主题矩阵 mushan-dark",
+      "ok": true,
+      "detail": "--light=#1a1620(want #1a1620) 变量空=0 WCAG dark=11.28/darkgray=5.96/secondary=5.82/gray=3.08 canvas 局部247x250 弹窗1152x694 总览1060x746"
+    },
+    {
+      "step": "F3 主题矩阵 xuanye-light",
+      "ok": false,
+      "detail": "--light=#eff2f7(want #eff2f7) 变量空=0 WCAG dark=11.43/darkgray=5.38/secondary=5.8/gray=3.08 canvas 局部247x250 弹窗1152x694 总览1060x746"
+    },
+    {
+      "step": "F3 主题矩阵 xuanye-dark",
+      "ok": true,
+      "detail": "--light=#10141d(want #10141d) 变量空=0 WCAG dark=11.86/darkgray=6.13/secondary=7.26/gray=3.06 canvas 局部247x250 弹窗1152x694 总览1060x746"
+    },
+    {
+      "step": "换色专项 a-1：设置页换风格 → 回总览图谱色变",
+      "ok": true,
+      "detail": "data-style=zhulin, --light=#f1f5ec, 图例色变=true"
+    },
+    {
+      "step": "换色专项 a-2：总览页快捷钮切明暗 → canvas 重建 + 图例变色",
+      "ok": true,
+      "detail": "新增 canvas 1 次, 引用已换=true, saved-theme=dark, 图例色变=true"
+    },
+    {
+      "step": "换色专项 b：弹窗打开状态切明暗 → 弹窗内 canvas 重建",
+      "ok": true,
+      "detail": "新增 canvas 1 次, 引用已换=true, 弹窗仍开=true, saved-theme=dark, --light=#201c16"
+    },
+    {
+      "step": "bug#1 前置：SPA 点击导航 ≥3 次",
+      "ok": true,
+      "detail": "nav 事件 3 次, 当前 /1-专利法/1-总则/law-01-01"
+    },
+    {
+      "step": "bug#1 段一：system + 3 次 SPA 导航后翻转 OS → saved-theme 跟随",
+      "ok": true,
+      "detail": "light → dark（themeMode=system）"
+    },
+    {
+      "step": "bug#1 段二：themeMode=light 时翻转 OS → 不跟随",
+      "ok": true,
+      "detail": "themeMode=light, saved-theme light → light"
+    },
+    {
+      "step": "bug#1 段三：切回 system 后翻转 OS → 恢复跟随",
+      "ok": true,
+      "detail": "themeMode=system, 切回时=dark, 翻 light=light, 翻 dark=dark"
+    },
+    {
+      "step": "bug#2 xuanzhi 暗态底色",
+      "ok": true,
+      "detail": "--light=#201c16, getBackgroundColor()=#201c16, window-state.byScheme.dark=#201c16, mode=dark"
+    },
+    {
+      "step": "bug#2 shuimo 暗态底色",
+      "ok": true,
+      "detail": "--light=#171a1c, getBackgroundColor()=#171a1c, window-state.byScheme.dark=#171a1c, mode=dark"
+    },
+    {
+      "step": "bug#2 qingci 暗态底色",
+      "ok": true,
+      "detail": "--light=#14201d, getBackgroundColor()=#14201d, window-state.byScheme.dark=#14201d, mode=dark"
+    },
+    {
+      "step": "bug#2 zhulin 暗态底色",
+      "ok": true,
+      "detail": "--light=#181f15, getBackgroundColor()=#181f15, window-state.byScheme.dark=#181f15, mode=dark"
+    },
+    {
+      "step": "bug#2 mushan 暗态底色",
+      "ok": true,
+      "detail": "--light=#1a1620, getBackgroundColor()=#1a1620, window-state.byScheme.dark=#1a1620, mode=dark"
+    },
+    {
+      "step": "bug#2 xuanye 暗态底色",
+      "ok": true,
+      "detail": "--light=#10141d, getBackgroundColor()=#10141d, window-state.byScheme.dark=#10141d, mode=dark"
+    },
+    {
+      "step": "bug#3 图谱首帧包围盒稳定（首帧 vs +500ms）",
+      "ok": true,
+      "detail": "首帧@57ms bbox=1059x745@(887,484) px=139719; +500ms=1059x745@(887,484); +2000ms=1059x745@(887,484); Δ宽=0 Δ高=0 Δ心=0px"
+    },
+    {
+      "step": "bug#3 反向：章节页 SPA 导航 → 局部图就绪耗时与长任务",
+      "ok": true,
+      "detail": "耗时 124ms, longtask 0 个, 最长 0ms"
+    },
+    {
+      "step": "⑧ .explorer-ul 无横向溢出（默认折叠态）",
+      "ok": true,
+      "detail": "scrollWidth=267 clientWidth=267"
+    },
+    {
+      "step": "⑧ .explorer-ul 无横向溢出（全展开后）",
+      "ok": true,
+      "detail": "展开 0 个目录, scrollWidth=267 clientWidth=267, li=2203"
+    },
+    {
+      "step": "⑨ 滚动穿透已断 .explorer-ul",
+      "ok": false,
+      "detail": "滚动器可滚=true(667/2574) 到底 scrollTop=1906.5; 文档 scrollTop 0 → 合成事件后 117 → 可信滚轮×8 后 120"
+    },
+    {
+      "step": "⑨ 滚动穿透已断 .toc-content",
+      "ok": false,
+      "detail": "滚动器可滚=false(0/0) 到底 scrollTop=0; 文档 scrollTop 120 → 合成事件后 120 → 可信滚轮×8 后 1019.5"
+    },
+    {
+      "step": "⑨ 滚动穿透已断 .backlinks > ul",
+      "ok": false,
+      "detail": "滚动器可滚=true(401/3669) 到底 scrollTop=3267.5; 文档 scrollTop 1019.5 → 合成事件后 581.5 → 可信滚轮×8 后 120"
+    },
+    {
+      "step": "⑪-1 关键词索引/01-新颖性 子树顺序",
+      "ok": false,
+      "detail": "DOM 顺序 =  → term-0027 → term-0028 → term-0029"
+    },
+    {
+      "step": "⑪-2 机械「撰写示例及分析」首项为「说明书摘要」",
+      "ok": false,
+      "detail": "首项 = 第二章 撰写示例及分析()；前 4 项 = , mech-02-01, mech-02-02, mech-02-03"
+    },
+    {
+      "step": "⑪-3 化学 chem-01-05 位于其子项之前",
+      "ok": true,
+      "detail": "chem-01-05 @18, chem-01-05-01 @19, 末子项 @27"
+    },
+    {
+      "step": "⑪-4 目录树不含「设置」节点",
+      "ok": true,
+      "detail": "节点文本共 2202 条，命中「设置」文本 0 条 / href 0 条"
+    }
+  ],
+  "matrix": [
+    {
+      "style": "xuanzhi",
+      "mode": "light",
+      "checks": {
+        "light": {
+          "ok": true,
+          "got": "#f6f1e7",
+          "want": "#f6f1e7"
+        },
+        "attrs": {
+          "ok": true,
+          "savedTheme": "light",
+          "dataStyle": "xuanzhi"
+        },
+        "vars": {
+          "ok": true,
+          "count": 40,
+          "empty": []
+        },
+        "wcag": {
+          "ok": true,
+          "dark": 11.21,
+          "darkgray": 5.36,
+          "secondary": 5.12,
+          "gray": 3.09
+        },
+        "anno": {
+          "ok": false,
+          "values": {
+            "--kb-anno-yellow-bg": 1.07,
+            "--kb-anno-yellow-line": 2.15,
+            "--kb-anno-green-bg": 1.24,
+            "--kb-anno-green-line": 3.52,
+            "--kb-anno-blue-bg": 1.33,
+            "--kb-anno-blue-line": 4.7,
+            "--kb-anno-pink-bg": 1.26,
+            "--kb-anno-pink-line": 4.3
+          },
+          "fail": [
+            "--kb-anno-yellow-bg",
+            "--kb-anno-green-bg",
+            "--kb-anno-blue-bg",
+            "--kb-anno-pink-bg"
+          ]
+        },
+        "sceneLocal": {
+          "ok": true,
+          "w": 247,
+          "h": 250,
+          "x": 1132,
+          "y": 74
+        },
+        "sceneModal": {
+          "ok": true,
+          "w": 1152,
+          "h": 694,
+          "x": 145,
+          "y": 88
+        },
+        "sceneOverview": {
+          "ok": true,
+          "w": 1060,
+          "h": 746,
+          "x": 357,
+          "y": 111
+        }
+      },
+      "ok": false
+    },
+    {
+      "style": "xuanzhi",
+      "mode": "dark",
+      "checks": {
+        "light": {
+          "ok": true,
+          "got": "#201c16",
+          "want": "#201c16"
+        },
+        "attrs": {
+          "ok": true,
+          "savedTheme": "dark",
+          "dataStyle": "xuanzhi"
+        },
+        "vars": {
+          "ok": true,
+          "count": 40,
+          "empty": []
+        },
+        "wcag": {
+          "ok": true,
+          "dark": 10.98,
+          "darkgray": 5.88,
+          "secondary": 6.43,
+          "gray": 3.06
+        },
+        "anno": {
+          "ok": true,
+          "values": {
+            "--kb-anno-yellow-bg": 1.92,
+            "--kb-anno-yellow-line": 8.29,
+            "--kb-anno-green-bg": 1.6,
+            "--kb-anno-green-line": 7.64,
+            "--kb-anno-blue-bg": 1.51,
+            "--kb-anno-blue-line": 7.42,
+            "--kb-anno-pink-bg": 1.54,
+            "--kb-anno-pink-line": 6.99
+          },
+          "fail": []
+        },
+        "sceneLocal": {
+          "ok": true,
+          "w": 247,
+          "h": 250,
+          "x": 1132,
+          "y": 74
+        },
+        "sceneModal": {
+          "ok": true,
+          "w": 1152,
+          "h": 694,
+          "x": 145,
+          "y": 88
+        },
+        "sceneOverview": {
+          "ok": true,
+          "w": 1060,
+          "h": 746,
+          "x": 357,
+          "y": 111
+        }
+      },
+      "ok": true
+    },
+    {
+      "style": "shuimo",
+      "mode": "light",
+      "checks": {
+        "light": {
+          "ok": true,
+          "got": "#f2f4f3",
+          "want": "#f2f4f3"
+        },
+        "attrs": {
+          "ok": true,
+          "savedTheme": "light",
+          "dataStyle": "shuimo"
+        },
+        "vars": {
+          "ok": true,
+          "count": 40,
+          "empty": []
+        },
+        "wcag": {
+          "ok": true,
+          "dark": 11.4,
+          "darkgray": 5.35,
+          "secondary": 6.12,
+          "gray": 3.06
+        },
+        "anno": {
+          "ok": false,
+          "values": {
+            "--kb-anno-yellow-bg": 1.08,
+            "--kb-anno-yellow-line": 2.19,
+            "--kb-anno-green-bg": 1.25,
+            "--kb-anno-green-line": 3.59,
+            "--kb-anno-blue-bg": 1.33,
+            "--kb-anno-blue-line": 4.79,
+            "--kb-anno-pink-bg": 1.27,
+            "--kb-anno-pink-line": 4.38
+          },
+          "fail": [
+            "--kb-anno-yellow-bg",
+            "--kb-anno-green-bg",
+            "--kb-anno-blue-bg",
+            "--kb-anno-pink-bg"
+          ]
+        },
+        "sceneLocal": {
+          "ok": true,
+          "w": 247,
+          "h": 250,
+          "x": 1132,
+          "y": 79
+        },
+        "sceneModal": {
+          "ok": true,
+          "w": 1152,
+          "h": 694,
+          "x": 145,
+          "y": 88
+        },
+        "sceneOverview": {
+          "ok": true,
+          "w": 1060,
+          "h": 746,
+          "x": 357,
+          "y": 111
+        }
+      },
+      "ok": false
+    },
+    {
+      "style": "shuimo",
+      "mode": "dark",
+      "checks": {
+        "light": {
+          "ok": true,
+          "got": "#171a1c",
+          "want": "#171a1c"
+        },
+        "attrs": {
+          "ok": true,
+          "savedTheme": "dark",
+          "dataStyle": "shuimo"
+        },
+        "vars": {
+          "ok": true,
+          "count": 40,
+          "empty": []
+        },
+        "wcag": {
+          "ok": true,
+          "dark": 11.28,
+          "darkgray": 5.98,
+          "secondary": 6.44,
+          "gray": 3.08
+        },
+        "anno": {
+          "ok": true,
+          "values": {
+            "--kb-anno-yellow-bg": 1.91,
+            "--kb-anno-yellow-line": 8.55,
+            "--kb-anno-green-bg": 1.6,
+            "--kb-anno-green-line": 7.88,
+            "--kb-anno-blue-bg": 1.52,
+            "--kb-anno-blue-line": 7.65,
+            "--kb-anno-pink-bg": 1.53,
+            "--kb-anno-pink-line": 7.21
+          },
+          "fail": []
+        },
+        "sceneLocal": {
+          "ok": true,
+          "w": 247,
+          "h": 250,
+          "x": 1132,
+          "y": 79
+        },
+        "sceneModal": {
+          "ok": true,
+          "w": 1152,
+          "h": 694,
+          "x": 145,
+          "y": 88
+        },
+        "sceneOverview": {
+          "ok": true,
+          "w": 1060,
+          "h": 746,
+          "x": 357,
+          "y": 111
+        }
+      },
+      "ok": true
+    },
+    {
+      "style": "qingci",
+      "mode": "light",
+      "checks": {
+        "light": {
+          "ok": true,
+          "got": "#eef4f2",
+          "want": "#eef4f2"
+        },
+        "attrs": {
+          "ok": true,
+          "savedTheme": "light",
+          "dataStyle": "qingci"
+        },
+        "vars": {
+          "ok": true,
+          "count": 40,
+          "empty": []
+        },
+        "wcag": {
+          "ok": true,
+          "dark": 10.15,
+          "darkgray": 4.88,
+          "secondary": 5.07,
+          "gray": 3.08
+        },
+        "anno": {
+          "ok": false,
+          "values": {
+            "--kb-anno-yellow-bg": 1.08,
+            "--kb-anno-yellow-line": 2.17,
+            "--kb-anno-green-bg": 1.24,
+            "--kb-anno-green-line": 3.56,
+            "--kb-anno-blue-bg": 1.33,
+            "--kb-anno-blue-line": 4.75,
+            "--kb-anno-pink-bg": 1.27,
+            "--kb-anno-pink-line": 4.35
+          },
+          "fail": [
+            "--kb-anno-yellow-bg",
+            "--kb-anno-green-bg",
+            "--kb-anno-blue-bg",
+            "--kb-anno-pink-bg"
+          ]
+        },
+        "sceneLocal": {
+          "ok": true,
+          "w": 247,
+          "h": 250,
+          "x": 1132,
+          "y": 74
+        },
+        "sceneModal": {
+          "ok": true,
+          "w": 1152,
+          "h": 694,
+          "x": 145,
+          "y": 88
+        },
+        "sceneOverview": {
+          "ok": true,
+          "w": 1060,
+          "h": 746,
+          "x": 357,
+          "y": 111
+        }
+      },
+      "ok": false
+    },
+    {
+      "style": "qingci",
+      "mode": "dark",
+      "checks": {
+        "light": {
+          "ok": true,
+          "got": "#14201d",
+          "want": "#14201d"
+        },
+        "attrs": {
+          "ok": true,
+          "savedTheme": "dark",
+          "dataStyle": "qingci"
+        },
+        "vars": {
+          "ok": true,
+          "count": 40,
+          "empty": []
+        },
+        "wcag": {
+          "ok": true,
+          "dark": 11.1,
+          "darkgray": 5.99,
+          "secondary": 6.33,
+          "gray": 3.09
+        },
+        "anno": {
+          "ok": true,
+          "values": {
+            "--kb-anno-yellow-bg": 1.9,
+            "--kb-anno-yellow-line": 8.19,
+            "--kb-anno-green-bg": 1.61,
+            "--kb-anno-green-line": 7.55,
+            "--kb-anno-blue-bg": 1.53,
+            "--kb-anno-blue-line": 7.33,
+            "--kb-anno-pink-bg": 1.52,
+            "--kb-anno-pink-line": 6.91
+          },
+          "fail": []
+        },
+        "sceneLocal": {
+          "ok": true,
+          "w": 247,
+          "h": 250,
+          "x": 1132,
+          "y": 74
+        },
+        "sceneModal": {
+          "ok": true,
+          "w": 1152,
+          "h": 694,
+          "x": 145,
+          "y": 88
+        },
+        "sceneOverview": {
+          "ok": true,
+          "w": 1060,
+          "h": 746,
+          "x": 357,
+          "y": 111
+        }
+      },
+      "ok": true
+    },
+    {
+      "style": "zhulin",
+      "mode": "light",
+      "checks": {
+        "light": {
+          "ok": true,
+          "got": "#f1f5ec",
+          "want": "#f1f5ec"
+        },
+        "attrs": {
+          "ok": true,
+          "savedTheme": "light",
+          "dataStyle": "zhulin"
+        },
+        "vars": {
+          "ok": true,
+          "count": 40,
+          "empty": []
+        },
+        "wcag": {
+          "ok": true,
+          "dark": 9.94,
+          "darkgray": 4.81,
+          "secondary": 4.46,
+          "gray": 3.08
+        },
+        "anno": {
+          "ok": false,
+          "values": {
+            "--kb-anno-yellow-bg": 1.08,
+            "--kb-anno-yellow-line": 2.19,
+            "--kb-anno-green-bg": 1.24,
+            "--kb-anno-green-line": 3.59,
+            "--kb-anno-blue-bg": 1.33,
+            "--kb-anno-blue-line": 4.79,
+            "--kb-anno-pink-bg": 1.27,
+            "--kb-anno-pink-line": 4.38
+          },
+          "fail": [
+            "--kb-anno-yellow-bg",
+            "--kb-anno-green-bg",
+            "--kb-anno-blue-bg",
+            "--kb-anno-pink-bg"
+          ]
+        },
+        "sceneLocal": {
+          "ok": true,
+          "w": 247,
+          "h": 250,
+          "x": 1132,
+          "y": 73
+        },
+        "sceneModal": {
+          "ok": true,
+          "w": 1152,
+          "h": 694,
+          "x": 145,
+          "y": 88
+        },
+        "sceneOverview": {
+          "ok": true,
+          "w": 1060,
+          "h": 746,
+          "x": 357,
+          "y": 111
+        }
+      },
+      "ok": false
+    },
+    {
+      "style": "zhulin",
+      "mode": "dark",
+      "checks": {
+        "light": {
+          "ok": true,
+          "got": "#181f15",
+          "want": "#181f15"
+        },
+        "attrs": {
+          "ok": true,
+          "savedTheme": "dark",
+          "dataStyle": "zhulin"
+        },
+        "vars": {
+          "ok": true,
+          "count": 40,
+          "empty": []
+        },
+        "wcag": {
+          "ok": true,
+          "dark": 11.23,
+          "darkgray": 6.03,
+          "secondary": 6.37,
+          "gray": 3.07
+        },
+        "anno": {
+          "ok": true,
+          "values": {
+            "--kb-anno-yellow-bg": 1.92,
+            "--kb-anno-yellow-line": 8.24,
+            "--kb-anno-green-bg": 1.61,
+            "--kb-anno-green-line": 7.6,
+            "--kb-anno-blue-bg": 1.52,
+            "--kb-anno-blue-line": 7.38,
+            "--kb-anno-pink-bg": 1.53,
+            "--kb-anno-pink-line": 6.96
+          },
+          "fail": []
+        },
+        "sceneLocal": {
+          "ok": true,
+          "w": 247,
+          "h": 250,
+          "x": 1132,
+          "y": 73
+        },
+        "sceneModal": {
+          "ok": true,
+          "w": 1152,
+          "h": 694,
+          "x": 145,
+          "y": 88
+        },
+        "sceneOverview": {
+          "ok": true,
+          "w": 1060,
+          "h": 746,
+          "x": 357,
+          "y": 111
+        }
+      },
+      "ok": true
+    },
+    {
+      "style": "mushan",
+      "mode": "light",
+      "checks": {
+        "light": {
+          "ok": true,
+          "got": "#f4f1f6",
+          "want": "#f4f1f6"
+        },
+        "attrs": {
+          "ok": true,
+          "savedTheme": "light",
+          "dataStyle": "mushan"
+        },
+        "vars": {
+          "ok": true,
+          "count": 40,
+          "empty": []
+        },
+        "wcag": {
+          "ok": true,
+          "dark": 10.94,
+          "darkgray": 5.19,
+          "secondary": 5.35,
+          "gray": 3.06
+        },
+        "anno": {
+          "ok": false,
+          "values": {
+            "--kb-anno-yellow-bg": 1.07,
+            "--kb-anno-yellow-line": 2.16,
+            "--kb-anno-green-bg": 1.24,
+            "--kb-anno-green-line": 3.54,
+            "--kb-anno-blue-bg": 1.33,
+            "--kb-anno-blue-line": 4.73,
+            "--kb-anno-pink-bg": 1.26,
+            "--kb-anno-pink-line": 4.32
+          },
+          "fail": [
+            "--kb-anno-yellow-bg",
+            "--kb-anno-green-bg",
+            "--kb-anno-blue-bg",
+            "--kb-anno-pink-bg"
+          ]
+        },
+        "sceneLocal": {
+          "ok": true,
+          "w": 247,
+          "h": 250,
+          "x": 1132,
+          "y": 79
+        },
+        "sceneModal": {
+          "ok": true,
+          "w": 1152,
+          "h": 694,
+          "x": 145,
+          "y": 88
+        },
+        "sceneOverview": {
+          "ok": true,
+          "w": 1060,
+          "h": 746,
+          "x": 357,
+          "y": 111
+        }
+      },
+      "ok": false
+    },
+    {
+      "style": "mushan",
+      "mode": "dark",
+      "checks": {
+        "light": {
+          "ok": true,
+          "got": "#1a1620",
+          "want": "#1a1620"
+        },
+        "attrs": {
+          "ok": true,
+          "savedTheme": "dark",
+          "dataStyle": "mushan"
+        },
+        "vars": {
+          "ok": true,
+          "count": 40,
+          "empty": []
+        },
+        "wcag": {
+          "ok": true,
+          "dark": 11.28,
+          "darkgray": 5.96,
+          "secondary": 5.82,
+          "gray": 3.08
+        },
+        "anno": {
+          "ok": true,
+          "values": {
+            "--kb-anno-yellow-bg": 1.9,
+            "--kb-anno-yellow-line": 8.71,
+            "--kb-anno-green-bg": 1.59,
+            "--kb-anno-green-line": 8.03,
+            "--kb-anno-blue-bg": 1.52,
+            "--kb-anno-blue-line": 7.79,
+            "--kb-anno-pink-bg": 1.54,
+            "--kb-anno-pink-line": 7.35
+          },
+          "fail": []
+        },
+        "sceneLocal": {
+          "ok": true,
+          "w": 247,
+          "h": 250,
+          "x": 1132,
+          "y": 79
+        },
+        "sceneModal": {
+          "ok": true,
+          "w": 1152,
+          "h": 694,
+          "x": 145,
+          "y": 88
+        },
+        "sceneOverview": {
+          "ok": true,
+          "w": 1060,
+          "h": 746,
+          "x": 357,
+          "y": 111
+        }
+      },
+      "ok": true
+    },
+    {
+      "style": "xuanye",
+      "mode": "light",
+      "checks": {
+        "light": {
+          "ok": true,
+          "got": "#eff2f7",
+          "want": "#eff2f7"
+        },
+        "attrs": {
+          "ok": true,
+          "savedTheme": "light",
+          "dataStyle": "xuanye"
+        },
+        "vars": {
+          "ok": true,
+          "count": 40,
+          "empty": []
+        },
+        "wcag": {
+          "ok": true,
+          "dark": 11.43,
+          "darkgray": 5.38,
+          "secondary": 5.8,
+          "gray": 3.08
+        },
+        "anno": {
+          "ok": false,
+          "values": {
+            "--kb-anno-yellow-bg": 1.07,
+            "--kb-anno-yellow-line": 2.16,
+            "--kb-anno-green-bg": 1.24,
+            "--kb-anno-green-line": 3.53,
+            "--kb-anno-blue-bg": 1.33,
+            "--kb-anno-blue-line": 4.72,
+            "--kb-anno-pink-bg": 1.26,
+            "--kb-anno-pink-line": 4.31
+          },
+          "fail": [
+            "--kb-anno-yellow-bg",
+            "--kb-anno-green-bg",
+            "--kb-anno-blue-bg",
+            "--kb-anno-pink-bg"
+          ]
+        },
+        "sceneLocal": {
+          "ok": true,
+          "w": 247,
+          "h": 250,
+          "x": 1132,
+          "y": 79
+        },
+        "sceneModal": {
+          "ok": true,
+          "w": 1152,
+          "h": 694,
+          "x": 145,
+          "y": 88
+        },
+        "sceneOverview": {
+          "ok": true,
+          "w": 1060,
+          "h": 746,
+          "x": 357,
+          "y": 111
+        }
+      },
+      "ok": false
+    },
+    {
+      "style": "xuanye",
+      "mode": "dark",
+      "checks": {
+        "light": {
+          "ok": true,
+          "got": "#10141d",
+          "want": "#10141d"
+        },
+        "attrs": {
+          "ok": true,
+          "savedTheme": "dark",
+          "dataStyle": "xuanye"
+        },
+        "vars": {
+          "ok": true,
+          "count": 40,
+          "empty": []
+        },
+        "wcag": {
+          "ok": true,
+          "dark": 11.86,
+          "darkgray": 6.13,
+          "secondary": 7.26,
+          "gray": 3.06
+        },
+        "anno": {
+          "ok": true,
+          "values": {
+            "--kb-anno-yellow-bg": 1.89,
+            "--kb-anno-yellow-line": 9.01,
+            "--kb-anno-green-bg": 1.59,
+            "--kb-anno-green-line": 8.31,
+            "--kb-anno-blue-bg": 1.51,
+            "--kb-anno-blue-line": 8.06,
+            "--kb-anno-pink-bg": 1.52,
+            "--kb-anno-pink-line": 7.6
+          },
+          "fail": []
+        },
+        "sceneLocal": {
+          "ok": true,
+          "w": 247,
+          "h": 250,
+          "x": 1132,
+          "y": 79
+        },
+        "sceneModal": {
+          "ok": true,
+          "w": 1152,
+          "h": 694,
+          "x": 145,
+          "y": 88
+        },
+        "sceneOverview": {
+          "ok": true,
+          "w": 1060,
+          "h": 746,
+          "x": 357,
+          "y": 111
+        }
+      },
+      "ok": true
+    }
+  ],
+  "annoTable": [
+    {
+      "tag": "xuanzhi-light",
+      "--kb-anno-yellow-bg": 1.07,
+      "--kb-anno-yellow-line": 2.15,
+      "--kb-anno-green-bg": 1.24,
+      "--kb-anno-green-line": 3.52,
+      "--kb-anno-blue-bg": 1.33,
+      "--kb-anno-blue-line": 4.7,
+      "--kb-anno-pink-bg": 1.26,
+      "--kb-anno-pink-line": 4.3
+    },
+    {
+      "tag": "xuanzhi-dark",
+      "--kb-anno-yellow-bg": 1.92,
+      "--kb-anno-yellow-line": 8.29,
+      "--kb-anno-green-bg": 1.6,
+      "--kb-anno-green-line": 7.64,
+      "--kb-anno-blue-bg": 1.51,
+      "--kb-anno-blue-line": 7.42,
+      "--kb-anno-pink-bg": 1.54,
+      "--kb-anno-pink-line": 6.99
+    },
+    {
+      "tag": "shuimo-light",
+      "--kb-anno-yellow-bg": 1.08,
+      "--kb-anno-yellow-line": 2.19,
+      "--kb-anno-green-bg": 1.25,
+      "--kb-anno-green-line": 3.59,
+      "--kb-anno-blue-bg": 1.33,
+      "--kb-anno-blue-line": 4.79,
+      "--kb-anno-pink-bg": 1.27,
+      "--kb-anno-pink-line": 4.38
+    },
+    {
+      "tag": "shuimo-dark",
+      "--kb-anno-yellow-bg": 1.91,
+      "--kb-anno-yellow-line": 8.55,
+      "--kb-anno-green-bg": 1.6,
+      "--kb-anno-green-line": 7.88,
+      "--kb-anno-blue-bg": 1.52,
+      "--kb-anno-blue-line": 7.65,
+      "--kb-anno-pink-bg": 1.53,
+      "--kb-anno-pink-line": 7.21
+    },
+    {
+      "tag": "qingci-light",
+      "--kb-anno-yellow-bg": 1.08,
+      "--kb-anno-yellow-line": 2.17,
+      "--kb-anno-green-bg": 1.24,
+      "--kb-anno-green-line": 3.56,
+      "--kb-anno-blue-bg": 1.33,
+      "--kb-anno-blue-line": 4.75,
+      "--kb-anno-pink-bg": 1.27,
+      "--kb-anno-pink-line": 4.35
+    },
+    {
+      "tag": "qingci-dark",
+      "--kb-anno-yellow-bg": 1.9,
+      "--kb-anno-yellow-line": 8.19,
+      "--kb-anno-green-bg": 1.61,
+      "--kb-anno-green-line": 7.55,
+      "--kb-anno-blue-bg": 1.53,
+      "--kb-anno-blue-line": 7.33,
+      "--kb-anno-pink-bg": 1.52,
+      "--kb-anno-pink-line": 6.91
+    },
+    {
+      "tag": "zhulin-light",
+      "--kb-anno-yellow-bg": 1.08,
+      "--kb-anno-yellow-line": 2.19,
+      "--kb-anno-green-bg": 1.24,
+      "--kb-anno-green-line": 3.59,
+      "--kb-anno-blue-bg": 1.33,
+      "--kb-anno-blue-line": 4.79,
+      "--kb-anno-pink-bg": 1.27,
+      "--kb-anno-pink-line": 4.38
+    },
+    {
+      "tag": "zhulin-dark",
+      "--kb-anno-yellow-bg": 1.92,
+      "--kb-anno-yellow-line": 8.24,
+      "--kb-anno-green-bg": 1.61,
+      "--kb-anno-green-line": 7.6,
+      "--kb-anno-blue-bg": 1.52,
+      "--kb-anno-blue-line": 7.38,
+      "--kb-anno-pink-bg": 1.53,
+      "--kb-anno-pink-line": 6.96
+    },
+    {
+      "tag": "mushan-light",
+      "--kb-anno-yellow-bg": 1.07,
+      "--kb-anno-yellow-line": 2.16,
+      "--kb-anno-green-bg": 1.24,
+      "--kb-anno-green-line": 3.54,
+      "--kb-anno-blue-bg": 1.33,
+      "--kb-anno-blue-line": 4.73,
+      "--kb-anno-pink-bg": 1.26,
+      "--kb-anno-pink-line": 4.32
+    },
+    {
+      "tag": "mushan-dark",
+      "--kb-anno-yellow-bg": 1.9,
+      "--kb-anno-yellow-line": 8.71,
+      "--kb-anno-green-bg": 1.59,
+      "--kb-anno-green-line": 8.03,
+      "--kb-anno-blue-bg": 1.52,
+      "--kb-anno-blue-line": 7.79,
+      "--kb-anno-pink-bg": 1.54,
+      "--kb-anno-pink-line": 7.35
+    },
+    {
+      "tag": "xuanye-light",
+      "--kb-anno-yellow-bg": 1.07,
+      "--kb-anno-yellow-line": 2.16,
+      "--kb-anno-green-bg": 1.24,
+      "--kb-anno-green-line": 3.53,
+      "--kb-anno-blue-bg": 1.33,
+      "--kb-anno-blue-line": 4.72,
+      "--kb-anno-pink-bg": 1.26,
+      "--kb-anno-pink-line": 4.31
+    },
+    {
+      "tag": "xuanye-dark",
+      "--kb-anno-yellow-bg": 1.89,
+      "--kb-anno-yellow-line": 9.01,
+      "--kb-anno-green-bg": 1.59,
+      "--kb-anno-green-line": 8.31,
+      "--kb-anno-blue-bg": 1.51,
+      "--kb-anno-blue-line": 8.06,
+      "--kb-anno-pink-bg": 1.52,
+      "--kb-anno-pink-line": 7.6
+    }
+  ],
+  "bug2": [
+    {
+      "style": "xuanzhi",
+      "want": "#201c16",
+      "css": "#201c16",
+      "native": "#201c16",
+      "slot": "#201c16",
+      "mode": "dark",
+      "ok": true
+    },
+    {
+      "style": "shuimo",
+      "want": "#171a1c",
+      "css": "#171a1c",
+      "native": "#171a1c",
+      "slot": "#171a1c",
+      "mode": "dark",
+      "ok": true
+    },
+    {
+      "style": "qingci",
+      "want": "#14201d",
+      "css": "#14201d",
+      "native": "#14201d",
+      "slot": "#14201d",
+      "mode": "dark",
+      "ok": true
+    },
+    {
+      "style": "zhulin",
+      "want": "#181f15",
+      "css": "#181f15",
+      "native": "#181f15",
+      "slot": "#181f15",
+      "mode": "dark",
+      "ok": true
+    },
+    {
+      "style": "mushan",
+      "want": "#1a1620",
+      "css": "#1a1620",
+      "native": "#1a1620",
+      "slot": "#1a1620",
+      "mode": "dark",
+      "ok": true
+    },
+    {
+      "style": "xuanye",
+      "want": "#10141d",
+      "css": "#10141d",
+      "native": "#10141d",
+      "slot": "#10141d",
+      "mode": "dark",
+      "ok": true
+    }
+  ],
+  "bug3": {
+    "firstAt": 57,
+    "bbLoad": {
+      "empty": false,
+      "pixels": 69556,
+      "scale": 1,
+      "x": 357,
+      "y": 111,
+      "w": 1059,
+      "h": 745,
+      "cx": 887,
+      "cy": 484
+    },
+    "bbFirst": {
+      "empty": false,
+      "pixels": 139719,
+      "scale": 1,
+      "x": 357,
+      "y": 111,
+      "w": 1059,
+      "h": 745,
+      "cx": 887,
+      "cy": 484
+    },
+    "bb500": {
+      "empty": false,
+      "pixels": 141583,
+      "scale": 1,
+      "x": 357,
+      "y": 111,
+      "w": 1059,
+      "h": 745,
+      "cx": 887,
+      "cy": 484
+    },
+    "bb2000": {
+      "empty": false,
+      "pixels": 143595,
+      "scale": 1,
+      "x": 357,
+      "y": 111,
+      "w": 1059,
+      "h": 745,
+      "cx": 887,
+      "cy": 484
+    },
+    "d1": {
+      "dw": 0,
+      "dh": 0,
+      "dc": 0
+    },
+    "d2": {
+      "dw": 0,
+      "dh": 0,
+      "dc": 0
+    },
+    "nav": {
+      "elapsed": 124,
+      "longtasks": [],
+      "maxLt": 0
+    }
+  },
+  "scroll": {
+    "present": {
+      "explorer": true,
+      "toc": true,
+      "backlinks": true,
+      "docScrollable": true,
+      "docH": 1887,
+      "viewH": 868
+    },
+    "ov1": {
+      "sw": 267,
+      "cw": 267
+    },
+    "ov2": {
+      "sw": 267,
+      "cw": 267,
+      "items": 2203
+    },
+    "expanded": 0,
+    "wheelRows": [
+      {
+        "name": ".explorer-ul",
+        "sel": ".explorer-ul",
+        "prep": {
+          "missing": false,
+          "scrollable": true,
+          "elTop": 1906.5,
+          "sh": 2574,
+          "ch": 667,
+          "x": 184,
+          "y": 489,
+          "docTop": 0
+        },
+        "after": {
+          "docTop": 120,
+          "elTop": 1906.5
+        },
+        "afterSynthetic": 117,
+        "ok": false
+      },
+      {
+        "name": ".toc-content",
+        "sel": ".toc-content",
+        "prep": {
+          "missing": false,
+          "scrollable": false,
+          "elTop": 0,
+          "sh": 0,
+          "ch": 0,
+          "x": 0,
+          "y": 0,
+          "docTop": 120
+        },
+        "after": {
+          "docTop": 1019.5,
+          "elTop": 0
+        },
+        "afterSynthetic": 120,
+        "ok": false
+      },
+      {
+        "name": ".backlinks > ul",
+        "sel": ".backlinks > ul",
+        "prep": {
+          "missing": false,
+          "scrollable": true,
+          "elTop": 3267.5,
+          "sh": 3669,
+          "ch": 401,
+          "x": 1256,
+          "y": 601,
+          "docTop": 1019.5
+        },
+        "after": {
+          "docTop": 120,
+          "elTop": 3381
+        },
+        "afterSynthetic": 581.5,
+        "ok": false
+      }
+    ]
+  },
+  "sort": {
+    "order1": [
+      "",
+      "term-0027",
+      "term-0028",
+      "term-0029"
+    ],
+    "first2": [
+      {
+        "href": "../../5-机械撰写规范/2-撰写示例及分析/",
+        "text": "第二章 撰写示例及分析"
+      },
+      {
+        "href": "../../5-机械撰写规范/2-撰写示例及分析/mech-02-01",
+        "text": "说明书摘要"
+      },
+      {
+        "href": "../../5-机械撰写规范/2-撰写示例及分析/mech-02-02",
+        "text": "权利要求书"
+      },
+      {
+        "href": "../../5-机械撰写规范/2-撰写示例及分析/mech-02-03",
+        "text": "说明书"
+      }
+    ],
+    "names3": {
+      "i05": 18,
+      "i0501": 19,
+      "lastChild": 27
+    },
+    "settingsInTree": {
+      "missing": false,
+      "byText": [],
+      "byHref": [],
+      "total": 2202
+    }
+  },
+  "externalAttempts": []
+}
