@@ -1,4 +1,5 @@
 import { JSX } from "preact"
+import { createScrollEdgeScript } from "../util/scrollEdge"
 
 const OverflowList = ({
   children,
@@ -20,29 +21,6 @@ export default () => {
     OverflowList: (props: JSX.HTMLAttributes<HTMLUListElement>) => (
       <OverflowList {...props} id={id} />
     ),
-    overflowListAfterDOMLoaded: `
-document.addEventListener("nav", (e) => {
-  const observer = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      const parentUl = entry.target.parentElement
-      if (!parentUl) return
-      if (entry.isIntersecting) {
-        parentUl.classList.remove("gradient-active")
-      } else {
-        parentUl.classList.add("gradient-active")
-      }
-    }
-  })
-
-  const ul = document.getElementById("${id}")
-  if (!ul) return
-
-  const end = ul.querySelector(".overflow-end")
-  if (!end) return
-
-  observer.observe(end)
-  window.addCleanup(() => observer.disconnect())
-})
-`,
+    overflowListAfterDOMLoaded: createScrollEdgeScript(id),
   }
 }

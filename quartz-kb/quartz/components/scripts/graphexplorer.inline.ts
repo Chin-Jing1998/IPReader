@@ -24,6 +24,7 @@ import {
   resolveRelative,
   simplifySlug,
 } from "../../util/path"
+import { resolveSingleClickAction } from "../../util/graphInteraction"
 
 // ---------- 内容卡片数据结构（与 site 生成器产出的 /static/content/{id}.json 对齐，按需取用） ----------
 
@@ -69,6 +70,10 @@ const DOMAIN_NAMES: Record<string, string> = {
 
 // 相关知识点 chips 数量上限（术语出处可能很多，避免面板被 chips 淹没）
 const MAX_CHIPS = 40
+
+// themechange 重建防抖窗口（与 graph.inline.ts 的同名常量同值）：
+// 设置页连点主题卡会连发 themechange，专页全量图重建代价高，只重建最后一次
+const THEME_CHANGE_DEBOUNCE_MS = 120
 
 // 内容卡片缓存：id → Promise（去重并发请求；null 表示该 id 无卡片或请求失败）
 const cardCache = new Map<string, Promise<ContentCard | null>>()
@@ -342,7 +347,7 @@ document.addEventListener("nav", async () => {
     return box
   }
 
-  /** 相关知识点 chip：点击=派发新 graphnodeselect 刷新面板，并重渲染图谱高亮该节点 */
+  /** 相关知识点 chip：点击遵循图内单击规则并刷新面板 */
   function buildChip(label: string, hint: string | undefined, id: string): HTMLElement {
     const chip = el("button", "ge-chip", label)
     chip.type = "button"
@@ -353,16 +358,16 @@ document.addEventListener("nav", async () => {
         setStatus(`「${label}」暂未收录为独立页面`)
         return
       }
-      void selectNode(target)
+      handleSingleNodeSelection(simplifySlug(target))
     })
     return chip
   }
 
-  /** 容器子节点 chip：已知 SimpleSlug，直接定位 */
+  /** 容器子节点 chip：已知 SimpleSlug，遵循图内单击规则 */
   function buildSlugChip(label: string, slug: SimpleSlug): HTMLElement {
     const chip = el("button", "ge-chip", label)
     chip.type = "button"
-    chip.addEventListener("click", () => void selectNode(toFullSlug(slug)))
+    chip.addEventListener("click", () => handleSingleNodeSelection(slug))
     return chip
   }
 
@@ -491,7 +496,7 @@ document.addEventListener("nav", async () => {
           }
           link.addEventListener("click", async () => {
             const target = await resolveIdToFullSlug(entry.nodeId)
-            if (target !== null) void selectNode(target)
+            if (target !== null) handleSingleNodeSelection(simplifySlug(target))
           })
           li.appendChild(link)
           ul.appendChild(li)
@@ -570,6 +575,21 @@ document.addEventListener("nav", async () => {
     }
   }
 
+  /** 右侧栏节点按钮与图内单击共享同一选择规则。 */
+  function handleSingleNodeSelection(simple: SimpleSlug) {
+    const action = resolveSingleClickAction(
+      selectedSlug !== null,
+      selectedSlug !== null && controller?.isInSelectedSet(simple) === true,
+    )
+    if (action === "ignore") return
+    if (action === "select") {
+      controller?.setSelected(simple, 1)
+      selectedSlug = simple
+      selectedHops = 1
+    }
+    void showPanel(simple)
+  }
+
   /**
    * 定位选中（F2）：刷新面板 + 图内定位。
    * 1) 优先 controller.focus（描边高亮 + 400ms 平移居中，不重建、保留当前布局）；
@@ -638,22 +658,8 @@ document.addEventListener("nav", async () => {
       void showPanel(simple)
       return
     }
-    // 单击（v16）：
-    // - 无选中：选中该节点（相关节点常亮、其余变暗），右栏显示其信息；
-    // - 有选中且目标在选中集内（选中节点/相关节点）：仅刷新右栏，不切换选中；
-    // - 有选中且目标为暗色（非选中集）节点：不响应（须双击切换）。
-    if (selectedSlug === null) {
-      controller?.setSelected(simple, 1)
-      selectedSlug = simple
-      selectedHops = 1
-      void showPanel(simple)
-      return
-    }
-    if (controller !== null && !controller.isInSelectedSet(simple)) {
-      return
-    }
-    // 单击选中集内节点：仅刷新右栏，不切换选中
-    void showPanel(simple)
+    // 单击（v16）：复用右侧栏节点按钮的统一选择规则。
+    handleSingleNodeSelection(simple)
   }
   explorer.addEventListener("graphnodeselect", onNodeSelect)
 
@@ -715,8 +721,16 @@ document.addEventListener("nav", async () => {
   }
 
   // 主题切换：图内颜色为渲染时快照，需重渲染取新主题色；
-  // 术语层模式随重建保持（BUG-1），三态钮不回落
-  const onThemeChange = () => void renderCanvas(centerSlug, controller?.getTermLayer())
+  // 术语层模式随重建保持（BUG-1），三态钮不回落。
+  // 120ms trailing 防抖：连点主题卡会连发 themechange，专页是全量图，
+  // 不防抖则每次事件都触发一轮全量重建、排队即卡顿（与 graph.inline.ts 同策）
+  let themeChangeTimer: ReturnType<typeof setTimeout> | undefined
+  const onThemeChange = () => {
+    clearTimeout(themeChangeTimer)
+    themeChangeTimer = setTimeout(() => {
+      void renderCanvas(centerSlug, controller?.getTermLayer())
+    }, THEME_CHANGE_DEBOUNCE_MS)
+  }
   document.addEventListener("themechange", onThemeChange)
 
   // 视口变化：按新尺寸重渲染（防抖）；
@@ -748,6 +762,8 @@ document.addEventListener("nav", async () => {
   window.addCleanup(() => {
     disposed = true
     clearTimeout(resizeTimer)
+    // 未决的主题防抖回调必须撤销：导航后触发会重建到已被替换的 DOM 上
+    clearTimeout(themeChangeTimer)
     explorer.removeEventListener("graphnodeselect", onNodeSelect)
     searchInput?.removeEventListener("keydown", onSearchKey)
     searchBtn?.removeEventListener("click", onSearchClick)

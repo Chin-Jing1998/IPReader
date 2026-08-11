@@ -132,12 +132,45 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
         }
       }
 
+      // 图例点（D2）：色值取主题变量 --graph-section-N（custom.scss 六主题
+      // × light/dark 覆盖块定义），与 graph.inline.ts 的节点着色同源；
+      // 组件侧不再内联写死 hex，切主题/明暗时图例随 CSS 即时变色（无需重渲染）。
+      // 与上方隐藏态的 `var(--gray) !important` 不冲突：本组为普通声明，
+      // 隐藏态 !important 仍胜出（域被隐藏时图例点置灰）。
       .ge-legend-dot {
         display: inline-block;
         width: 0.65rem;
         height: 0.65rem;
         border-radius: 50%;
         flex-shrink: 0;
+
+        &[data-section="1"] {
+          background-color: var(--graph-section-1);
+        }
+        &[data-section="2"] {
+          background-color: var(--graph-section-2);
+        }
+        &[data-section="3"] {
+          background-color: var(--graph-section-3);
+        }
+        &[data-section="4"] {
+          background-color: var(--graph-section-4);
+        }
+        &[data-section="5"] {
+          background-color: var(--graph-section-5);
+        }
+        &[data-section="6"] {
+          background-color: var(--graph-section-6);
+        }
+        &[data-section="7"] {
+          background-color: var(--graph-section-7);
+        }
+        &[data-section="8"] {
+          background-color: var(--graph-section-8);
+        }
+        &[data-section="9"] {
+          background-color: var(--graph-section-9);
+        }
       }
     }
 

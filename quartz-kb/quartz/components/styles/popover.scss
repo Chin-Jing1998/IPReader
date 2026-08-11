@@ -71,6 +71,29 @@
     }
   }
 
+  // 正文单击预览：覆盖视口并保留一个可独立滚动的阅读面，点击外层返回正文。
+  &.click-preview {
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(0.75rem, 3vw, 3rem);
+    overflow: auto;
+    transform: none !important;
+    will-change: auto;
+    background: color-mix(in srgb, var(--light) 66%, transparent);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+
+    & > .popover-inner {
+      width: min(76rem, calc(100vw - 2rem));
+      max-height: min(88vh, 64rem);
+      padding: 1.5rem clamp(1rem, 3vw, 3rem) 2rem;
+      user-select: text;
+      box-shadow: 0 1.5rem 4rem rgba(31, 35, 42, 0.16);
+    }
+  }
+
   h1 {
     font-size: 1.5rem;
   }
@@ -83,6 +106,63 @@
 
   @media all and ($mobile) {
     display: none !important;
+  }
+}
+
+body.popover-modal-open {
+  overflow: hidden;
+}
+
+.popover-return-bar {
+  width: min(var(--reading-col, 48.875rem), calc(100% - 2rem));
+  margin: 0.75rem auto 0;
+}
+
+.popover-return-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 2.55rem;
+  border: 1px solid var(--glass-border, var(--lightgray));
+  border-radius: 0.9rem;
+  padding: 0.45rem 0.85rem 0.45rem 0.65rem;
+  color: var(--dark);
+  background: var(--light);
+  cursor: pointer;
+  font: inherit;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+
+  .popover-return-icon {
+    width: 1.8rem;
+    height: 1.35rem;
+    flex: 0 0 auto;
+    color: var(--darkgray);
+  }
+
+  .popover-return-label {
+    color: var(--dark);
+    font-size: 0.9rem;
+    line-height: 1.35;
+    white-space: nowrap;
+  }
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--secondary);
+    background: var(--nav-active-wash, rgba(40, 75, 99, 0.1));
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+@media all and not ($mobile) {
+  .center > .popover-return-bar + .page-header {
+    margin-top: 1.5rem;
   }
 }
 

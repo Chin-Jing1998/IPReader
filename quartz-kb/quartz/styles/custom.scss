@@ -3,17 +3,39 @@
 @use "./glass.scss" as *;
 
 // ============================================================
-// 专利知识库定制样式 v3（W2）
+// 专利知识库定制样式 v9
 // 一、液态玻璃视觉体系：--glass-* token + 侧栏/卡片玻璃化
-// 二、中文四字体协同排版（公文体例）：
-//     标题=黑体（--headerFont，苹方栈，quartz.config.ts）
-//     正文=宋体（--bodyFont，宋体栈，quartz.config.ts）
-//     引用/摘句=楷体（blockquote 与 em）
-//     法条条文/原文块=仿宋（data-slug 前缀定位条文页）
-// 注意：绝不改动 --light/--lightgray/--secondary 等既有主题变量
-// （PixiJS 图谱经 getComputedStyle 读取它们）。
+// 二、中文多字体协同排版（公文体例）：
+//     页头/正文/左栏/右栏/图谱各有独立字体变量，取值随主题走
+//     （--headerFont / --bodyFont / --leftFont / --rightFont / --graphFont）；
+//     引用摘句固定楷体（blockquote 与 em）、法条条文固定仿宋（data-slug 定位）。
+// 三、主题变量的归属（v9 起生效，作废旧版「绝不改动既有主题变量」的约定）：
+//     --light/--lightgray/--gray/--darkgray/--dark/--secondary/--tertiary/
+//     --highlight/--textHighlight 九色不再由本文件之外的任何地方决定稳定态，
+//     而是在文件末尾的六套 [data-style] 覆盖块中逐套全量重定义
+//     （quartz.config.ts 的同名值仅作首帧兜底，见该文件 colors 注释）。
+//     PixiJS 图谱仍经 getComputedStyle 读取它们，故任何新增主题必须补齐全量。
 // ============================================================
 
+// —— 字体栈常量：全库字体的唯一事实源 ——
+// quartz.config.ts 的 typography.header/body 是其中「宣纸」那一份的副本（B1 双写），
+// 两处必须同改。侧栏（--leftFont/--rightFont）只允许取黑体/苹方/宋体——
+// 楷体与仿宋在 14-15px 小字号下笔画糊成一团。
+// 黑体栈（方正硬朗，页头与图谱标签）
+$fontHei:
+  "Heiti SC", "STHeiti", "SimHei", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC",
+  sans-serif;
+// 宋体栈（正文阅读面）
+$fontSong: "Songti SC", "SimSun", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+// 苹方栈（系统 UI 无衬线，小字号下最稳）
+$fontPing:
+  "PingFang SC",
+  -apple-system,
+  "Hiragino Sans GB",
+  "Microsoft YaHei",
+  "Noto Sans CJK SC",
+  "Source Han Sans SC",
+  sans-serif;
 // —— 楷体栈（引用块与词条页 evidence 摘句） ——
 $fontKai: "Kaiti SC", "KaiTi", "STKaiti", "Noto Serif CJK SC", serif;
 // —— 仿宋栈（法条条文与"原文"容器） ——
@@ -60,6 +82,11 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
   --popover-bg: rgba(250, 249, 249, 0.98);
 }
 
+// 关键词详情页右栏只保留关系图谱与反向链接，不显示目录。
+body[data-slug^="9-关键词索引/"] .page > #quartz-body > .sidebar.right > .toc {
+  display: none;
+}
+
 :root[saved-theme="dark"] {
   // 深色玻璃：近黑玻璃 + 弱白描边 + 加深阴影
   // F7 对比度：--glass-bg 0.55→0.68、--glass-inner-bg 0.05→0.15（与 bg 保持层次差）
@@ -92,12 +119,26 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
 // 二、页面底衬：极淡主题色渐变，衬托玻璃层次（背景色 --light 不动）
 // ============================================================
 
+// 古风素描背景（--page-art）与两层底衬渐变共用 body 的 background 多层堆叠：
+// 层序自上而下 = 线描 → tint-a → tint-b，线描离用户最近。刻意不新建伪元素、
+// 不加 transform/filter/will-change——任一项都会让 body 成为 Backdrop Root，
+// 全站 backdrop-filter 玻璃立刻失效。--page-art 缺省为 none，优雅降级。
 body {
   // 渐变着色取 --page-tint-*（F12：颜色混合的等效静态色，深浅主题各一套）
   background-image:
+    var(--page-art, none),
     radial-gradient(1100px 700px at 8% -10%, var(--page-tint-a), transparent 60%),
     radial-gradient(900px 620px at 102% 0%, var(--page-tint-b), transparent 55%);
   background-repeat: no-repeat;
+  // 线描贴视口右下出血，两层渐变保持原点（其定位写在 gradient 函数内）
+  background-position:
+    right bottom,
+    0 0,
+    0 0;
+  background-size:
+    min(1100px, 78vw) auto,
+    auto,
+    auto;
   background-attachment: fixed;
 }
 
@@ -125,11 +166,22 @@ body {
     position: sticky;
     // sticky 未吸附时 top 不产生偏移，用 margin-top 补回同等的常规流留白
     margin-top: 0.75rem;
-    top: 0.75rem;
-    height: calc(100vh - 1.5rem);
+    // 标题条偏移消费点②（见第十三节）：吸附位置让出标题条高度。
+    // body 的 padding-top 已把未吸附时的起点推到同一处（padding + margin
+    // = titlebar-h + 0.75rem），二者相抵，吸附瞬间零跳动。
+    top: calc(0.75rem + var(--titlebar-h));
+    height: calc(100vh - 1.5rem - var(--titlebar-h));
   }
   // 平板断点下右栏本就退化为文末横排（base.scss 高优先级规则接管
   // position/height），此处 top 对 position:initial 元素无副作用
+}
+
+// 桌面端侧栏不再沿用正文页头的 6rem 顶部留白，避免左右栏内容明显下沉。
+// 仅调整侧栏内部起始位置，不改变正文页头的布局节奏。
+@media all and ($desktop) {
+  .page > #quartz-body > .sidebar {
+    padding-top: 1.5rem;
+  }
 }
 
 // 平板段既存缺陷修复（v6）：base.scss 平板媒体块以 (1,3,0) 把 .sidebar.right
@@ -155,6 +207,12 @@ body {
     &::before {
       display: none;
     }
+  }
+
+  // 关键词详情页的右栏位于正文之后；移动端左栏会吸附为顶部导航，
+  // 右栏首个面板需要预留导航高度，避免滚动到右栏时标题被导航遮住。
+  body[data-slug^="9-关键词索引/"] .page > #quartz-body > .sidebar.right {
+    padding-top: 4.375rem;
   }
 }
 
@@ -197,6 +255,28 @@ article,
   font-family: var(--bodyFont);
 }
 
+// —— 左右侧栏各自的独立字体变量（--leftFont / --rightFont）——
+// 上游只在 explorer.scss:172,193 给「文件夹行」挂了 --leftFont，目录树叶子条目、
+// 站名、搜索框一直继承 body 的 --headerFont；右栏则从无 font-family 声明。
+// 两套字体在 v9 起按主题各不相同（如水墨 header=楷体 / left=黑体），
+// 缺口会直接显形，故在栏容器上统一建立消费点（explorer.scss/toc.scss/
+// backlinks.scss 归其他改动方，不在此文件外落笔）。
+// 特异性 (1,3,0) 压过 body 的 (0,1,0)；无 data-style 时按语义回落。
+.page > #quartz-body > .sidebar.left {
+  font-family: var(--leftFont, var(--headerFont));
+}
+
+.page > #quartz-body > .sidebar.right {
+  font-family: var(--rightFont, var(--bodyFont));
+}
+
+// 表单控件不继承 font-family（UA 默认 Arial/system-ui），侧栏里的目录树折叠头、
+// TOC 折叠头与搜索框都是可见中文，显式接回所在栏的字体
+.page > #quartz-body > .sidebar button,
+.page > #quartz-body > .sidebar input {
+  font-family: inherit;
+}
+
 // 列表页（文件夹/标签页）内的条目列表属导航而非正文 → 黑体
 article .page-listing {
   font-family: var(--headerFont);
@@ -212,7 +292,8 @@ article {
 }
 
 // 阅读区最大行宽约 46em（17px 下约 780px），超宽屏下居中
-.page .center > article {
+.page .center > article,
+.page .center > .popover-hint > article {
   max-width: 46em;
   margin-left: auto;
   margin-right: auto;
@@ -358,6 +439,10 @@ article table td {
 
 // 主题化细滚动条：胶囊拇指 + 透明轨道（WebKit 全兼容；
 // scrollbar-width/color 为新 Chromium/Firefox 渐进增强，旧核无害忽略）
+// v10 核实补注：Chromium 121+ 起，元素一旦命中标准属性 scrollbar-width，
+// 其 ::-webkit-scrollbar* 伪元素整体失效。下方通配 `*` 命中全部元素，故 9px
+// 那组 webkit 规则在 Electron 43 桌面端已是死代码，仅对旧核浏览器仍有效，
+// 保留作渐进兜底（删之无益，留之无害）。
 :root {
   --scroll-thumb: rgba(60, 64, 72, 0.28);
   --scroll-thumb-hover: rgba(60, 64, 72, 0.45);
@@ -390,10 +475,85 @@ article table td {
   background: transparent;
 }
 
-// 玻璃卡内滚动区：滚动条与圆角描边之间留出稳定内距，拇指不压边
-.page > #quartz-body > .sidebar.left,
-.explorer-content {
-  scrollbar-gutter: stable;
+// —— 侧栏自绘 overlay 滚动条（需求③）——
+// 旧方案（默认零槽位、滚动时给滚动器挂 .is-scrolling 切回 thin）的根因缺陷：
+// thin 槽位是布局宽度，出现即挤压目录文字、滚停又弹回，且 webkit 伪元素不支持
+// transition，无法渐隐。现改为「原生槽宽恒为零 + JS 悬浮轨道」：
+//   · 槽宽恒零 ⇒ 滚动器 clientWidth 滚动前后完全相等，内容零位移；
+//   · 轨道是 .sidebar 的绝对定位子节点，opacity 可过渡，得以渐隐。
+// 轨道 DOM 与几何由 explorer.inline.ts 的 bindOverlayScrollbars 负责，
+// 本节只提供表现层。
+
+// 一、原生槽宽归零（含侧栏自身与其全部内层滚动器）
+.page > #quartz-body > .sidebar,
+.page > #quartz-body > .sidebar * {
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
+}
+
+// 旧核 webkit 兜底：不支持 scrollbar-width 的内核靠伪元素零宽达到同一效果
+//（新核已忽略这组伪元素，见本节开头补注）
+.page > #quartz-body > .sidebar::-webkit-scrollbar,
+.page > #quartz-body > .sidebar *::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+// 二、overlay 轨道与拇指（DOM 契约见 explorer.inline.ts:150-262）
+// JS 侧：在 .sidebar 末尾插入 `div.kb-oscroll > div.kb-oscroll-thumb`，
+// 轨道 inline 写 top / height 与 --kb-oscroll-right（滚动器右缘到侧栏 padding
+// 右缘的距离，px），拇指 inline 写 height / top，显隐靠轨道上的 .is-visible。
+// CSS 侧只负责宽度、横向定位、圆角、着色与渐隐。
+// 定位基准是 .sidebar 的 padding box——glass-panel-host（本文件第三节）已给它
+// position:relative 与 isolation:isolate，故 z-index 关在侧栏内，不与弹窗争层。
+.kb-oscroll {
+  position: absolute;
+  width: 6px;
+  // 在滚动器右缘基础上再让出 2px：拇指既不压文字，也不贴上玻璃卡描边
+  right: calc(var(--kb-oscroll-right, 0px) + 2px);
+  border-radius: 3px;
+  opacity: 0;
+  // 归 --duration-modal 档（同为「浮层显隐」语义，值即 280ms）；
+  // 减弱动效档下随 token 一并压到 80ms
+  transition: opacity var(--duration-modal, 280ms) var(--ease-out, ease-out);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.kb-oscroll.is-visible {
+  opacity: 1;
+}
+
+.kb-oscroll-thumb {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border-radius: 3px;
+  background-color: var(--scroll-thumb);
+}
+
+// 三、脚本失效时的 CSS 回落：无轨道即退回原生 thin + 可见拇指色，
+// 否则内容可滚却无任何滚动指示。
+// 必须限定非移动端：移动端 JS 按 OVERLAY_MOBILE_QUERY 整体跳过建轨，
+// 不限定则 :not(:has()) 在移动端恒真，会把已归零的原生槽位强行放出来。
+// 特异性：:not(:has(.kb-oscroll)) 取参数最高位 (0,1,0)，整条 (1,3,0)，
+// 压得过上方归零规则的 (1,2,0)。
+//（旧核浏览器 + 脚本失效的双重降级下，webkit 零宽仍在、无滚动指示——
+//  该组合已在目标运行环境之外，不再为其加第二套 webkit 回落。）
+@media all and not ($mobile) {
+  .page > #quartz-body > .sidebar:not(:has(.kb-oscroll)),
+  .page > #quartz-body > .sidebar:not(:has(.kb-oscroll)) * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scroll-thumb) transparent;
+  }
+}
+
+// 桌面/平板保留对称的 320px 侧栏外框，仅收窄内部左右留白，增加内容可视宽度。
+@media all and not ($mobile) {
+  .page > #quartz-body > .sidebar {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
 }
 
 // 分隔线与代码块边框统一玻璃系弱化，去生硬实线
@@ -533,10 +693,19 @@ a {
 }
 
 // —— 目录树折叠箭头与文件夹图标（原 .3s/.35s ease）——
+// 暗色切换补齐（需求②）：这两枚图标的描边写作 stroke="currentColor"，其 stroke
+// 计算值恒为关键字 currentColor、本身不产生过渡，必须过渡 color 才有效；
+// stroke/fill 留给显式着色的 svg（移动端汉堡 .lucide-menu 的 stroke: var(--darkgray)）。
+// 三者时长取悬停档而非暗色档：.folder-icon:hover 会换 --tertiary，
+// 260ms 会让悬停明显发滞；12px 图标与 260ms 面之间的收敛差不可察。
 .explorer .fold,
 .explorer svg,
 .folder-icon {
-  transition: transform var(--duration-menu, 220ms) var(--ease-out, ease-out);
+  transition:
+    transform var(--duration-menu, 220ms) var(--ease-out, ease-out),
+    color var(--duration-hover, 140ms) var(--ease-hover, ease),
+    stroke var(--duration-hover, 140ms) var(--ease-hover, ease),
+    fill var(--duration-hover, 140ms) var(--ease-hover, ease);
 }
 
 // —— 目录树文件夹展开/收起（原 .3s ease-in-out；property 不动）——
@@ -651,18 +820,93 @@ pre:hover > .clipboard-button {
 }
 
 // —— 暗色切换：仅对「面」列举式过渡（不用 * 通配；PixiJS 读变量瞬变无碍）——
+//
+// 三条规则的分工与红线（R5）：transition 是长写属性，同一元素被两条规则命中时，
+// 后一条整条替换前一条，先写的属性静默丢失。故**任何元素只能出现在下列三条中的
+// 一条**；需要多于一类属性的元素一律并入「规则三」，绝不靠两条规则叠加。
+//
+// 纪律一（防悬停发滞）：已自带 140ms 交互过渡的控件不进本清单——正文链接 a、
+//   目录树条目、TOC 条目、左栏三枚快捷钮（第十四节）、设置页分段控件与主题卡、
+//   翻页卡 .page-nav-item。其中 .page-nav-item 是本轮**移出**项：它在
+//   pageNav.scss 已有 transform/border-color/background-color 三属性过渡，
+//   旧清单把它纳入 260ms，反而整条替换掉了按压与悬停手感。
+// 纪律二（不为 body 背景做双缓冲）：background-image 不可过渡，要淡入淡出必须
+//   叠一层可动 opacity 的伪元素——而带 opacity/transform/filter 动画的固定伪
+//   元素会把 body 变成 Backdrop Root，全站 backdrop-filter 玻璃当场失效
+//   （见第二节）。两层底衬渐变 alpha ≤0.08、素描线描 stroke-opacity ≤0.13，
+//   瞬变幅度低于感知阈值，权衡后取「瞬变」这一侧。
+
+// 规则一：只有背景色 / 文字色需要收敛的面。
+// h1–h6 与 thead 是 base.scss 显式赋 --dark 的一组，涵盖页面标题（h1.article-title）、
+// 侧栏站名（h2.page-title）、四个面板标题与设置页标题；无显式配色、纯继承的元素
+// 不必单列——继承值随祖先的过渡值一并推进。
 body,
 article,
-.popover > .popover-inner,
+thead,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 .page > #quartz-body > .sidebar::before,
-.page > #quartz-body > .sidebar.right > .graph,
-.page > #quartz-body > .sidebar.right > .toc,
-.page > #quartz-body > .sidebar.right > .backlinks,
-.page-nav-item,
-.reading-fab {
+.content-meta,
+button.mobile-explorer,
+button.desktop-explorer,
+.folder-container div > button,
+.folder-container div > button span,
+.kb-settings-desc,
+.kb-theme-desc {
   transition:
     background-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out),
     color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
+}
+
+// 规则二：纯描边 / 阴影的面。
+// .sidebar 刻意用裸类 (0,1,0) 而非 .page > #quartz-body > .sidebar (1,2,0)——
+// 后者会压过 readermode.scss 的 :root[reader-mode="on"] .sidebar.left (0,4,0)，
+// 把阅读模式的 opacity 淡入淡出连带替换掉。裸类低于它，两者各管各的。
+.sidebar,
+article hr {
+  transition:
+    border-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out),
+    box-shadow var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
+}
+
+// 规则三：四属性合并——凡同时具备底色与描边/阴影的面都归此条，避免与前两条重合。
+// 正文段落、列表项与表格单元格必须走本条而非规则一：法条页条文段落带
+// --accent-wash 底与 3px 主题色左线（第四节），表格 th/td 带 --gray/--lightgray
+// 下边线（base.scss），pre 的底色来自 syntax.scss 的 shiki 变量、描边来自
+// 第五节的 --glass-border——只过渡背景与文字会留下描边跳变。
+article p,
+article li,
+article th,
+article td,
+article pre,
+.kb-titlebar,
+.breadcrumb-container,
+.page > #quartz-body > .sidebar.right > .graph,
+.page > #quartz-body > .sidebar.right > .toc,
+.page > #quartz-body > .sidebar.right > .backlinks,
+.popover > .popover-inner,
+.kb-settings-dir {
+  transition:
+    background-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out),
+    color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out),
+    border-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out),
+    box-shadow var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
+}
+
+// 回到顶部悬浮钮：同一「长写覆盖」陷阱的第二例。它在 readingAids.scss 用
+// opacity + transform 做入场（滚过约 0.8 屏才现身），旧清单以同特异性 (0,1,0)
+// 在后位把那条 transition 整条换成了背景与文字色——入场动画实际已失效。
+// 此处按 R5 的合并原则一次写全：位移类留悬停档，颜色类走暗色档。
+.reading-fab {
+  transition:
+    opacity var(--duration-hover, 140ms) var(--ease-out, ease-out),
+    transform var(--duration-hover, 140ms) var(--ease-out, ease-out),
+    background-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out),
+    border-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
 }
 
 // ============================================================
@@ -722,6 +966,8 @@ article,
 // 二、降低透明度：厚材质转实底、底衬撤除、阅读面去模糊
 //（glass.scss 已覆盖玻璃面板/遮罩本体，此处补 token 与个别件；
 // Electron 22 = Chromium 108 不支持本查询，仅浏览器与未来升级生效）
+// 注：--page-art 的撤除不在本块——媒体查询不提升特异度，本块的 :root (0,1,0)
+// 争不过文件末尾六套主题块的 (0,2,0)/(0,3,0)。见「素描背景的降级开关」一节。
 @media (prefers-reduced-transparency: reduce) {
   :root {
     --glass-bg-thick: var(--glass-bg-solid);
@@ -884,6 +1130,47 @@ ul.toc-content.overflow > li > a {
     margin-left: auto;
     margin-right: auto;
   }
+
+  // 正文页头沿用原有居中规则，但压缩默认 6rem 顶部留白。
+  body:not([data-slug="0-图谱总览/index"]) #quartz-body .center > .page-header {
+    margin-top: 1.5rem;
+  }
+
+  body:not([data-slug="0-图谱总览/index"]) #quartz-body .center > .page-header .article-title {
+    margin-top: 0.75rem;
+  }
+
+  body:not([data-slug="0-图谱总览/index"])
+    #quartz-body
+    .center
+    > .popover-return-bar
+    + .page-header {
+    margin-top: 0.5rem;
+  }
+
+  body:not([data-slug="0-图谱总览/index"])
+    #quartz-body
+    .center
+    > .popover-return-bar
+    + .page-header
+    .article-title {
+    margin-top: 0;
+  }
+}
+
+@media all and ($mobile) {
+  body:not([data-slug="0-图谱总览/index"]) #quartz-body .center > .page-header .article-title {
+    margin-top: 0.5rem;
+  }
+
+  body:not([data-slug="0-图谱总览/index"])
+    #quartz-body
+    .center
+    > .popover-return-bar
+    + .page-header
+    .article-title {
+    margin-top: 0;
+  }
 }
 
 // ============================================================
@@ -1041,255 +1328,967 @@ ul.toc-content > li > a,
 }
 
 // ============================================================
-// 界面风格（v8）：6 套 × 亮暗两态。data-style 挂在 <html> 上，
-// saved-theme 区分亮暗。每套覆盖核心主题变量；图谱（PixiJS 经
-// getComputedStyle 读取）自动跟随。配色遵循 Apple 设计规范：
-// 每套一个明确强调色（非灰阶）、亮暗两态同色相深浅变体、
-// 正文/背景对比 ≥ 4.5:1、强调色 ≥ 3:1。
-// 批注五色与玻璃模糊/阴影 token 不随风格变，保持全站统一。
+// 十三、桌面自绘标题条的全局偏移（需求⑥）
+// TitleBar.tsx 输出的 .kb-titlebar 是 position:fixed 条带（几何与显隐门控在
+// titlebar.scss），只在 macOS 桌面端（html[data-desktop]）且非移动断点下显形。
+// 它脱离常规流又盖在顶部，故凡「贴视口顶」的面都要让出这一条高度——本节把高度
+// 提成 token 并逐一枚举六处消费点，避免日后改高度时漏改。
+// 裸 :root 的 0px 带单位以便直接进 calc()（无单位 0 在 calc 中同样合法，但
+// 与 rem 混算时可读性差）；joinStyles 拼在 index.css 末尾的那个 :root 只含
+// 9 基础色 + 5 字体，不含本 token，覆盖不到这里。
 // ============================================================
 
-// —— 侧栏字体独立变量默认值（settings.inline.ts 可覆盖） ——
+:root {
+  --titlebar-h: 0px;
+}
+
+// (0,1,1) 高于上方 :root 的 (0,1,0)，胜出与书写顺序无关。
+// 移动端断点下标题条本就不渲染（titlebar.scss 同款媒体查询），高度保持 0。
+html[data-desktop] {
+  @media all and not ($mobile) {
+    --titlebar-h: 38px;
+  }
+}
+
+// 消费点①：正文整体下移（标题条 fixed，不占常规流）。
+// body 已是 border-box、margin 0（base.scss），加 padding 不改变外框。
+body {
+  padding-top: var(--titlebar-h);
+}
+
+// 消费点②：左右侧栏的 sticky top 与 height —— 就地写在第三节的侧栏规则内。
+
+// 消费点③：搜索全屏遮罩（search.scss 的 .search > .search-container，同特异性
+// (0,2,0)，本文件在组件 css 之后拼装故后位胜）。标题条 z-index 10000 高于遮罩
+// 的 999，不下移则遮罩顶部 38px 被压在条带下，观感是遮罩「缺一块」。
+.search > .search-container {
+  top: var(--titlebar-h);
+  height: calc(100vh - var(--titlebar-h));
+}
+
+// 消费点④：全局图弹窗遮罩（graph.scss 的 .graph > .global-graph-outer，
+// 同特异性后位胜）。其 height 原为 100%——fixed 元素的百分比高度解析自
+// 初始包含块（视口），故减去标题条高度即可，不改成 100vh 以免语义漂移。
+.graph > .global-graph-outer {
+  top: var(--titlebar-h);
+  height: calc(100% - var(--titlebar-h));
+}
+
+// 消费点⑤：SPA 导航进度条（base.scss 的 .navigation-progress，fixed top:0）。
+.navigation-progress {
+  top: var(--titlebar-h);
+}
+
+// 消费点⑥：图谱总览页画布（graphexplorer.scss 内 body[data-slug=…] .graph-explorer，
+// 同特异性 (0,2,1) 后位胜）。该页 html+body 双重 overflow:hidden，高度不减去
+// 标题条会把画布底缘顶出视口且无从滚动。
+body[data-slug="0-图谱总览/index"] .graph-explorer {
+  height: calc(100vh - 1.5rem - var(--titlebar-h));
+}
+
+// —— 设置页内容列宽（需求④配套）——
+// 设置卡片是三列栅格，比正文阅读栏宽，故另立 --settings-col 而非复用
+// --reading-col。本条与第十节的 --reading-col 规则同为 (1,3,1)——那条的
+// body:not([data-slug="0-图谱总览/index"]) 同样命中设置页——靠位序在后胜出，
+// 故必须写在第十节之后。放本文件而非 settings.scss：后者在 joinStyles 中
+// 先于本文件落盘，写在那边会被本文件的同名规则接管。
+:root {
+  --settings-col: 54rem;
+}
+
+body[data-slug="设置/index"] #quartz-body .center > .page-footer {
+  max-width: var(--settings-col);
+  margin-inline: auto;
+}
+
+// ============================================================
+// 十四、左栏三钮统一（需求①：图标风格 / 间距 / 悬停背景态三项全改）
+// 三枚按钮分处三个组件（SettingsButton→settings.scss、同组件内的明暗钮、
+// ReaderMode→readermode.scss），此前各写各的几何：20×32 细长条 + svg 绝对定位，
+// 命中区窄、悬停无反馈、配色链路不一（currentColor 与直赋 --darkgray 并存）。
+// 本节把三者收敛为同一套几何与状态色。
+//
+// 覆盖依据（不是靠特异性，而是靠拼装序）：componentResources.ts 以
+// joinStyles(theme, googleFonts, ...componentResources.css, styles) 拼装，
+// 本文件（styles 位）输出在全部组件 css 之后，故同特异性的重声明后位胜出——
+// 三钮规则均为 (0,1,0)、svg 规则均为 (0,1,1)，与各组件原声明同级。
+// 尺寸定稿 28×28 的代价核算：三钮各 +8px 共 +24px，Flex 两处 gap 由默认 1rem
+// 收到 0.4rem 省 19.2px，.kb-quick 内 gap 0.55→0.4rem 再省 2.4px，
+// 搜索框净损 2.4px——命中区却从细长条变为规整方形。
+// ============================================================
+
+:root {
+  // 左栏快捷区间距的单一事实源：quartz.layout.ts 两处 Flex 以
+  // gap: "var(--kb-quick-gap, 0.4rem)" 消费（Flex.tsx 把 gap 拼进 inline style）
+  --kb-quick-gap: 0.4rem;
+}
+
+// .kb-quick 是齿轮与明暗钮的直接容器（settings.scss 原写死 0.55rem），
+// 接回同一变量，三钮间距才真正等距。
+.kb-quick {
+  gap: var(--kb-quick-gap, 0.4rem);
+}
+
+.kb-settings-btn,
+.kb-theme-toggle,
+.readermode {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  // grid + place-items 居中：svg 随之退出绝对定位，图标在方形命中区内天然居中
+  display: grid;
+  place-items: center;
+  color: var(--darkgray);
+  background-color: transparent;
+  // 高频交互取最短档；只动颜色与底色，不进第十五节的 260ms 暗色清单（防悬停迟钝）
+  transition:
+    color var(--duration-hover, 140ms) var(--ease-hover, ease),
+    background-color var(--duration-hover, 140ms) var(--ease-hover, ease);
+
+  & svg {
+    position: static;
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+  }
+
+  // 悬停：文字色加深 + 玻璃底上的浅色胶囊（与目录树 active 态同一 wash 体系）
+  &:hover {
+    color: var(--dark);
+    background-color: var(--glass-hover-wash);
+  }
+
+  // 按下：换用主题强调色 wash，与目录树当前项的底色同源
+  &:active {
+    background-color: var(--nav-active-wash);
+  }
+}
+
+// ============================================================
+// 界面风格（v9）：六套古风主题 × 亮暗两态。data-style 挂在 <html> 上，
+// saved-theme 区分亮暗；两属性正交，六套（含默认宣纸）一律走 [data-style]
+// 覆盖块——构建期 joinStyles 把 config 的 :root / :root[saved-theme="dark"]
+// 拼在 index.css 末尾（quartz/util/theme.ts:157-193），只有 (0,2,0)/(0,3,0)
+// 的属性选择器才争得过它。每套 dark 块必须全量重定义 9 个基础色，
+// 漏一个即静默泄漏 config 旧值（最易漏 --tertiary / --textHighlight）。
+//
+// 每块 44 个变量 = 9 基础色 + 5 字体 + 12 玻璃与页面 token + 2 滚动条拇指
+//   + 4 导航/术语链衍生色 + 2 图谱边色 + 9 图谱域色板 + 1 素描背景；
+//   亮态块另经 :not([saved-theme="dark"]) 守卫追加 4 个批注底纹变量（见下）。
+// 推导：中间灰阶沿「底色→文字」在 OKLCH 插值（色相锁强调色、chroma ≤0.032，
+// lightgray t=0.12 / gray t=0.42 / darkgray t=0.72），再按 WCAG 门槛调明度：
+// dark:light ≥7:1、darkgray ≥4.5:1、secondary/tertiary/gray/每个域色 ≥3:1。
+//
+// —— 玻璃基底推导（v10 重算，需求⑦「侧栏颜色适应主题」）——
+// v9 的玻璃底色是「--light 提亮 6~15」的近白 rgba，六套主题下侧栏一律偏白、
+// 读不出色温。v10 改为「等明度加彩度」：
+//   · 亮态：OKLCH 明度取 --light 本体（色域不足以承载目标彩度时最多降半档
+//     0.032），色相锁 --secondary，彩度调至 sRGB 通道差落在 18-26；
+//   · 暗态：明度锁死原玻璃基底（**只提彩度不提亮度**，避免暗色文字对比度回归），
+//     色相同锁 --secondary，通道差 16-22；
+//   · alpha 一律沿用 v9 既定值（0.78/0.7/0.55/0.86/0.92 亮，0.8/0.72/0.6/0.82/0.9 暗）；
+//   · bg-solid / overlay-fallback / popover-bg 各自保留原有 OKLCH 明度（其与
+//     --light 的层次差是调好的），只换彩度与色相，越色域时保 L 与 H 削 C，
+//     不做 sRGB 硬裁剪；hover-wash 明度锁 --lightgray、彩度按其自身明度另行
+//     逼近通道差（套用基底彩度会在低明度处放大到通道差 49，过艳）。
+// 落地前经 36 取样点实测（12 块 × 左栏 nav-fg on glass-bg-thick、右栏 darkgray
+// on glass-inner-bg、弹窗 dark on popover-bg 三处合成对比度），
+// 门槛 nav-fg/darkgray ≥4.5、dark ≥6（合成底非纯 --light，自 7 放宽），全数通过。
+// --glass-bg-thick / --glass-scrim 必须逐块定义：左栏导航主体与滚动边缘渐隐读的是
+// 这两个 token，只写在全局 :root 会让左栏在六套主题下一概不变色。
+// 域色板九色的色相顺序跨主题不变（「颜色→知识域」的记忆不因换主题失效），
+// 仅调明度/彩度包络，与本主题强调色撞色的档位做 ±12° 避让。
+// --titleFont / --codeFont 不主题化；玻璃模糊/阴影 token 亦不随风格变。
+//
+// 批注四色（yellow/green/blue/pink）分工：下划线实色 --kb-anno-*-line 与暗态
+// 底纹 --kb-anno-*-bg 仍由 annotate.scss 全局统一、不随风格变；亮态底纹
+// --kb-anno-*-bg 改为逐主题重定义——原跨主题静态 rgba 压在六套亮态底色上
+// 合成对比度仅 1.07–1.33:1，现按各自底色重算到 ≈1.65:1（保持淡底纹，未越
+// 2.2:1）。调法：色相锁死对应 -line 实色，alpha 统一 0.42（沿用 annotate.scss
+// 的 0.28–0.42 上限），仅对 RGB 三通道等比缩放，故 HSV 色相/饱和度不变，
+// 四色相互间距（45°/142°/209°/343°）原样保留。
+// 亮态块必须带 :not([saved-theme="dark"]) 守卫：annotate.scss 的
+// :root[saved-theme="dark"] 同为 (0,2,0) 且在 index.css 中位于本文件之前，
+// 无守卫时同特异性后者胜，亮态底纹会泄漏进暗态。
+// ============================================================
+
+// 无 data-style 时（无 JS 或极早期首帧）的兜底：两个新字体变量落回既有语义。
+// config typography 已同步为宣纸（黑体/宋体），此处不重复声明基础色。
 :root {
   --leftFont: var(--headerFont);
+  --rightFont: var(--bodyFont);
 }
 
-// —— 纸张 paper：暖米白 / 暖棕黑 ——
-:root[data-style="paper"] {
-  --light: #f7f3ec;
-  --lightgray: #e3dccd;
-  --gray: #b3a992;
-  --darkgray: #6b6150;
+// —— 宣纸 xuanzhi（默认）：暖米白宣纸 / 焦褐墨；素描「远山淡影」——
+:root[data-style="xuanzhi"] {
+  // 9 基础色（dark 块必须全量重定义，漏一个即泄漏 config 值）
+  --light: #f6f1e7;
+  --lightgray: #e1d6cf;
+  --gray: #948781;
+  --darkgray: #6e6059;
   --dark: #3a3226;
-  --secondary: #a2845e;
-  --tertiary: #b9a37e;
-  --highlight: rgba(162, 132, 94, 0.14);
-  --textHighlight: #f2d8a0aa;
-  --glass-bg: rgba(255, 252, 245, 0.78);
-  --glass-border: rgba(255, 252, 245, 0.7);
-  --glass-bg-solid: #f5efe2;
-  --glass-inner-bg: rgba(255, 252, 245, 0.55);
-  --glass-overlay-fallback: rgba(250, 247, 238, 0.55);
-  --glass-hover-wash: rgba(227, 220, 205, 0.55);
-  --popover-bg: rgba(253, 250, 243, 0.98);
-  --page-tint-a: rgba(162, 132, 94, 0.07);
-  --page-tint-b: rgba(185, 163, 126, 0.08);
-  --accent-wash: rgba(162, 132, 94, 0.06);
-  --graphLink: #cfc6b2;
-  --graphLinkActive: #a2845e;
+  --secondary: #8c5a3c;
+  --tertiary: #a3775d;
+  --highlight: rgba(140, 90, 60, 0.13);
+  --textHighlight: #fecbaeaa;
+  // 5 字体：页头黑体 / 正文宋体 / 左栏黑体 / 右栏宋体 / 图谱黑体
+  --headerFont: #{$fontHei};
+  --bodyFont: #{$fontSong};
+  --leftFont: #{$fontHei};
+  --rightFont: #{$fontSong};
+  --graphFont: #{$fontHei};
+  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v10 玻璃基底推导重算，见文件头）
+  --glass-bg: rgba(253, 238, 231, 0.78);
+  --glass-border: rgba(253, 238, 231, 0.7);
+  --glass-bg-solid: #f8e9e2;
+  --glass-bg-thick: rgba(253, 238, 231, 0.86);
+  --glass-scrim: rgba(253, 238, 231, 0.92);
+  --glass-inner-bg: rgba(253, 238, 231, 0.55);
+  --glass-overlay-fallback: rgba(255, 243, 237, 0.55);
+  --glass-hover-wash: rgba(228, 213, 206, 0.55);
+  --popover-bg: rgba(255, 246, 242, 0.98);
+  --page-tint-a: rgba(140, 90, 60, 0.07);
+  --page-tint-b: rgba(163, 119, 93, 0.08);
+  --accent-wash: rgba(140, 90, 60, 0.06);
+  // 2 滚动条拇指（overlay 轨道用色，取本主题 --dark 文字色的低 alpha）
+  --scroll-thumb: rgba(58, 50, 38, 0.28);
+  --scroll-thumb-hover: rgba(58, 50, 38, 0.45);
+  // 导航文本与术语链（原为全局硬编码，随主题走）
+  --nav-fg: #574a43;
+  --nav-fg-muted: #6e6059;
+  --nav-active-wash: rgba(140, 90, 60, 0.1);
+  --term-link-line: rgba(140, 90, 60, 0.32);
+  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  --graphLink: #bbafa8;
+  --graphLinkActive: #8c5a3c;
+  --graph-section-1: #be5e66;
+  --graph-section-2: #b6684f;
+  --graph-section-3: #9d7a37;
+  --graph-section-4: #578e6d;
+  --graph-section-5: #498f84;
+  --graph-section-6: #5984b1;
+  --graph-section-7: #8a73af;
+  --graph-section-8: #a66b8b;
+  --graph-section-9: #687bc4;
+  // 素描背景：远山淡影
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%238c5a3c' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='1.6' stroke-opacity='0.055' d='M700 300 C730 296 764 250 786 244 C808 240 850 280 880 286 C918 292 958 236 986 228 C1012 224 1058 268 1090 272 C1128 276 1170 258 1200 244'/%3E%3Cpath stroke-width='2' stroke-opacity='0.075' d='M420 430 C452 424 496 362 520 352 C546 344 606 398 640 410 C692 420 758 342 790 330 C820 320 882 392 920 400 C972 410 1028 330 1060 318 C1094 312 1152 350 1200 364'/%3E%3Cpath stroke-width='2.8' stroke-opacity='0.1' d='M240 596 C288 590 342 476 372 466 C404 456 452 530 520 566 C562 588 606 466 640 452 C676 440 786 542 830 578 C876 550 950 452 990 440 C1026 430 1086 526 1120 566 C1146 578 1176 556 1200 548'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.08' d='M372 472 C382 514 390 554 396 596'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.08' d='M640 458 C650 502 658 542 664 584'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.07' d='M990 446 C1000 488 1008 526 1014 568'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.055' d='M330 690 C480 678 660 684 800 674'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.06' d='M470 726 C620 714 800 720 960 710'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.05' d='M600 760 C740 750 880 754 1010 744'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.075' d='M318 292 C334 278 344 278 360 292'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.06' d='M368 312 C380 302 388 302 400 312'/%3E%3C/svg%3E");
+
+  // 批注四色亮态底纹（对 #f6f1e7 合成 ≈1.65:1；:not 守卫见文件头说明）
+  &:not([saved-theme="dark"]) {
+    --kb-anno-yellow-bg: rgba(147, 118, 28, 0.42);
+    --kb-anno-green-bg: rgba(61, 138, 89, 0.42);
+    --kb-anno-blue-bg: rgba(70, 127, 180, 0.42);
+    --kb-anno-pink-bg: rgba(194, 93, 121, 0.42);
+  }
 }
-:root[data-style="paper"][saved-theme="dark"] {
-  --light: #262019;
-  --lightgray: #3d362b;
-  --gray: #5c5343;
-  --darkgray: #b5a98f;
-  --dark: #f5ead8;
-  --secondary: #c9a87c;
-  --tertiary: #a98f64;
-  --highlight: rgba(201, 168, 124, 0.16);
-  --textHighlight: #7a5f30aa;
-  --glass-bg: rgba(46, 39, 30, 0.8);
-  --glass-border: rgba(46, 39, 30, 0.72);
-  --glass-bg-solid: #2e2a20;
-  --glass-inner-bg: rgba(46, 39, 30, 0.6);
-  --glass-overlay-fallback: rgba(40, 34, 26, 0.55);
-  --glass-hover-wash: rgba(61, 54, 43, 0.6);
-  --popover-bg: rgba(42, 36, 28, 0.98);
-  --page-tint-a: rgba(201, 168, 124, 0.06);
-  --page-tint-b: rgba(169, 143, 100, 0.07);
-  --accent-wash: rgba(201, 168, 124, 0.05);
-  --graphLink: #4a4234;
-  --graphLinkActive: #c9a87c;
+:root[data-style="xuanzhi"][saved-theme="dark"] {
+  // 9 基础色（dark 块必须全量重定义，漏一个即泄漏 config 值）
+  --light: #201c16;
+  --lightgray: #342d28;
+  --gray: #70675f;
+  --darkgray: #a2968d;
+  --dark: #d8cfc0;
+  --secondary: #c8956c;
+  --tertiary: #a47855;
+  --highlight: rgba(200, 149, 108, 0.16);
+  --textHighlight: #653d19aa;
+  // 5 字体：页头黑体 / 正文宋体 / 左栏黑体 / 右栏宋体 / 图谱黑体
+  --headerFont: #{$fontHei};
+  --bodyFont: #{$fontSong};
+  --leftFont: #{$fontHei};
+  --rightFont: #{$fontSong};
+  --graphFont: #{$fontHei};
+  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v10 玻璃基底推导重算，见文件头）
+  --glass-bg: rgba(45, 34, 26, 0.8);
+  --glass-border: rgba(45, 34, 26, 0.72);
+  --glass-bg-solid: #2d221a;
+  --glass-bg-thick: rgba(45, 34, 26, 0.82);
+  --glass-scrim: rgba(45, 34, 26, 0.9);
+  --glass-inner-bg: rgba(45, 34, 26, 0.6);
+  --glass-overlay-fallback: rgba(39, 28, 20, 0.55);
+  --glass-hover-wash: rgba(55, 44, 36, 0.6);
+  --popover-bg: rgba(41, 30, 22, 0.98);
+  --page-tint-a: rgba(200, 149, 108, 0.06);
+  --page-tint-b: rgba(164, 120, 85, 0.07);
+  --accent-wash: rgba(200, 149, 108, 0.05);
+  // 2 滚动条拇指（overlay 轨道用色，取本主题 --dark 文字色的低 alpha）
+  --scroll-thumb: rgba(216, 207, 192, 0.18);
+  --scroll-thumb-hover: rgba(216, 207, 192, 0.32);
+  // 导航文本与术语链（原为全局硬编码，随主题走）
+  --nav-fg: #bbafa5;
+  --nav-fg-muted: #a2968d;
+  --nav-active-wash: rgba(200, 149, 108, 0.16);
+  --term-link-line: rgba(200, 149, 108, 0.4);
+  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  --graphLink: #524a44;
+  --graphLinkActive: #c8956c;
+  --graph-section-1: #d6747b;
+  --graph-section-2: #ca805a;
+  --graph-section-3: #b38f4d;
+  --graph-section-4: #6ca482;
+  --graph-section-5: #5ea499;
+  --graph-section-6: #6e99c8;
+  --graph-section-7: #a088c5;
+  --graph-section-8: #bc80a0;
+  --graph-section-9: #7c90dc;
+  // 素描背景：远山淡影
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%23c8956c' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='1.6' stroke-opacity='0.072' d='M700 300 C730 296 764 250 786 244 C808 240 850 280 880 286 C918 292 958 236 986 228 C1012 224 1058 268 1090 272 C1128 276 1170 258 1200 244'/%3E%3Cpath stroke-width='2' stroke-opacity='0.098' d='M420 430 C452 424 496 362 520 352 C546 344 606 398 640 410 C692 420 758 342 790 330 C820 320 882 392 920 400 C972 410 1028 330 1060 318 C1094 312 1152 350 1200 364'/%3E%3Cpath stroke-width='2.8' stroke-opacity='0.13' d='M240 596 C288 590 342 476 372 466 C404 456 452 530 520 566 C562 588 606 466 640 452 C676 440 786 542 830 578 C876 550 950 452 990 440 C1026 430 1086 526 1120 566 C1146 578 1176 556 1200 548'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.104' d='M372 472 C382 514 390 554 396 596'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.104' d='M640 458 C650 502 658 542 664 584'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.091' d='M990 446 C1000 488 1008 526 1014 568'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.072' d='M330 690 C480 678 660 684 800 674'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.078' d='M470 726 C620 714 800 720 960 710'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.065' d='M600 760 C740 750 880 754 1010 744'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.098' d='M318 292 C334 278 344 278 360 292'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.078' d='M368 312 C380 302 388 302 400 312'/%3E%3C/svg%3E");
 }
 
-// —— 水墨 ink：低饱和青灰 / 墨黑 ——
-:root[data-style="ink"] {
-  --light: #f1f4f3;
-  --lightgray: #dde3e0;
-  --gray: #9fb0a8;
-  --darkgray: #5c6b64;
-  --dark: #23302b;
-  --secondary: #2e7d5b;
-  --tertiary: #4d9d7d;
-  --highlight: rgba(46, 125, 91, 0.13);
-  --textHighlight: #bfe3d0aa;
-  --glass-bg: rgba(250, 252, 251, 0.78);
-  --glass-border: rgba(250, 252, 251, 0.7);
-  --glass-bg-solid: #eef2f0;
-  --glass-inner-bg: rgba(250, 252, 251, 0.55);
-  --glass-overlay-fallback: rgba(248, 251, 249, 0.55);
-  --glass-hover-wash: rgba(221, 227, 224, 0.55);
-  --popover-bg: rgba(249, 251, 250, 0.98);
-  --page-tint-a: rgba(46, 125, 91, 0.06);
-  --page-tint-b: rgba(77, 157, 125, 0.07);
-  --accent-wash: rgba(46, 125, 91, 0.05);
-  --graphLink: #c5d0cb;
-  --graphLinkActive: #2e7d5b;
+// —— 水墨 shuimo：青灰宣 / 淡墨青；素描「山水泼墨」——
+:root[data-style="shuimo"] {
+  // 9 基础色（dark 块必须全量重定义，漏一个即泄漏 config 值）
+  --light: #f2f4f3;
+  --lightgray: #d8dadc;
+  --gray: #898c8e;
+  --darkgray: #606567;
+  --dark: #2f3437;
+  --secondary: #40606c;
+  --tertiary: #5e7984;
+  --highlight: rgba(64, 96, 108, 0.13);
+  --textHighlight: #b9dfedaa;
+  // 5 字体：页头楷体 / 正文宋体 / 左栏黑体 / 右栏宋体 / 图谱黑体
+  --headerFont: #{$fontKai};
+  --bodyFont: #{$fontSong};
+  --leftFont: #{$fontHei};
+  --rightFont: #{$fontSong};
+  --graphFont: #{$fontHei};
+  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v10 玻璃基底推导重算，见文件头）
+  --glass-bg: rgba(231, 247, 253, 0.78);
+  --glass-border: rgba(231, 247, 253, 0.7);
+  --glass-bg-solid: #e2f1f7;
+  --glass-bg-thick: rgba(231, 247, 253, 0.86);
+  --glass-scrim: rgba(231, 247, 253, 0.92);
+  --glass-inner-bg: rgba(231, 247, 253, 0.55);
+  --glass-overlay-fallback: rgba(237, 250, 255, 0.55);
+  --glass-hover-wash: rgba(205, 221, 227, 0.55);
+  --popover-bg: rgba(244, 252, 255, 0.98);
+  --page-tint-a: rgba(64, 96, 108, 0.07);
+  --page-tint-b: rgba(94, 121, 132, 0.08);
+  --accent-wash: rgba(64, 96, 108, 0.06);
+  // 2 滚动条拇指（overlay 轨道用色，取本主题 --dark 文字色的低 alpha）
+  --scroll-thumb: rgba(47, 52, 55, 0.28);
+  --scroll-thumb-hover: rgba(47, 52, 55, 0.45);
+  // 导航文本与术语链（原为全局硬编码，随主题走）
+  --nav-fg: #494e50;
+  --nav-fg-muted: #606567;
+  --nav-active-wash: rgba(64, 96, 108, 0.1);
+  --term-link-line: rgba(64, 96, 108, 0.32);
+  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  --graphLink: #b1b3b5;
+  --graphLinkActive: #40606c;
+  --graph-section-1: #bb6168;
+  --graph-section-2: #b06e46;
+  --graph-section-3: #9b7b3d;
+  --graph-section-4: #5a8e6e;
+  --graph-section-5: #4d8e84;
+  --graph-section-6: #5c84af;
+  --graph-section-7: #8a74ac;
+  --graph-section-8: #a46c8b;
+  --graph-section-9: #697cc1;
+  // 素描背景：山水泼墨
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%2340606c' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='4.2' stroke-opacity='0.1' d='M160 640 C280 560 330 470 400 356 C440 292 486 258 534 306 C580 352 596 428 662 398 C726 368 748 288 812 306 C892 328 902 420 986 396 C1068 372 1108 306 1200 330'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.055' d='M560 430 C640 380 690 404 756 366 C830 324 940 380 1200 348'/%3E%3Cpath stroke-width='2.6' stroke-opacity='0.085' d='M534 312 C548 380 542 448 556 512'/%3E%3Cpath stroke-width='2.6' stroke-opacity='0.085' d='M812 312 C826 372 820 428 834 486'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.07' d='M400 366 C412 428 404 486 416 544'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.05' d='M280 686 C470 674 690 680 890 668'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.055' d='M400 726 C580 714 790 720 970 708'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.045' d='M540 762 C700 752 860 756 1010 746'/%3E%3Cpath stroke-width='2' stroke-opacity='0.09' d='M600 698 C616 710 652 710 668 698'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.09' d='M634 698 L634 672'/%3E%3Cpath stroke-width='3.4' stroke-opacity='0.075' d='M180 470 C230 432 278 458 314 424'/%3E%3Cpath stroke-width='2.4' stroke-opacity='0.06' d='M196 514 C240 488 280 502 310 480'/%3E%3C/svg%3E");
+
+  // 批注四色亮态底纹（对 #f2f4f3 合成 ≈1.65:1；:not 守卫见文件头说明）
+  &:not([saved-theme="dark"]) {
+    --kb-anno-yellow-bg: rgba(149, 120, 29, 0.42);
+    --kb-anno-green-bg: rgba(61, 139, 89, 0.42);
+    --kb-anno-blue-bg: rgba(70, 128, 182, 0.42);
+    --kb-anno-pink-bg: rgba(197, 94, 123, 0.42);
+  }
 }
-:root[data-style="ink"][saved-theme="dark"] {
-  --light: #14181a;
-  --lightgray: #262c2e;
-  --gray: #4a5450;
-  --darkgray: #b8c4be;
-  --dark: #d8e2dc;
-  --secondary: #6fbf9e;
-  --tertiary: #4e9279;
-  --highlight: rgba(111, 191, 158, 0.15);
-  --textHighlight: #2e5c47aa;
-  --glass-bg: rgba(26, 31, 33, 0.8);
-  --glass-border: rgba(26, 31, 33, 0.72);
-  --glass-bg-solid: #1a2022;
-  --glass-inner-bg: rgba(26, 31, 33, 0.6);
-  --glass-overlay-fallback: rgba(22, 27, 29, 0.55);
-  --glass-hover-wash: rgba(38, 44, 46, 0.6);
-  --popover-bg: rgba(24, 29, 31, 0.98);
-  --page-tint-a: rgba(111, 191, 158, 0.06);
-  --page-tint-b: rgba(78, 146, 121, 0.07);
-  --accent-wash: rgba(111, 191, 158, 0.05);
-  --graphLink: #39433f;
-  --graphLinkActive: #6fbf9e;
+:root[data-style="shuimo"][saved-theme="dark"] {
+  // 9 基础色（dark 块必须全量重定义，漏一个即泄漏 config 值）
+  --light: #171a1c;
+  --lightgray: #292d2e;
+  --gray: #626869;
+  --darkgray: #92989b;
+  --dark: #c9d1d3;
+  --secondary: #7da3b0;
+  --tertiary: #63848f;
+  --highlight: rgba(125, 163, 176, 0.16);
+  --textHighlight: #284e5aaa;
+  // 5 字体：页头楷体 / 正文宋体 / 左栏黑体 / 右栏宋体 / 图谱黑体
+  --headerFont: #{$fontKai};
+  --bodyFont: #{$fontSong};
+  --leftFont: #{$fontHei};
+  --rightFont: #{$fontSong};
+  --graphFont: #{$fontHei};
+  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v10 玻璃基底推导重算，见文件头）
+  --glass-bg: rgba(22, 36, 41, 0.8);
+  --glass-border: rgba(22, 36, 41, 0.72);
+  --glass-bg-solid: #162429;
+  --glass-bg-thick: rgba(22, 36, 41, 0.82);
+  --glass-scrim: rgba(22, 36, 41, 0.9);
+  --glass-inner-bg: rgba(22, 36, 41, 0.6);
+  --glass-overlay-fallback: rgba(16, 30, 35, 0.55);
+  --glass-hover-wash: rgba(33, 47, 52, 0.6);
+  --popover-bg: rgba(18, 32, 37, 0.98);
+  --page-tint-a: rgba(125, 163, 176, 0.06);
+  --page-tint-b: rgba(99, 132, 143, 0.07);
+  --accent-wash: rgba(125, 163, 176, 0.05);
+  // 2 滚动条拇指（overlay 轨道用色，取本主题 --dark 文字色的低 alpha）
+  --scroll-thumb: rgba(201, 209, 211, 0.18);
+  --scroll-thumb-hover: rgba(201, 209, 211, 0.32);
+  // 导航文本与术语链（原为全局硬编码，随主题走）
+  --nav-fg: #abb1b4;
+  --nav-fg-muted: #92989b;
+  --nav-active-wash: rgba(125, 163, 176, 0.16);
+  --term-link-line: rgba(125, 163, 176, 0.4);
+  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  --graphLink: #464b4c;
+  --graphLinkActive: #7da3b0;
+  --graph-section-1: #d3767c;
+  --graph-section-2: #c7835b;
+  --graph-section-3: #b19052;
+  --graph-section-4: #6fa383;
+  --graph-section-5: #62a399;
+  --graph-section-6: #7099c5;
+  --graph-section-7: #9f88c2;
+  --graph-section-8: #ba81a0;
+  --graph-section-9: #7d91d8;
+  // 素描背景：山水泼墨
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%237da3b0' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='4.2' stroke-opacity='0.13' d='M160 640 C280 560 330 470 400 356 C440 292 486 258 534 306 C580 352 596 428 662 398 C726 368 748 288 812 306 C892 328 902 420 986 396 C1068 372 1108 306 1200 330'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.072' d='M560 430 C640 380 690 404 756 366 C830 324 940 380 1200 348'/%3E%3Cpath stroke-width='2.6' stroke-opacity='0.111' d='M534 312 C548 380 542 448 556 512'/%3E%3Cpath stroke-width='2.6' stroke-opacity='0.111' d='M812 312 C826 372 820 428 834 486'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.091' d='M400 366 C412 428 404 486 416 544'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.065' d='M280 686 C470 674 690 680 890 668'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.072' d='M400 726 C580 714 790 720 970 708'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.059' d='M540 762 C700 752 860 756 1010 746'/%3E%3Cpath stroke-width='2' stroke-opacity='0.117' d='M600 698 C616 710 652 710 668 698'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.117' d='M634 698 L634 672'/%3E%3Cpath stroke-width='3.4' stroke-opacity='0.098' d='M180 470 C230 432 278 458 314 424'/%3E%3Cpath stroke-width='2.4' stroke-opacity='0.078' d='M196 514 C240 488 280 502 310 480'/%3E%3C/svg%3E");
 }
 
-// —— 海洋 ocean：浅蓝白 / 深蓝黑 ——
-:root[data-style="ocean"] {
-  --light: #f0f5fa;
-  --lightgray: #d7e2ec;
-  --gray: #9db3c5;
-  --darkgray: #5a6d7e;
-  --dark: #1b2a38;
-  --secondary: #0a6fd8;
-  --tertiary: #4a94d6;
-  --highlight: rgba(10, 111, 216, 0.12);
-  --textHighlight: #bfd9f0aa;
-  --glass-bg: rgba(248, 251, 254, 0.78);
-  --glass-border: rgba(248, 251, 254, 0.7);
-  --glass-bg-solid: #edf3f8;
-  --glass-inner-bg: rgba(248, 251, 254, 0.55);
-  --glass-overlay-fallback: rgba(247, 250, 253, 0.55);
-  --glass-hover-wash: rgba(215, 226, 236, 0.55);
-  --popover-bg: rgba(249, 252, 255, 0.98);
-  --page-tint-a: rgba(10, 111, 216, 0.06);
-  --page-tint-b: rgba(74, 148, 214, 0.07);
-  --accent-wash: rgba(10, 111, 216, 0.05);
-  --graphLink: #c6d4e0;
-  --graphLinkActive: #0a6fd8;
+// —— 青瓷 qingci：粉青釉 / 松石绿；素描「缠枝莲纹」——
+:root[data-style="qingci"] {
+  // 9 基础色（dark 块必须全量重定义，漏一个即泄漏 config 值）
+  --light: #eef4f2;
+  --lightgray: #d4dcda;
+  --gray: #828d8b;
+  --darkgray: #5d6d6a;
+  --dark: #2c3e3a;
+  --secondary: #3d7068;
+  --tertiary: #5e8982;
+  --highlight: rgba(61, 112, 104, 0.13);
+  --textHighlight: #ace5dbaa;
+  // 5 字体：页头黑体 / 正文仿宋 / 左栏苹方 / 右栏苹方 / 图谱苹方
+  --headerFont: #{$fontHei};
+  --bodyFont: #{$fontFang};
+  --leftFont: #{$fontPing};
+  --rightFont: #{$fontPing};
+  --graphFont: #{$fontPing};
+  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v10 玻璃基底推导重算，见文件头）
+  --glass-bg: rgba(226, 248, 244, 0.78);
+  --glass-border: rgba(226, 248, 244, 0.7);
+  --glass-bg-solid: #ddf3ef;
+  --glass-bg-thick: rgba(226, 248, 244, 0.86);
+  --glass-scrim: rgba(226, 248, 244, 0.92);
+  --glass-inner-bg: rgba(226, 248, 244, 0.55);
+  --glass-overlay-fallback: rgba(230, 252, 248, 0.55);
+  --glass-hover-wash: rgba(202, 224, 220, 0.55);
+  --popover-bg: rgba(233, 255, 251, 0.98);
+  --page-tint-a: rgba(61, 112, 104, 0.07);
+  --page-tint-b: rgba(94, 137, 130, 0.08);
+  --accent-wash: rgba(61, 112, 104, 0.06);
+  // 2 滚动条拇指（overlay 轨道用色，取本主题 --dark 文字色的低 alpha）
+  --scroll-thumb: rgba(44, 62, 58, 0.28);
+  --scroll-thumb-hover: rgba(44, 62, 58, 0.45);
+  // 导航文本与术语链（原为全局硬编码，随主题走）
+  --nav-fg: #475754;
+  --nav-fg-muted: #5d6d6a;
+  --nav-active-wash: rgba(61, 112, 104, 0.1);
+  --term-link-line: rgba(61, 112, 104, 0.32);
+  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  --graphLink: #abb5b3;
+  --graphLinkActive: #3d7068;
+  --graph-section-1: #c45963;
+  --graph-section-2: #b76938;
+  --graph-section-3: #a0792a;
+  --graph-section-4: #51906b;
+  --graph-section-5: #3a8f8f;
+  --graph-section-6: #5484b7;
+  --graph-section-7: #8c71b3;
+  --graph-section-8: #a9688c;
+  --graph-section-9: #657acc;
+  // 素描背景：缠枝莲纹
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%233d7068' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='2.4' stroke-opacity='0.1' d='M1200 788 C1080 776 952 758 870 726 C776 690 664 668 632 590 C598 508 622 448 680 428'/%3E%3Cpath stroke-width='2' stroke-opacity='0.09' d='M680 428 C732 410 764 450 746 488 C732 518 694 518 684 490'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.09' d='M632 590 C550 584 476 624 434 694 C412 730 412 764 428 800'/%3E%3Cpath stroke-width='1.9' stroke-opacity='0.085' d='M660 510 C600 468 526 478 490 526'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.1' d='M490 526 C470 474 476 422 508 394 C538 422 542 474 522 526'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.09' d='M490 526 C450 492 424 446 432 404 C474 422 502 464 508 510'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.09' d='M522 526 C562 498 594 456 590 414 C550 430 520 468 510 510'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.075' d='M482 528 C430 520 384 488 370 450 C414 446 462 474 484 510'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.075' d='M530 528 C582 526 632 500 650 462 C606 454 556 478 532 510'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.085' d='M482 528 C494 550 522 550 532 528'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.07' d='M632 590 C674 624 680 684 652 720 C622 684 616 630 632 590'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.07' d='M434 694 C386 688 344 714 330 756 C374 768 420 746 434 694'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.065' d='M746 488 C778 484 798 510 790 538 C766 538 748 516 746 488'/%3E%3C/svg%3E");
+
+  // 批注四色亮态底纹（对 #eef4f2 合成 ≈1.65:1；:not 守卫见文件头说明）
+  &:not([saved-theme="dark"]) {
+    --kb-anno-yellow-bg: rgba(148, 119, 29, 0.42);
+    --kb-anno-green-bg: rgba(61, 138, 89, 0.42);
+    --kb-anno-blue-bg: rgba(70, 127, 180, 0.42);
+    --kb-anno-pink-bg: rgba(197, 94, 123, 0.42);
+  }
 }
-:root[data-style="ocean"][saved-theme="dark"] {
-  --light: #0f1b2d;
-  --lightgray: #1c2c40;
-  --gray: #3d5168;
-  --darkgray: #a9bdd1;
-  --dark: #d6e4f2;
-  --secondary: #4da3ff;
-  --tertiary: #2f7fc4;
-  --highlight: rgba(77, 163, 255, 0.16);
-  --textHighlight: #1d4a75aa;
-  --glass-bg: rgba(18, 29, 45, 0.8);
-  --glass-border: rgba(18, 29, 45, 0.72);
-  --glass-bg-solid: #142236;
-  --glass-inner-bg: rgba(18, 29, 45, 0.6);
-  --glass-overlay-fallback: rgba(16, 27, 43, 0.55);
-  --glass-hover-wash: rgba(28, 44, 64, 0.6);
-  --popover-bg: rgba(17, 28, 44, 0.98);
-  --page-tint-a: rgba(77, 163, 255, 0.06);
-  --page-tint-b: rgba(47, 127, 196, 0.07);
-  --accent-wash: rgba(77, 163, 255, 0.05);
-  --graphLink: #2c4057;
-  --graphLinkActive: #4da3ff;
+:root[data-style="qingci"][saved-theme="dark"] {
+  // 9 基础色（dark 块必须全量重定义，漏一个即泄漏 config 值）
+  --light: #14201d;
+  --lightgray: #263330;
+  --gray: #5e6d6a;
+  --darkgray: #8e9e9b;
+  --dark: #c5d6d2;
+  --secondary: #6faaa0;
+  --tertiary: #578a81;
+  --highlight: rgba(111, 170, 160, 0.16);
+  --textHighlight: #0d534baa;
+  // 5 字体：页头黑体 / 正文仿宋 / 左栏苹方 / 右栏苹方 / 图谱苹方
+  --headerFont: #{$fontHei};
+  --bodyFont: #{$fontFang};
+  --leftFont: #{$fontPing};
+  --rightFont: #{$fontPing};
+  --graphFont: #{$fontPing};
+  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v10 玻璃基底推导重算，见文件头）
+  --glass-bg: rgba(22, 41, 38, 0.8);
+  --glass-border: rgba(22, 41, 38, 0.72);
+  --glass-bg-solid: #162926;
+  --glass-bg-thick: rgba(22, 41, 38, 0.82);
+  --glass-scrim: rgba(22, 41, 38, 0.9);
+  --glass-inner-bg: rgba(22, 41, 38, 0.6);
+  --glass-overlay-fallback: rgba(16, 35, 32, 0.55);
+  --glass-hover-wash: rgba(33, 52, 49, 0.6);
+  --popover-bg: rgba(18, 37, 34, 0.98);
+  --page-tint-a: rgba(111, 170, 160, 0.06);
+  --page-tint-b: rgba(87, 138, 129, 0.07);
+  --accent-wash: rgba(111, 170, 160, 0.05);
+  // 2 滚动条拇指（overlay 轨道用色，取本主题 --dark 文字色的低 alpha）
+  --scroll-thumb: rgba(197, 214, 210, 0.18);
+  --scroll-thumb-hover: rgba(197, 214, 210, 0.32);
+  // 导航文本与术语链（原为全局硬编码，随主题走）
+  --nav-fg: #a6b7b4;
+  --nav-fg-muted: #8e9e9b;
+  --nav-active-wash: rgba(111, 170, 160, 0.16);
+  --term-link-line: rgba(111, 170, 160, 0.4);
+  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  --graphLink: #42504d;
+  --graphLinkActive: #6faaa0;
+  --graph-section-1: #dc6f78;
+  --graph-section-2: #ce7e4e;
+  --graph-section-3: #b68e42;
+  --graph-section-4: #66a67f;
+  --graph-section-5: #52a5a4;
+  --graph-section-6: #6999cd;
+  --graph-section-7: #a186ca;
+  --graph-section-8: #c07da2;
+  --graph-section-9: #798fe3;
+  // 素描背景：缠枝莲纹
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%236faaa0' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='2.4' stroke-opacity='0.13' d='M1200 788 C1080 776 952 758 870 726 C776 690 664 668 632 590 C598 508 622 448 680 428'/%3E%3Cpath stroke-width='2' stroke-opacity='0.117' d='M680 428 C732 410 764 450 746 488 C732 518 694 518 684 490'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.117' d='M632 590 C550 584 476 624 434 694 C412 730 412 764 428 800'/%3E%3Cpath stroke-width='1.9' stroke-opacity='0.111' d='M660 510 C600 468 526 478 490 526'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.13' d='M490 526 C470 474 476 422 508 394 C538 422 542 474 522 526'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.117' d='M490 526 C450 492 424 446 432 404 C474 422 502 464 508 510'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.117' d='M522 526 C562 498 594 456 590 414 C550 430 520 468 510 510'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.098' d='M482 528 C430 520 384 488 370 450 C414 446 462 474 484 510'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.098' d='M530 528 C582 526 632 500 650 462 C606 454 556 478 532 510'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.111' d='M482 528 C494 550 522 550 532 528'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.091' d='M632 590 C674 624 680 684 652 720 C622 684 616 630 632 590'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.091' d='M434 694 C386 688 344 714 330 756 C374 768 420 746 434 694'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.085' d='M746 488 C778 484 798 510 790 538 C766 538 748 516 746 488'/%3E%3C/svg%3E");
 }
 
-// —— 午夜 midnight：银紫 / 近黑蓝紫 ——
-:root[data-style="midnight"] {
-  --light: #f4f2f8;
-  --lightgray: #ddd8e8;
-  --gray: #a49eb5;
-  --darkgray: #5f5a70;
-  --dark: #23212e;
-  --secondary: #5e5ce6;
-  --tertiary: #8b88ea;
-  --highlight: rgba(94, 92, 230, 0.12);
-  --textHighlight: #d2cff6aa;
-  --glass-bg: rgba(251, 250, 254, 0.78);
-  --glass-border: rgba(251, 250, 254, 0.7);
-  --glass-bg-solid: #f1eff7;
-  --glass-inner-bg: rgba(251, 250, 254, 0.55);
-  --glass-overlay-fallback: rgba(249, 248, 253, 0.55);
-  --glass-hover-wash: rgba(221, 216, 232, 0.55);
-  --popover-bg: rgba(251, 250, 254, 0.98);
-  --page-tint-a: rgba(94, 92, 230, 0.06);
-  --page-tint-b: rgba(139, 136, 234, 0.07);
-  --accent-wash: rgba(94, 92, 230, 0.05);
-  --graphLink: #cfcadb;
-  --graphLinkActive: #5e5ce6;
+// —— 竹林 zhulin：新篁白 / 竹青；素描「竹枝疏影」——
+:root[data-style="zhulin"] {
+  // 9 基础色（dark 块必须全量重定义，漏一个即泄漏 config 值）
+  --light: #f1f5ec;
+  --lightgray: #d6ded5;
+  --gray: #848e82;
+  --darkgray: #616f60;
+  --dark: #33402e;
+  --secondary: #4a7c46;
+  --tertiary: #6a9566;
+  --highlight: rgba(74, 124, 70, 0.13);
+  --textHighlight: #bce5b7aa;
+  // 5 字体：页头仿宋 / 正文宋体 / 左栏苹方 / 右栏宋体 / 图谱苹方
+  --headerFont: #{$fontFang};
+  --bodyFont: #{$fontSong};
+  --leftFont: #{$fontPing};
+  --rightFont: #{$fontSong};
+  --graphFont: #{$fontPing};
+  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v10 玻璃基底推导重算，见文件头）
+  --glass-bg: rgba(231, 250, 228, 0.78);
+  --glass-border: rgba(231, 250, 228, 0.7);
+  --glass-bg-solid: #e2f5df;
+  --glass-bg-thick: rgba(231, 250, 228, 0.86);
+  --glass-scrim: rgba(231, 250, 228, 0.92);
+  --glass-inner-bg: rgba(231, 250, 228, 0.55);
+  --glass-overlay-fallback: rgba(235, 254, 232, 0.55);
+  --glass-hover-wash: rgba(207, 226, 204, 0.55);
+  --popover-bg: rgba(240, 255, 238, 0.98);
+  --page-tint-a: rgba(74, 124, 70, 0.07);
+  --page-tint-b: rgba(106, 149, 102, 0.08);
+  --accent-wash: rgba(74, 124, 70, 0.06);
+  // 2 滚动条拇指（overlay 轨道用色，取本主题 --dark 文字色的低 alpha）
+  --scroll-thumb: rgba(51, 64, 46, 0.28);
+  --scroll-thumb-hover: rgba(51, 64, 46, 0.45);
+  // 导航文本与术语链（原为全局硬编码，随主题走）
+  --nav-fg: #4c594b;
+  --nav-fg-muted: #616f60;
+  --nav-active-wash: rgba(74, 124, 70, 0.1);
+  --term-link-line: rgba(74, 124, 70, 0.32);
+  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  --graphLink: #adb6ac;
+  --graphLinkActive: #4a7c46;
+  --graph-section-1: #c75662;
+  --graph-section-2: #ba6833;
+  --graph-section-3: #a17922;
+  --graph-section-4: #4e916a;
+  --graph-section-5: #3a9185;
+  --graph-section-6: #5184b9;
+  --graph-section-7: #8c70b6;
+  --graph-section-8: #ab678d;
+  --graph-section-9: #6479cf;
+  // 素描背景：竹枝疏影
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%234a7c46' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='3' stroke-opacity='0.1' d='M712 800 C696 690 676 578 668 466 C662 380 668 300 682 232'/%3E%3Cpath stroke-width='2.4' stroke-opacity='0.085' d='M566 800 C552 706 538 614 538 524 C538 450 550 386 570 330'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.055' d='M448 800 C438 730 432 662 436 598'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.04' d='M1040 800 C1030 700 1022 600 1026 512'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.09' d='M660 466 C666 460 676 460 680 466'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.09' d='M666 348 C672 342 682 342 686 348'/%3E%3Cpath stroke-width='2' stroke-opacity='0.08' d='M530 524 C536 518 546 518 550 524'/%3E%3Cpath stroke-width='2' stroke-opacity='0.08' d='M538 406 C544 400 554 400 558 406'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.095' d='M682 232 C716 212 752 202 780 202 C758 224 722 238 682 232'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.09' d='M676 296 C634 268 594 250 564 248 C586 278 626 298 676 296'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.09' d='M570 330 C610 316 652 314 684 322 C654 344 610 348 570 330'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.07' d='M538 524 C498 522 458 534 432 554 C464 564 504 552 538 524'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.08' d='M668 466 C708 458 750 464 776 480 C744 494 700 490 668 466'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.06' d='M542 420 C506 384 468 362 438 356 C454 392 492 420 542 420'/%3E%3C/svg%3E");
+
+  // 批注四色亮态底纹（对 #f1f5ec 合成 ≈1.65:1；:not 守卫见文件头说明）
+  &:not([saved-theme="dark"]) {
+    --kb-anno-yellow-bg: rgba(149, 120, 29, 0.42);
+    --kb-anno-green-bg: rgba(61, 139, 89, 0.42);
+    --kb-anno-blue-bg: rgba(70, 128, 182, 0.42);
+    --kb-anno-pink-bg: rgba(197, 94, 123, 0.42);
+  }
 }
-:root[data-style="midnight"][saved-theme="dark"] {
-  --light: #0e0e14;
-  --lightgray: #1f1e29;
-  --gray: #3d3b4d;
-  --darkgray: #b4b0c6;
-  --dark: #e4e2f0;
-  --secondary: #7b78f0;
-  --tertiary: #5a57b8;
-  --highlight: rgba(123, 120, 240, 0.16);
-  --textHighlight: #34315eaa;
-  --glass-bg: rgba(18, 18, 26, 0.8);
-  --glass-border: rgba(18, 18, 26, 0.72);
-  --glass-bg-solid: #14141c;
-  --glass-inner-bg: rgba(18, 18, 26, 0.6);
-  --glass-overlay-fallback: rgba(15, 15, 21, 0.55);
-  --glass-hover-wash: rgba(31, 30, 41, 0.6);
-  --popover-bg: rgba(16, 16, 23, 0.98);
-  --page-tint-a: rgba(123, 120, 240, 0.06);
-  --page-tint-b: rgba(90, 87, 184, 0.07);
-  --accent-wash: rgba(123, 120, 240, 0.05);
-  --graphLink: #2e2c3d;
-  --graphLinkActive: #7b78f0;
+:root[data-style="zhulin"][saved-theme="dark"] {
+  // 9 基础色（dark 块必须全量重定义，漏一个即泄漏 config 值）
+  --light: #181f15;
+  --lightgray: #293227;
+  --gray: #616c5f;
+  --darkgray: #929e90;
+  --dark: #ccd6c4;
+  --secondary: #7cab74;
+  --tertiary: #628b5b;
+  --highlight: rgba(124, 171, 116, 0.16);
+  --textHighlight: #30522aaa;
+  // 5 字体：页头仿宋 / 正文宋体 / 左栏苹方 / 右栏宋体 / 图谱苹方
+  --headerFont: #{$fontFang};
+  --bodyFont: #{$fontSong};
+  --leftFont: #{$fontPing};
+  --rightFont: #{$fontSong};
+  --graphFont: #{$fontPing};
+  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v10 玻璃基底推导重算，见文件头）
+  --glass-bg: rgba(26, 41, 23, 0.8);
+  --glass-border: rgba(26, 41, 23, 0.72);
+  --glass-bg-solid: #1a2917;
+  --glass-bg-thick: rgba(26, 41, 23, 0.82);
+  --glass-scrim: rgba(26, 41, 23, 0.9);
+  --glass-inner-bg: rgba(26, 41, 23, 0.6);
+  --glass-overlay-fallback: rgba(20, 35, 17, 0.55);
+  --glass-hover-wash: rgba(37, 52, 33, 0.6);
+  --popover-bg: rgba(22, 37, 19, 0.98);
+  --page-tint-a: rgba(124, 171, 116, 0.06);
+  --page-tint-b: rgba(98, 139, 91, 0.07);
+  --accent-wash: rgba(124, 171, 116, 0.05);
+  // 2 滚动条拇指（overlay 轨道用色，取本主题 --dark 文字色的低 alpha）
+  --scroll-thumb: rgba(204, 214, 196, 0.18);
+  --scroll-thumb-hover: rgba(204, 214, 196, 0.32);
+  // 导航文本与术语链（原为全局硬编码，随主题走）
+  --nav-fg: #abb7a9;
+  --nav-fg-muted: #929e90;
+  --nav-active-wash: rgba(124, 171, 116, 0.16);
+  --term-link-line: rgba(124, 171, 116, 0.4);
+  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  --graphLink: #454f43;
+  --graphLinkActive: #7cab74;
+  --graph-section-1: #df6c76;
+  --graph-section-2: #d17d49;
+  --graph-section-3: #b88e3c;
+  --graph-section-4: #63a67e;
+  --graph-section-5: #51a69a;
+  --graph-section-6: #6699d0;
+  --graph-section-7: #a185cd;
+  --graph-section-8: #c27ca2;
+  --graph-section-9: #788fe7;
+  // 素描背景：竹枝疏影
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%237cab74' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='3' stroke-opacity='0.13' d='M712 800 C696 690 676 578 668 466 C662 380 668 300 682 232'/%3E%3Cpath stroke-width='2.4' stroke-opacity='0.111' d='M566 800 C552 706 538 614 538 524 C538 450 550 386 570 330'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.072' d='M448 800 C438 730 432 662 436 598'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.052' d='M1040 800 C1030 700 1022 600 1026 512'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.117' d='M660 466 C666 460 676 460 680 466'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.117' d='M666 348 C672 342 682 342 686 348'/%3E%3Cpath stroke-width='2' stroke-opacity='0.104' d='M530 524 C536 518 546 518 550 524'/%3E%3Cpath stroke-width='2' stroke-opacity='0.104' d='M538 406 C544 400 554 400 558 406'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.123' d='M682 232 C716 212 752 202 780 202 C758 224 722 238 682 232'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.117' d='M676 296 C634 268 594 250 564 248 C586 278 626 298 676 296'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.117' d='M570 330 C610 316 652 314 684 322 C654 344 610 348 570 330'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.091' d='M538 524 C498 522 458 534 432 554 C464 564 504 552 538 524'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.104' d='M668 466 C708 458 750 464 776 480 C744 494 700 490 668 466'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.078' d='M542 420 C506 384 468 362 438 356 C454 392 492 420 542 420'/%3E%3C/svg%3E");
 }
 
-// —— 石墨 graphite：Apple systemGray 中性调 ——
-:root[data-style="graphite"] {
-  --light: #f2f2f7;
-  --lightgray: #dddee3;
-  --gray: #a2a3a9;
-  --darkgray: #5f6066;
-  --dark: #1c1c1e;
-  --secondary: #5e5e64;
-  --tertiary: #8e8e93;
-  --highlight: rgba(94, 94, 100, 0.12);
-  --textHighlight: #c9c9ceaa;
-  --glass-bg: rgba(255, 255, 255, 0.8);
-  --glass-border: rgba(255, 255, 255, 0.72);
-  --glass-bg-solid: #f4f4f7;
-  --glass-inner-bg: rgba(255, 255, 255, 0.58);
-  --glass-overlay-fallback: rgba(250, 250, 252, 0.55);
-  --glass-hover-wash: rgba(221, 222, 227, 0.55);
-  --popover-bg: rgba(252, 252, 254, 0.98);
-  --page-tint-a: rgba(94, 94, 100, 0.06);
-  --page-tint-b: rgba(142, 142, 147, 0.07);
-  --accent-wash: rgba(94, 94, 100, 0.05);
-  --graphLink: #c9c9ce;
-  --graphLinkActive: #5e5e64;
+// —— 暮山 mushan：藕荷灰 / 暮紫；素描「群山暮霭」——
+:root[data-style="mushan"] {
+  // 9 基础色（dark 块必须全量重定义，漏一个即泄漏 config 值）
+  --light: #f4f1f6;
+  --lightgray: #dad8df;
+  --gray: #8c8994;
+  --darkgray: #686371;
+  --dark: #3a3242;
+  --secondary: #6d5a8e;
+  --tertiary: #8676a4;
+  --highlight: rgba(109, 90, 142, 0.13);
+  --textHighlight: #decefdaa;
+  // 5 字体：页头苹方 / 正文宋体 / 左栏黑体 / 右栏宋体 / 图谱苹方
+  --headerFont: #{$fontPing};
+  --bodyFont: #{$fontSong};
+  --leftFont: #{$fontHei};
+  --rightFont: #{$fontSong};
+  --graphFont: #{$fontPing};
+  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v10 玻璃基底推导重算，见文件头）
+  --glass-bg: rgba(242, 236, 255, 0.78);
+  --glass-border: rgba(242, 236, 255, 0.7);
+  --glass-bg-solid: #f0eafd;
+  --glass-bg-thick: rgba(242, 236, 255, 0.86);
+  --glass-scrim: rgba(242, 236, 255, 0.92);
+  --glass-inner-bg: rgba(242, 236, 255, 0.55);
+  --glass-overlay-fallback: rgba(248, 244, 255, 0.55);
+  --glass-hover-wash: rgba(220, 213, 235, 0.55);
+  --popover-bg: rgba(250, 248, 255, 0.98);
+  --page-tint-a: rgba(109, 90, 142, 0.07);
+  --page-tint-b: rgba(134, 118, 164, 0.08);
+  --accent-wash: rgba(109, 90, 142, 0.06);
+  // 2 滚动条拇指（overlay 轨道用色，取本主题 --dark 文字色的低 alpha）
+  --scroll-thumb: rgba(58, 50, 66, 0.28);
+  --scroll-thumb-hover: rgba(58, 50, 66, 0.45);
+  // 导航文本与术语链（原为全局硬编码，随主题走）
+  --nav-fg: #524d5a;
+  --nav-fg-muted: #686371;
+  --nav-active-wash: rgba(109, 90, 142, 0.1);
+  --term-link-line: rgba(109, 90, 142, 0.32);
+  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  --graphLink: #b3b1ba;
+  --graphLinkActive: #6d5a8e;
+  --graph-section-1: #c45963;
+  --graph-section-2: #b76938;
+  --graph-section-3: #a0792a;
+  --graph-section-4: #51906b;
+  --graph-section-5: #3f9085;
+  --graph-section-6: #5484b7;
+  --graph-section-7: #956dad;
+  --graph-section-8: #a9688c;
+  --graph-section-9: #657acc;
+  // 素描背景：群山暮霭
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%236d5a8e' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='1.6' stroke-opacity='0.05' d='M260 344 C292 340 336 270 360 264 C384 258 434 310 470 318 C518 328 572 256 600 250 C628 244 690 298 730 304 C786 312 840 250 870 244 C900 238 962 294 1000 300 C1074 312 1152 286 1200 272'/%3E%3Cpath stroke-width='1.9' stroke-opacity='0.065' d='M140 452 C176 446 240 368 268 362 C296 356 358 420 400 430 C456 442 510 350 540 344 C572 338 638 412 680 420 C740 432 798 358 830 352 C864 346 924 420 970 428 C1064 446 1148 414 1200 398'/%3E%3Cpath stroke-width='2.3' stroke-opacity='0.08' d='M40 566 C84 560 164 478 200 470 C238 462 306 530 350 540 C410 552 466 460 500 452 C536 444 610 522 660 532 C724 544 788 470 820 462 C856 454 928 530 980 540 C1074 558 1152 522 1200 506'/%3E%3Cpath stroke-width='2.9' stroke-opacity='0.1' d='M0 690 C50 684 130 594 170 586 C212 578 284 652 330 664 C394 678 456 578 490 568 C528 558 606 642 660 652 C728 664 796 586 830 576 C868 566 944 646 1000 656 C1094 674 1148 638 1200 620'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.045' d='M300 400 C450 390 610 396 740 386'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.05' d='M420 500 C580 490 760 496 916 484'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.045' d='M200 620 C400 610 620 616 820 604'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.07' d='M424 284 C424 242 458 210 500 210 C542 210 576 242 576 284'/%3E%3C/svg%3E");
+
+  // 批注四色亮态底纹（对 #f4f1f6 合成 ≈1.65:1；:not 守卫见文件头说明）
+  &:not([saved-theme="dark"]) {
+    --kb-anno-yellow-bg: rgba(148, 119, 29, 0.42);
+    --kb-anno-green-bg: rgba(61, 138, 89, 0.42);
+    --kb-anno-blue-bg: rgba(70, 127, 180, 0.42);
+    --kb-anno-pink-bg: rgba(195, 93, 122, 0.42);
+  }
 }
-:root[data-style="graphite"][saved-theme="dark"] {
-  --light: #1c1c1e;
-  --lightgray: #2a2a2d;
-  --gray: #48484d;
-  --darkgray: #b0b0b5;
-  --dark: #f5f5f7;
-  --secondary: #98989d;
-  --tertiary: #7d7d83;
-  --highlight: rgba(152, 152, 157, 0.15);
-  --textHighlight: #4a4a50aa;
-  --glass-bg: rgba(30, 30, 33, 0.8);
-  --glass-border: rgba(30, 30, 33, 0.72);
-  --glass-bg-solid: #242427;
-  --glass-inner-bg: rgba(30, 30, 33, 0.6);
-  --glass-overlay-fallback: rgba(28, 28, 31, 0.55);
-  --glass-hover-wash: rgba(42, 42, 45, 0.6);
-  --popover-bg: rgba(29, 29, 32, 0.98);
-  --page-tint-a: rgba(152, 152, 157, 0.06);
-  --page-tint-b: rgba(125, 125, 131, 0.07);
-  --accent-wash: rgba(152, 152, 157, 0.05);
-  --graphLink: #3c3c40;
-  --graphLinkActive: #98989d;
+:root[data-style="mushan"][saved-theme="dark"] {
+  // 9 基础色（dark 块必须全量重定义，漏一个即泄漏 config 值）
+  --light: #1a1620;
+  --lightgray: #2c2834;
+  --gray: #676471;
+  --darkgray: #9893a2;
+  --dark: #d2cbdb;
+  --secondary: #9d8ac4;
+  --tertiary: #7e6ea0;
+  --highlight: rgba(157, 138, 196, 0.16);
+  --textHighlight: #4d3e6aaa;
+  // 5 字体：页头苹方 / 正文宋体 / 左栏黑体 / 右栏宋体 / 图谱苹方
+  --headerFont: #{$fontPing};
+  --bodyFont: #{$fontSong};
+  --leftFont: #{$fontHei};
+  --rightFont: #{$fontSong};
+  --graphFont: #{$fontPing};
+  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v10 玻璃基底推导重算，见文件头）
+  --glass-bg: rgba(34, 28, 47, 0.8);
+  --glass-border: rgba(34, 28, 47, 0.72);
+  --glass-bg-solid: #221c2f;
+  --glass-bg-thick: rgba(34, 28, 47, 0.82);
+  --glass-scrim: rgba(34, 28, 47, 0.9);
+  --glass-inner-bg: rgba(34, 28, 47, 0.6);
+  --glass-overlay-fallback: rgba(28, 22, 41, 0.55);
+  --glass-hover-wash: rgba(44, 39, 58, 0.6);
+  --popover-bg: rgba(30, 24, 43, 0.98);
+  --page-tint-a: rgba(157, 138, 196, 0.06);
+  --page-tint-b: rgba(126, 110, 160, 0.07);
+  --accent-wash: rgba(157, 138, 196, 0.05);
+  // 2 滚动条拇指（overlay 轨道用色，取本主题 --dark 文字色的低 alpha）
+  --scroll-thumb: rgba(210, 203, 219, 0.18);
+  --scroll-thumb-hover: rgba(210, 203, 219, 0.32);
+  // 导航文本与术语链（原为全局硬编码，随主题走）
+  --nav-fg: #b1acbb;
+  --nav-fg-muted: #9893a2;
+  --nav-active-wash: rgba(157, 138, 196, 0.16);
+  --term-link-line: rgba(157, 138, 196, 0.4);
+  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  --graphLink: #4a4653;
+  --graphLinkActive: #9d8ac4;
+  --graph-section-1: #dc6f78;
+  --graph-section-2: #ce7e4e;
+  --graph-section-3: #b68e42;
+  --graph-section-4: #66a67f;
+  --graph-section-5: #56a69a;
+  --graph-section-6: #6999cd;
+  --graph-section-7: #aa83c4;
+  --graph-section-8: #c07da2;
+  --graph-section-9: #798fe3;
+  // 素描背景：群山暮霭
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%239d8ac4' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='1.6' stroke-opacity='0.065' d='M260 344 C292 340 336 270 360 264 C384 258 434 310 470 318 C518 328 572 256 600 250 C628 244 690 298 730 304 C786 312 840 250 870 244 C900 238 962 294 1000 300 C1074 312 1152 286 1200 272'/%3E%3Cpath stroke-width='1.9' stroke-opacity='0.085' d='M140 452 C176 446 240 368 268 362 C296 356 358 420 400 430 C456 442 510 350 540 344 C572 338 638 412 680 420 C740 432 798 358 830 352 C864 346 924 420 970 428 C1064 446 1148 414 1200 398'/%3E%3Cpath stroke-width='2.3' stroke-opacity='0.104' d='M40 566 C84 560 164 478 200 470 C238 462 306 530 350 540 C410 552 466 460 500 452 C536 444 610 522 660 532 C724 544 788 470 820 462 C856 454 928 530 980 540 C1074 558 1152 522 1200 506'/%3E%3Cpath stroke-width='2.9' stroke-opacity='0.13' d='M0 690 C50 684 130 594 170 586 C212 578 284 652 330 664 C394 678 456 578 490 568 C528 558 606 642 660 652 C728 664 796 586 830 576 C868 566 944 646 1000 656 C1094 674 1148 638 1200 620'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.059' d='M300 400 C450 390 610 396 740 386'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.065' d='M420 500 C580 490 760 496 916 484'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.059' d='M200 620 C400 610 620 616 820 604'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.091' d='M424 284 C424 242 458 210 500 210 C542 210 576 242 576 284'/%3E%3C/svg%3E");
+}
+
+// —— 玄夜 xuanye：月白 / 夜蓝；素描「星月夜山」——
+:root[data-style="xuanye"] {
+  // 9 基础色（dark 块必须全量重定义，漏一个即泄漏 config 值）
+  --light: #eff2f7;
+  --lightgray: #d5d8df;
+  --gray: #868a95;
+  --darkgray: #5c6371;
+  --dark: #2b3242;
+  --secondary: #4a5d8a;
+  --tertiary: #66789f;
+  --highlight: rgba(74, 93, 138, 0.13);
+  --textHighlight: #c6d7ffaa;
+  // 5 字体：页头宋体 / 正文宋体 / 左栏苹方 / 右栏苹方 / 图谱苹方
+  --headerFont: #{$fontSong};
+  --bodyFont: #{$fontSong};
+  --leftFont: #{$fontPing};
+  --rightFont: #{$fontPing};
+  --graphFont: #{$fontPing};
+  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v10 玻璃基底推导重算，见文件头）
+  --glass-bg: rgba(236, 242, 255, 0.78);
+  --glass-border: rgba(236, 242, 255, 0.7);
+  --glass-bg-solid: #e7edfa;
+  --glass-bg-thick: rgba(236, 242, 255, 0.86);
+  --glass-scrim: rgba(236, 242, 255, 0.92);
+  --glass-inner-bg: rgba(236, 242, 255, 0.55);
+  --glass-overlay-fallback: rgba(241, 246, 255, 0.55);
+  --glass-hover-wash: rgba(209, 216, 231, 0.55);
+  --popover-bg: rgba(246, 249, 255, 0.98);
+  --page-tint-a: rgba(74, 93, 138, 0.07);
+  --page-tint-b: rgba(102, 120, 159, 0.08);
+  --accent-wash: rgba(74, 93, 138, 0.06);
+  // 2 滚动条拇指（overlay 轨道用色，取本主题 --dark 文字色的低 alpha）
+  --scroll-thumb: rgba(43, 50, 66, 0.28);
+  --scroll-thumb-hover: rgba(43, 50, 66, 0.45);
+  // 导航文本与术语链（原为全局硬编码，随主题走）
+  --nav-fg: #464c5a;
+  --nav-fg-muted: #5c6371;
+  --nav-active-wash: rgba(74, 93, 138, 0.1);
+  --term-link-line: rgba(74, 93, 138, 0.32);
+  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  --graphLink: #aeb1ba;
+  --graphLinkActive: #4a5d8a;
+  --graph-section-1: #c85561;
+  --graph-section-2: #bb6731;
+  --graph-section-3: #a2781e;
+  --graph-section-4: #4c9169;
+  --graph-section-5: #379185;
+  --graph-section-6: #5084bb;
+  --graph-section-7: #8c6fb7;
+  --graph-section-8: #ac668d;
+  --graph-section-9: #6f75d0;
+  // 素描背景：星月夜山
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%234a5d8a' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='2' stroke-opacity='0.1' d='M722 66 C668 78 630 128 638 182 C646 236 696 272 750 262 C702 244 674 196 678 148 C682 108 698 82 722 66'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.085' d='M470 130 C476 148 484 156 502 162 C484 168 476 176 470 194 C464 176 456 168 438 162 C456 156 464 148 470 130'/%3E%3Cpath stroke-width='1.3' stroke-opacity='0.07' d='M300 250 C304 262 310 268 322 272 C310 276 304 282 300 294 C296 282 290 276 278 272 C290 268 296 262 300 250'/%3E%3Cpath stroke-width='3.6' stroke-opacity='0.09' d='M210 96 l1 0 M386 62 l1 0 M572 322 l1 0 M136 214 l1 0 M818 352 l1 0 M300 372 l1 0'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.05' d='M420 480 C454 474 500 416 520 410 C542 404 596 456 630 462 C672 470 718 404 740 398 C766 392 822 448 860 452 C908 458 954 410 980 404 C1044 438 1140 452 1200 442'/%3E%3Cpath stroke-width='2.8' stroke-opacity='0.1' d='M0 672 C46 666 116 582 150 574 C188 566 256 640 300 650 C360 664 428 560 460 552 C500 542 574 632 620 642 C686 656 758 574 790 566 C830 556 900 640 950 648 C1058 666 1146 626 1200 606'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.08' d='M300 752 C342 748 406 704 430 700 C456 696 522 738 560 742 C608 748 674 690 700 686 C730 682 810 732 850 736 C904 744 976 694 1010 690 C1074 682 1152 726 1200 722'/%3E%3Cpath stroke-width='1.3' stroke-opacity='0.04' d='M120 712 C340 702 560 706 780 696'/%3E%3C/svg%3E");
+
+  // 批注四色亮态底纹（对 #eff2f7 合成 ≈1.65:1；:not 守卫见文件头说明）
+  &:not([saved-theme="dark"]) {
+    --kb-anno-yellow-bg: rgba(148, 119, 29, 0.42);
+    --kb-anno-green-bg: rgba(61, 138, 89, 0.42);
+    --kb-anno-blue-bg: rgba(69, 126, 180, 0.42);
+    --kb-anno-pink-bg: rgba(195, 93, 122, 0.42);
+  }
+}
+:root[data-style="xuanye"][saved-theme="dark"] {
+  // 9 基础色（dark 块必须全量重定义，漏一个即泄漏 config 值）
+  --light: #10141d;
+  --lightgray: #222730;
+  --gray: #5e636f;
+  --darkgray: #8f95a2;
+  --dark: #c8d0dd;
+  --secondary: #8fa3cc;
+  --tertiary: #7385a8;
+  --highlight: rgba(143, 163, 204, 0.16);
+  --textHighlight: #35476caa;
+  // 5 字体：页头宋体 / 正文宋体 / 左栏苹方 / 右栏苹方 / 图谱苹方
+  --headerFont: #{$fontSong};
+  --bodyFont: #{$fontSong};
+  --leftFont: #{$fontPing};
+  --rightFont: #{$fontPing};
+  --graphFont: #{$fontPing};
+  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v10 玻璃基底推导重算，见文件头）
+  --glass-bg: rgba(22, 28, 41, 0.8);
+  --glass-border: rgba(22, 28, 41, 0.72);
+  --glass-bg-solid: #161c29;
+  --glass-bg-thick: rgba(22, 28, 41, 0.82);
+  --glass-scrim: rgba(22, 28, 41, 0.9);
+  --glass-inner-bg: rgba(22, 28, 41, 0.6);
+  --glass-overlay-fallback: rgba(16, 22, 34, 0.55);
+  --glass-hover-wash: rgba(33, 39, 52, 0.6);
+  --popover-bg: rgba(18, 24, 37, 0.98);
+  --page-tint-a: rgba(143, 163, 204, 0.06);
+  --page-tint-b: rgba(115, 133, 168, 0.07);
+  --accent-wash: rgba(143, 163, 204, 0.05);
+  // 2 滚动条拇指（overlay 轨道用色，取本主题 --dark 文字色的低 alpha）
+  --scroll-thumb: rgba(200, 208, 221, 0.18);
+  --scroll-thumb-hover: rgba(200, 208, 221, 0.32);
+  // 导航文本与术语链（原为全局硬编码，随主题走）
+  --nav-fg: #a9afbc;
+  --nav-fg-muted: #8f95a2;
+  --nav-active-wash: rgba(143, 163, 204, 0.16);
+  --term-link-line: rgba(143, 163, 204, 0.4);
+  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  --graphLink: #404550;
+  --graphLinkActive: #8fa3cc;
+  --graph-section-1: #e16b76;
+  --graph-section-2: #d27c47;
+  --graph-section-3: #b88d38;
+  --graph-section-4: #62a77e;
+  --graph-section-5: #4fa79a;
+  --graph-section-6: #6599d2;
+  --graph-section-7: #a284ce;
+  --graph-section-8: #c37ba3;
+  --graph-section-9: #808ce8;
+  // 素描背景：星月夜山
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%238fa3cc' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='2' stroke-opacity='0.13' d='M722 66 C668 78 630 128 638 182 C646 236 696 272 750 262 C702 244 674 196 678 148 C682 108 698 82 722 66'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.111' d='M470 130 C476 148 484 156 502 162 C484 168 476 176 470 194 C464 176 456 168 438 162 C456 156 464 148 470 130'/%3E%3Cpath stroke-width='1.3' stroke-opacity='0.091' d='M300 250 C304 262 310 268 322 272 C310 276 304 282 300 294 C296 282 290 276 278 272 C290 268 296 262 300 250'/%3E%3Cpath stroke-width='3.6' stroke-opacity='0.117' d='M210 96 l1 0 M386 62 l1 0 M572 322 l1 0 M136 214 l1 0 M818 352 l1 0 M300 372 l1 0'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.065' d='M420 480 C454 474 500 416 520 410 C542 404 596 456 630 462 C672 470 718 404 740 398 C766 392 822 448 860 452 C908 458 954 410 980 404 C1044 438 1140 452 1200 442'/%3E%3Cpath stroke-width='2.8' stroke-opacity='0.13' d='M0 672 C46 666 116 582 150 574 C188 566 256 640 300 650 C360 664 428 560 460 552 C500 542 574 632 620 642 C686 656 758 574 790 566 C830 556 900 640 950 648 C1058 666 1146 626 1200 606'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.104' d='M300 752 C342 748 406 704 430 700 C456 696 522 738 560 742 C608 748 674 690 700 686 C730 682 810 732 850 736 C904 744 976 694 1010 690 C1074 682 1152 726 1200 722'/%3E%3Cpath stroke-width='1.3' stroke-opacity='0.052' d='M120 712 C340 702 560 706 780 696'/%3E%3C/svg%3E");
+}
+
+// 青瓷正文为仿宋，细横画在 17px 下发虚 → 抬到 18px 下限（46em 行宽随之约 828px）
+:root[data-style="qingci"] article {
+  font-size: 18px;
+}
+
+// —— 素描背景的降级开关 ——
+// 必须写在六套覆盖块之后：媒体查询不提升特异度，(0,2,0)/(0,3,0) 的主题块
+// 若在后位就会把这里的 none 覆盖掉（第八节的 prefers-reduced-transparency
+// 块位于本节之前，故 --page-art 的撤除只能落在这里）。
+@media (prefers-reduced-transparency: reduce) {
+  :root,
+  :root[data-style],
+  :root[data-style][saved-theme] {
+    --page-art: none;
+  }
+}
+
+// 移动端：视口内已无右下留白，线描会压在正文下 → 整体撤除
+@media all and ($mobile) {
+  :root,
+  :root[data-style],
+  :root[data-style][saved-theme] {
+    --page-art: none;
+  }
+}
+
+// ============================================================
+// 关键词页响应式布局：窄屏正文收缩，右栏纵向阅读
+// ============================================================
+// base.scss 的移动端 grid 使用 auto 轨道；关键词页正文中的长链接会把
+// 轨道按最小内容宽度撑大，进而使 .center、关系图谱和反向链接横向溢出。
+// 非桌面端将轨道改为可收缩的 minmax(0, 1fr)，并让右栏的三个辅助面板
+// 纵向排列，避免图谱与反向链接被挤成两列。
+@media all and ($tablet) {
+  .page > #quartz-body {
+    grid-template-columns: #{$sidePanelWidth} minmax(0, 1fr);
+  }
+}
+
+@media all and not ($desktop) {
+  .page > #quartz-body .center {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .page > #quartz-body .center > .page-header,
+  .page > #quartz-body .center > .popover-hint,
+  .page > #quartz-body .center > .page-footer,
+  .page > #quartz-body .center > hr,
+  .page > #quartz-body .center > article,
+  .page > #quartz-body .center > .popover-hint > article {
+    box-sizing: border-box;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .page > #quartz-body > .sidebar.right {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 1rem;
+    height: auto;
+    width: 100%;
+
+    & > .graph,
+    & > .toc,
+    & > .backlinks {
+      box-sizing: border-box;
+      flex: 0 0 auto;
+      width: 100%;
+      // 目录与反向链接采用同一高度约束，超出内容在各自面板内部滚动，
+      // 避免反向链接列表继续向下延伸造成视觉上的遮挡感。
+      max-height: min(24rem, calc(100vh - 10rem));
+    }
+  }
 }

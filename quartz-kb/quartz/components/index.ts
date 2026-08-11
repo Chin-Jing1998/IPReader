@@ -4,7 +4,8 @@ import FolderContent from "./pages/FolderContent"
 import NotFound from "./pages/404"
 import ArticleTitle from "./ArticleTitle"
 import Darkmode from "./Darkmode"
-import Settings from "./Settings"
+import SettingsButton from "./SettingsButton"
+import SettingsPage from "./SettingsPage"
 import ReaderMode from "./ReaderMode"
 import Head from "./Head"
 import PageTitle from "./PageTitle"
@@ -28,6 +29,7 @@ import GraphExplorer from "./GraphExplorer"
 import PageNav from "./PageNav"
 import ReadingAids from "./ReadingAids"
 import Annotate from "./Annotate"
+import TitleBar from "./TitleBar"
 
 export {
   ArticleTitle,
@@ -35,7 +37,8 @@ export {
   TagContent,
   FolderContent,
   Darkmode,
-  Settings,
+  SettingsButton,
+  SettingsPage,
   ReaderMode,
   Head,
   PageTitle,
@@ -60,4 +63,5 @@ export {
   PageNav,
   ReadingAids,
   Annotate,
+  TitleBar,
 }

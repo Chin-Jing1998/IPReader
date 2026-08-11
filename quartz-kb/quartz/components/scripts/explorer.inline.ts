@@ -1,6 +1,7 @@
 import { FileTrieNode } from "../../util/fileTrie"
 import { FullSlug, resolveRelative, simplifySlug } from "../../util/path"
 import { ContentDetails } from "../../plugins/emitters/contentIndex"
+import { computeThumbGeometry, hasScrollableContent } from "../../util/scrollInteraction"
 
 type MaybeHTMLElement = HTMLElement | undefined
 
@@ -45,29 +46,49 @@ function folderDepth(path: string): number {
 // 顺带解掉了 quartz.layout.ts 上那两条脆弱约束：函数必须是纯函数、且体内不得定义
 // 具名内部函数（否则 esbuild 的 keep-names 会注入运行期未定义的 __name 包装）。
 
-/** 目录树排序：文件夹在前；同类先比名称的数字前缀，再按中文语序 */
+/**
+ * 目录树排序：文件夹在前；同类先比 slug 段的数字前缀，再按 zh-CN 语序比整段。
+ *
+ * 比较键与 `quartz/util/docOrder.ts` 的 `compareDocOrderSegment` 同源
+ *（同 collator 参数 "zh-CN" + numeric + sensitivity:"base"），保证目录树顺序与
+ * PageNav「上一节/下一节」翻页链一致。此前兜底键取 displayName（frontmatter 标题）
+ * 而翻页链取 slug 段，本库文件名多为书代号前缀（law-/term-/chem- 等，不以数字开头）
+ * 使兜底分支必然触发，实测 106 个目录中 16 个两侧顺序不一致（需求⑪）。
+ *
+ * displayName 仅在 slugSegment 缺失时回退——trie 根以下节点的 slugSegment 恒存在，
+ * 该回退只是防御性写法，不构成第二套语序。
+ * 「文件夹优先」规则保留：实测本库无「同级既有子目录又有非 index 文档」的混排目录，
+ * 该分支不会与 docOrder 的逐段比较产生分歧。
+ */
+const explorerCollator = new Intl.Collator("zh-CN", { numeric: true, sensitivity: "base" })
+
 function sortNodes(a: FileTrieNode, b: FileTrieNode): number {
   if (a.isFolder !== b.isFolder) {
     return a.isFolder ? -1 : 1
   }
   // 内容目录形如「1-专利法/…」、文件形如「3-2-xxx.md」，数字前缀即文档序
-  const aMatch = (a.slugSegment || a.displayName || "").match(/^(\d+)/)
-  const bMatch = (b.slugSegment || b.displayName || "").match(/^(\d+)/)
+  const aKey = a.slugSegment || a.displayName || ""
+  const bKey = b.slugSegment || b.displayName || ""
+  const aMatch = aKey.match(/^(\d+)/)
+  const bMatch = bKey.match(/^(\d+)/)
   const na = aMatch ? parseInt(aMatch[1], 10) : Number.MAX_SAFE_INTEGER
   const nb = bMatch ? parseInt(bMatch[1], 10) : Number.MAX_SAFE_INTEGER
   if (na !== nb) {
     return na - nb
   }
   // numeric 使「1-2」<「1-10」按数值序；zh-CN 使无前缀项按中文语序
-  return (a.displayName || "").localeCompare(b.displayName || "", "zh-CN", {
-    numeric: true,
-    sensitivity: "base",
-  })
+  return explorerCollator.compare(aKey, bKey)
 }
 
-/** 标签目录不进侧栏（tags 页仍可经搜索与页内标签抵达）——沿用上游默认行为 */
+/**
+ * 不进侧栏目录树的节点：
+ * - tags 合成目录（tags 页仍可经搜索与页内标签抵达）——沿用上游默认行为；
+ * - 「设置」独立设置页（应用页而非阅读页，见 quartz/util/appPages.ts 的
+ *   SETTINGS_SLUG/SETTINGS_EXCLUDE 约定；此处 filterFn 收到的是单个 slug 段，
+ *   直接比字面量即可，无需切割 SETTINGS_EXCLUDE 前缀）。
+ */
 function keepNode(node: FileTrieNode): boolean {
-  return node.slugSegment !== "tags"
+  return node.slugSegment !== "tags" && node.slugSegment !== "设置"
 }
 // ==== /patent-kb ====
 
@@ -80,6 +101,178 @@ function defaultCollapsed(path: string, opts: ParsedOptions): boolean {
 // 可视区内时，将其滚动到居中；已可见则完全不动。只写内层滚动器 scrollTop，
 // 绝不用 scrollIntoView（会连带滚动整个文档）。
 let explorerLocatePending = false
+
+// 需求⑨（滚动穿透）：此处原有 chainWheelToPage/bindPageWheelChaining 主动把侧栏
+// 边界处的滚轮 preventDefault 后转发给正文（window.scrollTo）。该行为与用户要求
+// 相反，已连同 util/scrollInteraction.ts 的 shouldChainWheelToPage 一并删除；
+// 阻断改由 CSS `overscroll-behavior: contain` 承担（explorer/toc/backlinks 三处滚动器）。
+
+// ==== patent-kb: 侧栏自绘 overlay 滚动条（需求③）====
+// 旧做法（平时 scrollbar-width:none、滚动中切 thin）在 Electron 43 上双重失效：
+// Chromium 121+ 一旦命中 `scrollbar-width`，该元素的全部 ::-webkit-scrollbar*
+// 伪元素被整体忽略（无法渐隐），而切换槽宽本身会挤压侧栏内容并在滚停后回弹。
+// 改为原生槽宽恒为 0（CSS 侧负责）＋ JS 注入一条绝对定位的 overlay 轨道：
+// 轨道不占文档流宽度，滚动前后 scroller.clientWidth 完全相等。
+// 一期只做「随滚动淡入、滚停淡出」，不做 thumb 拖拽。
+
+/**
+ * 真滚动器四选。`.sidebar` 自身 overflow 可见、永不产生滚动，已从旧清单剔除。
+ * `.explorer-content` 与 `.explorer-ul` 是同一区域的嵌套双滚动器，经
+ * hasScrollableContent 过滤后通常只剩内层 `.explorer-ul` 真滚；若两者同时溢出，
+ * 会生成两条同右缘、同高度的重叠轨道（视觉上无差别），此处不额外去重。
+ */
+const OVERLAY_SCROLLER_SELECTOR = [
+  ".page > #quartz-body > .sidebar.left .explorer-content",
+  ".page > #quartz-body > .sidebar.left .explorer-ul",
+  ".page > #quartz-body > .sidebar.right .toc-content",
+  ".page > #quartz-body > .sidebar.right .backlinks > ul",
+].join(", ")
+
+/**
+ * 与 `quartz/styles/variables.scss` 的 `$mobile`（`$breakpoints.mobile: 800px`）
+ * 同值。移动端左栏退化为顶部横条、右栏横排于文末，overlay 轨道无稳定宿主，整体跳过。
+ */
+const OVERLAY_MOBILE_QUERY = "(max-width: 800px)"
+
+/** 滚停后轨道淡出的延时，沿用旧 auto-hide 的 850ms 手感。 */
+const OVERLAY_HIDE_DELAY = 850
+
+/**
+ * 布局变更后的轨道重算钩子：bindOverlayScrollbars 每次 nav 重写它，
+ * cleanup 时复位为空操作（此时轨道 DOM 已随之移除）。
+ */
+let syncOverlayScrollbars: () => void = () => {}
+
+function scheduleOverlayScrollbarSync() {
+  requestAnimationFrame(() => syncOverlayScrollbars())
+}
+
+function bindOverlayScrollbars() {
+  if (window.matchMedia(OVERLAY_MOBILE_QUERY).matches) {
+    return
+  }
+
+  const syncFns: Array<() => void> = []
+
+  for (const scroller of document.querySelectorAll<HTMLElement>(OVERLAY_SCROLLER_SELECTOR)) {
+    // 轨道宿主取所在 .sidebar：glass-panel-host（custom.scss:153）已给它
+    // position + isolation，既是绝对定位的包含块，又把轨道的 z-index 关在侧栏内。
+    const sidebar = scroller.closest<HTMLElement>(".sidebar")
+    if (!sidebar) {
+      continue
+    }
+    if (
+      !hasScrollableContent({
+        clientWidth: scroller.clientWidth,
+        scrollWidth: scroller.scrollWidth,
+        clientHeight: scroller.clientHeight,
+        scrollHeight: scroller.scrollHeight,
+      })
+    ) {
+      continue
+    }
+
+    const track = document.createElement("div")
+    track.className = "kb-oscroll"
+    track.setAttribute("aria-hidden", "true")
+    const thumb = document.createElement("div")
+    thumb.className = "kb-oscroll-thumb"
+    track.appendChild(thumb)
+    sidebar.appendChild(track)
+
+    // 绝对定位的包含块是 .sidebar 的 padding box，而 getBoundingClientRect 给的是
+    // border box，故差值需减去侧栏边框宽度（glass-panel-host 的 1px 描边）。
+    // 边框宽度不随主题切换变化，创建时取一次即可，免去滚动中反复 getComputedStyle。
+    const sidebarStyle = window.getComputedStyle(sidebar)
+    const sidebarBorderTop = parseFloat(sidebarStyle.borderTopWidth) || 0
+    const sidebarBorderRight = parseFloat(sidebarStyle.borderRightWidth) || 0
+
+    /** 重算轨道盒与 thumb 几何；返回 thumb 当前是否应可见。 */
+    const sync = (): boolean => {
+      const sidebarRect = sidebar.getBoundingClientRect()
+      const scrollerRect = scroller.getBoundingClientRect()
+      const trackHeight = scroller.clientHeight
+
+      track.style.top = `${scrollerRect.top - sidebarRect.top - sidebarBorderTop}px`
+      track.style.height = `${trackHeight}px`
+      // 滚动器右缘与侧栏内边距右缘之间的距离，交由 CSS 决定轨道贴内容还是贴卡片边
+      track.style.setProperty(
+        "--kb-oscroll-right",
+        `${sidebarRect.right - sidebarBorderRight - scrollerRect.right}px`,
+      )
+
+      const geometry = computeThumbGeometry(
+        {
+          clientHeight: scroller.clientHeight,
+          scrollHeight: scroller.scrollHeight,
+          scrollTop: scroller.scrollTop,
+        },
+        trackHeight,
+      )
+      thumb.style.height = `${geometry.height}px`
+      thumb.style.top = `${geometry.offset}px`
+      if (!geometry.visible) {
+        track.classList.remove("is-visible")
+      }
+      return geometry.visible
+    }
+
+    let hideTimer: number | undefined
+    const showWhileScrolling = () => {
+      // 每次滚动都整体重算：TOC 折叠、右栏卡片间 flex 余量再分配等无过渡的高度
+      // 变化不会发出任何事件，整体重算使轨道自愈，无需额外的观察者。
+      if (!sync()) {
+        return
+      }
+      track.classList.add("is-visible")
+      if (hideTimer !== undefined) {
+        window.clearTimeout(hideTimer)
+      }
+      hideTimer = window.setTimeout(() => {
+        track.classList.remove("is-visible")
+        hideTimer = undefined
+      }, OVERLAY_HIDE_DELAY)
+    }
+
+    // 目录折叠动画（.folder-outer 的 grid-template-rows，explorer.scss:150）落定后
+    // scrollHeight 才是终值；该事件冒泡至滚动器，是最准确的重算时机。
+    const syncAfterTransition = (evt: TransitionEvent) => {
+      if (evt.propertyName === "grid-template-rows") {
+        sync()
+      }
+    }
+
+    scroller.addEventListener("scroll", showWhileScrolling, { passive: true })
+    scroller.addEventListener("transitionend", syncAfterTransition)
+    sync()
+    syncFns.push(sync)
+
+    // cleanup 在 prenav 之后、micromorph 形变 body 之前执行（spa.inline.ts:81-105），
+    // 轨道必须在这一步自行摘除：它不存在于下一页的 HTML 中，留到 diff 阶段会被
+    // micromorph 视作多余节点处理，并打乱 .sidebar 的子节点配对。
+    window.addCleanup(() => {
+      scroller.removeEventListener("scroll", showWhileScrolling)
+      scroller.removeEventListener("transitionend", syncAfterTransition)
+      if (hideTimer !== undefined) {
+        window.clearTimeout(hideTimer)
+      }
+      track.remove()
+    })
+  }
+
+  if (syncFns.length === 0) {
+    return
+  }
+
+  syncOverlayScrollbars = () => syncFns.forEach((fn) => fn())
+  const onResize = () => syncOverlayScrollbars()
+  window.addEventListener("resize", onResize)
+  window.addCleanup(() => {
+    window.removeEventListener("resize", onResize)
+    syncOverlayScrollbars = () => {}
+  })
+}
+// ==== /patent-kb ====
 
 function locateExplorerActive(scroller: HTMLElement) {
   const active =
@@ -165,6 +358,10 @@ function toggleFolder(evt: MouseEvent) {
     // 目录展开状态丢失无妨；抛出则会中断本次 nav 中后续组件的初始化
   }
   // ==== /patent-kb ====
+
+  // 折叠/展开改变目录树高度：下一帧先按动画首帧几何重算一次（避免整段动画期间
+  // thumb 完全过期），动画落定后的精确值由滚动器上的 transitionend 补齐。
+  scheduleOverlayScrollbarSync()
 }
 
 function createFileNode(currentSlug: FullSlug, node: FileTrieNode): HTMLLIElement {
@@ -402,6 +599,7 @@ document.addEventListener("prenav", async () => {
 document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   const currentSlug = e.detail.url
   await setupExplorer(currentSlug)
+  bindOverlayScrollbars()
 
   // if mobile hamburger is visible, collapse by default
   for (const explorer of document.getElementsByClassName(

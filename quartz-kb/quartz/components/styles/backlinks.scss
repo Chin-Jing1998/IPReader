@@ -13,7 +13,42 @@
     padding: 0;
     margin: 0.5rem 0;
     max-height: calc(100% - 2rem);
+    // 需求⑨：反链滚到顶/底后滚轮不得链给正文（照 popover.scss:46 的 contain 先例）
     overscroll-behavior: contain;
+
+    // 反向链接滚动时保持上下边缘一致的渐隐效果：顶部只在上方仍有内容时启用，
+    // 底部只在下方仍有内容时启用；滚动到中间时两端同时渐隐。
+    &.gradient-top-active {
+      mask-image: linear-gradient(to bottom, transparent 0, black 50px, black 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 50px, black 100%);
+    }
+
+    &.gradient-active {
+      mask-image: linear-gradient(to bottom, black 0, black calc(100% - 50px), transparent 100%);
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0,
+        black calc(100% - 50px),
+        transparent 100%
+      );
+    }
+
+    &.gradient-top-active.gradient-active {
+      mask-image: linear-gradient(
+        to bottom,
+        transparent 0,
+        black 50px,
+        black calc(100% - 50px),
+        transparent 100%
+      );
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0,
+        black 50px,
+        black calc(100% - 50px),
+        transparent 100%
+      );
+    }
 
     & > li {
       & > a {

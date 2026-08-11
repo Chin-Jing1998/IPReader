@@ -8,6 +8,7 @@ import script from "./scripts/graphexplorer.inline"
 import styles from "./styles/graphexplorer.scss"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { D3Config } from "./Graph"
+import { GRAPH_EXCLUDE, SETTINGS_EXCLUDE } from "../util/appPages"
 
 // 宿主页 slug，与生成器（W1）产出的 content/0-图谱总览/index.md 对应
 const HOST_SLUG = "0-图谱总览/index"
@@ -19,7 +20,8 @@ const HOST_SLUG = "0-图谱总览/index"
  * - scale 初值取小，首屏尽量呈现全景；中文标签字号与全局图一致；
  * - termLayer "hidden" 默认隐藏术语层（骨架图先行，三态钮可切换）；
  *   zoomToFit 布局成形后自动整图入框；excludeSlugs 剔除链接全站的宿主页
- *   （与 quartz.layout.ts 的 globalGraph 配置一致）。
+ *   与独立设置页（应用页非阅读页，常量见 quartz/util/appPages.ts；
+ *   与 quartz.layout.ts 的 globalGraph 配置一致）。
  */
 const explorerGraphConfig: D3Config = {
   drag: true,
@@ -38,22 +40,28 @@ const explorerGraphConfig: D3Config = {
   nodeClickMode: "panel",
   termLayer: "hidden",
   zoomToFit: true,
-  excludeSlugs: ["0-图谱总览/"],
+  excludeSlugs: [GRAPH_EXCLUDE, SETTINGS_EXCLUDE],
 }
 
-// 域图例：与 graph.inline.ts 的 SECTION_COLORS 一致（七部工具书 + 术语靛蓝）。
-// v12：七部文档域项为可点击按钮（data-section 对应 slug 顶层数字前缀），
+// 域图例（七部工具书 + 术语）。
+// 图例点不再内联写死色值（D2）：色值真源是主题变量 --graph-section-1..9
+// （custom.scss 六主题 × light/dark 覆盖块），图例点仅带 data-section，
+// 由 graphexplorer.scss 的 `.ge-legend-dot[data-section="N"]` 取变量上色——
+// 与 graph.inline.ts 的节点着色同源，主题切换时图例随 CSS 即时变色。
+// v12：七部文档域项为可点击按钮（toggleable，data-section 落在按钮上，
+// 供 graphexplorer.inline.ts 的 `.ge-legend-item[data-section]` 选中），
 // 点击切换该域全部节点与连接关系的隐藏/显示；术语（9-）由术语层三态钮
-// 单独控制，此处保持纯展示。
-const LEGEND_ITEMS: Array<{ label: string; color: string; section?: string }> = [
-  { label: "专利法", color: "#d1495b", section: "1" },
-  { label: "实施细则", color: "#e07b39", section: "2" },
-  { label: "审查指南", color: "#b8860b", section: "3" },
-  { label: "侵权判定", color: "#4c9f70", section: "4" },
-  { label: "机械撰写", color: "#2a9d8f", section: "5" },
-  { label: "化学撰写", color: "#4381c1", section: "6" },
-  { label: "答复OA", color: "#8e6bbf", section: "7" },
-  { label: "术语", color: "#3f51b5" },
+// 单独控制，故为不可点击的 span——data-section 只落在其图例点上，不落在
+// 项本身，避免被上述选择器误当作可点按钮绑定。
+const LEGEND_ITEMS: Array<{ label: string; section: string; toggleable: boolean }> = [
+  { label: "专利法", section: "1", toggleable: true },
+  { label: "实施细则", section: "2", toggleable: true },
+  { label: "审查指南", section: "3", toggleable: true },
+  { label: "侵权判定", section: "4", toggleable: true },
+  { label: "机械撰写", section: "5", toggleable: true },
+  { label: "化学撰写", section: "6", toggleable: true },
+  { label: "答复OA", section: "7", toggleable: true },
+  { label: "术语", section: "9", toggleable: false },
 ]
 
 const GraphExplorer: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
@@ -78,7 +86,7 @@ const GraphExplorer: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
         </div>
         <div class="ge-legend" aria-label="知识域图例">
           {LEGEND_ITEMS.map((item) =>
-            item.section !== undefined ? (
+            item.toggleable ? (
               <button
                 class="ge-legend-item"
                 type="button"
@@ -86,12 +94,12 @@ const GraphExplorer: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
                 aria-pressed="false"
                 title={`点击隐藏/显示「${item.label}」的节点与连接`}
               >
-                <i class="ge-legend-dot" style={`background-color: ${item.color}`}></i>
+                <i class="ge-legend-dot" data-section={item.section}></i>
                 {item.label}
               </button>
             ) : (
               <span class="ge-legend-item">
-                <i class="ge-legend-dot" style={`background-color: ${item.color}`}></i>
+                <i class="ge-legend-dot" data-section={item.section}></i>
                 {item.label}
               </span>
             ),

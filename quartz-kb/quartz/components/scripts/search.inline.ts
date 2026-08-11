@@ -5,6 +5,9 @@ import { FullSlug, normalizeRelativeURLs, resolveRelative } from "../../util/pat
 // ==== patent-kb: 见 formatForDisplay 处的 title 转义 ====
 import { escapeHTML } from "../../util/escape"
 // ==== /patent-kb ====
+// ==== patent-kb: 设置应用页不进搜索索引，见 fillDocument ====
+import { SETTINGS_SLUG } from "../../util/appPages"
+// ==== /patent-kb ====
 
 interface Item {
   id: number
@@ -526,6 +529,9 @@ async function fillDocument(data: ContentIndex) {
   let id = 0
   const promises: Array<Promise<unknown>> = []
   for (const [slug, fileData] of Object.entries<ContentDetails>(data)) {
+    // ==== patent-kb: 设置应用页非阅读内容，不进搜索索引 ====
+    if (slug === SETTINGS_SLUG) continue
+    // ==== /patent-kb ====
     promises.push(
       index.addAsync(id++, {
         id,

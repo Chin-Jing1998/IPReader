@@ -37,35 +37,41 @@ const config: QuartzConfig = {
       cdnCaching: false,
       typography: {
         // 中文系统字体栈（含逗号的完整栈会被 joinStyles 原样输出，见 quartz/util/theme.ts）
-        // 四字体协同排版（公文体例）：标题黑体、正文宋体；
-        // 楷体（引用/摘句）与仿宋（法条条文）在 quartz/styles/custom.scss 按选择器细分
+        // 字体栈的事实源是 quartz/styles/custom.scss 的 $fontHei/$fontSong/$fontPing/
+        // $fontKai/$fontFang 五个常量；此处 header/body 是「宣纸」主题那一份的副本
+        // （B1 双写），用于兜住无 JS / 首帧尚未落 data-style 的极早期窗口。
+        // 改动时两处必须同改，否则 Electron 首帧与稳定态字体不一致。
         header:
-          '-apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif',
+          '"Heiti SC", "STHeiti", "SimHei", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif',
         body: '"Songti SC", "SimSun", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", serif',
         code: 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "PingFang SC", "Microsoft YaHei", monospace',
       },
+      // 基础九色同为「宣纸」主题的副本（B1 双写，理由同上）。六套主题的完整
+      // 定义在 custom.scss 的 [data-style] 覆盖块；joinStyles 把本处的值拼在
+      // index.css 末尾的 :root / :root[saved-theme="dark"]，特异性 (0,1,0)/(0,2,0)
+      // 低于覆盖块，稳定态一律由覆盖块接管。
       colors: {
         lightMode: {
-          light: "#faf8f8",
-          lightgray: "#e5e5e5",
-          gray: "#b8b8b8",
-          darkgray: "#4e4e4e",
-          dark: "#2b2b2b",
-          secondary: "#284b63",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#fff23688",
+          light: "#f6f1e7",
+          lightgray: "#e1d6cf",
+          gray: "#948781",
+          darkgray: "#6e6059",
+          dark: "#3a3226",
+          secondary: "#8c5a3c",
+          tertiary: "#a3775d",
+          highlight: "rgba(140, 90, 60, 0.13)",
+          textHighlight: "#fecbaeaa",
         },
         darkMode: {
-          light: "#161618",
-          lightgray: "#393639",
-          gray: "#646464",
-          darkgray: "#d4d4d4",
-          dark: "#ebebec",
-          secondary: "#7b97aa",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#b3aa0288",
+          light: "#201c16",
+          lightgray: "#342d28",
+          gray: "#70675f",
+          darkgray: "#a2968d",
+          dark: "#d8cfc0",
+          secondary: "#c8956c",
+          tertiary: "#a47855",
+          highlight: "rgba(200, 149, 108, 0.16)",
+          textHighlight: "#653d19aa",
         },
       },
     },

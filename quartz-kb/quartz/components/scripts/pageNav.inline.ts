@@ -32,6 +32,10 @@ function isBlockedContext(): boolean {
   if (document.body.dataset.slug === "0-图谱总览/index") {
     return true
   }
+  // 设置专页：整页为设置面板应用，非阅读页面
+  if (document.body.dataset.slug === "设置/index") {
+    return true
+  }
   // 移动端目录抽屉展开
   if (
     document.documentElement.classList.contains("mobile-no-scroll") ||

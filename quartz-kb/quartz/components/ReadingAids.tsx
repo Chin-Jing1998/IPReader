@@ -7,10 +7,10 @@ import { classNames } from "../util/lang"
 /**
  * 阅读辅助（v6）：回到顶部 FAB ＋ 内嵌阅读进度环（合一控件），
  * 并由同一滚动监听驱动 TOC 当前小节强调（.toc-current，见 reading.inline.ts）。
- * 图谱总览页为画布应用（页面不滚动），不渲染。
+ * 图谱总览页为画布应用（页面不滚动）、设置页为应用面板，均不渲染。
  */
 const ReadingAids: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
-  if (fileData.slug === "0-图谱总览/index") {
+  if (fileData.slug === "0-图谱总览/index" || fileData.slug === "设置/index") {
     return null
   }
   return (

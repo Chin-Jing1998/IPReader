@@ -27,6 +27,12 @@ import "pixi.js/unsafe-eval"
 import { Group as TweenGroup, Tween as Tweened } from "@tweenjs/tween.js"
 import { registerEscapeHandler, removeAllChildren } from "./util"
 import { FullSlug, SimpleSlug, getFullSlug, resolveRelative, simplifySlug } from "../../util/path"
+import {
+  isGraphBackgroundClick,
+  isSelectedAnchorLink,
+  selectedLinkStroke,
+  shouldShowLabelDuringSelection,
+} from "../../util/graphInteraction"
 import { D3Config, TermLayerMode } from "../Graph"
 
 type NodeData = {
@@ -63,12 +69,17 @@ type NodeRenderData = {
 }
 
 /**
- * 专利知识库定制：按节点 slug 的顶层目录数字前缀映射域色板。
+ * 专利知识库定制：按节点 slug 的顶层目录数字前缀映射域色板——**兜底值**。
  * 内容目录形如「1-审查指南/…」…「7-xxx/…」（七部工具书各一色），
  * 「9-关键词索引/…」为术语词条，统一使用靛蓝。
- * 色板取中等明度，浅色（#faf8f8）与深色（#161618）背景下均可辨识。
+ *
+ * 色值真源已迁至 `quartz/styles/custom.scss` 的六套主题覆盖块：每套主题的
+ * light/dark 两块各定义 --graph-section-1..9，随主题与明暗切换而变。
+ * 本表仅在 CSS 变量缺失时兜底（变量未定义 / getComputedStyle 返回空串，
+ * 例如样式表尚未生效、或第三方复用本脚本却未引入主题层），保证图谱不至于失色。
+ * 改配色请改 custom.scss；此处九色只作为最后一道保险，勿当作事实源维护。
  */
-const SECTION_COLORS: Record<string, string> = {
+const SECTION_COLORS_FALLBACK: Record<string, string> = {
   "1": "#d1495b", // 玫红
   "2": "#e07b39", // 橙
   "3": "#b8860b", // 暗金
@@ -78,12 +89,6 @@ const SECTION_COLORS: Record<string, string> = {
   "7": "#8e6bbf", // 紫
   "8": "#c26f9e", // 粉紫（预留）
   "9": "#3f51b5", // 靛蓝：关键词索引（术语词条）
-}
-
-/** 取 slug 顶层目录的数字前缀对应的域色；无编号前缀返回 undefined，回落到原生配色 */
-function sectionColor(id: string): string | undefined {
-  const match = id.match(/^(\d+)-/)
-  return match ? SECTION_COLORS[match[1]] : undefined
 }
 
 /** 术语层节点判定：slug 顶层目录为「9-关键词索引」（以 9- 开头） */
@@ -98,6 +103,20 @@ const DIMMED_ALPHA = 0.15
 // 节点半径上限：一级（书根）与总入口基础半径 + 弱化度数修正后截顶，
 // 避免高度数枢纽节点吞掉版面
 const MAX_NODE_RADIUS = 13
+
+// ---------- 首帧预热参数（bug#3：图谱打开瞬间节点跳变）----------
+// 预热目标 alpha：与下方 tick 回调里 zoomToFit 的触发阈值同值，
+// 二者必须一致——预热达标即等价于「tick 回调本会触发入框」，故可直接置完成标志。
+const PREWARM_TARGET_ALPHA = 0.3
+// tick 上限：d3-force 默认 alphaDecay≈0.0228、alphaTarget=0 时 alpha 按
+// 0.9772^n 纯指数衰减，与节点规模无关；alpha<0.3 恒为第 53 tick（0.9772^53≈0.295），
+// 60 为其留出余量，同时防止参数被改动后循环失控。
+const PREWARM_MAX_TICKS = 60
+// 时间预算：预热是同步阻塞计算，超大图（collide iterations=3）单 tick 可达数毫秒，
+// 无预算则首帧延迟不可控。达预算即中止，未达标的残余由既有兜底路径平滑修正。
+const PREWARM_BUDGET_MS = 200
+// 预算检查步长：performance.now() 自身有开销，逐 tick 查不划算，每 8 tick 查一次
+const PREWARM_CHECK_INTERVAL = 8
 
 const localStorageKey = "graph-visited"
 // ==== patent-kb: localStorage 加固 ====
@@ -455,6 +474,18 @@ async function createGraphInstance(
     "--graphFont",
     "--graphLink",
     "--graphLinkActive",
+    // 域色板（D1）：九个键必须逐个字面写出——computedStyleMap 的键类型取自
+    // 本元组的字面量联合（`Record<(typeof cssVars)[number], string>`），
+    // 用循环生成会退化为 string 而丢掉类型约束
+    "--graph-section-1",
+    "--graph-section-2",
+    "--graph-section-3",
+    "--graph-section-4",
+    "--graph-section-5",
+    "--graph-section-6",
+    "--graph-section-7",
+    "--graph-section-8",
+    "--graph-section-9",
   ] as const
   const computedStyleMap = cssVars.reduce(
     (acc, key) => {
@@ -473,8 +504,24 @@ async function createGraphInstance(
   const linkColor = computedStyleMap["--graphLink"].trim() || computedStyleMap["--lightgray"]
   const linkActiveColor = computedStyleMap["--graphLinkActive"].trim() || computedStyleMap["--gray"]
 
+  // 域色取值（D1）：真源是 CSS 变量 --graph-section-1..9（custom.scss 六主题
+  // × light/dark 覆盖块），故必须走本实例的 computedStyleMap 快照——这也是本函数
+  // 从模块级下沉进 createGraphInstance 的原因（需要闭包持有快照）。
+  // 主题切换后由外层重建实例重新取快照，无需在此监听。
+  // 两处硬约束：
+  //   1) 必须 .trim()——getPropertyValue 返回值常带前导空格，PixiJS 解析色值会失败；
+  //   2) 空串（变量未定义）回落 SECTION_COLORS_FALLBACK。
+  // 无编号前缀的 slug 返回 undefined，由调用方回落原生配色。
+  const sectionColor = (id: string): string | undefined => {
+    const section = id.match(/^(\d+)-/)?.[1]
+    if (section === undefined) return undefined
+    const varName = `--graph-section-${section}` as (typeof cssVars)[number]
+    return computedStyleMap[varName]?.trim() || SECTION_COLORS_FALLBACK[section]
+  }
+
   // calculate color
-  // 定制：当前节点仍用主题色 --secondary；其余节点优先按顶层目录域色板着色；
+  // 定制：当前节点仍用主题色 --secondary；其余节点优先按顶层目录域色板着色
+  // （色值取自主题变量 --graph-section-N，见上方 sectionColor）；
   // 无编号前缀的节点回落到原生规则（已访问/tag 节点用 --tertiary，其它用 --gray）
   const color = (d: NodeData) => {
     const isCurrent = d.id === slug
@@ -576,6 +623,8 @@ async function createGraphInstance(
       // 选中集常亮、其余灰度 0.2），随后的闪烁帧只动节点 alpha
       drawLinks()
       renderNodes()
+      renderLabels()
+      updateLabelOpacities()
     } else {
       // 清除：完整恢复一帧（节点 alpha 经 tween 过渡回默认、边恢复默认、hover 恢复）
       renderPixiFromD3()
@@ -641,6 +690,8 @@ async function createGraphInstance(
   // 空白点击判定（v14）：节点命中（pointerdown）时间戳，canvas 原生 click
   // 距此 <300ms 视为节点点击（忽略），否则为空白点击（清除选中+隐藏右栏）
   let lastNodeHitAt = 0
+  // 连线命中同样不应被 canvas 原生 click 当作空白点击
+  let lastLinkHitAt = 0
 
   // 边高亮 tween 状态（V4-B1）：原每边独立 alpha tween 改为驱动两个整体量——
   // fade：普通边批次的整体透明度（hover 时降到 0.2，保持“非邻边变淡”语义）；
@@ -672,6 +723,22 @@ async function createGraphInstance(
     const activeScale = defaultScale * 1.1
     for (const n of nodeRenderData) {
       const nodeId = n.simulationData.id
+
+      if (
+        selectedNodeId !== null &&
+        !shouldShowLabelDuringSelection(selectedNodeId, selectedSet, nodeId)
+      ) {
+        tweenGroup.add(
+          new Tweened<Text>(n.label).to(
+            {
+              alpha: 0,
+              scale: { x: defaultScale, y: defaultScale },
+            },
+            100,
+          ),
+        )
+        continue
+      }
 
       // dimmed 术语节点无标签：悬停也不拉起标签透明度；
       // v16：选中节点标签同样拉起（节点+连线+标签常亮的显示效果）
@@ -773,7 +840,7 @@ async function createGraphInstance(
   // 拖拽平移画布同样会触发 click，但期间无节点命中、且本事件仅清除选中态，
   // 不产生跳转副作用，符合"点击空白恢复"语义。
   app.canvas.addEventListener("click", () => {
-    if (Date.now() - lastNodeHitAt < 300) return
+    if (!isGraphBackgroundClick(lastNodeHitAt, lastLinkHitAt, Date.now())) return
     graph.dispatchEvent(
       new CustomEvent("graphnodeselect", { detail: { slug: null }, bubbles: true }),
     )
@@ -791,7 +858,9 @@ async function createGraphInstance(
 
   // 单个共享 Graphics 批量绘制全部边（V4-B1）：替代原“每边一个 Graphics、每帧逐个
   // clear/stroke”的写法；每帧一次 clear 后按批次累积路径、分批 stroke
-  const linkGfx = new Graphics({ interactive: false, eventMode: "none" })
+  const linkGfx = new Graphics({ interactive: true, eventMode: "static" }).on("pointerdown", () => {
+    lastLinkHitAt = Date.now()
+  })
   linkContainer.addChild(linkGfx)
   const focusGfx = new Graphics({ interactive: false, eventMode: "none" })
   focusContainer.addChild(focusGfx)
@@ -938,6 +1007,14 @@ async function createGraphInstance(
     for (const n of nodeRenderData) {
       // hover 高亮中的标签透明度交给 tween，缩放不覆盖
       if (n.active) continue
+      if (
+        selectedNodeId !== null &&
+        !shouldShowLabelDuringSelection(selectedNodeId, selectedSet, n.simulationData.id)
+      ) {
+        n.label.alpha = 0
+        n.label.scale.set(1 / scale)
+        continue
+      }
       // 选中节点标签由 renderLabels 拉起（v16），缩放不覆盖
       if (selectedNodeId !== null && n.simulationData.id === selectedNodeId) continue
       n.label.alpha = isDimmedNode(n.simulationData.id) ? 0 : scaleOpacity
@@ -1018,11 +1095,53 @@ async function createGraphInstance(
     if (zoomToFitDone) return
     zoomToFitDone = true
     clearTimeout(zoomToFitTimer)
-    applyFitView(false)
+    // 走到这里说明预热未把布局推到达标（超大图预算耗尽）：画面上已是预热后的
+    // 近似入框视图，此处只做残余修正，故用 400ms 过渡而非瞬跳（bug#3）
+    applyFitView(true)
   }
   if (fitViewEnabled && enableZoom) {
     // 兜底：力导 alpha 迟迟不降（节点极少或被拖拽）时 800ms 后强制入框
     zoomToFitTimer = setTimeout(triggerZoomToFit, 800)
+  }
+
+  // ---------- 首帧预热（修 bug#3：图谱打开时节点跳一下）----------
+  // 病灶：相机初值恒为 zoomIdentity，首次入框要等 alpha 首降 <0.3（或 800ms 兜底）
+  // 才发生且无过渡——用户先看到原点附近的散乱布局，随后画面被瞬间拽走。
+  // 对策：在首帧呈现之前同步跑完力导的前若干 tick 把布局推到大致成形，再无过渡地
+  // 落相机，使用户看到的第一帧即整图入框的稳定画面，跳变无从发生。
+  //
+  // d3 契约：simulation.tick() 只推进内部状态，不派发 "tick" 事件（该事件仅由内部
+  // timer 驱动的 step() 派发）。因此预热期间既不会 markDirty，也不会误触发下方 tick
+  // 回调中的 triggerZoomToFit——即便本块已在 tick 注册之前执行，该性质同样成立。
+  //
+  // 门控与 zoomToFit 机制同条件：局部图（zoomToFit:false）零成本，
+  // 不给每次 SPA 导航都渲染的右栏小图增加任何同步开销。
+  if (fitViewEnabled && enableZoom) {
+    simulation.stop()
+    const prewarmStartedAt = performance.now()
+    let prewarmTicks = 0
+    while (simulation.alpha() >= PREWARM_TARGET_ALPHA && prewarmTicks < PREWARM_MAX_TICKS) {
+      simulation.tick()
+      prewarmTicks++
+      if (
+        prewarmTicks % PREWARM_CHECK_INTERVAL === 0 &&
+        performance.now() - prewarmStartedAt > PREWARM_BUDGET_MS
+      ) {
+        break
+      }
+    }
+    // 首帧尚未呈现（pixi autoStart:false，animate 循环在下方才启动），
+    // 此处无过渡落相机不产生可见跳变
+    applyFitView(false)
+    if (simulation.alpha() < PREWARM_TARGET_ALPHA) {
+      // 布局已达标：自动入框任务就此完成，撤掉 800ms 兜底定时器；
+      // 同时使下方 tick 回调的 alpha 分支因 zoomToFitDone 短路，不再重复入框
+      zoomToFitDone = true
+      clearTimeout(zoomToFitTimer)
+    }
+    // 未达标（预算耗尽的超大图）则保留兜底：后续真实 tick 的 alpha 首降或 800ms
+    // 定时器会再走一次 triggerZoomToFit，以 400ms 动画完成残余修正
+    simulation.restart()
   }
 
   // 力导 tick 驱动 dirty；zoomToFit 在 alpha 首降 <0.3（布局大致成形）时触发
@@ -1067,27 +1186,45 @@ async function createGraphInstance(
     const ox = width / 2
     const oy = height / 2
 
-    // 选中态（v14）：相关边（两端任一在选中集）全亮加宽，其余边淡化 0.2；
-    // hover overlay 批不参与（hover 高亮已让位）。闪烁帧不重绘此处（见 animate）
+    // 选中态：仅当前锚点与直接相关节点之间的边提亮，其他边只降低透明度；
+    // 直接相关边加粗，暗边保持原线宽。闪烁帧不重绘此处（见 animate）
     if (selectedNodeId !== null) {
       let hasRelated = false
-      let hasOther = false
+      let relatedStroke: ReturnType<typeof selectedLinkStroke> | null = null
       for (const l of linkRenderData) {
         const d = l.simulationData
         if (d.source.x === undefined || d.source.y === undefined) continue
         if (d.target.x === undefined || d.target.y === undefined) continue
         if (isSectionHiddenLink(d)) continue
-        const related = selectedSet.has(d.source.id) || selectedSet.has(d.target.id)
+        const related = isSelectedAnchorLink(selectedNodeId, d.source.id, d.target.id)
+        if (!related) continue
+        relatedStroke = selectedLinkStroke(selectedNodeId, d.source.id, d.target.id)
         linkGfx.moveTo(d.source.x + ox, d.source.y + oy)
         linkGfx.lineTo(d.target.x + ox, d.target.y + oy)
-        if (related) {
-          hasRelated = true
-        } else {
-          hasOther = true
-        }
+        hasRelated = true
       }
-      if (hasRelated) linkGfx.stroke({ width: 1.6, color: linkActiveColor, alpha: 1 })
-      if (hasOther) linkGfx.stroke({ width: 1, color: linkColor, alpha: 0.2 })
+      if (hasRelated) {
+        const stroke = relatedStroke ?? { width: 1.6, alpha: 1 }
+        linkGfx.stroke({ width: stroke.width, color: linkActiveColor, alpha: stroke.alpha })
+      }
+
+      let hasOther = false
+      let otherStroke: ReturnType<typeof selectedLinkStroke> | null = null
+      for (const l of linkRenderData) {
+        const d = l.simulationData
+        if (d.source.x === undefined || d.source.y === undefined) continue
+        if (d.target.x === undefined || d.target.y === undefined) continue
+        if (isSectionHiddenLink(d)) continue
+        if (isSelectedAnchorLink(selectedNodeId, d.source.id, d.target.id)) continue
+        otherStroke = selectedLinkStroke(selectedNodeId, d.source.id, d.target.id)
+        linkGfx.moveTo(d.source.x + ox, d.source.y + oy)
+        linkGfx.lineTo(d.target.x + ox, d.target.y + oy)
+        hasOther = true
+      }
+      if (hasOther) {
+        const stroke = otherStroke ?? { width: 1, alpha: 0.2 }
+        linkGfx.stroke({ width: stroke.width, color: linkColor, alpha: stroke.alpha })
+      }
       return
     }
 
@@ -1334,7 +1471,7 @@ async function renderGraph(
       instance.setSelected(nodeId, hops)
     },
     getSelected: () => instance.getSelected(),
-    getSelectedHops: () => instance.getSelected() === null ? 1 : (selectedBox.hops),
+    getSelectedHops: () => (instance.getSelected() === null ? 1 : selectedBox.hops),
     isInSelectedSet: (nodeId: SimpleSlug) => instance.isInSelectedSet(nodeId),
     setTermLayer: (mode: TermLayerMode): Promise<void> => {
       switching = switching.then(async () => {
@@ -1390,6 +1527,9 @@ declare global {
 }
 window.__graphRender = renderGraph
 
+// themechange 重建防抖窗口：主题卡连点时只重建最后一次
+const THEME_CHANGE_DEBOUNCE_MS = 120
+
 let localGraphControllers: GraphController[] = []
 let globalGraphControllers: GraphController[] = []
 
@@ -1420,17 +1560,12 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   }
 
   await renderLocalGraph()
-  const handleThemeChange = () => {
-    void renderLocalGraph()
-  }
-
-  document.addEventListener("themechange", handleThemeChange)
-  window.addCleanup(() => {
-    document.removeEventListener("themechange", handleThemeChange)
-  })
 
   const containers = [...document.getElementsByClassName("global-graph-outer")] as HTMLElement[]
   async function renderGlobalGraph() {
+    // 先销毁既有全局图实例：图标连点 / 主题重建路径都会重复调用本函数，
+    // 不先 cleanup 则旧 controller 失去引用却仍持有 pixi 实例与 rAF 循环（孤儿实例）
+    cleanupGlobalGraphs()
     const slug = getFullSlug(window)
     for (const container of containers) {
       container.classList.add("active")
@@ -1457,6 +1592,32 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
       }
     }
   }
+
+  // 主题切换重渲染：图内颜色是创建期的 getComputedStyle 快照，必须重建实例才换色。
+  // 注册位置在 containers 声明之后（此前挂在其上方，靠函数声明提升才成立，
+  // 是 const 的 TDZ 阅读陷阱）。
+  // 修 bug#4(b)：此前只重建局部图，全局图弹窗打开期间切主题不换色；
+  // 现检测 .active 容器并重建弹窗（renderGlobalGraph 开头已自带 cleanupGlobalGraphs，
+  // 旧实例在其内部同步销毁，无需在此重复调用）。
+  // 120ms trailing 防抖：设置页连点主题卡会连发 themechange，
+  // 不防抖则每次都触发一轮全量重建（局部图 + 弹窗），重建排队即卡顿。
+  let themeChangeTimer: ReturnType<typeof setTimeout> | undefined
+  const handleThemeChange = () => {
+    clearTimeout(themeChangeTimer)
+    themeChangeTimer = setTimeout(() => {
+      void renderLocalGraph()
+      if (containers.some((container) => container.classList.contains("active"))) {
+        void renderGlobalGraph()
+      }
+    }, THEME_CHANGE_DEBOUNCE_MS)
+  }
+
+  document.addEventListener("themechange", handleThemeChange)
+  window.addCleanup(() => {
+    // 未决的防抖回调必须撤销：导航后触发会按旧 slug 重建到已被替换的 DOM 上
+    clearTimeout(themeChangeTimer)
+    document.removeEventListener("themechange", handleThemeChange)
+  })
 
   async function shortcutHandler(e: HTMLElementEventMap["keydown"]) {
     if (e.key === "g" && (e.ctrlKey || e.metaKey) && !e.shiftKey) {

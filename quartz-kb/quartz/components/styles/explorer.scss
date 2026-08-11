@@ -123,7 +123,12 @@ button.desktop-explorer {
     padding: 0;
 
     &.explorer-ul {
+      // 需求⑨：左栏滚到顶/底后滚轮不得链给正文（照 popover.scss:46 的 contain 先例）
       overscroll-behavior: contain;
+      // 需求⑧：base.scss 的 `ul.overflow { overflow-y: auto }` 会把 overflow-x
+      // 隐式计算为 auto——深层缩进叠加长标题时即露出横向滚动条。此处显式关掉横向轴；
+      // 不改 base.scss 的通用规则（那条同时作用于 TOC 与反链，影响面过大）。
+      overflow-x: hidden;
     }
 
     & li > a {
@@ -154,8 +159,9 @@ button.desktop-explorer {
 
   .folder-outer > ul {
     overflow: hidden;
-    margin-left: 6px;
-    padding-left: 0.8rem;
+    // 收紧缩进为深层目录让出可用宽度（explorerLayout.test.ts 契约）
+    margin-left: 4px;
+    padding-left: 0.65rem;
     border-left: 1px solid var(--lightgray);
   }
 }
@@ -166,6 +172,12 @@ button.desktop-explorer {
   align-items: center;
   user-select: none;
 
+  // 需求⑧：flex 子项默认 min-width:auto，不肯收缩到内容宽度以下，长目录名
+  // 会把整行撑宽并在滚动器上催生横向滚动条；置 0 放开收缩，配合下方换行兜底。
+  & > div {
+    min-width: 0;
+  }
+
   & div > a {
     color: var(--secondary);
     // 侧栏字体独立变量（v8 字体设置）：默认等价 --headerFont
@@ -174,6 +186,8 @@ button.desktop-explorer {
     font-weight: $semiBoldWeight;
     line-height: 1.5rem;
     display: inline-block;
+    // 需求⑧兜底：无空格的长串（英文代号/URL 式标题）必须能断行，否则收缩无效
+    overflow-wrap: anywhere;
   }
 
   & div > a:hover {
@@ -200,6 +214,9 @@ button.desktop-explorer {
       margin: 0;
       line-height: 1.5rem;
       pointer-events: none;
+      // 同上：本库 folderClickBehavior 取默认 "collapse"，目录标题实际渲染为
+      // button > span（上面的 a 形态仅 "link" 行为下出现），兜底须两处齐备
+      overflow-wrap: anywhere;
     }
   }
 }

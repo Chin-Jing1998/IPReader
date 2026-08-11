@@ -36,7 +36,7 @@ const graphConfig = {
     showTags: false,
     focusOnHover: true,
     // V4-B1：排除链接全站的宿主页节点（目录 index 页的 simplifySlug 带尾斜杠）
-    excludeSlugs: ["0-图谱总览/"],
+    excludeSlugs: ["0-图谱总览/", "设置/"],
   },
   globalGraph: {
     depth: -1,
@@ -53,7 +53,7 @@ const graphConfig = {
     // 布局成形后自动整图入框；排除宿主页节点同局部图
     termLayer: "hidden" as const,
     zoomToFit: true,
-    excludeSlugs: ["0-图谱总览/"],
+    excludeSlugs: ["0-图谱总览/", "设置/"],
   },
 }
 
@@ -65,12 +65,16 @@ export const sharedPageComponents: SharedLayout = {
   // PageNav（v6）：书籍式上一节/下一节翻页，链外页面（首页/图谱页）自行返回 null
   // ReadingAids（v6）：回顶进度环 FAB + TOC 当前节强调（图谱页自行返回 null）
   // Annotate（v7）：选中文本的复制/高亮/划线/笔记（图谱页自行返回 null）
-  // Settings（v8）：按钮挂 left 栏（与搜索/阅读同排）；其遮罩容器在
-  // settings.inline.ts 初始化时被挂到 document.body——left 栏 sticky z-1 会
-  // 创建层叠上下文，fixed 遮罩留在栏内则 z-850 被限制、盖不住正文 sticky z-50
-  // 标题（图谱页实测穿透），挂 body 后遮罩回归根级层叠
+  // SettingsPage（v9）：独立设置页正文，仅 设置/index 页渲染（同 GraphExplorer 模式）。
+  // v8 的居中模态已整体废弃——设置不再是浮层，故原「遮罩挂 document.body 规避
+  // left 栏层叠上下文」的机制连同 z-850 层位一并不复存在；左栏只留
+  // SettingsButton（齿轮 <a> 跳本页 + 明暗快捷钮）
   afterBody: [
+    // TitleBar 置于首位：桌面自绘标题条（fixed 定位、CSS 门控 html[data-desktop]），
+    // DOM 序首位便于排查层叠顺序问题
+    Component.TitleBar(),
     Component.GraphExplorer(),
+    Component.SettingsPage(),
     Component.PageNav(),
     Component.ReadingAids(),
     Component.Annotate(),
@@ -101,9 +105,11 @@ export const defaultContentPageLayout: PageLayout = {
           Component: Component.Search(),
           grow: true,
         },
-        { Component: Component.Settings() },
+        { Component: Component.SettingsButton() },
         { Component: Component.ReaderMode() },
       ],
+      // 间距单一事实源：custom.scss 的 --kb-quick-gap（默认回落 0.4rem）
+      gap: "var(--kb-quick-gap, 0.4rem)",
     }),
     Component.Explorer(explorerConfig),
   ],
@@ -126,10 +132,12 @@ export const defaultListPageLayout: PageLayout = {
           Component: Component.Search(),
           grow: true,
         },
-        { Component: Component.Settings() },
+        { Component: Component.SettingsButton() },
         // 图谱总览等目录页与内容页左栏保持一致（v10）：阅读模式按钮同排
         { Component: Component.ReaderMode() },
       ],
+      // 间距单一事实源：custom.scss 的 --kb-quick-gap（默认回落 0.4rem）
+      gap: "var(--kb-quick-gap, 0.4rem)",
     }),
     Component.Explorer(explorerConfig),
   ],

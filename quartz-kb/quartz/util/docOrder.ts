@@ -1,4 +1,5 @@
 import type { QuartzPluginData } from "../plugins/vfile"
+import { SETTINGS_SLUG } from "./appPages"
 
 /**
  * 「文档序」比较器——全库单一事实源（v6 自 quartz.config.ts 迁出，逻辑零改动）。
@@ -53,10 +54,16 @@ export function byDocumentOrder(f1: QuartzPluginData, f2: QuartzPluginData): num
 
 /**
  * 不参与翻页链的页面：站根首页（无数字前缀会被排到全库末尾，语义错乱）、
- * 图谱总览应用页（非阅读页）、tags 合成页（防御性排除，本不在 allFiles 内）。
+ * 图谱总览应用页与设置应用页（均非阅读页，slug 定义见 quartz/util/appPages.ts）、
+ * tags 合成页（防御性排除，本不在 allFiles 内）。
  */
 export function isOutsideReadingChain(slug: string): boolean {
-  return slug === "index" || slug === "0-图谱总览/index" || slug.startsWith("tags/")
+  return (
+    slug === "index" ||
+    slug === "0-图谱总览/index" ||
+    slug === SETTINGS_SLUG ||
+    slug.startsWith("tags/")
+  )
 }
 
 export type ReadingChain = { order: QuartzPluginData[]; index: Map<string, number> }

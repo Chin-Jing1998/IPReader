@@ -44,6 +44,7 @@ ul.toc-content.overflow {
   margin: 0.5rem 0;
   padding: 0;
   max-height: calc(100% - 2rem);
+  // 需求⑨：目录滚到顶/底后滚轮不得链给正文（照 popover.scss:46 的 contain 先例）
   overscroll-behavior: contain;
   list-style: none;
 

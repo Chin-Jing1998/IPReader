@@ -18,6 +18,7 @@ import {
 import type { Annotation, ColorKey } from "./annotate-store"
 import { applyImport, buildExport, load, loadAll, newId, save } from "./annotate-store"
 import { buildMarkdownFiles } from "./annotate-md"
+import { shouldIgnoreSelectionChangeWhileComposing } from "../../util/annotationInteraction"
 
 const COLORS: { key: ColorKey; label: string }[] = [
   { key: "yellow", label: "黄" },
@@ -209,18 +210,21 @@ document.addEventListener("nav", () => {
   let lastMdPaths = new Set<string>()
 
   function syncMarkdown(): void {
-    const desktop = (window as unknown as {
-      desktop?: { saveAnnoMarkdown?: (p: unknown) => Promise<unknown> }
-    }).desktop
-    const dir = (window as unknown as {
-      kbSettings?: { getAnnoDir: () => string }
-    }).kbSettings?.getAnnoDir()
+    const desktop = (
+      window as unknown as {
+        desktop?: { saveAnnoMarkdown?: (p: unknown) => Promise<unknown> }
+      }
+    ).desktop
+    const dir = (
+      window as unknown as {
+        kbSettings?: { getAnnoDir: () => string }
+      }
+    ).kbSettings?.getAnnoDir()
     if (!desktop?.saveAnnoMarkdown || !dir) {
       lastMdPaths = new Set()
       return
     }
-    const pageTitle =
-      document.querySelector<HTMLElement>(".article-title")?.textContent ?? slug
+    const pageTitle = document.querySelector<HTMLElement>(".article-title")?.textContent ?? slug
     const files = buildMarkdownFiles(article!, pageTitle, items)
     const next = new Set<string>()
     for (const f of files) {
@@ -433,6 +437,14 @@ document.addEventListener("nav", () => {
   const onSelectionChange = () => {
     clearTimeout(selTimer)
     selTimer = setTimeout(() => {
+      // 聚焦笔记输入框会让浏览器清空 document.getSelection()；此时仍须保留
+      // pending Range，否则输入完成后保存按钮找不到待批注的正文选区。
+      if (
+        pending !== null &&
+        shouldIgnoreSelectionChangeWhileComposing(composeBox?.hidden === false)
+      ) {
+        return
+      }
       if (isBlocked()) {
         hideToolbar()
         return

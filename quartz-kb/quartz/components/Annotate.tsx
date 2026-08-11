@@ -9,7 +9,10 @@ import { classNames } from "../util/lang"
  *
  * 本组件只输出三件空壳——选区工具条、批注抽屉、唤起抽屉的按钮，
  * 内容全部由 annotate.inline.ts 在浏览器侧填充。
- * 图谱总览页是画布应用、正文只有一句导语，不渲染。
+ * 图谱总览页是画布应用、正文只有一句导语，不渲染；设置页虽同为应用面板，
+ * 但其「打开批注管理」按钮依赖本组件挂载的批注抽屉（经 kb-anno-open-drawer
+ * 事件唤起），若在此早退该按钮将成死钮——故设置页不早退、随正常页面渲染
+ * （抽屉默认 hidden，设置页正文极简，挂载零视觉/交互代价）。
  *
  * 中文文案硬编码在此（不动 quartz/i18n，先例：GraphExplorer、PageNav）。
  */
@@ -55,8 +58,12 @@ const Annotate: QuartzComponent = ({ fileData, displayClass }: QuartzComponentPr
 
       {/* 标记右键菜单：仅经 contextmenu 唤起，定位在鼠标处 */}
       <div class="kb-anno-ctxmenu" hidden>
-        <button type="button" data-ctx="remove">删除该批注</button>
-        <button type="button" data-ctx="close">取消</button>
+        <button type="button" data-ctx="remove">
+          删除该批注
+        </button>
+        <button type="button" data-ctx="close">
+          取消
+        </button>
       </div>
 
       {/* 悬浮笔记预览：mouseenter 后延迟出现 */}

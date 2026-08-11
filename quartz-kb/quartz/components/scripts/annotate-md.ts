@@ -36,7 +36,10 @@ function bookOf(slug: string): string {
  * 块所属章节标题：Quartz 渲染后标题与正文是兄弟节点（h1–h4 并列于 article 下），
  * 故取「文档序中该块之前的最近标题」；块自身是标题（标记落在标题文本上）时取自身。
  */
-function sectionOf(article: HTMLElement, block: HTMLElement): { tag: string; title: string } | null {
+function sectionOf(
+  article: HTMLElement,
+  block: HTMLElement,
+): { tag: string; title: string } | null {
   if (block.matches(TITLE_SELECTOR)) {
     return { tag: block.tagName, title: (block.textContent ?? "").trim() }
   }
@@ -137,7 +140,10 @@ export function buildMarkdownFiles(
   const book = bookOf(annos[0]?.slug ?? "")
   const groups = new Map<
     string,
-    { title: string; entries: { anno: Annotation; block: HTMLElement; start: number; end: number }[] }
+    {
+      title: string
+      entries: { anno: Annotation; block: HTMLElement; start: number; end: number }[]
+    }
   >()
   for (const anno of annos) {
     const hit = rangeFromSelector(article, anno.selector)

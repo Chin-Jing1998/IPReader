@@ -1,17 +1,30 @@
 @use "../../styles/variables.scss" as *;
 
-// 设置面板（v8）：齿轮按钮 + 居中模态（遮罩磨砂）。
-// 按钮与阅读按钮（readermode.scss）同构：20×32 尺寸、20px SVG 绝对居中、darkgray 色。
-// 模态按 Apple 规范：居中大圆角卡片、近实底玻璃、柔和阴影、淡入缩放动画；
-// 遮罩层无 transform（backdrop-filter 在 transform 定位元素上会失效，见 popover 注释）。
-// z-index 站位：工具条 900 > 遮罩 850 > 抽屉 300。
+// 设置（v9）：左栏快捷区（齿轮 + 明暗钮）+ 独立设置页正文。
+//
+// v8 的居中模态（遮罩 + 面板 + 两条 keyframes + 字体下拉字段）已整体删除——
+// 设置改为独立页面（content/设置/index.md + SettingsPage.tsx），不再有浮层，
+// 故本文件不再占用任何 z-index 层位（原「遮罩 850」已不存在；
+// 现存层位只剩工具条 900 与批注抽屉 300，均不在本文件内）。
+//
+// 左栏两枚按钮与阅读按钮（readermode.scss）同构：20×32 尺寸、20px SVG 绝对居中、
+// darkgray 描边；齿轮是 <a>（SPA 跳转设置页），明暗钮是 <button>。
 
-// ---------- 齿轮按钮（与 .readermode 协调） ----------
+// ---------- 左栏快捷区（与 .search / .readermode 同排） ----------
 
-.kb-settings-btn {
+.kb-quick {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-shrink: 0;
+}
+
+.kb-settings-btn,
+.kb-theme-toggle {
   cursor: pointer;
   padding: 0;
   position: relative;
+  display: block;
   background: none;
   border: none;
   width: 20px;
@@ -19,7 +32,9 @@
   margin: 0;
   text-align: inherit;
   flex-shrink: 0;
+  // 齿轮是 <a>：压过 base.scss 的全局 a 配色（.kb-settings-btn 0,1,0 胜 a 0,0,1）
   color: var(--darkgray);
+  font-weight: inherit;
 
   & svg {
     position: absolute;
@@ -34,170 +49,102 @@
   &:hover {
     color: var(--dark);
   }
-
-  &:active svg {
-    transform: rotate(30deg);
-    transition: transform 0.12s ease;
-  }
 }
 
-// ---------- 遮罩（磨砂） ----------
-
-.kb-settings-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 850;
-  display: grid;
-  place-items: center;
-  padding: 1rem;
-  background-color: rgba(14, 14, 18, 0.42);
-  // 注意：-webkit- 必须写在无前缀之前——lightningcss 对「无前缀在前」的
-  // 双写声明会吞掉无前缀版（构建 targets 判定），现代 Chromium 只认无前缀，
-  // 顺序反了磨砂效果会整体失效
-  -webkit-backdrop-filter: blur(10px) saturate(1.25);
-  backdrop-filter: blur(10px) saturate(1.25);
-  animation: kb-overlay-in 0.16s ease-out;
-
-  &[hidden] {
-    display: none;
-  }
+.kb-settings-btn:active svg {
+  transform: rotate(30deg);
+  transition: transform 0.12s ease;
 }
 
-// 深色模式遮罩更浓，衬托亮色面板；图谱画布为 WebGL 合成层、backdrop-filter
-// 无法采样模糊，只能靠不透明度压暗——故深色下刻意加重（用户实测反馈）
-:root[saved-theme="dark"] .kb-settings-overlay {
-  background-color: rgba(6, 6, 10, 0.66);
+.kb-theme-toggle:active svg {
+  transform: scale(0.88);
+  transition: transform 0.12s ease;
 }
 
-@keyframes kb-overlay-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+// 日/月显隐纯 CSS 驱动：脚本只落 saved-theme 属性，不碰图标——
+// 首帧（prescript 落属性、DOM 尚未就绪）即已是正确形态，无图标闪跳。
+// 呈现「当前态」：浅色显日、深色显月（与 quartz 内置 Darkmode 同一约定）。
+:root[saved-theme="dark"] .kb-icon-sun {
+  display: none;
 }
 
-// ---------- 居中模态面板（Apple 规范） ----------
-
-.kb-settings-panel {
-  width: 30rem;
-  max-width: calc(100vw - 2rem);
-  max-height: min(88vh, 48rem);
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  padding: 1.1rem 1.2rem 1.2rem;
-  font-family: var(--headerFont);
-  // 近实底玻璃：面板自身不叠 backdrop-filter（配合缩放动画时会被 Backdrop Root 吞掉），
-  // 磨砂效果由遮罩层承担
-  background-color: var(--popover-bg, rgba(250, 249, 249, 0.98));
-  border: 1px solid var(--glass-border, var(--lightgray));
-  border-radius: 16px;
-  box-shadow:
-    0 24px 64px rgba(0, 0, 0, 0.22),
-    0 4px 14px rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
-  animation: kb-panel-in 0.18s cubic-bezier(0.32, 0.72, 0.24, 1);
-
-  // 滚动条克制化：细、圆角、hover 才加深（内容超高的视口下不喧宾夺主）
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--lightgray);
-    border-radius: 3px;
-
-    &:hover {
-      background-color: var(--gray);
-    }
-  }
-
-  @media all and ($mobile) {
-    width: 100%;
-    max-width: none;
-    max-height: 85vh;
-    border-radius: 14px;
-  }
+:root:not([saved-theme="dark"]) .kb-icon-moon {
+  display: none;
 }
 
-@keyframes kb-panel-in {
-  from {
-    opacity: 0;
-    transform: scale(0.96) translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
+// ---------- 设置页页头（返回钮 + 页标题） ----------
 
+// 三列栅格 1fr auto 1fr：标题固定占中列，左右两列等宽，返回钮宽度不参与推挤，
+// 故标题在内容列中光学居中（若改用 flex + space-between，标题会被返回钮顶偏）。
 .kb-settings-head {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  padding-bottom: 0.7rem;
-  margin-bottom: 0.6rem;
-  border-bottom: 1px solid var(--lightgray);
+  margin: 1.6rem 0 2.2rem;
+}
 
-  h3 {
-    margin: 0;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--dark);
+// 返回钮胶囊：图标居左、文字居右，故左内边距小于右内边距（视觉等距）。
+// 本类挂在 <a> 上：特异性 (0,1,0) 压过 base.scss 的全局 a（0,0,1），
+// 配色与字重自持，不被 --secondary / $semiBoldWeight 接管。
+.kb-settings-back {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.6rem 0.3rem 0.4rem;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  font-weight: inherit;
+  color: var(--darkgray);
+  transition:
+    color var(--duration-hover, 140ms) var(--ease-hover, ease),
+    background-color var(--duration-hover, 140ms) var(--ease-hover, ease);
+
+  & svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
   }
 
-  .kb-settings-close {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    display: grid;
-    place-items: center;
-    width: 24px;
-    height: 24px;
-    padding: 0;
-    font-size: 1.15rem;
-    line-height: 1;
-    color: var(--gray);
-    background: none;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    transition:
-      color var(--duration-hover, 140ms) var(--ease-hover, ease),
-      background-color var(--duration-hover, 140ms) var(--ease-hover, ease);
-
-    &:hover {
-      color: var(--dark);
-      background-color: var(--glass-hover-wash, rgba(229, 229, 229, 0.55));
-    }
+  &:hover {
+    color: var(--dark);
+    background-color: var(--glass-hover-wash, rgba(229, 229, 229, 0.55));
   }
 }
 
-.kb-settings-body {
+// 标题占中列；显式 margin 0 压过 base.scss 的 h1（0,0,1）上下外边距
+.kb-settings-title {
+  grid-column: 2;
+  margin: 0;
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--dark);
+}
+
+// ---------- 设置页正文 ----------
+
+.kb-settings-page {
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
-}
+  gap: 2.4rem;
+  margin-top: 0.6rem;
 
-.kb-settings-sec {
-  h4 {
-    margin: 0 0 0.25rem;
-    font-size: 0.875rem;
-    font-weight: 600;
+  h2 {
+    margin: 0 0 0.3rem;
+    font-size: 1.05rem;
+    font-weight: $semiBoldWeight;
     color: var(--dark);
+    border: none;
   }
 }
 
 .kb-settings-desc {
-  margin: 0 0 0.45rem;
-  font-size: 0.73rem;
-  line-height: 1.55;
+  margin: 0 0 0.7rem;
+  max-width: 40rem;
+  font-size: 0.78rem;
+  line-height: 1.7;
   color: var(--darkgray);
 }
 
@@ -205,17 +152,18 @@
 
 .kb-settings-seg {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2px;
   padding: 2px;
+  max-width: 22rem;
   border-radius: 9px;
   background-color: var(--glass-inner-bg, rgba(255, 255, 255, 0.5));
   border: 1px solid var(--glass-border, var(--lightgray));
 
   button {
-    padding: 0.35rem 0.4rem;
+    padding: 0.4rem 0.4rem;
     font-family: inherit;
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     color: var(--darkgray);
     background: none;
     border: none;
@@ -236,125 +184,171 @@
   }
 }
 
-// ---------- 界面风格卡片 ----------
+// ---------- 六套主题卡（3×2，移动端 2×3） ----------
 
-.kb-settings-styles {
+// 卡片放大后不再设 max-width 硬限：宽度交给内容列（--settings-col，见 custom.scss），
+// 三列均分随列宽自适应，避免卡片与其余分区右缘不齐。
+.kb-theme-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.45rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
 
-  button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
-    padding: 0.55rem 0.3rem 0.45rem;
-    font-family: inherit;
-    font-size: 0.75rem;
-    color: var(--darkgray);
-    background: none;
-    border: 1px solid var(--glass-border, var(--lightgray));
-    border-radius: 10px;
-    cursor: pointer;
-    transition:
-      border-color var(--duration-hover, 140ms) var(--ease-hover, ease),
-      color var(--duration-hover, 140ms) var(--ease-hover, ease);
-
-    &:hover {
-      border-color: var(--secondary);
-      color: var(--dark);
-    }
-
-    &.is-active {
-      border-color: var(--secondary);
-      color: var(--dark);
-      box-shadow: inset 0 0 0 1px var(--secondary);
-    }
+  @media all and ($mobile) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-// 风格色板：上半亮态、下半暗态，直观呈现风格双色
-.kb-style-swatch {
+.kb-theme-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.7rem 0.7rem 0.85rem;
+  font-family: inherit;
+  text-align: center;
+  color: var(--darkgray);
+  background: none;
+  border: 1px solid var(--glass-border, var(--lightgray));
+  border-radius: 14px;
+  cursor: pointer;
+  transition:
+    border-color var(--duration-hover, 140ms) var(--ease-hover, ease),
+    box-shadow var(--duration-hover, 140ms) var(--ease-hover, ease),
+    transform var(--duration-hover, 140ms) var(--ease-hover, ease),
+    color var(--duration-hover, 140ms) var(--ease-hover, ease);
+
+  &:hover {
+    border-color: var(--secondary);
+    color: var(--dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  }
+
+  // 选中态描边用 --secondary（inset box-shadow 加粗一圈，不改盒模型尺寸）
+  &.is-active {
+    border-color: var(--secondary);
+    color: var(--dark);
+    box-shadow: inset 0 0 0 2px var(--secondary);
+  }
+
+  // box-shadow 不跨规则叠加：选中卡悬停时若不并写，晚出现的 is-active 内描边会
+  // 整条覆盖掉 hover 投影（抬升却无阴影）。故此处显式并列两层。
+  &.is-active:hover {
+    box-shadow:
+      inset 0 0 0 2px var(--secondary),
+      0 6px 18px rgba(0, 0, 0, 0.1);
+  }
+
+  // 选中卡的色板外描边（1px），与卡片内描边形成双层指示
+  &.is-active .kb-theme-preview {
+    box-shadow: 0 0 0 1px var(--secondary);
+  }
+
+  // 每卡三个色值 = 该套主题的 --light / --dark（暗态底色）/ --secondary，
+  // 与 custom.scss 的 [data-style] 覆盖块同源，改主题色须两处同改。
+  &[data-value="xuanzhi"] {
+    --swatch-light: #f6f1e7;
+    --swatch-dark: #201c16;
+    --swatch-accent: #8c5a3c;
+  }
+  &[data-value="shuimo"] {
+    --swatch-light: #f2f4f3;
+    --swatch-dark: #171a1c;
+    --swatch-accent: #40606c;
+  }
+  &[data-value="qingci"] {
+    --swatch-light: #eef4f2;
+    --swatch-dark: #14201d;
+    --swatch-accent: #3d7068;
+  }
+  &[data-value="zhulin"] {
+    --swatch-light: #f1f5ec;
+    --swatch-dark: #181f15;
+    --swatch-accent: #4a7c46;
+  }
+  &[data-value="mushan"] {
+    --swatch-light: #f4f1f6;
+    --swatch-dark: #1a1620;
+    --swatch-accent: #6d5a8e;
+  }
+  &[data-value="xuanye"] {
+    --swatch-light: #eff2f7;
+    --swatch-dark: #10141d;
+    --swatch-accent: #4a5d8a;
+  }
+}
+
+// 色板：135° 斜切分割——左上亮态、右下暗态，中缝插一条 1px 发丝线
+// （硬断色标会在斜边上产生锯齿，插入 1px 过渡带即为抗锯齿手段）。
+// 两枚强调点分别落在亮、暗两块三角的重心附近（30% / 70%），使两态各自可辨强调色。
+.kb-theme-preview {
+  position: relative;
+  display: block;
   width: 100%;
-  height: 1.6rem;
-  border-radius: 6px;
+  height: 5.5rem;
+  border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.08);
 
-  background: linear-gradient(
-    to bottom,
-    var(--swatch-light, #faf8f8) 0%,
-    var(--swatch-light, #faf8f8) 50%,
-    var(--swatch-dark, #161618) 50%,
-    var(--swatch-dark, #161618) 100%
+  background-image: linear-gradient(
+    135deg,
+    var(--swatch-light, #f6f1e7) 0 calc(50% - 0.5px),
+    var(--swatch-seam, rgba(0, 0, 0, 0.12)) calc(50% - 0.5px) calc(50% + 0.5px),
+    var(--swatch-dark, #201c16) calc(50% + 0.5px) 100%
   );
 
-  &.kb-style-default {
-    --swatch-light: #faf8f8;
-    --swatch-dark: #161618;
+  // 亮侧强调点（左上三角）
+  &::after {
+    content: "";
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    width: 0.7rem;
+    height: 0.7rem;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: var(--swatch-accent, #8c5a3c);
   }
-  &.kb-style-paper {
-    --swatch-light: #f7f3ec;
-    --swatch-dark: #262019;
-  }
-  &.kb-style-ink {
-    --swatch-light: #f1f4f3;
-    --swatch-dark: #14181a;
-  }
-  &.kb-style-ocean {
-    --swatch-light: #f0f5fa;
-    --swatch-dark: #0f1b2d;
-  }
-  &.kb-style-midnight {
-    --swatch-light: #f4f2f8;
-    --swatch-dark: #0e0e14;
-  }
-  &.kb-style-graphite {
-    --swatch-light: #f2f2f7;
-    --swatch-dark: #1c1c1e;
+
+  // 暗侧强调点（右下三角）
+  &::before {
+    content: "";
+    position: absolute;
+    left: 70%;
+    top: 70%;
+    width: 0.7rem;
+    height: 0.7rem;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: var(--swatch-accent, #8c5a3c);
   }
 }
 
-// ---------- 字体字段 ----------
+.kb-theme-name {
+  font-size: 0.88rem;
+  font-weight: $semiBoldWeight;
+}
 
-.kb-settings-field {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.6rem;
-  margin-top: 0.35rem;
-  font-size: 0.8rem;
-  color: var(--dark);
+.kb-theme-desc {
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--gray);
+}
 
-  span {
-    flex-shrink: 0;
-  }
-
-  select {
-    flex: 1;
-    max-width: 11rem;
-    padding: 0.3rem 0.45rem;
-    font-family: inherit;
-    font-size: 0.78rem;
-    color: var(--dark);
-    background-color: var(--glass-inner-bg, rgba(255, 255, 255, 0.5));
-    border: 1px solid var(--lightgray);
-    border-radius: 7px;
-    cursor: pointer;
-
-    &:focus {
-      outline: none;
-      border-color: var(--secondary);
-    }
+// 减少动效偏好：撤掉主题卡悬停位移（颜色/描边等非位移反馈保留，
+// 悬停仍可辨）。custom.scss 另有一处同名媒体查询，两处按各自作用域自持。
+@media (prefers-reduced-motion: reduce) {
+  .kb-theme-card:hover {
+    transform: none;
   }
 }
 
 // ---------- 批注保存位置 ----------
 
 .kb-settings-dir {
-  margin: 0 0 0.5rem;
-  padding: 0.4rem 0.5rem;
+  margin: 0 0 0.55rem;
+  max-width: 34rem;
+  padding: 0.45rem 0.55rem;
   font-family: var(--codeFont);
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   line-height: 1.5;
   word-break: break-all;
   color: var(--darkgray);
@@ -366,12 +360,13 @@
 .kb-settings-row {
   display: flex;
   gap: 0.5rem;
+  max-width: 22rem;
 
   button {
     flex: 1;
-    padding: 0.4rem 0.5rem;
+    padding: 0.42rem 0.5rem;
     font-family: inherit;
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     text-align: center;
     color: var(--secondary);
     background: none;
@@ -386,5 +381,53 @@
       border-color: var(--secondary);
       background-color: var(--highlight);
     }
+  }
+}
+
+// ---------- 设置页沉浸布局 ----------
+//
+// 设置页是应用面板、不是阅读页：左栏（搜索 / 目录树 / 快捷区）与右栏
+// （局部图 / 目录 / 反链）在此均无信息量，页头三件（面包屑 / 标题 / 阅读时长）
+// 与空正文亦然——全部隐藏，页面只余页头（.kb-settings-head）与设置正文
+// （.kb-settings-page，渲染于 .page-footer）。返回入口由页头的返回钮承担。
+//
+// 两条选择器纪律：
+//   ① 隐藏侧栏的选择器带 #quartz-body，以压过 base.scss 中
+//      `.page > #quartz-body .sidebar` 的 ID 特异性（形态与 graphexplorer.scss
+//      的图谱总览页同名规则一致）；
+//   ② 内容列宽（--settings-col）与 .page-footer 的收窄居中不在本文件写，
+//      归 custom.scss —— joinStyles 拼装序下本文件先于 custom.scss 落盘，
+//      在此写会被后者相关规则接管，故按单一落点收敛。
+body[data-slug="设置/index"] {
+  .page > #quartz-body .sidebar.left,
+  .page > #quartz-body .sidebar.right {
+    display: none;
+  }
+
+  // 两栏隐藏后其栅格列仍占实宽（左 320px + 右 320px），故非移动端把栅格
+  // 退化为单列并归零列间距（模式同 graphexplorer.scss 的图谱总览页专属栅格）。
+  // 移动端 $mobileGrid 本就是单列，无需覆盖。
+  @media all and not ($mobile) {
+    .page > #quartz-body {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas:
+        "grid-header"
+        "grid-center"
+        "grid-footer";
+      column-gap: 0;
+    }
+  }
+
+  .breadcrumb-container,
+  .content-meta {
+    display: none;
+  }
+
+  // 页头容器（含 ArticleTitle）、分隔线、空正文——设置页正文走 afterBody，
+  // 这三者只贡献留白
+  #quartz-body .center > .page-header,
+  #quartz-body .center > hr,
+  #quartz-body .center > article {
+    display: none;
   }
 }

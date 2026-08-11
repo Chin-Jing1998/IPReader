@@ -1,0 +1,61 @@
+@use "../../styles/variables.scss" as *;
+
+// ============================================================
+// 自绘标题条（需求⑥）：桌面端 macOS hiddenInset 下补齐窗口标题。
+// DOM 始终由 TitleBar.tsx 输出（SSR 无法探知运行平台），显隐全部在此门控。
+// ============================================================
+
+// 浏览器打开产物、以及非 macOS 桌面端（无 data-desktop）：条带不存在，零影响。
+.kb-titlebar {
+  display: none;
+}
+
+html[data-desktop] {
+  // 移动端断点下窗口窄、布局改为单列，固定条带只会挤占正文，不参与。
+  @media all and not ($mobile) {
+    .kb-titlebar {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      // 高度经 --titlebar-h 对外暴露，正文与各固定层的顶部偏移统一消费该变量
+      // （custom.scss ι-3 段）；此处回退值与之保持一致。
+      height: var(--titlebar-h, 38px);
+      // 刻意高于 graph 弹窗 9999 与搜索遮罩：红绿灯由系统绘于网页之上，
+      // 遮罩若盖住标题条则条带消失而红绿灯仍在，观感破碎；遮罩另行下移让位。
+      z-index: 10000;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      // hiddenInset 的红绿灯占左上约 80px；居中文本天然避开，
+      // padding 是长标题的兜底，防止其向两端伸展压到按钮下方。
+      padding: 0 88px;
+      -webkit-app-region: drag;
+      user-select: none;
+      // 实底随主题：fixed 层加 backdrop-filter 会建立独立 Backdrop Root，
+      // 令其后代与页面其余磨砂层脱钩，故此处不用玻璃材质。
+      background-color: var(--light);
+      border-bottom: 1px solid var(--glass-border, var(--lightgray));
+      color: var(--darkgray);
+      font-family: var(--headerFont);
+      font-size: 0.8125rem;
+      letter-spacing: 0.06em;
+    }
+
+    // flex 项默认 min-width: auto，超长标题会撑破上面的 padding 护栏；
+    // 归零后配合截断，文本无论多长都止步于红绿灯之前。
+    .kb-titlebar-text {
+      min-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    // 条带整体可拖拽窗口，其中的交互元素需退出拖拽区否则点不动。
+    .kb-titlebar a,
+    .kb-titlebar button {
+      -webkit-app-region: no-drag;
+    }
+  }
+}
