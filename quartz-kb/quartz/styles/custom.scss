@@ -47,16 +47,19 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
 
 :root {
   // 浅色玻璃：白玻璃 + 白色内描边高光 + 轻弥散阴影
-  // F7 对比度：--glass-bg 0.55→0.72、--glass-inner-bg 0.38→0.5，玻璃上文字更稳
-  --glass-bg: rgba(255, 255, 255, 0.72);
+  // v12：本基线块的玻璃族与弹窗底色一律对齐宣纸（默认风格）亮态取值。理由：无
+  // data-style 的首帧（无 JS 或极早期）此前落中性近白，随后被宣纸暖白接管，中间
+  // 有一帧白闪；对齐后首帧即是最终色。alpha 链随之统一为 .78/.86/.92/.55。
+  // 数值单一来源为 quartz/util/color.test.ts 的 V12_EXPECTED.xuanzhi。
+  --glass-bg: rgba(255, 241, 232, 0.78);
   --glass-border: rgba(255, 255, 255, 0.65);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   --glass-blur: 20px;
   --glass-saturate: 1.5;
   // 玻璃面板内的二级卡片底（不再叠加 blur，避免嵌套 backdrop-filter 开销）
-  --glass-inner-bg: rgba(255, 255, 255, 0.5);
+  --glass-inner-bg: rgba(255, 241, 232, 0.55);
   // 回退近实底（不支持 backdrop-filter 或用户偏好降低透明度时）
-  --glass-bg-solid: #f7f5f5;
+  --glass-bg-solid: #fff1e8;
   // 全屏遮罩着色
   --glass-tint: rgba(255, 255, 255, 0.25);
   // 图谱标签字体：黑体栈，与标题一致；由 theme.ts 输出 --graphFont，
@@ -66,20 +69,26 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
   --graphLink: #c9ccd1;
   --graphLinkActive: #8a8f98;
 
-  // —— CSS 颜色混合函数的等效静态色（F12：Electron 22 = Chromium 108 不支持该函数，
-  //     按原混合语义手算；深色对应值见下方 saved-theme="dark" 块）——
-  // 页面底衬渐变：≈ secondary(#284b63) 7% / tertiary(#84a59d) 8% 混透明
-  --page-tint-a: rgba(40, 75, 99, 0.07);
-  --page-tint-b: rgba(132, 165, 157, 0.08);
+  // —— CSS 颜色混合函数的等效静态色（F12 旧账）——
+  //     立此账时的基线是 Electron 22 = Chromium 108，color-mix() 尚不可用，故按原
+  //     混合语义手算成静态色。基线已推进到 Electron 43（Chromium 13x），color-mix()
+  //     可用；既有静态色不回改（无收益且需重验合成对比度），新代码可直接使用，
+  //     右值含 var() 时 lightningcss 不作编译期求值、原样直通。
+  //     深色对应值见下方 saved-theme="dark" 块。
+  // 页面底衬渐变（v12 起对齐宣纸亮态，与其余基线 token 同源——首帧无 data-style 时不再闪旧上游蓝绿）
+  --page-tint-a: rgba(140, 90, 60, 0.07);
+  --page-tint-b: rgba(163, 119, 93, 0.08);
   // 条文块/原文容器底色：≈ secondary 5% 混透明
   --accent-wash: rgba(40, 75, 99, 0.05);
-  // 玻璃遮罩无模糊回退：≈ glass-tint 60% 混 --light(#faf8f8)
-  --glass-overlay-fallback: rgba(251, 250, 250, 0.55);
-  // 玻璃底上的悬停高亮：≈ lightgray(#e5e5e5) 55% 混透明
-  --glass-hover-wash: rgba(229, 229, 229, 0.55);
+  // 玻璃遮罩无模糊回退（v12 起对齐宣纸亮态，与上方玻璃族同源）
+  --glass-overlay-fallback: rgba(252, 243, 237, 0.55);
+  // 玻璃底上的悬停高亮（v12 起对齐宣纸亮态：明度锁 --lightgray、色相锁 --light）
+  --glass-hover-wash: rgba(226, 214, 206, 0.55);
   // 悬停预览弹窗底：阅读面近实底（弹窗的 backdrop-filter 因 Backdrop Root
   // 隔离而失效，半透明底会与下层正文叠字，见 popover.scss）
-  --popover-bg: rgba(250, 249, 249, 0.98);
+  --popover-bg: rgba(255, 246, 240, 0.98);
+  // 浮窗描边随主题 secondary、alpha 0.26——近实底面板的边界不能靠底色差表达
+  --popover-border: rgba(140, 90, 60, 0.26);
 }
 
 // 关键词详情页右栏只保留关系图谱与反向链接，不显示目录。
@@ -102,12 +111,15 @@ body[data-slug^="9-关键词索引/"] .page > #quartz-body > .sidebar.right > .t
   --graphLinkActive: #9a9aa2;
 
   // 颜色混合等效静态色（F12 深色：secondary=#7b97aa、light=#161618、lightgray=#393639）
-  --page-tint-a: rgba(123, 151, 170, 0.07);
-  --page-tint-b: rgba(132, 165, 157, 0.08);
+  // v12 起对齐宣纸暗态（同亮基线的处理）
+  --page-tint-a: rgba(200, 149, 108, 0.06);
+  --page-tint-b: rgba(164, 120, 85, 0.07);
   --accent-wash: rgba(123, 151, 170, 0.05);
   --glass-overlay-fallback: rgba(18, 18, 21, 0.61);
   --glass-hover-wash: rgba(57, 54, 57, 0.55);
   --popover-bg: rgba(26, 26, 32, 0.98);
+  // 浮窗描边随主题 secondary、alpha 0.26（暗基线取宣纸暗块 secondary #c8956c）
+  --popover-border: rgba(200, 149, 108, 0.26);
 }
 
 // 公共工具类：任何元素挂 .glass 即获得玻璃面板形态
@@ -548,6 +560,22 @@ article table td {
   }
 }
 
+// 四、滚动内容与自绘轨道的呼吸距（需求⑥）
+// padding 加在滚动器盒内、且 box-sizing 保持 border-box ⇒ border box 右缘不动，
+// 轨道位置分毫不变（JS 的 --kb-oscroll-right 量的是滚动器右缘到侧栏 padding 右缘的
+// 距离，与内边距无关），只有文字向内缩 0.7rem，不再贴着拇指。
+// .explorer-content 刻意不加——它被 base.scss 的 `div:has(> .overflow)` 压成
+// overflow:hidden，并非活动滚动器（真正滚动的是其子 ul.explorer-ul）；给它加
+// padding 会把子 ul 连同轨道一起左移。
+@media all and not ($mobile) {
+  .page > #quartz-body > .sidebar.left .explorer-ul,
+  .page > #quartz-body > .sidebar.right ul.toc-content.overflow,
+  .page > #quartz-body > .sidebar.right .backlinks > ul.overflow {
+    padding-right: 0.7rem;
+    box-sizing: border-box;
+  }
+}
+
 // 桌面/平板保留对称的 320px 侧栏外框，仅收窄内部左右留白，增加内容可视宽度。
 @media all and not ($mobile) {
   .page > #quartz-body > .sidebar {
@@ -594,8 +622,10 @@ li.section-li > .section {
 // 六、视觉方向调整（v6）：动效 / 材质 / 导航 token
 // 参照 Apple 设计规范（临界阻尼缓动、时长 <300ms、材质厚度分级、
 // vibrancy 实色导航文本）。本节只定义 token；消费处一律带 fallback 值，
-// 使本节可独立 revert 而不破版。禁用 color-mix()（Chromium 108），
-// 全部为手算静态色，深浅主题各一套。
+// 使本节可独立 revert 而不破版。本节色值全为手算静态色、深浅主题各一套——
+// 立此约定时的基线是 Electron 22 = Chromium 108，尚不支持 color-mix()。
+// 基线已推进到 Electron 43（Chromium 13x），color-mix() 可用：既有静态色不回改，
+// 新代码可直接使用，右值含 var() 时 lightningcss 不作编译期求值、原样直通。
 // ============================================================
 
 :root {
@@ -615,11 +645,12 @@ li.section-li > .section {
 
   // —— 材质厚度分级：thick 用于导航层（左侧栏/模态面板）；
   //    regular 沿用既有 --glass-*（数值不动）——
-  --glass-bg-thick: rgba(255, 255, 255, 0.86);
+  //    （v12：底色同上方基线块一并对齐宣纸亮态，消除无 data-style 首帧的白闪）
+  --glass-bg-thick: rgba(255, 241, 232, 0.86);
   --glass-blur-thick: 30px;
   --glass-saturate-thick: 1.7;
   // 滚动边缘渐隐遮罩用色（scroll edge effect），与 thick 面同色系
-  --glass-scrim: rgba(255, 255, 255, 0.92);
+  --glass-scrim: rgba(255, 241, 232, 0.92);
 
   // —— vibrancy：玻璃面上的导航文本用实色而非降透明度
   //   （中文细笔画在半透明面上发虚）——
@@ -647,9 +678,13 @@ li.section-li > .section {
   opacity: 1;
   color: var(--nav-fg, var(--darkgray));
   border-radius: 5px;
+  // box-shadow 与 color/background-color 同条列全（R5）：.active 的左指示条是
+  // inset box-shadow，漏列会让当前项切换时指示条硬跳。三者同取悬停档——
+  // 指示条随点击瞬时出现，260ms 会拖出可见尾巴。
   transition:
     color var(--duration-hover, 140ms) var(--ease-hover, ease),
-    background-color var(--duration-hover, 140ms) var(--ease-hover, ease);
+    background-color var(--duration-hover, 140ms) var(--ease-hover, ease),
+    box-shadow var(--duration-hover, 140ms) var(--ease-hover, ease);
 }
 
 .explorer-content ul li > a.active {
@@ -685,11 +720,31 @@ li.section-li > .section {
 // 原则：进入/退出 ease-out、屏内移动 ease-in-out、抽屉折叠 ease-drawer、
 // 悬停着色 ease；只动 transform/opacity/颜色，禁 transition:all；
 // 高频操作动效最短。重声明一律与上游同选择器（同特异性后位胜）。
+//
+// —— 路由总原则（R5 的直接推论，先读这条再改任何清单）——
+// transition 是长写属性：同一元素被两条规则命中时，后一条整条替换前一条，
+// 先写的属性静默丢失。故一个元素的过渡只能有一处事实源，按下表二选一：
+//   ① 元素自带 transition（或其组件 scss 的选择器特异性高于本文件）
+//      → 改它自己那一条，在那里把全部属性列全，本文件永不重复收录；
+//   ② 元素无任何 transition 且裸类/低特异性选择器即可命中
+//      → 进本节清单，在本节列全。
+// 两边不得重复列同一元素——重复即等于让高特异性/后位的那条吃掉另一条。
+// 新增选择器落笔前必须 grep 对应组件 scss 确认归属（容器本身是否自带
+// transition；其嵌套子控件的 transition 属另一元素，不构成冲突）。
 // ============================================================
 
 // —— 链接着色（原 base.scss a{transition:color .2s ease}）——
+// 本条即链接的唯一事实源：hover 文字色留 140ms 快感，底色走 260ms 暗色档，
+// 两档在同一条内列全（R5）。底色一项覆盖 base.scss 的 a.internal 胶囊
+// （background-color: var(--highlight)）与 tag 胶囊——它们此前在明暗切换时
+// 底色瞬变、文字色渐变，快慢错位最刺眼。
+// 例外备案：article a.internal[href*="9-关键词索引/"]（第十二节，(0,3,1)）
+// 自带 border-color + background-color 140ms 一条，特异性高于本条、整条替换，
+// 词条链接因此不吃这里的 260ms——那条已在其所在处列全，本节不重复收录。
 a {
-  transition: color var(--duration-hover, 140ms) var(--ease-hover, ease);
+  transition:
+    color var(--duration-hover, 140ms) var(--ease-hover, ease),
+    background-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
 }
 
 // —— 目录树折叠箭头与文件夹图标（原 .3s/.35s ease）——
@@ -821,25 +876,43 @@ pre:hover > .clipboard-button {
 
 // —— 暗色切换：仅对「面」列举式过渡（不用 * 通配；PixiJS 读变量瞬变无碍）——
 //
-// 三条规则的分工与红线（R5）：transition 是长写属性，同一元素被两条规则命中时，
-// 后一条整条替换前一条，先写的属性静默丢失。故**任何元素只能出现在下列三条中的
+// 五条规则的分工与红线（R5）：transition 是长写属性，同一元素被两条规则命中时，
+// 后一条整条替换前一条，先写的属性静默丢失。故**任何元素只能出现在下列五条中的
 // 一条**；需要多于一类属性的元素一律并入「规则三」，绝不靠两条规则叠加。
+// 五条按需要过渡的属性集切分：一＝bg+color，二＝border+shadow，三＝四属性全集，
+// 四＝仅 color，五＝仅 border-color；另有三条单列合并条（.reading-fab /
+// .popover.click-preview / 进度环 stroke）与三条底纹·代码块单列条
+//（.text-highlight / mark.kb-mark / pre > code[data-theme]），理由各自就地注明。
 //
-// 纪律一（防悬停发滞）：已自带 140ms 交互过渡的控件不进本清单——正文链接 a、
-//   目录树条目、TOC 条目、左栏三枚快捷钮（第十四节）、设置页分段控件与主题卡、
-//   翻页卡 .page-nav-item。其中 .page-nav-item 是本轮**移出**项：它在
-//   pageNav.scss 已有 transform/border-color/background-color 三属性过渡，
-//   旧清单把它纳入 260ms，反而整条替换掉了按压与悬停手感。
+// 纪律一（防悬停发滞）：已自带 140ms 交互过渡的控件不进本清单——正文链接 a
+//   （现为「合并条」：本节 a 那条把 color 140ms 与 background-color 260ms 一次列全，
+//   不再是纯豁免）、目录树条目、TOC 条目、左栏三枚快捷钮（第十四节）、
+//   设置页分段控件 .kb-settings-seg button 与主题卡 .kb-theme-card。
+// 纪律一之二（组件内已列全，本清单**永不收录**）：下列元素的过渡事实源在其组件
+//   scss，且已按 R5 在那一条内把 260ms 的颜色项列全，本节重复收录即会互相吃掉——
+//   search.scss 五项：.search-button（border/bg 140 + color 260）、
+//     .search-button > p（color 260）、.search-path（stroke 260）、
+//     .result-card（bg/shadow 140 + border/color 260）、
+//     .search-layout .highlight；
+//   pageNav.scss 一项：.page-nav-item（transform/border/bg 140 + color 260）——
+//     本项自 v11 起即为移出项，旧清单纳入 260ms 反而替换掉了按压与悬停手感；
+//   settings.scss 一项：.kb-settings-row button（border/bg 140 + color 260）。
 // 纪律二（不为 body 背景做双缓冲）：background-image 不可过渡，要淡入淡出必须
 //   叠一层可动 opacity 的伪元素——而带 opacity/transform/filter 动画的固定伪
 //   元素会把 body 变成 Backdrop Root，全站 backdrop-filter 玻璃当场失效
 //   （见第二节）。两层底衬渐变 alpha ≤0.08、素描线描 stroke-opacity ≤0.13，
 //   瞬变幅度低于感知阈值，权衡后取「瞬变」这一侧。
+//   v12 已将 --page-art 亮暗两版描线的根 stroke L* 各向中点收窄 35%（色彩组落地，
+//   见第十六节注），底色已完成 260ms 收敛而线描仍在瞬变的那段极性错位窗口，
+//   可见幅度随之减去三分之一。
 
 // 规则一：只有背景色 / 文字色需要收敛的面。
 // h1–h6 与 thead 是 base.scss 显式赋 --dark 的一组，涵盖页面标题（h1.article-title）、
 // 侧栏站名（h2.page-title）、四个面板标题与设置页标题；无显式配色、纯继承的元素
 // 不必单列——继承值随祖先的过渡值一并推进。
+// .center > hr（正文与页脚之间的分隔线）归本条而非规则二：base.scss 把它写成
+// `border: none` + `background-color: var(--lightgray)`，那条线是背景而非描边，
+// 进规则二会一无所动。
 body,
 article,
 thead,
@@ -849,6 +922,7 @@ h3,
 h4,
 h5,
 h6,
+.center > hr,
 .page > #quartz-body > .sidebar::before,
 .content-meta,
 button.mobile-explorer,
@@ -863,10 +937,11 @@ button.desktop-explorer,
 }
 
 // 规则二：纯描边 / 阴影的面。
-// .sidebar 刻意用裸类 (0,1,0) 而非 .page > #quartz-body > .sidebar (1,2,0)——
-// 后者会压过 readermode.scss 的 :root[reader-mode="on"] .sidebar.left (0,4,0)，
-// 把阅读模式的 opacity 淡入淡出连带替换掉。裸类低于它，两者各管各的。
-.sidebar,
+// .sidebar 已自本条迁往规则三：常态下 glass-panel-host 把玻璃底交给 ::before、
+// 宿主本体确为 background-color:transparent，看似只需描边与阴影；但两处降级块
+//（glass.scss 的 @supports not (backdrop-filter) 与 prefers-reduced-transparency）
+// 把 var(--glass-bg-solid) 直接写回宿主本体，移动端左栏顶条（第三节）也显式改写
+// 宿主 background-color——那些环境下只过渡描边会留下底色瞬变，故须四属性档。
 article hr {
   transition:
     border-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out),
@@ -878,6 +953,25 @@ article hr {
 // --accent-wash 底与 3px 主题色左线（第四节），表格 th/td 带 --gray/--lightgray
 // 下边线（base.scss），pre 的底色来自 syntax.scss 的 shiki 变量、描边来自
 // 第五节的 --glass-border——只过渡背景与文字会留下描边跳变。
+//
+// 特异性红线（.sidebar 必须写作裸类 (0,1,0)）：若改用 .page > #quartz-body >
+// .sidebar (1,2,0)，它会压过 readermode.scss 的 :root[reader-mode="on"]
+// .sidebar.left (0,4,0)，把阅读模式侧栏的 opacity 淡入淡出整条替换掉——侧栏
+// 从此不再隐显。裸类低于它，两者各管各的。本条其余新增项同理，一律取「能命中
+// 的最低特异性」，绝不因排版顺手而写成后代选择器。
+//
+// 除 .sidebar 外，本次新增四组的归属依据（逐项已 grep 对应组件 scss，容器本体
+// 均无自带 transition；其嵌套子控件自带的 140ms 属另一元素，按路由总原则不构成
+// 冲突）：
+//   · graphexplorer.scss：.ge-toolbar / .ge-panel 是玻璃面（--glass-bg + 描边 +
+//     阴影），.ge-canvas 是 --light 底 + --lightgray 描边；
+//   · settings.scss：.kb-settings-drawer 与 .kb-settings-seg 均为
+//     --glass-inner-bg 底 + --glass-border 描边的二级卡（其 button 子代自带
+//     140ms 交互过渡，见上「纪律一」，与容器互不干涉）；
+//   · annotate.scss：五个浮层一律 --popover-bg 近实底 + 描边 + 阴影；
+//   · search.scss：.search > .search-container 是 glass-overlay 遮罩，
+//     .search-space > * 是 glass-panel(14px) 面板——两者的 .active 态在本节上方
+//     只挂 animation（入场关键帧），与本条的 transition 分属两个属性，不冲突。
 article p,
 article li,
 article th,
@@ -889,12 +983,100 @@ article pre,
 .page > #quartz-body > .sidebar.right > .toc,
 .page > #quartz-body > .sidebar.right > .backlinks,
 .popover > .popover-inner,
-.kb-settings-dir {
+.kb-settings-dir,
+.sidebar,
+.ge-canvas,
+.ge-toolbar,
+.ge-panel,
+.kb-settings-drawer,
+.kb-settings-seg,
+.kb-anno-toolbar,
+.kb-anno-drawer,
+.kb-anno-pop,
+.kb-anno-tip-pop,
+.kb-anno-ctxmenu,
+.search > .search-container,
+.search > .search-container > .search-space > * {
   transition:
     background-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out),
     color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out),
     border-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out),
     box-shadow var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
+}
+
+// 规则四：只有文字色需要收敛的元素——本体既无底色也无描边，仅显式赋 color
+//（显式赋值的 color 不随祖先的过渡推进，故必须单列，与 search.scss 里
+// .search-button > p 单列同一理由）。
+// 逐项已 grep 确认其组件 scss 中本体无自带 transition，冲突项均属另一元素：
+//   · pageNav.scss 的 .page-nav-title / .page-nav-dir / .page-nav-book——
+//     带 transition 的是它们的父卡 .page-nav-item（已在「纪律一之二」豁免）；
+//   · toc.scss 的 button.toc-header——带 transition 的是其子 .fold，本节上方
+//     那条 button.toc-header .fold 命中的也是子元素，两者不相替换；
+//   · breadcrumbs.scss 的 .breadcrumb-element p（全文件无 transition）；
+//   · popover.scss 的 .popover-return-label / .popover-return-icon——带
+//     transition 的是其父钮 .popover-return-button（描边与底色 0.15s，属交互档）。
+.page-nav-title,
+.page-nav-dir,
+.page-nav-book,
+button.toc-header,
+.breadcrumb-element p,
+.popover-return-label,
+.popover-return-icon {
+  transition: color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
+}
+
+// 规则五：只有描边色需要收敛的元素——本体无底色、无阴影，仅一条分隔性描边，
+// 取色为 --lightgray / --glass-border，明暗两版反差明显，瞬变会在正在收敛的
+// 面上「跳线」。逐项已 grep 确认无自带 transition：
+//   · base.scss 的 tr（border-bottom）与代码块标题条（1px --lightgray 框）；
+//   · explorer.scss 的 .folder-outer > ul（层级竖线 border-left）——带
+//     transition 的是其父 .folder-outer 的 grid-template-rows 折叠，属另一元素，
+//     本节上方 .explorer-content .folder-outer 那条只改时长与曲线，同样不冲突；
+//   · pageNav.scss 的 .page-nav-wrapper（border-top）——它在第十五节
+//     prefers-reduced-motion 块里的 transition:none 是降级归零，非过渡事实源。
+tr,
+.folder-outer > ul,
+.page-nav-wrapper,
+figure[data-rehype-pretty-code-figure] > [data-rehype-pretty-code-title] {
+  transition: border-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
+}
+
+// 阅读进度环（单列合并条之三）：两枚 circle 的着色写在 stroke 上且为显式取色
+//（readingAids.scss：--lightgray / --secondary，不是 currentColor），故必须过渡
+// stroke 本身，过渡 color 无效。
+// 红线：绝不列 stroke-dashoffset——它由 readingAids 脚本随滚动逐帧改写以表达
+// 进度，一旦加过渡，环的推进会恒滞后指针一个时长，滚动停下后还在自行爬行。
+.reading-fab-track,
+.reading-fab-ring {
+  transition: stroke var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
+}
+
+// 底纹族：只换底、不换字的着色层，两条按各自属性集单列。
+// .text-highlight（base.scss）是 --textHighlight 底纹，与 ::selection 同源；
+// mark.kb-mark（annotate.scss）除 --kb-bg 底色外，underline 型标记还把线色写在
+// text-decoration-color（--kb-line）上——两项必须同条列全，否则下划线瞬变、底色
+// 渐变，正是正文链接此前「快慢错位」那一类刺眼。
+.text-highlight {
+  transition: background-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
+}
+mark.kb-mark {
+  transition:
+    background-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out),
+    text-decoration-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
+}
+
+// 代码块着色（shiki 双主题）：syntax.scss 以 code[data-theme*=" "] 承载
+// --shiki-light / --shiki-light-bg 与其 dark 对应版，明暗反差为全站最大，瞬变
+// 时整块代码会抢在四周的面之前完成换色。本条只挂 code 本体（写作
+// pre > code[data-theme*=" "]，(0,1,2)，与 shiki 的实际形态对齐；syntax.scss
+// 那两条不含 transition，不构成冲突）。
+// 取舍：**不下沉到 code[data-theme*=" "] span**——一屏代码常有上千个着色 span，
+// 逐个建过渡等于上千条并发动画，切主题当场掉帧。已知残留：token 色（span 的
+// color）仍瞬变；但它变色的那一刻外层底色正在 260ms 淡入，视觉上被部分遮蔽。
+pre > code[data-theme*=" "] {
+  transition:
+    background-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out),
+    color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
 }
 
 // 回到顶部悬浮钮：同一「长写覆盖」陷阱的第二例。它在 readingAids.scss 用
@@ -907,6 +1089,22 @@ article pre,
     transform var(--duration-hover, 140ms) var(--ease-out, ease-out),
     background-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out),
     border-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
+}
+
+// 正文单击预览的全屏遮罩：同一陷阱的第三例，也是本节唯一「跨规则继承」的合并条。
+// 它的进出场语义来自 .popover 基态那一条（popover.scss 原写 opacity/visibility
+// 0.3s ease，本节上方已同特异性后位归到 tooltip 档 180ms + ease-out）；而
+// .popover.click-preview (0,2,0) 高于 .popover (0,1,0)，整条替换——只写
+// background-color 会把 opacity 与 visibility 两项一并丢掉。visibility 是离散
+// 可动画属性：与 opacity 同列时它推迟到时长末尾才翻到 hidden，淡出期间弹窗始终
+// 可见；漏列则关闭瞬间即翻转，淡出根本不发生、全屏遮罩硬切消失。
+// 故一次列全：进出场两项逐字对齐现状（tooltip 档），另补遮罩底色的 260ms 暗色档
+//（其底为 color-mix(in srgb, var(--light) 66%, transparent)，随主题变）。
+.popover.click-preview {
+  transition:
+    opacity var(--duration-tooltip, 180ms) var(--ease-out, ease-out),
+    visibility var(--duration-tooltip, 180ms) var(--ease-out, ease-out),
+    background-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
 }
 
 // ============================================================
@@ -963,27 +1161,18 @@ article pre,
   }
 }
 
-// 二、降低透明度：厚材质转实底、底衬撤除、阅读面去模糊
-//（glass.scss 已覆盖玻璃面板/遮罩本体，此处补 token 与个别件；
-// Electron 22 = Chromium 108 不支持本查询，仅浏览器与未来升级生效）
-// 注：--page-art 的撤除不在本块——媒体查询不提升特异度，本块的 :root (0,1,0)
-// 争不过文件末尾六套主题块的 (0,2,0)/(0,3,0)。见「素描背景的降级开关」一节。
-@media (prefers-reduced-transparency: reduce) {
-  :root {
-    --glass-bg-thick: var(--glass-bg-solid);
-    --glass-scrim: var(--glass-bg-solid);
-    --glass-inner-bg: rgba(0, 0, 0, 0.04);
-    --page-tint-a: transparent;
-    --page-tint-b: transparent;
-  }
-  :root[saved-theme="dark"] {
-    --glass-inner-bg: rgba(255, 255, 255, 0.08);
-  }
-  .popover > .popover-inner {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-}
+// 二、降低透明度：阅读面去模糊
+//（glass.scss 已覆盖玻璃面板/遮罩本体。旧注称「Electron 22 = Chromium 108 不支持
+// 本查询，仅浏览器与未来升级生效」——该表述已作废：桌面壳基线为 Electron 43
+// （Chromium 13x），prefers-reduced-transparency 在本环境同样生效。）
+// 注（v11 特异性对抗，段①/⑦）：本块原持有的五项 token 降级
+// （--glass-bg-thick / --glass-scrim / --glass-inner-bg / --page-tint-a / --page-tint-b）
+// 已整体迁往文件末尾「降低透明度：主题化 token 的实底化降级」块。理由：这五项全部被
+// 六套 [data-style] 覆盖块以 (0,2,0)/(0,3,0) 逐主题重定义，而媒体查询不提升特异度，
+// 本块的 :root (0,1,0) 争不过它们——写在这里的降级实际从未生效。
+// --page-art 的撤除自始即落在那里，同一理由。
+// v12：本节最后残留的 .popover > .popover-inner 去模糊声明已删除——弹窗的降级语义
+// 由 popover.scss 就地显式重建（跨文件契约 C4），本文件不再重复声明，故本节现仅存注释。
 
 // 三、高对比：玻璃实底、描边加深、正文内链下划线、导航文本满不透明
 @media (prefers-contrast: more) {
@@ -1350,6 +1539,19 @@ html[data-desktop] {
   }
 }
 
+// —— 配色方案声明（v11，段③）——
+// 此前全站 0 声明 color-scheme，UA 默认按浅色绘制原生件：暗态下 overscroll
+// 橡皮筋区、原生滚动条、表单控件与 canvas 外的默认底一律「弹白」。
+// 声明后由 UA 自行取暗色版原生件，白闪消失。
+// 非主题差异项，裸 :root 安全：joinStyles 拼在 index.css 末尾的那个基线块只含
+// 9 基础色 + 5 字体，不含 color-scheme，覆盖不到这里。
+:root {
+  color-scheme: light;
+}
+:root[saved-theme="dark"] {
+  color-scheme: dark;
+}
+
 // 消费点①：正文整体下移（标题条 fixed，不占常规流）。
 // body 已是 border-box、margin 0（base.scss），加 padding 不改变外框。
 body {
@@ -1392,13 +1594,27 @@ body[data-slug="0-图谱总览/index"] .graph-explorer {
 // body:not([data-slug="0-图谱总览/index"]) 同样命中设置页——靠位序在后胜出，
 // 故必须写在第十节之后。放本文件而非 settings.scss：后者在 joinStyles 中
 // 先于本文件落盘，写在那边会被本文件的同名规则接管。
+// v11 由 54rem 放宽到 62rem：设置页已改抽屉双栏，13rem 抽屉 + 1.5rem gap 挤占后
+// 六主题卡收窄过甚，放宽以恢复卡面。设置页无左右栏，.center 容得下这一宽度。
 :root {
-  --settings-col: 54rem;
+  --settings-col: 62rem;
 }
 
 body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   max-width: var(--settings-col);
   margin-inline: auto;
+}
+
+// —— 浮窗投影 token（v12）——
+// 阴影按「亮/暗 × 层级」两维分档：面板层（侧栏、卡片）用既有 --glass-shadow，
+// 浮窗层（悬停预览、搜索结果等近实底面板）另立 --popover-shadow，扩散更远、
+// 落差更深，使浮窗从面板上浮起而非贴在同一层。两档只分亮暗，不随六套风格变——
+// 风格决定色，不决定材质厚度感（同 --glass-blur / --glass-shadow 的既有约定）。
+:root {
+  --popover-shadow: 0 14px 44px rgba(0, 0, 0, 0.16), 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+:root[saved-theme="dark"] {
+  --popover-shadow: 0 14px 44px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35);
 }
 
 // ============================================================
@@ -1440,7 +1656,9 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   place-items: center;
   color: var(--darkgray);
   background-color: transparent;
-  // 高频交互取最短档；只动颜色与底色，不进第十五节的 260ms 暗色清单（防悬停迟钝）
+  // 高频交互取最短档；只动颜色与底色，不进第七节的 260ms 暗色清单（防悬停迟钝）
+  //（v11 更正：原注写作「第十五节」，而 260ms 清单一直在第七节；新增的第十五节
+  //  是页面 chrome，与本条无关，故顺手校正指向以免误导。）
   transition:
     color var(--duration-hover, 140ms) var(--ease-hover, ease),
     background-color var(--duration-hover, 140ms) var(--ease-hover, ease);
@@ -1462,6 +1680,118 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   // 按下：换用主题强调色 wash，与目录树当前项的底色同源
   &:active {
     background-color: var(--nav-active-wash);
+  }
+}
+
+// ============ 第十五节：正文页面 chrome（影子滚动条 + 锚点补偿） ============
+// z 层位总表（全站）：标题条 10000 > 图谱弹窗 9999 > popover/搜索/mermaid 999 > 批注工具条 900
+//                    > 批注抽屉 300 > FAB 20 > 影子轨道 11 > 左栏 1
+// 行为脚本：scripts/pageChrome.inline.ts（轨道 left 由 JS 内联写入）。
+// 历史：v11 曾在本节实现「页头 sticky 收缩 + 翻页卡吸底 + 上下渐隐」，经用户验收裁决撤销
+//（页头随正文滚动、翻页卡回文末随流）；影子滚动条与锚点补偿保留。
+// 全节包在非移动端断点内：移动端不建轨道、原生细滚动条回落。
+// ============================================================
+
+@media all and not ($mobile) {
+  // —— C. 锚点补偿 ——
+  // 一条覆盖 scrollIntoView / TOC 点击 / :target / 原生片段跳转四类跳转：
+  // 顶部让出桌面标题条，免得跳转落点被 fixed 标题条压住首行。
+  // base.scss 的移动端 `scroll-padding-top: 4rem` 在本媒体块之外，不受影响。
+  html {
+    scroll-padding-top: calc(var(--titlebar-h) + 0.75rem);
+  }
+
+  // —— E. 影子滚动条表现层 ——
+  // 类名契约取自 pageChrome.inline.ts（拼写精确）：
+  //   .kb-pagescroll / .kb-pagescroll-thumb / .is-visible / .is-dragging
+  //   html[data-pagescroll="on"] / html[data-pagescroll-drag]
+  // 无 JS 或移动端时 data-pagescroll 属性不出现，原生细滚动条（第五节的
+  // `* { scrollbar-width: thin }`）天然回落，故无需 :not(:has()) 门控。
+  html[data-pagescroll="on"] {
+    scrollbar-width: none;
+  }
+  // 旧核兜底：不支持 scrollbar-width 的内核靠伪元素零宽达到同一效果
+  html[data-pagescroll="on"]::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  // 拖拽期间关闭全局文本选择：拇指跨越正文时不应顺带选中文字
+  html[data-pagescroll-drag] {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .kb-pagescroll {
+    position: fixed;
+    // 顶部让开桌面标题条（浏览器端 --titlebar-h 为 0，轨道自然顶到 0.5rem）
+    top: calc(var(--titlebar-h) + 0.5rem);
+    bottom: 0.5rem;
+    // 14px 是命中区宽度（拇指仅 6px），便于指针捕获
+    width: 14px;
+    z-index: 11;
+    opacity: 0;
+    // 归 --duration-modal 档，与侧栏 .kb-oscroll 同一「浮层显隐」语义
+    transition: opacity var(--duration-modal, 280ms) var(--ease-out, ease-out);
+    // left 由 JS 每帧内联写入（.center 右缘 + 10px），CSS 不参与横向定位
+  }
+
+  .kb-pagescroll.is-visible,
+  .kb-pagescroll:hover,
+  .kb-pagescroll.is-dragging {
+    opacity: 1;
+  }
+
+  .kb-pagescroll-thumb {
+    position: absolute;
+    left: 50%;
+    // 静态位移、无动画：不构成 Backdrop Root 风险（对比第二节的红线）
+    transform: translateX(-50%);
+    width: 6px;
+    border-radius: 3px;
+    background-color: var(--scroll-thumb);
+  }
+
+  .kb-pagescroll:hover .kb-pagescroll-thumb,
+  .kb-pagescroll.is-dragging .kb-pagescroll-thumb {
+    background-color: var(--scroll-thumb-hover, var(--scroll-thumb));
+  }
+}
+
+// 减弱动效：本节的收缩/渐隐过渡整体归零（照第八节既有降级写法）。
+// 不与非移动端断点嵌套——`all and not (A) and (B)` 在 MQ4 语法中非法，
+// 且这些选择器在移动端本就不生效，归零无副作用。
+@media (prefers-reduced-motion: reduce) {
+  body:not([data-slug="0-图谱总览/index"]):not([data-slug="设置/index"])
+    #quartz-body
+    .center
+    > .page-header,
+  body:not([data-slug="0-图谱总览/index"]):not([data-slug="设置/index"])
+    #quartz-body
+    .center
+    > .page-header
+    .breadcrumb-container,
+  body:not([data-slug="0-图谱总览/index"]):not([data-slug="设置/index"])
+    #quartz-body
+    .center
+    > .page-header
+    .article-title,
+  body:not([data-slug="0-图谱总览/index"]):not([data-slug="设置/index"])
+    #quartz-body
+    .center
+    > .page-header
+    .content-meta,
+  body:not([data-slug="0-图谱总览/index"]):not([data-slug="设置/index"])
+    #quartz-body
+    .center
+    > .page-header
+    ul.tags,
+  body:not([data-slug="0-图谱总览/index"]):not([data-slug="设置/index"])
+    #quartz-body
+    .center
+    > .page-footer
+    > .page-nav-wrapper,
+  .kb-pagescroll {
+    transition: none;
   }
 }
 
@@ -1495,11 +1825,45 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
 // 落地前经 36 取样点实测（12 块 × 左栏 nav-fg on glass-bg-thick、右栏 darkgray
 // on glass-inner-bg、弹窗 dark on popover-bg 三处合成对比度），
 // 门槛 nav-fg/darkgray ≥4.5、dark ≥6（合成底非纯 --light，自 7 放宽），全数通过。
+//
+// —— 亮态 --light 重定（v11，段⑤/⑥）——
+// 症状：六套主题的亮态正文底色两两色差过小，换主题时肉眼不可辨。
+// 重定规则三条并行：① L* 锁定在 94.8–96 窗口（低于下限显脏、高于上限接近纯白失纸感）；
+// ② 色相锁各主题自身的 --secondary，使底色与强调色同源；③ 六色两两 CIEDE2000 ≥ 5。
+// 六个新值：宣纸 #feefe5 / 水墨 #ecf5f8 / 青瓷 #e3f7f4 / 竹林 #eff5e8 /
+//           木衫 #f8effb / 玄夜 #ebf0ff（门禁见 quartz/util/color.test.ts「调色板门」）。
+// 暗态六块与两态的其余变量（--darkgray/--secondary/--tertiary/--gray/玻璃族/域色）
+// 一律不动：新底色配现有前景色的 WCAG 已全量精算达标（竹林 tertiary 3.10、
+// 玄夜 gray 3.03 余量极小，禁止顺手「优化」任何前景色）。
+// 玻璃 token 本轮不重算——新底色下的合成对比度已按上述 36 取样点口径复检达标。
+//
+// —— 玻璃族与弹窗底色重算（v12）——
+// v11 只重定了 --light 而玻璃族沿用 v10 值，底色抬高后玻璃反被底色压住，亮态
+// 「底色 → 玻璃 → 弹窗」的三层层次关系被抹平。v12 整体重算，恢复该层次关系。
+// 口径（CIELCh，D65；色相一律锁 --light，使玻璃与弹窗同底色同源）：
+//   · 玻璃三元组（一个不透明 rgb 喂 --glass-bg/-thick/-scrim/-inner-bg 四个 alpha 档）：
+//     C = clamp(C(light) × 1.30, 6, 11)，L = L(light) + 0.6；
+//   · --popover-bg：C = C(light) × 0.90，L = L(light) + 2.2；
+//   · --glass-hover-wash：C = clamp(C(lightgray) × 1.15, 5, 9)，L 锁死 L(lightgray)；
+//   · --glass-bg-solid：玻璃三元组以 .86 alpha 合成在 --light 上的不透明等价色；
+//   · --glass-overlay-fallback：C = C(light) × 0.60，L = L(light) + 1.2。
+// 色域顶封：宣纸 / 木衫 / 玄夜三块的 --light 已贴近其色相方向上的 sRGB 边界，抬 L 后
+// 可用彩度反而收缩，×1.30（玻璃）与 ×0.90（弹窗）在 sRGB 内不可达——按口径保 L 与 h、
+// 按比例削 C 至入域，故这三块的实际彩度比低于标准带；水墨 C(light)=3.45 触发下限 6。
+// 二者均为 sRGB 硬约束而非取值失误。
+// 数值单一来源为 quartz/util/color.test.ts 的 V12_EXPECTED（含完整口径与偏差实况），
+// 本文件逐字抄录；任何后续调整先改该常量表，再回抄本文件。
+// 素描描边同轮收窄：同主题亮暗两版 --page-art 根 stroke 的 L* 向中点各收 35%
+//（h 与 C 不变），新 |ΔL*| 恰为原值的 0.65 倍，两态描边不再一浓一淡地互不相认。
+//
 // --glass-bg-thick / --glass-scrim 必须逐块定义：左栏导航主体与滚动边缘渐隐读的是
 // 这两个 token，只写在全局 :root 会让左栏在六套主题下一概不变色。
 // 域色板九色的色相顺序跨主题不变（「颜色→知识域」的记忆不因换主题失效），
 // 仅调明度/彩度包络，与本主题强调色撞色的档位做 ±12° 避让。
-// --titleFont / --codeFont 不主题化；玻璃模糊/阴影 token 亦不随风格变。
+// --titleFont / --codeFont 不主题化。玻璃 token 的分档约定（v12 修订）：模糊不随风格变；
+// 阴影按亮/暗 × 层级两维分档（面板 --glass-shadow、浮窗 --popover-shadow），
+// 两维之外仍不随六套风格变；浮窗描边 --popover-border 是唯一逐块随 --secondary 的例外
+//（近实底浮窗压在同色系面板上，边界无法靠底色差表达，只能显式描边）。
 //
 // 批注四色（yellow/green/blue/pink）分工：下划线实色 --kb-anno-*-line 与暗态
 // 底纹 --kb-anno-*-bg 仍由 annotate.scss 全局统一、不随风格变；亮态底纹
@@ -1523,7 +1887,7 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
 // —— 宣纸 xuanzhi（默认）：暖米白宣纸 / 焦褐墨；素描「远山淡影」——
 :root[data-style="xuanzhi"] {
   // 9 基础色（dark 块必须全量重定义，漏一个即泄漏 config 值）
-  --light: #f6f1e7;
+  --light: #feefe5;
   --lightgray: #e1d6cf;
   --gray: #948781;
   --darkgray: #6e6059;
@@ -1538,16 +1902,19 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --leftFont: #{$fontHei};
   --rightFont: #{$fontSong};
   --graphFont: #{$fontHei};
-  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v10 玻璃基底推导重算，见文件头）
-  --glass-bg: rgba(253, 238, 231, 0.78);
+  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v12 口径重算，见文件头；
+  //  --glass-border 不在 v12 重算清单内，仍持 v10 rgb）
+  --glass-bg: rgba(255, 241, 232, 0.78);
   --glass-border: rgba(253, 238, 231, 0.7);
-  --glass-bg-solid: #f8e9e2;
-  --glass-bg-thick: rgba(253, 238, 231, 0.86);
-  --glass-scrim: rgba(253, 238, 231, 0.92);
-  --glass-inner-bg: rgba(253, 238, 231, 0.55);
-  --glass-overlay-fallback: rgba(255, 243, 237, 0.55);
-  --glass-hover-wash: rgba(228, 213, 206, 0.55);
-  --popover-bg: rgba(255, 246, 242, 0.98);
+  --glass-bg-solid: #fff1e8;
+  --glass-bg-thick: rgba(255, 241, 232, 0.86);
+  --glass-scrim: rgba(255, 241, 232, 0.92);
+  --glass-inner-bg: rgba(255, 241, 232, 0.55);
+  --glass-overlay-fallback: rgba(252, 243, 237, 0.55);
+  --glass-hover-wash: rgba(226, 214, 206, 0.55);
+  --popover-bg: rgba(255, 246, 240, 0.98);
+  // 浮窗描边随主题 secondary、alpha 0.26——近实底面板的边界不能靠底色差表达
+  --popover-border: rgba(140, 90, 60, 0.26);
   --page-tint-a: rgba(140, 90, 60, 0.07);
   --page-tint-b: rgba(163, 119, 93, 0.08);
   --accent-wash: rgba(140, 90, 60, 0.06);
@@ -1572,9 +1939,9 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --graph-section-8: #a66b8b;
   --graph-section-9: #687bc4;
   // 素描背景：远山淡影
-  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%238c5a3c' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='1.6' stroke-opacity='0.055' d='M700 300 C730 296 764 250 786 244 C808 240 850 280 880 286 C918 292 958 236 986 228 C1012 224 1058 268 1090 272 C1128 276 1170 258 1200 244'/%3E%3Cpath stroke-width='2' stroke-opacity='0.075' d='M420 430 C452 424 496 362 520 352 C546 344 606 398 640 410 C692 420 758 342 790 330 C820 320 882 392 920 400 C972 410 1028 330 1060 318 C1094 312 1152 350 1200 364'/%3E%3Cpath stroke-width='2.8' stroke-opacity='0.1' d='M240 596 C288 590 342 476 372 466 C404 456 452 530 520 566 C562 588 606 466 640 452 C676 440 786 542 830 578 C876 550 950 452 990 440 C1026 430 1086 526 1120 566 C1146 578 1176 556 1200 548'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.08' d='M372 472 C382 514 390 554 396 596'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.08' d='M640 458 C650 502 658 542 664 584'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.07' d='M990 446 C1000 488 1008 526 1014 568'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.055' d='M330 690 C480 678 660 684 800 674'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.06' d='M470 726 C620 714 800 720 960 710'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.05' d='M600 760 C740 750 880 754 1010 744'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.075' d='M318 292 C334 278 344 278 360 292'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.06' d='M368 312 C380 302 388 302 400 312'/%3E%3C/svg%3E");
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%23976446' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='1.6' stroke-opacity='0.055' d='M700 300 C730 296 764 250 786 244 C808 240 850 280 880 286 C918 292 958 236 986 228 C1012 224 1058 268 1090 272 C1128 276 1170 258 1200 244'/%3E%3Cpath stroke-width='2' stroke-opacity='0.075' d='M420 430 C452 424 496 362 520 352 C546 344 606 398 640 410 C692 420 758 342 790 330 C820 320 882 392 920 400 C972 410 1028 330 1060 318 C1094 312 1152 350 1200 364'/%3E%3Cpath stroke-width='2.8' stroke-opacity='0.1' d='M240 596 C288 590 342 476 372 466 C404 456 452 530 520 566 C562 588 606 466 640 452 C676 440 786 542 830 578 C876 550 950 452 990 440 C1026 430 1086 526 1120 566 C1146 578 1176 556 1200 548'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.08' d='M372 472 C382 514 390 554 396 596'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.08' d='M640 458 C650 502 658 542 664 584'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.07' d='M990 446 C1000 488 1008 526 1014 568'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.055' d='M330 690 C480 678 660 684 800 674'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.06' d='M470 726 C620 714 800 720 960 710'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.05' d='M600 760 C740 750 880 754 1010 744'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.075' d='M318 292 C334 278 344 278 360 292'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.06' d='M368 312 C380 302 388 302 400 312'/%3E%3C/svg%3E");
 
-  // 批注四色亮态底纹（对 #f6f1e7 合成 ≈1.65:1；:not 守卫见文件头说明）
+  // 批注四色亮态底纹（对 #feefe5 合成 ≈1.65:1；:not 守卫见文件头说明）
   &:not([saved-theme="dark"]) {
     --kb-anno-yellow-bg: rgba(147, 118, 28, 0.42);
     --kb-anno-green-bg: rgba(61, 138, 89, 0.42);
@@ -1609,6 +1976,8 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --glass-overlay-fallback: rgba(39, 28, 20, 0.55);
   --glass-hover-wash: rgba(55, 44, 36, 0.6);
   --popover-bg: rgba(41, 30, 22, 0.98);
+  // 浮窗描边随主题 secondary、alpha 0.26——近实底面板的边界不能靠底色差表达
+  --popover-border: rgba(200, 149, 108, 0.26);
   --page-tint-a: rgba(200, 149, 108, 0.06);
   --page-tint-b: rgba(164, 120, 85, 0.07);
   --accent-wash: rgba(200, 149, 108, 0.05);
@@ -1633,13 +2002,13 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --graph-section-8: #bc80a0;
   --graph-section-9: #7c90dc;
   // 素描背景：远山淡影
-  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%23c8956c' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='1.6' stroke-opacity='0.072' d='M700 300 C730 296 764 250 786 244 C808 240 850 280 880 286 C918 292 958 236 986 228 C1012 224 1058 268 1090 272 C1128 276 1170 258 1200 244'/%3E%3Cpath stroke-width='2' stroke-opacity='0.098' d='M420 430 C452 424 496 362 520 352 C546 344 606 398 640 410 C692 420 758 342 790 330 C820 320 882 392 920 400 C972 410 1028 330 1060 318 C1094 312 1152 350 1200 364'/%3E%3Cpath stroke-width='2.8' stroke-opacity='0.13' d='M240 596 C288 590 342 476 372 466 C404 456 452 530 520 566 C562 588 606 466 640 452 C676 440 786 542 830 578 C876 550 950 452 990 440 C1026 430 1086 526 1120 566 C1146 578 1176 556 1200 548'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.104' d='M372 472 C382 514 390 554 396 596'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.104' d='M640 458 C650 502 658 542 664 584'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.091' d='M990 446 C1000 488 1008 526 1014 568'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.072' d='M330 690 C480 678 660 684 800 674'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.078' d='M470 726 C620 714 800 720 960 710'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.065' d='M600 760 C740 750 880 754 1010 744'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.098' d='M318 292 C334 278 344 278 360 292'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.078' d='M368 312 C380 302 388 302 400 312'/%3E%3C/svg%3E");
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%23bc8a61' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='1.6' stroke-opacity='0.072' d='M700 300 C730 296 764 250 786 244 C808 240 850 280 880 286 C918 292 958 236 986 228 C1012 224 1058 268 1090 272 C1128 276 1170 258 1200 244'/%3E%3Cpath stroke-width='2' stroke-opacity='0.098' d='M420 430 C452 424 496 362 520 352 C546 344 606 398 640 410 C692 420 758 342 790 330 C820 320 882 392 920 400 C972 410 1028 330 1060 318 C1094 312 1152 350 1200 364'/%3E%3Cpath stroke-width='2.8' stroke-opacity='0.13' d='M240 596 C288 590 342 476 372 466 C404 456 452 530 520 566 C562 588 606 466 640 452 C676 440 786 542 830 578 C876 550 950 452 990 440 C1026 430 1086 526 1120 566 C1146 578 1176 556 1200 548'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.104' d='M372 472 C382 514 390 554 396 596'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.104' d='M640 458 C650 502 658 542 664 584'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.091' d='M990 446 C1000 488 1008 526 1014 568'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.072' d='M330 690 C480 678 660 684 800 674'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.078' d='M470 726 C620 714 800 720 960 710'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.065' d='M600 760 C740 750 880 754 1010 744'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.098' d='M318 292 C334 278 344 278 360 292'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.078' d='M368 312 C380 302 388 302 400 312'/%3E%3C/svg%3E");
 }
 
 // —— 水墨 shuimo：青灰宣 / 淡墨青；素描「山水泼墨」——
 :root[data-style="shuimo"] {
   // 9 基础色（dark 块必须全量重定义，漏一个即泄漏 config 值）
-  --light: #f2f4f3;
+  --light: #ecf5f8;
   --lightgray: #d8dadc;
   --gray: #898c8e;
   --darkgray: #606567;
@@ -1654,16 +2023,19 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --leftFont: #{$fontHei};
   --rightFont: #{$fontSong};
   --graphFont: #{$fontHei};
-  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v10 玻璃基底推导重算，见文件头）
-  --glass-bg: rgba(231, 247, 253, 0.78);
+  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v12 口径重算，见文件头；
+  //  --glass-border 不在 v12 重算清单内，仍持 v10 rgb）
+  --glass-bg: rgba(233, 248, 253, 0.78);
   --glass-border: rgba(231, 247, 253, 0.7);
-  --glass-bg-solid: #e2f1f7;
-  --glass-bg-thick: rgba(231, 247, 253, 0.86);
-  --glass-scrim: rgba(231, 247, 253, 0.92);
-  --glass-inner-bg: rgba(231, 247, 253, 0.55);
-  --glass-overlay-fallback: rgba(237, 250, 255, 0.55);
-  --glass-hover-wash: rgba(205, 221, 227, 0.55);
-  --popover-bg: rgba(244, 252, 255, 0.98);
+  --glass-bg-solid: #e9f8fc;
+  --glass-bg-thick: rgba(233, 248, 253, 0.86);
+  --glass-scrim: rgba(233, 248, 253, 0.92);
+  --glass-inner-bg: rgba(233, 248, 253, 0.55);
+  --glass-overlay-fallback: rgba(241, 247, 249, 0.55);
+  --glass-hover-wash: rgba(208, 220, 224, 0.55);
+  --popover-bg: rgba(243, 251, 254, 0.98);
+  // 浮窗描边随主题 secondary、alpha 0.26——近实底面板的边界不能靠底色差表达
+  --popover-border: rgba(64, 96, 108, 0.26);
   --page-tint-a: rgba(64, 96, 108, 0.07);
   --page-tint-b: rgba(94, 121, 132, 0.08);
   --accent-wash: rgba(64, 96, 108, 0.06);
@@ -1688,9 +2060,9 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --graph-section-8: #a46c8b;
   --graph-section-9: #697cc1;
   // 素描背景：山水泼墨
-  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%2340606c' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='4.2' stroke-opacity='0.1' d='M160 640 C280 560 330 470 400 356 C440 292 486 258 534 306 C580 352 596 428 662 398 C726 368 748 288 812 306 C892 328 902 420 986 396 C1068 372 1108 306 1200 330'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.055' d='M560 430 C640 380 690 404 756 366 C830 324 940 380 1200 348'/%3E%3Cpath stroke-width='2.6' stroke-opacity='0.085' d='M534 312 C548 380 542 448 556 512'/%3E%3Cpath stroke-width='2.6' stroke-opacity='0.085' d='M812 312 C826 372 820 428 834 486'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.07' d='M400 366 C412 428 404 486 416 544'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.05' d='M280 686 C470 674 690 680 890 668'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.055' d='M400 726 C580 714 790 720 970 708'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.045' d='M540 762 C700 752 860 756 1010 746'/%3E%3Cpath stroke-width='2' stroke-opacity='0.09' d='M600 698 C616 710 652 710 668 698'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.09' d='M634 698 L634 672'/%3E%3Cpath stroke-width='3.4' stroke-opacity='0.075' d='M180 470 C230 432 278 458 314 424'/%3E%3Cpath stroke-width='2.4' stroke-opacity='0.06' d='M196 514 C240 488 280 502 310 480'/%3E%3C/svg%3E");
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%234c6b77' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='4.2' stroke-opacity='0.1' d='M160 640 C280 560 330 470 400 356 C440 292 486 258 534 306 C580 352 596 428 662 398 C726 368 748 288 812 306 C892 328 902 420 986 396 C1068 372 1108 306 1200 330'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.055' d='M560 430 C640 380 690 404 756 366 C830 324 940 380 1200 348'/%3E%3Cpath stroke-width='2.6' stroke-opacity='0.085' d='M534 312 C548 380 542 448 556 512'/%3E%3Cpath stroke-width='2.6' stroke-opacity='0.085' d='M812 312 C826 372 820 428 834 486'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.07' d='M400 366 C412 428 404 486 416 544'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.05' d='M280 686 C470 674 690 680 890 668'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.055' d='M400 726 C580 714 790 720 970 708'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.045' d='M540 762 C700 752 860 756 1010 746'/%3E%3Cpath stroke-width='2' stroke-opacity='0.09' d='M600 698 C616 710 652 710 668 698'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.09' d='M634 698 L634 672'/%3E%3Cpath stroke-width='3.4' stroke-opacity='0.075' d='M180 470 C230 432 278 458 314 424'/%3E%3Cpath stroke-width='2.4' stroke-opacity='0.06' d='M196 514 C240 488 280 502 310 480'/%3E%3C/svg%3E");
 
-  // 批注四色亮态底纹（对 #f2f4f3 合成 ≈1.65:1；:not 守卫见文件头说明）
+  // 批注四色亮态底纹（对 #ecf5f8 合成 ≈1.65:1；:not 守卫见文件头说明）
   &:not([saved-theme="dark"]) {
     --kb-anno-yellow-bg: rgba(149, 120, 29, 0.42);
     --kb-anno-green-bg: rgba(61, 139, 89, 0.42);
@@ -1725,6 +2097,8 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --glass-overlay-fallback: rgba(16, 30, 35, 0.55);
   --glass-hover-wash: rgba(33, 47, 52, 0.6);
   --popover-bg: rgba(18, 32, 37, 0.98);
+  // 浮窗描边随主题 secondary、alpha 0.26——近实底面板的边界不能靠底色差表达
+  --popover-border: rgba(125, 163, 176, 0.26);
   --page-tint-a: rgba(125, 163, 176, 0.06);
   --page-tint-b: rgba(99, 132, 143, 0.07);
   --accent-wash: rgba(125, 163, 176, 0.05);
@@ -1749,13 +2123,13 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --graph-section-8: #ba81a0;
   --graph-section-9: #7d91d8;
   // 素描背景：山水泼墨
-  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%237da3b0' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='4.2' stroke-opacity='0.13' d='M160 640 C280 560 330 470 400 356 C440 292 486 258 534 306 C580 352 596 428 662 398 C726 368 748 288 812 306 C892 328 902 420 986 396 C1068 372 1108 306 1200 330'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.072' d='M560 430 C640 380 690 404 756 366 C830 324 940 380 1200 348'/%3E%3Cpath stroke-width='2.6' stroke-opacity='0.111' d='M534 312 C548 380 542 448 556 512'/%3E%3Cpath stroke-width='2.6' stroke-opacity='0.111' d='M812 312 C826 372 820 428 834 486'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.091' d='M400 366 C412 428 404 486 416 544'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.065' d='M280 686 C470 674 690 680 890 668'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.072' d='M400 726 C580 714 790 720 970 708'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.059' d='M540 762 C700 752 860 756 1010 746'/%3E%3Cpath stroke-width='2' stroke-opacity='0.117' d='M600 698 C616 710 652 710 668 698'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.117' d='M634 698 L634 672'/%3E%3Cpath stroke-width='3.4' stroke-opacity='0.098' d='M180 470 C230 432 278 458 314 424'/%3E%3Cpath stroke-width='2.4' stroke-opacity='0.078' d='M196 514 C240 488 280 502 310 480'/%3E%3C/svg%3E");
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%237197a4' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='4.2' stroke-opacity='0.13' d='M160 640 C280 560 330 470 400 356 C440 292 486 258 534 306 C580 352 596 428 662 398 C726 368 748 288 812 306 C892 328 902 420 986 396 C1068 372 1108 306 1200 330'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.072' d='M560 430 C640 380 690 404 756 366 C830 324 940 380 1200 348'/%3E%3Cpath stroke-width='2.6' stroke-opacity='0.111' d='M534 312 C548 380 542 448 556 512'/%3E%3Cpath stroke-width='2.6' stroke-opacity='0.111' d='M812 312 C826 372 820 428 834 486'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.091' d='M400 366 C412 428 404 486 416 544'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.065' d='M280 686 C470 674 690 680 890 668'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.072' d='M400 726 C580 714 790 720 970 708'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.059' d='M540 762 C700 752 860 756 1010 746'/%3E%3Cpath stroke-width='2' stroke-opacity='0.117' d='M600 698 C616 710 652 710 668 698'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.117' d='M634 698 L634 672'/%3E%3Cpath stroke-width='3.4' stroke-opacity='0.098' d='M180 470 C230 432 278 458 314 424'/%3E%3Cpath stroke-width='2.4' stroke-opacity='0.078' d='M196 514 C240 488 280 502 310 480'/%3E%3C/svg%3E");
 }
 
 // —— 青瓷 qingci：粉青釉 / 松石绿；素描「缠枝莲纹」——
 :root[data-style="qingci"] {
   // 9 基础色（dark 块必须全量重定义，漏一个即泄漏 config 值）
-  --light: #eef4f2;
+  --light: #e3f7f4;
   --lightgray: #d4dcda;
   --gray: #828d8b;
   --darkgray: #5d6d6a;
@@ -1770,16 +2144,19 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --leftFont: #{$fontPing};
   --rightFont: #{$fontPing};
   --graphFont: #{$fontPing};
-  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v10 玻璃基底推导重算，见文件头）
-  --glass-bg: rgba(226, 248, 244, 0.78);
+  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v12 口径重算，见文件头；
+  //  --glass-border 不在 v12 重算清单内，仍持 v10 rgb）
+  --glass-bg: rgba(224, 250, 246, 0.78);
   --glass-border: rgba(226, 248, 244, 0.7);
-  --glass-bg-solid: #ddf3ef;
-  --glass-bg-thick: rgba(226, 248, 244, 0.86);
-  --glass-scrim: rgba(226, 248, 244, 0.92);
-  --glass-inner-bg: rgba(226, 248, 244, 0.55);
-  --glass-overlay-fallback: rgba(230, 252, 248, 0.55);
-  --glass-hover-wash: rgba(202, 224, 220, 0.55);
-  --popover-bg: rgba(233, 255, 251, 0.98);
+  --glass-bg-solid: #e0faf6;
+  --glass-bg-thick: rgba(224, 250, 246, 0.86);
+  --glass-scrim: rgba(224, 250, 246, 0.92);
+  --glass-inner-bg: rgba(224, 250, 246, 0.55);
+  --glass-overlay-fallback: rgba(237, 250, 248, 0.55);
+  --glass-hover-wash: rgba(208, 221, 219, 0.55);
+  --popover-bg: rgba(235, 253, 250, 0.98);
+  // 浮窗描边随主题 secondary、alpha 0.26——近实底面板的边界不能靠底色差表达
+  --popover-border: rgba(61, 112, 104, 0.26);
   --page-tint-a: rgba(61, 112, 104, 0.07);
   --page-tint-b: rgba(94, 137, 130, 0.08);
   --accent-wash: rgba(61, 112, 104, 0.06);
@@ -1804,9 +2181,9 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --graph-section-8: #a9688c;
   --graph-section-9: #657acc;
   // 素描背景：缠枝莲纹
-  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%233d7068' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='2.4' stroke-opacity='0.1' d='M1200 788 C1080 776 952 758 870 726 C776 690 664 668 632 590 C598 508 622 448 680 428'/%3E%3Cpath stroke-width='2' stroke-opacity='0.09' d='M680 428 C732 410 764 450 746 488 C732 518 694 518 684 490'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.09' d='M632 590 C550 584 476 624 434 694 C412 730 412 764 428 800'/%3E%3Cpath stroke-width='1.9' stroke-opacity='0.085' d='M660 510 C600 468 526 478 490 526'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.1' d='M490 526 C470 474 476 422 508 394 C538 422 542 474 522 526'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.09' d='M490 526 C450 492 424 446 432 404 C474 422 502 464 508 510'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.09' d='M522 526 C562 498 594 456 590 414 C550 430 520 468 510 510'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.075' d='M482 528 C430 520 384 488 370 450 C414 446 462 474 484 510'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.075' d='M530 528 C582 526 632 500 650 462 C606 454 556 478 532 510'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.085' d='M482 528 C494 550 522 550 532 528'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.07' d='M632 590 C674 624 680 684 652 720 C622 684 616 630 632 590'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.07' d='M434 694 C386 688 344 714 330 756 C374 768 420 746 434 694'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.065' d='M746 488 C778 484 798 510 790 538 C766 538 748 516 746 488'/%3E%3C/svg%3E");
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%23477971' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='2.4' stroke-opacity='0.1' d='M1200 788 C1080 776 952 758 870 726 C776 690 664 668 632 590 C598 508 622 448 680 428'/%3E%3Cpath stroke-width='2' stroke-opacity='0.09' d='M680 428 C732 410 764 450 746 488 C732 518 694 518 684 490'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.09' d='M632 590 C550 584 476 624 434 694 C412 730 412 764 428 800'/%3E%3Cpath stroke-width='1.9' stroke-opacity='0.085' d='M660 510 C600 468 526 478 490 526'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.1' d='M490 526 C470 474 476 422 508 394 C538 422 542 474 522 526'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.09' d='M490 526 C450 492 424 446 432 404 C474 422 502 464 508 510'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.09' d='M522 526 C562 498 594 456 590 414 C550 430 520 468 510 510'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.075' d='M482 528 C430 520 384 488 370 450 C414 446 462 474 484 510'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.075' d='M530 528 C582 526 632 500 650 462 C606 454 556 478 532 510'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.085' d='M482 528 C494 550 522 550 532 528'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.07' d='M632 590 C674 624 680 684 652 720 C622 684 616 630 632 590'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.07' d='M434 694 C386 688 344 714 330 756 C374 768 420 746 434 694'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.065' d='M746 488 C778 484 798 510 790 538 C766 538 748 516 746 488'/%3E%3C/svg%3E");
 
-  // 批注四色亮态底纹（对 #eef4f2 合成 ≈1.65:1；:not 守卫见文件头说明）
+  // 批注四色亮态底纹（对 #e3f7f4 合成 ≈1.65:1；:not 守卫见文件头说明）
   &:not([saved-theme="dark"]) {
     --kb-anno-yellow-bg: rgba(148, 119, 29, 0.42);
     --kb-anno-green-bg: rgba(61, 138, 89, 0.42);
@@ -1841,6 +2218,8 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --glass-overlay-fallback: rgba(16, 35, 32, 0.55);
   --glass-hover-wash: rgba(33, 52, 49, 0.6);
   --popover-bg: rgba(18, 37, 34, 0.98);
+  // 浮窗描边随主题 secondary、alpha 0.26——近实底面板的边界不能靠底色差表达
+  --popover-border: rgba(111, 170, 160, 0.26);
   --page-tint-a: rgba(111, 170, 160, 0.06);
   --page-tint-b: rgba(87, 138, 129, 0.07);
   --accent-wash: rgba(111, 170, 160, 0.05);
@@ -1865,13 +2244,13 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --graph-section-8: #c07da2;
   --graph-section-9: #798fe3;
   // 素描背景：缠枝莲纹
-  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%236faaa0' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='2.4' stroke-opacity='0.13' d='M1200 788 C1080 776 952 758 870 726 C776 690 664 668 632 590 C598 508 622 448 680 428'/%3E%3Cpath stroke-width='2' stroke-opacity='0.117' d='M680 428 C732 410 764 450 746 488 C732 518 694 518 684 490'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.117' d='M632 590 C550 584 476 624 434 694 C412 730 412 764 428 800'/%3E%3Cpath stroke-width='1.9' stroke-opacity='0.111' d='M660 510 C600 468 526 478 490 526'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.13' d='M490 526 C470 474 476 422 508 394 C538 422 542 474 522 526'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.117' d='M490 526 C450 492 424 446 432 404 C474 422 502 464 508 510'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.117' d='M522 526 C562 498 594 456 590 414 C550 430 520 468 510 510'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.098' d='M482 528 C430 520 384 488 370 450 C414 446 462 474 484 510'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.098' d='M530 528 C582 526 632 500 650 462 C606 454 556 478 532 510'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.111' d='M482 528 C494 550 522 550 532 528'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.091' d='M632 590 C674 624 680 684 652 720 C622 684 616 630 632 590'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.091' d='M434 694 C386 688 344 714 330 756 C374 768 420 746 434 694'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.085' d='M746 488 C778 484 798 510 790 538 C766 538 748 516 746 488'/%3E%3C/svg%3E");
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%2365a096' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='2.4' stroke-opacity='0.13' d='M1200 788 C1080 776 952 758 870 726 C776 690 664 668 632 590 C598 508 622 448 680 428'/%3E%3Cpath stroke-width='2' stroke-opacity='0.117' d='M680 428 C732 410 764 450 746 488 C732 518 694 518 684 490'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.117' d='M632 590 C550 584 476 624 434 694 C412 730 412 764 428 800'/%3E%3Cpath stroke-width='1.9' stroke-opacity='0.111' d='M660 510 C600 468 526 478 490 526'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.13' d='M490 526 C470 474 476 422 508 394 C538 422 542 474 522 526'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.117' d='M490 526 C450 492 424 446 432 404 C474 422 502 464 508 510'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.117' d='M522 526 C562 498 594 456 590 414 C550 430 520 468 510 510'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.098' d='M482 528 C430 520 384 488 370 450 C414 446 462 474 484 510'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.098' d='M530 528 C582 526 632 500 650 462 C606 454 556 478 532 510'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.111' d='M482 528 C494 550 522 550 532 528'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.091' d='M632 590 C674 624 680 684 652 720 C622 684 616 630 632 590'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.091' d='M434 694 C386 688 344 714 330 756 C374 768 420 746 434 694'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.085' d='M746 488 C778 484 798 510 790 538 C766 538 748 516 746 488'/%3E%3C/svg%3E");
 }
 
 // —— 竹林 zhulin：新篁白 / 竹青；素描「竹枝疏影」——
 :root[data-style="zhulin"] {
   // 9 基础色（dark 块必须全量重定义，漏一个即泄漏 config 值）
-  --light: #f1f5ec;
+  --light: #eff5e8;
   --lightgray: #d6ded5;
   --gray: #848e82;
   --darkgray: #616f60;
@@ -1886,16 +2265,19 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --leftFont: #{$fontPing};
   --rightFont: #{$fontSong};
   --graphFont: #{$fontPing};
-  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v10 玻璃基底推导重算，见文件头）
-  --glass-bg: rgba(231, 250, 228, 0.78);
+  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v12 口径重算，见文件头；
+  //  --glass-border 不在 v12 重算清单内，仍持 v10 rgb）
+  --glass-bg: rgba(239, 247, 230, 0.78);
   --glass-border: rgba(231, 250, 228, 0.7);
-  --glass-bg-solid: #e2f5df;
-  --glass-bg-thick: rgba(231, 250, 228, 0.86);
-  --glass-scrim: rgba(231, 250, 228, 0.92);
-  --glass-inner-bg: rgba(231, 250, 228, 0.55);
-  --glass-overlay-fallback: rgba(235, 254, 232, 0.55);
-  --glass-hover-wash: rgba(207, 226, 204, 0.55);
-  --popover-bg: rgba(240, 255, 238, 0.98);
+  --glass-bg-solid: #eff7e6;
+  --glass-bg-thick: rgba(239, 247, 230, 0.86);
+  --glass-scrim: rgba(239, 247, 230, 0.92);
+  --glass-inner-bg: rgba(239, 247, 230, 0.55);
+  --glass-overlay-fallback: rgba(245, 248, 241, 0.55);
+  --glass-hover-wash: rgba(217, 222, 211, 0.55);
+  --popover-bg: rgba(245, 251, 239, 0.98);
+  // 浮窗描边随主题 secondary、alpha 0.26——近实底面板的边界不能靠底色差表达
+  --popover-border: rgba(74, 124, 70, 0.26);
   --page-tint-a: rgba(74, 124, 70, 0.07);
   --page-tint-b: rgba(106, 149, 102, 0.08);
   --accent-wash: rgba(74, 124, 70, 0.06);
@@ -1920,9 +2302,9 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --graph-section-8: #ab678d;
   --graph-section-9: #6479cf;
   // 素描背景：竹枝疏影
-  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%234a7c46' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='3' stroke-opacity='0.1' d='M712 800 C696 690 676 578 668 466 C662 380 668 300 682 232'/%3E%3Cpath stroke-width='2.4' stroke-opacity='0.085' d='M566 800 C552 706 538 614 538 524 C538 450 550 386 570 330'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.055' d='M448 800 C438 730 432 662 436 598'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.04' d='M1040 800 C1030 700 1022 600 1026 512'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.09' d='M660 466 C666 460 676 460 680 466'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.09' d='M666 348 C672 342 682 342 686 348'/%3E%3Cpath stroke-width='2' stroke-opacity='0.08' d='M530 524 C536 518 546 518 550 524'/%3E%3Cpath stroke-width='2' stroke-opacity='0.08' d='M538 406 C544 400 554 400 558 406'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.095' d='M682 232 C716 212 752 202 780 202 C758 224 722 238 682 232'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.09' d='M676 296 C634 268 594 250 564 248 C586 278 626 298 676 296'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.09' d='M570 330 C610 316 652 314 684 322 C654 344 610 348 570 330'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.07' d='M538 524 C498 522 458 534 432 554 C464 564 504 552 538 524'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.08' d='M668 466 C708 458 750 464 776 480 C744 494 700 490 668 466'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.06' d='M542 420 C506 384 468 362 438 356 C454 392 492 420 542 420'/%3E%3C/svg%3E");
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%2351844d' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='3' stroke-opacity='0.1' d='M712 800 C696 690 676 578 668 466 C662 380 668 300 682 232'/%3E%3Cpath stroke-width='2.4' stroke-opacity='0.085' d='M566 800 C552 706 538 614 538 524 C538 450 550 386 570 330'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.055' d='M448 800 C438 730 432 662 436 598'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.04' d='M1040 800 C1030 700 1022 600 1026 512'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.09' d='M660 466 C666 460 676 460 680 466'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.09' d='M666 348 C672 342 682 342 686 348'/%3E%3Cpath stroke-width='2' stroke-opacity='0.08' d='M530 524 C536 518 546 518 550 524'/%3E%3Cpath stroke-width='2' stroke-opacity='0.08' d='M538 406 C544 400 554 400 558 406'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.095' d='M682 232 C716 212 752 202 780 202 C758 224 722 238 682 232'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.09' d='M676 296 C634 268 594 250 564 248 C586 278 626 298 676 296'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.09' d='M570 330 C610 316 652 314 684 322 C654 344 610 348 570 330'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.07' d='M538 524 C498 522 458 534 432 554 C464 564 504 552 538 524'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.08' d='M668 466 C708 458 750 464 776 480 C744 494 700 490 668 466'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.06' d='M542 420 C506 384 468 362 438 356 C454 392 492 420 542 420'/%3E%3C/svg%3E");
 
-  // 批注四色亮态底纹（对 #f1f5ec 合成 ≈1.65:1；:not 守卫见文件头说明）
+  // 批注四色亮态底纹（对 #eff5e8 合成 ≈1.65:1；:not 守卫见文件头说明）
   &:not([saved-theme="dark"]) {
     --kb-anno-yellow-bg: rgba(149, 120, 29, 0.42);
     --kb-anno-green-bg: rgba(61, 139, 89, 0.42);
@@ -1957,6 +2339,8 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --glass-overlay-fallback: rgba(20, 35, 17, 0.55);
   --glass-hover-wash: rgba(37, 52, 33, 0.6);
   --popover-bg: rgba(22, 37, 19, 0.98);
+  // 浮窗描边随主题 secondary、alpha 0.26——近实底面板的边界不能靠底色差表达
+  --popover-border: rgba(124, 171, 116, 0.26);
   --page-tint-a: rgba(124, 171, 116, 0.06);
   --page-tint-b: rgba(98, 139, 91, 0.07);
   --accent-wash: rgba(124, 171, 116, 0.05);
@@ -1981,13 +2365,13 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --graph-section-8: #c27ca2;
   --graph-section-9: #788fe7;
   // 素描背景：竹枝疏影
-  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%237cab74' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='3' stroke-opacity='0.13' d='M712 800 C696 690 676 578 668 466 C662 380 668 300 682 232'/%3E%3Cpath stroke-width='2.4' stroke-opacity='0.111' d='M566 800 C552 706 538 614 538 524 C538 450 550 386 570 330'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.072' d='M448 800 C438 730 432 662 436 598'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.052' d='M1040 800 C1030 700 1022 600 1026 512'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.117' d='M660 466 C666 460 676 460 680 466'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.117' d='M666 348 C672 342 682 342 686 348'/%3E%3Cpath stroke-width='2' stroke-opacity='0.104' d='M530 524 C536 518 546 518 550 524'/%3E%3Cpath stroke-width='2' stroke-opacity='0.104' d='M538 406 C544 400 554 400 558 406'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.123' d='M682 232 C716 212 752 202 780 202 C758 224 722 238 682 232'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.117' d='M676 296 C634 268 594 250 564 248 C586 278 626 298 676 296'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.117' d='M570 330 C610 316 652 314 684 322 C654 344 610 348 570 330'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.091' d='M538 524 C498 522 458 534 432 554 C464 564 504 552 538 524'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.104' d='M668 466 C708 458 750 464 776 480 C744 494 700 490 668 466'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.078' d='M542 420 C506 384 468 362 438 356 C454 392 492 420 542 420'/%3E%3C/svg%3E");
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%2374a36c' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='3' stroke-opacity='0.13' d='M712 800 C696 690 676 578 668 466 C662 380 668 300 682 232'/%3E%3Cpath stroke-width='2.4' stroke-opacity='0.111' d='M566 800 C552 706 538 614 538 524 C538 450 550 386 570 330'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.072' d='M448 800 C438 730 432 662 436 598'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.052' d='M1040 800 C1030 700 1022 600 1026 512'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.117' d='M660 466 C666 460 676 460 680 466'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.117' d='M666 348 C672 342 682 342 686 348'/%3E%3Cpath stroke-width='2' stroke-opacity='0.104' d='M530 524 C536 518 546 518 550 524'/%3E%3Cpath stroke-width='2' stroke-opacity='0.104' d='M538 406 C544 400 554 400 558 406'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.123' d='M682 232 C716 212 752 202 780 202 C758 224 722 238 682 232'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.117' d='M676 296 C634 268 594 250 564 248 C586 278 626 298 676 296'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.117' d='M570 330 C610 316 652 314 684 322 C654 344 610 348 570 330'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.091' d='M538 524 C498 522 458 534 432 554 C464 564 504 552 538 524'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.104' d='M668 466 C708 458 750 464 776 480 C744 494 700 490 668 466'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.078' d='M542 420 C506 384 468 362 438 356 C454 392 492 420 542 420'/%3E%3C/svg%3E");
 }
 
 // —— 暮山 mushan：藕荷灰 / 暮紫；素描「群山暮霭」——
 :root[data-style="mushan"] {
   // 9 基础色（dark 块必须全量重定义，漏一个即泄漏 config 值）
-  --light: #f4f1f6;
+  --light: #f8effb;
   --lightgray: #dad8df;
   --gray: #8c8994;
   --darkgray: #686371;
@@ -2002,16 +2386,19 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --leftFont: #{$fontHei};
   --rightFont: #{$fontSong};
   --graphFont: #{$fontPing};
-  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v10 玻璃基底推导重算，见文件头）
-  --glass-bg: rgba(242, 236, 255, 0.78);
+  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v12 口径重算，见文件头；
+  //  --glass-border 不在 v12 重算清单内，仍持 v10 rgb）
+  --glass-bg: rgba(251, 240, 255, 0.78);
   --glass-border: rgba(242, 236, 255, 0.7);
-  --glass-bg-solid: #f0eafd;
-  --glass-bg-thick: rgba(242, 236, 255, 0.86);
-  --glass-scrim: rgba(242, 236, 255, 0.92);
-  --glass-inner-bg: rgba(242, 236, 255, 0.55);
-  --glass-overlay-fallback: rgba(248, 244, 255, 0.55);
-  --glass-hover-wash: rgba(220, 213, 235, 0.55);
-  --popover-bg: rgba(250, 248, 255, 0.98);
+  --glass-bg-solid: #fbf0fe;
+  --glass-bg-thick: rgba(251, 240, 255, 0.86);
+  --glass-scrim: rgba(251, 240, 255, 0.92);
+  --glass-inner-bg: rgba(251, 240, 255, 0.55);
+  --glass-overlay-fallback: rgba(248, 242, 250, 0.55);
+  --glass-hover-wash: rgba(221, 215, 223, 0.55);
+  --popover-bg: rgba(253, 246, 255, 0.98);
+  // 浮窗描边随主题 secondary、alpha 0.26——近实底面板的边界不能靠底色差表达
+  --popover-border: rgba(109, 90, 142, 0.26);
   --page-tint-a: rgba(109, 90, 142, 0.07);
   --page-tint-b: rgba(134, 118, 164, 0.08);
   --accent-wash: rgba(109, 90, 142, 0.06);
@@ -2036,9 +2423,9 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --graph-section-8: #a9688c;
   --graph-section-9: #657acc;
   // 素描背景：群山暮霭
-  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%236d5a8e' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='1.6' stroke-opacity='0.05' d='M260 344 C292 340 336 270 360 264 C384 258 434 310 470 318 C518 328 572 256 600 250 C628 244 690 298 730 304 C786 312 840 250 870 244 C900 238 962 294 1000 300 C1074 312 1152 286 1200 272'/%3E%3Cpath stroke-width='1.9' stroke-opacity='0.065' d='M140 452 C176 446 240 368 268 362 C296 356 358 420 400 430 C456 442 510 350 540 344 C572 338 638 412 680 420 C740 432 798 358 830 352 C864 346 924 420 970 428 C1064 446 1148 414 1200 398'/%3E%3Cpath stroke-width='2.3' stroke-opacity='0.08' d='M40 566 C84 560 164 478 200 470 C238 462 306 530 350 540 C410 552 466 460 500 452 C536 444 610 522 660 532 C724 544 788 470 820 462 C856 454 928 530 980 540 C1074 558 1152 522 1200 506'/%3E%3Cpath stroke-width='2.9' stroke-opacity='0.1' d='M0 690 C50 684 130 594 170 586 C212 578 284 652 330 664 C394 678 456 578 490 568 C528 558 606 642 660 652 C728 664 796 586 830 576 C868 566 944 646 1000 656 C1094 674 1148 638 1200 620'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.045' d='M300 400 C450 390 610 396 740 386'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.05' d='M420 500 C580 490 760 496 916 484'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.045' d='M200 620 C400 610 620 616 820 604'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.07' d='M424 284 C424 242 458 210 500 210 C542 210 576 242 576 284'/%3E%3C/svg%3E");
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%23766297' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='1.6' stroke-opacity='0.05' d='M260 344 C292 340 336 270 360 264 C384 258 434 310 470 318 C518 328 572 256 600 250 C628 244 690 298 730 304 C786 312 840 250 870 244 C900 238 962 294 1000 300 C1074 312 1152 286 1200 272'/%3E%3Cpath stroke-width='1.9' stroke-opacity='0.065' d='M140 452 C176 446 240 368 268 362 C296 356 358 420 400 430 C456 442 510 350 540 344 C572 338 638 412 680 420 C740 432 798 358 830 352 C864 346 924 420 970 428 C1064 446 1148 414 1200 398'/%3E%3Cpath stroke-width='2.3' stroke-opacity='0.08' d='M40 566 C84 560 164 478 200 470 C238 462 306 530 350 540 C410 552 466 460 500 452 C536 444 610 522 660 532 C724 544 788 470 820 462 C856 454 928 530 980 540 C1074 558 1152 522 1200 506'/%3E%3Cpath stroke-width='2.9' stroke-opacity='0.1' d='M0 690 C50 684 130 594 170 586 C212 578 284 652 330 664 C394 678 456 578 490 568 C528 558 606 642 660 652 C728 664 796 586 830 576 C868 566 944 646 1000 656 C1094 674 1148 638 1200 620'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.045' d='M300 400 C450 390 610 396 740 386'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.05' d='M420 500 C580 490 760 496 916 484'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.045' d='M200 620 C400 610 620 616 820 604'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.07' d='M424 284 C424 242 458 210 500 210 C542 210 576 242 576 284'/%3E%3C/svg%3E");
 
-  // 批注四色亮态底纹（对 #f4f1f6 合成 ≈1.65:1；:not 守卫见文件头说明）
+  // 批注四色亮态底纹（对 #f8effb 合成 ≈1.65:1；:not 守卫见文件头说明）
   &:not([saved-theme="dark"]) {
     --kb-anno-yellow-bg: rgba(148, 119, 29, 0.42);
     --kb-anno-green-bg: rgba(61, 138, 89, 0.42);
@@ -2073,6 +2460,8 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --glass-overlay-fallback: rgba(28, 22, 41, 0.55);
   --glass-hover-wash: rgba(44, 39, 58, 0.6);
   --popover-bg: rgba(30, 24, 43, 0.98);
+  // 浮窗描边随主题 secondary、alpha 0.26——近实底面板的边界不能靠底色差表达
+  --popover-border: rgba(157, 138, 196, 0.26);
   --page-tint-a: rgba(157, 138, 196, 0.06);
   --page-tint-b: rgba(126, 110, 160, 0.07);
   --accent-wash: rgba(157, 138, 196, 0.05);
@@ -2097,13 +2486,13 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --graph-section-8: #c07da2;
   --graph-section-9: #798fe3;
   // 素描背景：群山暮霭
-  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%239d8ac4' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='1.6' stroke-opacity='0.065' d='M260 344 C292 340 336 270 360 264 C384 258 434 310 470 318 C518 328 572 256 600 250 C628 244 690 298 730 304 C786 312 840 250 870 244 C900 238 962 294 1000 300 C1074 312 1152 286 1200 272'/%3E%3Cpath stroke-width='1.9' stroke-opacity='0.085' d='M140 452 C176 446 240 368 268 362 C296 356 358 420 400 430 C456 442 510 350 540 344 C572 338 638 412 680 420 C740 432 798 358 830 352 C864 346 924 420 970 428 C1064 446 1148 414 1200 398'/%3E%3Cpath stroke-width='2.3' stroke-opacity='0.104' d='M40 566 C84 560 164 478 200 470 C238 462 306 530 350 540 C410 552 466 460 500 452 C536 444 610 522 660 532 C724 544 788 470 820 462 C856 454 928 530 980 540 C1074 558 1152 522 1200 506'/%3E%3Cpath stroke-width='2.9' stroke-opacity='0.13' d='M0 690 C50 684 130 594 170 586 C212 578 284 652 330 664 C394 678 456 578 490 568 C528 558 606 642 660 652 C728 664 796 586 830 576 C868 566 944 646 1000 656 C1094 674 1148 638 1200 620'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.059' d='M300 400 C450 390 610 396 740 386'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.065' d='M420 500 C580 490 760 496 916 484'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.059' d='M200 620 C400 610 620 616 820 604'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.091' d='M424 284 C424 242 458 210 500 210 C542 210 576 242 576 284'/%3E%3C/svg%3E");
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%239582bc' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='1.6' stroke-opacity='0.065' d='M260 344 C292 340 336 270 360 264 C384 258 434 310 470 318 C518 328 572 256 600 250 C628 244 690 298 730 304 C786 312 840 250 870 244 C900 238 962 294 1000 300 C1074 312 1152 286 1200 272'/%3E%3Cpath stroke-width='1.9' stroke-opacity='0.085' d='M140 452 C176 446 240 368 268 362 C296 356 358 420 400 430 C456 442 510 350 540 344 C572 338 638 412 680 420 C740 432 798 358 830 352 C864 346 924 420 970 428 C1064 446 1148 414 1200 398'/%3E%3Cpath stroke-width='2.3' stroke-opacity='0.104' d='M40 566 C84 560 164 478 200 470 C238 462 306 530 350 540 C410 552 466 460 500 452 C536 444 610 522 660 532 C724 544 788 470 820 462 C856 454 928 530 980 540 C1074 558 1152 522 1200 506'/%3E%3Cpath stroke-width='2.9' stroke-opacity='0.13' d='M0 690 C50 684 130 594 170 586 C212 578 284 652 330 664 C394 678 456 578 490 568 C528 558 606 642 660 652 C728 664 796 586 830 576 C868 566 944 646 1000 656 C1094 674 1148 638 1200 620'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.059' d='M300 400 C450 390 610 396 740 386'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.065' d='M420 500 C580 490 760 496 916 484'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.059' d='M200 620 C400 610 620 616 820 604'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.091' d='M424 284 C424 242 458 210 500 210 C542 210 576 242 576 284'/%3E%3C/svg%3E");
 }
 
 // —— 玄夜 xuanye：月白 / 夜蓝；素描「星月夜山」——
 :root[data-style="xuanye"] {
   // 9 基础色（dark 块必须全量重定义，漏一个即泄漏 config 值）
-  --light: #eff2f7;
+  --light: #ebf0ff;
   --lightgray: #d5d8df;
   --gray: #868a95;
   --darkgray: #5c6371;
@@ -2118,16 +2507,19 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --leftFont: #{$fontPing};
   --rightFont: #{$fontPing};
   --graphFont: #{$fontPing};
-  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v10 玻璃基底推导重算，见文件头）
-  --glass-bg: rgba(236, 242, 255, 0.78);
+  // 12 玻璃与页面 token（alpha 沿用 v8 既定值；底色按 v12 口径重算，见文件头；
+  //  --glass-border 不在 v12 重算清单内，仍持 v10 rgb）
+  --glass-bg: rgba(238, 242, 255, 0.78);
   --glass-border: rgba(236, 242, 255, 0.7);
-  --glass-bg-solid: #e7edfa;
-  --glass-bg-thick: rgba(236, 242, 255, 0.86);
-  --glass-scrim: rgba(236, 242, 255, 0.92);
-  --glass-inner-bg: rgba(236, 242, 255, 0.55);
-  --glass-overlay-fallback: rgba(241, 246, 255, 0.55);
-  --glass-hover-wash: rgba(209, 216, 231, 0.55);
-  --popover-bg: rgba(246, 249, 255, 0.98);
+  --glass-bg-solid: #eef2ff;
+  --glass-bg-thick: rgba(238, 242, 255, 0.86);
+  --glass-scrim: rgba(238, 242, 255, 0.92);
+  --glass-inner-bg: rgba(238, 242, 255, 0.55);
+  --glass-overlay-fallback: rgba(240, 243, 252, 0.55);
+  --glass-hover-wash: rgba(213, 216, 225, 0.55);
+  --popover-bg: rgba(243, 246, 255, 0.98);
+  // 浮窗描边随主题 secondary、alpha 0.26——近实底面板的边界不能靠底色差表达
+  --popover-border: rgba(74, 93, 138, 0.26);
   --page-tint-a: rgba(74, 93, 138, 0.07);
   --page-tint-b: rgba(102, 120, 159, 0.08);
   --accent-wash: rgba(74, 93, 138, 0.06);
@@ -2152,9 +2544,9 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --graph-section-8: #ac668d;
   --graph-section-9: #6f75d0;
   // 素描背景：星月夜山
-  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%234a5d8a' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='2' stroke-opacity='0.1' d='M722 66 C668 78 630 128 638 182 C646 236 696 272 750 262 C702 244 674 196 678 148 C682 108 698 82 722 66'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.085' d='M470 130 C476 148 484 156 502 162 C484 168 476 176 470 194 C464 176 456 168 438 162 C456 156 464 148 470 130'/%3E%3Cpath stroke-width='1.3' stroke-opacity='0.07' d='M300 250 C304 262 310 268 322 272 C310 276 304 282 300 294 C296 282 290 276 278 272 C290 268 296 262 300 250'/%3E%3Cpath stroke-width='3.6' stroke-opacity='0.09' d='M210 96 l1 0 M386 62 l1 0 M572 322 l1 0 M136 214 l1 0 M818 352 l1 0 M300 372 l1 0'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.05' d='M420 480 C454 474 500 416 520 410 C542 404 596 456 630 462 C672 470 718 404 740 398 C766 392 822 448 860 452 C908 458 954 410 980 404 C1044 438 1140 452 1200 442'/%3E%3Cpath stroke-width='2.8' stroke-opacity='0.1' d='M0 672 C46 666 116 582 150 574 C188 566 256 640 300 650 C360 664 428 560 460 552 C500 542 574 632 620 642 C686 656 758 574 790 566 C830 556 900 640 950 648 C1058 666 1146 626 1200 606'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.08' d='M300 752 C342 748 406 704 430 700 C456 696 522 738 560 742 C608 748 674 690 700 686 C730 682 810 732 850 736 C904 744 976 694 1010 690 C1074 682 1152 726 1200 722'/%3E%3Cpath stroke-width='1.3' stroke-opacity='0.04' d='M120 712 C340 702 560 706 780 696'/%3E%3C/svg%3E");
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%23576997' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='2' stroke-opacity='0.1' d='M722 66 C668 78 630 128 638 182 C646 236 696 272 750 262 C702 244 674 196 678 148 C682 108 698 82 722 66'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.085' d='M470 130 C476 148 484 156 502 162 C484 168 476 176 470 194 C464 176 456 168 438 162 C456 156 464 148 470 130'/%3E%3Cpath stroke-width='1.3' stroke-opacity='0.07' d='M300 250 C304 262 310 268 322 272 C310 276 304 282 300 294 C296 282 290 276 278 272 C290 268 296 262 300 250'/%3E%3Cpath stroke-width='3.6' stroke-opacity='0.09' d='M210 96 l1 0 M386 62 l1 0 M572 322 l1 0 M136 214 l1 0 M818 352 l1 0 M300 372 l1 0'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.05' d='M420 480 C454 474 500 416 520 410 C542 404 596 456 630 462 C672 470 718 404 740 398 C766 392 822 448 860 452 C908 458 954 410 980 404 C1044 438 1140 452 1200 442'/%3E%3Cpath stroke-width='2.8' stroke-opacity='0.1' d='M0 672 C46 666 116 582 150 574 C188 566 256 640 300 650 C360 664 428 560 460 552 C500 542 574 632 620 642 C686 656 758 574 790 566 C830 556 900 640 950 648 C1058 666 1146 626 1200 606'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.08' d='M300 752 C342 748 406 704 430 700 C456 696 522 738 560 742 C608 748 674 690 700 686 C730 682 810 732 850 736 C904 744 976 694 1010 690 C1074 682 1152 726 1200 722'/%3E%3Cpath stroke-width='1.3' stroke-opacity='0.04' d='M120 712 C340 702 560 706 780 696'/%3E%3C/svg%3E");
 
-  // 批注四色亮态底纹（对 #eff2f7 合成 ≈1.65:1；:not 守卫见文件头说明）
+  // 批注四色亮态底纹（对 #ebf0ff 合成 ≈1.65:1；:not 守卫见文件头说明）
   &:not([saved-theme="dark"]) {
     --kb-anno-yellow-bg: rgba(148, 119, 29, 0.42);
     --kb-anno-green-bg: rgba(61, 138, 89, 0.42);
@@ -2189,6 +2581,8 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --glass-overlay-fallback: rgba(16, 22, 34, 0.55);
   --glass-hover-wash: rgba(33, 39, 52, 0.6);
   --popover-bg: rgba(18, 24, 37, 0.98);
+  // 浮窗描边随主题 secondary、alpha 0.26——近实底面板的边界不能靠底色差表达
+  --popover-border: rgba(143, 163, 204, 0.26);
   --page-tint-a: rgba(143, 163, 204, 0.06);
   --page-tint-b: rgba(115, 133, 168, 0.07);
   --accent-wash: rgba(143, 163, 204, 0.05);
@@ -2213,7 +2607,7 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --graph-section-8: #c37ba3;
   --graph-section-9: #808ce8;
   // 素描背景：星月夜山
-  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%238fa3cc' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='2' stroke-opacity='0.13' d='M722 66 C668 78 630 128 638 182 C646 236 696 272 750 262 C702 244 674 196 678 148 C682 108 698 82 722 66'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.111' d='M470 130 C476 148 484 156 502 162 C484 168 476 176 470 194 C464 176 456 168 438 162 C456 156 464 148 470 130'/%3E%3Cpath stroke-width='1.3' stroke-opacity='0.091' d='M300 250 C304 262 310 268 322 272 C310 276 304 282 300 294 C296 282 290 276 278 272 C290 268 296 262 300 250'/%3E%3Cpath stroke-width='3.6' stroke-opacity='0.117' d='M210 96 l1 0 M386 62 l1 0 M572 322 l1 0 M136 214 l1 0 M818 352 l1 0 M300 372 l1 0'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.065' d='M420 480 C454 474 500 416 520 410 C542 404 596 456 630 462 C672 470 718 404 740 398 C766 392 822 448 860 452 C908 458 954 410 980 404 C1044 438 1140 452 1200 442'/%3E%3Cpath stroke-width='2.8' stroke-opacity='0.13' d='M0 672 C46 666 116 582 150 574 C188 566 256 640 300 650 C360 664 428 560 460 552 C500 542 574 632 620 642 C686 656 758 574 790 566 C830 556 900 640 950 648 C1058 666 1146 626 1200 606'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.104' d='M300 752 C342 748 406 704 430 700 C456 696 522 738 560 742 C608 748 674 690 700 686 C730 682 810 732 850 736 C904 744 976 694 1010 690 C1074 682 1152 726 1200 722'/%3E%3Cpath stroke-width='1.3' stroke-opacity='0.052' d='M120 712 C340 702 560 706 780 696'/%3E%3C/svg%3E");
+  --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%238296be' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='2' stroke-opacity='0.13' d='M722 66 C668 78 630 128 638 182 C646 236 696 272 750 262 C702 244 674 196 678 148 C682 108 698 82 722 66'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.111' d='M470 130 C476 148 484 156 502 162 C484 168 476 176 470 194 C464 176 456 168 438 162 C456 156 464 148 470 130'/%3E%3Cpath stroke-width='1.3' stroke-opacity='0.091' d='M300 250 C304 262 310 268 322 272 C310 276 304 282 300 294 C296 282 290 276 278 272 C290 268 296 262 300 250'/%3E%3Cpath stroke-width='3.6' stroke-opacity='0.117' d='M210 96 l1 0 M386 62 l1 0 M572 322 l1 0 M136 214 l1 0 M818 352 l1 0 M300 372 l1 0'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.065' d='M420 480 C454 474 500 416 520 410 C542 404 596 456 630 462 C672 470 718 404 740 398 C766 392 822 448 860 452 C908 458 954 410 980 404 C1044 438 1140 452 1200 442'/%3E%3Cpath stroke-width='2.8' stroke-opacity='0.13' d='M0 672 C46 666 116 582 150 574 C188 566 256 640 300 650 C360 664 428 560 460 552 C500 542 574 632 620 642 C686 656 758 574 790 566 C830 556 900 640 950 648 C1058 666 1146 626 1200 606'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.104' d='M300 752 C342 748 406 704 430 700 C456 696 522 738 560 742 C608 748 674 690 700 686 C730 682 810 732 850 736 C904 744 976 694 1010 690 C1074 682 1152 726 1200 722'/%3E%3Cpath stroke-width='1.3' stroke-opacity='0.052' d='M120 712 C340 702 560 706 780 696'/%3E%3C/svg%3E");
 }
 
 // 青瓷正文为仿宋，细横画在 17px 下发虚 → 抬到 18px 下限（46em 行宽随之约 828px）
@@ -2221,15 +2615,32 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   font-size: 18px;
 }
 
-// —— 素描背景的降级开关 ——
+// —— 降低透明度：主题化 token 的实底化降级（含素描背景撤除）——
 // 必须写在六套覆盖块之后：媒体查询不提升特异度，(0,2,0)/(0,3,0) 的主题块
-// 若在后位就会把这里的 none 覆盖掉（第八节的 prefers-reduced-transparency
-// 块位于本节之前，故 --page-art 的撤除只能落在这里）。
+// 若在后位就会把这里的降级覆盖掉（第八节原有的 prefers-reduced-transparency
+// 块位于本节之前，其 :root 只有 (0,1,0)；该块已于 v12 删空，仅存注释）。
+// v11 迁入（段①/⑦）：--glass-bg-thick / --glass-scrim / --glass-inner-bg /
+// --page-tint-a / --page-tint-b 五项原写在第八节，因同一特异性问题实际失效，
+// 整体搬到这里与 --page-art 合并。选择器组三档齐发，分别压住无主题的 :root (0,1,0)、
+// 主题亮态 (0,2,0) 与主题暗态 (0,3,0)。
+// var(--glass-bg-solid) 在各主题块内自有取值，故实底化后仍是该主题自己的实底色。
 @media (prefers-reduced-transparency: reduce) {
   :root,
   :root[data-style],
   :root[data-style][saved-theme] {
+    --glass-bg-thick: var(--glass-bg-solid);
+    --glass-scrim: var(--glass-bg-solid);
+    --glass-inner-bg: rgba(0, 0, 0, 0.04);
+    --page-tint-a: transparent;
+    --page-tint-b: transparent;
     --page-art: none;
+  }
+
+  // 暗态内层卡底：黑色薄底压在暗底上不可见，换白色薄底。
+  // (0,2,0) 与 (0,3,0) 两档分别压住上一条的同档选择器，且位序在后。
+  :root[saved-theme="dark"],
+  :root[data-style][saved-theme="dark"] {
+    --glass-inner-bg: rgba(255, 255, 255, 0.08);
   }
 }
 

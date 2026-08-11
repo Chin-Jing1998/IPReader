@@ -165,6 +165,25 @@ export type SavedTransform = {
 }
 
 /**
+ * 重建时的画布交换选项（J2）：仅 themechange 路径传入，不传即保持原行为。
+ *
+ * crossfade=true 时容器内的旧画布**不再先行清空**，新画布绝对定位叠在其上淡入，
+ * 淡入收尾时才移除旧节点并回调 retire——消除「旧画布销毁 → 新画布就绪」之间的
+ * 空白帧与颜色硬切。SPA nav、术语层 hidden 重建等既有路径一律不传，行为不变。
+ */
+export type GraphSwapOptions = {
+  /** true：先建后毁 + 新画布淡入；false/不传：保持「先清空容器再建」的原路径 */
+  crossfade: boolean
+  /**
+   * 淡入收尾（transitionend 或硬超时先到者）时调用，由调用方销毁旧渲染实例。
+   * 销毁必须后置到此刻：app.destroy() 内部会 loseContext
+   *（pixi.js 8 GlContextSystem.destroy），WebGL 画布随即被清空——提前销毁则底图
+   * 先行消失，交叉淡入退化成「从空白淡入」，空白帧并未真正消除。
+   */
+  retire?: () => void
+}
+
+/**
  * 图渲染控制器（V4-B1）：renderGraph 的返回值，替代原先的 cleanup 函数。
  * 向后兼容：对象本身可调用，直接调用等价于 destroy()——
  * graphexplorer.inline.ts 现存的 `graphCleanup?.()` 写法无需改动即可继续工作。
@@ -220,14 +239,107 @@ type GraphInstance = {
   destroy(): void
 }
 
+// ---------- 交叉淡入（J2）：仅 themechange 重建路径启用 ----------
+
+// 淡入硬超时：动效被系统禁用、容器不可见或标签页转入后台时 transitionend 可能
+// 不派发，超时兜底保证旧节点必被移除、旧实例必被销毁（不留孤儿实例）
+const CROSSFADE_TIMEOUT_MS = 400
+
+/**
+ * 同一容器上在途的淡入收尾函数（并发闸）。新一轮渲染开工前先冲掉在途那轮，
+ * 使「移除旧节点 + 销毁旧实例」按序完成，两轮的旧节点不会互相残留。
+ * 取容器粒度而非模块级布尔：一次 themechange 里局部图与全局弹窗图本就并发换画布，
+ * 模块级闸会互相误伤。
+ */
+const pendingSwaps = new WeakMap<HTMLElement, () => void>()
+
+/** 就地收尾指定容器上在途的淡入（无在途则空转） */
+function flushPendingSwap(graph: HTMLElement) {
+  pendingSwaps.get(graph)?.()
+}
+
+/**
+ * 新画布叠在旧节点之上淡入；收尾时移除旧节点、清掉内联样式回归常规流，
+ * 并回调 retire 销毁旧渲染实例。收尾由 transitionend（仅 opacity）与硬超时竞争，
+ * 先到者执行且只执行一次。
+ */
+function startCrossfade(
+  graph: HTMLElement,
+  canvas: HTMLCanvasElement,
+  stale: ChildNode[],
+  retire?: () => void,
+) {
+  const style = canvas.style
+  // 绝对定位使新画布脱离常规流并绘制在静态流的旧画布之上（同为定位元素时按
+  // DOM 序，新画布后插入即在上），无需 z-index；三类容器（.ge-canvas /
+  // .graph-outer / .global-graph-container）均 position:relative|fixed 且无内边距，
+  // inset:0 与常规流位置重合，收尾撤样式时不产生位移
+  style.position = "absolute"
+  style.inset = "0"
+  style.opacity = "0"
+  style.transition = "opacity var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out)"
+
+  let settled = false
+  let timer: ReturnType<typeof setTimeout> | undefined
+  const onTransitionEnd = (ev: TransitionEvent) => {
+    if (ev.propertyName === "opacity") finish()
+  }
+  const finish = () => {
+    if (settled) return
+    settled = true
+    clearTimeout(timer)
+    canvas.removeEventListener("transitionend", onTransitionEnd)
+    if (pendingSwaps.get(graph) === finish) pendingSwaps.delete(graph)
+    for (const node of stale) node.remove()
+    style.position = ""
+    style.inset = ""
+    style.opacity = ""
+    style.transition = ""
+    retire?.()
+  }
+  canvas.addEventListener("transitionend", onTransitionEnd)
+  timer = setTimeout(finish, CROSSFADE_TIMEOUT_MS)
+  pendingSwaps.set(graph, finish)
+
+  // 双 rAF：首帧让浏览器把 opacity:0 记入已计算样式，次帧改值才会产生过渡。
+  // settled 判定不可省：标签页转入后台时 rAF 挂起而超时照走，收尾清样式在前、
+  // rAF 补写 opacity 在后，会把 opacity:1 残留在内联样式上
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      if (settled) return
+      style.opacity = "1"
+    })
+  })
+}
+
 async function createGraphInstance(
   graph: HTMLElement,
   fullSlug: FullSlug,
   termOverride?: TermLayerMode,
+  swap?: GraphSwapOptions,
 ): Promise<GraphInstance> {
   const slug = simplifySlug(fullSlug)
   const visited = getVisited()
-  removeAllChildren(graph)
+  // 并发闸：同容器上若有在途淡入，先就地收尾再快照本轮旧节点
+  flushPendingSwap(graph)
+  // 交叉淡入路径（J2）：旧节点留在容器内充当淡入底图，收尾时才移除；
+  // 其余路径保持原样——清空在前、`await app.init()` 在后，空白帧即源于此
+  const crossfade = swap?.crossfade === true
+  const stale: ChildNode[] = crossfade ? Array.from(graph.childNodes) : []
+  if (crossfade) {
+    // 旧画布先脱离常规流：局部图容器 .graph-container 无显式高度，残留画布若留在
+    // 流内会把下方 graph.offsetHeight 量测撑大（行盒下沿留白），每切一次主题再涨一档。
+    // 截断 badge 本就 position:absolute，不参与量测，原样留到收尾（与新 badge 同位重叠）
+    for (const node of stale) {
+      if (node instanceof HTMLCanvasElement) {
+        node.style.position = "absolute"
+        node.style.left = "0"
+        node.style.top = "0"
+      }
+    }
+  } else {
+    removeAllChildren(graph)
+  }
 
   let {
     drag: enableDrag,
@@ -834,6 +946,12 @@ async function createGraphInstance(
     eventMode: "static",
   })
   graph.appendChild(app.canvas)
+  // 此处**不**起手交叉淡入：本函数在 appendChild 之后还有一大段同步构建
+  //（逐节点建 Text/Graphics、力导预热），全量图实测约 700ms 阻塞主线程——
+  // 在此起手则淡入的 260ms 与 400ms 兜底全被这段阻塞吃掉，收尾在解除阻塞的
+  // 第一刻就触发，画面退回硬切。故推迟到构建收尾（见文件下方 animate 注册处）。
+  // 期间新画布留在常规流内且尚无内容，绘制在绝对定位的旧画布**之下**，
+  // `await app.init()` 的让出窗口里也不会露出。
 
   // 空白点击（v14）：canvas 原生 click 且距最近节点命中 >300ms → 派发
   // graphnodeselect {slug: null}，由图谱总览脚本清除选中并隐藏右栏。
@@ -1323,6 +1441,20 @@ async function createGraphInstance(
 
   requestAnimationFrame(animate)
 
+  // 交叉淡入起手（J2）：同步构建到此为止，新画布下一帧即可画出内容——
+  // animate 先于本处的 rAF 注册，故第一帧先渲染内容、第二帧才拉起 opacity，
+  // 淡入全程有画面。有旧节点才淡入；容器本就空（首次渲染）时无底图可交叉，
+  // 直接回调 retire，避免调用方的旧实例无人接管而成为孤儿。
+  // 调用方在本函数返回后的同一微任务链里 applyTransform（恢复缩放平移），
+  // 早于下一帧 rAF，故淡入首帧呈现的已是恢复后的视野
+  if (crossfade) {
+    if (stale.length > 0) {
+      startCrossfade(graph, app.canvas, stale, swap?.retire)
+    } else {
+      swap?.retire?.()
+    }
+  }
+
   // ---------- 实例控制方法（GraphController 经此代理）----------
 
   function focusNode(target: SimpleSlug): boolean {
@@ -1420,13 +1552,16 @@ async function createGraphInstance(
  * `graphCleanup?.()` 无需改动即可继续工作。
  * V5-B BUG-1：新增可选第三参 termOverride——外部全量重建（themechange/resize）
  * 时传入上一实例的术语层模式，覆盖 data-cfg 初始值，避免重建后回落默认。
+ * J2：新增可选第四参 swap——themechange 路径传 {crossfade:true, retire}，
+ * 新画布叠加淡入、淡入完成后经 retire 销毁旧实例（先建后毁）；不传即原行为。
  */
 async function renderGraph(
   graph: HTMLElement,
   fullSlug: FullSlug,
   termOverride?: TermLayerMode,
+  swap?: GraphSwapOptions,
 ): Promise<GraphController> {
-  let instance = await createGraphInstance(graph, fullSlug, termOverride)
+  let instance = await createGraphInstance(graph, fullSlug, termOverride, swap)
   let destroyed = false
   // 术语层 hidden↔其它的重建是串行的：切换期间的并发调用按顺序排队
   let switching: Promise<void> = Promise.resolve()
@@ -1551,22 +1686,48 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   const slug = e.detail.url
   addToVisited(simplifySlug(slug))
 
-  async function renderLocalGraph() {
-    cleanupLocalGraphs()
-    const localGraphContainers = document.getElementsByClassName("graph-container")
-    for (const container of localGraphContainers) {
-      localGraphControllers.push(await renderGraph(container as HTMLElement, slug))
+  // crossfade（J2）：仅 themechange 路径传 true——旧实例撑到新画布淡入完成才销毁
+  //（app.destroy 会 loseContext 令旧画布立即变空，销毁必须后置），
+  // SPA nav 路径保持销毁在前（跨页交叉淡入无意义且会串页）
+  async function renderLocalGraph(crossfade = false) {
+    const stale = localGraphControllers
+    localGraphControllers = []
+    const retire = () => {
+      for (const controller of stale) controller.destroy()
     }
+    if (!crossfade) retire()
+    const localGraphContainers = document.getElementsByClassName("graph-container")
+    let rendered = 0
+    for (const container of localGraphContainers) {
+      localGraphControllers.push(
+        await renderGraph(
+          container as HTMLElement,
+          slug,
+          undefined,
+          crossfade ? { crossfade: true, retire } : undefined,
+        ),
+      )
+      rendered++
+    }
+    // 一个容器都没渲染（页面无局部图）时旧实例无人接管，就地销毁
+    if (rendered === 0) retire()
   }
 
   await renderLocalGraph()
 
   const containers = [...document.getElementsByClassName("global-graph-outer")] as HTMLElement[]
-  async function renderGlobalGraph() {
+  async function renderGlobalGraph(crossfade = false) {
     // 先销毁既有全局图实例：图标连点 / 主题重建路径都会重复调用本函数，
-    // 不先 cleanup 则旧 controller 失去引用却仍持有 pixi 实例与 rAF 循环（孤儿实例）
-    cleanupGlobalGraphs()
+    // 不先 cleanup 则旧 controller 失去引用却仍持有 pixi 实例与 rAF 循环（孤儿实例）。
+    // crossfade 路径（themechange）例外：销毁后置到淡入收尾，见 renderLocalGraph 注释
+    const stale = globalGraphControllers
+    globalGraphControllers = []
+    const retire = () => {
+      for (const controller of stale) controller.destroy()
+    }
+    if (!crossfade) retire()
     const slug = getFullSlug(window)
+    let rendered = 0
     for (const container of containers) {
       container.classList.add("active")
       const sidebar = container.closest(".sidebar") as HTMLElement
@@ -1577,9 +1738,18 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
       const graphContainer = container.querySelector(".global-graph-container") as HTMLElement
       registerEscapeHandler(container, hideGlobalGraph)
       if (graphContainer) {
-        globalGraphControllers.push(await renderGraph(graphContainer, slug))
+        globalGraphControllers.push(
+          await renderGraph(
+            graphContainer,
+            slug,
+            undefined,
+            crossfade ? { crossfade: true, retire } : undefined,
+          ),
+        )
+        rendered++
       }
     }
+    if (rendered === 0) retire()
   }
 
   function hideGlobalGraph() {
@@ -1597,17 +1767,19 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   // 注册位置在 containers 声明之后（此前挂在其上方，靠函数声明提升才成立，
   // 是 const 的 TDZ 阅读陷阱）。
   // 修 bug#4(b)：此前只重建局部图，全局图弹窗打开期间切主题不换色；
-  // 现检测 .active 容器并重建弹窗（renderGlobalGraph 开头已自带 cleanupGlobalGraphs，
-  // 旧实例在其内部同步销毁，无需在此重复调用）。
+  // 现检测 .active 容器并重建弹窗（renderGlobalGraph 开头已自带旧实例接管，
+  // 无需在此重复销毁）。
   // 120ms trailing 防抖：设置页连点主题卡会连发 themechange，
   // 不防抖则每次都触发一轮全量重建（局部图 + 弹窗），重建排队即卡顿。
+  // J2：本路径（且仅本路径）走交叉淡入——新画布叠加淡入、旧实例后置销毁，
+  // 消除重建间隙的空白帧与颜色硬切。
   let themeChangeTimer: ReturnType<typeof setTimeout> | undefined
   const handleThemeChange = () => {
     clearTimeout(themeChangeTimer)
     themeChangeTimer = setTimeout(() => {
-      void renderLocalGraph()
+      void renderLocalGraph(true)
       if (containers.some((container) => container.classList.contains("active"))) {
-        void renderGlobalGraph()
+        void renderGlobalGraph(true)
       }
     }, THEME_CHANGE_DEBOUNCE_MS)
   }
@@ -1629,10 +1801,15 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
     }
   }
 
+  // 包一层再挂监听：renderGlobalGraph 现有首参 crossfade，直接作监听器会把
+  // MouseEvent 当成 crossfade（真值）传入，误开图标点击路径的交叉淡入
+  const onGlobalGraphIconClick = () => {
+    void renderGlobalGraph()
+  }
   const containerIcons = document.getElementsByClassName("global-graph-icon")
   Array.from(containerIcons).forEach((icon) => {
-    icon.addEventListener("click", renderGlobalGraph)
-    window.addCleanup(() => icon.removeEventListener("click", renderGlobalGraph))
+    icon.addEventListener("click", onGlobalGraphIconClick)
+    window.addCleanup(() => icon.removeEventListener("click", onGlobalGraphIconClick))
   })
 
   document.addEventListener("keydown", shortcutHandler)

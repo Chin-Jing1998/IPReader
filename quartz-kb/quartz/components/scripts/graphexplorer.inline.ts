@@ -11,7 +11,8 @@
 //    目标不在数据集才回落到以命中 slug 为中心的重建渲染；
 // 5) 术语层三态钮（隐藏/弱化/显示）→ controller.setTermLayer；重置视图 → controller.resetView；
 // 6) SPA 生命周期：document "nav" 挂载、window.addCleanup 清理；themechange/resize
-//    重渲染（V5-B：重建保持术语层模式，resize 另快照并恢复缩放平移）。
+//    重渲染（V5-B：重建保持术语层模式；resize 与 themechange 均快照并恢复缩放平移，
+//    themechange 另走交叉淡入——新画布叠加淡入完成后才销毁旧实例）。
 import type { ContentDetails } from "../../plugins/emitters/contentIndex"
 import type { GraphController, SavedTransform } from "./graph.inline"
 import type { TermLayerMode } from "../Graph"
@@ -254,19 +255,38 @@ document.addEventListener("nav", async () => {
   // ---------- 图谱渲染（复用 graph.inline.ts 暴露的入口） ----------
   // termOverride（V5-B BUG-1）：themechange/resize 重建路径传入上一实例的术语层
   // 模式，重建后不回落 data-cfg 默认（hidden）；未传时按 data-cfg 初始值渲染。
-  // restoreTransform：resize 重建路径传入重建前的缩放平移快照，重建后恢复
+  // restoreTransform：resize/themechange 重建路径传入重建前的缩放平移快照，重建后恢复
   //（保持缩放级别与视野中心；focus 高亮不要求保留）。
+  // crossfade（J2）：仅 themechange 路径传 true——新画布叠在旧画布上淡入，
+  // 旧实例后置到淡入收尾才销毁（先建后毁），消除重建间隙的空白帧与颜色硬切。
   async function renderCanvas(
     slug: FullSlug,
     termOverride?: TermLayerMode,
     restoreTransform?: SavedTransform | null,
+    crossfade = false,
   ) {
     const render = window.__graphRender
     if (!render || disposed) return
     centerSlug = slug
-    controller?.destroy()
+    const prev = controller
+    const retire = () => prev?.destroy()
+    // 非 crossfade 路径维持原时序：销毁在前，新实例再清空容器重建
+    if (!crossfade) retire()
     controller = null
-    controller = await render(canvas!, slug, termOverride)
+    const next = await render(
+      canvas!,
+      slug,
+      termOverride,
+      crossfade ? { crossfade: true, retire } : undefined,
+    )
+    // await 期间可能已离开本页（SPA 导航）：丢弃刚建好的实例并就地销毁旧实例，
+    // 否则两者都失去引用却仍持有 pixi 实例与 rAF 循环（孤儿实例）
+    if (disposed) {
+      next.destroy()
+      retire()
+      return
+    }
+    controller = next
     if (restoreTransform) controller.applyTransform(restoreTransform)
     // 重建后恢复域隐藏状态（v12：themechange/resize 重建路径不丢图例状态）
     for (const s of hiddenSections) controller.setSectionHidden(s, true)
@@ -722,13 +742,19 @@ document.addEventListener("nav", async () => {
 
   // 主题切换：图内颜色为渲染时快照，需重渲染取新主题色；
   // 术语层模式随重建保持（BUG-1），三态钮不回落。
+  // J1：缩放平移快照与 resize 路径同策一并传入——布局是确定性的（力导 +
+  // phyllotaxis 初值 + 固定节点序 + 同步预热），重建后节点位置本就一致；
+  // 此前「切主题内容动了」纯粹是不传 transform 使新实例走 zoomToFit 重新入框，
+  // 传入后缩放级别与视野中心跨重建守恒。
   // 120ms trailing 防抖：连点主题卡会连发 themechange，专页是全量图，
   // 不防抖则每次事件都触发一轮全量重建、排队即卡顿（与 graph.inline.ts 同策）
   let themeChangeTimer: ReturnType<typeof setTimeout> | undefined
   const onThemeChange = () => {
     clearTimeout(themeChangeTimer)
     themeChangeTimer = setTimeout(() => {
-      void renderCanvas(centerSlug, controller?.getTermLayer())
+      const termMode = controller?.getTermLayer()
+      const transform = controller?.getTransform() ?? null
+      void renderCanvas(centerSlug, termMode, transform, true)
     }, THEME_CHANGE_DEBOUNCE_MS)
   }
   document.addEventListener("themechange", onThemeChange)

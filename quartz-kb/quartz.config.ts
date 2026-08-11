@@ -52,7 +52,7 @@ const config: QuartzConfig = {
       // 低于覆盖块，稳定态一律由覆盖块接管。
       colors: {
         lightMode: {
-          light: "#f6f1e7",
+          light: "#feefe5",
           lightgray: "#e1d6cf",
           gray: "#948781",
           darkgray: "#6e6059",

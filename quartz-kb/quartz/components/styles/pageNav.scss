@@ -39,10 +39,12 @@
   font-family: var(--headerFont);
   text-decoration: none;
   // 只动 transform / 颜色类属性，禁 transition:all
+  // color 归 260ms 暗色档，在本条列全（R5），custom.scss 第七节不得重复收录
   transition:
     transform var(--duration-press, 120ms) var(--ease-out, ease-out),
     border-color var(--duration-hover, 140ms) var(--ease-hover, ease),
-    background-color var(--duration-hover, 140ms) var(--ease-hover, ease);
+    background-color var(--duration-hover, 140ms) var(--ease-hover, ease),
+    color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
 
   &.next {
     text-align: right;

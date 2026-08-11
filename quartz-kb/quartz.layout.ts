@@ -73,6 +73,8 @@ export const sharedPageComponents: SharedLayout = {
     // TitleBar 置于首位：桌面自绘标题条（fixed 定位、CSS 门控 html[data-desktop]），
     // DOM 序首位便于排查层叠顺序问题
     Component.TitleBar(),
+    // 正文影子滚动条（零渲染脚本宿主，样式在 custom.scss 第十五节）
+    Component.PageChrome(),
     Component.GraphExplorer(),
     Component.SettingsPage(),
     Component.PageNav(),

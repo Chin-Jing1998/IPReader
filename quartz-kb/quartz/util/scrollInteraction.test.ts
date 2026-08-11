@@ -143,3 +143,41 @@ test("轨道与 thumb 等高时逆映射返回 0", () => {
   // Assert
   assert.equal(scrollTop, 0)
 })
+
+// 以下两例覆盖 trackHeight ≠ clientHeight 的情形：轨道短于可视区（400 vs 600）时，
+// thumb 高度与偏移都必须按轨道长度换算，而不是按可视高度。上方既有用例的
+// trackHeight 均等于或大于 clientHeight，未触及这条缩放路径。
+test("轨道短于可视区时 thumb 几何按轨道长度缩放", () => {
+  // Arrange：可视 600 / 内容 1800，占比 1/3；滚动到行程中点
+  const metrics = { clientHeight: 600, scrollHeight: 1800, scrollTop: 600 }
+  const trackHeight = 400
+
+  // Act
+  const geometry = computeThumbGeometry(metrics, trackHeight)
+
+  // Assert：height = 400 × 600 / 1800，未触及 28 的下限；offset 取可拖动余量的一半
+  assert.equal(geometry.visible, true)
+  assert.ok(
+    Math.abs(geometry.height - 133.33) < 0.5,
+    `thumb 高度为 ${geometry.height}，偏离 133.33 超过 0.5px`,
+  )
+  assert.ok(
+    Math.abs(geometry.offset - 133.33) < 0.5,
+    `thumb 偏移为 ${geometry.offset}，偏离 133.33 超过 0.5px`,
+  )
+})
+
+test("轨道短于可视区且滚动到底时 thumb 底边贴合轨道末端", () => {
+  // Arrange：scrollTop 取最大值 1800 - 600
+  const metrics = { clientHeight: 600, scrollHeight: 1800, scrollTop: 1200 }
+  const trackHeight = 400
+
+  // Act
+  const geometry = computeThumbGeometry(metrics, trackHeight)
+
+  // Assert：到底时 thumb 末端与轨道末端重合，不得因缩放留下缝隙
+  assert.ok(
+    Math.abs(geometry.offset + geometry.height - trackHeight) < 0.5,
+    `thumb 末端落在 ${geometry.offset + geometry.height}，与轨道末端 ${trackHeight} 偏离超过 0.5px`,
+  )
+})

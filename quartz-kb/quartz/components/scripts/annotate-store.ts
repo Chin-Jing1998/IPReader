@@ -30,7 +30,7 @@ function keyOf(slug: string): string {
   return KEY_PREFIX + slug
 }
 
-/** 生成本地唯一 id（不依赖 crypto，Chromium 108 下亦可用） */
+/** 生成本地唯一 id（不依赖 crypto，Electron 43（Chromium 13x）下亦可用） */
 export function newId(): string {
   return "a" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6)
 }

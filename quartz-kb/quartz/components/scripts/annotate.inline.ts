@@ -1,7 +1,7 @@
 // 选中文本标注（v7 需求7）：复制 / 高亮 / 下划线 / 笔记。
 //
 // 渲染走 DOM 包裹（<mark class="kb-mark">）而非 CSS Custom Highlight API。
-// 后者在 Electron 22（Chromium 108）上有两处硬伤：::highlight() 的
+// 后者在 Electron 43（Chromium 13x）上有两处硬伤：::highlight() 的
 // text-decoration 要到 Chromium 118–121 才绘制，下划线做不出来；而该伪元素
 // 又忽略 background-image，连伪下划线的退路也没有。另外笔记需要可点击的锚点，
 // Highlight API 的 Range 挂不上事件。DOM 包裹三种标记同一条路径，样式也统一。

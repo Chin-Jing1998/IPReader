@@ -1,15 +1,20 @@
 @use "../../styles/variables.scss" as *;
 @use "../../styles/glass.scss" as *;
 
+// 入场语义交割（方案 A：全程不透明，杜绝透字）：
+// dropin 原先把 opacity 0→1 铺在 .popover 整窗上，叠加 custom.scss 的
+// 180ms 时长与 .2s 悬停意图延迟后，延迟结束的 180ms 内整窗仍处半透明，
+// 下层正文透出与弹窗文字叠印。改为常量帧——动画只负责把窗体从基态的
+// hidden/透明「翻」到可见并由 forwards 锁住，不再产生任何透明度爬升。
+// 可感知的进场动效全部由 custom.scss 的 kb-pop-in（.popover-inner 纯
+// scale 0.96→1）承担；animation-delay .2s 是悬停意图延迟，保留；
+// 出场仍走 .popover 自身的 opacity/visibility transition 淡出。
 @keyframes dropin {
-  0% {
-    opacity: 0;
-    visibility: hidden;
+  from {
+    opacity: 1;
+    visibility: visible;
   }
-  1% {
-    opacity: 0;
-  }
-  100% {
+  to {
     opacity: 1;
     visibility: visible;
   }
@@ -38,8 +43,13 @@
     // 但底色取近实底：外层 .popover 的 will-change:transform 会把
     // backdrop-filter 的取样隔离在弹窗自身（Backdrop Root），模糊实际失效，
     // 半透明底只会让下层正文透出叠字——阅读面一律近实底（--popover-bg）。
+    // 边界可辨性：底色近实底后，描边与阴影须随主题另立 token，
+    // 否则 --glass-border/--glass-shadow 那套为半透明玻璃调校的弱值
+    // 会与 --popover-bg 几乎同色、面板边界消失。token 未落地时回退玻璃值。
     @include glass-panel(12px);
     background-color: var(--popover-bg, #faf9f9);
+    border-color: var(--popover-border, var(--glass-border));
+    box-shadow: var(--popover-shadow, var(--glass-shadow));
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
     overflow: auto;
@@ -90,7 +100,7 @@
       max-height: min(88vh, 64rem);
       padding: 1.5rem clamp(1rem, 3vw, 3rem) 2rem;
       user-select: text;
-      box-shadow: 0 1.5rem 4rem rgba(31, 35, 42, 0.16);
+      box-shadow: var(--popover-shadow, 0 1.5rem 4rem rgba(31, 35, 42, 0.16));
     }
   }
 
@@ -106,6 +116,25 @@
 
   @media all and ($mobile) {
     display: none !important;
+  }
+}
+
+// —— 两条降级的显式重写（防 Dart Sass 拆块前置成死码）——
+// glass-panel mixin 内部自带同名的 @supports not / prefers-reduced-transparency
+// 降级块，但 Dart Sass 编译嵌套 at-rule 时会把它们**拆出并前置**到 include 之后
+// 的普通声明之前；本文件在 include 之后覆写了 background-color 等项，同特异性
+// 后来居上，mixin 自带的两块因此永远被压过、成为死代码（已由编译产物实测证实）。
+// 故在主声明批之后按顶层块显式重写一遍，使降级真正生效。
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .popover > .popover-inner {
+    background-color: var(--popover-bg, #faf9f9);
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .popover > .popover-inner {
+    background-color: var(--glass-bg-solid);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 }
 

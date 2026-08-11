@@ -184,6 +184,14 @@ const cssVars = [
   "--codeFont",
 ] as const
 
+// themechange 重渲染防抖窗口：设置页连点主题卡会连发 themechange，
+// 不防抖则每次都触发一轮全量重渲。与图谱体系（graph / graphexplorer）取同值。
+const THEME_CHANGE_DEBOUNCE_MS = 120
+
+// 离屏容器样式：容器必须留在文档内并参与布局——mermaid 渲染依赖 getBBox 量取
+// 文本尺寸，display:none 会让所有测量返回 0 从而画出错乱的图，故只做视口外绝对定位。
+const OFFSCREEN_CONTAINER_STYLE = "position: absolute; left: -99999px; top: 0"
+
 let mermaidImport = undefined
 document.addEventListener("nav", async () => {
   const center = document.querySelector(".center") as HTMLElement
@@ -201,16 +209,9 @@ document.addEventListener("nav", async () => {
     textMapping.set(node, node.innerText)
   }
 
-  async function renderMermaid() {
-    // de-init any other diagrams
-    for (const node of nodes) {
-      node.removeAttribute("data-processed")
-      const oldText = textMapping.get(node)
-      if (oldText) {
-        node.innerHTML = oldText
-      }
-    }
-
+  // mermaid 主题色取自 initialize 时刻的 CSS 变量快照，切主题必须重跑 initialize
+  // 再重渲，否则图形沿用旧配色。渲染前（含离屏渲染前）都须先执行本函数。
+  function applyMermaidConfig() {
     const computedStyleMap = cssVars.reduce(
       (acc, key) => {
         acc[key] = window.getComputedStyle(document.documentElement).getPropertyValue(key)
@@ -236,13 +237,85 @@ document.addEventListener("nav", async () => {
         edgeLabelBackground: computedStyleMap["--highlight"],
       },
     })
+  }
 
+  // 首屏渲染：此时节点内容本就是 mermaid 源码文本，可直接原地渲染。
+  async function renderMermaid() {
+    applyMermaidConfig()
     await mermaid.run({ nodes })
   }
 
+  // 渲染中的离屏容器集合：单次渲染由自身 finally 摘除，本集合仅供导航时兜底清理
+  // （防抖串起的两次重渲可能时间上重叠，故用集合而非单一引用）。
+  const pendingOffscreenContainers = new Set<HTMLElement>()
+
+  // 主题切换重渲染：若直接把源码文本写回原节点再等异步渲染，用户会看到每张图
+  // 闪一下 mermaid 源码。改为在视口外容器中渲染浅克隆节点，渲染成功后再替换原
+  // 节点内容；任一步失败则原节点保留旧 SVG 不动（优于退回源码文本）。
+  async function rerenderMermaidOffscreen() {
+    applyMermaidConfig()
+
+    const offscreen = document.createElement("div")
+    offscreen.setAttribute("aria-hidden", "true")
+    offscreen.style.cssText = OFFSCREEN_CONTAINER_STYLE
+    document.body.appendChild(offscreen)
+    pendingOffscreenContainers.add(offscreen)
+
+    try {
+      const pending: { node: HTMLElement; clone: HTMLElement }[] = []
+      for (const node of nodes) {
+        const sourceText = textMapping.get(node)
+        if (!sourceText) continue
+
+        // 浅克隆保留原节点属性；data-processed 必须删除，否则 mermaid.run 跳过该节点
+        const clone = node.cloneNode(false) as HTMLElement
+        clone.removeAttribute("data-processed")
+        clone.innerHTML = sourceText
+        offscreen.appendChild(clone)
+        pending.push({ node, clone })
+      }
+
+      if (pending.length === 0) return
+
+      await mermaid.run({ nodes: pending.map(({ clone }) => clone) })
+
+      for (const { node, clone } of pending) {
+        node.innerHTML = clone.innerHTML
+        // 同步 mermaid.run 写在宿主元素上的属性（data-processed 等），使替换后的
+        // 原节点与直接渲染所得状态一致；克隆自原节点，故属性集是原属性的超集。
+        for (const attr of Array.from(clone.attributes)) {
+          node.setAttribute(attr.name, attr.value)
+        }
+      }
+    } catch (error) {
+      console.error("mermaid theme re-render failed, keeping rendered diagrams", error)
+    } finally {
+      offscreen.remove()
+      pendingOffscreenContainers.delete(offscreen)
+    }
+  }
+
   await renderMermaid()
-  document.addEventListener("themechange", renderMermaid)
-  window.addCleanup(() => document.removeEventListener("themechange", renderMermaid))
+
+  let themeChangeTimer: ReturnType<typeof setTimeout> | undefined
+  const handleThemeChange = () => {
+    clearTimeout(themeChangeTimer)
+    themeChangeTimer = setTimeout(() => {
+      void rerenderMermaidOffscreen()
+    }, THEME_CHANGE_DEBOUNCE_MS)
+  }
+
+  document.addEventListener("themechange", handleThemeChange)
+  window.addCleanup(() => {
+    // 未决防抖回调必须撤销：导航后触发会渲染到已被替换的 DOM 上
+    clearTimeout(themeChangeTimer)
+    document.removeEventListener("themechange", handleThemeChange)
+    // 导航时仍在渲染的离屏容器直接摘除，避免残留在 body 上
+    for (const container of pendingOffscreenContainers) {
+      container.remove()
+    }
+    pendingOffscreenContainers.clear()
+  })
 
   for (let i = 0; i < nodes.length; i++) {
     const codeBlock = nodes[i] as HTMLElement

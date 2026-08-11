@@ -4,7 +4,7 @@
 // 材质与动效一律消费 custom.scss 的既有 token 并带 fallback，token 节独立
 // revert 不破版。z-index 站位：popover 999 > 本工具条 900 > 抽屉 300 > FAB 20。
 
-// —— 五档标注色（Chromium 108 禁 color-mix，全部手算静态色）——
+// —— 五档标注色（基线 Electron 43（Chromium 13x）已支持 color-mix，仍全部手算静态色）——
 // 底色透明度压在 0.28–0.42：宋体细横画压在过重底色上会糊
 :root {
   --kb-anno-yellow-bg: rgba(255, 224, 102, 0.42);
@@ -59,8 +59,9 @@ mark.kb-mark {
     background-color: var(--kb-bg);
   }
 
-  // 下划线走 text-decoration —— 这正是 CSS Custom Highlight API 在
-  // Chromium 108 上做不到的那一项（其 ::highlight() 不绘制 text-decoration）
+  // 下划线走 text-decoration —— 这正是 CSS Custom Highlight API 在旧基线
+  // Chromium 108 上做不到的那一项（其 ::highlight() 不绘制 text-decoration）。
+  // 现行基线为 Electron 43（Chromium 13x）：即便基线已升，本实现不回退到 CSS Highlight API
   &[data-kind="underline"] {
     text-decoration: underline;
     text-decoration-color: var(--kb-line);

@@ -1,6 +1,14 @@
 @use "../../styles/variables.scss" as *;
 @use "../../styles/glass.scss" as *;
 
+// —— 与 custom.scss 的分工（交叉注释）——
+// 本文件只管搜索弹层的结构、圆角、描边、间距、hover/focus 指示、命中词高亮
+// 与 transition；下列三组由 custom.scss 独占，本文件不复制、不对抗
+// （custom.scss 在构建拼装序中位于组件 css 之后，同特异性后位胜）：
+//   ① 遮罩的 --titlebar-h 顶部偏移与高度（custom.scss「消费点③」）；
+//   ② 面板厚材质升级（--glass-bg-thick / --glass-blur-thick / --glass-saturate-thick）；
+//   ③ 模态入场动画（kb-overlay-in / kb-panel-in 与结果区 stagger）。
+
 .search {
   min-width: fit-content;
   max-width: 14rem;
@@ -11,7 +19,8 @@
   & > .search-button {
     background-color: transparent;
     border: 1px var(--lightgray) solid;
-    border-radius: 4px;
+    // 圆角档位：面板 14 → 分栏 13 → 结果卡 12 → 标签 8，按钮与标签同档
+    border-radius: 8px;
     font-family: inherit;
     font-size: inherit;
     height: 2rem;
@@ -22,11 +31,31 @@
     cursor: pointer;
     white-space: nowrap;
     width: 100%;
+    // R5：本元素过渡一条列全（分两条写长写属性会整条替换）。
+    // 唯一事实源，custom.scss 第七节不得重复收录。
+    transition:
+      border-color var(--duration-hover, 140ms) var(--ease-hover, ease),
+      background-color var(--duration-hover, 140ms) var(--ease-hover, ease),
+      color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
+
+    &:hover {
+      border-color: var(--secondary);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--secondary);
+      outline-offset: 2px;
+    }
 
     & > p {
       display: inline;
-      color: var(--gray);
+      // 占位文字与导航次级文字同源；六主题各自定义 --nav-fg-muted
+      color: var(--nav-fg-muted, var(--gray));
       text-wrap: unset;
+      // p 自带 color 声明（不是继承值），父级的 color 过渡不作用于它，
+      // 故按实际继承链在此单列；本元素仅此一项，R5 已列全。
+      // 唯一事实源，custom.scss 第七节不得重复收录。
+      transition: color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
     }
 
     & svg {
@@ -36,9 +65,11 @@
       margin: 0 0.5rem;
 
       .search-path {
-        stroke: var(--darkgray);
+        stroke: var(--nav-fg-muted, var(--darkgray));
         stroke-width: 1.5px;
-        transition: stroke 0.5s ease;
+        // 原 0.5s 为全站最慢过渡，归并到暗色切换档。
+        // 唯一事实源，custom.scss 第七节不得重复收录。
+        transition: stroke var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
       }
     }
   }
@@ -87,6 +118,17 @@
         &:focus {
           outline: none;
         }
+
+        // 本体的 border 与 box-shadow 来自上面 `& > *` 的 glass-panel(14px)。
+        // box-shadow 是整条替换语义，必须把 var(--glass-shadow) 写回，
+        // 漏写会在聚焦瞬间丢掉玻璃阴影。
+        &:focus-visible {
+          outline: none;
+          border-color: var(--secondary);
+          box-shadow:
+            var(--glass-shadow),
+            0 0 0 2px var(--nav-active-wash);
+        }
       }
 
       & > .search-layout {
@@ -111,7 +153,8 @@
 
             & > div {
               &:first-child {
-                border-right: 1px solid var(--lightgray);
+                // 分栏分隔线随玻璃描边体系，替代原 --lightgray 生硬实线
+                border-right: 1px solid var(--glass-border);
                 border-top-right-radius: unset;
                 border-bottom-right-radius: unset;
               }
@@ -126,7 +169,8 @@
 
         & > div {
           height: calc(75vh - 12vh);
-          border-radius: 5px;
+          // 圆角递进档：面板 14 → 分栏 13 → 结果卡 12 → 标签 8
+          border-radius: 13px;
         }
 
         @media all and ($mobile) {
@@ -144,10 +188,18 @@
         }
 
         & .highlight {
-          // F12：原「tertiary 60% 混透明」的等效静态色（tertiary 双主题同为 #84a59d）
-          background: rgba(132, 165, 157, 0.6);
-          border-radius: 5px;
+          // 命中词改用六主题×亮暗全覆盖的 --textHighlight，撤掉原硬编码绿
+          // （rgba(132,165,157,.6)）——它与暖色主题冲突。
+          background-color: var(--textHighlight);
+          border-radius: 4px;
+          padding: 0 0.1rem;
+          // 预览区渲染真实页面 DOM，自带同为 --textHighlight 的 mark 与
+          // --highlight 内链底；命中词靠这条 inset 下缘线拉开层级，
+          // 保证「一眼可辨」。
+          box-shadow: inset 0 -0.12em 0 0 var(--secondary);
           scroll-margin-top: 2rem;
+          // 命中词随每次输入重建 DOM，刻意不加颜色过渡（否则每敲一键都拖影）；
+          // 本文件是 .highlight 过渡的唯一事实源，custom.scss 第七节不得重复收录。
         }
 
         & > .preview-container {
@@ -173,13 +225,31 @@
 
         & > .results-container {
           overflow-y: auto;
+          // 卡间留白替代被删的分隔实线；padding 是卡片与容器边缘的呼吸。
+          // box-sizing 保持 border-box 是几何守恒的前提：本元素的高度
+          // calc(75vh - 12vh) 与 flex-basis min(30%,450px) 均未改动，
+          // 内容盒计算下这 0.6rem 会把外框撑出、与预览栏错位。
+          box-sizing: border-box;
+          padding: 0.6rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
 
           & .result-card {
             overflow: hidden;
-            padding: 1em;
+            // 卡形：玻璃内层底 + 描边 + 12px 圆角，取代原「实线分隔 + 无边框」
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            background-color: var(--glass-inner-bg);
+            padding: 0.75rem 0.9rem;
             cursor: pointer;
-            transition: background 0.2s ease;
-            border-bottom: 1px solid var(--lightgray);
+            // R5：本元素过渡一条列全（分两条写长写属性会整条替换）。
+            // 唯一事实源，custom.scss 第七节不得重复收录。
+            transition:
+              background-color var(--duration-hover, 140ms) var(--ease-hover, ease),
+              border-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out),
+              color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out),
+              box-shadow var(--duration-hover, 140ms) var(--ease-out, ease-out);
             width: 100%;
             display: block;
             box-sizing: border-box;
@@ -194,13 +264,23 @@
             outline: none;
             font-weight: inherit;
 
+            // .focus 是 search.inline.ts 给首条结果的软预选类（结果渲染后加、
+            // 首次键盘导航时移除），语义与 :hover / :focus 同档，三者共用一套态。
             &:hover,
             &:focus,
             &.focus {
               // 玻璃底上的悬停高亮：半透明化，避免实底色块打断玻璃质感；
               // F12：--glass-hover-wash 为原「lightgray 55% 混透明」
               // 的等效静态色（custom.scss 深浅主题各一套），字面回退值取浅色值
-              background: var(--glass-hover-wash, rgba(229, 229, 229, 0.55));
+              background-color: var(--glass-hover-wash, rgba(229, 229, 229, 0.55));
+              border-color: var(--secondary);
+            }
+
+            // 键盘可达性：补回上面 normalize 的 outline: none 造成的焦点盲区。
+            // 用 box-shadow 环而非 outline，环随 12px 圆角贴合且不挤占布局。
+            &:focus-visible {
+              outline: none;
+              box-shadow: 0 0 0 2px var(--nav-active-wash);
             }
 
             & > h3 {

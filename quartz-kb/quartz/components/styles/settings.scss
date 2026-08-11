@@ -6,6 +6,9 @@
 // 设置改为独立页面（content/设置/index.md + SettingsPage.tsx），不再有浮层，
 // 故本文件不再占用任何 z-index 层位（原「遮罩 850」已不存在；
 // 现存层位只剩工具条 900 与批注抽屉 300，均不在本文件内）。
+// 本轮新增的正文页头/页脚条 z 12 与影子滚动条 z 11 同样不在本文件——两者登记在
+// custom.scss 第十五节；设置页抽屉只是常规流里的一根栅格列（sticky 自成层叠上下文，
+// 但不声明 z-index、不与任何浮层争层），故本文件的层位记账仍为零。
 //
 // 左栏两枚按钮与阅读按钮（readermode.scss）同构：20×32 尺寸、20px SVG 绝对居中、
 // darkgray 描边；齿轮是 <a>（SPA 跳转设置页），明暗钮是 <button>。
@@ -72,27 +75,70 @@
   display: none;
 }
 
-// ---------- 设置页页头（返回钮 + 页标题） ----------
+// ---------- 设置页外壳（抽屉 + 面板区双栏） ----------
 
-// 三列栅格 1fr auto 1fr：标题固定占中列，左右两列等宽，返回钮宽度不参与推挤，
-// 故标题在内容列中光学居中（若改用 flex + space-between，标题会被返回钮顶偏）。
-.kb-settings-head {
+// 双栏：定宽抽屉（13rem）+ 自适应面板区。第二列写 minmax(0, 1fr) 而非 1fr——
+// 栅格列的默认 min-width 是 auto，主题卡的 3 列子栅格会把列撑过内容列宽。
+// align-items: start 让抽屉按自身内容高收边，不被高面板拉满（否则 sticky 无从生效）。
+// 旧版的页头（.kb-settings-head + .kb-settings-title）已删除：设置页沉浸布局本就
+// 隐掉了面包屑与页头三件，再挂一个 1.875rem 大标题只是重复；返回入口移入抽屉首行。
+.kb-settings-page {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  margin: 1.6rem 0 2.2rem;
+  grid-template-columns: 13rem minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+  // 页头删除后，本页顶部留白只剩 base.scss 给 .page-footer 的 1rem，故补足到 2.2rem
+  margin-top: 1.2rem;
+
+  h2 {
+    margin: 0 0 0.3rem;
+    font-size: 1.05rem;
+    font-weight: $semiBoldWeight;
+    color: var(--dark);
+    border: none;
+  }
+
+  // 移动端降单列：抽屉退化为顶部横条（返回钮 + 两枚分类钮同排），面板接在其下
+  @media all and ($mobile) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.1rem;
+  }
 }
 
-// 返回钮胶囊：图标居左、文字居右，故左内边距小于右内边距（视觉等距）。
+// 抽屉面板：玻璃底 + 描边，不叠 backdrop-filter——父层（.page 玻璃宿主）已做过
+// 一次背景模糊，此处再叠一层只会加重合成开销且让文字对比度下降。
+.kb-settings-drawer {
+  position: sticky;
+  // 与左右栏吸附基线同源：让出 Electron 自绘标题条高度（--titlebar-h，Web 端为 0）
+  top: calc(var(--titlebar-h) + 1rem);
+  display: flex;
+  flex-direction: column;
+  padding: 0.55rem;
+  border-radius: 14px;
+  background-color: var(--glass-inner-bg, rgba(255, 255, 255, 0.5));
+  border: 1px solid var(--glass-border, var(--lightgray));
+
+  @media all and ($mobile) {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4rem;
+  }
+}
+
+// 返回钮：抽屉首行，块级全宽、与分类钮同一套内边距与圆角，三者对齐成一列。
 // 本类挂在 <a> 上：特异性 (0,1,0) 压过 base.scss 的全局 a（0,0,1），
 // 配色与字重自持，不被 --secondary / $semiBoldWeight 接管。
+// class / href / 内部 svg 在本次改版中逐字保留——settings.inline.ts 的
+// history.back 升级按 `.kb-settings-back` 取节点，换位不触发脚本改动。
 .kb-settings-back {
-  justify-self: start;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 0.3rem;
-  padding: 0.3rem 0.6rem 0.3rem 0.4rem;
-  border-radius: 7px;
+  // 图标居左、文字居右，故左内边距小于右内边距（视觉等距）
+  padding: 0.42rem 0.55rem 0.42rem 0.4rem;
+  margin-bottom: 0.45rem;
+  border-radius: 8px;
   font-size: 0.85rem;
   font-weight: inherit;
   color: var(--darkgray);
@@ -111,33 +157,86 @@
     color: var(--dark);
     background-color: var(--glass-hover-wash, rgba(229, 229, 229, 0.55));
   }
+
+  // 横条形态下它是抽屉的行向 flex 子项，宽度由内容决定；禁止压缩以免「返回」二字被挤断行
+  @media all and ($mobile) {
+    flex-shrink: 0;
+    margin-bottom: 0;
+  }
 }
 
-// 标题占中列；显式 margin 0 压过 base.scss 的 h1（0,0,1）上下外边距
-.kb-settings-title {
-  grid-column: 2;
-  margin: 0;
-  font-size: 1.875rem;
-  font-weight: 700;
-  letter-spacing: -0.005em;
-  color: var(--dark);
+// ---------- 抽屉分类导航 ----------
+
+.kb-settings-cats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+
+  @media all and ($mobile) {
+    flex: 1;
+    flex-direction: row;
+    gap: 0.3rem;
+  }
 }
 
-// ---------- 设置页正文 ----------
+// 分类钮与左栏目录树条目同一套状态色：hover 走 --glass-hover-wash，
+// 选中走 --nav-active-wash 底 + --secondary 文字；过渡取 140ms 档，
+// 与全站高频交互控件（分段控件、主题卡、三枚快捷钮）一致。
+.kb-settings-cat {
+  display: block;
+  width: 100%;
+  padding: 0.42rem 0.55rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  text-align: left;
+  color: var(--darkgray);
+  background: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-hover, 140ms) var(--ease-hover, ease),
+    color var(--duration-hover, 140ms) var(--ease-hover, ease);
 
-.kb-settings-page {
+  &:hover {
+    color: var(--dark);
+    background-color: var(--glass-hover-wash, rgba(229, 229, 229, 0.55));
+  }
+
+  &.is-active {
+    color: var(--secondary);
+    background-color: var(--nav-active-wash, rgba(40, 75, 99, 0.1));
+  }
+
+  @media all and ($mobile) {
+    flex: 1;
+    width: auto;
+    text-align: center;
+  }
+}
+
+// ---------- 面板区 ----------
+
+// 面板之间、面板内分区之间同取 2.4rem（沿用平铺版的分区间距）。
+// 两层都写：无 JS 时两个面板同时展开，靠外层 gap 分隔。
+.kb-settings-panes {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-  margin-top: 0.6rem;
+  min-width: 0;
+}
 
-  h2 {
-    margin: 0 0 0.3rem;
-    font-size: 1.05rem;
-    font-weight: $semiBoldWeight;
-    color: var(--dark);
-    border: none;
-  }
+.kb-settings-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+// 降级门：settings.inline.ts 绑定成功后才在容器上落 data-panes-ready，届时非激活
+// 面板收起。属性缺席（无 JS / 脚本报错）时本规则整条不命中，两个面板均可见——
+// 设置项零丢失，只是回到平铺形态。
+.kb-settings-page[data-panes-ready] .kb-settings-pane:not(.is-active) {
+  display: none;
 }
 
 .kb-settings-desc {
@@ -246,32 +345,32 @@
   // 每卡三个色值 = 该套主题的 --light / --dark（暗态底色）/ --secondary，
   // 与 custom.scss 的 [data-style] 覆盖块同源，改主题色须两处同改。
   &[data-value="xuanzhi"] {
-    --swatch-light: #f6f1e7;
+    --swatch-light: #feefe5;
     --swatch-dark: #201c16;
     --swatch-accent: #8c5a3c;
   }
   &[data-value="shuimo"] {
-    --swatch-light: #f2f4f3;
+    --swatch-light: #ecf5f8;
     --swatch-dark: #171a1c;
     --swatch-accent: #40606c;
   }
   &[data-value="qingci"] {
-    --swatch-light: #eef4f2;
+    --swatch-light: #e3f7f4;
     --swatch-dark: #14201d;
     --swatch-accent: #3d7068;
   }
   &[data-value="zhulin"] {
-    --swatch-light: #f1f5ec;
+    --swatch-light: #eff5e8;
     --swatch-dark: #181f15;
     --swatch-accent: #4a7c46;
   }
   &[data-value="mushan"] {
-    --swatch-light: #f4f1f6;
+    --swatch-light: #f8effb;
     --swatch-dark: #1a1620;
     --swatch-accent: #6d5a8e;
   }
   &[data-value="xuanye"] {
-    --swatch-light: #eff2f7;
+    --swatch-light: #ebf0ff;
     --swatch-dark: #10141d;
     --swatch-accent: #4a5d8a;
   }
@@ -290,7 +389,7 @@
 
   background-image: linear-gradient(
     135deg,
-    var(--swatch-light, #f6f1e7) 0 calc(50% - 0.5px),
+    var(--swatch-light, #feefe5) 0 calc(50% - 0.5px),
     var(--swatch-seam, rgba(0, 0, 0, 0.12)) calc(50% - 0.5px) calc(50% + 0.5px),
     var(--swatch-dark, #201c16) calc(50% + 0.5px) 100%
   );
@@ -373,9 +472,11 @@
     border: 1px solid var(--lightgray);
     border-radius: 7px;
     cursor: pointer;
+    // color 归 260ms 暗色档，在本条列全（R5），custom.scss 第七节不得重复收录
     transition:
       border-color var(--duration-hover, 140ms) var(--ease-hover, ease),
-      background-color var(--duration-hover, 140ms) var(--ease-hover, ease);
+      background-color var(--duration-hover, 140ms) var(--ease-hover, ease),
+      color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
 
     &:hover {
       border-color: var(--secondary);
@@ -388,8 +489,8 @@
 //
 // 设置页是应用面板、不是阅读页：左栏（搜索 / 目录树 / 快捷区）与右栏
 // （局部图 / 目录 / 反链）在此均无信息量，页头三件（面包屑 / 标题 / 阅读时长）
-// 与空正文亦然——全部隐藏，页面只余页头（.kb-settings-head）与设置正文
-// （.kb-settings-page，渲染于 .page-footer）。返回入口由页头的返回钮承担。
+// 与空正文亦然——全部隐藏，页面只余设置外壳（.kb-settings-page，渲染于
+// .page-footer）。返回入口由抽屉首行的返回钮承担。
 //
 // 两条选择器纪律：
 //   ① 隐藏侧栏的选择器带 #quartz-body，以压过 base.scss 中
@@ -424,10 +525,18 @@ body[data-slug="设置/index"] {
   }
 
   // 页头容器（含 ArticleTitle）、分隔线、空正文——设置页正文走 afterBody，
-  // 这三者只贡献留白
+  // 这三者只贡献留白。
+  //
+  // 第四条是本轮补的 bug 修复：设置页 slug 为「设置/index」，由 FolderPage
+  // emitter 渲染，FolderContent 输出的是 `.center > .popover-hint > article`
+  // （见 FolderContent.tsx），而非 Content 那种 `.center > article` 直接子级——
+  // 前三条选择器全部落空，占位文字「本页由设置组件渲染。」一直可见。
+  // 只补 article 这一层、不隐藏整个 .popover-hint：`.page-header` 内也有同名
+  // 容器（renderPage.tsx 的 beforeBody 包裹层），语义上不应依赖它已被隐藏。
   #quartz-body .center > .page-header,
   #quartz-body .center > hr,
-  #quartz-body .center > article {
+  #quartz-body .center > article,
+  #quartz-body .center > .popover-hint > article {
     display: none;
   }
 }

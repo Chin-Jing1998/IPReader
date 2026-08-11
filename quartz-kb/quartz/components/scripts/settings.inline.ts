@@ -1,7 +1,8 @@
 // 设置（v9）：主题模式（浅/深/跟随系统）· 界面主题（六套古风 × 亮暗两态）· 批注保存目录。
 //
 // 加载时机：beforeDOMLoaded（head 内，随 SettingsButton 注入）——启动即落 saved-theme
-// 与 data-style，避免首帧闪烁；UI 事件在 nav 后绑定（与 darkmode.inline 同一装载模式）。
+// 与 data-style，避免首帧闪烁；UI 事件在 nav 后绑定（沿用 quartz 内置 Darkmode 组件
+// （已删除）的装载模式）。
 // 状态桶：localStorage kb-settings:v1（键名不升版：升版会连带丢掉 annoDir）。
 //
 // ⚠️ 生命周期纪律（bug#1 本体，勿再犯）：
@@ -106,6 +107,9 @@ type DesktopBridge = {
   isDesktop?: boolean
   isMac?: boolean
   setThemeSource?: (mode: string, bgColor: string) => void
+  // 新壳（invoke 往返）：主进程落定 nativeTheme.themeSource 后回传权威
+  // shouldUseDarkColors，用于消除「跟随系统」的双跳（bug#2）；旧壳上恒为 undefined。
+  applyThemeSource?: (mode: string, bgColor: string) => Promise<{ dark: boolean } | undefined>
   chooseAnnoDir?: () => Promise<string | null>
 }
 
@@ -120,10 +124,23 @@ function desktopBridge(): DesktopBridge | undefined {
  * bgColor 必须是 trim 过的 hex：getComputedStyle 的返回值带前导空格，
  * 主进程侧按 hex 正则校验，不合格（含 rgb() 形式）会被静默丢弃。
  * 首帧可行性：index.css 的 link 排在 prescript 之前且阻塞渲染，此时变量已可读。
+ *
+ * 返回值：新壳走 applyThemeSource（invoke 往返）时解析为主进程回传的权威亮暗态；
+ * 旧壳、浏览器环境与 invoke 失败一律解析为 undefined，调用方据此跳过纠正逻辑。
  */
-function reportDesktopTheme(mode: ThemeMode): void {
+function reportDesktopTheme(mode: ThemeMode): Promise<boolean | undefined> {
   const bg = getComputedStyle(document.documentElement).getPropertyValue("--light").trim()
-  desktopBridge()?.setThemeSource?.(mode, bg)
+  const bridge = desktopBridge()
+  if (bridge?.applyThemeSource) {
+    // catch 不可省：主进程未注册对应 handler 时 invoke 会 reject，
+    // 吞掉后行为等同旧壳的单向 send（仍双跳，但不抛未处理拒绝）。
+    return bridge
+      .applyThemeSource(mode, bg)
+      .then((r) => r?.dark)
+      .catch(() => undefined)
+  }
+  bridge?.setThemeSource?.(mode, bg)
+  return Promise.resolve(undefined)
 }
 
 // ---------- 当前态读取（DOM 即事实源，避免与 localStorage 二次同步） ----------
@@ -161,6 +178,10 @@ function setTheme(theme: "light" | "dark"): void {
 
 let systemMedia: MediaQueryList | null = null
 
+// 模块级单调令牌，严禁进 nav cleanup（同 systemMedia，见文件头纪律）：
+// 每次 applyThemeMode 自增一次，用于丢弃 IPC 往返期间已被后续切换作废的陈旧权威态。
+let themeSeq = 0
+
 function onSystemChange(e: MediaQueryListEvent): void {
   setTheme(e.matches ? "dark" : "light")
   // 系统外观翻转同样换底色：不补这一报，system 模式下主进程窗口底色会停在翻转前那一侧
@@ -177,21 +198,39 @@ function applyThemeMode(mode: ThemeMode): void {
   if (mode === "system") {
     systemMedia = window.matchMedia("(prefers-color-scheme: dark)")
     systemMedia.addEventListener("change", onSystemChange)
+    // 首选即时值：Electron 下 themeSource 若仍停在上一次的强制值，
+    // prefers-color-scheme 此刻报的就是那个旧值，由下方权威态纠正一次（bug#2）。
     setTheme(systemMedia.matches ? "dark" : "light")
   } else {
     setTheme(mode)
   }
-  reportDesktopTheme(mode)
+  // 上报并消费主进程回传的权威亮暗态。三重守卫：令牌（丢弃陈旧往返结果）、
+  // 模式（仅 system 需要权威态）、幂等（同值不再派发 themechange）。
+  const seq = ++themeSeq
+  void reportDesktopTheme(mode).then((dark) => {
+    if (dark === undefined) return
+    if (seq !== themeSeq) return // 期间用户又切了模式，丢弃陈旧结果
+    if (readThemeMode() !== "system") return // 仅 system 模式消费权威态
+    const next = dark ? "dark" : "light"
+    if (readSavedTheme() !== next) setTheme(next) // 幂等守卫：同值不再派发 themechange
+  })
 }
 
 // ---------- 界面主题 ----------
 
-function applyStyle(style: StyleKey): void {
+// 只落属性、不派发不上报：拆出来供首帧使用（首帧需要 data-style 先于上报落定，
+// 见下方首帧块）。写入保持原子（单条语句，无中间态）。
+function writeStyle(style: StyleKey): void {
   document.documentElement.dataset.style = style
+}
+
+function applyStyle(style: StyleKey): void {
+  writeStyle(style)
   // 属性先落、事件后发（监听方同步取色）；detail.style 供图谱区分「换风格」与「换亮暗」
   dispatchThemeChange(readSavedTheme(), style)
-  // 换主题即换底色，原生窗口背景需同步，否则关窗仍闪上一套主题的底
-  reportDesktopTheme(readThemeMode())
+  // 换主题即换底色，原生窗口背景需同步，否则关窗仍闪上一套主题的底；
+  // 此处只需换底色、不消费权威亮暗态，故保持 fire-and-forget
+  void reportDesktopTheme(readThemeMode())
 }
 
 // ---------- 首帧应用（head 内尽早执行，避免闪烁） ----------
@@ -213,9 +252,13 @@ document.getElementById("kb-font-override")?.remove()
 }
 
 const initial = loadSettings()
+// 次序不可调换：applyThemeMode 内的上报要读 getComputedStyle 的 --light 当底色，
+// data-style 未落时取到的恒为 CSS 基线的宣纸色而非用户真实主题。
+// 首帧只上报一次，且必须在 data-style 落定之后。
+writeStyle(initial.style)
 applyThemeMode(initial.themeMode)
-// applyStyle 末尾已含 reportDesktopTheme，首帧不再重复上报
-applyStyle(initial.style)
+// 首帧不走 applyStyle（即不派发 themechange）：此刻尚无监听方——
+// graph / mermaid / comments 均在 nav 后绑定，绑定时自取当前态。
 
 // ---------- UI 绑定（nav 后） ----------
 //
@@ -258,7 +301,15 @@ document.addEventListener("nav", () => {
     }
 
     const onPanelClick = (e: Event) => {
-      const settingEl = (e.target as HTMLElement).closest<HTMLElement>("[data-setting]")
+      const target = e.target as HTMLElement
+      // 抽屉分类钮先分流：它只带 data-pane（右侧面板用的是 data-pane-id，不会误命中），
+      // 与 [data-setting] 一族互斥，命中即切面板并结束本次派发。
+      const cat = target.closest<HTMLElement>("[data-pane]")
+      if (cat?.dataset.pane) {
+        switchPane(page, cat.dataset.pane)
+        return
+      }
+      const settingEl = target.closest<HTMLElement>("[data-setting]")
       if (!settingEl) {
         return
       }
@@ -296,6 +347,9 @@ document.addEventListener("nav", () => {
 
     page.addEventListener("click", onPanelClick)
     window.addCleanup(() => page.removeEventListener("click", onPanelClick))
+    // CSS 降级门：本标记落定前两个 pane 全显（无 JS 时设置项不至于藏一半），
+    // 落定后才由 is-active 单独控制显隐。
+    page.dataset.panesReady = ""
 
     // ── 返回钮：确有历史时升级为无刷新后退 ────────────────
     // 锚上的 href 已是完整兜底（SSR 直出，指向首页）；此处只做「有历史则回来路页」的增强，
@@ -325,6 +379,23 @@ document.addEventListener("nav", () => {
     syncSettingsPage()
   }
 })
+
+/**
+ * 抽屉分类切换：左栏分类钮（.kb-settings-cat[data-pane]）与右栏面板
+ * （.kb-settings-pane[data-pane-id]）同步 is-active，分类钮另同步 aria-selected。
+ * 纯瞬时 UI 态，刻意不落 localStorage（kb-settings:v1 结构不动）——
+ * 每次进设置页都回到 SSR 默认的 appearance。
+ */
+function switchPane(page: HTMLElement, pane: string): void {
+  for (const el of page.querySelectorAll<HTMLElement>(".kb-settings-cat")) {
+    const on = el.dataset.pane === pane
+    el.classList.toggle("is-active", on)
+    el.setAttribute("aria-selected", on ? "true" : "false")
+  }
+  for (const el of page.querySelectorAll<HTMLElement>(".kb-settings-pane")) {
+    el.classList.toggle("is-active", el.dataset.paneId === pane)
+  }
+}
 
 /**
  * 设置页回显：选中态（is-active + aria-checked）与批注目录文本。

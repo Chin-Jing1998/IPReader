@@ -29,10 +29,10 @@ body {
   border-radius: 5px;
 }
 ::selection {
-  // F12：Electron 22（Chromium 108）不支持 CSS 颜色混合函数，替换为等效静态色——
-  // 原为 tertiary 60% 混透明；tertiary 深浅主题同为 #84a59d
-  background: rgba(132, 165, 157, 0.6);
-  color: var(--darkgray);
+  // 基线已升 Electron 43（Chromium 13x），color-mix() 已可用；
+  // 本处改用主题 token --textHighlight（而非 color-mix()），六主题×亮暗全覆盖，随各主题重定义联动
+  background: var(--textHighlight);
+  color: var(--dark);
 }
 
 p,
