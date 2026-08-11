@@ -71,7 +71,7 @@ async function resolvePortConflict(err) {
 // 默认名目录（.../Electron）的风险；本文件所有调用点都在 app ready 之后。
 const windowStateFile = () => path.join(app.getPath('userData'), 'window-state.json');
 // 回落值 = 默认主题「宣纸」的亮/暗底色（与 quartz-kb 的 [data-style="xuanzhi"] 保持一致）
-const DEFAULT_BG = { light: '#f6f1e7', dark: '#201c16' };
+const DEFAULT_BG = { light: '#feefe5', dark: '#201c16' };
 const THEME_MODES = ['light', 'dark', 'system'];
 // 只接受 hex 颜色：这个值会直接进原生 API，来源虽是本地渲染层也不做无校验透传
 const HEX_COLOR_RE = /^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/;
@@ -228,7 +228,13 @@ process.on('unhandledRejection', (reason) => {
 // 渲染层主题模式 + 当前主题实际底色 → 原生窗口/标题栏外观（协议见 preload.cjs）。
 // 载荷双形态容错：新 preload 发对象 { mode, bgColor }，历史版本发裸字符串 mode——
 // 打包产物与站点产物可能不同步更新，收窄成单一形态会在混搭时静默丢主题。
-ipcMain.on('set-theme-source', (e, arg) => {
+/**
+ * 应用一次主题上报，并回报「生效后」的亮暗态。
+ * @param {Electron.WebContents} sender 上报方，用于定位其所属窗口
+ * @param {{ mode?: string, bgColor?: string }|string} arg
+ * @returns {boolean} nativeTheme.shouldUseDarkColors（themeSource 赋值后同步更新）
+ */
+function applyThemeSourcePayload(sender, arg) {
   const payload = typeof arg === 'string' ? { mode: arg } : arg || {};
   const mode = THEME_MODES.includes(payload.mode) ? payload.mode : null;
   // 先落 themeSource，下面才能按「生效后的亮暗态」判断该写哪一槽
@@ -237,10 +243,10 @@ ipcMain.on('set-theme-source', (e, arg) => {
   const bgColor = HEX_COLOR_RE.test(payload.bgColor) ? payload.bgColor : null;
   if (bgColor) {
     // 即时生效：本次会话内切过主题后再关窗，也不会闪出建窗时那个旧色
-    const win = BrowserWindow.fromWebContents(e.sender);
+    const win = BrowserWindow.fromWebContents(sender);
     if (win && !win.isDestroyed()) win.setBackgroundColor(bgColor);
   }
-  if (!mode && !bgColor) return;
+  if (!mode && !bgColor) return nativeTheme.shouldUseDarkColors;
 
   // 双槽持久化：渲染层单次只能报出当前亮暗侧的颜色，故只覆写对应那一槽，
   // 另一槽保留上次记录——否则跨模式冷启动会拿错颜色。
@@ -254,7 +260,17 @@ ipcMain.on('set-theme-source', (e, arg) => {
   if (next.mode !== state.mode || next.byScheme[scheme] !== state.byScheme[scheme]) {
     writeWindowState(next);
   }
+  return nativeTheme.shouldUseDarkColors;
+}
+
+// 旧单向通道：站点产物与打包壳各自更新，旧站点跑在新壳上时仍走这里，不可删。
+ipcMain.on('set-theme-source', (e, arg) => {
+  applyThemeSourcePayload(e.sender, arg);
 });
+
+// 新通道：回传主进程侧的权威亮暗态。渲染层 send 后同步读 matchMedia 拿到的仍是
+// 上一次 themeSource 强制的旧值，切到「跟随系统」时会先按旧值渲染再纠正（双跳）。
+ipcMain.handle('apply-theme-source', (event, payload) => ({ dark: applyThemeSourcePayload(event.sender, payload) }));
 
 // ── 批注 md 落盘（v8）──────────────────────────────────────────────
 // 渲染层（annotate.inline.ts）在批注变更后调 saveAnnoMarkdown 写 Markdown 文件。

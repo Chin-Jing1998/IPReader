@@ -13,6 +13,10 @@ contextBridge.exposeInMainWorld('desktop', {
   // 渲染层据此决定是否显示自绘标题条；旧产物混搭时 undefined→不显示，优雅降级
   isMac: process.platform === 'darwin',
   setThemeSource: (mode, bgColor) => ipcRenderer.send('set-theme-source', { mode, bgColor }),
+  // 同一协议的双向版：解析为 { dark }，即主进程侧 themeSource 生效后的权威亮暗态。
+  // 渲染层不可用 matchMedia 自行判断——那读到的是上一次 themeSource 强制的旧值。
+  // 旧壳上本项为 undefined，渲染层据此退回 setThemeSource 单向路径。
+  applyThemeSource: (mode, bgColor) => ipcRenderer.invoke('apply-theme-source', { mode, bgColor }),
   // 批注 md 落盘（v8）：选择保存目录 + 写入/删除 Markdown 文件
   chooseAnnoDir: () => ipcRenderer.invoke('anno-choose-dir'),
   saveAnnoMarkdown: (payload) => ipcRenderer.invoke('anno-save-md', payload),
