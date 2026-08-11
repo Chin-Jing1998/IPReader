@@ -4,6 +4,8 @@
 //     - data/term-extract/*.json（可用第一个位置参数改目录）：wf-extract-terms 逐片产物
 //     - data/terms-seed.json（D1 产出 424 种子词）
 //     - data/term-merges.json / data/term-blacklist.json（若存在；由 apply-term-audit.mjs 固化）
+//     - data/term-topic-decisions.json（若存在）：主题归类的人工决策，[{termKey,canonical,topicKey,note}]，
+//       优先级高于算法；topicKey 为空/"misc" 表示强制留 99-综合
 //   处理：
 //     1. evidence 校验：必须是对应切片原文的连续子串（读原片验证），不过则该词降为 low 并计数；
 //     2. 归一（NFKC 全半角/空白/大小写）后并入种子词（命中 canonical 或 aliases → 并入，
@@ -11,22 +13,25 @@
 //     3. 纯新词入图门槛：df≥2 切片 或 跨≥2 域 或 (role=defined 且 confidence=high 且 evidence 有效)；
 //        其余进候选池 data/term-candidates.json（不入图）；
 //     4. 应用 term-merges（词条归并）与 term-blacklist（剔除）；
-//     5. 分级 tier：seed（种子）> high（defined+high 新词）> mid（多处 used 新词）。
+//     5. 分级 tier：seed（种子）> high（defined+high 新词）> mid（多处 used 新词）；
+//     6. 主题归类：人工决策 > 种子既有 topicKey > lib/topics.mjs::classifyTopic 三级算法
+//        （精确相等 → 双向子串 → 定义句/evidence 计分），判不出即留 99-综合。
 //   产物：
 //     - data/terms-merged.json   最终词表（termKey/canonical/aliases/matchers/topicKey/sources/
 //                                lawKeys/tier/df/evidence 样例）
 //     - data/term-candidates.json 候选池
+//     - audit/terms/term-topic-trace.csv 归类留痕（每条落类词的判定级别与命中词，供抽查复核）
 //     - audit/terms/term-audit.csv 审校表（UTF-8 BOM；decision 列留空供审校填写，
 //       审校结果经 apply-term-audit.mjs 固化后重跑本脚本即生效——本 CSV 每次重跑会重新生成）
 //   末尾断言：合并后总词数（seed+入图新词）落 400~700 区间，超限 exit 1。
 //   运行：node scripts/merge-terms.mjs [extractDir]
-import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync, statSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { cn2num } from './lib/cn-num.mjs';
 import { projectRoot } from './lib/domains.mjs';
 import { STOPWORDS } from './lib/term-stopwords.mjs';
-import { TOPICS } from './lib/topics.mjs';
+import { classifyTopic, TOPIC_NAME } from './lib/topics.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = projectRoot(__dirname);
@@ -82,6 +87,7 @@ function newEntry(canonical, isSeed, seed = null) {
     chunks: new Set(), // 提取来源切片（df 口径）
     extractDomains: new Set(), // 提取来源域（跨域门槛口径）
     evid: [], // {chunk, text}
+    definition: '', // 首个 role=defined 且 evidence 有效的原文定义句（仅供三级归类计分，不入产物）
     definedHigh: false, // 存在 role=defined 且 confidence=high 且 evidence 有效的提取
     demoted: 0, // evidence 校验失败而降 low 的次数
   };
@@ -95,6 +101,18 @@ function addSource(entry, domain, nodeId) {
 }
 
 // ---- 种子词注册 ----
+function collectMd(dir) {
+  // 递归收集目录下全部 .md 文件文本（v3 切片下钻更深，回退拼接须含子目录）
+  const out = [];
+  for (const f of readdirSync(dir)) {
+    const p = join(dir, f);
+    let st;
+    try { st = statSync(p); } catch { continue; }
+    if (st.isDirectory()) out.push(...collectMd(p));
+    else if (f.endsWith('.md')) out.push(readFileSync(p, 'utf8'));
+  }
+  return out;
+}
 const seeds = JSON.parse(readFileSync(join(DATA_DIR, 'terms-seed.json'), 'utf8'));
 for (const s of seeds) {
   const entry = newEntry(s.canonical, true, s);
@@ -117,6 +135,17 @@ function chunkText(chunkId) {
       text = readFileSync(p, 'utf8');
     } catch {
       text = null; // 原片缺失：evidence 一律视为未通过
+    }
+    // 回退：term-extract 的 chunk 引用 v2 切片路径，v3 切片下钻更深（如 01/003 →
+    // 01/003/05.md 目录级）。递归拼接目录下全部切片文本，保证 evidence 可命中。
+    // （2026-08-09 法条修订重切后暴露：不回退会致 193 个提取词 evidence 失败而降级剔除）
+    if (text === null) {
+      const dir = join(ROOT, segs[0], '_chunks', ...segs.slice(1));
+      try {
+        text = collectMd(dir).join('\n');
+      } catch {
+        text = null;
+      }
     }
     chunkTextCache.set(chunkId, text);
   }
@@ -180,6 +209,7 @@ for (const f of extractFiles) {
     for (const a of t.aliases || []) registerAlias(entry, String(a).trim());
     if (evidenceOk && entry.evid.length < EVIDENCE_SAMPLES) entry.evid.push({ chunk: chunkId, text: evRaw });
     if (!evidenceOk) entry.demoted++;
+    if (t.role === 'defined' && evidenceOk && !entry.definition) entry.definition = evRaw;
     if (t.role === 'defined' && confidence === 'high') entry.definedHigh = true;
     // 新词的 lawKeys 取所在切片的条级引用（种子词 lawKeys 由 D1 归集，保持不动）
     if (!entry.isSeed) for (const lk of chunkLawKeys) entry.lawKeys.add(lk);
@@ -233,6 +263,7 @@ for (const fromRaw of Object.keys(mergesRaw)) {
   for (const d of from.extractDomains) to.extractDomains.add(d);
   for (const lk of from.lawKeys) if (!to.isSeed || from.isSeed) to.lawKeys.add(lk);
   for (const e of from.evid) if (to.evid.length < EVIDENCE_SAMPLES) to.evid.push(e);
+  if (!to.definition) to.definition = from.definition;
   to.definedHigh = to.definedHigh || from.definedHigh;
   index.set(fromKey, to);
   entries.splice(entries.indexOf(from), 1);
@@ -264,22 +295,53 @@ for (const e of entries) {
   (pass ? kept : candidates).push(e);
 }
 
-// 新词主题归并（与 build-seed-lexicon 同思路：canonical/aliases 命中主题 name 或 kw）
-for (const e of kept) {
-  if (e.isSeed || e.topicKey) continue;
-  const selfKeys = new Set([e.key, ...e.aliasMap.keys()]);
-  outer: for (const topic of TOPICS) {
-    if (selfKeys.has(norm(topic.name))) {
-      e.topicKey = topic.key;
-      break;
+// ============ 主题归类（三级算法 + 人工决策覆盖）============
+//   优先级：人工决策（data/term-topic-decisions.json）> 种子既有 topicKey > 三级算法。
+//   决策文件格式沿用 data/term-audit-decisions/ 的批次审核格式，多一个 topicKey 字段：
+//     [{ termKey, canonical, topicKey, note }]
+//     topicKey 为主题 key → 强制归入该主题；为 null / "" / "misc" → 强制留 99-综合（可推翻算法误配）。
+//   缺席即交给算法判定。未知 topicKey 一律告警并忽略，避免静默落到综合。
+const topicDecisions = new Map();
+{
+  const raw = readJsonIf(join(DATA_DIR, 'term-topic-decisions.json'), []);
+  for (const d of Array.isArray(raw) ? raw : []) {
+    const k = norm(d.termKey || d.canonical);
+    if (!k) continue;
+    const tk = (d.topicKey || '').trim();
+    if (tk && tk !== 'misc' && !TOPIC_NAME[tk]) {
+      console.warn(`⚠ term-topic-decisions 未知 topicKey「${tk}」（${d.canonical || k}），已忽略`);
+      continue;
     }
-    for (const k of topic.kw) {
-      if (selfKeys.has(norm(k))) {
-        e.topicKey = topic.key;
-        break outer;
-      }
-    }
+    topicDecisions.set(k, tk === 'misc' ? '' : tk);
   }
+}
+
+const topicStats = { decision: 0, decisionMisc: 0, seed: 0, 1: 0, 2: 0, 3: 0, none: 0 };
+const topicTrace = []; // 供归类抽查：{canonical, before, after, level, kw}
+for (const e of kept) {
+  const before = e.topicKey || '';
+  if (topicDecisions.has(e.key)) {
+    e.topicKey = topicDecisions.get(e.key) || undefined;
+    topicStats[e.topicKey ? 'decision' : 'decisionMisc']++;
+    topicTrace.push({ canonical: e.canonical, before, after: e.topicKey || '', level: 'decision', kw: '' });
+    continue;
+  }
+  if (e.topicKey) {
+    topicStats.seed++;
+    continue;
+  }
+  const hit = classifyTopic({
+    canonical: e.canonical,
+    aliases: [...e.aliasMap.values()],
+    text: [e.definition, ...e.evid.map((v) => v.text)].filter(Boolean).join('\n'),
+  });
+  if (!hit) {
+    topicStats.none++;
+    continue;
+  }
+  e.topicKey = hit.topicKey;
+  topicStats[hit.level]++;
+  topicTrace.push({ canonical: e.canonical, before, after: hit.topicKey, level: `L${hit.level}`, kw: hit.kw });
 }
 
 // 排序：种子按原序在前；新词 high 在前、df 降序、canonical 升序
@@ -353,6 +415,22 @@ console.log(
 );
 console.log(`evidence 校验失败降 low: ${stats.evidenceBad}`);
 console.log(`审校固化应用: 归并 ${mergeApplied} 条 / 剔除 ${blacklisted} 条`);
+{
+  const classified = finalTerms.filter((e) => e.topicKey).length;
+  const pct = ((finalTerms.length - classified) / finalTerms.length) * 100;
+  console.log(
+    `主题归类: 人工决策 ${topicStats.decision}（强制留综合 ${topicStats.decisionMisc}）| 种子既有 ${topicStats.seed} | ` +
+    `一级精确 ${topicStats[1]} | 二级子串 ${topicStats[2]} | 三级文本 ${topicStats[3]} | 未归类 ${topicStats.none}`,
+  );
+  console.log(`  → 落类 ${classified} 词，99-综合 ${finalTerms.length - classified} 词（${pct.toFixed(1)}%）`);
+  const rows = topicTrace.map((r) =>
+    [r.canonical, r.before, r.after, TOPIC_NAME[r.after] || '综合', r.level, r.kw].map((x) => csvEsc(String(x))).join(','),
+  );
+  writeFileSync(
+    join(AUDIT_DIR, 'term-topic-trace.csv'),
+    '﻿' + ['canonical,原topicKey,新topicKey,新主题名,判定级别,命中词', ...rows].join('\n') + '\n',
+  );
+}
 console.log(`最终词表: ${finalTerms.length} 词 ${JSON.stringify(tierCount)} | 候选池: ${candidates.length} 词`);
 console.log(
   `产物: data/terms-merged.json、data/term-candidates.json、audit/terms/term-audit.csv（${finalTerms.length} 行）`,

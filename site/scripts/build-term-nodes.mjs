@@ -104,8 +104,14 @@ console.log(`term-extract 索引: ${extractIndex.files} 片 / ${extractIndex.byN
 // ---- 组装 term 节点（字段口径与既有内容节点对齐，x/y/size 由 compute-layout 写、degree 由 extract-edges 写）----
 const baseNodes = nodes.filter((n) => n.kind !== 'term'); // 幂等：先移除历史 term 节点再追加
 const existingIds = new Set(baseNodes.map((n) => n.id));
+// 下游字段保护：x/y/size 由 compute-layout 写、degree/hub 由 extract-edges 写，本脚本不产出。
+//   单跑本脚本（如仅刷新 topicKey）时若不回填，全部 term 节点会丢坐标与度数，图谱布局崩塌
+//   且必须重跑 extract-edges + compute-layout 才能恢复。按 id 从旧节点原样搬运即可保持幂等。
+const DOWNSTREAM_FIELDS = ['degree', 'x', 'y', 'size', 'hub'];
+const prevTermById = new Map(nodes.filter((n) => n.kind === 'term').map((n) => [n.id, n]));
 const termNodes = [];
 let defCount = 0;
+let carried = 0;
 for (const t of kept) {
   const id = registry[t.canonical];
   if (existingIds.has(id)) {
@@ -142,6 +148,17 @@ for (const t of kept) {
     hasOwnText: false,
     topics: [],
   });
+  const prev = prevTermById.get(id);
+  if (prev) {
+    let any = false;
+    for (const f of DOWNSTREAM_FIELDS) {
+      if (prev[f] !== undefined) {
+        node[f] = prev[f];
+        any = true;
+      }
+    }
+    if (any) carried++;
+  }
   termNodes.push(node);
 }
 
@@ -153,5 +170,8 @@ if (new Set(termNodes.map((n) => n.id)).size !== termNodes.length) {
 
 const out = [...baseNodes, ...termNodes];
 writeFileSync(join(D, 'nodes.json'), JSON.stringify(out, null, 0));
-console.log(`✓ term 节点入图: ${termNodes.length} 个（定义 summary 覆盖 ${defCount}）；nodes.json 合计 ${out.length} 节点`);
+console.log(
+  `✓ term 节点入图: ${termNodes.length} 个（定义 summary 覆盖 ${defCount}）；` +
+  `下游字段(${DOWNSTREAM_FIELDS.join('/')})回填 ${carried} 个；nodes.json 合计 ${out.length} 节点`,
+);
 if (CAP !== DEFAULT_CAP) console.log(`⚠ 当前以环境变量 TERM_NODE_CAP=${CAP} 放宽上限运行（仅限开发验证，正式数据须走默认 ${DEFAULT_CAP}）`);

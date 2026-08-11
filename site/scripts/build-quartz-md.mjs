@@ -47,7 +47,7 @@ const imagesToEmit = new Map(); // content 相对路径 → 资产绝对路径
 const BOOKS = [
   { order: 1, domain: 'patent-law', dir: '1-专利法' },
   { order: 2, domain: 'implementation-rules', dir: '2-专利法实施细则' },
-  { order: 3, domain: 'examination-guideline-2025', dir: '3-专利审查指南2025' },
+  { order: 3, domain: 'examination-guideline', dir: '3-专利审查指南' },
   { order: 4, domain: 'infringement-guide', dir: '4-侵权判定指南' },
   { order: 5, domain: 'mechanical-drafting-rules', dir: '5-机械撰写规范' },
   { order: 6, domain: 'chemistry-drafting-rules', dir: '6-化学撰写规范' },
@@ -112,7 +112,7 @@ function titleOf(node) {
   const { domain, level, label, num } = node;
   if (level === 'term') return label;
   if (level === 'part' || level === 'chapter') return label; // 目录级靠目录名排序，title 保持原 label
-  if (domain === 'examination-guideline-2025') return num ? `${num} ${label}` : label;
+  if (domain === 'examination-guideline') return num ? `${num} ${label}` : label;
   return arabicizeLabel(label, domain);
 }
 
@@ -765,13 +765,9 @@ for (const b of BOOKS) {
     [
       fm,
       '',
-      // 导语精简为一句（v7 需求3）：本页首屏应当是图谱本身，节点规模等统计
-      // 信息在图例与工具条上已可见。原文案称"双击节点可前往文档页"与实现不符
-      // ——代码中无 dblclick 处理，前往文档页的入口是侧栏底部按钮，据实订正。
-      '点击图中任一节点，在右侧阅读该知识点的正文；侧栏底部按钮可前往其文档页。',
-      '',
-      '> 本页由专用图谱组件渲染；若下方未出现交互图谱，请确认站点构建时已启用该组件。',
-      '',
+      // 导语已全部移除（UI 线 9d47ea1 裁决：本页首屏应当是图谱本身，任何文案都会
+      // 把画布往下顶）。页面仅承载 frontmatter 存在性，交互说明由图谱组件自带 UI 承担。
+      // 若在此处恢复任何正文，重跑生成器会回填并覆盖 UI 线的删除成果——勿加。
     ].join('\n'),
   );
   addPage('图谱总览页');
@@ -903,8 +899,10 @@ if (nodePages !== nodes.length) {
   console.error(`断言失败：节点页数 ${nodePages} ≠ 节点数 ${nodes.length}`);
   process.exit(1);
 }
-if (totalPages < 2150 || totalPages > 2430) {
-  console.error(`断言失败：页面总数 ${totalPages} 超出 [2150, 2430]`);
+// 区间下限随词表规模调整：2026-08-09 管线重跑修复 chunkText 回退后词表 907（历史 982），
+// 页面总数实测 2142（1193 章节 + 907 词条 + 42 其他）。下限取 2100 留余量。
+if (totalPages < 2100 || totalPages > 2430) {
+  console.error(`断言失败：页面总数 ${totalPages} 超出 [2100, 2430]`);
   process.exit(1);
 }
 // 术语链接量断言：随 TERM_LINK_TIERS 口径定版。

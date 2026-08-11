@@ -15,10 +15,10 @@ export function projectRoot(scriptsDir) {
 //   special:'guideline' 走特例解析（不加前缀、保留 部/章/节/小节 与 826 校验）。
 //   lawName 非空者，其"第X条"标题节点会被赋 lawKey，供跨域 lawref 连线锚定。
 export const KNOWN_DOMAINS = [
-  { key: 'examination-guideline-2025', title: '专利审查指南2025', short: '审查指南', prefix: '', special: 'guideline' },
+  { key: 'examination-guideline', title: '专利审查指南', short: '审查指南', prefix: '', special: 'guideline' },
   { key: 'patent-law', title: '中华人民共和国专利法', short: '专利法', prefix: 'law', lawName: '专利法' },
   { key: 'implementation-rules', title: '专利法实施细则', short: '实施细则', prefix: 'rule', lawName: '专利法实施细则' },
-  { key: 'infringement-guide', title: '专利侵权判定指南2017', short: '侵权判定', prefix: 'infr' },
+  { key: 'infringement-guide', title: '专利侵权判定指南', short: '侵权判定', prefix: 'infr' },
   { key: 'mechanical-drafting-rules', title: '机械领域申请文件撰写规范', short: '机械撰写', prefix: 'mech' },
   { key: 'chemistry-drafting-rules', title: '化学领域申请文件撰写规范', short: '化学撰写', prefix: 'chem' },
   { key: 'oa-response-guide', title: '答复审查意见指南', short: '答复指引', prefix: 'oa' },

@@ -5,7 +5,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-03-06"
       ]
     },
@@ -14,7 +14,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/003/06",
+        "chunk": "examination-guideline/05/003/06",
         "text": "记录文件提交方式、提交日期、案卷编号或者挂号号码等信息"
       }
     ],
@@ -26,7 +26,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-01"
       ]
     },
@@ -40,7 +40,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/01",
+        "chunk": "examination-guideline/05/007/01",
         "text": "申请人办理登记手续的期限"
       }
     ],
@@ -52,7 +52,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-07"
       ]
     },
@@ -61,7 +61,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/07",
+        "chunk": "examination-guideline/05/007/07",
         "text": "审查员应当发出办理手续补正通知书"
       }
     ],
@@ -96,7 +96,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03-03"
       ]
     },
@@ -107,7 +107,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/003/03",
+        "chunk": "examination-guideline/02/003/03",
         "text": "（1）包含性能、参数特征的产品权利要求"
       }
     ],
@@ -119,7 +119,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03-03"
       ]
     },
@@ -130,7 +130,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/003/03",
+        "chunk": "examination-guideline/02/003/03",
         "text": "（2）包含用途特征的产品权利要求"
       }
     ],
@@ -142,7 +142,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03-03"
       ]
     },
@@ -153,7 +153,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/003/03",
+        "chunk": "examination-guideline/02/003/03",
         "text": "（3）包含制备方法特征的产品权利要求"
       }
     ],
@@ -207,7 +207,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-01"
       ]
     },
@@ -216,7 +216,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/010/01",
+        "chunk": "examination-guideline/02/010/01",
         "text": "必须借助于保藏生物材料作为补充手段"
       }
     ],
@@ -314,7 +314,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-04"
       ]
     },
@@ -323,7 +323,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/04",
+        "chunk": "examination-guideline/05/005/04",
         "text": "审查员应当对确定需要保密的专利申请案卷作出保密标记"
       }
     ],
@@ -335,7 +335,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-08-01-02"
       ]
     },
@@ -344,7 +344,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/008/01/02",
+        "chunk": "examination-guideline/05/008/01/02",
         "text": "保密发明专利只公告保密专利权的授予和保密专利的解密"
       }
     ],
@@ -356,7 +356,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-04"
       ]
     },
@@ -365,7 +365,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/04",
+        "chunk": "examination-guideline/05/005/04",
         "text": "作出授予保密发明专利权的决定"
       }
     ],
@@ -377,7 +377,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-03"
       ]
     },
@@ -386,7 +386,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/03",
+        "chunk": "examination-guideline/05/005/03",
         "text": "保密证明材料中应当写明发明创造名称、申请人姓名或者名称、密级、保密期限"
       }
     ],
@@ -421,7 +421,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-03"
       ]
     },
@@ -430,7 +430,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/03",
+        "chunk": "examination-guideline/05/005/03",
         "text": "审查员应当发出保密审批通知书"
       }
     ],
@@ -442,7 +442,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-04"
       ]
     },
@@ -451,7 +451,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/04",
+        "chunk": "examination-guideline/05/005/04",
         "text": "作出授予保密实用新型专利权的决定"
       }
     ],
@@ -484,7 +484,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-08-01-02"
       ]
     },
@@ -493,7 +493,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/008/01/02",
+        "chunk": "examination-guideline/05/008/01/02",
         "text": "专利权的质押、保全及其解除"
       }
     ],
@@ -505,7 +505,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-07"
       ]
     },
@@ -514,7 +514,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/07",
+        "chunk": "examination-guideline/05/007/07",
         "text": "向人民法院和申请人（或专利权人）发出保全程序开始通知书"
       }
     ],
@@ -610,7 +610,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03-04"
       ]
     },
@@ -626,7 +626,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/003/04",
+        "chunk": "examination-guideline/02/003/04",
         "text": "本国多项优先权和本国部分优先权"
       }
     ],
@@ -661,7 +661,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-05-10"
       ]
     },
@@ -672,10 +672,26 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/05/10",
+        "chunk": "examination-guideline/03/001/05/10",
         "text": "缴纳变更手续费"
       }
     ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "变劣技术方案",
+    "canonical": "变劣技术方案",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-06-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
@@ -772,7 +788,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-01"
       ]
     },
@@ -781,7 +797,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/01",
+        "chunk": "examination-guideline/02/011/01",
         "text": "中药所防治的疾病可以用中医的病或证表述"
       }
     ],
@@ -793,7 +809,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-02-03"
       ]
     },
@@ -808,7 +824,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/002/03",
+        "chunk": "examination-guideline/03/002/03",
         "text": "以补充声明的形式对审查基础的补充指明"
       }
     ],
@@ -820,7 +836,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-05-01"
       ]
     },
@@ -829,7 +845,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/008/05/01",
+        "chunk": "examination-guideline/02/008/05/01",
         "text": "经修改的申请文件（替换页和/或补正书）"
       }
     ],
@@ -841,7 +857,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06-01-02"
       ]
     },
@@ -850,7 +866,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/06/001/02",
+        "chunk": "examination-guideline/06/001/02",
         "text": "外观设计国际注册申请不符合传送条件的"
       }
     ],
@@ -862,7 +878,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-03"
       ]
     },
@@ -873,10 +889,26 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/001/03",
+        "chunk": "examination-guideline/01/001/03",
         "text": "对于因不可抗拒事由或者因其他正当理由耽误期限而导致专利申请被视为撤回的"
       }
     ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "不侵权抗辩",
+    "canonical": "不侵权抗辩",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-06-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
@@ -885,7 +917,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-06"
       ]
     },
@@ -896,7 +928,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/06",
+        "chunk": "examination-guideline/05/007/06",
         "text": "不丧失新颖性的宽限期、优先权期限、专利权期限和侵权诉讼时效"
       }
     ],
@@ -908,7 +940,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-05-12"
       ]
     },
@@ -919,10 +951,26 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/05/12",
+        "chunk": "examination-guideline/03/001/05/12",
         "text": "提交不丧失新颖性公开证明"
       }
     ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "不视为侵权的抗辩",
+    "canonical": "不视为侵权的抗辩",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-06-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
@@ -931,7 +979,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-04-06"
       ]
     },
@@ -940,7 +988,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/004/06",
+        "chunk": "examination-guideline/05/004/06",
         "text": "作出不受理决定的专利申请文件保存期限为一年"
       }
     ],
@@ -952,7 +1000,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-07-10"
       ]
     },
@@ -965,7 +1013,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/007/10",
+        "chunk": "examination-guideline/02/007/10",
         "text": "属于专利法第五条或者第二十五条规定的不授予专利权的情形"
       }
     ],
@@ -977,7 +1025,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-02-05"
       ]
     },
@@ -990,10 +1038,26 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/002/05",
+        "chunk": "examination-guideline/01/002/05",
         "text": "不授予专利权的申请"
       }
     ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "不停止侵权抗辩",
+    "canonical": "不停止侵权抗辩",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-06-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
@@ -1002,7 +1066,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-05-03"
       ]
     },
@@ -1011,7 +1075,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/005/03",
+        "chunk": "examination-guideline/04/005/03",
         "text": "平面产品单元图案两方连续或者四方连续等无限定边界的情况"
       }
     ],
@@ -1023,7 +1087,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-07"
       ]
     },
@@ -1032,7 +1096,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/07",
+        "chunk": "examination-guideline/05/007/07",
         "text": "应当向人民法院发出不予执行财产保全通知书"
       }
     ],
@@ -1044,7 +1108,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-04-06"
       ]
     },
@@ -1053,7 +1117,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/004/06",
+        "chunk": "examination-guideline/01/004/06",
         "text": "按照部、大类、小类、大组、小组的顺序逐级进行分类"
       }
     ],
@@ -1065,7 +1129,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-07"
       ]
     },
@@ -1074,7 +1138,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/07",
+        "chunk": "examination-guideline/04/004/07",
         "text": "需要经过部门负责人审核批准的案件"
       }
     ],
@@ -1109,7 +1173,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-03"
       ]
     },
@@ -1121,7 +1185,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/009/03",
+        "chunk": "examination-guideline/02/009/03",
         "text": "测量或者测试过程控制的解决方案"
       }
     ],
@@ -1133,7 +1197,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-05"
       ]
     },
@@ -1144,7 +1208,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/005",
+        "chunk": "examination-guideline/02/005",
         "text": "测量人体或者动物体在极限情况下的生理参数需要将被测对象置于极限环境中"
       }
     ],
@@ -1177,7 +1241,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-04-05"
       ]
     },
@@ -1186,7 +1250,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/004/05",
+        "chunk": "examination-guideline/05/004/05",
         "text": "查阅和复制专利申请案卷中的文件，应当按照下列顺序进行"
       }
     ],
@@ -1198,7 +1262,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-01"
       ]
     },
@@ -1216,7 +1280,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/008/01",
+        "chunk": "examination-guideline/02/008/01",
         "text": "申请人可以在被授予专利权之前随时撤回其专利申请"
       }
     ],
@@ -1228,7 +1292,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-13"
       ]
     },
@@ -1237,7 +1301,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/13",
+        "chunk": "examination-guideline/04/004/13",
         "text": "复审请求人有权撤回复审请求"
       }
     ],
@@ -1249,7 +1313,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-02"
       ]
     },
@@ -1264,7 +1328,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/02",
+        "chunk": "examination-guideline/03/001/02",
         "text": "申请人在办理进入国家阶段手续时提出撤回优先权要求的"
       }
     ],
@@ -1276,7 +1340,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-05-02"
       ]
     },
@@ -1291,7 +1355,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/05/02",
+        "chunk": "examination-guideline/03/001/05/02",
         "text": "国际局曾经向专利局传送的“撤回优先权要求通知书”（PCT/IB/317表）"
       }
     ],
@@ -1303,7 +1367,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-06"
       ]
     },
@@ -1312,7 +1376,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/001/06/06",
+        "chunk": "examination-guideline/01/001/06/06",
         "text": "撤回专利申请的生效日为手续合格通知书的发文日"
       }
     ],
@@ -1324,7 +1388,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-08"
       ]
     },
@@ -1333,7 +1397,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/008/08",
+        "chunk": "examination-guideline/02/008/08",
         "text": "复审和无效审理部门作出撤销驳回决定的复审决定后"
       }
     ],
@@ -1345,7 +1409,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-04-07"
       ]
     },
@@ -1362,7 +1426,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/001/04/07",
+        "chunk": "examination-guideline/01/001/04/07",
         "text": "审查员应当发出撤销专利申请受理通知书"
       }
     ],
@@ -1374,7 +1438,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-08-04"
       ]
     },
@@ -1383,7 +1447,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/008/04",
+        "chunk": "examination-guideline/04/008/04",
         "text": "对一方当事人陈述的案件事实，另外一方当事人明确表示承认的，合议组应当予以确认"
       }
     ],
@@ -1395,7 +1459,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-02-02"
       ]
     },
@@ -1423,7 +1487,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/002/02",
+        "chunk": "examination-guideline/03/002/02",
         "text": "专利法实施细则第十一条：诚实信用"
       }
     ],
@@ -1435,7 +1499,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-06-02"
       ]
     },
@@ -1448,7 +1512,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/009/06/02",
+        "chunk": "examination-guideline/02/009/06/02",
         "text": "属于对抽象数学方法的优化，且整个方案并不包括任何技术特征"
       }
     ],
@@ -1460,7 +1524,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03-02"
       ]
     },
@@ -1471,7 +1535,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/003/02",
+        "chunk": "examination-guideline/02/003/02",
         "text": "现有技术公开方式包括出版物公开、使用公开和以其他方式公开三种"
       }
     ],
@@ -1483,7 +1547,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-07-06"
       ]
     },
@@ -1492,7 +1556,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/007/06",
+        "chunk": "examination-guideline/02/007/06",
         "text": "审查员应利用申请人、发明人、优先权等信息检索申请的同族申请、母案/分案申请"
       }
     ],
@@ -1504,7 +1568,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-04-01"
       ]
     },
@@ -1516,7 +1580,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/008/04/01",
+        "chunk": "examination-guideline/02/008/04/01",
         "text": "在初步审查部门审查的基础上"
       }
     ],
@@ -1528,7 +1592,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-03-01"
       ]
     },
@@ -1537,7 +1601,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/003/01",
+        "chunk": "examination-guideline/05/003/01",
         "text": "初审及流程管理部受理处负责受理专利申请及其他有关文件"
       }
     ],
@@ -1549,7 +1613,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06-01-02"
       ]
     },
@@ -1558,7 +1622,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/06/001/02",
+        "chunk": "examination-guideline/06/001/02",
         "text": "外观设计国际注册申请符合传送条件的，传送程序如下："
       }
     ],
@@ -1570,7 +1634,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-09-03"
       ]
     },
@@ -1582,7 +1646,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/009/03",
+        "chunk": "examination-guideline/05/009/03",
         "text": "国务院药品监督管理部门批准上市的创新药和符合规定的改良型新药"
       }
     ],
@@ -1617,7 +1681,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-01-05"
       ]
     },
@@ -1628,7 +1692,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/001/05",
+        "chunk": "examination-guideline/04/001/05",
         "text": "工作人员及其近亲属应当严格遵守有关从业禁止的相关规定"
       }
     ],
@@ -1640,7 +1704,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-07"
       ]
     },
@@ -1652,7 +1716,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/009/07",
+        "chunk": "examination-guideline/02/009/07",
         "text": "能够实现存储或者传输资源的优化配置等"
       }
     ],
@@ -1664,7 +1728,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-03-03"
       ]
     },
@@ -1673,7 +1737,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/003/03",
+        "chunk": "examination-guideline/05/003/03",
         "text": "递交文件的申请号是错号的"
       }
     ],
@@ -1685,7 +1749,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-02-04"
       ]
     },
@@ -1694,7 +1758,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/002/04",
+        "chunk": "examination-guideline/05/002/04",
         "text": "多缴、重缴、错缴专利费用的"
       }
     ],
@@ -1708,7 +1772,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-03-01"
       ]
     },
@@ -1717,7 +1781,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/003/01",
+        "chunk": "examination-guideline/05/003/01",
         "text": "各代办处按照相关规定受理专利申请及其他有关文件"
       }
     ],
@@ -1729,7 +1793,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06-01-04"
       ]
     },
@@ -1738,7 +1802,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/06/001/04",
+        "chunk": "examination-guideline/06/001/04",
         "text": "国际局收取外观设计国际申请的单独指定费后转交专利局"
       }
     ],
@@ -1750,7 +1814,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-06"
       ]
     },
@@ -1763,7 +1827,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/06",
+        "chunk": "examination-guideline/05/005/06",
         "text": "发出因国家安全原因不再传送登记本和检索本的通知书"
       }
     ],
@@ -1817,7 +1881,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-09"
       ]
     },
@@ -1828,7 +1892,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/003/09",
+        "chunk": "examination-guideline/04/003/09",
         "text": "仿制药申请人根据药品专利纠纷早期解决机制有关规定提出第四类声明后"
       }
     ],
@@ -1840,7 +1904,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-03"
       ]
     },
@@ -1851,7 +1915,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/03",
+        "chunk": "examination-guideline/04/004/03",
         "text": "应当指定其中之一作为第一发言人进行主要发言"
       }
     ],
@@ -1863,7 +1927,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-04-04"
       ]
     },
@@ -1874,7 +1938,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/003/04/04",
+        "chunk": "examination-guideline/01/003/04/04",
         "text": "应当用点划线表示分界线"
       }
     ],
@@ -1886,7 +1950,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-06"
       ]
     },
@@ -1895,7 +1959,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/010/06",
+        "chunk": "examination-guideline/02/010/06",
         "text": "由于NH2与CH3是经典一价电子等排体"
       }
     ],
@@ -1907,7 +1971,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-08-01-01"
       ]
     },
@@ -1916,7 +1980,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/008/01/01",
+        "chunk": "examination-guideline/05/008/01/01",
         "text": "专利公报以电子公报形式、期刊形式或者以专利局规定的其他形式公布"
       }
     ],
@@ -1928,7 +1992,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-04-03"
       ]
     },
@@ -1937,7 +2001,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/004/03",
+        "chunk": "examination-guideline/05/004/03",
         "text": "当事人以电子申请方式提交的电子文件"
       }
     ],
@@ -1949,7 +2013,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-06-02"
       ]
     },
@@ -1958,7 +2022,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/006/02",
+        "chunk": "examination-guideline/05/006/02",
         "text": "专利局通过指定的特定电子系统以电子形式向申请人送达各种通知书"
       }
     ],
@@ -1970,7 +2034,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-03"
       ]
     },
@@ -1979,7 +2043,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/03",
+        "chunk": "examination-guideline/05/005/03",
         "text": "保密原因及保密要点、定密责任人、定密机关或者单位的联系人和联系电话"
       }
     ],
@@ -1991,7 +2055,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-03"
       ]
     },
@@ -2000,7 +2064,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/03",
+        "chunk": "examination-guideline/05/005/03",
         "text": "应当提交有定密权限的机关、单位出具的保密证明材料"
       }
     ],
@@ -2012,7 +2076,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-03"
       ]
     },
@@ -2021,7 +2085,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/03",
+        "chunk": "examination-guideline/05/005/03",
         "text": "保密原因及保密要点、定密责任人、定密机关或者单位的联系人和联系电话"
       }
     ],
@@ -2040,12 +2104,7 @@
     "lawKeys": [],
     "tier": "mid",
     "df": 1,
-    "evidence": [
-      {
-        "chunk": "infringement-guide/03/_full-chapter",
-        "text": "动态图形用户界面外观设计的保护范围需结合简要说明对动态变化过程的描述"
-      }
-    ],
+    "evidence": [],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
@@ -2054,7 +2113,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-01-04-04"
       ]
     },
@@ -2065,7 +2124,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/001/04/04",
+        "chunk": "examination-guideline/02/001/04/04",
         "text": "专利法所称的动物不包括人，所述动物是指不能自己合成"
       }
     ],
@@ -2077,7 +2136,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-09-01"
       ]
     },
@@ -2089,7 +2148,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/010/09/01",
+        "chunk": "examination-guideline/02/010/09/01",
         "text": "属于本部分第一章第4.4节所述的“动物品种”的范畴"
       }
     ],
@@ -2101,7 +2160,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-06"
       ]
     },
@@ -2110,7 +2169,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/06",
+        "chunk": "examination-guideline/02/011/06",
         "text": "属于第二部分第五章第3.2.4节中的动物体的非治疗目的的外科手术方法"
       }
     ],
@@ -2122,7 +2181,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-04"
       ]
     },
@@ -2131,7 +2190,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/04",
+        "chunk": "examination-guideline/02/011/04",
         "text": "由于历代度量衡多有变化，需要注意古方中用量单位的换算"
       }
     ],
@@ -2143,7 +2202,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-10-04"
       ]
     },
@@ -2154,7 +2213,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/010/04",
+        "chunk": "examination-guideline/05/010/04",
         "text": "单独导致外观设计专利不符合专利法第二十三条第一款或第二款规定的文件"
       }
     ],
@@ -2166,7 +2225,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-10-04"
       ]
     },
@@ -2177,7 +2236,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/010/04",
+        "chunk": "examination-guideline/05/010/04",
         "text": "与报告中其他文件结合导致外观设计专利不符合专利法第二十三条第二款规定的文件"
       }
     ],
@@ -2189,7 +2248,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-04"
       ]
     },
@@ -2198,7 +2257,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/04",
+        "chunk": "examination-guideline/02/011/04",
         "text": "因此，对比文件破坏发明的新颖性"
       }
     ],
@@ -2231,7 +2290,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-02-04"
       ]
     },
@@ -2240,7 +2299,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/002/04",
+        "chunk": "examination-guideline/05/002/04",
         "text": "多缴、重缴、错缴专利费用的"
       }
     ],
@@ -2317,7 +2376,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-08-02"
       ]
     },
@@ -2326,7 +2385,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/008/02",
+        "chunk": "examination-guideline/05/008/02",
         "text": "发明专利单行本的文献种类代码为“B”"
       }
     ],
@@ -2361,7 +2420,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-03"
       ]
     },
@@ -2372,7 +2431,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/03",
+        "chunk": "examination-guideline/05/007/03",
         "text": "发出发明专利申请实质审查请求期限届满前通知书"
       }
     ],
@@ -2384,7 +2443,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-06-02"
       ]
     },
@@ -2393,7 +2452,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/006/02",
+        "chunk": "examination-guideline/05/006/02",
         "text": "进入当事人认可的电子系统的日期与通知书和决定的发文日不一致时"
       }
     ],
@@ -2450,7 +2509,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-01-08"
       ]
     },
@@ -2459,7 +2518,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/001/08",
+        "chunk": "examination-guideline/04/001/08",
         "text": "因主要证据不足或者法律适用错误导致审查决定被撤销的"
       }
     ],
@@ -2471,7 +2530,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-04-03"
       ]
     },
@@ -2480,10 +2539,26 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/004/03",
+        "chunk": "examination-guideline/05/004/03",
         "text": "与专利申请或者专利审批有关的法律状态及变化的历史记录"
       }
     ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "非生产经营目的",
+    "canonical": "非生产经营目的",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-06-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
@@ -2534,7 +2609,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-07-02"
       ]
     },
@@ -2543,7 +2618,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/007/02",
+        "chunk": "examination-guideline/02/007/02",
         "text": "审查员除在专利文献中进行检索外，还应当检索非专利文献"
       }
     ],
@@ -2555,7 +2630,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-06-01"
       ]
     },
@@ -2569,7 +2644,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/006/01",
+        "chunk": "examination-guideline/02/006/01",
         "text": "对不符合单一性的专利申请的分案及其修改作了规定"
       }
     ],
@@ -2604,7 +2679,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-03"
       ]
     },
@@ -2613,7 +2688,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/03",
+        "chunk": "examination-guideline/05/005/03",
         "text": "分类审查员在对发明或者实用新型专利申请进行分类时"
       }
     ],
@@ -2625,7 +2700,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-09-04"
       ]
     },
@@ -2636,7 +2711,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/010/09/04",
+        "chunk": "examination-guideline/02/010/09/04",
         "text": "与已知种的分类学特征明显不同的微生物（即新的种）具有创造性"
       }
     ],
@@ -2671,7 +2746,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-02-05"
       ]
     },
@@ -2688,7 +2763,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/002/05",
+        "chunk": "examination-guideline/03/002/05",
         "text": "附加检索费或附加审查费"
       }
     ],
@@ -2700,7 +2775,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-02-05"
       ]
     },
@@ -2717,7 +2792,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/002/05",
+        "chunk": "examination-guideline/03/002/05",
         "text": "附加检索费或附加审查费"
       }
     ],
@@ -2729,7 +2804,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-09-03"
       ]
     },
@@ -2741,7 +2816,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/009/03",
+        "chunk": "examination-guideline/05/009/03",
         "text": "对于获得附条件上市许可的药品"
       }
     ],
@@ -2774,7 +2849,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-04-05"
       ]
     },
@@ -2783,7 +2858,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/004/05",
+        "chunk": "examination-guideline/01/004/05",
         "text": "附注只适用于相关的位置及其细分位置"
       }
     ],
@@ -2818,7 +2893,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-02-06"
       ]
     },
@@ -2829,7 +2904,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/002/06",
+        "chunk": "examination-guideline/01/002/06",
         "text": "复合层可以认为是产品的构造"
       }
     ],
@@ -2841,7 +2916,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-03-01"
       ]
     },
@@ -2850,7 +2925,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/003/01",
+        "chunk": "examination-guideline/05/003/01",
         "text": "复审和无效审理部立案及流程管理处受理与复审和无效宣告请求有关的文件"
       }
     ],
@@ -2862,7 +2937,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-07-11"
       ]
     },
@@ -2871,7 +2946,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/007/11",
+        "chunk": "examination-guideline/02/007/11",
         "text": "在复审后的继续审查过程中，如果出现上述情形"
       }
     ],
@@ -2883,7 +2958,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-06-01"
       ]
     },
@@ -2892,7 +2967,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/006/01",
+        "chunk": "examination-guideline/05/006/01",
         "text": "复审决定书"
       }
     ],
@@ -2904,7 +2979,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-02-04"
       ]
     },
@@ -2920,7 +2995,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/002/04",
+        "chunk": "examination-guideline/04/002/04",
         "text": "复审通知书（包括复审请求口头审理通知书）"
       }
     ],
@@ -2932,7 +3007,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-01-01"
       ]
     },
@@ -2945,7 +3020,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/001/01",
+        "chunk": "examination-guideline/04/001/01",
         "text": "设复审员和兼职复审员"
       }
     ],
@@ -3001,7 +3076,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06-02-03"
       ]
     },
@@ -3013,7 +3088,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/06/002/03",
+        "chunk": "examination-guideline/06/002/03",
         "text": "向国际局发出给予保护声明"
       }
     ],
@@ -3025,7 +3100,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-10-06"
       ]
     },
@@ -3034,7 +3109,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/010/06",
+        "chunk": "examination-guideline/05/010/06",
         "text": "更正程序启动后"
       }
     ],
@@ -3046,7 +3121,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-03"
       ]
     },
@@ -3058,7 +3133,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/009/03",
+        "chunk": "examination-guideline/02/009/03",
         "text": "该发明专利申请是一种通过执行计算机程序实现工业过程控制的解决方案"
       }
     ],
@@ -3091,7 +3166,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-06-02"
       ]
     },
@@ -3104,7 +3179,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/009/06/02",
+        "chunk": "examination-guideline/02/009/06/02",
         "text": "应当为维护公共安全所必需"
       }
     ],
@@ -3179,7 +3254,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03-02"
       ]
     },
@@ -3190,10 +3265,28 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/003/02",
+        "chunk": "examination-guideline/02/003/02",
         "text": "纸质出版物的印刷日和视听资料的出版日视为公开日"
       }
     ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "公平、合理、无歧视许可义务",
+    "canonical": "公平、合理、无歧视许可义务",
+    "aliases": [
+      "公平、合理和无歧视的许可义务"
+    ],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-06-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
@@ -3202,7 +3295,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-07-05"
       ]
     },
@@ -3211,7 +3304,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/007/05",
+        "chunk": "examination-guideline/02/007/05",
         "text": "功能类似或应用类似的技术领域是根据申请文件中揭示出的申请的主题所必须具备的"
       }
     ],
@@ -3244,7 +3337,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-05-02"
       ]
     },
@@ -3257,7 +3350,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/008/05/02",
+        "chunk": "examination-guideline/02/008/05/02",
         "text": "用不能从原申请文件中直接得出的“功能性术语＋装置”的方式"
       }
     ],
@@ -3269,7 +3362,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-01-08"
       ]
     },
@@ -3278,7 +3371,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/001/08",
+        "chunk": "examination-guideline/05/001/08",
         "text": "办理直接涉及共有权利的手续"
       }
     ],
@@ -3311,7 +3404,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-03-04"
       ]
     },
@@ -3320,7 +3413,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/003/04",
+        "chunk": "examination-guideline/05/003/04",
         "text": "该证明中注明的寄出挂号号码与请求书中记录的挂号号码一致"
       }
     ],
@@ -3357,7 +3450,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-06"
       ]
     },
@@ -3371,7 +3464,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/003/06",
+        "chunk": "examination-guideline/01/003/06",
         "text": "适用《规范申请专利行为的规定》"
       }
     ],
@@ -3383,7 +3476,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-08-01-02"
       ]
     },
@@ -3392,7 +3485,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/008/01/02",
+        "chunk": "examination-guideline/05/008/01/02",
         "text": "国防发明专利权的授予和解密的公告参照上述规定执行"
       }
     ],
@@ -3404,7 +3497,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-01"
       ]
     },
@@ -3416,7 +3509,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/01",
+        "chunk": "examination-guideline/05/005/01",
         "text": "专利局受理的专利申请涉及国防利益需要保密的"
       }
     ],
@@ -3428,7 +3521,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-01"
       ]
     },
@@ -3440,7 +3533,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/01",
+        "chunk": "examination-guideline/05/005/01",
         "text": "应当及时移交国防知识产权局进行审查"
       }
     ],
@@ -3473,7 +3566,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-04"
       ]
     },
@@ -3482,7 +3575,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/04",
+        "chunk": "examination-guideline/05/005/04",
         "text": "并委托国防知识产权局颁发国防专利证书"
       }
     ],
@@ -3517,7 +3610,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-05-12"
       ]
     },
@@ -3528,7 +3621,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/05/12",
+        "chunk": "examination-guideline/03/001/05/12",
         "text": "由于国际单位在事务处理上的疏忽"
       }
     ],
@@ -3540,7 +3633,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-05-12"
       ]
     },
@@ -3551,7 +3644,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/05/12",
+        "chunk": "examination-guideline/03/001/05/12",
         "text": "国际公布文本上出现了错误的记载"
       }
     ],
@@ -3563,7 +3656,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-01"
       ]
     },
@@ -3588,7 +3681,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/01",
+        "chunk": "examination-guideline/03/001/01",
         "text": "参考国际检索和国际初步审查结果进行的实质审查"
       }
     ],
@@ -3623,7 +3716,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-06"
       ]
     },
@@ -3636,7 +3729,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/06",
+        "chunk": "examination-guideline/05/005/06",
         "text": "该申请将不再作为国际申请处理，终止国际阶段程序"
       }
     ],
@@ -3690,7 +3783,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-01"
       ]
     },
@@ -3702,7 +3795,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/01",
+        "chunk": "examination-guideline/05/005/01",
         "text": "涉及国家安全或者重大利益两个方面的发明创造"
       }
     ],
@@ -3714,7 +3807,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-01-03"
       ]
     },
@@ -3723,7 +3816,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/001/03",
+        "chunk": "examination-guideline/05/001/03",
         "text": "计量单位应当使用国家法定计量单位，包括国际单位制计量单位和国家选定的其他计量单位"
       }
     ],
@@ -3779,7 +3872,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06-02-01"
       ]
     },
@@ -3809,7 +3902,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/06/002/01",
+        "chunk": "examination-guideline/06/002/01",
         "text": "与国家申请相同的其他问题"
       }
     ],
@@ -3821,7 +3914,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06-02-05"
       ]
     },
@@ -3844,7 +3937,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/06/002/05",
+        "chunk": "examination-guideline/06/002/05",
         "text": "最迟应当在原申请的国内公告日起两个月内提出"
       }
     ],
@@ -3858,7 +3951,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06-02-02"
       ]
     },
@@ -3867,7 +3960,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/06/002/02",
+        "chunk": "examination-guideline/06/002/02",
         "text": "适用海牙协定以及1999年文本和1960年文本共同实施细则的规定"
       }
     ],
@@ -3921,7 +4014,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-08"
       ]
     },
@@ -3930,7 +4023,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/08",
+        "chunk": "examination-guideline/05/007/08",
         "text": "可以合并审查"
       }
     ],
@@ -3972,12 +4065,7 @@
     "lawKeys": [],
     "tier": "mid",
     "df": 1,
-    "evidence": [
-      {
-        "chunk": "infringement-guide/06/007",
-        "text": "能够举证证明其已支付该产品的合理对价的"
-      }
-    ],
+    "evidence": [],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
@@ -4055,7 +4143,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-05"
       ]
     },
@@ -4064,7 +4152,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/05",
+        "chunk": "examination-guideline/04/004/05",
         "text": "口头审理通常由合议组组长主持"
       }
     ],
@@ -4097,7 +4185,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-05-02"
       ]
     },
@@ -4110,7 +4198,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/008/05/02",
+        "chunk": "examination-guideline/02/008/05/02",
         "text": "将独立权利要求相对于最接近的现有技术正确划界"
       }
     ],
@@ -4122,7 +4210,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-02-04"
       ]
     },
@@ -4131,7 +4219,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/002/04",
+        "chunk": "examination-guideline/05/002/04",
         "text": "恢复权利请求审批程序启动后，专利局作出不予恢复权利决定的"
       }
     ],
@@ -4143,7 +4231,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-06-01"
       ]
     },
@@ -4152,7 +4240,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/006/01",
+        "chunk": "examination-guideline/05/006/01",
         "text": "恢复权利请求审批通知书"
       }
     ],
@@ -4206,7 +4294,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-02-02"
       ]
     },
@@ -4215,7 +4303,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/002/02",
+        "chunk": "examination-guideline/05/002/02",
         "text": "以银行实际汇出日为缴费日"
       }
     ],
@@ -4227,7 +4315,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-04-12"
       ]
     },
@@ -4236,7 +4324,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/008/04/12",
+        "chunk": "examination-guideline/02/008/04/12",
         "text": "可采用会晤通知书或通过电话来约定"
       }
     ],
@@ -4272,7 +4360,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-05"
       ]
     },
@@ -4281,7 +4369,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/05",
+        "chunk": "examination-guideline/02/011/05",
         "text": "现有技术中已经公开了与其主证和主药相同或相似的基础方"
       }
     ],
@@ -4293,7 +4381,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-01-09"
       ]
     },
@@ -4302,7 +4390,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/001/09",
+        "chunk": "examination-guideline/05/001/09",
         "text": "电子缴费、集成电路布图设计电子申请等多个业务"
       }
     ],
@@ -4314,7 +4402,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-03"
       ]
     },
@@ -4326,7 +4414,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/009/03",
+        "chunk": "examination-guideline/02/009/03",
         "text": "计算机系统内部性能改进的解决方案"
       }
     ],
@@ -4340,7 +4428,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-05-10"
       ]
     },
@@ -4351,7 +4439,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/05/10",
+        "chunk": "examination-guideline/03/001/05/10",
         "text": "国际局“记录变更通知书”（PCT/IB/306表）"
       }
     ],
@@ -4370,12 +4458,7 @@
     "lawKeys": [],
     "tier": "mid",
     "df": 1,
-    "evidence": [
-      {
-        "chunk": "infringement-guide/06/002",
-        "text": "国家标准、行业标准等技术标准中的技术方案申请专利并取得专利权的"
-      }
-    ],
+    "evidence": [],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
@@ -4386,7 +4469,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-07"
       ]
     },
@@ -4395,7 +4478,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/001/06/07",
+        "chunk": "examination-guideline/01/001/06/07",
         "text": "应当出具国务院商务主管部门颁发的“技术出口许可证”"
       }
     ],
@@ -4407,7 +4490,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-06"
       ]
     },
@@ -4420,7 +4503,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/06",
+        "chunk": "examination-guideline/05/005/06",
         "text": "应当包括向外国申请专利保密审查请求书和技术方案说明书"
       }
     ],
@@ -4432,7 +4515,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-11-06"
       ]
     },
@@ -4441,7 +4524,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/011/06",
+        "chunk": "examination-guideline/05/011/06",
         "text": "《技术进出口合同登记管理办法》"
       }
     ],
@@ -4498,7 +4581,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-04-04-02"
       ]
     },
@@ -4507,7 +4590,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/004/04/02",
+        "chunk": "examination-guideline/01/004/04/02",
         "text": "则既按功能分类又按应用分类"
       }
     ],
@@ -4519,7 +4602,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-01-01"
       ]
     },
@@ -4532,7 +4615,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/001/01",
+        "chunk": "examination-guideline/04/001/01",
         "text": "设复审员和兼职复审员"
       }
     ],
@@ -4565,7 +4648,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-07-06"
       ]
     },
@@ -4574,7 +4657,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/007/06",
+        "chunk": "examination-guideline/02/007/06",
         "text": "制定检索策略通常包括选择检索系统或数据库、表达基本检索要素、构建检索式和调整检索"
       }
     ],
@@ -4586,7 +4669,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-06"
       ]
     },
@@ -4598,7 +4681,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/006",
+        "chunk": "examination-guideline/04/006",
         "text": "对于由现有技术通过“简单的叠加”而成的实用新型专利"
       }
     ],
@@ -4610,7 +4693,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-05"
       ]
     },
@@ -4619,7 +4702,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/05",
+        "chunk": "examination-guideline/02/011/05",
         "text": "发明属于简单的叠加，不具备创造性"
       }
     ],
@@ -4675,7 +4758,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-08-05"
       ]
     },
@@ -4684,7 +4767,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/008/05",
+        "chunk": "examination-guideline/04/008/05",
         "text": "必要时可以委托有关单位进行鉴定"
       }
     ],
@@ -4740,7 +4823,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-10"
       ]
     },
@@ -4749,7 +4832,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/10",
+        "chunk": "examination-guideline/04/004/10",
         "text": "双方当事人可以对证人进行交叉提问"
       }
     ],
@@ -4803,7 +4886,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-03"
       ]
     },
@@ -4814,7 +4897,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/03",
+        "chunk": "examination-guideline/05/007/03",
         "text": "对尚未缴纳相关费用的专利发出缴费通知书"
       }
     ],
@@ -4826,7 +4909,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-02-07"
       ]
     },
@@ -4835,7 +4918,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/002/07",
+        "chunk": "examination-guideline/05/002/07",
         "text": "费用通过邮局或者银行汇付时遗漏必要缴费信息的"
       }
     ],
@@ -4847,7 +4930,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-04-06"
       ]
     },
@@ -4856,7 +4939,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/004/06",
+        "chunk": "examination-guideline/05/004/06",
         "text": "保存期限自结案日起算"
       }
     ],
@@ -4868,7 +4951,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-09-03"
       ]
     },
@@ -4880,7 +4963,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/010/09/03",
+        "chunk": "examination-guideline/02/010/09/03",
         "text": "对于结构基因，可限定由所述基因编码的多肽或者蛋白质的氨基酸序列"
       }
     ],
@@ -4913,7 +4996,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-02-02"
       ]
     },
@@ -4922,7 +5005,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/002/02",
+        "chunk": "examination-guideline/05/002/02",
         "text": "按照银行将该费用结汇至专利局账户之日的汇率结算"
       }
     ],
@@ -4934,7 +5017,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-01-06"
       ]
     },
@@ -4943,7 +5026,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/001/06",
+        "chunk": "examination-guideline/04/001/06",
         "text": "结论部分应当给出具体的审查结论"
       }
     ],
@@ -4955,7 +5038,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06-02-06-01"
       ]
     },
@@ -4967,7 +5050,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/06/002/06/01",
+        "chunk": "examination-guideline/06/002/06/01",
         "text": "解除和辞去委托的规定适用本指南第一部分第一章第6.1.3节的规定"
       }
     ],
@@ -4979,7 +5062,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-05"
       ]
     },
@@ -4988,7 +5071,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/05",
+        "chunk": "examination-guideline/05/005/05",
         "text": "审查员应当对已经解密的专利申请（或者专利）作出解密标记"
       }
     ],
@@ -5000,7 +5083,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-05"
       ]
     },
@@ -5009,7 +5092,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/05",
+        "chunk": "examination-guideline/05/005/05",
         "text": "应当进行解密公告、出版发明或者实用新型专利单行本"
       }
     ],
@@ -5084,7 +5167,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-01"
       ]
     },
@@ -5102,7 +5185,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/008/01",
+        "chunk": "examination-guideline/02/008/01",
         "text": "对于进入中国国家阶段的国际申请的实质审查"
       }
     ],
@@ -5159,7 +5242,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-04-08"
       ]
     },
@@ -5168,7 +5251,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/004/08",
+        "chunk": "examination-guideline/01/004/08",
         "text": "不能认为仅由经验式代表的化合物"
       }
     ],
@@ -5204,7 +5287,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-11-03"
       ]
     },
@@ -5216,7 +5299,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/011/03",
+        "chunk": "examination-guideline/05/011/03",
         "text": "净销售额提成一般不高于20%"
       }
     ],
@@ -5235,12 +5318,7 @@
     "lawKeys": [],
     "tier": "mid",
     "df": 1,
-    "evidence": [
-      {
-        "chunk": "infringement-guide/04/_full-chapter",
-        "text": "对于静态图形用户界面外观设计，应当主要考虑产品的图形用户界面部分"
-      }
-    ],
+    "evidence": [],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
@@ -5249,7 +5327,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-05"
       ]
     },
@@ -5258,7 +5336,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/05",
+        "chunk": "examination-guideline/04/004/05",
         "text": "进行举证"
       }
     ],
@@ -5291,7 +5369,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-05"
       ]
     },
@@ -5302,7 +5380,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/003/05",
+        "chunk": "examination-guideline/04/003/05",
         "text": "具有独立使用价值的产品"
       }
     ],
@@ -5314,7 +5392,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-06"
       ]
     },
@@ -5325,7 +5403,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/003/06",
+        "chunk": "examination-guideline/04/003/06",
         "text": "无效宣告请求审查决定应当送达双方当事人"
       }
     ],
@@ -5337,7 +5415,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-05"
       ]
     },
@@ -5346,7 +5424,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/05",
+        "chunk": "examination-guideline/02/011/05",
         "text": "各中药原料或药味之间存在主次关系例如君臣佐使"
       }
     ],
@@ -5358,7 +5436,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-02-03"
       ]
     },
@@ -5367,7 +5445,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/002/03",
+        "chunk": "examination-guideline/05/002/03",
         "text": "办理专利开放许可实施合同备案的，视为提出年费减缴请求"
       }
     ],
@@ -5379,7 +5457,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-02-03"
       ]
     },
@@ -5388,7 +5466,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/002/03",
+        "chunk": "examination-guideline/05/002/03",
         "text": "或者其专利处于开放许可实施期间的"
       }
     ],
@@ -5423,7 +5501,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-08-05"
       ]
     },
@@ -5432,7 +5510,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/008/05",
+        "chunk": "examination-guideline/04/008/05",
         "text": "申请日后（含申请日）形成的记载有使用公开或者口头公开内容的书证"
       }
     ],
@@ -5444,7 +5522,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-05"
       ]
     },
@@ -5453,7 +5531,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/05",
+        "chunk": "examination-guideline/04/004/05",
         "text": "进行口头审理辩论"
       }
     ],
@@ -5465,7 +5543,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-05"
       ]
     },
@@ -5474,7 +5552,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/05",
+        "chunk": "examination-guideline/04/004/05",
         "text": "开始进行口头审理调查"
       }
     ],
@@ -5507,7 +5585,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-02"
       ]
     },
@@ -5516,7 +5594,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/02",
+        "chunk": "examination-guideline/04/004/02",
         "text": "当事人一方要求同对方口头质证和辩论"
       }
     ],
@@ -5570,7 +5648,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-05"
       ]
     },
@@ -5579,7 +5657,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/05",
+        "chunk": "examination-guideline/02/011/05",
         "text": "需要考量发明与现有技术中组合物的“理、法、方、药”"
       }
     ],
@@ -5591,7 +5669,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-11-03"
       ]
     },
@@ -5603,7 +5681,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/011/03",
+        "chunk": "examination-guideline/05/011/03",
         "text": "利润额提成一般不高于40%"
       }
     ],
@@ -5615,7 +5693,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-05"
       ]
     },
@@ -5626,7 +5704,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/005",
+        "chunk": "examination-guideline/02/005",
         "text": "不得是由自然条件限定的独一无二的产品"
       }
     ],
@@ -5638,7 +5716,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-01-04-05"
       ]
     },
@@ -5647,7 +5725,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/001/04/05",
+        "chunk": "examination-guideline/02/001/04/05",
         "text": "为实现原子核变换而增加粒子能量的粒子加速方法"
       }
     ],
@@ -5659,7 +5737,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-06"
       ]
     },
@@ -5672,10 +5750,26 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/06",
+        "chunk": "examination-guideline/03/001/06",
         "text": "专利法第十三条规定的要求临时保护的权利"
       }
     ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "临时过境",
+    "canonical": "临时过境",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-06-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
@@ -5705,7 +5799,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-04-08"
       ]
     },
@@ -5714,7 +5808,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/004/08",
+        "chunk": "examination-guideline/01/004/08",
         "text": "例如：马库什化合物"
       }
     ],
@@ -5733,12 +5827,7 @@
     "lawKeys": [],
     "tier": "mid",
     "df": 1,
-    "evidence": [
-      {
-        "chunk": "infringement-guide/06/007",
-        "text": "被诉侵权人在标准必要专利许可协商过程中存在明显过错"
-      }
-    ],
+    "evidence": [],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
@@ -5747,7 +5836,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-07-09"
       ]
     },
@@ -5756,7 +5845,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/007/09",
+        "chunk": "examination-guideline/02/007/09",
         "text": "9.2.1对明显缺乏单一性的申请的检索"
       }
     ],
@@ -5770,7 +5859,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-02-01"
       ]
     },
@@ -5825,7 +5914,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/002/01",
+        "chunk": "examination-guideline/01/002/01",
         "text": "申请文件的明显实质性缺陷审查，包括专利申请是否明显属于专利法第五条"
       }
     ],
@@ -5858,7 +5947,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-01"
       ]
     },
@@ -5867,7 +5956,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/009/01",
+        "chunk": "examination-guideline/02/009/01",
         "text": "计算机程序本身包括源程序和目标程序"
       }
     ],
@@ -5900,7 +5989,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-01"
       ]
     },
@@ -5909,7 +5998,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/009/01",
+        "chunk": "examination-guideline/02/009/01",
         "text": "所说的对内部对象的控制或处理包括对计算机系统内部性能的改进"
       }
     ],
@@ -5921,7 +6010,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-05-04"
       ]
     },
@@ -5932,7 +6021,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/005/04",
+        "chunk": "examination-guideline/04/005/04",
         "text": "4.判断主体"
       }
     ],
@@ -5944,7 +6033,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-12"
       ]
     },
@@ -5953,7 +6042,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/12",
+        "chunk": "examination-guideline/04/004/12",
         "text": "合议组可以要求旁听者办理旁听手续"
       }
     ],
@@ -5986,7 +6075,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-07"
       ]
     },
@@ -5995,7 +6084,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/001/06/07",
+        "chunk": "examination-guideline/01/001/06/07",
         "text": "多件专利申请的同一著录项目发生变更，且变更的内容完全相同的，可以提交批量著录项目"
       }
     ],
@@ -6007,7 +6096,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-06"
       ]
     },
@@ -6021,7 +6110,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/003/06",
+        "chunk": "examination-guideline/01/003/06",
         "text": "对平面印刷品的图案、色彩或者二者的结合作出的主要起标识作用的设计"
       }
     ],
@@ -6033,7 +6122,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-04-02"
       ]
     },
@@ -6046,7 +6135,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/003/04/02",
+        "chunk": "examination-guideline/01/003/04/02",
         "text": "申请人还应当提交该外观设计产品的展开图、剖视图、剖面图、放大图以及变化状态图"
       }
     ],
@@ -6058,7 +6147,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-04-02"
       ]
     },
@@ -6071,7 +6160,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/003/04/02",
+        "chunk": "examination-guideline/01/003/04/02",
         "text": "申请人还应当提交该外观设计产品的展开图、剖视图、剖面图、放大图以及变化状态图"
       }
     ],
@@ -6083,7 +6172,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-11-08"
       ]
     },
@@ -6092,7 +6181,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/011/08",
+        "chunk": "examination-guideline/05/011/08",
         "text": "签订普通许可合同的，不属于开放许可"
       }
     ],
@@ -6125,7 +6214,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-04"
       ]
     },
@@ -6134,7 +6223,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/001/06/04",
+        "chunk": "examination-guideline/01/001/06/04",
         "text": "审查员应当发出期限届满前通知书"
       }
     ],
@@ -6211,7 +6300,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-06"
       ]
     },
@@ -6222,7 +6311,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/06",
+        "chunk": "examination-guideline/05/007/06",
         "text": "侵权诉讼时效"
       }
     ],
@@ -6234,7 +6323,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-07-10"
       ]
     },
@@ -6247,7 +6336,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/007/10",
+        "chunk": "examination-guideline/02/007/10",
         "text": "说明书和权利要求书未对该申请的主题作出清楚、完整的说明"
       }
     ],
@@ -6280,7 +6369,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-03"
       ]
     },
@@ -6292,7 +6381,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/003/03",
+        "chunk": "examination-guideline/04/003/03",
         "text": "全程代理的机构"
       }
     ],
@@ -6325,7 +6414,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-04"
       ]
     },
@@ -6341,7 +6430,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/003/04",
+        "chunk": "examination-guideline/04/003/04",
         "text": "专利权人修改权利要求书的，应当提交全文替换页和修改对照表"
       }
     ],
@@ -6399,7 +6488,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-04-04"
       ]
     },
@@ -6408,7 +6497,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/004/04",
+        "chunk": "examination-guideline/05/004/04",
         "text": "涉及由权利归属纠纷引起的相关程序的真实记录"
       }
     ],
@@ -6420,7 +6509,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-02-04"
       ]
     },
@@ -6429,7 +6518,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/002/04",
+        "chunk": "examination-guideline/05/002/04",
         "text": "自收到专利局关于权利丧失的通知之日起两个月内"
       }
     ],
@@ -6441,7 +6530,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-03"
       ]
     },
@@ -6450,7 +6539,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/03",
+        "chunk": "examination-guideline/02/011/03",
         "text": "则权利要求得不到说明书的支持"
       }
     ],
@@ -6483,7 +6572,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-07-06"
       ]
     },
@@ -6492,7 +6581,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/007/06",
+        "chunk": "examination-guideline/02/007/06",
         "text": "审查员要求申请人改写独立权利要求前序部分及说明书的有关部分"
       }
     ],
@@ -6548,7 +6637,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-07"
       ]
     },
@@ -6557,7 +6646,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/001/06/07",
+        "chunk": "examination-guideline/01/001/06/07",
         "text": "应当提交全体当事人签字或者盖章的权利转移协议书"
       }
     ],
@@ -6569,7 +6658,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-06-03"
       ]
     },
@@ -6580,7 +6669,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/009/06/03",
+        "chunk": "examination-guideline/02/009/06/03",
         "text": "如果涉及人工智能模型的构建或者训练"
       }
     ],
@@ -6634,7 +6723,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-08-04"
       ]
     },
@@ -6643,7 +6732,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/008/04",
+        "chunk": "examination-guideline/04/008/04",
         "text": "一方当事人明确认可的另外一方当事人提交的证据，合议组应当予以确认"
       }
     ],
@@ -6676,7 +6765,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-04-05"
       ]
     },
@@ -6685,7 +6774,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/004/05",
+        "chunk": "examination-guideline/05/004/05",
         "text": "涉及个人隐私或者商业秘密等情形的除外"
       }
     ],
@@ -6759,6 +6848,22 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "设计特征",
+    "canonical": "设计特征",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "涉外案",
     "canonical": "涉外案",
     "aliases": [],
@@ -6827,7 +6932,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-05-10"
       ]
     },
@@ -6838,7 +6943,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/05/10",
+        "chunk": "examination-guideline/03/001/05/10",
         "text": "变更后的申请人享有申请权的证明材料"
       }
     ],
@@ -6850,7 +6955,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-02-07"
       ]
     },
@@ -6859,7 +6964,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/002/07",
+        "chunk": "examination-guideline/04/002/07",
         "text": "复审和无效审理部应当将有关的案卷返回审查部门，继续进行审查程序"
       }
     ],
@@ -6936,7 +7041,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-01-07"
       ]
     },
@@ -6945,7 +7050,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/001/07",
+        "chunk": "examination-guideline/04/001/07",
         "text": "对于复审或者无效宣告请求审查决定中的明显文字错误，发现后需要更正的"
       }
     ],
@@ -7026,7 +7131,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-09-04"
       ]
     },
@@ -7037,7 +7142,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/010/09/04",
+        "chunk": "examination-guideline/02/010/09/04",
         "text": "还包括生物材料保藏号等特殊方式"
       }
     ],
@@ -7049,7 +7154,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-05-05"
       ]
     },
@@ -7061,7 +7166,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/05/05",
+        "chunk": "examination-guideline/03/001/05/05",
         "text": "审查员应当发出生物材料样品视为未保藏通知书"
       }
     ],
@@ -7094,7 +7199,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-04-03"
       ]
     },
@@ -7106,7 +7211,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/003/04/03",
+        "chunk": "examination-guideline/01/003/04/03",
         "text": "如果外观设计专利申请省略了视图，申请人应当写明省略视图的具体原因"
       }
     ],
@@ -7118,7 +7223,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-05"
       ]
     },
@@ -7127,7 +7232,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/05",
+        "chunk": "examination-guideline/05/007/05",
         "text": "将专利申请进行失效处理"
       }
     ],
@@ -7139,7 +7244,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-04-14"
       ]
     },
@@ -7148,7 +7253,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/008/04/14",
+        "chunk": "examination-guideline/02/008/04/14",
         "text": "申请人提供实物模型进行演示，以证明其申请具有实用性"
       }
     ],
@@ -7160,7 +7265,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-02"
       ]
     },
@@ -7169,7 +7274,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/02",
+        "chunk": "examination-guideline/04/004/02",
         "text": "需要实物演示"
       }
     ],
@@ -7248,7 +7353,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-02-06"
       ]
     },
@@ -7259,7 +7364,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/002/06",
+        "chunk": "examination-guideline/01/002/06",
         "text": "不属于实用新型专利保护的客体"
       }
     ],
@@ -7271,7 +7376,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-06"
       ]
     },
@@ -7283,7 +7388,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/006",
+        "chunk": "examination-guideline/04/006",
         "text": "有关实用新型专利保护客体的审查适用本指南第一部分第二章第6节的规定"
       }
     ],
@@ -7295,7 +7400,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-08-02"
       ]
     },
@@ -7304,7 +7409,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/008/02",
+        "chunk": "examination-guideline/05/008/02",
         "text": "实用新型专利单行本的文献种类代码为“U”"
       }
     ],
@@ -7316,7 +7421,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-08-01-01"
       ]
     },
@@ -7325,7 +7430,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/008/01/01",
+        "chunk": "examination-guideline/05/008/01/01",
         "text": "专利公报有发明专利公报、实用新型专利公报和外观设计专利公报"
       }
     ],
@@ -7337,7 +7442,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-04-08"
       ]
     },
@@ -7348,7 +7453,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/008/04/08",
+        "chunk": "examination-guideline/02/008/04/08",
         "text": "仅指出对审查结论起主导作用的实质缺陷即可"
       }
     ],
@@ -7402,7 +7507,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-01"
       ]
     },
@@ -7416,7 +7521,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/01",
+        "chunk": "examination-guideline/05/007/01",
         "text": "发明专利申请的实质审查请求期限"
       }
     ],
@@ -7470,7 +7575,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-05-05"
       ]
     },
@@ -7481,7 +7586,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/005/05",
+        "chunk": "examination-guideline/04/005/05",
         "text": "对比设计所公告的专利文件含有使用状态参考图"
       }
     ],
@@ -7493,7 +7598,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-06"
       ]
     },
@@ -7506,7 +7611,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/06",
+        "chunk": "examination-guideline/05/005/06",
         "text": "或世界知识产权组织国际局提交专利国际申请"
       }
     ],
@@ -7518,7 +7623,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-07"
       ]
     },
@@ -7530,7 +7635,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/009/07",
+        "chunk": "examination-guideline/02/009/07",
         "text": "生成比特流的特定视频编码方法"
       }
     ],
@@ -7542,7 +7647,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-07"
       ]
     },
@@ -7554,7 +7659,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/009/07",
+        "chunk": "examination-guideline/02/009/07",
         "text": "比特流通过视频解码方法生成视频数据"
       }
     ],
@@ -7566,7 +7671,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06-02-05"
       ]
     },
@@ -7589,7 +7694,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/06/002/05",
+        "chunk": "examination-guideline/06/002/05",
         "text": "外观设计国际申请的视图名称及其标注被视为符合"
       }
     ],
@@ -7601,7 +7706,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-01-07"
       ]
     },
@@ -7610,7 +7715,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/001/07",
+        "chunk": "examination-guideline/04/001/07",
         "text": "对于已经按照视为撤回处理的复审请求或者无效宣告请求，一旦发现不应被视为撤回的"
       }
     ],
@@ -7622,7 +7727,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-05"
       ]
     },
@@ -7631,7 +7736,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/05",
+        "chunk": "examination-guideline/05/007/05",
         "text": "视为撤回专利申请权"
       }
     ],
@@ -7643,7 +7748,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-05"
       ]
     },
@@ -7652,7 +7757,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/05",
+        "chunk": "examination-guideline/05/007/05",
         "text": "视为放弃取得专利权的权利"
       }
     ],
@@ -7687,7 +7792,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-02-02"
       ]
     },
@@ -7700,7 +7805,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/002/02",
+        "chunk": "examination-guideline/04/002/02",
         "text": "未在指定期限内指定的，视为未委托"
       }
     ],
@@ -7712,7 +7817,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-05-04"
       ]
     },
@@ -7725,7 +7830,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/05/04",
+        "chunk": "examination-guideline/03/001/05/04",
         "text": "审查员应当发出视为未要求不丧失新颖性宽限期通知书"
       }
     ],
@@ -7781,7 +7886,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-02-03"
       ]
     },
@@ -7790,7 +7895,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/002/03",
+        "chunk": "examination-guideline/05/002/03",
         "text": "审查员应当发出收费减缴审批通知书"
       }
     ],
@@ -7802,7 +7907,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-02-05"
       ]
     },
@@ -7811,7 +7916,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/002/05",
+        "chunk": "examination-guideline/05/002/05",
         "text": "已收到专利局收费收据的"
       }
     ],
@@ -7823,7 +7928,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-03-06"
       ]
     },
@@ -7832,7 +7937,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/003/06",
+        "chunk": "examination-guideline/05/003/06",
         "text": "以收文登记记录为准"
       }
     ],
@@ -7844,7 +7949,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-03-06"
       ]
     },
@@ -7853,7 +7958,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/003/06",
+        "chunk": "examination-guideline/05/003/06",
         "text": "专利局受理部门的收文回执或者受理通知书"
       }
     ],
@@ -7865,7 +7970,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-03"
       ]
     },
@@ -7880,7 +7985,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/03",
+        "chunk": "examination-guideline/03/001/03",
         "text": "经受理局确认的“受理本”副本"
       }
     ],
@@ -7892,7 +7997,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-01-07"
       ]
     },
@@ -7901,7 +8006,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/001/07",
+        "chunk": "examination-guideline/04/001/07",
         "text": "复审或者无效宣告请求属于应当受理而不予受理的，或者已经受理而属于不予受理的"
       }
     ],
@@ -7913,7 +8018,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-03-01"
       ]
     },
@@ -7922,7 +8027,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/003/01",
+        "chunk": "examination-guideline/05/003/01",
         "text": "未经过受理登记的文件，不得进入审批程序"
       }
     ],
@@ -7934,7 +8039,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-02-01"
       ]
     },
@@ -7943,7 +8048,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/002/01",
+        "chunk": "examination-guideline/05/002/01",
         "text": "授权当年年费的缴纳期限是自申请人收到"
       }
     ],
@@ -7955,7 +8060,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-06"
       ]
     },
@@ -7969,7 +8074,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/008/06",
+        "chunk": "examination-guideline/02/008/06",
         "text": "授权的文本，必须是经申请人以书面形式最后确认的文本"
       }
     ],
@@ -7981,7 +8086,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-04"
       ]
     },
@@ -7990,7 +8095,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/04",
+        "chunk": "examination-guideline/05/005/04",
         "text": "保密专利申请的授权公告仅公布专利号、申请日和授权公告日"
       }
     ],
@@ -8002,7 +8107,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-07"
       ]
     },
@@ -8017,7 +8122,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/007",
+        "chunk": "examination-guideline/04/007",
         "text": "具有相同申请日（有优先权的，指优先权日）和相同授权公告日的两项专利权"
       }
     ],
@@ -8029,7 +8134,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-04-04"
       ]
     },
@@ -8040,7 +8145,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/008/04/04",
+        "chunk": "examination-guideline/02/008/04/04",
         "text": "认为第一独立权利要求或者其从属权利要求具有被授权的前景"
       }
     ],
@@ -8052,7 +8157,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-03"
       ]
     },
@@ -8063,7 +8168,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/003/03",
+        "chunk": "examination-guideline/01/003/03",
         "text": "审查员应当作出授予外观设计专利权通知"
       }
     ],
@@ -8075,7 +8180,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-04-09"
       ]
     },
@@ -8084,7 +8189,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/008/04/09",
+        "chunk": "examination-guideline/02/008/04/09",
         "text": "审查员发出授予专利权的通知之后收到的"
       }
     ],
@@ -8096,7 +8201,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-11"
       ]
     },
@@ -8105,7 +8210,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/11",
+        "chunk": "examination-guideline/04/004/11",
         "text": "由书记员或者合议组组长指定的合议组成员进行记录"
       }
     ],
@@ -8117,7 +8222,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-02-04"
       ]
     },
@@ -8133,7 +8238,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/002/04",
+        "chunk": "examination-guideline/04/002/04",
         "text": "可以采取书面审理、口头审理或者书面审理与口头审理相结合的方式"
       }
     ],
@@ -8166,7 +8271,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-08-05"
       ]
     },
@@ -8175,7 +8280,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/008/05",
+        "chunk": "examination-guideline/04/008/05",
         "text": "申请日后（含申请日）形成的记载有使用公开或者口头公开内容的书证"
       }
     ],
@@ -8233,7 +8338,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-03"
       ]
     },
@@ -8245,7 +8350,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/009/03",
+        "chunk": "examination-guideline/02/009/03",
         "text": "该解决方案整体仍旧属于一种数学计算方法"
       }
     ],
@@ -8278,7 +8383,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03-03"
       ]
     },
@@ -8289,7 +8394,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/003/03",
+        "chunk": "examination-guideline/02/003/03",
         "text": "以数值或者连续变化的数值范围限定的技术特征"
       }
     ],
@@ -8301,7 +8406,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-01-09"
       ]
     },
@@ -8310,7 +8415,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/001/09",
+        "chunk": "examination-guideline/05/001/09",
         "text": "注册信息维护、数字证书的使用等手续"
       }
     ],
@@ -8343,7 +8448,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-05-07"
       ]
     },
@@ -8354,7 +8459,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/005/07",
+        "chunk": "examination-guideline/04/005/07",
         "text": "他人，是指专利权人以外的民事主体，包括自然人、法人或者其他组织"
       }
     ],
@@ -8366,7 +8471,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-11-03"
       ]
     },
@@ -8378,7 +8483,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/011/03",
+        "chunk": "examination-guideline/05/011/03",
         "text": "以提成费支付的"
       }
     ],
@@ -8390,7 +8495,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06-01-02"
       ]
     },
@@ -8399,7 +8504,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/06/001/02",
+        "chunk": "examination-guideline/06/001/02",
         "text": "专利局按照收到外观设计国际注册申请的先后顺序给出提交编号"
       }
     ],
@@ -8411,7 +8516,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-03"
       ]
     },
@@ -8422,7 +8527,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/008/03",
+        "chunk": "examination-guideline/02/008/03",
         "text": "可以填写提交资料通知书"
       }
     ],
@@ -8471,6 +8576,24 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "同样产品",
+    "canonical": "同样产品",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-05-01"
+      ]
+    },
+    "lawKeys": [
+      "专利法第61条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "同样的理由和证据",
     "canonical": "同样的理由和证据",
     "aliases": [],
@@ -8501,7 +8624,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-07-06"
       ]
     },
@@ -8510,7 +8633,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/007/06",
+        "chunk": "examination-guideline/02/007/06",
         "text": "审查员应利用申请人、发明人、优先权等信息检索申请的同族申请、母案/分案申请"
       }
     ],
@@ -8543,7 +8666,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-04-02"
       ]
     },
@@ -8556,7 +8679,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/003/04/02",
+        "chunk": "examination-guideline/01/003/04/02",
         "text": "透明产品的外观设计，外层与内层有两种以上形状、图案和色彩时"
       }
     ],
@@ -8596,12 +8719,7 @@
     "lawKeys": [],
     "tier": "mid",
     "df": 1,
-    "evidence": [
-      {
-        "chunk": "infringement-guide/03/_full-chapter",
-        "text": "图形用户界面外观设计的保护范围应结合设计要点由产品外观设计视图确定"
-      }
-    ],
+    "evidence": [],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
@@ -8652,7 +8770,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-06-03"
       ]
     },
@@ -8661,7 +8779,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/006/03",
+        "chunk": "examination-guideline/05/006/03",
         "text": "邮寄退回的通知和决定由发文部门作计算机登录"
       }
     ],
@@ -8673,7 +8791,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-01"
       ]
     },
@@ -8682,7 +8800,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/009/01",
+        "chunk": "examination-guideline/02/009/01",
         "text": "所说的对外部对象的控制或处理包括对某种外部运行过程或外部运行装置进行控制"
       }
     ],
@@ -8694,7 +8812,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-03"
       ]
     },
@@ -8706,7 +8824,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/009/03",
+        "chunk": "examination-guideline/02/009/03",
         "text": "外部技术数据处理的解决方案"
       }
     ],
@@ -8760,7 +8878,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-08-02"
       ]
     },
@@ -8769,7 +8887,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/008/02",
+        "chunk": "examination-guideline/05/008/02",
         "text": "外观设计专利单行本的文献种类代码为“S”"
       }
     ],
@@ -8781,7 +8899,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06-01-03"
       ]
     },
@@ -8793,7 +8911,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/06/001/03",
+        "chunk": "examination-guideline/06/001/03",
         "text": "外观设计专利的单行本的内容包括扉页、图片或者照片以及简要说明"
       }
     ],
@@ -8805,7 +8923,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-08-01-01"
       ]
     },
@@ -8814,7 +8932,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/008/01/01",
+        "chunk": "examination-guideline/05/008/01/01",
         "text": "专利公报有发明专利公报、实用新型专利公报和外观设计专利公报"
       }
     ],
@@ -8826,7 +8944,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-07"
       ]
     },
@@ -8837,7 +8955,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/003/07",
+        "chunk": "examination-guideline/01/003/07",
         "text": "在判断是否属于外观设计专利权的保护客体时"
       }
     ],
@@ -8849,7 +8967,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-01-03"
       ]
     },
@@ -8858,7 +8976,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/001/03",
+        "chunk": "examination-guideline/05/001/03",
         "text": "外文科技术语应当按照规定译成中文，并采用规范用语"
       }
     ],
@@ -8870,7 +8988,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-08-02"
       ]
     },
@@ -8879,7 +8997,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/008/02",
+        "chunk": "examination-guideline/04/008/02",
         "text": "当事人提交外文证据的，应当提交中文译文"
       }
     ],
@@ -8912,7 +9030,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-05"
       ]
     },
@@ -8923,7 +9041,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/005",
+        "chunk": "examination-guideline/02/005",
         "text": "违背自然规律的发明或者实用新型专利申请是不能实施的"
       }
     ],
@@ -8998,7 +9116,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-05-01"
       ]
     },
@@ -9007,7 +9125,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/05/01",
+        "chunk": "examination-guideline/03/001/05/01",
         "text": "申请人（即委托人）的原文姓名或名称"
       }
     ],
@@ -9040,7 +9158,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-04-06"
       ]
     },
@@ -9049,7 +9167,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/004/06",
+        "chunk": "examination-guideline/05/004/06",
         "text": "未缴年费专利权终止、专利权期限届满和专利权被宣告全部无效等"
       }
     ],
@@ -9082,7 +9200,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-04-03"
       ]
     },
@@ -9091,7 +9209,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/004/03",
+        "chunk": "examination-guideline/01/004/03",
         "text": "即使该内容未被要求专利保护，也应当确定其技术主题"
       }
     ],
@@ -9103,7 +9221,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-08-01-03"
       ]
     },
@@ -9112,7 +9230,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/008/01/03",
+        "chunk": "examination-guideline/05/008/01/03",
         "text": "由于文件送交地址不清，专利局无法通知当事人在规定或者指定的期限内答复"
       }
     ],
@@ -9124,7 +9242,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-08-02"
       ]
     },
@@ -9133,7 +9251,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/008/02",
+        "chunk": "examination-guideline/05/008/02",
         "text": "实用新型专利单行本的文献种类代码为“U”"
       }
     ],
@@ -9187,7 +9305,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-09"
       ]
     },
@@ -9198,7 +9316,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/003/09",
+        "chunk": "examination-guideline/04/003/09",
         "text": "合议组可以向其发出无效宣告请求案件审查状态通知书"
       }
     ],
@@ -9210,7 +9328,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-03"
       ]
     },
@@ -9222,7 +9340,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/003/03",
+        "chunk": "examination-guideline/04/003/03",
         "text": "其无效宣告请求不予受理"
       }
     ],
@@ -9255,7 +9373,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-03"
       ]
     },
@@ -9267,7 +9385,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/003/03",
+        "chunk": "examination-guideline/04/003/03",
         "text": "无效宣告请求人资格"
       }
     ],
@@ -9300,7 +9418,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-06-01"
       ]
     },
@@ -9309,7 +9427,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/006/01",
+        "chunk": "examination-guideline/05/006/01",
         "text": "无效宣告请求审查决定"
       }
     ],
@@ -9321,7 +9439,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-03"
       ]
     },
@@ -9333,7 +9451,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/003/03",
+        "chunk": "examination-guideline/04/003/03",
         "text": "期满未补正的，无效宣告请求视为未提出"
       }
     ],
@@ -9345,7 +9463,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-09"
       ]
     },
@@ -9356,7 +9474,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/003/09",
+        "chunk": "examination-guideline/04/003/09",
         "text": "将审查决定和无效宣告审查结案通知书送达上述相关部门"
       }
     ],
@@ -9410,7 +9528,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-05-06"
       ]
     },
@@ -9421,7 +9539,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/005/06",
+        "chunk": "examination-guideline/04/005/06",
         "text": "二者的差别对于产品外观设计的整体视觉效果不具有显著影响"
       }
     ],
@@ -9449,12 +9567,28 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "现有设计状况",
+    "canonical": "现有设计状况",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "线上审理",
     "canonical": "线上审理",
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-02"
       ]
     },
@@ -9463,7 +9597,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/02",
+        "chunk": "examination-guideline/04/004/02",
         "text": "口头审理包括线下审理、线上审理以及线下与线上审理相结合等方式"
       }
     ],
@@ -9475,7 +9609,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-02"
       ]
     },
@@ -9484,7 +9618,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/02",
+        "chunk": "examination-guideline/04/004/02",
         "text": "口头审理包括线下审理、线上审理以及线下与线上审理相结合等方式"
       }
     ],
@@ -9512,12 +9646,28 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "相近似",
+    "canonical": "相近似",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "相同或实质相同",
     "canonical": "相同或实质相同",
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-04"
       ]
     },
@@ -9526,7 +9676,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/04",
+        "chunk": "examination-guideline/02/011/04",
         "text": "只有对比文件与发明所涉及的疾病相同或实质相同，才破坏发明的新颖性"
       }
     ],
@@ -9538,7 +9688,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-08"
       ]
     },
@@ -9549,7 +9699,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/003/08",
+        "chunk": "examination-guideline/01/003/08",
         "text": "相同或者实质相同的审查参照本指南第四部分第五章第5节的相关规定"
       }
     ],
@@ -9568,12 +9718,7 @@
     "lawKeys": [],
     "tier": "mid",
     "df": 1,
-    "evidence": [
-      {
-        "chunk": "infringement-guide/04/_full-chapter",
-        "text": "应当首先审查被诉侵权产品与外观设计产品是否属于相同或者相近种类产品"
-      }
-    ],
+    "evidence": [],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
@@ -9582,7 +9727,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-06"
       ]
     },
@@ -9595,7 +9740,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/06",
+        "chunk": "examination-guideline/05/005/06",
         "text": "应当包括向外国申请专利保密审查请求书和技术方案说明书"
       }
     ],
@@ -9607,7 +9752,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-07"
       ]
     },
@@ -9616,7 +9761,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/07",
+        "chunk": "examination-guideline/05/007/07",
         "text": "因人民法院要求协助执行财产保全措施需要中止有关程序的"
       }
     ],
@@ -9732,12 +9877,28 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "行政审批所需要的信息",
+    "canonical": "行政审批所需要的信息",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-06-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "形式缺陷",
     "canonical": "形式缺陷",
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06-02-02"
       ]
     },
@@ -9746,7 +9907,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/06/002/02",
+        "chunk": "examination-guideline/06/002/02",
         "text": "审查员不得以申请文件的形式缺陷为由驳回外观设计国际申请"
       }
     ],
@@ -9758,7 +9919,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-01"
       ]
     },
@@ -9767,7 +9928,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/010/01",
+        "chunk": "examination-guideline/02/010/01",
         "text": "不得不借助于性能参数和/或制备方法来定义"
       }
     ],
@@ -9779,7 +9940,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-04"
       ]
     },
@@ -9791,7 +9952,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/010/04",
+        "chunk": "examination-guideline/02/010/04",
         "text": "通常需要写成性能限定型或者用途限定型"
       }
     ],
@@ -9803,7 +9964,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-04"
       ]
     },
@@ -9814,7 +9975,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/04",
+        "chunk": "examination-guideline/03/001/04",
         "text": "审查员应当发出修改不予考虑通知书"
       }
     ],
@@ -9826,7 +9987,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-13"
       ]
     },
@@ -9835,7 +9996,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/13",
+        "chunk": "examination-guideline/04/004/13",
         "text": "有权提交修改文件"
       }
     ],
@@ -9847,7 +10008,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-04"
       ]
     },
@@ -9858,7 +10019,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/04",
+        "chunk": "examination-guideline/03/001/04",
         "text": "补交修改文件的译文或修改文件表"
       }
     ],
@@ -9870,7 +10031,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-04"
       ]
     },
@@ -9881,7 +10042,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/04",
+        "chunk": "examination-guideline/03/001/04",
         "text": "审查员应当发出修改文件缺陷通知书，通知申请人改正"
       }
     ],
@@ -9893,7 +10054,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-04"
       ]
     },
@@ -9904,7 +10065,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/04",
+        "chunk": "examination-guideline/03/001/04",
         "text": "互相替换的修改页"
       }
     ],
@@ -9958,7 +10119,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-04-04"
       ]
     },
@@ -9969,7 +10130,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/003/04/04",
+        "chunk": "examination-guideline/01/003/04/04",
         "text": "用虚线与实线相结合的方式表明所需要保护部分的内容"
       }
     ],
@@ -9988,12 +10149,7 @@
     "lawKeys": [],
     "tier": "mid",
     "df": 1,
-    "evidence": [
-      {
-        "chunk": "infringement-guide/06/007",
-        "text": "被诉侵权人在标准必要专利的实施许可协商中也没有明显过错的"
-      }
-    ],
+    "evidence": [],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
@@ -10002,7 +10158,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06-01-03"
       ]
     },
@@ -10014,7 +10170,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/06/001/03",
+        "chunk": "examination-guideline/06/001/03",
         "text": "专利权人未按照海牙协定的规定办理续展手续的"
       }
     ],
@@ -10047,7 +10203,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-02-04"
       ]
     },
@@ -10056,7 +10212,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/002/04",
+        "chunk": "examination-guideline/05/002/04",
         "text": "当事人可以对在专利权终止或者宣告专利权全部无效的决定公告后"
       }
     ],
@@ -10068,7 +10224,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-03"
       ]
     },
@@ -10083,7 +10239,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/03",
+        "chunk": "examination-guideline/03/001/03",
         "text": "对于选定局，专利合作条约第40条也作了相应的规定"
       }
     ],
@@ -10142,7 +10298,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-04"
       ]
     },
@@ -10151,7 +10307,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/04",
+        "chunk": "examination-guideline/05/007/04",
         "text": "审查员应当发出延长期限审批通知书"
       }
     ],
@@ -10163,7 +10319,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-09-03"
       ]
     },
@@ -10175,7 +10331,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/010/09/03",
+        "chunk": "examination-guideline/02/010/09/03",
         "text": "在严格条件下与（a）限定的DNA序列杂交且编码具有酶A活性的蛋白质的DNA分子"
       }
     ],
@@ -10187,7 +10343,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-09-03"
       ]
     },
@@ -10199,7 +10355,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/009/03",
+        "chunk": "examination-guideline/05/009/03",
         "text": "专利权人与药品上市许可持有人不一致的，应当征得药品上市许可持有人书面同意"
       }
     ],
@@ -10234,7 +10390,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-03"
       ]
     },
@@ -10243,7 +10399,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/03",
+        "chunk": "examination-guideline/02/011/03",
         "text": "与说明书公开的药味配伍关系实质不同的技术方案"
       }
     ],
@@ -10255,7 +10411,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-02-04"
       ]
     },
@@ -10264,7 +10420,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/002/04",
+        "chunk": "examination-guideline/01/002/04",
         "text": "要求优先权"
       }
     ],
@@ -10276,7 +10432,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-09-03"
       ]
     },
@@ -10288,7 +10444,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/009/03",
+        "chunk": "examination-guideline/05/009/03",
         "text": "对于其中药物活性物质的产品发明专利、制备方法发明专利或者医药用途发明专利"
       }
     ],
@@ -10323,7 +10479,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-02-06"
       ]
     },
@@ -10332,7 +10488,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/002/06",
+        "chunk": "examination-guideline/05/002/06",
         "text": "审查员可以依职权对费用种类进行转换"
       }
     ],
@@ -10344,7 +10500,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-02"
       ]
     },
@@ -10356,7 +10512,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/02",
+        "chunk": "examination-guideline/05/007/02",
         "text": "期限届满日是法定休假日或者移用周休息日的"
       }
     ],
@@ -10368,7 +10524,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-01"
       ]
     },
@@ -10377,7 +10533,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/010/01",
+        "chunk": "examination-guideline/02/010/01",
         "text": "发现已知化学产品新的性能或者用途并不意味着其结构或者组成的改变"
       }
     ],
@@ -10389,7 +10545,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03-02"
       ]
     },
@@ -10400,7 +10556,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/003/02",
+        "chunk": "examination-guideline/02/003/02",
         "text": "为公众所知的其他方式，主要是指口头公开等"
       }
     ],
@@ -10412,7 +10568,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-03"
       ]
     },
@@ -10421,7 +10577,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/03",
+        "chunk": "examination-guideline/02/011/03",
         "text": "是中药组合物发明以制备方法限定产品权利要求的常见表达方式"
       }
     ],
@@ -10498,7 +10654,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06-02-04"
       ]
     },
@@ -10510,7 +10666,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/06/002/04",
+        "chunk": "examination-guideline/06/002/04",
         "text": "根据专利法实施细则第五十条提交的英文补正文本"
       }
     ],
@@ -10543,7 +10699,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-01-09"
       ]
     },
@@ -10552,7 +10708,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/001/09",
+        "chunk": "examination-guideline/05/001/09",
         "text": "签订了专利业务办理系统用户服务协议"
       }
     ],
@@ -10564,7 +10720,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-03"
       ]
     },
@@ -10573,7 +10729,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/03",
+        "chunk": "examination-guideline/02/011/03",
         "text": "还应当记载各中药原料的用量配比关系"
       }
     ],
@@ -10585,7 +10741,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-04"
       ]
     },
@@ -10597,7 +10753,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/010/04",
+        "chunk": "examination-guideline/02/010/04",
         "text": "通常需要写成性能限定型或者用途限定型"
       }
     ],
@@ -10609,7 +10765,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-05-02"
       ]
     },
@@ -10624,7 +10780,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/05/02",
+        "chunk": "examination-guideline/03/001/05/02",
         "text": "作为优先权基础的在先申请是否在巴黎公约成员国"
       }
     ],
@@ -10636,7 +10792,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-04-05"
       ]
     },
@@ -10645,7 +10801,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/004/05",
+        "chunk": "examination-guideline/05/004/05",
         "text": "申请文件，优先权文件，与申请直接有关的手续文件"
       }
     ],
@@ -10680,7 +10836,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-05-02"
       ]
     },
@@ -10695,7 +10851,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/05/02",
+        "chunk": "examination-guideline/03/001/05/02",
         "text": "或“优先权要求被认为未提出通知书”（PCT/IB/318表）"
       }
     ],
@@ -10725,12 +10881,28 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "由产品功能决定的设计特征",
+    "canonical": "由产品功能决定的设计特征",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "邮路查询",
     "canonical": "邮路查询",
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-06-03"
       ]
     },
@@ -10739,7 +10911,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/006/03",
+        "chunk": "examination-guideline/05/006/03",
         "text": "应当办理邮路查询手续"
       }
     ],
@@ -10751,7 +10923,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-03"
       ]
     },
@@ -10763,7 +10935,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/010/03",
+        "chunk": "examination-guideline/02/010/03",
         "text": "还应当记载其有效量及使用方法"
       }
     ],
@@ -10775,7 +10947,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-08"
       ]
     },
@@ -10784,7 +10956,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/08",
+        "chunk": "examination-guideline/05/007/08",
         "text": "经国家级知识产权保护中心或者快速维权中心预审合格后提交的专利申请"
       }
     ],
@@ -10838,12 +11010,28 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "原有范围",
+    "canonical": "原有范围",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-06-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "源程序",
     "canonical": "源程序",
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-01"
       ]
     },
@@ -10852,7 +11040,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/009/01",
+        "chunk": "examination-guideline/02/009/01",
         "text": "计算机程序本身包括源程序和目标程序"
       }
     ],
@@ -10864,7 +11052,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-09-02"
       ]
     },
@@ -10876,7 +11064,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/010/09/02",
+        "chunk": "examination-guideline/02/010/09/02",
         "text": "所述杂交瘤应当按照专利法实施细则第二十七条的规定进行保藏"
       }
     ],
@@ -10888,7 +11076,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06-02-06-02"
       ]
     },
@@ -10904,7 +11092,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/06/002/06/02",
+        "chunk": "examination-guideline/06/002/06/02",
         "text": "在后申请的申请人"
       }
     ],
@@ -10937,7 +11125,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-05-07"
       ]
     },
@@ -10948,7 +11136,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/005/07",
+        "chunk": "examination-guideline/04/005/07",
         "text": "是指在先合法权利的取得日在涉案专利申请日之前"
       }
     ],
@@ -10960,7 +11148,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-06"
       ]
     },
@@ -10973,7 +11161,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/06",
+        "chunk": "examination-guideline/05/005/06",
         "text": "将需作进一步保密审查、暂缓向外国申请专利的审查意见通知请求人"
       }
     ],
@@ -11029,7 +11217,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-09"
       ]
     },
@@ -11038,7 +11226,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/09",
+        "chunk": "examination-guideline/04/004/09",
         "text": "而被合议组责令退庭的"
       }
     ],
@@ -11050,7 +11238,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-04"
       ]
     },
@@ -11066,7 +11254,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/003/04",
+        "chunk": "examination-guideline/04/003/04",
         "text": "请求人在提出无效宣告请求之日起一个月内增加无效宣告理由的"
       }
     ],
@@ -11078,7 +11266,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-02-08"
       ]
     },
@@ -11091,7 +11279,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/002/08",
+        "chunk": "examination-guideline/01/002/08",
         "text": "针对通知书指出的缺陷进行修改"
       }
     ],
@@ -11127,7 +11315,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-04-04"
       ]
     },
@@ -11138,7 +11326,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/003/04/04",
+        "chunk": "examination-guideline/01/003/04/04",
         "text": "应当在产品名称中写明要求保护的局部及其所在的整体产品"
       }
     ],
@@ -11150,7 +11338,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-04-05"
       ]
     },
@@ -11159,7 +11347,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/003/04/05",
+        "chunk": "examination-guideline/01/003/04/05",
         "text": "图形用户界面所涉及面的产品正投影视图"
       }
     ],
@@ -11173,7 +11361,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-08-04"
       ]
     },
@@ -11182,7 +11370,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/008/04",
+        "chunk": "examination-guideline/04/008/04",
         "text": "质证时，当事人应当围绕证据的关联性、合法性、真实性"
       }
     ],
@@ -11194,7 +11382,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06-02-06-03"
       ]
     },
@@ -11207,7 +11395,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/06/002/06/03",
+        "chunk": "examination-guideline/06/002/06/03",
         "text": "审查员应当对证明材料中注明的相关日期"
       }
     ],
@@ -11219,7 +11407,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-08-04"
       ]
     },
@@ -11228,7 +11416,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/008/04",
+        "chunk": "examination-guideline/04/008/04",
         "text": "针对证据证明力有无以及证明力大小，进行质疑、说明和辩驳"
       }
     ],
@@ -11240,7 +11428,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-01-06"
       ]
     },
@@ -11249,7 +11437,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/001/06",
+        "chunk": "examination-guideline/05/001/06",
         "text": "在办理相关手续时应当注明证明文件备案号"
       }
     ],
@@ -11261,7 +11449,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-05"
       ]
     },
@@ -11270,7 +11458,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/05",
+        "chunk": "examination-guideline/04/004/05",
         "text": "是否请证人作证"
       }
     ],
@@ -11282,7 +11470,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-10"
       ]
     },
@@ -11291,7 +11479,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/10",
+        "chunk": "examination-guideline/04/004/10",
         "text": "但需要证人对质的除外"
       }
     ],
@@ -11303,7 +11491,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-10"
       ]
     },
@@ -11312,7 +11500,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/10",
+        "chunk": "examination-guideline/04/004/10",
         "text": "出具过证言并在口头审理通知书回执中写明的证人"
       }
     ],
@@ -11347,7 +11535,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-05-05"
       ]
     },
@@ -11358,7 +11546,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/005/05",
+        "chunk": "examination-guideline/04/005/05",
         "text": "在对比时应当通过视觉进行直接观察"
       }
     ],
@@ -11370,7 +11558,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-06-02"
       ]
     },
@@ -11379,7 +11567,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/006/02",
+        "chunk": "examination-guideline/05/006/02",
         "text": "2.1.2直接送交"
       }
     ],
@@ -11391,7 +11579,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-03"
       ]
     },
@@ -11400,7 +11588,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/03",
+        "chunk": "examination-guideline/02/011/03",
         "text": "如植物基原、拉丁名、药用部位、性味归经、功效等"
       }
     ],
@@ -11412,7 +11600,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-01-05"
       ]
     },
@@ -11421,7 +11609,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/001/05",
+        "chunk": "examination-guideline/05/001/05",
         "text": "纸件申请的字高应当不低于3.5毫米"
       }
     ],
@@ -11433,7 +11621,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-01-02"
       ]
     },
@@ -11442,7 +11630,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/001/02",
+        "chunk": "examination-guideline/05/001/02",
         "text": "申请人以纸件形式提出专利申请并被受理的"
       }
     ],
@@ -11454,7 +11642,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-03"
       ]
     },
@@ -11463,7 +11651,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/03",
+        "chunk": "examination-guideline/02/011/03",
         "text": "综合判断该别名是否指代明确"
       }
     ],
@@ -11496,7 +11684,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-07-04"
       ]
     },
@@ -11505,7 +11693,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/007/04",
+        "chunk": "examination-guideline/02/007/04",
         "text": "相同或相近技术领域的指定中国的国际申请"
       }
     ],
@@ -11517,7 +11705,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-07-11"
       ]
     },
@@ -11526,7 +11714,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/007/11",
+        "chunk": "examination-guideline/02/007/11",
         "text": "可能构成抵触申请的指定中国的国际专利申请文件"
       }
     ],
@@ -11538,7 +11726,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-09-03"
       ]
     },
@@ -11550,7 +11738,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/009/03",
+        "chunk": "examination-guideline/05/009/03",
         "text": "对于其中药物活性物质的产品发明专利、制备方法发明专利或者医药用途发明专利"
       }
     ],
@@ -11606,7 +11794,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-08-01-02"
       ]
     },
@@ -11615,7 +11803,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/008/01/02",
+        "chunk": "examination-guideline/05/008/01/02",
         "text": "专利权的质押、保全及其解除"
       }
     ],
@@ -11627,7 +11815,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-03"
       ]
     },
@@ -11638,7 +11826,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/03",
+        "chunk": "examination-guideline/05/007/03",
         "text": "通知专利权人在专利法实施细则第一百一十五条规定的滞纳期内缴纳相关费用及滞纳金"
       }
     ],
@@ -11650,7 +11838,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-09"
       ]
     },
@@ -11661,7 +11849,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/003/09",
+        "chunk": "examination-guideline/04/003/09",
         "text": "中国上市药品专利信息登记平台收录的被仿制药相关专利权"
       }
     ],
@@ -11698,7 +11886,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-11-06"
       ]
     },
@@ -11707,7 +11895,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/011/06",
+        "chunk": "examination-guideline/05/011/06",
         "text": "《中华人民共和国技术进出口管理条例》"
       }
     ],
@@ -11740,7 +11928,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-01-03"
       ]
     },
@@ -11749,7 +11937,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/001/03",
+        "chunk": "examination-guideline/05/001/03",
         "text": "应当同时附具中文题录译文"
       }
     ],
@@ -11761,7 +11949,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-04"
       ]
     },
@@ -11770,7 +11958,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/04",
+        "chunk": "examination-guideline/02/011/04",
         "text": "应当注意中医的病与证，以及其与西医的病或药物作用机理之间的关系"
       }
     ],
@@ -11782,7 +11970,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-04"
       ]
     },
@@ -11791,7 +11979,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/04",
+        "chunk": "examination-guideline/02/011/04",
         "text": "当对比文件为中医古方时"
       }
     ],
@@ -11803,7 +11991,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-01"
       ]
     },
@@ -11812,7 +12000,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/01",
+        "chunk": "examination-guideline/02/011/01",
         "text": "中药的创新是以中医药理论为指导"
       }
     ],
@@ -11824,7 +12012,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-07"
       ]
     },
@@ -11833,7 +12021,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/07",
+        "chunk": "examination-guideline/05/007/07",
         "text": "审查员应当向权属纠纷的双方当事人发出中止程序结束通知书"
       }
     ],
@@ -11845,7 +12033,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-07"
       ]
     },
@@ -11854,7 +12042,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/07",
+        "chunk": "examination-guideline/05/007/07",
         "text": "审查员向专利申请（或专利）权属纠纷的双方当事人发出中止程序请求审批通知书"
       }
     ],
@@ -11866,7 +12054,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-07"
       ]
     },
@@ -11875,7 +12063,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/07",
+        "chunk": "examination-guideline/05/007/07",
         "text": "提交中止程序请求书并说明理由"
       }
     ],
@@ -11887,7 +12075,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-07-08"
       ]
     },
@@ -11896,7 +12084,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/007/08",
+        "chunk": "examination-guideline/02/007/08",
         "text": "检索过程中，出现下列情况之一时，审查员可以中止检索："
       }
     ],
@@ -11908,7 +12096,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-01"
       ]
     },
@@ -11920,7 +12108,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/01",
+        "chunk": "examination-guideline/05/005/01",
         "text": "涉及国家安全或者重大利益两个方面的发明创造"
       }
     ],
@@ -11932,7 +12120,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-02-04"
       ]
     },
@@ -11941,7 +12129,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/002/04",
+        "chunk": "examination-guideline/05/002/04",
         "text": "多缴、重缴、错缴专利费用的"
       }
     ],
@@ -11953,7 +12141,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-05-03"
       ]
     },
@@ -11962,7 +12150,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/05/03",
+        "chunk": "examination-guideline/03/001/05/03",
         "text": "重新确定该国际申请在中国的申请日，并发出重新确定申请日通知书"
       }
     ],
@@ -11974,7 +12162,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-01-08"
       ]
     },
@@ -11983,7 +12171,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/001/08",
+        "chunk": "examination-guideline/04/001/08",
         "text": "复审请求或者无效宣告请求审查决定被人民法院的生效判决撤销后，应当重新作出审查决定"
       }
     ],
@@ -12016,7 +12204,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-05"
       ]
     },
@@ -12025,7 +12213,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/05",
+        "chunk": "examination-guideline/04/004/05",
         "text": "声明缩小专利保护范围"
       }
     ],
@@ -12037,7 +12225,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-01-07"
       ]
     },
@@ -12046,7 +12234,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/001/07",
+        "chunk": "examination-guideline/05/001/07",
         "text": "专利代理委托书、实质审查请求书、著录项目变更申报书"
       }
     ],
@@ -12058,7 +12246,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-01-09"
       ]
     },
@@ -12067,7 +12255,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/001/09",
+        "chunk": "examination-guideline/05/001/09",
         "text": "是可以集中实现专利电子申请、电子缴费"
       }
     ],
@@ -12102,7 +12290,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-02-03"
       ]
     },
@@ -12111,7 +12299,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/002/03",
+        "chunk": "examination-guideline/05/002/03",
         "text": "并在提出请求前提前办理专利费减备案手续"
       }
     ],
@@ -12272,7 +12460,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-04-06"
       ]
     },
@@ -12281,7 +12469,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/004/06",
+        "chunk": "examination-guideline/05/004/06",
         "text": "未缴年费专利权终止、专利权期限届满和专利权被宣告全部无效等"
       }
     ],
@@ -12316,7 +12504,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-08-01-03"
       ]
     },
@@ -12325,7 +12513,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/008/01/03",
+        "chunk": "examination-guideline/05/008/01/03",
         "text": "专利权的保全及其解除"
       }
     ],
@@ -12385,7 +12573,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-04-06"
       ]
     },
@@ -12394,7 +12582,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/004/06",
+        "chunk": "examination-guideline/05/004/06",
         "text": "未缴年费专利权终止、专利权期限届满和专利权被宣告全部无效等"
       }
     ],
@@ -12406,7 +12594,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-09-01"
       ]
     },
@@ -12415,7 +12603,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/009/01",
+        "chunk": "examination-guideline/05/009/01",
         "text": "专利权自公告之日起生效"
       }
     ],
@@ -12483,12 +12671,7 @@
     "lawKeys": [],
     "tier": "mid",
     "df": 1,
-    "evidence": [
-      {
-        "chunk": "infringement-guide/06/001",
-        "text": "专利权效力抗辩"
-      }
-    ],
+    "evidence": [],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
@@ -12586,7 +12769,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-07"
       ]
     },
@@ -12598,7 +12781,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/008/07",
+        "chunk": "examination-guideline/02/008/07",
         "text": "专利申请权归属纠纷的当事人"
       }
     ],
@@ -12631,7 +12814,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-03-02"
       ]
     },
@@ -12644,7 +12827,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/003/02",
+        "chunk": "examination-guideline/05/003/02",
         "text": "发出专利申请受理通知书、缴纳申请费通知书或者收费减缴审批通知书"
       }
     ],
@@ -12677,7 +12860,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-03"
       ]
     },
@@ -12686,7 +12869,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/03",
+        "chunk": "examination-guideline/05/005/03",
         "text": "审查员向申请人发出专利申请移交国防知识产权局通知书"
       }
     ],
@@ -12698,7 +12881,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-10-02"
       ]
     },
@@ -12711,7 +12894,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/010/02",
+        "chunk": "examination-guideline/05/010/02",
         "text": "专利实施独占许可合同的被许可人"
       }
     ],
@@ -12723,7 +12906,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-10-02"
       ]
     },
@@ -12736,7 +12919,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/010/02",
+        "chunk": "examination-guideline/05/010/02",
         "text": "专利实施普通许可合同的被许可人"
       }
     ],
@@ -12748,7 +12931,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-08-01-03"
       ]
     },
@@ -12757,7 +12940,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/008/01/03",
+        "chunk": "examination-guideline/05/008/01/03",
         "text": "专利实施许可合同备案的生效、变更及注销"
       }
     ],
@@ -12769,7 +12952,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-11-07"
       ]
     },
@@ -12778,7 +12961,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/011/07",
+        "chunk": "examination-guideline/05/011/07",
         "text": "《专利实施许可合同备案办法》"
       }
     ],
@@ -12811,7 +12994,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-07"
       ]
     },
@@ -12822,7 +13005,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/07",
+        "chunk": "examination-guideline/03/001/07",
         "text": "可以根据专利收费减缴办法向专利局提出收费减缴的请求"
       }
     ],
@@ -12876,7 +13059,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-04"
       ]
     },
@@ -12887,7 +13070,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/04",
+        "chunk": "examination-guideline/03/001/04",
         "text": "专利性国际初步报告附件译文"
       }
     ],
@@ -12899,7 +13082,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-08"
       ]
     },
@@ -12908,7 +13091,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/007/08",
+        "chunk": "examination-guideline/05/007/08",
         "text": "适用优先审查的具体情形由《专利优先审查管理办法》规定"
       }
     ],
@@ -12943,7 +13126,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-09-02"
       ]
     },
@@ -12955,7 +13138,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/010/09/02",
+        "chunk": "examination-guideline/02/010/09/02",
         "text": "对于制备转化体的方法，应当描述导入的基因或者重组载体、宿主"
       }
     ],
@@ -12967,7 +13150,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-01-07"
       ]
     },
@@ -12976,7 +13159,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/001/07",
+        "chunk": "examination-guideline/05/001/07",
         "text": "著录项目变更申报书、转让合同等"
       }
     ],
@@ -12988,7 +13171,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-07"
       ]
     },
@@ -12997,7 +13180,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/001/06/07",
+        "chunk": "examination-guideline/01/001/06/07",
         "text": "应当提交双方签字或者盖章的转让或者赠与合同"
       }
     ],
@@ -13051,7 +13234,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-05"
       ]
     },
@@ -13060,7 +13243,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/009/05",
+        "chunk": "examination-guideline/02/009/05",
         "text": "如果写成装置权利要求，应当具体描述该装置的各个组成部分"
       }
     ],
@@ -13116,7 +13299,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-02"
       ]
     },
@@ -13128,7 +13311,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/009/02",
+        "chunk": "examination-guideline/02/009/02",
         "text": "获得的不是受自然规律约束的效果"
       }
     ],
@@ -13163,7 +13346,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-11-02"
       ]
     },
@@ -13174,7 +13357,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/011/02",
+        "chunk": "examination-guideline/05/011/02",
         "text": "当事人可以依照自愿原则设立"
       }
     ],
@@ -13186,7 +13369,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-01"
       ]
     },
@@ -13197,7 +13380,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/001/06/01",
+        "chunk": "examination-guideline/01/001/06/01",
         "text": "专利局收到符合规定的总委托书后，应当给出总委托书编号"
       }
     ],
@@ -13209,7 +13392,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-05"
       ]
     },
@@ -13218,7 +13401,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/011/05",
+        "chunk": "examination-guideline/02/011/05",
         "text": "通常具有一定的组方结构"
       }
     ],
@@ -13230,7 +13413,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-07-06"
       ]
     },
@@ -13239,7 +13422,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/02/007/06",
+        "chunk": "examination-guideline/02/007/06",
         "text": "最接近的现有技术文件"
       }
     ],
@@ -13251,7 +13434,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-11"
       ]
     },
@@ -13262,7 +13445,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/003/11",
+        "chunk": "examination-guideline/01/003/11",
         "text": "专利权授予最先申请的人"
       }
     ],
@@ -13295,7 +13478,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-04-05"
       ]
     },
@@ -13304,7 +13487,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/01/004/05",
+        "chunk": "examination-guideline/01/004/05",
         "text": "优先规则（最先位置规则、最后位置规则）"
       }
     ],
@@ -13316,7 +13499,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-02"
       ]
     },
@@ -13331,7 +13514,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/001/02",
+        "chunk": "examination-guideline/03/001/02",
         "text": "记录的最早优先权日起算"
       }
     ],
@@ -13343,7 +13526,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-10"
       ]
     },
@@ -13352,7 +13535,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/04/004/10",
+        "chunk": "examination-guideline/04/004/10",
         "text": "作伪证的法律责任"
       }
     ],
@@ -13364,7 +13547,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-06"
       ]
     },
@@ -13377,7 +13560,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/05/005/06",
+        "chunk": "examination-guideline/05/005/06",
         "text": "作为PCT受理局的外国国家或外国政府间专利合作组织设立的专利主管机构"
       }
     ],
@@ -13389,7 +13572,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-02-05"
       ]
     },
@@ -13406,7 +13589,7 @@
     "df": 1,
     "evidence": [
       {
-        "chunk": "examination-guideline-2025/03/002/05",
+        "chunk": "examination-guideline/03/002/05",
         "text": "国际检索报告中列出了PX、PY类对比文件的"
       }
     ],

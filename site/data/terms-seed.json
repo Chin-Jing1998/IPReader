@@ -5,7 +5,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-01-02",
         "02-09",
         "02-10-02",
@@ -25,7 +25,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-07-02",
         "01-03-06-01",
         "02-01-03-01"
@@ -46,7 +46,7 @@
     "matchers": [],
     "topicKey": "geneticResources",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-05-03",
         "02-01-03-02",
         "02-10-09-05"
@@ -68,7 +68,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-01-04"
       ],
       "patent-law": [
@@ -86,7 +86,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-01-04-01",
         "02-10-02-01",
         "02-11-02-02"
@@ -101,7 +101,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-01-04-02",
         "02-09-02"
       ]
@@ -115,7 +115,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-01-04-03"
       ]
     },
@@ -128,7 +128,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-01-04-03",
         "02-05-03-02"
       ]
@@ -142,7 +142,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-01-04-04",
         "02-10-09-01"
       ]
@@ -156,7 +156,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-01-04-05"
       ]
     },
@@ -169,7 +169,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09"
       ]
     },
@@ -184,7 +184,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-06"
       ]
     },
@@ -197,7 +197,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-07"
       ]
     },
@@ -210,7 +210,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-09-06"
       ]
     },
@@ -223,7 +223,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-02-02-01",
         "02-10-03",
         "02-11-03-01"
@@ -239,7 +239,7 @@
     "matchers": [],
     "topicKey": "embodiment",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-02-02-02",
         "02-10-03-04"
       ]
@@ -253,7 +253,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-03-05"
       ]
     },
@@ -271,7 +271,7 @@
     ],
     "topicKey": "clarity",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-02-03-02"
       ]
     },
@@ -285,7 +285,7 @@
     "matchers": [],
     "topicKey": "support",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-02-03-02"
       ]
     },
@@ -299,7 +299,7 @@
     "matchers": [],
     "topicKey": "essentialFeatures",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-06-01"
       ],
       "oa-response-guide": [
@@ -316,7 +316,7 @@
     "matchers": [],
     "topicKey": "claims",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-02-03-03"
       ]
     },
@@ -330,7 +330,7 @@
     "matchers": [],
     "topicKey": "claims",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-02-03-03",
         "02-06-02-02"
       ]
@@ -344,7 +344,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-02-03-03"
       ],
       "infringement-guide": [
@@ -362,7 +362,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-08-01"
       ]
     },
@@ -375,7 +375,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-04-05"
       ]
     },
@@ -388,7 +388,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-04-05"
       ]
     },
@@ -405,7 +405,7 @@
     ],
     "topicKey": "novelty",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03"
       ],
       "patent-law": [
@@ -427,7 +427,7 @@
     "matchers": [],
     "topicKey": "novelty",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03-02-01"
       ],
       "patent-law": [
@@ -446,7 +446,7 @@
     "matchers": [],
     "topicKey": "novelty",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03-02-02"
       ]
     },
@@ -459,7 +459,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03-03-01"
       ]
     },
@@ -472,7 +472,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03-03-02"
       ]
     },
@@ -485,7 +485,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03-03-02"
       ],
       "oa-response-guide": [
@@ -505,7 +505,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03-03-02"
       ],
       "infringement-guide": [
@@ -525,7 +525,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03-03-02"
       ]
     },
@@ -546,7 +546,7 @@
     ],
     "topicKey": "inventiveness",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-04"
       ],
       "oa-response-guide": [
@@ -563,7 +563,7 @@
     "matchers": [],
     "topicKey": "inventiveness",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-04-03-02"
       ],
       "oa-response-guide": [
@@ -580,7 +580,7 @@
     "matchers": [],
     "topicKey": "inventiveness",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-04-03-02"
       ]
     },
@@ -593,7 +593,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-04-03-02"
       ]
     },
@@ -606,7 +606,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-04-03-02"
       ],
       "oa-response-guide": [
@@ -624,7 +624,7 @@
     "matchers": [],
     "topicKey": "inventiveness",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-04-03-02"
       ],
       "oa-response-guide": [
@@ -642,7 +642,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-04-02-04"
       ]
     },
@@ -655,7 +655,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-04-03-02",
         "02-08-04-10"
       ]
@@ -669,7 +669,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-04-06-02"
       ],
       "oa-response-guide": [
@@ -686,7 +686,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-04-05-03",
         "02-04-06-03"
       ],
@@ -703,7 +703,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-02-02-01",
         "02-04-05-02"
       ]
@@ -717,7 +717,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-04-05-04"
       ]
     },
@@ -730,7 +730,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-04-04-01"
       ]
     },
@@ -743,7 +743,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-04-04-03"
       ]
     },
@@ -756,7 +756,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-04-04-04"
       ]
     },
@@ -769,7 +769,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-04-04-05",
         "02-10-06-02"
       ]
@@ -790,7 +790,7 @@
     ],
     "topicKey": "utility",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-05"
       ],
       "chemistry-drafting-rules": [
@@ -806,7 +806,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-05-03-02"
       ]
     },
@@ -819,7 +819,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-05-03-02"
       ]
     },
@@ -836,7 +836,7 @@
     "matchers": [],
     "topicKey": "unity",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-06",
         "02-10-08"
       ],
@@ -865,7 +865,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-06-02-01"
       ],
       "oa-response-guide": [
@@ -883,7 +883,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-05-01",
         "02-06-03"
       ],
@@ -900,7 +900,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-07"
       ]
     },
@@ -913,7 +913,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08"
       ]
     },
@@ -926,7 +926,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-02",
         "02-03-04",
         "02-08-04-06"
@@ -941,7 +941,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-04-10",
         "02-08-04-11"
       ]
@@ -955,7 +955,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-05-02"
       ]
     },
@@ -968,7 +968,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-05-02"
       ]
     },
@@ -987,7 +987,7 @@
     ],
     "topicKey": "amendment",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-07-06",
         "02-08-05-02"
       ],
@@ -1009,7 +1009,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-05-02"
       ]
     },
@@ -1022,7 +1022,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-05-02"
       ]
     },
@@ -1035,7 +1035,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-05-02"
       ]
     },
@@ -1048,7 +1048,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-08",
         "02-08-05-02"
       ]
@@ -1063,7 +1063,7 @@
     "matchers": [],
     "topicKey": "reexam",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-03-05",
         "02-08-06-01"
       ]
@@ -1077,7 +1077,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-06-01"
       ]
     },
@@ -1090,7 +1090,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-08-06-01",
         "04-01-02-05"
       ]
@@ -1104,7 +1104,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10"
       ]
     },
@@ -1117,7 +1117,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-05-01"
       ]
     },
@@ -1130,7 +1130,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-06-01"
       ]
     },
@@ -1146,7 +1146,7 @@
     "matchers": [],
     "topicKey": "compound",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-04-02",
         "02-10-05-02"
       ]
@@ -1160,7 +1160,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-02-02",
         "02-10-04-05"
       ]
@@ -1174,7 +1174,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-05-04"
       ]
     },
@@ -1187,7 +1187,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-05-02",
         "02-10-09-02"
       ],
@@ -1210,7 +1210,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-09-01"
       ]
     },
@@ -1225,7 +1225,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-09-01"
       ]
     },
@@ -1238,7 +1238,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-10-09-01"
       ]
     },
@@ -1251,7 +1251,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11"
       ]
     },
@@ -1264,7 +1264,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-03-01",
         "02-11-05-01"
       ]
@@ -1281,7 +1281,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-05-01"
       ]
     },
@@ -1294,7 +1294,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-11-04-02"
       ]
     },
@@ -1311,7 +1311,7 @@
     ],
     "topicKey": "gracePeriod",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-03",
         "02-03-05"
       ],
@@ -1333,7 +1333,7 @@
     "matchers": [],
     "topicKey": "doubleProtect",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03-06",
         "04-07"
       ],
@@ -1352,7 +1352,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03-06-02"
       ]
     },
@@ -1370,7 +1370,7 @@
     ],
     "topicKey": "priority",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-02",
         "01-03-05-02",
         "02-03-04"
@@ -1392,7 +1392,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-02"
       ],
       "implementation-rules": [
@@ -1412,7 +1412,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-02"
       ]
     },
@@ -1425,7 +1425,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-04-07"
       ]
     },
@@ -1438,7 +1438,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-04"
       ]
     },
@@ -1451,7 +1451,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-05"
       ]
     },
@@ -1464,7 +1464,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-06"
       ]
     },
@@ -1477,7 +1477,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-07"
       ]
     },
@@ -1490,7 +1490,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-07"
       ]
     },
@@ -1503,7 +1503,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-07"
       ]
     },
@@ -1516,7 +1516,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-01-06-01"
       ]
     },
@@ -1529,7 +1529,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-02-06"
       ]
     },
@@ -1542,7 +1542,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-02-06-01"
       ]
     },
@@ -1555,7 +1555,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-07"
       ]
     },
@@ -1568,7 +1568,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-07-04"
       ]
     },
@@ -1581,7 +1581,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-04-02"
       ]
     },
@@ -1594,7 +1594,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-04-03"
       ]
     },
@@ -1607,7 +1607,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-04-04"
       ],
       "implementation-rules": [
@@ -1631,7 +1631,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-04-05",
         "01-03-07-04"
       ]
@@ -1645,7 +1645,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-04-05"
       ]
     },
@@ -1658,7 +1658,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-09-01"
       ]
     },
@@ -1671,7 +1671,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-09-02"
       ]
     },
@@ -1684,7 +1684,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-06-02"
       ]
     },
@@ -1700,7 +1700,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-03-08",
         "04-05-05",
         "04-05-06"
@@ -1716,7 +1716,7 @@
     "matchers": [],
     "topicKey": "design",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-05-04"
       ],
       "infringement-guide": [
@@ -1732,7 +1732,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-05-02"
       ]
     },
@@ -1745,7 +1745,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-05-02"
       ],
       "infringement-guide": [
@@ -1763,7 +1763,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-05-06-02"
       ]
     },
@@ -1776,7 +1776,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-05-07"
       ]
     },
@@ -1789,7 +1789,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-04"
       ]
     },
@@ -1804,7 +1804,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "01-04-04-03"
       ]
     },
@@ -1820,7 +1820,7 @@
     "matchers": [],
     "topicKey": "reexam",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-02"
       ],
       "implementation-rules": [
@@ -1840,7 +1840,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-02-02-03"
       ]
     },
@@ -1854,7 +1854,7 @@
     "matchers": [],
     "topicKey": "reexam",
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-02-03"
       ]
     },
@@ -1867,7 +1867,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-02-04"
       ]
     },
@@ -1880,7 +1880,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-02-04-01"
       ]
     },
@@ -1893,7 +1893,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-02-04-02"
       ]
     },
@@ -1906,7 +1906,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-02-05"
       ]
     },
@@ -1919,7 +1919,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-02-07"
       ]
     },
@@ -1932,7 +1932,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03"
       ]
     },
@@ -1945,7 +1945,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-03-03"
       ]
     },
@@ -1958,7 +1958,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-02-01"
       ]
     },
@@ -1973,7 +1973,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-04-02"
       ]
     },
@@ -1988,7 +1988,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-04-03"
       ]
     },
@@ -2001,7 +2001,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-04-06"
       ]
     },
@@ -2019,7 +2019,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-04-06"
       ]
     },
@@ -2032,7 +2032,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-04-06"
       ]
     },
@@ -2045,7 +2045,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-02-02"
       ]
     },
@@ -2058,7 +2058,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-05"
       ]
     },
@@ -2071,7 +2071,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-05"
       ]
     },
@@ -2084,7 +2084,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-03-09"
       ]
     },
@@ -2097,7 +2097,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04"
       ]
     },
@@ -2110,7 +2110,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-02"
       ]
     },
@@ -2123,7 +2123,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-03"
       ]
     },
@@ -2136,7 +2136,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-05"
       ]
     },
@@ -2149,7 +2149,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-04-10"
       ]
     },
@@ -2162,7 +2162,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-06"
       ]
     },
@@ -2175,7 +2175,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-06-04"
       ]
     },
@@ -2188,7 +2188,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-07"
       ]
     },
@@ -2201,7 +2201,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-08"
       ]
     },
@@ -2214,7 +2214,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-08-04-03"
       ]
     },
@@ -2227,7 +2227,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "04-08-05-01"
       ]
     },
@@ -2240,7 +2240,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "02-03-02-01",
         "04-08-05-02"
       ]
@@ -2254,7 +2254,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-01"
       ]
     },
@@ -2267,7 +2267,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-02"
       ]
     },
@@ -2280,7 +2280,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-03"
       ]
     },
@@ -2293,7 +2293,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-03-04"
       ]
     },
@@ -2306,7 +2306,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-04"
       ]
     },
@@ -2319,7 +2319,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-04-06-01"
       ]
     },
@@ -2332,7 +2332,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05"
       ]
     },
@@ -2345,7 +2345,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-05-06"
       ]
     },
@@ -2358,7 +2358,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-06"
       ]
     },
@@ -2371,7 +2371,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-06-02-01"
       ]
     },
@@ -2384,7 +2384,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-06-02-03"
       ]
     },
@@ -2397,7 +2397,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-01"
       ]
     },
@@ -2410,7 +2410,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-04"
       ]
     },
@@ -2423,7 +2423,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-06"
       ]
     },
@@ -2436,7 +2436,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-07"
       ]
     },
@@ -2451,7 +2451,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-08-02"
       ]
     },
@@ -2466,7 +2466,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-08-03"
       ]
     },
@@ -2479,7 +2479,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-07-08-04"
       ]
     },
@@ -2492,7 +2492,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-08"
       ]
     },
@@ -2505,7 +2505,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-08-02"
       ]
     },
@@ -2518,7 +2518,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-09-01"
       ]
     },
@@ -2531,7 +2531,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-09-01-02"
       ]
     },
@@ -2544,7 +2544,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-09-01-03"
       ],
       "implementation-rules": [
@@ -2564,7 +2564,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-09-02"
       ]
     },
@@ -2579,7 +2579,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-09-03"
       ]
     },
@@ -2592,7 +2592,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-09-04"
       ]
     },
@@ -2605,7 +2605,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-10"
       ],
       "implementation-rules": [
@@ -2625,7 +2625,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "05-11"
       ]
     },
@@ -2638,7 +2638,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03"
       ]
     },
@@ -2651,7 +2651,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-04"
       ]
     },
@@ -2664,7 +2664,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-05-08",
         "03-02-05-07"
       ]
@@ -2678,7 +2678,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "03-01-05-12"
       ]
     },
@@ -2691,7 +2691,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06"
       ],
       "implementation-rules": [
@@ -2725,7 +2725,7 @@
     "aliases": [],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06-02"
       ]
     },
@@ -2740,7 +2740,7 @@
     ],
     "matchers": [],
     "sources": {
-      "examination-guideline-2025": [
+      "examination-guideline": [
         "06-02-03"
       ]
     },
