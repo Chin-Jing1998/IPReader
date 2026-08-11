@@ -1,0 +1,1092 @@
+{
+  "generatedAt": "2026-08-11T16:25:51.280Z",
+  "externalAttempts": [],
+  "shots": [
+    "xuanzhi-light-1-局部图.png",
+    "xuanzhi-light-2-全局弹窗.png",
+    "xuanzhi-light-3-图谱总览.png",
+    "xuanzhi-light-4-悬停弹窗展开态.png",
+    "xuanzhi-light-5-搜索弹层带结果.png",
+    "xuanzhi-dark-1-局部图.png",
+    "xuanzhi-dark-2-全局弹窗.png",
+    "xuanzhi-dark-3-图谱总览.png",
+    "xuanzhi-dark-4-悬停弹窗展开态.png",
+    "xuanzhi-dark-5-搜索弹层带结果.png",
+    "shuimo-light-1-局部图.png",
+    "shuimo-light-2-全局弹窗.png",
+    "shuimo-light-3-图谱总览.png",
+    "shuimo-light-4-悬停弹窗展开态.png",
+    "shuimo-light-5-搜索弹层带结果.png",
+    "shuimo-dark-1-局部图.png",
+    "shuimo-dark-2-全局弹窗.png",
+    "shuimo-dark-3-图谱总览.png",
+    "shuimo-dark-4-悬停弹窗展开态.png",
+    "shuimo-dark-5-搜索弹层带结果.png",
+    "qingci-light-1-局部图.png",
+    "qingci-light-2-全局弹窗.png",
+    "qingci-light-3-图谱总览.png",
+    "qingci-light-4-悬停弹窗展开态.png",
+    "qingci-light-5-搜索弹层带结果.png",
+    "qingci-dark-1-局部图.png",
+    "qingci-dark-2-全局弹窗.png",
+    "qingci-dark-3-图谱总览.png",
+    "qingci-dark-4-悬停弹窗展开态.png",
+    "qingci-dark-5-搜索弹层带结果.png",
+    "zhulin-light-1-局部图.png",
+    "zhulin-light-2-全局弹窗.png",
+    "zhulin-light-3-图谱总览.png",
+    "zhulin-light-4-悬停弹窗展开态.png",
+    "zhulin-light-5-搜索弹层带结果.png",
+    "zhulin-dark-1-局部图.png",
+    "zhulin-dark-2-全局弹窗.png",
+    "zhulin-dark-3-图谱总览.png",
+    "zhulin-dark-4-悬停弹窗展开态.png",
+    "zhulin-dark-5-搜索弹层带结果.png",
+    "mushan-light-1-局部图.png",
+    "mushan-light-2-全局弹窗.png",
+    "mushan-light-3-图谱总览.png",
+    "mushan-light-4-悬停弹窗展开态.png",
+    "mushan-light-5-搜索弹层带结果.png",
+    "mushan-dark-1-局部图.png",
+    "mushan-dark-2-全局弹窗.png",
+    "mushan-dark-3-图谱总览.png",
+    "mushan-dark-4-悬停弹窗展开态.png",
+    "mushan-dark-5-搜索弹层带结果.png",
+    "xuanye-light-1-局部图.png",
+    "xuanye-light-2-全局弹窗.png",
+    "xuanye-light-3-图谱总览.png",
+    "xuanye-light-4-悬停弹窗展开态.png",
+    "xuanye-light-5-搜索弹层带结果.png",
+    "xuanye-dark-1-局部图.png",
+    "xuanye-dark-2-全局弹窗.png",
+    "xuanye-dark-3-图谱总览.png",
+    "xuanye-dark-4-悬停弹窗展开态.png",
+    "xuanye-dark-5-搜索弹层带结果.png",
+    "降级-reduced-transparency-弹窗.png",
+    "降级-reduced-motion-弹窗.png"
+  ],
+  "results": [
+    {
+      "step": "矩阵 xuanzhi-light 主题落地",
+      "ok": true,
+      "detail": "data-style=xuanzhi saved-theme=light --light=#feefe5(want #feefe5) --popover-bg=#fff6f0fa --textHighlight=#fecbaeaa"
+    },
+    {
+      "step": "矩阵 xuanzhi-light 镜头4 悬停弹窗",
+      "ok": true,
+      "detail": "底色=rgba(255, 246, 240, 0.98)(token=#fff6f0fa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#fff6f0(离散5.2≤6→true) 正文底成像=#faebe1 色相24°vs24°(Δ0≤30 且暖冷同向=true→true); 描边成像=#e2cec2(Δ底=67.5≥4→true, css=rgba(140, 90, 60, 0.26)/1px); 槽像素=#fff6f0(Δ底=0≤8→true, 可滚=true 386/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,323) body底=rgb(254, 239, 229)"
+    },
+    {
+      "step": "矩阵 xuanzhi-light 镜头5 搜索弹层",
+      "ok": true,
+      "detail": "命中=15 条; 高亮 css=rgba(254, 203, 174, 0.667)(token=#fecbaeaa 同源→true, 旧绿→false); 高亮成像众数=#f9d2bd(命中旧绿→false) 期望合成=#fed8c1 命中率=41%(≥12%→true, 采样952px); 卡圆角=12px(=12px→true) 卡描边=rgba(253, 238, 231, 0.7)(--glass-border=#fdeee7b3); 卡内底成像=#fff1e8 卡角像素=#fff2e9(圆角处应仍为面板底) 面板几何=936x38"
+    },
+    {
+      "step": "矩阵 xuanzhi-light 五镜头齐备",
+      "ok": true,
+      "detail": "1✓ 2✓ 3✓ 4✓ 5✓"
+    },
+    {
+      "step": "矩阵 xuanzhi-dark 主题落地",
+      "ok": true,
+      "detail": "data-style=xuanzhi saved-theme=dark --light=#201c16(want #201c16) --popover-bg=#291e16fa --textHighlight=#653d19aa"
+    },
+    {
+      "step": "矩阵 xuanzhi-dark 镜头4 悬停弹窗",
+      "ok": true,
+      "detail": "底色=rgba(41, 30, 22, 0.98)(token=#291e16fa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#2a1f16(离散4.9≤6→true) 正文底成像=#1d1915 色相27°vs30°(Δ3≤30 且暖冷同向=true→true); 描边成像=#533d2c(Δ底=55.4≥4→true, css=rgba(200, 149, 108, 0.26)/1px); 槽像素=#2a1f16(Δ底=0≤8→true, 可滚=true 386/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,323) body底=rgb(32, 28, 22)"
+    },
+    {
+      "step": "矩阵 xuanzhi-dark 镜头5 搜索弹层",
+      "ok": true,
+      "detail": "命中=15 条; 高亮 css=rgba(101, 61, 25, 0.667)(token=#653d19aa 同源→true, 旧绿→false); 高亮成像众数=#53361c(命中旧绿→false) 期望合成=#513419 命中率=41%(≥12%→true, 采样952px); 卡圆角=12px(=12px→true) 卡描边=rgba(45, 34, 26, 0.72)(--glass-border=#2d221ab8); 卡内底成像=#2a2119 卡角像素=#292019(圆角处应仍为面板底) 面板几何=936x38"
+    },
+    {
+      "step": "矩阵 xuanzhi-dark 五镜头齐备",
+      "ok": true,
+      "detail": "1✓ 2✓ 3✓ 4✓ 5✓"
+    },
+    {
+      "step": "矩阵 shuimo-light 主题落地",
+      "ok": true,
+      "detail": "data-style=shuimo saved-theme=light --light=#ecf5f8(want #ecf5f8) --popover-bg=#f3fbfefa --textHighlight=#b9dfedaa"
+    },
+    {
+      "step": "矩阵 shuimo-light 镜头4 悬停弹窗",
+      "ok": true,
+      "detail": "底色=rgba(243, 251, 254, 0.98)(token=#f3fbfefa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#f3fbfe(离散5.2≤6→true) 正文底成像=#e5f4f8 色相196°vs193°(Δ3≤30 且暖冷同向=true→true); 描边成像=#c5d3d8(Δ底=71.8≥4→true, css=rgba(64, 96, 108, 0.26)/1px); 槽像素=#f3fbfe(Δ底=0≤8→true, 可滚=true 395/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,328) body底=rgb(236, 245, 248)"
+    },
+    {
+      "step": "矩阵 shuimo-light 镜头5 搜索弹层",
+      "ok": true,
+      "detail": "命中=15 条; 高亮 css=rgba(185, 223, 237, 0.667)(token=#b9dfedaa 同源→true, 旧绿→false); 高亮成像众数=#c4e2ed(命中旧绿→false) 期望合成=#c9e7f2 命中率=49.3%(≥12%→true, 采样1344px); 卡圆角=12px(=12px→true) 卡描边=rgba(231, 247, 253, 0.7)(--glass-border=#e7f7fdb3); 卡内底成像=#eaf8fd 卡角像素=#eaf8fd(圆角处应仍为面板底) 面板几何=936x38"
+    },
+    {
+      "step": "矩阵 shuimo-light 五镜头齐备",
+      "ok": true,
+      "detail": "1✓ 2✓ 3✓ 4✓ 5✓"
+    },
+    {
+      "step": "矩阵 shuimo-dark 主题落地",
+      "ok": true,
+      "detail": "data-style=shuimo saved-theme=dark --light=#171a1c(want #171a1c) --popover-bg=#122025fa --textHighlight=#284e5aaa"
+    },
+    {
+      "step": "矩阵 shuimo-dark 镜头4 悬停弹窗",
+      "ok": true,
+      "detail": "底色=rgba(18, 32, 37, 0.98)(token=#122025fa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#122026(离散4.9≤6→true) 正文底成像=#15191b 色相198°vs200°(Δ2≤30 且暖冷同向=true→true); 描边成像=#2d424a(Δ底=56.4≥4→true, css=rgba(125, 163, 176, 0.26)/1px); 槽像素=#122026(Δ底=0≤8→true, 可滚=true 395/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,328) body底=rgb(23, 26, 28)"
+    },
+    {
+      "step": "矩阵 shuimo-dark 镜头5 搜索弹层",
+      "ok": true,
+      "detail": "命中=15 条; 高亮 css=rgba(40, 78, 90, 0.667)(token=#284e5aaa 同源→true, 旧绿→false); 高亮成像众数=#24424b(命中旧绿→false) 期望合成=#223f49 命中率=49.1%(≥12%→true, 采样1344px); 卡圆角=12px(=12px→true) 卡描边=rgba(22, 36, 41, 0.72)(--glass-border=#162429b8); 卡内底成像=#152226 卡角像素=#142127(圆角处应仍为面板底) 面板几何=936x38"
+    },
+    {
+      "step": "矩阵 shuimo-dark 五镜头齐备",
+      "ok": true,
+      "detail": "1✓ 2✓ 3✓ 4✓ 5✓"
+    },
+    {
+      "step": "矩阵 qingci-light 主题落地",
+      "ok": true,
+      "detail": "data-style=qingci saved-theme=light --light=#e3f7f4(want #e3f7f4) --popover-bg=#ebfdfafa --textHighlight=#ace5dbaa"
+    },
+    {
+      "step": "矩阵 qingci-light 镜头4 悬停弹窗",
+      "ok": true,
+      "detail": "底色=rgba(235, 253, 250, 0.98)(token=#ebfdfafa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#eafdfa(离散5.2≤6→true) 正文底成像=#dbf6f1 色相171°vs169°(Δ2≤30 且暖冷同向=true→true); 描边成像=#bfdad5(Δ底=66.7≥4→true, css=rgba(61, 112, 104, 0.26)/1px); 槽像素=#ebfdfa(Δ底=1≤8→true, 可滚=true 395/336); backdrop=none 圆角=12px 弹窗几何=514x338@(288,321) body底=rgb(227, 247, 244)"
+    },
+    {
+      "step": "矩阵 qingci-light 镜头5 搜索弹层",
+      "ok": true,
+      "detail": "命中=15 条; 高亮 css=rgba(172, 229, 219, 0.667)(token=#ace5dbaa 同源→true, 旧绿→false); 高亮成像众数=#bbe6df(命中旧绿→false) 期望合成=#beece4 命中率=41.4%(≥12%→true, 采样952px); 卡圆角=12px(=12px→true) 卡描边=rgba(226, 248, 244, 0.7)(--glass-border=#e2f8f4b3); 卡内底成像=#e1fbf6 卡角像素=#e2fbf6(圆角处应仍为面板底) 面板几何=936x44"
+    },
+    {
+      "step": "矩阵 qingci-light 五镜头齐备",
+      "ok": true,
+      "detail": "1✓ 2✓ 3✓ 4✓ 5✓"
+    },
+    {
+      "step": "矩阵 qingci-dark 主题落地",
+      "ok": true,
+      "detail": "data-style=qingci saved-theme=dark --light=#14201d(want #14201d) --popover-bg=#122522fa --textHighlight=#0d534baa"
+    },
+    {
+      "step": "矩阵 qingci-dark 镜头4 悬停弹窗",
+      "ok": true,
+      "detail": "底色=rgba(18, 37, 34, 0.98)(token=#122522fa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#112522(离散4.4≤6→true) 正文底成像=#121d1a 色相171°vs164°(Δ7≤30 且暖冷同向=true→true); 描边成像=#2a4843(Δ底=54.2≥4→true, css=rgba(111, 170, 160, 0.26)/1px); 槽像素=#112522(Δ底=0≤8→true, 可滚=true 395/336); backdrop=none 圆角=12px 弹窗几何=514x338@(288,321) body底=rgb(20, 32, 29)"
+    },
+    {
+      "step": "矩阵 qingci-dark 镜头5 搜索弹层",
+      "ok": true,
+      "detail": "命中=15 条; 高亮 css=rgba(13, 83, 75, 0.667)(token=#0d534baa 同源→true, 旧绿→false); 高亮成像众数=#144640(命中旧绿→false) 期望合成=#10443e 命中率=41%(≥12%→true, 采样952px); 卡圆角=12px(=12px→true) 卡描边=rgba(22, 41, 38, 0.72)(--glass-border=#162926b8); 卡内底成像=#172624 卡角像素=#162524(圆角处应仍为面板底) 面板几何=936x44"
+    },
+    {
+      "step": "矩阵 qingci-dark 五镜头齐备",
+      "ok": true,
+      "detail": "1✓ 2✓ 3✓ 4✓ 5✓"
+    },
+    {
+      "step": "矩阵 zhulin-light 主题落地",
+      "ok": true,
+      "detail": "data-style=zhulin saved-theme=light --light=#eff5e8(want #eff5e8) --popover-bg=#f5fbeffa --textHighlight=#bce5b7aa"
+    },
+    {
+      "step": "矩阵 zhulin-light 镜头4 悬停弹窗",
+      "ok": true,
+      "detail": "底色=rgba(245, 251, 239, 0.98)(token=#f5fbeffa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#f5fbef(离散5.2≤6→true) 正文底成像=#ebf3e2 色相90°vs88°(Δ2≤30 且暖冷同向=true→true); 描边成像=#cadac4(Δ底=69.2≥4→true, css=rgba(74, 124, 70, 0.26)/1px); 槽像素=#f5fbef(Δ底=0≤8→true, 可滚=true 386/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,323) body底=rgb(239, 245, 232)"
+    },
+    {
+      "step": "矩阵 zhulin-light 镜头5 搜索弹层",
+      "ok": true,
+      "detail": "命中=15 条; 高亮 css=rgba(188, 229, 183, 0.667)(token=#bce5b7aa 同源→true, 旧绿→false); 高亮成像众数=#c9e7c3(命中旧绿→false) 期望合成=#cdebc7 命中率=44.6%(≥12%→true, 采样952px); 卡圆角=12px(=12px→true) 卡描边=rgba(231, 250, 228, 0.7)(--glass-border=#e7fae4b3); 卡内底成像=#eef8e6 卡角像素=#f1f7e7(圆角处应仍为面板底) 面板几何=936x44"
+    },
+    {
+      "step": "矩阵 zhulin-light 五镜头齐备",
+      "ok": true,
+      "detail": "1✓ 2✓ 3✓ 4✓ 5✓"
+    },
+    {
+      "step": "矩阵 zhulin-dark 主题落地",
+      "ok": true,
+      "detail": "data-style=zhulin saved-theme=dark --light=#181f15(want #181f15) --popover-bg=#162513fa --textHighlight=#30522aaa"
+    },
+    {
+      "step": "矩阵 zhulin-dark 镜头4 悬停弹窗",
+      "ok": true,
+      "detail": "底色=rgba(22, 37, 19, 0.98)(token=#162513fa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#172512(离散4.1≤6→true) 正文底成像=#161c13 色相104°vs100°(Δ4≤30 且暖冷同向=true→true); 描边成像=#2f482b(Δ底=49.3≥4→true, css=rgba(124, 171, 116, 0.26)/1px); 槽像素=#162512(Δ底=1≤8→true, 可滚=true 386/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,323) body底=rgb(24, 31, 21)"
+    },
+    {
+      "step": "矩阵 zhulin-dark 镜头5 搜索弹层",
+      "ok": true,
+      "detail": "命中=15 条; 高亮 css=rgba(48, 82, 42, 0.667)(token=#30522aaa 同源→true, 旧绿→false); 高亮成像众数=#2b4526(命中旧绿→false) 期望合成=#294324 命中率=42.9%(≥12%→true, 采样952px); 卡圆角=12px(=12px→true) 卡描边=rgba(26, 41, 23, 0.72)(--glass-border=#1a2917b8); 卡内底成像=#1b2617 卡角像素=#182517(圆角处应仍为面板底) 面板几何=936x44"
+    },
+    {
+      "step": "矩阵 zhulin-dark 五镜头齐备",
+      "ok": true,
+      "detail": "1✓ 2✓ 3✓ 4✓ 5✓"
+    },
+    {
+      "step": "矩阵 mushan-light 主题落地",
+      "ok": true,
+      "detail": "data-style=mushan saved-theme=light --light=#f8effb(want #f8effb) --popover-bg=#fdf6fffa --textHighlight=#decefdaa"
+    },
+    {
+      "step": "矩阵 mushan-light 镜头4 悬停弹窗",
+      "ok": true,
+      "detail": "底色=rgba(253, 246, 255, 0.98)(token=#fdf6fffa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#fdf7ff(离散5.2≤6→true) 正文底成像=#f6ecf9 色相285°vs286°(Δ1≤30 且暖冷同向=true→true); 描边成像=#d8cee2(Δ底=62.4≥4→true, css=rgba(109, 90, 142, 0.26)/1px); 槽像素=#fdf7ff(Δ底=0≤8→true, 可滚=true 395/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,328) body底=rgb(248, 239, 251)"
+    },
+    {
+      "step": "矩阵 mushan-light 镜头5 搜索弹层",
+      "ok": true,
+      "detail": "命中=15 条; 高亮 css=rgba(222, 206, 253, 0.667)(token=#decefdaa 同源→true, 旧绿→false); 高亮成像众数=#e2d5f7(命中旧绿→false) 期望合成=#e8d9fe 命中率=33.3%(≥12%→true, 采样1344px); 卡圆角=12px(=12px→true) 卡描边=rgba(242, 236, 255, 0.7)(--glass-border=#f2ecffb3); 卡内底成像=#fcefff 卡角像素=#fbf1ff(圆角处应仍为面板底) 面板几何=936x38"
+    },
+    {
+      "step": "矩阵 mushan-light 五镜头齐备",
+      "ok": true,
+      "detail": "1✓ 2✓ 3✓ 4✓ 5✓"
+    },
+    {
+      "step": "矩阵 mushan-dark 主题落地",
+      "ok": true,
+      "detail": "data-style=mushan saved-theme=dark --light=#1a1620(want #1a1620) --popover-bg=#1e182bfa --textHighlight=#4d3e6aaa"
+    },
+    {
+      "step": "矩阵 mushan-dark 镜头4 悬停弹窗",
+      "ok": true,
+      "detail": "底色=rgba(30, 24, 43, 0.98)(token=#1e182bfa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#1e192b(离散4.1≤6→true) 正文底成像=#1f192a 色相257°vs261°(Δ4≤30 且暖冷同向=true→true); 描边成像=#3f3553(Δ底=58.9≥4→true, css=rgba(157, 138, 196, 0.26)/1px); 槽像素=#1d182b(Δ底=1.4≤8→true, 可滚=true 395/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,328) body底=rgb(26, 22, 32)"
+    },
+    {
+      "step": "矩阵 mushan-dark 镜头5 搜索弹层",
+      "ok": true,
+      "detail": "命中=15 条; 高亮 css=rgba(77, 62, 106, 0.667)(token=#4d3e6aaa 同源→true, 旧绿→false); 高亮成像众数=#d2cbdb(命中旧绿→false) 期望合成=#3e3256 命中率=33.3%(≥12%→true, 采样1344px); 卡圆角=12px(=12px→true) 卡描边=rgba(34, 28, 47, 0.72)(--glass-border=#221c2fb8); 卡内底成像=#211b2d 卡角像素=#201a2d(圆角处应仍为面板底) 面板几何=936x38"
+    },
+    {
+      "step": "矩阵 mushan-dark 五镜头齐备",
+      "ok": true,
+      "detail": "1✓ 2✓ 3✓ 4✓ 5✓"
+    },
+    {
+      "step": "矩阵 xuanye-light 主题落地",
+      "ok": true,
+      "detail": "data-style=xuanye saved-theme=light --light=#ebf0ff(want #ebf0ff) --popover-bg=#f3f6fffa --textHighlight=#c6d7ffaa"
+    },
+    {
+      "step": "矩阵 xuanye-light 镜头4 悬停弹窗",
+      "ok": true,
+      "detail": "底色=rgba(243, 246, 255, 0.98)(token=#f3f6fffa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#f3f6ff(离散5.2≤6→true) 正文底成像=#e6ebf8 色相225°vs223°(Δ2≤30 且暖冷同向=true→true); 描边成像=#c7cfe0(Δ底=66.5≥4→true, css=rgba(74, 93, 138, 0.26)/1px); 槽像素=#f3f6ff(Δ底=0≤8→true, 可滚=true 395/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,328) body底=rgb(235, 240, 255)"
+    },
+    {
+      "step": "矩阵 xuanye-light 镜头5 搜索弹层",
+      "ok": true,
+      "detail": "命中=15 条; 高亮 css=rgba(198, 215, 255, 0.667)(token=#c6d7ffaa 同源→true, 旧绿→false); 高亮成像众数=#cedbf8(命中旧绿→false) 期望合成=#d3e0ff 命中率=44.4%(≥12%→true, 采样1344px); 卡圆角=12px(=12px→true) 卡描边=rgba(236, 242, 255, 0.7)(--glass-border=#ecf2ffb3); 卡内底成像=#edf2fe 卡角像素=#eff3ff(圆角处应仍为面板底) 面板几何=936x44"
+    },
+    {
+      "step": "矩阵 xuanye-light 五镜头齐备",
+      "ok": true,
+      "detail": "1✓ 2✓ 3✓ 4✓ 5✓"
+    },
+    {
+      "step": "矩阵 xuanye-dark 主题落地",
+      "ok": true,
+      "detail": "data-style=xuanye saved-theme=dark --light=#10141d(want #10141d) --popover-bg=#121825fa --textHighlight=#35476caa"
+    },
+    {
+      "step": "矩阵 xuanye-dark 镜头4 悬停弹窗",
+      "ok": true,
+      "detail": "底色=rgba(18, 24, 37, 0.98)(token=#121825fa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#121825(离散3.7≤6→true) 正文底成像=#141a26 色相221°vs220°(Δ1≤30 且暖冷同向=true→true); 描边成像=#323b51(Δ底=64.7≥4→true, css=rgba(143, 163, 204, 0.26)/1px); 槽像素=#121725(Δ底=1≤8→true, 可滚=true 395/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,328) body底=rgb(16, 20, 29)"
+    },
+    {
+      "step": "矩阵 xuanye-dark 镜头5 搜索弹层",
+      "ok": true,
+      "detail": "命中=15 条; 高亮 css=rgba(53, 71, 108, 0.667)(token=#35476caa 同源→true, 旧绿→false); 高亮成像众数=#2c3a57(命中旧绿→false) 期望合成=#2b3855 命中率=44.5%(≥12%→true, 采样1344px); 卡圆角=12px(=12px→true) 卡描边=rgba(22, 28, 41, 0.72)(--glass-border=#161c29b8); 卡内底成像=#161b27 卡角像素=#151a27(圆角处应仍为面板底) 面板几何=936x44"
+    },
+    {
+      "step": "矩阵 xuanye-dark 五镜头齐备",
+      "ok": true,
+      "detail": "1✓ 2✓ 3✓ 4✓ 5✓"
+    },
+    {
+      "step": "切换协调性 xuanzhi（三通道 0–420ms 均在渐变）",
+      "ok": true,
+      "detail": "body: rgb(254, 239, 229) → rgb(32, 28, 22)（变=true, 中间帧6@77.7–266.2ms, 取值数8） | sidebarBefore: rgba(255, 241, 232, 0.86) → rgba(45, 34, 26, 0.82)（变=true, 中间帧6@77.7–266.2ms, 取值数8） | link: rgba(140, 90, 60, 0.13) → rgba(200, 149, 108, 0.16)（变=true, 中间帧5@77.7–241.7ms, 取值数7）；采样帧=23"
+    },
+    {
+      "step": "切换协调性 xuanye（三通道 0–420ms 均在渐变）",
+      "ok": true,
+      "detail": "body: rgb(235, 240, 255) → rgb(16, 20, 29)（变=true, 中间帧7@76.9–273.5ms, 取值数9） | sidebarBefore: rgba(238, 242, 255, 0.86) → rgba(22, 28, 41, 0.82)（变=true, 中间帧7@76.9–273.5ms, 取值数9） | link: rgba(74, 93, 138, 0.13) → rgba(143, 163, 204, 0.16)（变=true, 中间帧6@76.9–253.5ms, 取值数8）；采样帧=26"
+    },
+    {
+      "step": "降级① prefers-reduced-transparency:reduce → 弹窗完全不透明 + backdrop none",
+      "ok": true,
+      "detail": "mq命中=true 弹窗底=rgb(22, 28, 41)(alpha=1=1) --glass-bg-solid=#161c29 同源→true; backdrop-filter=none/-webkit=undefined"
+    },
+    {
+      "step": "降级② prefers-reduced-motion:reduce → 弹窗无缩放动画 + 过渡压至 80ms",
+      "ok": true,
+      "detail": "mq命中=true animation-name=none animation-duration=0.08s transform=none; --duration-theme=80ms body transition-duration=0.08s 弹窗 transition-duration=0.08s"
+    }
+  ],
+  "matrix": [
+    {
+      "theme": "xuanzhi",
+      "name": "宣纸",
+      "mode": "light",
+      "checks": [
+        {
+          "shot": 1,
+          "name": "局部图",
+          "file": "xuanzhi-light-1-局部图.png",
+          "ok": true,
+          "detail": "画布就绪=true 取景=271x274@(1120,100) 图底像素=#fff1e7（--light=#feefe5）"
+        },
+        {
+          "shot": 2,
+          "name": "全局弹窗",
+          "file": "xuanzhi-light-2-全局弹窗.png",
+          "ok": true,
+          "detail": "弹窗出图=true 取景=1152x720 面板底像素=#fff2e9"
+        },
+        {
+          "shot": 3,
+          "name": "图谱总览",
+          "file": "xuanzhi-light-3-图谱总览.png",
+          "ok": true,
+          "detail": "画布出图=true 取景=1060x740 画布底像素=#fdeee4 vs --light=#feefe5（Δ=1.7≤12）"
+        },
+        {
+          "shot": 4,
+          "name": "悬停预览弹窗展开态",
+          "file": "xuanzhi-light-4-悬停弹窗展开态.png",
+          "ok": true,
+          "detail": "底色=rgba(255, 246, 240, 0.98)(token=#fff6f0fa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#fff6f0(离散5.2≤6→true) 正文底成像=#faebe1 色相24°vs24°(Δ0≤30 且暖冷同向=true→true); 描边成像=#e2cec2(Δ底=67.5≥4→true, css=rgba(140, 90, 60, 0.26)/1px); 槽像素=#fff6f0(Δ底=0≤8→true, 可滚=true 386/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,323) body底=rgb(254, 239, 229)"
+        },
+        {
+          "shot": 5,
+          "name": "搜索弹层带结果",
+          "file": "xuanzhi-light-5-搜索弹层带结果.png",
+          "ok": true,
+          "detail": "命中=15 条; 高亮 css=rgba(254, 203, 174, 0.667)(token=#fecbaeaa 同源→true, 旧绿→false); 高亮成像众数=#f9d2bd(命中旧绿→false) 期望合成=#fed8c1 命中率=41%(≥12%→true, 采样952px); 卡圆角=12px(=12px→true) 卡描边=rgba(253, 238, 231, 0.7)(--glass-border=#fdeee7b3); 卡内底成像=#fff1e8 卡角像素=#fff2e9(圆角处应仍为面板底) 面板几何=936x38"
+        }
+      ],
+      "applied": {
+        "style": "xuanzhi",
+        "saved": "light",
+        "light": "#feefe5",
+        "popoverBg": "#fff6f0fa",
+        "popoverBorder": "#8c5a3c42",
+        "textHighlight": "#fecbaeaa",
+        "durationTheme": ".26s"
+      }
+    },
+    {
+      "theme": "xuanzhi",
+      "name": "宣纸",
+      "mode": "dark",
+      "checks": [
+        {
+          "shot": 1,
+          "name": "局部图",
+          "file": "xuanzhi-dark-1-局部图.png",
+          "ok": true,
+          "detail": "画布就绪=true 取景=271x274@(1120,100) 图底像素=#2c2319（--light=#201c16）"
+        },
+        {
+          "shot": 2,
+          "name": "全局弹窗",
+          "file": "xuanzhi-dark-2-全局弹窗.png",
+          "ok": true,
+          "detail": "弹窗出图=true 取景=1152x720 面板底像素=#2b2019"
+        },
+        {
+          "shot": 3,
+          "name": "图谱总览",
+          "file": "xuanzhi-dark-3-图谱总览.png",
+          "ok": true,
+          "detail": "画布出图=true 取景=1060x740 画布底像素=#201c16 vs --light=#201c16（Δ=0≤12）"
+        },
+        {
+          "shot": 4,
+          "name": "悬停预览弹窗展开态",
+          "file": "xuanzhi-dark-4-悬停弹窗展开态.png",
+          "ok": true,
+          "detail": "底色=rgba(41, 30, 22, 0.98)(token=#291e16fa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#2a1f16(离散4.9≤6→true) 正文底成像=#1d1915 色相27°vs30°(Δ3≤30 且暖冷同向=true→true); 描边成像=#533d2c(Δ底=55.4≥4→true, css=rgba(200, 149, 108, 0.26)/1px); 槽像素=#2a1f16(Δ底=0≤8→true, 可滚=true 386/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,323) body底=rgb(32, 28, 22)"
+        },
+        {
+          "shot": 5,
+          "name": "搜索弹层带结果",
+          "file": "xuanzhi-dark-5-搜索弹层带结果.png",
+          "ok": true,
+          "detail": "命中=15 条; 高亮 css=rgba(101, 61, 25, 0.667)(token=#653d19aa 同源→true, 旧绿→false); 高亮成像众数=#53361c(命中旧绿→false) 期望合成=#513419 命中率=41%(≥12%→true, 采样952px); 卡圆角=12px(=12px→true) 卡描边=rgba(45, 34, 26, 0.72)(--glass-border=#2d221ab8); 卡内底成像=#2a2119 卡角像素=#292019(圆角处应仍为面板底) 面板几何=936x38"
+        }
+      ],
+      "applied": {
+        "style": "xuanzhi",
+        "saved": "dark",
+        "light": "#201c16",
+        "popoverBg": "#291e16fa",
+        "popoverBorder": "#c8956c42",
+        "textHighlight": "#653d19aa",
+        "durationTheme": ".26s"
+      }
+    },
+    {
+      "theme": "shuimo",
+      "name": "水墨",
+      "mode": "light",
+      "checks": [
+        {
+          "shot": 1,
+          "name": "局部图",
+          "file": "shuimo-light-1-局部图.png",
+          "ok": true,
+          "detail": "画布就绪=true 取景=271x274@(1120,105) 图底像素=#e9f7fe（--light=#ecf5f8）"
+        },
+        {
+          "shot": 2,
+          "name": "全局弹窗",
+          "file": "shuimo-light-2-全局弹窗.png",
+          "ok": true,
+          "detail": "弹窗出图=true 取景=1152x720 面板底像素=#eaf8fd"
+        },
+        {
+          "shot": 3,
+          "name": "图谱总览",
+          "file": "shuimo-light-3-图谱总览.png",
+          "ok": true,
+          "detail": "画布出图=true 取景=1060x740 画布底像素=#ebf4f7 vs --light=#ecf5f8（Δ=1.7≤12）"
+        },
+        {
+          "shot": 4,
+          "name": "悬停预览弹窗展开态",
+          "file": "shuimo-light-4-悬停弹窗展开态.png",
+          "ok": true,
+          "detail": "底色=rgba(243, 251, 254, 0.98)(token=#f3fbfefa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#f3fbfe(离散5.2≤6→true) 正文底成像=#e5f4f8 色相196°vs193°(Δ3≤30 且暖冷同向=true→true); 描边成像=#c5d3d8(Δ底=71.8≥4→true, css=rgba(64, 96, 108, 0.26)/1px); 槽像素=#f3fbfe(Δ底=0≤8→true, 可滚=true 395/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,328) body底=rgb(236, 245, 248)"
+        },
+        {
+          "shot": 5,
+          "name": "搜索弹层带结果",
+          "file": "shuimo-light-5-搜索弹层带结果.png",
+          "ok": true,
+          "detail": "命中=15 条; 高亮 css=rgba(185, 223, 237, 0.667)(token=#b9dfedaa 同源→true, 旧绿→false); 高亮成像众数=#c4e2ed(命中旧绿→false) 期望合成=#c9e7f2 命中率=49.3%(≥12%→true, 采样1344px); 卡圆角=12px(=12px→true) 卡描边=rgba(231, 247, 253, 0.7)(--glass-border=#e7f7fdb3); 卡内底成像=#eaf8fd 卡角像素=#eaf8fd(圆角处应仍为面板底) 面板几何=936x38"
+        }
+      ],
+      "applied": {
+        "style": "shuimo",
+        "saved": "light",
+        "light": "#ecf5f8",
+        "popoverBg": "#f3fbfefa",
+        "popoverBorder": "#40606c42",
+        "textHighlight": "#b9dfedaa",
+        "durationTheme": ".26s"
+      }
+    },
+    {
+      "theme": "shuimo",
+      "name": "水墨",
+      "mode": "dark",
+      "checks": [
+        {
+          "shot": 1,
+          "name": "局部图",
+          "file": "shuimo-dark-1-局部图.png",
+          "ok": true,
+          "detail": "画布就绪=true 取景=271x274@(1120,105) 图底像素=#162327（--light=#171a1c）"
+        },
+        {
+          "shot": 2,
+          "name": "全局弹窗",
+          "file": "shuimo-dark-2-全局弹窗.png",
+          "ok": true,
+          "detail": "弹窗出图=true 取景=1152x720 面板底像素=#142127"
+        },
+        {
+          "shot": 3,
+          "name": "图谱总览",
+          "file": "shuimo-dark-3-图谱总览.png",
+          "ok": true,
+          "detail": "画布出图=true 取景=1060x740 画布底像素=#161a1c vs --light=#171a1c（Δ=1≤12）"
+        },
+        {
+          "shot": 4,
+          "name": "悬停预览弹窗展开态",
+          "file": "shuimo-dark-4-悬停弹窗展开态.png",
+          "ok": true,
+          "detail": "底色=rgba(18, 32, 37, 0.98)(token=#122025fa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#122026(离散4.9≤6→true) 正文底成像=#15191b 色相198°vs200°(Δ2≤30 且暖冷同向=true→true); 描边成像=#2d424a(Δ底=56.4≥4→true, css=rgba(125, 163, 176, 0.26)/1px); 槽像素=#122026(Δ底=0≤8→true, 可滚=true 395/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,328) body底=rgb(23, 26, 28)"
+        },
+        {
+          "shot": 5,
+          "name": "搜索弹层带结果",
+          "file": "shuimo-dark-5-搜索弹层带结果.png",
+          "ok": true,
+          "detail": "命中=15 条; 高亮 css=rgba(40, 78, 90, 0.667)(token=#284e5aaa 同源→true, 旧绿→false); 高亮成像众数=#24424b(命中旧绿→false) 期望合成=#223f49 命中率=49.1%(≥12%→true, 采样1344px); 卡圆角=12px(=12px→true) 卡描边=rgba(22, 36, 41, 0.72)(--glass-border=#162429b8); 卡内底成像=#152226 卡角像素=#142127(圆角处应仍为面板底) 面板几何=936x38"
+        }
+      ],
+      "applied": {
+        "style": "shuimo",
+        "saved": "dark",
+        "light": "#171a1c",
+        "popoverBg": "#122025fa",
+        "popoverBorder": "#7da3b042",
+        "textHighlight": "#284e5aaa",
+        "durationTheme": ".26s"
+      }
+    },
+    {
+      "theme": "qingci",
+      "name": "青瓷",
+      "mode": "light",
+      "checks": [
+        {
+          "shot": 1,
+          "name": "局部图",
+          "file": "qingci-light-1-局部图.png",
+          "ok": true,
+          "detail": "画布就绪=true 取景=271x274@(1120,100) 图底像素=#e0faf5（--light=#e3f7f4）"
+        },
+        {
+          "shot": 2,
+          "name": "全局弹窗",
+          "file": "qingci-light-2-全局弹窗.png",
+          "ok": true,
+          "detail": "弹窗出图=true 取景=1152x720 面板底像素=#e2fbf6"
+        },
+        {
+          "shot": 3,
+          "name": "图谱总览",
+          "file": "qingci-light-3-图谱总览.png",
+          "ok": true,
+          "detail": "画布出图=true 取景=1060x740 画布底像素=#e2f6f3 vs --light=#e3f7f4（Δ=1.7≤12）"
+        },
+        {
+          "shot": 4,
+          "name": "悬停预览弹窗展开态",
+          "file": "qingci-light-4-悬停弹窗展开态.png",
+          "ok": true,
+          "detail": "底色=rgba(235, 253, 250, 0.98)(token=#ebfdfafa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#eafdfa(离散5.2≤6→true) 正文底成像=#dbf6f1 色相171°vs169°(Δ2≤30 且暖冷同向=true→true); 描边成像=#bfdad5(Δ底=66.7≥4→true, css=rgba(61, 112, 104, 0.26)/1px); 槽像素=#ebfdfa(Δ底=1≤8→true, 可滚=true 395/336); backdrop=none 圆角=12px 弹窗几何=514x338@(288,321) body底=rgb(227, 247, 244)"
+        },
+        {
+          "shot": 5,
+          "name": "搜索弹层带结果",
+          "file": "qingci-light-5-搜索弹层带结果.png",
+          "ok": true,
+          "detail": "命中=15 条; 高亮 css=rgba(172, 229, 219, 0.667)(token=#ace5dbaa 同源→true, 旧绿→false); 高亮成像众数=#bbe6df(命中旧绿→false) 期望合成=#beece4 命中率=41.4%(≥12%→true, 采样952px); 卡圆角=12px(=12px→true) 卡描边=rgba(226, 248, 244, 0.7)(--glass-border=#e2f8f4b3); 卡内底成像=#e1fbf6 卡角像素=#e2fbf6(圆角处应仍为面板底) 面板几何=936x44"
+        }
+      ],
+      "applied": {
+        "style": "qingci",
+        "saved": "light",
+        "light": "#e3f7f4",
+        "popoverBg": "#ebfdfafa",
+        "popoverBorder": "#3d706842",
+        "textHighlight": "#ace5dbaa",
+        "durationTheme": ".26s"
+      }
+    },
+    {
+      "theme": "qingci",
+      "name": "青瓷",
+      "mode": "dark",
+      "checks": [
+        {
+          "shot": 1,
+          "name": "局部图",
+          "file": "qingci-dark-1-局部图.png",
+          "ok": true,
+          "detail": "画布就绪=true 取景=271x274@(1120,100) 图底像素=#162825（--light=#14201d）"
+        },
+        {
+          "shot": 2,
+          "name": "全局弹窗",
+          "file": "qingci-dark-2-全局弹窗.png",
+          "ok": true,
+          "detail": "弹窗出图=true 取景=1152x720 面板底像素=#162524"
+        },
+        {
+          "shot": 3,
+          "name": "图谱总览",
+          "file": "qingci-dark-3-图谱总览.png",
+          "ok": true,
+          "detail": "画布出图=true 取景=1060x740 画布底像素=#131f1d vs --light=#14201d（Δ=1.4≤12）"
+        },
+        {
+          "shot": 4,
+          "name": "悬停预览弹窗展开态",
+          "file": "qingci-dark-4-悬停弹窗展开态.png",
+          "ok": true,
+          "detail": "底色=rgba(18, 37, 34, 0.98)(token=#122522fa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#112522(离散4.4≤6→true) 正文底成像=#121d1a 色相171°vs164°(Δ7≤30 且暖冷同向=true→true); 描边成像=#2a4843(Δ底=54.2≥4→true, css=rgba(111, 170, 160, 0.26)/1px); 槽像素=#112522(Δ底=0≤8→true, 可滚=true 395/336); backdrop=none 圆角=12px 弹窗几何=514x338@(288,321) body底=rgb(20, 32, 29)"
+        },
+        {
+          "shot": 5,
+          "name": "搜索弹层带结果",
+          "file": "qingci-dark-5-搜索弹层带结果.png",
+          "ok": true,
+          "detail": "命中=15 条; 高亮 css=rgba(13, 83, 75, 0.667)(token=#0d534baa 同源→true, 旧绿→false); 高亮成像众数=#144640(命中旧绿→false) 期望合成=#10443e 命中率=41%(≥12%→true, 采样952px); 卡圆角=12px(=12px→true) 卡描边=rgba(22, 41, 38, 0.72)(--glass-border=#162926b8); 卡内底成像=#172624 卡角像素=#162524(圆角处应仍为面板底) 面板几何=936x44"
+        }
+      ],
+      "applied": {
+        "style": "qingci",
+        "saved": "dark",
+        "light": "#14201d",
+        "popoverBg": "#122522fa",
+        "popoverBorder": "#6faaa042",
+        "textHighlight": "#0d534baa",
+        "durationTheme": ".26s"
+      }
+    },
+    {
+      "theme": "zhulin",
+      "name": "竹林",
+      "mode": "light",
+      "checks": [
+        {
+          "shot": 1,
+          "name": "局部图",
+          "file": "zhulin-light-1-局部图.png",
+          "ok": true,
+          "detail": "画布就绪=true 取景=271x274@(1120,99) 图底像素=#eef7e5（--light=#eff5e8）"
+        },
+        {
+          "shot": 2,
+          "name": "全局弹窗",
+          "file": "zhulin-light-2-全局弹窗.png",
+          "ok": true,
+          "detail": "弹窗出图=true 取景=1152x720 面板底像素=#f1f7e7"
+        },
+        {
+          "shot": 3,
+          "name": "图谱总览",
+          "file": "zhulin-light-3-图谱总览.png",
+          "ok": true,
+          "detail": "画布出图=true 取景=1060x740 画布底像素=#eef4e7 vs --light=#eff5e8（Δ=1.7≤12）"
+        },
+        {
+          "shot": 4,
+          "name": "悬停预览弹窗展开态",
+          "file": "zhulin-light-4-悬停弹窗展开态.png",
+          "ok": true,
+          "detail": "底色=rgba(245, 251, 239, 0.98)(token=#f5fbeffa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#f5fbef(离散5.2≤6→true) 正文底成像=#ebf3e2 色相90°vs88°(Δ2≤30 且暖冷同向=true→true); 描边成像=#cadac4(Δ底=69.2≥4→true, css=rgba(74, 124, 70, 0.26)/1px); 槽像素=#f5fbef(Δ底=0≤8→true, 可滚=true 386/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,323) body底=rgb(239, 245, 232)"
+        },
+        {
+          "shot": 5,
+          "name": "搜索弹层带结果",
+          "file": "zhulin-light-5-搜索弹层带结果.png",
+          "ok": true,
+          "detail": "命中=15 条; 高亮 css=rgba(188, 229, 183, 0.667)(token=#bce5b7aa 同源→true, 旧绿→false); 高亮成像众数=#c9e7c3(命中旧绿→false) 期望合成=#cdebc7 命中率=44.6%(≥12%→true, 采样952px); 卡圆角=12px(=12px→true) 卡描边=rgba(231, 250, 228, 0.7)(--glass-border=#e7fae4b3); 卡内底成像=#eef8e6 卡角像素=#f1f7e7(圆角处应仍为面板底) 面板几何=936x44"
+        }
+      ],
+      "applied": {
+        "style": "zhulin",
+        "saved": "light",
+        "light": "#eff5e8",
+        "popoverBg": "#f5fbeffa",
+        "popoverBorder": "#4a7c4642",
+        "textHighlight": "#bce5b7aa",
+        "durationTheme": ".26s"
+      }
+    },
+    {
+      "theme": "zhulin",
+      "name": "竹林",
+      "mode": "dark",
+      "checks": [
+        {
+          "shot": 1,
+          "name": "局部图",
+          "file": "zhulin-dark-1-局部图.png",
+          "ok": true,
+          "detail": "画布就绪=true 取景=271x274@(1120,99) 图底像素=#1a2817（--light=#181f15）"
+        },
+        {
+          "shot": 2,
+          "name": "全局弹窗",
+          "file": "zhulin-dark-2-全局弹窗.png",
+          "ok": true,
+          "detail": "弹窗出图=true 取景=1152x720 面板底像素=#182517"
+        },
+        {
+          "shot": 3,
+          "name": "图谱总览",
+          "file": "zhulin-dark-3-图谱总览.png",
+          "ok": true,
+          "detail": "画布出图=true 取景=1060x740 画布底像素=#181f15 vs --light=#181f15（Δ=0≤12）"
+        },
+        {
+          "shot": 4,
+          "name": "悬停预览弹窗展开态",
+          "file": "zhulin-dark-4-悬停弹窗展开态.png",
+          "ok": true,
+          "detail": "底色=rgba(22, 37, 19, 0.98)(token=#162513fa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#172512(离散4.1≤6→true) 正文底成像=#161c13 色相104°vs100°(Δ4≤30 且暖冷同向=true→true); 描边成像=#2f482b(Δ底=49.3≥4→true, css=rgba(124, 171, 116, 0.26)/1px); 槽像素=#162512(Δ底=1≤8→true, 可滚=true 386/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,323) body底=rgb(24, 31, 21)"
+        },
+        {
+          "shot": 5,
+          "name": "搜索弹层带结果",
+          "file": "zhulin-dark-5-搜索弹层带结果.png",
+          "ok": true,
+          "detail": "命中=15 条; 高亮 css=rgba(48, 82, 42, 0.667)(token=#30522aaa 同源→true, 旧绿→false); 高亮成像众数=#2b4526(命中旧绿→false) 期望合成=#294324 命中率=42.9%(≥12%→true, 采样952px); 卡圆角=12px(=12px→true) 卡描边=rgba(26, 41, 23, 0.72)(--glass-border=#1a2917b8); 卡内底成像=#1b2617 卡角像素=#182517(圆角处应仍为面板底) 面板几何=936x44"
+        }
+      ],
+      "applied": {
+        "style": "zhulin",
+        "saved": "dark",
+        "light": "#181f15",
+        "popoverBg": "#162513fa",
+        "popoverBorder": "#7cab7442",
+        "textHighlight": "#30522aaa",
+        "durationTheme": ".26s"
+      }
+    },
+    {
+      "theme": "mushan",
+      "name": "暮山",
+      "mode": "light",
+      "checks": [
+        {
+          "shot": 1,
+          "name": "局部图",
+          "file": "mushan-light-1-局部图.png",
+          "ok": true,
+          "detail": "画布就绪=true 取景=271x274@(1120,105) 图底像素=#fbefff（--light=#f8effb）"
+        },
+        {
+          "shot": 2,
+          "name": "全局弹窗",
+          "file": "mushan-light-2-全局弹窗.png",
+          "ok": true,
+          "detail": "弹窗出图=true 取景=1152x720 面板底像素=#fbf1ff"
+        },
+        {
+          "shot": 3,
+          "name": "图谱总览",
+          "file": "mushan-light-3-图谱总览.png",
+          "ok": true,
+          "detail": "画布出图=true 取景=1060x740 画布底像素=#f7eefa vs --light=#f8effb（Δ=1.7≤12）"
+        },
+        {
+          "shot": 4,
+          "name": "悬停预览弹窗展开态",
+          "file": "mushan-light-4-悬停弹窗展开态.png",
+          "ok": true,
+          "detail": "底色=rgba(253, 246, 255, 0.98)(token=#fdf6fffa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#fdf7ff(离散5.2≤6→true) 正文底成像=#f6ecf9 色相285°vs286°(Δ1≤30 且暖冷同向=true→true); 描边成像=#d8cee2(Δ底=62.4≥4→true, css=rgba(109, 90, 142, 0.26)/1px); 槽像素=#fdf7ff(Δ底=0≤8→true, 可滚=true 395/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,328) body底=rgb(248, 239, 251)"
+        },
+        {
+          "shot": 5,
+          "name": "搜索弹层带结果",
+          "file": "mushan-light-5-搜索弹层带结果.png",
+          "ok": true,
+          "detail": "命中=15 条; 高亮 css=rgba(222, 206, 253, 0.667)(token=#decefdaa 同源→true, 旧绿→false); 高亮成像众数=#e2d5f7(命中旧绿→false) 期望合成=#e8d9fe 命中率=33.3%(≥12%→true, 采样1344px); 卡圆角=12px(=12px→true) 卡描边=rgba(242, 236, 255, 0.7)(--glass-border=#f2ecffb3); 卡内底成像=#fcefff 卡角像素=#fbf1ff(圆角处应仍为面板底) 面板几何=936x38"
+        }
+      ],
+      "applied": {
+        "style": "mushan",
+        "saved": "light",
+        "light": "#f8effb",
+        "popoverBg": "#fdf6fffa",
+        "popoverBorder": "#6d5a8e42",
+        "textHighlight": "#decefdaa",
+        "durationTheme": ".26s"
+      }
+    },
+    {
+      "theme": "mushan",
+      "name": "暮山",
+      "mode": "dark",
+      "checks": [
+        {
+          "shot": 1,
+          "name": "局部图",
+          "file": "mushan-dark-1-局部图.png",
+          "ok": true,
+          "detail": "画布就绪=true 取景=271x274@(1120,105) 图底像素=#221c2f（--light=#1a1620）"
+        },
+        {
+          "shot": 2,
+          "name": "全局弹窗",
+          "file": "mushan-dark-2-全局弹窗.png",
+          "ok": true,
+          "detail": "弹窗出图=true 取景=1152x720 面板底像素=#201a2d"
+        },
+        {
+          "shot": 3,
+          "name": "图谱总览",
+          "file": "mushan-dark-3-图谱总览.png",
+          "ok": true,
+          "detail": "画布出图=true 取景=1060x740 画布底像素=#1a1620 vs --light=#1a1620（Δ=0≤12）"
+        },
+        {
+          "shot": 4,
+          "name": "悬停预览弹窗展开态",
+          "file": "mushan-dark-4-悬停弹窗展开态.png",
+          "ok": true,
+          "detail": "底色=rgba(30, 24, 43, 0.98)(token=#1e182bfa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#1e192b(离散4.1≤6→true) 正文底成像=#1f192a 色相257°vs261°(Δ4≤30 且暖冷同向=true→true); 描边成像=#3f3553(Δ底=58.9≥4→true, css=rgba(157, 138, 196, 0.26)/1px); 槽像素=#1d182b(Δ底=1.4≤8→true, 可滚=true 395/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,328) body底=rgb(26, 22, 32)"
+        },
+        {
+          "shot": 5,
+          "name": "搜索弹层带结果",
+          "file": "mushan-dark-5-搜索弹层带结果.png",
+          "ok": true,
+          "detail": "命中=15 条; 高亮 css=rgba(77, 62, 106, 0.667)(token=#4d3e6aaa 同源→true, 旧绿→false); 高亮成像众数=#d2cbdb(命中旧绿→false) 期望合成=#3e3256 命中率=33.3%(≥12%→true, 采样1344px); 卡圆角=12px(=12px→true) 卡描边=rgba(34, 28, 47, 0.72)(--glass-border=#221c2fb8); 卡内底成像=#211b2d 卡角像素=#201a2d(圆角处应仍为面板底) 面板几何=936x38"
+        }
+      ],
+      "applied": {
+        "style": "mushan",
+        "saved": "dark",
+        "light": "#1a1620",
+        "popoverBg": "#1e182bfa",
+        "popoverBorder": "#9d8ac442",
+        "textHighlight": "#4d3e6aaa",
+        "durationTheme": ".26s"
+      }
+    },
+    {
+      "theme": "xuanye",
+      "name": "玄夜",
+      "mode": "light",
+      "checks": [
+        {
+          "shot": 1,
+          "name": "局部图",
+          "file": "xuanye-light-1-局部图.png",
+          "ok": true,
+          "detail": "画布就绪=true 取景=271x274@(1120,105) 图底像素=#edf2ff（--light=#ebf0ff）"
+        },
+        {
+          "shot": 2,
+          "name": "全局弹窗",
+          "file": "xuanye-light-2-全局弹窗.png",
+          "ok": true,
+          "detail": "弹窗出图=true 取景=1152x720 面板底像素=#eef3ff"
+        },
+        {
+          "shot": 3,
+          "name": "图谱总览",
+          "file": "xuanye-light-3-图谱总览.png",
+          "ok": true,
+          "detail": "画布出图=true 取景=1060x740 画布底像素=#eaeffe vs --light=#ebf0ff（Δ=1.7≤12）"
+        },
+        {
+          "shot": 4,
+          "name": "悬停预览弹窗展开态",
+          "file": "xuanye-light-4-悬停弹窗展开态.png",
+          "ok": true,
+          "detail": "底色=rgba(243, 246, 255, 0.98)(token=#f3f6fffa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#f3f6ff(离散5.2≤6→true) 正文底成像=#e6ebf8 色相225°vs223°(Δ2≤30 且暖冷同向=true→true); 描边成像=#c7cfe0(Δ底=66.5≥4→true, css=rgba(74, 93, 138, 0.26)/1px); 槽像素=#f3f6ff(Δ底=0≤8→true, 可滚=true 395/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,328) body底=rgb(235, 240, 255)"
+        },
+        {
+          "shot": 5,
+          "name": "搜索弹层带结果",
+          "file": "xuanye-light-5-搜索弹层带结果.png",
+          "ok": true,
+          "detail": "命中=15 条; 高亮 css=rgba(198, 215, 255, 0.667)(token=#c6d7ffaa 同源→true, 旧绿→false); 高亮成像众数=#cedbf8(命中旧绿→false) 期望合成=#d3e0ff 命中率=44.4%(≥12%→true, 采样1344px); 卡圆角=12px(=12px→true) 卡描边=rgba(236, 242, 255, 0.7)(--glass-border=#ecf2ffb3); 卡内底成像=#edf2fe 卡角像素=#eff3ff(圆角处应仍为面板底) 面板几何=936x44"
+        }
+      ],
+      "applied": {
+        "style": "xuanye",
+        "saved": "light",
+        "light": "#ebf0ff",
+        "popoverBg": "#f3f6fffa",
+        "popoverBorder": "#4a5d8a42",
+        "textHighlight": "#c6d7ffaa",
+        "durationTheme": ".26s"
+      }
+    },
+    {
+      "theme": "xuanye",
+      "name": "玄夜",
+      "mode": "dark",
+      "checks": [
+        {
+          "shot": 1,
+          "name": "局部图",
+          "file": "xuanye-dark-1-局部图.png",
+          "ok": true,
+          "detail": "画布就绪=true 取景=271x274@(1120,105) 图底像素=#161b29（--light=#10141d）"
+        },
+        {
+          "shot": 2,
+          "name": "全局弹窗",
+          "file": "xuanye-dark-2-全局弹窗.png",
+          "ok": true,
+          "detail": "弹窗出图=true 取景=1152x720 面板底像素=#151a27"
+        },
+        {
+          "shot": 3,
+          "name": "图谱总览",
+          "file": "xuanye-dark-3-图谱总览.png",
+          "ok": true,
+          "detail": "画布出图=true 取景=1060x740 画布底像素=#11141d vs --light=#10141d（Δ=1≤12）"
+        },
+        {
+          "shot": 4,
+          "name": "悬停预览弹窗展开态",
+          "file": "xuanye-dark-4-悬停弹窗展开态.png",
+          "ok": true,
+          "detail": "底色=rgba(18, 24, 37, 0.98)(token=#121825fa 同源→true, alpha=0.98≥0.97→true) opacity=1→true; 成像底=#121825(离散3.7≤6→true) 正文底成像=#141a26 色相221°vs220°(Δ1≤30 且暖冷同向=true→true); 描边成像=#323b51(Δ底=64.7≥4→true, css=rgba(143, 163, 204, 0.26)/1px); 槽像素=#121725(Δ底=1≤8→true, 可滚=true 395/336); backdrop=none 圆角=12px 弹窗几何=514x338@(279,328) body底=rgb(16, 20, 29)"
+        },
+        {
+          "shot": 5,
+          "name": "搜索弹层带结果",
+          "file": "xuanye-dark-5-搜索弹层带结果.png",
+          "ok": true,
+          "detail": "命中=15 条; 高亮 css=rgba(53, 71, 108, 0.667)(token=#35476caa 同源→true, 旧绿→false); 高亮成像众数=#2c3a57(命中旧绿→false) 期望合成=#2b3855 命中率=44.5%(≥12%→true, 采样1344px); 卡圆角=12px(=12px→true) 卡描边=rgba(22, 28, 41, 0.72)(--glass-border=#161c29b8); 卡内底成像=#161b27 卡角像素=#151a27(圆角处应仍为面板底) 面板几何=936x44"
+        }
+      ],
+      "applied": {
+        "style": "xuanye",
+        "saved": "dark",
+        "light": "#10141d",
+        "popoverBg": "#121825fa",
+        "popoverBorder": "#8fa3cc42",
+        "textHighlight": "#35476caa",
+        "durationTheme": ".26s"
+      }
+    }
+  ],
+  "coordination": [
+    {
+      "theme": "xuanzhi",
+      "savedTheme": "dark",
+      "frames": 23,
+      "verdict": {
+        "body": {
+          "first": "rgb(254, 239, 229)",
+          "last": "rgb(32, 28, 22)",
+          "changed": true,
+          "midCount": 6,
+          "midWindow": "77.7–266.2ms",
+          "distinct": 8,
+          "gradual": true,
+          "trace": [
+            "77.7:rgb(250, 235, 226)",
+            "106:rgb(237, 223, 213)",
+            "134.1:rgb(213, 200, 191)"
+          ]
+        },
+        "sidebarBefore": {
+          "first": "rgba(255, 241, 232, 0.86)",
+          "last": "rgba(45, 34, 26, 0.82)",
+          "changed": true,
+          "midCount": 6,
+          "midWindow": "77.7–266.2ms",
+          "distinct": 8,
+          "gradual": true,
+          "trace": [
+            "77.7:rgba(252, 238, 229, 0.86)",
+            "106:rgba(240, 226, 217, 0.855)",
+            "134.1:rgba(218, 204, 195, 0.85)"
+          ]
+        },
+        "link": {
+          "first": "rgba(140, 90, 60, 0.13)",
+          "last": "rgba(200, 149, 108, 0.16)",
+          "changed": true,
+          "midCount": 5,
+          "midWindow": "77.7–241.7ms",
+          "distinct": 7,
+          "gradual": true,
+          "trace": [
+            "77.7:rgba(141, 91, 61, 0.13)",
+            "106:rgba(146, 95, 64, 0.133)",
+            "134.1:rgba(153, 103, 71, 0.133)"
+          ]
+        }
+      }
+    },
+    {
+      "theme": "xuanye",
+      "savedTheme": "dark",
+      "frames": 26,
+      "verdict": {
+        "body": {
+          "first": "rgb(235, 240, 255)",
+          "last": "rgb(16, 20, 29)",
+          "changed": true,
+          "midCount": 7,
+          "midWindow": "76.9–273.5ms",
+          "distinct": 9,
+          "gradual": true,
+          "trace": [
+            "76.9:rgb(231, 236, 251)",
+            "105.3:rgb(218, 223, 238)",
+            "133.3:rgb(196, 201, 215)"
+          ]
+        },
+        "sidebarBefore": {
+          "first": "rgba(238, 242, 255, 0.86)",
+          "last": "rgba(22, 28, 41, 0.82)",
+          "changed": true,
+          "midCount": 7,
+          "midWindow": "76.9–273.5ms",
+          "distinct": 9,
+          "gradual": true,
+          "trace": [
+            "76.9:rgba(234, 239, 252, 0.86)",
+            "105.3:rgba(222, 226, 239, 0.855)",
+            "133.3:rgba(201, 206, 219, 0.85)"
+          ]
+        },
+        "link": {
+          "first": "rgba(74, 93, 138, 0.13)",
+          "last": "rgba(143, 163, 204, 0.16)",
+          "changed": true,
+          "midCount": 6,
+          "midWindow": "76.9–253.5ms",
+          "distinct": 8,
+          "gradual": true,
+          "trace": [
+            "76.9:rgba(75, 94, 139, 0.13)",
+            "105.3:rgba(80, 100, 144, 0.133)",
+            "133.3:rgba(89, 108, 152, 0.133)"
+          ]
+        }
+      }
+    }
+  ],
+  "degraded": {
+    "transparency": {
+      "found": true,
+      "bg": "rgb(22, 28, 41)",
+      "bgAlpha": 1,
+      "backdrop": "none",
+      "animationName": "kb-pop-in",
+      "animationDuration": "0.18s",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "innerTransition": "0.26s, 0.26s, 0.26s, 0.26s",
+      "bodyTransition": "0.26s, 0.26s",
+      "glassSolid": "#161c29",
+      "popoverBgToken": "#121825fa",
+      "durationTheme": ".26s",
+      "mqTransparency": true,
+      "mqMotion": false,
+      "bgParsed": {
+        "r": 22,
+        "g": 28,
+        "b": 41,
+        "a": 1
+      },
+      "solidParsed": {
+        "r": 22,
+        "g": 28,
+        "b": 41,
+        "a": 1
+      },
+      "ok": true
+    },
+    "motion": {
+      "found": true,
+      "bg": "rgba(18, 24, 37, 0.98)",
+      "bgAlpha": 0.98,
+      "backdrop": "none",
+      "animationName": "none",
+      "animationDuration": "0.08s",
+      "transform": "none",
+      "innerTransition": "0.08s",
+      "bodyTransition": "0.08s",
+      "glassSolid": "#161c29",
+      "popoverBgToken": "#121825fa",
+      "durationTheme": "80ms",
+      "mqTransparency": false,
+      "mqMotion": true,
+      "ok": true
+    }
+  }
+}
