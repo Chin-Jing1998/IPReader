@@ -17,7 +17,7 @@
   },
   "build": {
     "appId": "com.patentkb.quartz",
-    "productName": "PatentKB",
+    "productName": "专利知识库",
     "directories": {
       "output": "release"
     },
