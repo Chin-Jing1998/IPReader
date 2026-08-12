@@ -133,7 +133,7 @@ async function createWindow() {
     backgroundColor: nativeTheme.shouldUseDarkColors ? byScheme.dark : byScheme.light,
     // 首帧渲染完成前不显示：即便底色已持久化，仍要避免空窗口先亮一下再上内容
     show: false,
-    title: 'PatentKB',
+    title: 'Patentia',
     autoHideMenuBar: true,
     // 仅 macOS 启用自绘标题条：Windows 上 hiddenInset 会退化为 hidden，且未配合
     // titleBarOverlay 时窗口控制按钮（最小化/最大化/关闭）会消失，必须平台门控
@@ -148,7 +148,7 @@ async function createWindow() {
     },
   });
   // SPA 每次导航都会改 document.title，不拦截会让调度中心/窗口菜单标题随页面漂移；
-  // 窗口标题固定为构造时的"专利知识库"
+  // 窗口标题固定为构造时的 Patentia（与 productName 一致）
   win.on('page-title-updated', (e) => { e.preventDefault(); });
   win.setMenuBarVisibility(false);
   win.once('ready-to-show', () => win.show());

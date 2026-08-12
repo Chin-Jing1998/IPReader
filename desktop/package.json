@@ -17,7 +17,7 @@
   },
   "build": {
     "appId": "com.patentkb.quartz",
-    "productName": "PatentKB",
+    "productName": "Patentia",
     "directories": {
       "output": "release"
     },
@@ -77,8 +77,8 @@
       "oneClick": false,
       "perMachine": false,
       "allowToChangeInstallationDirectory": true,
-      "shortcutName": "专利知识库",
-      "uninstallDisplayName": "专利知识库"
+      "shortcutName": "Patentia",
+      "uninstallDisplayName": "Patentia"
     }
   }
 }

@@ -1,4 +1,4 @@
-import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
+import { QuartzComponent, QuartzComponentConstructor } from "./types"
 import style from "./styles/titlebar.scss"
 
 /**
@@ -21,9 +21,14 @@ import style from "./styles/titlebar.scss"
  * `aria-hidden`：这是窗口 chrome 的视觉补齐件，非页面内容；站点标题已由
  * PageTitle 与 <title> 向辅助技术暴露，此处重复朗读只会造成冗余。
  */
-const TitleBar: QuartzComponent = ({ cfg }: QuartzComponentProps) => (
+// 标题条文字与应用名（productName=Patentia）对齐，刻意不取 cfg.pageTitle——
+// pageTitle 同时驱动左栏站名与页面 <title>（保持中文「专利知识库」的阅读语境），
+// 两处命名分离是用户裁决，改回 cfg.pageTitle 会让窗口 chrome 与应用名脱钩。
+const APP_DISPLAY_NAME = "Patentia"
+
+const TitleBar: QuartzComponent = () => (
   <div class="kb-titlebar" aria-hidden="true">
-    <span class="kb-titlebar-text">{cfg.pageTitle}</span>
+    <span class="kb-titlebar-text">{APP_DISPLAY_NAME}</span>
   </div>
 )
 
