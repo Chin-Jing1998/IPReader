@@ -251,6 +251,42 @@ const CROSSFADE_TIMEOUT_MS = 400
 // 后台时 rAF 挂起，由本超时保证旧实例仍必被销毁。后台无合成输出，同帧销毁无害
 const RETIRE_DEFER_FALLBACK_MS = 100
 
+// ---------- GPU 释放延后（J3）：所有销毁路径共用 ----------
+
+/**
+ * app.destroy() 释放 GPU 纹理的兜底超时（见 deferPastCommit）。
+ *
+ * 取 1000ms 而非沿用 RETIRE_DEFER_FALLBACK_MS 的 100ms：本兜底只为「rAF 被挂起
+ * （标签页转入后台）时纹理仍必被释放」而设，前台永远由双 rAF 先行完成。若取值
+ * 落在主线程阻塞窗口量级内，SPA nav 路径反而会被它抢跑——nav 期间主线程要同步
+ * 构建新图（实测约 60–120ms 阻塞），阻塞解除时定时器任务先于 rAF 执行，纹理在
+ * 「旧画布已出 DOM」这一步提交之前就被放掉，正是本次要消除的白帧成因。
+ */
+const DESTROY_DEFER_FALLBACK_MS = 1000
+
+/**
+ * 把 fn 推迟到「当前这轮 DOM 变更已被合成器提交」之后执行（幂等，必达）。
+ *
+ * 用途只有一个：延后 app.destroy() 的 GPU 纹理释放。合成器持有的旧画布图层要等
+ * 主线程提交新一帧才会从图层树摘除，而释放纹理是**立即**生效的——两者错序时，
+ * 合成器拿着已失效的纹理绘制该图层，整块画布区出一帧纯白（暗色主题下极刺眼）。
+ *
+ * 双 rAF 的含义：第一帧的 rAF 回调跑在该帧样式/布局/绘制/提交之前，故等到第二帧
+ * 的 rAF，前一帧的提交必已完成，旧画布图层此时已不在图层树内，释放纹理无帧可坏。
+ */
+function deferPastCommit(fn: () => void) {
+  let done = false
+  const run = () => {
+    if (done) return
+    done = true
+    fn()
+  }
+  requestAnimationFrame(() => {
+    requestAnimationFrame(run)
+  })
+  setTimeout(run, DESTROY_DEFER_FALLBACK_MS)
+}
+
 /**
  * 同一容器上在途的淡入收尾函数（并发闸）。新一轮渲染开工前先冲掉在途那轮，
  * 使「移除旧节点 + 销毁旧实例」按序完成，两轮的旧节点不会互相残留。
@@ -322,7 +358,10 @@ function startCrossfade(
     retireTimer = setTimeout(finalize, RETIRE_DEFER_FALLBACK_MS)
   }
   // 冲闸函数：flushPendingSwap 同步跑完剩余全部步骤（DOM 收尾 + 销毁），
-  // 新一轮渲染开工前旧节点必已移除、旧实例必已销毁，与拆帧前语义一致
+  // 新一轮渲染开工前旧节点必已移除、旧实例必已停机，与拆帧前语义一致。
+  // J3 后「停机」与「释放 GPU 纹理」分了家：本处同步完成的是停机（rAF 循环、
+  // 力导、补间全停，不留孤儿），纹理释放另由 deferPastCommit 在≤2 帧内必达——
+  // 那一步无副作用可言，晚几帧不影响任何调用方语义
   const flush = () => {
     finish()
     finalize()
@@ -1550,7 +1589,15 @@ async function createGraphInstance(
     applyFitView(true)
   }
 
+  // 本实例是否已停机（destroyInstance 幂等所需）：GPU 释放被推迟后，
+  // 「已下令销毁但纹理尚未释放」存在一段窗口，期间重复调用不得再排一次释放
+  let instanceDisposed = false
+
   function destroyInstance() {
+    if (instanceDisposed) return
+    instanceDisposed = true
+    // 停机部分立即执行：rAF 循环、力导、补间、截断 badge 一律就地了断，
+    // 不留孤儿——延后的只有 app.destroy() 这一步纯 GPU 资源释放
     stopAnimation = true
     clearTimeout(zoomToFitTimer)
     simulation.stop()
@@ -1558,7 +1605,17 @@ async function createGraphInstance(
     tweens.clear()
     truncationNote?.remove()
     truncationNote = null
-    app.destroy()
+    // J3：GPU 释放延后到「旧画布已出图层树」的提交之后。
+    // 根因（CDP 帧证据 2026-08-12，Electron 43，玄夜暗下 SPA 导航 8/10 复现）：
+    // SPA nav 的时序是「prenav 清理里同步 app.destroy() → micromorph 摘掉旧画布
+    // → nav 处理器同步构建新图，主线程阻塞约 60–120ms」。纹理在第一步就被释放，
+    // 而摘除旧画布要等主线程让出后才提交，中间这段窗口合成器仍按旧图层树出帧，
+    // 拿不到纹理即把整块画布区绘成纯白——白帧稳定落在点击后 +18~+39ms。
+    // 延后后，该窗口内合成器复用的是仍然有效的旧图层（视觉上即旧图多留几十毫秒，
+    // 与不闪白的那两成用例本就同一观感），提交完成后再释放，无帧可坏。
+    // 交叉淡入（themechange）路径同受益且零回归：本延后只会让释放更晚，
+    // e44efa9 的「DOM 收尾后再延两帧」时序原样保留，绝不提前。
+    deferPastCommit(() => app.destroy())
   }
 
   return {
