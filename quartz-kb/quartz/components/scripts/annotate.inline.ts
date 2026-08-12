@@ -408,7 +408,7 @@ document.addEventListener("nav", () => {
     const url = URL.createObjectURL(blob)
     const a = document.createElement("a")
     a.href = url
-    a.download = `专利知识库-批注-${new Date().toISOString().slice(0, 10)}.json`
+    a.download = `Patentia-批注-${new Date().toISOString().slice(0, 10)}.json`
     a.click()
     URL.revokeObjectURL(url)
   }

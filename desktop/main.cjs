@@ -1,4 +1,4 @@
-// 专利知识库桌面端 · Electron 主进程（以 site/electron/main.cjs 为底改造）。
+// Patentia 桌面端 · Electron 主进程（以 site/electron/main.cjs 为底改造）。
 //   渲染层是 quartz 构建好的纯静态站（quartz-kb/public/），由 server.cjs 的本地
 //   http 静态服务在 127.0.0.1 固定端口 47821 托管后加载——避免 file:// 协议下
 //   fetch contentIndex.json 等资源被安全策略拦截。

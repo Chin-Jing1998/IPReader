@@ -1,9 +1,9 @@
 {
-  "name": "patent-kb-desktop",
+  "name": "patentia-desktop",
   "private": true,
   "version": "1.0.0",
-  "description": "专利知识库桌面端 · quartz 静态站 + Electron 本地 http 托管（纯离线）",
-  "author": "patent-kb",
+  "description": "Patentia · 专利知识库桌面端——quartz 静态站 + Electron 本地 http 托管（纯离线）",
+  "author": "张京京",
   "main": "main.cjs",
   "scripts": {
     "start": "electron .",

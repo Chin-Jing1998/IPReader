@@ -1,7 +1,7 @@
-// build-quartz-md.mjs —— 专利知识库 → quartz 内容站 markdown 生成器（Q2 阶段）
+// build-quartz-md.mjs —— Patentia 数据层 → quartz 内容站 markdown 生成器（Q2 阶段）
 //
 // 输入（均为只读）：
-//   data/nodes.json        2175 节点（7 部书 1193 + 术语 982）
+//   data/nodes.json        2044 节点（7 部书 1193 + 术语 851）
 //   data/edges.json        仅取 hierarchy 边构建父子链
 //   data/node-bodies.json  每节点 ownText 净文本（正文唯一来源，避免父子子树重复）
 //   public/content/{id}.json        章节详情（related[] 预解析出链、examples）
@@ -827,7 +827,7 @@ for (const b of BOOKS) {
 
 // —— 8.8 首页 content/index.md ——
 {
-  const fm = frontmatter({ title: '专利知识库' });
+  const fm = frontmatter({ title: 'Patentia' });
   const bookList = BOOKS.map((b) => {
     const meta = DOMAIN_META.get(b.domain);
     const count = nodes.filter((n) => n.domain === b.domain).length;
@@ -942,7 +942,7 @@ if (broken.length) {
   console.error('死链明细（前 20 条）：\n' + broken.slice(0, 20).join('\n'));
   process.exit(1);
 }
-// 页数断言：节点页 2175 + 书根 7 + 术语总目录 1 + 主题索引 ~33 + 首页 1 ≈ 2217。
+// 页数断言：节点页 2044 + 书根 7 + 术语总目录 1 + 主题索引 23 + 图谱总览 1 + 首页 1 ≈ 2077。
 // 任务书预估 2350±80 系把 174 个容器索引页在 2175 个节点页之外重复计入（2175+174=2349），
 // 实际每个容器就是一个节点页，不另生成；故此处按真实构成断言，区间放宽下限。
 const nodePages =
