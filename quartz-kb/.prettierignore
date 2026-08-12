@@ -1,3 +1,9 @@
 public
 node_modules
 .quartz-cache
+
+# 生成产物不参与格式化：content 由 site/scripts/build-quartz-md.mjs 产出（排版由生成器
+# 决定，格式化后一经重生成即被打回）；static/content 为随应用分发的单行压缩 JSON
+# （压缩是刻意的体积设计，prettier 展开会显著膨胀分发产物）。
+content
+quartz/static/content
