@@ -261,9 +261,14 @@ function tagsOf(node) {
     if (g) t.push(tagName(g.name));
     return t;
   }
+  // 章节页标签同样收口到主题分组名（与词条页、目录三者同一套口径）：
+  //   归组后同组的多个细粒度主题会重名，交由下方 Set 去重（实测 2534 → 2220 个标签）。
   const meta = DOMAIN_META.get(node.domain);
   const t = meta ? [meta.short] : [];
-  for (const key of node.topics || []) if (TOPIC_NAME[key]) t.push(tagName(TOPIC_NAME[key]));
+  for (const key of node.topics || []) {
+    const g = termGroupOf(key);
+    if (g) t.push(tagName(g.name));
+  }
   return [...new Set(t)];
 }
 

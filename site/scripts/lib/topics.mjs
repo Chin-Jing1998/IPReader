@@ -62,6 +62,16 @@ export const TOPICS = [
     name: '撰写实务',
     kw: ['禁忌', '禁用', '注意事项', '不规范', '错别字', '措辞', '拼凑', '越简越好', '用法', '写法', '陷阱'],
   },
+  // —— 以下 37~40 为 2026-08-12 扩类：原 examProcedure（审查程序）单键承载 159 词、
+  //    合 oaResponse 共 165 词成为最大组，按审查流程阶段细分为四键。追加在末尾，
+  //    既有 key 与数组序号一律不动（目录编号自 2026-08-12 起取 TERM_TOPIC_GROUPS 组序，不再取本表下标）。
+  //    manualOnly: 只作为 data/term-topic-decisions.json 人工决策的落点，不参与自动归类——
+  //      kw 为空使 tagTopics 永不命中（章节标签零影响），且下方 TOPIC_PROBES 将其整体排除，
+  //      使 classifyTopic 的一/二/三级都不会把决策清单外的词条吸进这四键。归属完全由决策层决定。
+  { key: 'procReception', name: '受理与初步审查', kw: [], manualOnly: true },
+  { key: 'procSubstantive', name: '实质审查与答复', kw: [], manualOnly: true },
+  { key: 'procGrant', name: '授权登记与公布', kw: [], manualOnly: true },
+  { key: 'procAffairs', name: '程序事务', kw: [], manualOnly: true },
 ];
 
 // 命中的主题 key 列表（去重）。text 由调用方按"容器用导语、叶子用全文"传入，避免容器揽过多主题。
@@ -113,8 +123,17 @@ export const TERM_TOPIC_GROUPS = [
   // 特殊类型与领域
   { key: 'gDesign', name: '外观设计', members: ['design'] },
   { key: 'gCompound', name: '化合物与组合物', members: ['compound'] },
-  // 审查与后续程序。审查意见答复（6 词）与审查程序同属实审阶段的程序性内容。
-  { key: 'gExamProcedure', name: '审查程序与答复', members: ['examProcedure', 'oaResponse'] },
+  // 审查与后续程序：2026-08-12 把原「审查程序与答复」165 词按审查流程阶段拆为四组。
+  //   归类依据以词条「出处」章节规则化投票为主（审查指南 01-01~01-03/05-03 → 受理与初步审查；
+  //   02-* 与 03-02、答复指引 → 实质审查与答复；05-08/05-09/05-10、细则第九章 → 授权登记与公布；
+  //   05-01/05-04~05-07/05-11 → 程序事务），跨部或语义边界词逐词裁量，全量映射见提交说明。
+  { key: 'gProcReception', name: '受理与初步审查', members: ['procReception'] },
+  // examProcedure 为拆分前的旧粗粒度键：拆分后无任何词条再挂它（章节节点亦从未携带，
+  //   它是 2026-08-11 扩类后未重跑 parse-domains 的纯词条键），此处保留收编仅为满足完整性自检、
+  //   并在决策层回退时提供落点。oaResponse 仍有 197 个章节节点携带，其章节标签经本组呈现。
+  { key: 'gProcSubstantive', name: '实质审查与答复', members: ['procSubstantive', 'oaResponse', 'examProcedure'] },
+  { key: 'gProcGrant', name: '授权登记与公布', members: ['procGrant'] },
+  { key: 'gProcAffairs', name: '程序事务', members: ['procAffairs'] },
   { key: 'gClassificationSearch', name: '分类与检索', members: ['classificationSearch'] },
   { key: 'gReexam', name: '复审', members: ['reexam'] },
   { key: 'gInvalidation', name: '无效宣告', members: ['invalidation'] },
@@ -177,7 +196,9 @@ const L3_MIN_REPEAT = 3; // 三级：单一 kw 重复出现下限（种类不足
 const L3_MARGIN = 2; // 三级：冠军相对亚军的最小分差
 
 // 每个主题参与匹配的词面 = [name, ...kw]（归一 + 去重 + 按长度降序，便于取最长命中）
-const TOPIC_PROBES = TOPICS.map((t) => ({
+//   manualOnly 主题整体排除：其归属只由人工决策指定，不得被算法自动吸词（否则决策清单外的
+//   词条会因组名反向子串命中而漂移，如「初步审查」被「受理与初步审查」吞掉）。
+const TOPIC_PROBES = TOPICS.filter((t) => !t.manualOnly).map((t) => ({
   key: t.key,
   probes: [...new Set([t.name, ...t.kw].map(TOPIC_NORM))].filter((p) => p.length >= 2).sort((a, b) => b.length - a.length),
 }));

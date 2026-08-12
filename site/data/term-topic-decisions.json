@@ -92,26 +92,26 @@
  {
   "termKey": "视为未提出",
   "canonical": "视为未提出",
-  "topicKey": "examProcedure",
-  "note": "程序性法律后果，不限于复审（纠正三级误配）"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜人工裁量(覆盖规则)：文件形式不合规的法律后果，属受理与形式审查"
  },
  {
   "termKey": "著录项目",
   "canonical": "著录项目",
-  "topicKey": "examProcedure",
-  "note": "事务处理中的著录事项（纠正三级误配）"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":2}"
  },
  {
   "termKey": "著录事项",
   "canonical": "著录事项",
-  "topicKey": "examProcedure",
-  "note": "事务处理中的著录事项（纠正三级误配）"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量(覆盖规则)：与「著录项目」同归程序事务"
  },
  {
   "termKey": "发明专利申请公布",
   "canonical": "发明专利申请公布",
-  "topicKey": "examProcedure",
-  "note": "公布程序，非优先权（纠正三级误配）"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":1,\"D\":0}"
  },
  {
   "termKey": "同日",
@@ -734,8 +734,8 @@
  {
   "termKey": "主动修改时机",
   "canonical": "主动修改时机",
-  "topicKey": "examProcedure",
-  "note": "修改时机属程序性规定"
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":1,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "允许的修改",
@@ -2252,614 +2252,614 @@
  {
   "termKey": "分案申请",
   "canonical": "分案申请",
-  "topicKey": "examProcedure",
-  "note": "申请程序中的分案"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":7,\"B\":4,\"C\":2,\"D\":1}"
  },
  {
   "termKey": "分案申请的提出与时限",
   "canonical": "分案申请的提出与时限",
-  "topicKey": "examProcedure",
-  "note": "分案的程序要件"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜人工裁量：分案申请的提出与时限为递交行为，与「分案申请」同归受理"
  },
  {
   "termKey": "分案通知书",
   "canonical": "分案通知书",
-  "topicKey": "examProcedure",
-  "note": "分案程序文件"
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":2,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "原申请",
   "canonical": "原申请",
-  "topicKey": "examProcedure",
-  "note": "分案所对应的母案"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜人工裁量：分案在请求书中填写原申请号与申请日，属请求书形式"
  },
  {
   "termKey": "原申请日",
   "canonical": "原申请日",
-  "topicKey": "examProcedure",
-  "note": "申请日的保留"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜人工裁量：分案保留原申请日，属申请日确定"
  },
  {
   "termKey": "申请日",
   "canonical": "申请日",
-  "topicKey": "examProcedure",
-  "note": "申请日的确定"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":2,\"B\":1,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "申请日更正",
   "canonical": "申请日更正",
-  "topicKey": "examProcedure",
-  "note": "申请日的更正"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":1,\"B\":0,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "重新确定申请日",
   "canonical": "重新确定申请日",
-  "topicKey": "examProcedure",
-  "note": "申请日的重新确定"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":2,\"B\":0,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "申请日与申请号的确定",
   "canonical": "申请日与申请号的确定",
-  "topicKey": "examProcedure",
-  "note": "受理阶段的日期与编号"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜人工裁量：申请日与申请号的确定，受理环节核心"
  },
  {
   "termKey": "申请号",
   "canonical": "申请号",
-  "topicKey": "examProcedure",
-  "note": "申请编号规则"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":1,\"B\":0,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "收到日",
   "canonical": "收到日",
-  "topicKey": "examProcedure",
-  "note": "受理部门收到文件的日期"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":1,\"B\":0,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "收到文件回执",
   "canonical": "收到文件回执",
-  "topicKey": "examProcedure",
-  "note": "受理手续凭证"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":1,\"B\":0,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "递交日",
   "canonical": "递交日",
-  "topicKey": "examProcedure",
-  "note": "文件递交日期认定"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":2,\"B\":0,\"C\":0,\"D\":1}"
  },
  {
   "termKey": "邮戳日",
   "canonical": "邮戳日",
-  "topicKey": "examProcedure",
-  "note": "邮寄递交日期认定"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜人工裁量：以寄出邮戳日为申请日，属申请日确定"
  },
  {
   "termKey": "邮寄规范",
   "canonical": "邮寄规范",
-  "topicKey": "examProcedure",
-  "note": "文件递交方式规范"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：文件邮寄递交规范，属程序事务"
  },
  {
   "termKey": "电子形式",
   "canonical": "电子形式",
-  "topicKey": "examProcedure",
-  "note": "电子申请形式"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":1}"
  },
  {
   "termKey": "专利业务办理系统",
   "canonical": "专利业务办理系统",
-  "topicKey": "examProcedure",
-  "note": "电子申请系统"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":1}"
  },
  {
   "termKey": "中文与外文译文",
   "canonical": "中文与外文译文",
-  "topicKey": "examProcedure",
-  "note": "申请文件语言要求"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜人工裁量：申请文件外文译文的形式要求，属受理与形式审查"
  },
  {
   "termKey": "请求书",
   "canonical": "请求书",
-  "topicKey": "examProcedure",
-  "note": "申请文件组成"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":1,\"B\":0,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "请求书记载事项",
   "canonical": "请求书记载事项",
-  "topicKey": "examProcedure",
-  "note": "请求书填写要求"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜人工裁量：请求书记载事项属申请文件形式要求"
  },
  {
   "termKey": "申请文件形式",
   "canonical": "申请文件形式",
-  "topicKey": "examProcedure",
-  "note": "申请文件形式审查"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜人工裁量(覆盖规则)：申请文件形式要求属受理与形式审查"
  },
  {
   "termKey": "原始申请文件",
   "canonical": "原始申请文件",
-  "topicKey": "examProcedure",
-  "note": "案卷中的原始文本"
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":2,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "提前公布",
   "canonical": "提前公布",
-  "topicKey": "examProcedure",
-  "note": "公布程序"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":1,\"D\":0}"
  },
  {
   "termKey": "提前公布声明",
   "canonical": "提前公布声明",
-  "topicKey": "examProcedure",
-  "note": "公布程序手续"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜人工裁量(覆盖规则)：与「提前公布」同归公布"
  },
  {
   "termKey": "早日公布请求",
   "canonical": "早日公布请求",
-  "topicKey": "examProcedure",
-  "note": "公布程序手续"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜人工裁量：早日公布请求，属公布"
  },
  {
   "termKey": "早期公开",
   "canonical": "早期公开",
-  "topicKey": "examProcedure",
-  "note": "十八个月公布制度"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜人工裁量：自申请日起满十八个月即行公布，属公布"
  },
  {
   "termKey": "发明专利公报",
   "canonical": "发明专利公报",
-  "topicKey": "examProcedure",
-  "note": "公布与公告载体"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":1,\"D\":0}"
  },
  {
   "termKey": "专利公报",
   "canonical": "专利公报",
-  "topicKey": "examProcedure",
-  "note": "公布与公告载体"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":4,\"D\":1}"
  },
  {
   "termKey": "专利公报公告事项",
   "canonical": "专利公报公告事项",
-  "topicKey": "examProcedure",
-  "note": "公告内容"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":1,\"D\":0}"
  },
  {
   "termKey": "专利单行本",
   "canonical": "专利单行本",
-  "topicKey": "examProcedure",
-  "note": "专利文本出版形式"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":1,\"D\":0}"
  },
  {
   "termKey": "发明专利申请单行本",
   "canonical": "发明专利申请单行本",
-  "topicKey": "examProcedure",
-  "note": "专利文本出版形式"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":2,\"D\":1}"
  },
  {
   "termKey": "主动修改",
   "canonical": "主动修改",
-  "topicKey": "examProcedure",
-  "note": "修改时机的程序规定"
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜人工裁量(覆盖规则)：与「主动修改时机/时限」同归实审阶段修改"
  },
  {
   "termKey": "主动提出修改",
   "canonical": "主动提出修改",
-  "topicKey": "examProcedure",
-  "note": "修改时机的程序规定"
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜人工裁量：国际申请进入国家阶段对申请文件主动提出修改"
  },
  {
   "termKey": "主动修改时限",
   "canonical": "主动修改时限",
-  "topicKey": "examProcedure",
-  "note": "修改时机的程序规定"
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜人工裁量：主动修改时限（细则 57）系实审阶段修改时机"
  },
  {
   "termKey": "修改替换页",
   "canonical": "修改替换页",
-  "topicKey": "examProcedure",
-  "note": "修改文件的提交形式"
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":2,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "修改对照表",
   "canonical": "修改对照表",
-  "topicKey": "examProcedure",
-  "note": "修改文件的提交形式"
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":1,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "修改更正通知书",
   "canonical": "修改更正通知书",
-  "topicKey": "examProcedure",
-  "note": "审查程序通知书"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":1,\"B\":0,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "明显实质性缺陷",
   "canonical": "明显实质性缺陷",
-  "topicKey": "examProcedure",
-  "note": "初步审查的实质性缺陷审查"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":4,\"B\":0,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "通知和决定",
   "canonical": "通知和决定",
-  "topicKey": "examProcedure",
-  "note": "审查文件种类"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":1}"
  },
  {
   "termKey": "处分决定",
   "canonical": "处分决定",
-  "topicKey": "examProcedure",
-  "note": "耽误期限的法律后果决定"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":1}"
  },
  {
   "termKey": "决定的理由",
   "canonical": "决定的理由",
-  "topicKey": "examProcedure",
-  "note": "审查决定文本结构"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：决定的理由（决定文书构成），属审查组织事务"
  },
  {
   "termKey": "决定要点",
   "canonical": "决定要点",
-  "topicKey": "examProcedure",
-  "note": "审查决定文本结构"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：决定要点（决定文书构成），属审查组织事务"
  },
  {
   "termKey": "视为撤回",
   "canonical": "视为撤回",
-  "topicKey": "examProcedure",
-  "note": "程序性法律后果"
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":5,\"B\":6,\"C\":2,\"D\":2}"
  },
  {
   "termKey": "视为撤回通知书",
   "canonical": "视为撤回通知书",
-  "topicKey": "examProcedure",
-  "note": "程序性法律后果通知"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":3,\"B\":0,\"C\":0,\"D\":1}"
  },
  {
   "termKey": "视为未提交",
   "canonical": "视为未提交",
-  "topicKey": "examProcedure",
-  "note": "程序性法律后果"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜人工裁量：文件不符合形式规定视为未提交，属受理与形式审查"
  },
  {
   "termKey": "视为放弃",
   "canonical": "视为放弃",
-  "topicKey": "examProcedure",
-  "note": "程序性法律后果"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":1,\"D\":0}"
  },
  {
   "termKey": "视为放弃取得专利权",
   "canonical": "视为放弃取得专利权",
-  "topicKey": "examProcedure",
-  "note": "程序性法律后果"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":1,\"D\":0}"
  },
  {
   "termKey": "撤回专利申请",
   "canonical": "撤回专利申请",
-  "topicKey": "examProcedure",
-  "note": "申请人处分行为"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":1}"
  },
  {
   "termKey": "撤回专利申请声明",
   "canonical": "撤回专利申请声明",
-  "topicKey": "examProcedure",
-  "note": "申请人处分手续"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量(覆盖规则)：与「撤回专利申请」同归程序事务"
  },
  {
   "termKey": "撤回申请的声明",
   "canonical": "撤回申请的声明",
-  "topicKey": "examProcedure",
-  "note": "申请人处分手续"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：撤回申请声明为申请人跨阶段程序行为"
  },
  {
   "termKey": "放弃专利权",
   "canonical": "放弃专利权",
-  "topicKey": "examProcedure",
-  "note": "专利权人处分行为"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":1,\"D\":0}"
  },
  {
   "termKey": "放弃专利权声明",
   "canonical": "放弃专利权声明",
-  "topicKey": "examProcedure",
-  "note": "专利权人处分手续"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":1,\"D\":0}"
  },
  {
   "termKey": "授予专利权通知",
   "canonical": "授予专利权通知",
-  "topicKey": "examProcedure",
-  "note": "授权程序文件"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜人工裁量：授予专利权通知，属授权"
  },
  {
   "termKey": "授予发明专利权通知书",
   "canonical": "授予发明专利权通知书",
-  "topicKey": "examProcedure",
-  "note": "授权程序文件"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜人工裁量：授予发明专利权通知书，属授权"
  },
  {
   "termKey": "专利权授予",
   "canonical": "专利权授予",
-  "topicKey": "examProcedure",
-  "note": "授权程序"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":1,\"D\":0}"
  },
  {
   "termKey": "专利证书",
   "canonical": "专利证书",
-  "topicKey": "examProcedure",
-  "note": "授权后证书"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":2,\"D\":0}"
  },
  {
   "termKey": "专利登记簿",
   "canonical": "专利登记簿",
-  "topicKey": "examProcedure",
-  "note": "授权后登记"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":3,\"D\":2}"
  },
  {
   "termKey": "专利登记簿副本",
   "canonical": "专利登记簿副本",
-  "topicKey": "examProcedure",
-  "note": "授权后登记文件"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":1,\"D\":0}"
  },
  {
   "termKey": "专利权终止通知书",
   "canonical": "专利权终止通知书",
-  "topicKey": "examProcedure",
-  "note": "专利权终止程序文件"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":1,\"D\":0}"
  },
  {
   "termKey": "专利权评价报告",
   "canonical": "专利权评价报告",
-  "topicKey": "examProcedure",
-  "note": "授权后评价报告"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":3,\"D\":2}"
  },
  {
   "termKey": "专利权评价报告请求书",
   "canonical": "专利权评价报告请求书",
-  "topicKey": "examProcedure",
-  "note": "评价报告请求手续"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":1,\"D\":0}"
  },
  {
   "termKey": "著录项目变更",
   "canonical": "著录项目变更",
-  "topicKey": "examProcedure",
-  "note": "事务处理手续"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：著录项目变更属跨阶段事务性手续"
  },
  {
   "termKey": "著录事项变更",
   "canonical": "著录事项变更",
-  "topicKey": "examProcedure",
-  "note": "事务处理手续"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：著录事项变更，与著录项目变更同归程序事务"
  },
  {
   "termKey": "著录项目变更申报书",
   "canonical": "著录项目变更申报书",
-  "topicKey": "examProcedure",
-  "note": "事务处理手续文件"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：著录项目变更申报书，属程序事务"
  },
  {
   "termKey": "专利申请文档",
   "canonical": "专利申请文档",
-  "topicKey": "examProcedure",
-  "note": "案卷管理"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":3}"
  },
  {
   "termKey": "案卷保存期限",
   "canonical": "案卷保存期限",
-  "topicKey": "examProcedure",
-  "note": "案卷管理"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":2}"
  },
  {
   "termKey": "案卷查阅与保存期限",
   "canonical": "案卷查阅与保存期限",
-  "topicKey": "examProcedure",
-  "note": "案卷管理"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：案卷查阅与保存期限（指南 05-04）属程序事务"
  },
  {
   "termKey": "保密申请",
   "canonical": "保密申请",
-  "topicKey": "examProcedure",
-  "note": "保密专利程序"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":3}"
  },
  {
   "termKey": "保密审查",
   "canonical": "保密审查",
-  "topicKey": "examProcedure",
-  "note": "向外国申请前的保密审查"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量(覆盖规则)：指南 05-05 向外国申请专利的保密审查，属程序事务"
  },
  {
   "termKey": "向外国申请前的保密审查",
   "canonical": "向外国申请前的保密审查",
-  "topicKey": "examProcedure",
-  "note": "保密审查程序"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：向外国申请专利的保密审查（指南 05-05）属程序事务"
  },
  {
   "termKey": "向外国申请专利的保密审查",
   "canonical": "向外国申请专利的保密审查",
-  "topicKey": "examProcedure",
-  "note": "保密审查程序"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":1}"
  },
  {
   "termKey": "向外国申请专利",
   "canonical": "向外国申请专利",
-  "topicKey": "examProcedure",
-  "note": "保密审查的适用情形"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":1}"
  },
  {
   "termKey": "在中国完成的发明或者实用新型",
   "canonical": "在中国完成的发明或者实用新型",
-  "topicKey": "examProcedure",
-  "note": "保密审查的适用范围"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":2,\"B\":0,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "解密请求",
   "canonical": "解密请求",
-  "topicKey": "examProcedure",
-  "note": "保密专利解密程序"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":1}"
  },
  {
   "termKey": "保密基准",
   "canonical": "保密基准",
-  "topicKey": "examProcedure",
-  "note": "保密专利定密标准"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":2}"
  },
  {
   "termKey": "保密原则",
   "canonical": "保密原则",
-  "topicKey": "examProcedure",
-  "note": "审查工作原则"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":3,\"B\":0,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "保密责任",
   "canonical": "保密责任",
-  "topicKey": "examProcedure",
-  "note": "审查工作纪律"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":1}"
  },
  {
   "termKey": "诚实信用原则",
   "canonical": "诚实信用原则",
-  "topicKey": "examProcedure",
-  "note": "专利申请行为规范"
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":1,\"B\":2,\"C\":0,\"D\":1}"
  },
  {
   "termKey": "公开原则",
   "canonical": "公开原则",
-  "topicKey": "examProcedure",
-  "note": "审查工作原则"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":1}"
  },
  {
   "termKey": "独立原则",
   "canonical": "独立原则",
-  "topicKey": "examProcedure",
-  "note": "案卷管理原则"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":1}"
  },
  {
   "termKey": "合法原则",
   "canonical": "合法原则",
-  "topicKey": "examProcedure",
-  "note": "审查工作原则"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":1}"
  },
  {
   "termKey": "真实原则",
   "canonical": "真实原则",
-  "topicKey": "examProcedure",
-  "note": "审查工作原则"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":1}"
  },
  {
   "termKey": "时间顺序原则",
   "canonical": "时间顺序原则",
-  "topicKey": "examProcedure",
-  "note": "手续办理原则"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":1}"
  },
  {
   "termKey": "审查人员回避",
   "canonical": "审查人员回避",
-  "topicKey": "examProcedure",
-  "note": "审查人员任职回避"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：审查人员回避，属审查组织事务"
  },
  {
   "termKey": "合议组",
   "canonical": "合议组",
-  "topicKey": "examProcedure",
-  "note": "合议审查组织"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：合议组构成，属审查组织事务"
  },
  {
   "termKey": "参审员",
   "canonical": "参审员",
-  "topicKey": "examProcedure",
-  "note": "合议组成员"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：参审员，属审查组织事务"
  },
  {
   "termKey": "复核组",
   "canonical": "复核组",
-  "topicKey": "examProcedure",
-  "note": "复核组织"
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":1,\"D\":0}"
  },
  {
   "termKey": "五人合议组",
   "canonical": "五人合议组",
-  "topicKey": "examProcedure",
-  "note": "合议组组成形式"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：五人合议组，属审查组织事务"
  },
  {
   "termKey": "第三人意见",
   "canonical": "第三人意见",
-  "topicKey": "examProcedure",
-  "note": "公众意见处理"
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":1,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "会晤记录",
   "canonical": "会晤记录",
-  "topicKey": "examProcedure",
-  "note": "审查沟通记录"
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":1,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "委托代理机构",
   "canonical": "委托代理机构",
-  "topicKey": "examProcedure",
-  "note": "代理委托手续"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量(覆盖规则)：委托代理事务"
  },
  {
   "termKey": "委托代理与可自行办理事务",
   "canonical": "委托代理与可自行办理事务",
-  "topicKey": "examProcedure",
-  "note": "代理委托范围"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：委托代理与可自行办理事务，属程序事务"
  },
  {
   "termKey": "委托书",
   "canonical": "委托书",
-  "topicKey": "examProcedure",
-  "note": "代理委托文件"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量(覆盖规则)：委托代理文件，虽在初审章被形式核查，语义归委托代理事务"
  },
  {
   "termKey": "特别授权的委托书",
   "canonical": "特别授权的委托书",
-  "topicKey": "examProcedure",
-  "note": "代理委托权限"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：特别授权的委托书，属委托代理事务"
  },
  {
   "termKey": "解除委托",
   "canonical": "解除委托",
-  "topicKey": "examProcedure",
-  "note": "代理委托终止"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量(覆盖规则)：委托代理事务"
  },
  {
   "termKey": "辞去委托",
   "canonical": "辞去委托",
-  "topicKey": "examProcedure",
-  "note": "代理委托终止"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量(覆盖规则)：委托代理事务"
  },
  {
   "termKey": "专利代理机构",
   "canonical": "专利代理机构",
-  "topicKey": "examProcedure",
-  "note": "代理主体"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：专利代理机构，属委托代理事务"
  },
  {
   "termKey": "专利代理师",
   "canonical": "专利代理师",
-  "topicKey": "examProcedure",
-  "note": "代理主体"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量(覆盖规则)：委托代理事务"
  },
  {
   "termKey": "代表人",
   "canonical": "代表人",
-  "topicKey": "examProcedure",
-  "note": "多申请人代表规则"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":1,\"B\":0,\"C\":0,\"D\":0}"
  },
  {
   "termKey": "经常居所",
   "canonical": "经常居所",
-  "topicKey": "examProcedure",
-  "note": "申请人主体资格与代理强制"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：经常居所（决定委托代理义务），属程序事务"
  },
  {
   "termKey": "中止期限",
   "canonical": "中止期限",
-  "topicKey": "examProcedure",
-  "note": "程序中止期限"
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":1}"
  },
  {
   "termKey": "样品或者模型",
   "canonical": "样品或者模型",
-  "topicKey": "examProcedure",
-  "note": "申请附随材料要求"
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜人工裁量：样品或者模型的形式要求，属申请文件形式"
  },
  {
   "termKey": "延长期限请求",
@@ -2872,5 +2872,353 @@
   "canonical": "确认援引项目或部分决定的通知书",
   "topicKey": "pct",
   "note": "PCT 受理局表格文件"
+ },
+ {
+  "termKey": "实质审查程序",
+  "canonical": "实质审查程序",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":1,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "答复期限",
+  "canonical": "答复期限",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":3,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "答复审查意见通知书时的修改",
+  "canonical": "答复审查意见通知书时的修改",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":1,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "依职权修改",
+  "canonical": "依职权修改",
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":3,\"B\":2,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "十一种驳回情形",
+  "canonical": "十一种驳回情形",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":1,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "听证原则",
+  "canonical": "听证原则",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜人工裁量：释义限定「实质审查过程中作出驳回决定之前」，属实审程序原则"
+ },
+ {
+  "termKey": "实质审查请求",
+  "canonical": "实质审查请求",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜人工裁量：实审请求的提出（自申请日起三年内），实审程序入口"
+ },
+ {
+  "termKey": "复审合议审查",
+  "canonical": "复审合议审查",
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：复审合议审查形式，属跨程序的审查组织事务"
+ },
+ {
+  "termKey": "复审依职权审查",
+  "canonical": "复审依职权审查",
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：复审依职权审查，属跨程序的审查组织事务"
+ },
+ {
+  "termKey": "送达方式",
+  "canonical": "送达方式",
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":1}"
+ },
+ {
+  "termKey": "送达日推定",
+  "canonical": "送达日推定",
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":1}"
+ },
+ {
+  "termKey": "中止程序",
+  "canonical": "中止程序",
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：中止（指南 05-07 期限、权利恢复、中止）属程序事务"
+ },
+ {
+  "termKey": "优先审查",
+  "canonical": "优先审查",
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":2}"
+ },
+ {
+  "termKey": "快速审查",
+  "canonical": "快速审查",
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":2}"
+ },
+ {
+  "termKey": "延迟审查",
+  "canonical": "延迟审查",
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":1,\"D\":2}"
+ },
+ {
+  "termKey": "实质审查",
+  "canonical": "实质审查",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":2,\"C\":0,\"D\":1}"
+ },
+ {
+  "termKey": "不予受理的情形",
+  "canonical": "不予受理的情形",
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":1,\"B\":0,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "初步审查的范围",
+  "canonical": "初步审查的范围",
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜人工裁量：初步审查的范围"
+ },
+ {
+  "termKey": "主动实质审查",
+  "canonical": "主动实质审查",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜人工裁量：国务院专利行政部门自行开始实质审查"
+ },
+ {
+  "termKey": "实质审查驳回的法定情形",
+  "canonical": "实质审查驳回的法定情形",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜人工裁量：实质审查驳回的法定情形"
+ },
+ {
+  "termKey": "授权登记",
+  "canonical": "授权登记",
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜人工裁量：办理登记手续，属授权登记"
+ },
+ {
+  "termKey": "审查意见通知书",
+  "canonical": "审查意见通知书",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":3,\"B\":4,\"C\":0,\"D\":2}"
+ },
+ {
+  "termKey": "初步审查",
+  "canonical": "初步审查",
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":2,\"B\":0,\"C\":0,\"D\":1}"
+ },
+ {
+  "termKey": "补正通知书",
+  "canonical": "补正通知书",
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":4,\"B\":0,\"C\":0,\"D\":2}"
+ },
+ {
+  "termKey": "驳回",
+  "canonical": "驳回",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":1,\"B\":2,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "驳回理由",
+  "canonical": "驳回理由",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜人工裁量：驳回理由的论述要求，属实审驳回"
+ },
+ {
+  "termKey": "视为未提出通知书",
+  "canonical": "视为未提出通知书",
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":3,\"B\":0,\"C\":0,\"D\":2}"
+ },
+ {
+  "termKey": "程序节约原则",
+  "canonical": "程序节约原则",
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":3,\"B\":1,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "第一次审查意见通知书",
+  "canonical": "第一次审查意见通知书",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":3,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "公告送达",
+  "canonical": "公告送达",
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：公告送达，属送达事务"
+ },
+ {
+  "termKey": "依职权审查",
+  "canonical": "依职权审查",
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：复审和无效审理部依职权审查，属审查组织事务"
+ },
+ {
+  "termKey": "不予受理",
+  "canonical": "不予受理",
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜人工裁量(覆盖规则)：受理环节的法定否决，与「不予受理的情形」同归"
+ },
+ {
+  "termKey": "审查基础声明",
+  "canonical": "审查基础声明",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜人工裁量：国际申请进入国家阶段的实质审查基础文本声明"
+ },
+ {
+  "termKey": "书面审查原则",
+  "canonical": "书面审查原则",
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":3,\"B\":0,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "明显错误",
+  "canonical": "明显错误",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜人工裁量：明显错误的判断服务于说明书与权利要求书的修改审查"
+ },
+ {
+  "termKey": "请求原则",
+  "canonical": "请求原则",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":1,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "全面审查",
+  "canonical": "全面审查",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":2,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "审查决定",
+  "canonical": "审查决定",
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：审查决定的构成（指南 04-01 总则），属审查组织事务"
+ },
+ {
+  "termKey": "审查文本",
+  "canonical": "审查文本",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":1,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "文件不受理通知书",
+  "canonical": "文件不受理通知书",
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":2,\"B\":0,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "主审员",
+  "canonical": "主审员",
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：主审员，属审查组织事务"
+ },
+ {
+  "termKey": "办理登记手续通知",
+  "canonical": "办理登记手续通知",
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":1,\"D\":0}"
+ },
+ {
+  "termKey": "独任审查",
+  "canonical": "独任审查",
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：独任审查，属审查组织事务"
+ },
+ {
+  "termKey": "合议审查",
+  "canonical": "合议审查",
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：合议审查，属审查组织事务"
+ },
+ {
+  "termKey": "会晤",
+  "canonical": "会晤",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":1,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "实用新型专利申请的初步审查",
+  "canonical": "实用新型专利申请的初步审查",
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":1,\"B\":0,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "实质审查程序的恢复",
+  "canonical": "实质审查程序的恢复",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":1,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "实质审查程序的中止",
+  "canonical": "实质审查程序的中止",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":1,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "实质审查程序的终止",
+  "canonical": "实质审查程序的终止",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":1,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "实质审查请求之日",
+  "canonical": "实质审查请求之日",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜人工裁量(覆盖规则)：实审请求时点，属实审程序"
+ },
+ {
+  "termKey": "视为未办理登记手续",
+  "canonical": "视为未办理登记手续",
+  "topicKey": "procGrant",
+  "note": "审查程序拆分（2026-08-12）→ 授权登记与公布｜人工裁量：期满未缴足视为未办理登记手续，属授权登记"
+ },
+ {
+  "termKey": "受理部门",
+  "canonical": "受理部门",
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":1,\"B\":0,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "邮寄送达",
+  "canonical": "邮寄送达",
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜规则归类：出处章节投票 {\"A\":0,\"B\":0,\"C\":0,\"D\":1}"
+ },
+ {
+  "termKey": "再次审查意见通知书",
+  "canonical": "再次审查意见通知书",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":1,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "意见陈述书",
+  "canonical": "意见陈述书",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜规则归类：出处章节投票 {\"A\":0,\"B\":2,\"C\":1,\"D\":0}"
+ },
+ {
+  "termKey": "实质审查请求书",
+  "canonical": "实质审查请求书",
+  "topicKey": "procSubstantive",
+  "note": "审查程序拆分（2026-08-12）→ 实质审查与答复｜人工裁量：实质审查请求书的查对，属实审程序"
+ },
+ {
+  "termKey": "违反法定程序",
+  "canonical": "违反法定程序",
+  "topicKey": "procAffairs",
+  "note": "审查程序拆分（2026-08-12）→ 程序事务｜人工裁量：违反法定程序导致决定被撤销，属审查组织事务"
+ },
+ {
+  "termKey": "形式审查",
+  "canonical": "形式审查",
+  "topicKey": "procReception",
+  "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":2,\"B\":0,\"C\":0,\"D\":0}"
  }
 ]

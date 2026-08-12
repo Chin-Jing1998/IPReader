@@ -2003,7 +2003,7 @@
       "分案的申请"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "01-01-04-07",
@@ -2074,7 +2074,7 @@
     "canonical": "实质审查程序",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08"
@@ -2108,7 +2108,7 @@
     "canonical": "答复期限",
     "aliases": [],
     "matchers": [],
-    "topicKey": "oaResponse",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-04-10",
@@ -2131,7 +2131,7 @@
     "canonical": "主动修改时机",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-05-02"
@@ -2147,7 +2147,7 @@
     "canonical": "答复审查意见通知书时的修改",
     "aliases": [],
     "matchers": [],
-    "topicKey": "oaResponse",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-05-02"
@@ -2254,7 +2254,7 @@
     "canonical": "依职权修改",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "01-01-08",
@@ -2329,7 +2329,7 @@
     "canonical": "十一种驳回情形",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-06-01"
@@ -2345,7 +2345,7 @@
     "canonical": "听证原则",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "01-01-02",
@@ -2931,7 +2931,7 @@
     "canonical": "实质审查请求",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "01-01-06-04",
@@ -2968,7 +2968,7 @@
     "canonical": "提前公布声明",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "01-01-06-05"
@@ -2989,7 +2989,7 @@
     "canonical": "撤回专利申请声明",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "01-01-06-06",
@@ -3017,7 +3017,7 @@
       "著录事项变更手续"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "01-01-06-07",
@@ -3069,7 +3069,7 @@
     "canonical": "辞去委托",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "01-01-06-01",
@@ -3097,7 +3097,7 @@
       "委托专利代理机构"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "01-01-06-01",
@@ -3790,7 +3790,7 @@
     "canonical": "复审合议审查",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "04-02-04"
@@ -3806,7 +3806,7 @@
     "canonical": "复审依职权审查",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "04-02-04-01"
@@ -4405,7 +4405,7 @@
     "canonical": "申请文件形式",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "05-01"
@@ -4439,7 +4439,7 @@
       "申请日的更正"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "05-03-04"
@@ -4460,7 +4460,7 @@
     "canonical": "专利申请文档",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-04",
@@ -4489,7 +4489,7 @@
       "保存期限"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-04-06",
@@ -4513,7 +4513,7 @@
       "保密专利申请"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-05",
@@ -4548,7 +4548,7 @@
     "canonical": "向外国申请专利的保密审查",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-05-06"
@@ -4564,7 +4564,7 @@
     "canonical": "通知和决定",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-06"
@@ -4580,7 +4580,7 @@
     "canonical": "送达方式",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-06-02-01"
@@ -4596,7 +4596,7 @@
     "canonical": "送达日推定",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-06-02-03"
@@ -4663,7 +4663,7 @@
       "中止有关程序"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-07-07",
@@ -4699,7 +4699,7 @@
       "国家局"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-07-08",
@@ -4723,7 +4723,7 @@
       "保护中心预审"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-07-08",
@@ -4745,7 +4745,7 @@
     "canonical": "延迟审查",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-07-08",
@@ -4780,7 +4780,7 @@
     "canonical": "专利公报",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "05-08",
@@ -4820,7 +4820,7 @@
     "canonical": "专利单行本",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "05-08-02"
@@ -4844,7 +4844,7 @@
     "canonical": "专利权授予",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "05-09-01"
@@ -4860,7 +4860,7 @@
     "canonical": "专利证书",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "05-09-01",
@@ -4894,7 +4894,7 @@
     "canonical": "专利登记簿",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "05-04-05",
@@ -5058,7 +5058,7 @@
     "canonical": "专利权评价报告",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "05-04-03",
@@ -5455,7 +5455,7 @@
     "canonical": "保密审查",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "patent-law": [
         "law-01-19",
@@ -5501,7 +5501,7 @@
       "弄虚作假"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "patent-law": [
         "law-01-20"
@@ -5598,7 +5598,7 @@
     "canonical": "申请日",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "patent-law": [
         "law-02-01",
@@ -5642,7 +5642,7 @@
     "canonical": "早期公开",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "patent-law": [
         "law-04-01"
@@ -5665,7 +5665,7 @@
     "canonical": "实质审查",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "patent-law": [
         "law-04-02",
@@ -6237,7 +6237,7 @@
       "数据电文"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "implementation-rules": [
         "rule-01-02",
@@ -6269,7 +6269,7 @@
     "canonical": "中文与外文译文",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "implementation-rules": [
         "rule-01-03"
@@ -6293,7 +6293,7 @@
       "公告"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "implementation-rules": [
         "rule-01-04",
@@ -6445,7 +6445,7 @@
     "canonical": "向外国申请前的保密审查",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "implementation-rules": [
         "rule-01-08",
@@ -6595,7 +6595,7 @@
     "canonical": "委托代理与可自行办理事务",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "implementation-rules": [
         "rule-02-01",
@@ -6615,7 +6615,7 @@
     "canonical": "请求书记载事项",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "implementation-rules": [
         "rule-02-03"
@@ -6996,7 +6996,7 @@
     "canonical": "撤回申请的声明",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "implementation-rules": [
         "rule-02-25"
@@ -7016,7 +7016,7 @@
       "回避"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "implementation-rules": [
         "rule-03-01"
@@ -7052,7 +7052,7 @@
     "canonical": "申请日与申请号的确定",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "implementation-rules": [
         "rule-03-02"
@@ -7072,7 +7072,7 @@
       "不受理的情形"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "implementation-rules": [
         "rule-03-03"
@@ -7154,7 +7154,7 @@
     "canonical": "分案申请的提出与时限",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "implementation-rules": [
         "rule-03-07",
@@ -7174,7 +7174,7 @@
     "canonical": "初步审查的范围",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "implementation-rules": [
         "rule-03-09"
@@ -7192,7 +7192,7 @@
     "canonical": "早日公布请求",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "implementation-rules": [
         "rule-03-11"
@@ -7212,7 +7212,7 @@
       "公众意见"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "implementation-rules": [
         "rule-03-13"
@@ -7242,7 +7242,7 @@
     "canonical": "主动实质审查",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "implementation-rules": [
         "rule-03-15"
@@ -7262,7 +7262,7 @@
       "针对性修改"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "implementation-rules": [
         "rule-03-16"
@@ -7282,7 +7282,7 @@
       "替换页"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "implementation-rules": [
         "rule-03-17"
@@ -7318,7 +7318,7 @@
     "canonical": "实质审查驳回的法定情形",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "implementation-rules": [
         "rule-03-18"
@@ -7339,7 +7339,7 @@
       "登记手续"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "implementation-rules": [
         "rule-03-19",
@@ -7809,7 +7809,7 @@
     "canonical": "专利公报公告事项",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "implementation-rules": [
         "rule-09-02"
@@ -8135,7 +8135,7 @@
     "canonical": "案卷查阅与保存期限",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "implementation-rules": [
         "rule-13-01"
@@ -8153,7 +8153,7 @@
     "canonical": "著录事项变更",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "implementation-rules": [
         "rule-13-02"
@@ -8173,7 +8173,7 @@
       "挂号信函"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "implementation-rules": [
         "rule-13-03"
@@ -9373,7 +9373,7 @@
       "复审请求视为撤回"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "01-01-01",
@@ -9583,7 +9583,7 @@
     "canonical": "审查意见通知书",
     "aliases": [],
     "matchers": [],
-    "topicKey": "oaResponse",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "01-01-03",
@@ -9644,7 +9644,7 @@
     "canonical": "专利代理机构",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "01-01-04-01",
@@ -9696,7 +9696,7 @@
     "canonical": "初步审查",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "01-01-01",
@@ -10068,7 +10068,7 @@
     "canonical": "补正通知书",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "01-01-03",
@@ -10379,7 +10379,7 @@
       "视为未提出请求"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "01-01-01",
@@ -10871,7 +10871,7 @@
     "canonical": "明显实质性缺陷",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "01-01-01",
@@ -11174,7 +11174,7 @@
     "canonical": "驳回",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "01-01-01",
@@ -11272,7 +11272,7 @@
     "canonical": "驳回理由",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "01-03-01",
@@ -11488,7 +11488,7 @@
     "canonical": "请求书",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "05-03-02"
@@ -11530,7 +11530,7 @@
     "canonical": "视为未提出通知书",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "01-02-08",
@@ -11611,7 +11611,7 @@
     "canonical": "主动修改",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "01-01-07",
@@ -12032,7 +12032,7 @@
     "canonical": "著录项目",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "03-01-06",
@@ -12082,7 +12082,7 @@
     "canonical": "专利代理师",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "01-01-04-01",
@@ -12174,7 +12174,7 @@
     "canonical": "保密原则",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "01-01-02",
@@ -12323,7 +12323,7 @@
       "主动撤回"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "implementation-rules": [
         "rule-02-25",
@@ -12359,7 +12359,7 @@
     "canonical": "程序节约原则",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "01-01-02",
@@ -12393,7 +12393,7 @@
     "canonical": "第一次审查意见通知书",
     "aliases": [],
     "matchers": [],
-    "topicKey": "oaResponse",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-04-03",
@@ -12475,7 +12475,7 @@
       "单行本"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "03-01-06",
@@ -12625,7 +12625,7 @@
     "canonical": "公告送达",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "04-03-07",
@@ -12972,7 +12972,7 @@
       "依职权审查原则"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "04-01-02",
@@ -13306,7 +13306,7 @@
     "canonical": "保密责任",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-04-05"
@@ -13339,7 +13339,7 @@
     "canonical": "不予受理",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "04-02-02",
@@ -13983,7 +13983,7 @@
       "审查基础文本声明"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "01-02-15",
@@ -14027,7 +14027,7 @@
     "canonical": "视为未提交",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "01-01-01",
@@ -14112,7 +14112,7 @@
       "授予专利权的通知书"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "01-02-03",
@@ -14159,7 +14159,7 @@
     "canonical": "书面审查原则",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "01-01-02",
@@ -14266,7 +14266,7 @@
     "canonical": "委托书",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "01-01-06-01",
@@ -14638,7 +14638,7 @@
       "在中国完成的实用新型"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "implementation-rules": [
         "rule-01-08"
@@ -14684,7 +14684,7 @@
     "canonical": "著录项目变更申报书",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "01-01-06-07",
@@ -14905,7 +14905,7 @@
     "canonical": "代表人",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "01-01-04-01"
@@ -15023,7 +15023,7 @@
     "canonical": "发明专利申请公布",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "05-08-01-02"
@@ -15084,7 +15084,7 @@
       "书面声明放弃其专利权"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "05-09-04"
@@ -15197,7 +15197,7 @@
     "canonical": "公开原则",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "04-01-02",
@@ -15298,7 +15298,7 @@
     "canonical": "合法原则",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "04-01-02",
@@ -15405,7 +15405,7 @@
     "canonical": "明显错误",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "01-02-08",
@@ -15468,7 +15468,7 @@
     "canonical": "请求原则",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-02",
@@ -15496,7 +15496,7 @@
     "canonical": "全面审查",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-04-07",
@@ -15568,7 +15568,7 @@
     "canonical": "申请号",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "05-03-02"
@@ -15640,7 +15640,7 @@
     "canonical": "审查决定",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "04-01-06",
@@ -15669,7 +15669,7 @@
       "审查基础的文本"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-04-01",
@@ -15728,7 +15728,7 @@
     "canonical": "视为放弃",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "implementation-rules": [
         "rule-03-19",
@@ -15754,7 +15754,7 @@
     "canonical": "收到日",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "05-03-02",
@@ -15784,7 +15784,7 @@
     "canonical": "提前公布",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "05-08-01-02"
@@ -15935,7 +15935,7 @@
       "不受理通知书"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "05-03-02",
@@ -16030,7 +16030,7 @@
     "canonical": "五人合议组",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "04-01-03",
@@ -16230,7 +16230,7 @@
     "canonical": "原申请日",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "implementation-rules": [
         "rule-03-05",
@@ -16419,7 +16419,7 @@
     "canonical": "重新确定申请日",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "01-01-04-02",
@@ -16453,7 +16453,7 @@
     "canonical": "主审员",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "04-01-03",
@@ -16699,7 +16699,7 @@
     "canonical": "办理登记手续通知",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "05-09-01"
@@ -16930,7 +16930,7 @@
     "canonical": "参审员",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "04-01-03"
@@ -17087,7 +17087,7 @@
     "canonical": "处分决定",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-07-05"
@@ -17377,7 +17377,7 @@
     "canonical": "独立原则",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-04-02"
@@ -17398,7 +17398,7 @@
     "canonical": "独任审查",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "04-01-04"
@@ -17576,7 +17576,7 @@
     "canonical": "放弃专利权声明",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "05-09-04"
@@ -17765,7 +17765,7 @@
     "canonical": "复核组",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "05-10-06"
@@ -18186,7 +18186,7 @@
     "canonical": "合议审查",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "04-01-03"
@@ -18436,7 +18436,7 @@
     "canonical": "会晤",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-04-12"
@@ -18457,7 +18457,7 @@
     "canonical": "会晤记录",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-04-12"
@@ -18664,7 +18664,7 @@
     "canonical": "解密请求",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-05-05"
@@ -18727,7 +18727,7 @@
     "canonical": "决定的理由",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "04-01-06"
@@ -18748,7 +18748,7 @@
     "canonical": "决定要点",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "04-01-06"
@@ -19368,7 +19368,7 @@
     "canonical": "时间顺序原则",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-04-02"
@@ -19409,7 +19409,7 @@
     "canonical": "实用新型专利申请的初步审查",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "01-02-01"
@@ -19476,7 +19476,7 @@
     "canonical": "实质审查程序的恢复",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-07"
@@ -19500,7 +19500,7 @@
     "canonical": "实质审查程序的中止",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-07"
@@ -19524,7 +19524,7 @@
     "canonical": "实质审查程序的终止",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-07"
@@ -19548,7 +19548,7 @@
     "canonical": "实质审查请求之日",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "05-09-02"
@@ -19603,7 +19603,7 @@
     "canonical": "视为放弃取得专利权",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "05-09-01"
@@ -19624,7 +19624,7 @@
     "canonical": "视为未办理登记手续",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "implementation-rules": [
         "rule-10-05"
@@ -19668,7 +19668,7 @@
     "canonical": "收到文件回执",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "05-03-03"
@@ -19689,7 +19689,7 @@
     "canonical": "受理部门",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "05-03-01"
@@ -19794,7 +19794,7 @@
     "canonical": "特别授权的委托书",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "04-03-03"
@@ -20420,7 +20420,7 @@
     "canonical": "向外国申请专利",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-05-06"
@@ -20599,7 +20599,7 @@
     "canonical": "修改更正通知书",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "05-03-04"
@@ -20665,7 +20665,7 @@
     "canonical": "样品或者模型",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "implementation-rules": [
         "rule-02-16"
@@ -21110,7 +21110,7 @@
     "canonical": "邮戳日",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "patent-law": [
         "law-03-03"
@@ -21131,7 +21131,7 @@
     "canonical": "邮寄送达",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-06-02"
@@ -21266,7 +21266,7 @@
     "canonical": "再次审查意见通知书",
     "aliases": [],
     "matchers": [],
-    "topicKey": "oaResponse",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-04-11"
@@ -21338,7 +21338,7 @@
     "canonical": "真实原则",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-04-02"
@@ -21729,7 +21729,7 @@
     "canonical": "中止期限",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-07-07"
@@ -21976,7 +21976,7 @@
     "canonical": "专利权终止通知书",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "05-09-04"
@@ -22024,7 +22024,7 @@
     "canonical": "专利业务办理系统",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-01-09"
@@ -22366,7 +22366,7 @@
     "canonical": "视为撤回通知书",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "01-02-03",
@@ -22859,7 +22859,7 @@
     "canonical": "意见陈述书",
     "aliases": [],
     "matchers": [],
-    "topicKey": "oaResponse",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-05-01",
@@ -22898,7 +22898,7 @@
     "canonical": "原申请",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "01-01-05",
@@ -23213,7 +23213,7 @@
     "canonical": "合议组",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "04-01-03",
@@ -23693,7 +23693,7 @@
     "canonical": "专利权评价报告请求书",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "05-10-02"
@@ -23798,7 +23798,7 @@
     "canonical": "保密基准",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-05-02",
@@ -23977,7 +23977,7 @@
     "canonical": "发明专利公报",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "03-01-06",
@@ -24039,7 +24039,7 @@
     "canonical": "分案通知书",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-04-04",
@@ -24324,7 +24324,7 @@
     "canonical": "解除委托",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "01-01-06-01",
@@ -24352,7 +24352,7 @@
     "canonical": "经常居所",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "03-01-05-01"
@@ -24684,7 +24684,7 @@
     "canonical": "实质审查请求书",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-03",
@@ -24776,7 +24776,7 @@
     "canonical": "授予发明专利权通知书",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "02-08-04-11",
@@ -24807,7 +24807,7 @@
     "canonical": "违反法定程序",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "04-01-08",
@@ -24867,7 +24867,7 @@
       "申请文件的形式审查"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procReception",
     "sources": {
       "examination-guideline": [
         "01-01-01",
@@ -24948,7 +24948,7 @@
     "canonical": "修改对照表",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-05-02",
@@ -25085,7 +25085,7 @@
     "canonical": "原始申请文件",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "02-08-03",
@@ -25236,7 +25236,7 @@
     "canonical": "主动提出修改",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procSubstantive",
     "sources": {
       "examination-guideline": [
         "03-01-05-07"
@@ -25267,7 +25267,7 @@
     "canonical": "著录事项",
     "aliases": [],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procAffairs",
     "sources": {
       "examination-guideline": [
         "05-08-01-02"
@@ -25325,7 +25325,7 @@
       "外观设计国际申请专利登记簿副本"
     ],
     "matchers": [],
-    "topicKey": "examProcedure",
+    "topicKey": "procGrant",
     "sources": {
       "examination-guideline": [
         "05-09-01",
