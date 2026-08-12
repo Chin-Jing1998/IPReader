@@ -133,7 +133,7 @@ async function createWindow() {
     backgroundColor: nativeTheme.shouldUseDarkColors ? byScheme.dark : byScheme.light,
     // 首帧渲染完成前不显示：即便底色已持久化，仍要避免空窗口先亮一下再上内容
     show: false,
-    title: '专利知识库',
+    title: 'PatentKB',
     autoHideMenuBar: true,
     // 仅 macOS 启用自绘标题条：Windows 上 hiddenInset 会退化为 hidden，且未配合
     // titleBarOverlay 时窗口控制按钮（最小化/最大化/关闭）会消失，必须平台门控
