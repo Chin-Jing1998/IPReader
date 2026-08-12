@@ -1,5 +1,5 @@
 // 数据管线 1/3（多源版）：把项目根目录下发现的每部规范的主 md 解析为节点树，合并成一张星图数据。
-//   - guideline（《专利审查指南2025》）走特例：保留 # 部 / ## 章 / ### 节 / #### 子节 = 826 节点、原 id、原字段，向后兼容。
+//   - guideline（《专利审查指南》）走特例：保留 # 部 / ## 章 / ### 节 / #### 子节 = 826 节点、原 id、原字段，向后兼容。
 //   - 其余各域走通用"标题深度建树"：深度 1→chapter / 2→section / ≥3→subsection；id 加域前缀（law- / infr- …）。
 //   产物：data/nodes.json、data/node-bodies.json、data/laws.json。
 //   每节点新增字段：domain（域 key）、colorGroup（配色分组）、domainCommunity（星系序号）、community（域内子簇）、
@@ -235,7 +235,7 @@ for (const dom of domains) {
 console.log('发现规范域:', domains.map((d) => `${d.key}(${perDomainCount[d.key]})`).join(', '));
 
 // guideline 子集仍须 826（6/38/259/523），保证向后兼容
-const gl = allNodes.filter((n) => n.domain === 'examination-guideline-2025');
+const gl = allNodes.filter((n) => n.domain === 'examination-guideline');
 let ok = true;
 if (gl.length) {
   const cnt = gl.reduce((a, n) => ((a[n.level] = (a[n.level] || 0) + 1), a), {});

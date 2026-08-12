@@ -85,6 +85,8 @@ cd desktop && npm run dist:mac    # 或 dist:win
 
 2026-08-12 关键词索引删词：三书独有词 98 个 + 非专利法域泛词 19 个共 117 个，经 `site/data/term-blacklist.json` 剔除并重跑全链，词条口径 968 → 851。注意本仓 `site/` 缺少七部规范的 `_chunks` 切片源（切片只在外层工作区），故 `merge-terms.mjs` 无法在本仓内直接重跑——在本仓运行会因 evidence 全部校验失败而静默丢失 261 个词条；重跑须在带切片源的工作区进行，再将 `site/data/`、`site/public/content/`、`quartz-kb/content/` 三处产物同步回本仓。
 
+2026-08-12 起 `site/scripts/lib/topics.mjs` 以**本仓为唯一事实源**（含 23 组分组层 `TERM_TOPIC_GROUPS` 与 `manualOnly` 键约定），外层工作区仍是 2026-08-11 旧版：日后按上述规程"外层重跑解析再搬运"前，须先把本仓 `topics.mjs` 反向覆盖到外层，否则已退役的 `examProcedure` 章节主题会原样复活并覆盖分组成果。
+
 ## 验证
 
 ```bash

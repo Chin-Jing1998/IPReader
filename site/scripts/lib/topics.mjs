@@ -44,9 +44,19 @@ export const TOPICS = [
       '美容方法', '动物和植物品种', '动植物品种', '原子核变换', '不授予专利权', '违反法律',
       '妨害公共利益', '社会公德', '计算机程序', '商业规则', '算法特征', '生物学的方法', '天然物质'],
   },
+  // examProcedure 于 2026-08-12 拆分为下方 procReception/procSubstantive/procGrant/procAffairs
+  //   四个阶段键后即退役：词条侧 851 词无一挂靠，在 TERM_TOPIC_GROUPS 中仅由「实质审查与答复」
+  //   组收编以满足完整性自检、并为决策层回退留落点——该收编是停放位，不是语义判断。
+  // 2026-08-12 补记 manualOnly：本键的 kw 是高频程序泛词（补正/驳回/受理/送达/审查员…），
+  //   在章节层命中 1193 章中的 551 章（46%），既非主题信号、更无法据以判定章节属于哪一审查阶段
+  //   （指南初审、实审、复审无效、事务处理各部分均大面积命中）。若放任其进入 nodes.json 的
+  //   topics[]，章节标签会经上述停放位一律落到「实质审查与答复」，把初审与事务处理章节错标。
+  //   故与四个继任键同等对待：不参与自动归类，只作人工决策落点。kw 予以保留——
+  //   build-seed-lexicon 与 audit-edges 仍按 TOPICS.kw 取词，清空会连带损失这批程序词。
   {
     key: 'examProcedure',
     name: '审查程序',
+    manualOnly: true,
     kw: ['初步审查', '实质审查', '审查程序', '审查员', '审查决定', '审查文本', '审查基础',
       '合议审查', '独任审查', '形式审查', '全面审查', '依职权', '补正', '驳回', '受理', '送达',
       '听证', '优先审查', '快速审查', '延迟审查', '中止程序', '授权登记', '登记手续'],
@@ -75,10 +85,13 @@ export const TOPICS = [
 ];
 
 // 命中的主题 key 列表（去重）。text 由调用方按"容器用导语、叶子用全文"传入，避免容器揽过多主题。
+//   manualOnly 主题整体跳过：其归属只由人工决策指定，不得由关键词自动打到章节上。
+//   （四个阶段键 kw 本为空、跳过与否等价；examProcedure 的 kw 非空，此处是其退役的落实点。）
 export function tagTopics(text) {
   if (!text) return [];
   const hit = [];
   for (const t of TOPICS) {
+    if (t.manualOnly) continue;
     if (t.kw.some((k) => text.includes(k))) hit.push(t.key);
   }
   return hit;
