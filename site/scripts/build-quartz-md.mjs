@@ -31,6 +31,7 @@ import { extractCitations } from './lib/law-cite.mjs';
 import { buildTermMatcher, linkTerms } from './lib/term-link.mjs';
 import { TOPIC_NAME, termGroupOf } from './lib/topics.mjs';
 import { cn2num } from './lib/cn-num.mjs';
+import { normalizeProse, splitTableSegments, renderTableBlock } from './lib/rich-text.mjs';
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const SITE_DIR = join(SCRIPT_DIR, '..');
@@ -41,6 +42,13 @@ const OUT_DIR = join(SCRIPT_DIR, '..', '..', 'quartz-kb', 'content');
 // 正文 ![](images/x) 引用改写为 content 根相对路径并随生成落盘到 content/<书目录>/images/
 const ASSETS_IMG_DIR = join(SITE_DIR, 'assets', 'book-images');
 const EXPECTED_EMBEDDED_IMAGES = 88; // 七书正文实际引用的附图总数（manifest 定版）
+// PDF 抽取正文的富文本定版数（详见第七节 contentBlocks 与 lib/rich-text.mjs）：
+//   内嵌 HTML 表格全库 8 张，全部在《化学撰写规范》——7 张规则网格转 GFM 管道表格，
+//   1 张含 rowspan/colspan 的合并表头表回退 raw HTML；
+//   行内 LaTeX 公式实测 125 处（ownText）在正文链路完成降解，取 120 为下限留余量。
+const EXPECTED_GFM_TABLES = 7;
+const EXPECTED_RAW_TABLES = 1;
+const EXPECTED_MATH_MIN = 120;
 const imagesToEmit = new Map(); // content 相对路径 → 资产绝对路径
 
 // ============ 一、书目登记：域 → 顶层目录（顺序 = 法律层级） ============
@@ -176,6 +184,9 @@ for (const n of nodes) {
 // ============ 五、wikilink 助手（所有出链统一经此，供死链自校验） ============
 const stats = { wikilinks: 0, lawLinks: 0, termLinks: 0, pages: {}, chars: 0, aliasSkipDup: 0, aliasSkipBad: 0 };
 function addPage(type) { stats.pages[type] = (stats.pages[type] || 0) + 1; }
+
+// 富文本归一化计数器（lib/rich-text.mjs 的 sink）：公式降解成败、表格转换路线，供末尾断言与汇报
+const richStats = { converted: 0, kept: 0, keptList: [], gfmTables: 0, rawTables: 0, rawTableReasons: [] };
 
 // 清洗 wikilink 显示文本（| 与 ]] 会破坏语法）
 const cleanDisplay = (s) => String(s).replace(/[|[\]]/g, '').replace(/\n/g, ' ').trim();
@@ -348,6 +359,12 @@ function resolveInlineRefs(text, node) {
     });
 }
 
+// markdown 危险字符最小转义：正文里的 < 会被当成 HTML 起始标签；
+// 行内 # 会被 ObsidianFlavoredMarkdown 解析为行内 tag（正文出现"###"等即产生空 tag 死链）。
+// 该转义恒为正文处理链的最后一步——排在实体解码与公式降解之后，
+// 保证降解结果里的 `<0.01` 一类字符同样被转义为字面量。
+const escapeMd = (s) => String(s).replace(/</g, '\\<').replace(/#/g, '\\#');
+
 // 正文段落化 + markdown 危险字符最小转义（正文含 < 或行首 > 的仅个位数节点）
 function mdParagraphs(text) {
   return text
@@ -358,9 +375,30 @@ function mdParagraphs(text) {
         .map((line) => line.replace(/^>/, '\\>'))
         .join('  \n'),
     )
-    // 行内 # 会被 ObsidianFlavoredMarkdown 解析为行内 tag（正文出现"###"等即产生空 tag 死链），统一转义
-    .map((p) => p.replace(/</g, '\\<').replace(/#/g, '\\#'))
+    .map((p) => escapeMd(p))
     .filter((p) => p.trim());
+}
+
+// 正文块化（PDF 抽取产物的富文本归一化，实现见 lib/rich-text.mjs）：
+//   1. 先切出内嵌 HTML 表格块——规则网格转 GFM 管道表格，含 rowspan/colspan 的
+//      合并单元格表回退为不转义的 raw HTML（quartz 的 ofm.ts htmlPlugins 无条件挂载
+//      rehype-raw，util/jsx.tsx 的 customComponents.table 会给两种来源的 table 套同一个
+//      .table-container 滚动容器，样式与既有表格完全一致）；
+//   2. 其余散文段落做 HTML 实体解码 + 行内 LaTeX 降解为 Unicode 纯文本，再按空行分段转义。
+// 表格块**不参与**法条/术语的正文内成链：wikilink 语法 [[id|显示名]] 里的竖线
+// 会击穿管道表格的列分隔，且表内多为纯数据，成链无阅读收益。
+function contentBlocks(text) {
+  const blocks = [];
+  for (const seg of splitTableSegments(text)) {
+    if (seg.kind === 'table') {
+      blocks.push({ kind: 'table', text: renderTableBlock(seg.text, richStats).text });
+      continue;
+    }
+    for (const p of mdParagraphs(normalizeProse(seg.text, richStats))) {
+      blocks.push({ kind: 'prose', text: p });
+    }
+  }
+  return blocks;
 }
 
 // 法条引用就地 wikilink 化：同一条文（lawKey）一段内只链首次出现；
@@ -494,10 +532,10 @@ function examplesSection(examples, node, ownText) {
   const lines = ['## 示例', ''];
   for (const ex of kept) {
     const title = cleanDisplay(ex.title || '示例');
-    // 示例文本与正文同源，需做同样的遗留链接清洗与行内 tag/HTML 转义
-    const text = resolveInlineRefs(String(ex.text || ''), node)
-      .replace(/</g, '\\<')
-      .replace(/#/g, '\\#');
+    // 示例文本与正文同源，需做同样的遗留链接清洗、富文本归一化与行内 tag/HTML 转义
+    // （示例块以 `> ` 引用形式呈现，管道表格在引用块内无法成立，故此处只做散文归一化；
+    //  实测 public/content/*.json 的 examples 不含 <table>，与该取舍相符）
+    const text = escapeMd(normalizeProse(resolveInlineRefs(String(ex.text || ''), node), richStats));
     const body = text.split('\n').map((l) => `> ${l}`).join('\n');
     lines.push(`> [!example] ${title}`, body, '');
   }
@@ -540,8 +578,12 @@ for (const n of nodes) {
     // 章节页：正文（先清洗遗留链接，再做法条引用就地成链，最后术语就地成链）→ 关联 → 示例
     const skipTermLink = !TERM_LINK_ENABLED || TERM_LINK_PAGE_EXCLUDE.has(n.id);
     let linkedTerms = new Set();
-    for (const para of mdParagraphs(resolveInlineRefs(own, n))) {
-      const withLaw = linkLawCites(para, n.domain, n.id);
+    for (const blk of contentBlocks(resolveInlineRefs(own, n))) {
+      if (blk.kind === 'table') {
+        parts.push(blk.text, ''); // 表格块原样落盘：不做转义、不参与成链
+        continue;
+      }
+      const withLaw = linkLawCites(blk.text, n.domain, n.id);
       if (skipTermLink) {
         parts.push(withLaw, '');
         continue;
@@ -573,7 +615,7 @@ for (const n of nodes) {
     const kids = childrenOf.get(n.id) || [];
     const overview = (n.summary || '').trim() || (kids.length ? '' : n.label);
     if (overview) {
-      const escaped = overview.replace(/</g, '\\<').replace(/#/g, '\\#');
+      const escaped = escapeMd(normalizeProse(overview, richStats));
       if (TERM_LINK_ENABLED && !TERM_LINK_PAGE_EXCLUDE.has(n.id)) {
         const r = linkTerms(escaped, termMatcher, { linkedIds: new Set(), selfId: n.id, linkTo });
         stats.termLinks += r.added;
@@ -622,7 +664,7 @@ for (const n of nodes) {
   const def = (d.definition || '').trim();
   if (def) {
     // 词条定义段同样术语成链（织词条互链网），selfId 排除自链（定义句天然复述自身词面）
-    const escaped = def.replace(/</g, '\\<').replace(/#/g, '\\#');
+    const escaped = escapeMd(normalizeProse(def, richStats));
     if (TERM_LINK_ENABLED && !TERM_LINK_PAGE_EXCLUDE.has(n.id)) {
       const r = linkTerms(escaped, termMatcher, { linkedIds: new Set(), selfId: n.id, linkTo });
       stats.termLinks += r.added;
@@ -646,7 +688,10 @@ for (const n of nodes) {
         const crumbs = (o.breadcrumb || []).filter((c) => c !== meta.title);
         const label = o.nodeLabel.length > 36 ? o.nodeLabel.slice(0, 36) + '…' : o.nodeLabel;
         const path = [...crumbs, label].join(' › ');
-        const ev = (o.evidence || '').trim().replace(/[*#]/g, '').replace(/\n/g, ' ');
+        // 摘句同样是 PDF 抽取正文，需先做实体解码与公式降解，再去掉会破坏斜体的 * 与行内 tag 的 #
+        const ev = normalizeProse((o.evidence || '').trim(), richStats)
+          .replace(/[*#]/g, '')
+          .replace(/\n/g, ' ');
         parts.push(`- ${linkTo(o.nodeId, `${meta.short} · ${path}`)}${ev ? ` — *${ev}*` : ''}`);
       }
       parts.push('');
@@ -883,6 +928,10 @@ const summary = {
   小节编号引用成链: stats.numRefLinks || 0,
   小节编号退化纯文本: stats.numRefPlain || 0,
   图片嵌入: stats.imgEmbedded || 0,
+  表格_GFM管道: richStats.gfmTables,
+  表格_rawHTML回退: richStats.rawTables,
+  公式降解成功: richStats.converted,
+  公式保留原文: richStats.kept,
   正文总字符: stats.chars,
   alias跳过_重名: stats.aliasSkipDup,
   alias跳过_非法字符: stats.aliasSkipBad,
@@ -928,6 +977,30 @@ if (TERM_LINK_ENABLED && (stats.termLinks < 7900 || stats.termLinks > 8800)) {
 // 附图嵌入断言：上游正文引用与已导入资产的定版数量（上游新增附图时须重跑 import-book-images.mjs 并更新此值）
 if ((stats.imgEmbedded || 0) !== EXPECTED_EMBEDDED_IMAGES) {
   console.error(`断言失败：附图嵌入 ${stats.imgEmbedded || 0} ≠ ${EXPECTED_EMBEDDED_IMAGES}`);
+  process.exit(1);
+}
+// 内嵌 HTML 表格断言：全库 8 张（均在《化学撰写规范》），其中 7 张规则网格转 GFM 管道表格、
+// 1 张（chem-02-03-03 表1，rowspan/colspan 合并表头）回退 raw HTML。
+// 数量下滑即说明表格识别或上游切片出了问题——它是「表格重新按纯文本平铺」的回归哨兵。
+if (richStats.gfmTables !== EXPECTED_GFM_TABLES || richStats.rawTables !== EXPECTED_RAW_TABLES) {
+  console.error(
+    `断言失败：表格转换 GFM ${richStats.gfmTables}/${EXPECTED_GFM_TABLES}、` +
+      `raw ${richStats.rawTables}/${EXPECTED_RAW_TABLES}（回退原因：${richStats.rawTableReasons.join('；') || '无'}）`,
+  );
+  process.exit(1);
+}
+// 公式降解断言：全库 96 种去重形态（142 处实例）实测 100% 可降解为 Unicode 纯文本。
+// 一旦上游引入本降解器不认识的命令，该公式会保留 $…$ 原文并在此拦下，
+// 避免"页面上又出现裸 LaTeX"这类缺陷静默复发。
+if (richStats.kept !== 0) {
+  console.error(
+    `断言失败：${richStats.kept} 处公式无法降解为纯文本，保留了 $…$ 原文：\n` +
+      richStats.keptList.slice(0, 20).map((k) => `  ${k.raw} —— ${k.reason}`).join('\n'),
+  );
+  process.exit(1);
+}
+if (richStats.converted < EXPECTED_MATH_MIN) {
+  console.error(`断言失败：公式降解 ${richStats.converted} 处 < 下限 ${EXPECTED_MATH_MIN}`);
   process.exit(1);
 }
 console.log(`✅ 生成完成：${totalPages} 页，wikilink ${scanned} 条全部可达，输出目录 ${OUT_DIR}`);
