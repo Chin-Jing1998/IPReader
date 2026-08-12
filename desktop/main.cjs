@@ -162,6 +162,15 @@ async function createWindow() {
     return { action: 'allow' };
   });
 
+  // 主框架内 mailto（设置页「关于」的联系邮箱）：显式交给系统邮件客户端。
+  // Electron 默认的外部协议链路今日也放行，此处显式化以防默认行为随版本漂移。
+  win.webContents.on('will-navigate', (e, url) => {
+    if (url.startsWith('mailto:')) {
+      e.preventDefault();
+      shell.openExternal(url);
+    }
+  });
+
   // 页面长时间无响应：给用户一个明确的选择，而不是让他对着卡死的窗口干等。
   // 重载不会丢批注——每次标注操作都已即时写入 localStorage（annotate.inline.ts 的 persist）
   win.webContents.on('unresponsive', async () => {

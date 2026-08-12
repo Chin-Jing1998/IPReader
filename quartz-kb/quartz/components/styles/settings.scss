@@ -85,7 +85,7 @@
     border: none;
   }
 
-  // 移动端降单列：抽屉退化为顶部横条（返回钮 + 两枚分类钮同排），面板接在其下
+  // 移动端降单列：抽屉退化为顶部横条（返回钮 + 三枚分类钮同排），面板接在其下
   @media all and ($mobile) {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.1rem;
@@ -470,6 +470,92 @@
       background-color: var(--highlight);
     }
   }
+}
+
+// ---------- 「关于」分类：使用说明文组 + 签名卡 ----------
+
+// 说明文组：行长与 .kb-settings-desc 同限 40rem。h3 / ul / kbd 在设置页语境均无
+// 可用默认：base.scss 全局 h3（1.12rem、上距 1.62rem）比分区 h2（1.05rem）还大、
+// 层级倒挂；ul 走浏览器默认缩进；kbd 全站无任何规则。以下为最小覆盖集，作用域
+// 收在本容器内。
+.kb-settings-guide {
+  max-width: 40rem;
+
+  h3 {
+    margin: 1.15rem 0 0.25rem;
+    font-size: 0.92rem;
+    font-weight: $semiBoldWeight;
+    color: var(--dark);
+  }
+
+  > h3:first-child {
+    margin-top: 0;
+  }
+
+  ul {
+    margin: 0.25rem 0 0;
+    padding-left: 1.15rem;
+  }
+
+  li {
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: var(--darkgray);
+
+    &::marker {
+      color: var(--gray);
+    }
+  }
+
+  li + li {
+    margin-top: 0.15rem;
+  }
+
+  // 键位块：玻璃底 + 细描边行内小片。带底/描边 → 已登记 custom.scss 第七节
+  // 260ms 过渡清单，否则明暗切换降级路径下瞬变跳色。
+  kbd {
+    padding: 0.08rem 0.32rem;
+    font-family: var(--codeFont);
+    font-size: 0.68rem;
+    color: var(--darkgray);
+    background-color: var(--glass-inner-bg, rgba(255, 255, 255, 0.5));
+    border: 1px solid var(--glass-border, var(--lightgray));
+    border-radius: 4px;
+  }
+}
+
+// 签名卡：与抽屉（.kb-settings-drawer）同一玻璃语言——--glass-inner-bg 底 +
+// --glass-border 描边 + 14px 圆角卡。带底/描边 → 已登记 custom.scss 第七节。
+.kb-about-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-width: 26rem;
+  padding: 0.8rem 0.95rem;
+  border-radius: 14px;
+  background-color: var(--glass-inner-bg, rgba(255, 255, 255, 0.5));
+  border: 1px solid var(--glass-border, var(--lightgray));
+}
+
+.kb-about-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.kb-about-label {
+  flex-shrink: 0;
+  font-size: 0.74rem;
+  color: var(--gray);
+}
+
+// 邮箱链接：配色/字重/hover 由 base.scss 全局 a 承担（自带 0.2s color 过渡），
+// 此处只管长地址断行。
+.kb-about-mail {
+  word-break: break-all;
 }
 
 // ---------- 设置页沉浸布局 ----------

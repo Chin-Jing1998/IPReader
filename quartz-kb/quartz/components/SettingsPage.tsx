@@ -12,7 +12,8 @@ import { SETTINGS_SLUG } from "../util/appPages"
  * （返回钮 + 「设置」大标题）与三分区平铺已删除——设置页沉浸布局本就隐掉了面包屑
  * 与页头三件，再挂一个大标题只是重复且扎眼；分区改由抽屉分类切换，不再一屏平铺。
  *
- * 两个分类：外观（主题模式 + 界面主题）· 批注（标记批注保存位置）。
+ * 三个分类：外观（主题模式 + 界面主题）· 批注（标记批注保存位置）·
+ * 关于（图谱总览与专利库使用说明 + 联系方式）。
  * 服务端直出即以「外观」为激活态（分类钮与面板各带 is-active、aria-selected="true"），
  * 故首帧无闪跳、无 JS 时亦有正确初态。
  *
@@ -93,13 +94,22 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
           >
             批注
           </button>
+          <button
+            class="kb-settings-cat"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-pane="about"
+          >
+            关于
+          </button>
         </nav>
       </aside>
 
       {/*
         面板区：每个分类一个 .kb-settings-pane，分区（.kb-settings-sec）内部结构
         与平铺版逐字一致，只是外面套了一层面板。非激活面板的收起由 settings.scss
-        的 `[data-panes-ready]` 门控——脚本绑定成功才落该属性，无 JS 时两个面板
+        的 `[data-panes-ready]` 门控——脚本绑定成功才落该属性，无 JS 时三个面板
         同时可见，内容零丢失。
       */}
       <div class="kb-settings-panes">
@@ -179,6 +189,124 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
               <button type="button" data-setting="openAnno">
                 批注管理
               </button>
+            </div>
+          </section>
+        </section>
+
+        {/*
+          「关于」面板：纯静态展示，无交互控件。
+          switchPane（settings.inline.ts）按 data-pane/data-pane-id 通配，无需任何脚本改动；
+          邮箱锚点走浏览器原生 mailto（SPA 路由对非本源 URL 早退 + data-router-ignore 双保险），
+          由 Electron 外部协议链路唤起系统邮件客户端，页面原地不动（desktop/main.cjs 有显式分支）。
+        */}
+        <section class="kb-settings-pane" data-pane-id="about">
+          <section class="kb-settings-sec">
+            <h2>图谱总览使用说明</h2>
+            <p class="kb-settings-desc">
+              「图谱总览」页把七部规范与术语组织为一张知识图谱：节点颜色代表所属文献，节点大小代表层级（书目最大、章节居中、小节与术语最小），节点标签随画面放大逐渐显现。
+            </p>
+            <div class="kb-settings-guide">
+              <h3>视图操作</h3>
+              <ul>
+                <li>
+                  滚轮缩放画面（0.05–4 倍）；按住空白处拖拽平移；点击「重置视图」一键回到全景。
+                </li>
+                <li>节点可直接拖拽调整位置，力导布局会实时回弹重排。</li>
+              </ul>
+              <h3>选中与联动阅读</h3>
+              <ul>
+                <li>
+                  单击节点选中：相关节点保持常亮、其余变暗，右侧面板同步展示该知识点的简介、原文与相关知识点（变暗的节点不响应单击）。
+                </li>
+                <li>
+                  双击任意节点把选中切换到它；点击空白处清除选中；悬停节点时其邻居高亮、其余淡出。
+                </li>
+              </ul>
+              <h3>搜索与图例</h3>
+              <ul>
+                <li>顶部搜索框输入节点名称，回车或点击「定位」：目标节点描边高亮并平移居中。</li>
+                <li>图例共 8 项（七部文献与术语），点击任一项可隐藏 / 恢复该类全部节点。</li>
+                <li>术语层有独立三态开关：隐藏 / 弱化 / 显示，默认隐藏以突出文献骨架。</li>
+              </ul>
+              <h3>页内局部图</h3>
+              <ul>
+                <li>
+                  每个章节页右栏另有局部关联图，仅显示与当前页直接相连的节点，点击即跳转对应页面。
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="kb-settings-sec">
+            <h2>专利库使用说明</h2>
+            <p class="kb-settings-desc">
+              本库收录七部规范全文共 2077 页：专利法 82 条、实施细则 149 条、审查指南 6 部 38
+              章、侵权判定指南 153
+              条、机械与化学案件撰写规范、审查意见答复指引。全部内容完全离线，运行期不发出任何网络请求，无遥测、无账号。
+            </p>
+            <div class="kb-settings-guide">
+              <h3>全文搜索</h3>
+              <ul>
+                <li>
+                  <kbd>Ctrl/⌘ + K</kbd> 打开全文搜索（标题与正文），<kbd>Ctrl/⌘ + Shift + K</kbd>{" "}
+                  切换为标签搜索。
+                </li>
+                <li>
+                  <kbd>↑</kbd> <kbd>↓</kbd> 选择结果，<kbd>Enter</kbd> 打开，右侧实时预览命中位置。
+                </li>
+              </ul>
+              <h3>批注</h3>
+              <ul>
+                <li>
+                  选中正文文字即弹出工具条：复制、四色高亮（黄 / 绿 / 蓝 / 粉）、划线、笔记；笔记以{" "}
+                  <kbd>⌘/Ctrl + Enter</kbd> 保存。
+                </li>
+                <li>
+                  批注按页保存在本机，不上传任何服务器。在「批注」分类中可设置保存目录（桌面端自动落盘为
+                  Markdown 文件），或打开批注管理抽屉，在抽屉底部整体导出 / 导入 JSON。
+                </li>
+              </ul>
+              <h3>阅读辅助</h3>
+              <ul>
+                <li>
+                  键盘翻页：<kbd>←</kbd> <kbd>→</kbd> 或 <kbd>[</kbd> <kbd>]</kbd> 切换上一节 /
+                  下一节。
+                </li>
+                <li>
+                  右下角进度环显示本页阅读进度，点击平滑回到顶部；左栏目录树自动定位当前小节。
+                </li>
+              </ul>
+              <h3>术语与引用</h3>
+              <ul>
+                <li>
+                  关键词索引收录 851 个术语词条，按 23
+                  个主题分组；词条页含释义、出处、相关法条与相关术语。
+                </li>
+                <li>正文中的术语与法条引用（如「专利法第22条」）自动成链，点击即可跳转原文。</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="kb-settings-sec">
+            <h2>联系作者</h2>
+            <p class="kb-settings-desc">
+              使用中遇到问题、发现内容错漏，或有功能建议，欢迎邮件联系。
+            </p>
+            <div class="kb-about-card">
+              <p class="kb-about-row">
+                <span class="kb-about-label">姓名</span>
+                <span>张京京</span>
+              </p>
+              <p class="kb-about-row">
+                <span class="kb-about-label">邮箱</span>
+                <a
+                  class="kb-about-mail"
+                  href="mailto:zhangjingjing962464@gmail.com"
+                  data-router-ignore
+                >
+                  zhangjingjing962464@gmail.com
+                </a>
+              </p>
             </div>
           </section>
         </section>

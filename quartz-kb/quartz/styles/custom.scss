@@ -980,6 +980,8 @@ article hr {
 //   · settings.scss：.kb-settings-drawer 与 .kb-settings-seg 均为
 //     --glass-inner-bg 底 + --glass-border 描边的二级卡（其 button 子代自带
 //     140ms 交互过渡，见上「纪律一」，与容器互不干涉）；
+//   · settings.scss（关于分类）：.kb-about-card 签名玻璃卡与 .kb-settings-guide kbd
+//     键位块，均 --glass-inner-bg 底 + --glass-border 描边，本体无自带 transition；
 //   · annotate.scss：五个浮层一律 --popover-bg 近实底 + 描边 + 阴影；
 //   · search.scss：.search > .search-container 是 glass-overlay 遮罩，
 //     .search-space > * 是 glass-panel(14px) 面板——两者的 .active 态在本节上方
@@ -1002,6 +1004,8 @@ article pre,
 .ge-panel,
 .kb-settings-drawer,
 .kb-settings-seg,
+.kb-settings-guide kbd,
+.kb-about-card,
 .kb-anno-toolbar,
 .kb-anno-drawer,
 .kb-anno-pop,

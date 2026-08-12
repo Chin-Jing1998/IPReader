@@ -1,4 +1,4 @@
-冒烟时间：2026-08-12T09:12:57.275Z
+冒烟时间：2026-08-12T14:51:14.278Z
 离线护栏：全程阻断非 127.0.0.1 请求（等效断网），页面均正常渲染
 外部请求尝试次数：0
 
@@ -18,12 +18,12 @@
   PASS  明暗分段控件切换（翻转生效 + 脱离跟随系统）（saved-theme: light→dark（目标 dark）, themeMode=dark）
   PASS  桌面标题条（data-desktop=true + 38px + flex）（data-desktop=true, height=38px, display=flex）
   PASS  全局偏移（body padding-top 38px + 左栏 top≥38）（bodyPaddingTop=38px, sidebarTop=50）
-  PASS  设置页沉浸 + 抽屉双栏（双栏隐藏 + 占位正文让位 + 抽屉/返回钮/两 pane/六卡）（left隐=true, right隐=true, 占位正文在场=true/已隐=true, 抽屉=true, 返回钮=true, 旧标题已删=true, pane数=2, 激活pane=appearance, 主题卡=6）
+  PASS  设置页沉浸 + 抽屉双栏（双栏隐藏 + 占位正文让位 + 抽屉/返回钮/三 pane/六卡）（left隐=true, right隐=true, 占位正文在场=true/已隐=true, 抽屉=true, 返回钮=true, 旧标题已删=true, pane数=3, 激活pane=appearance, 主题卡=6, 分类钮=3, 邮箱href命中=true）
   PASS  深链返回兜底（history.length===1 → 回首页，R12）（historyLenBefore=1, pathAfterClick=/）
   PASS  overlay 滚动条零挤压（.kb-oscroll 可见 + clientWidth 滚动前后相等）（轨道存在=true, is-visible=true, clientWidth 278→278）
-  PASS  设置页抽屉切换（切「批注」pane 生效 + 切回「外观」复原）（切批注：anno激活=true/可见=true, appearance隐=true, aria-selected=true；切回：appearance激活=true/可见=true, anno隐=true）
+  PASS  设置页抽屉切换（切「批注」→「关于」三分类互斥 + 切回「外观」复原）（切批注：anno激活=true/可见=true, appearance隐=true, aria-selected=true；切关于：about激活=true/可见=true, anno隐=true, appearance隐=true, aria-selected=true；切回：appearance激活=true/可见=true, anno隐=true, about隐=true）
   PASS  影子滚动条几何与拖拽（轨道贴正文右缘 + 原生槽归零 + 拖拽逆映射一致）（轨道 left=1070（.center 右缘 1060，窗口 [1064, 1084]）, top=46（≥38）, scrollbar-width=none；拖拽[合成 PointerEvent] scrollTop 400→2675, thumb.top 21.11→141.19, 逆映射期望=2676.67（误差 1.67px）, 拖 120px 正向预期=2675.14（误差 0.137px））
   PASS  SPA 不残留（连跳三页轨道恒 1 条）（SPA 三跳=/6-化学撰写规范/1-撰写规范/chem-01-04-06 → /3-专利审查指南/2-实质审查/8-实质审查程序/02-08-05-02 → /6-化学撰写规范/2-撰写示例及分析/chem-02-03-03；轨道数=1）
-  PASS  悬停预览弹窗底色与入场不透明（B 全程不透明 + A 底色同源 + C 描边生效）（B: [230ms,采样末]窗内样本14/共43帧，全部opacity=1→true（序列 0:0, 3.4:0, 12.6:0, 20.9:0, 29.3:0, 36.7:0, 46:0, 54.3:0, 62.6:0, 70.1:0, 79.4:0, 87.7:0, 95:0, 103.6:0, 112.7:0, 121:0, 129.2:0, 136.8:0, 146:0, 154.3:0, 162.7:0, 171:0, 179.3:0, 187.7:0, 196:1, 203.3:1, 211.9:1, 221.1:1, 229.3:1, 237.7:1, 246:1, 253.3:1, 262.7:1, 271.1:1, 279.4:1, 287.7:1, 296:1, 304.4:1, 311.9:1, 320.7:1, 329.4:1, 337.7:1, 346.1:1）；A: innerBg=rgba(255, 246, 240, 0.98)（alpha=0.98≥0.97→true, token=#fff6f0fa, rgb同源→true）；C: innerBorder=rgba(140, 90, 60, 0.26)（token=#8c5a3c42, rgb同源→true））
+  PASS  悬停预览弹窗底色与入场不透明（B 全程不透明 + A 底色同源 + C 描边生效）（B: [230ms,采样末]窗内样本14/共42帧，全部opacity=1→true（序列 0.1:0, 7.8:0, 16.4:0, 25.4:0, 33.4:0, 41.1:0, 50.1:0, 58:0, 67.3:0, 75.3:0, 83.7:0, 91.6:0, 99.7:0, 108.8:0, 117.1:0, 125.3:0, 133.1:0, 141.3:0, 149.5:0, 158.2:0, 167.1:0, 175.5:0, 183.5:0, 191.2:0, 200.1:1, 208.4:1, 216.7:1, 225:1, 232.9:1, 242.2:1, 250.4:1, 258.2:1, 266.8:1, 275.4:1, 283.7:1, 291.6:1, 300.6:1, 308.8:1, 317:1, 325.3:1, 333.4:1, 341.6:1）；A: innerBg=rgba(255, 246, 240, 0.98)（alpha=0.98≥0.97→true, token=#fff6f0fa, rgb同源→true）；C: innerBorder=rgba(140, 90, 60, 0.26)（token=#8c5a3c42, rgb同源→true））
   PASS  搜索弹层主题化（A 命中词 --textHighlight + B 结果卡12px/--glass-border描边 + C search-path过渡260ms）（A: highlight在场=true, bg=rgba(254, 203, 174, 0.667)（token=#fecbaeaa, 同源→true, 旧绿(132,165,157)→false）；B: 圆角=12px（=12px→true）, 四边描边=[rgba(253, 238, 231, 0.7) | rgba(253, 238, 231, 0.7) | rgba(253, 238, 231, 0.7) | rgba(253, 238, 231, 0.7)]（token=#fdeee7b3, 四边同源→true）；C: search-path transitionDuration=0.26s（含0.26s且不含0.5s→true））
   PASS  跟随系统零双跳（saved-theme 实际变更 ≤1 次 + 终态与主进程 nativeTheme 一致）（实际变更=1 次（属性写入 3 次，轨迹 dark→dark | dark→light | light→light）, 终态 saved-theme=light, themeMode=system, 主进程 shouldUseDarkColors=false（themeSource=system））

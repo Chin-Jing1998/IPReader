@@ -407,7 +407,7 @@ async function main() {
   );
   await shot(win, "全局偏移");
 
-  // 16. 设置页沉浸 + 抽屉双栏（左右栏隐藏、占位正文让位、抽屉/返回钮/两 pane/六卡在场）
+  // 16. 设置页沉浸 + 抽屉双栏（左右栏隐藏、占位正文让位、抽屉/返回钮/三 pane/六卡在场）
   //     v11：旧断言里的 .kb-settings-title 已随抽屉改造删除（返回入口移入抽屉首行），
   //     改断言抽屉本体与两个面板，并把「占位正文让位」的探针换成真实存在的那一层——
   //     设置页由 FolderPage 渲染，正文结构是 .center > .popover-hint > article，
@@ -432,11 +432,16 @@ async function main() {
          paneCount: panes.length,
          activePane: active ? active.dataset.paneId : null,
          cardCount: document.querySelectorAll('.kb-theme-card').length,
+         catCount: document.querySelectorAll('.kb-settings-cat').length,
+         aboutMail: (() => {
+           const a = document.querySelector('.kb-settings-pane[data-pane-id="about"] a[href^="mailto:"]');
+           return a ? a.getAttribute('href') : null;
+         })(),
        };
      })()`,
   );
   record(
-    "设置页沉浸 + 抽屉双栏（双栏隐藏 + 占位正文让位 + 抽屉/返回钮/两 pane/六卡）",
+    "设置页沉浸 + 抽屉双栏（双栏隐藏 + 占位正文让位 + 抽屉/返回钮/三 pane/六卡）",
     immersiveProbe.leftHidden &&
       immersiveProbe.rightHidden &&
       immersiveProbe.hasArticle &&
@@ -444,13 +449,16 @@ async function main() {
       immersiveProbe.hasDrawer &&
       immersiveProbe.hasBack &&
       !immersiveProbe.hasTitle &&
-      immersiveProbe.paneCount === 2 &&
+      immersiveProbe.paneCount === 3 &&
       immersiveProbe.activePane === "appearance" &&
-      immersiveProbe.cardCount === 6,
+      immersiveProbe.cardCount === 6 &&
+      immersiveProbe.catCount === 3 &&
+      immersiveProbe.aboutMail === "mailto:zhangjingjing962464@gmail.com",
     `left隐=${immersiveProbe.leftHidden}, right隐=${immersiveProbe.rightHidden}, ` +
       `占位正文在场=${immersiveProbe.hasArticle}/已隐=${immersiveProbe.articleHidden}, ` +
       `抽屉=${immersiveProbe.hasDrawer}, 返回钮=${immersiveProbe.hasBack}, 旧标题已删=${!immersiveProbe.hasTitle}, ` +
-      `pane数=${immersiveProbe.paneCount}, 激活pane=${immersiveProbe.activePane}, 主题卡=${immersiveProbe.cardCount}`,
+      `pane数=${immersiveProbe.paneCount}, 激活pane=${immersiveProbe.activePane}, 主题卡=${immersiveProbe.cardCount}, ` +
+      `分类钮=${immersiveProbe.catCount}, 邮箱href命中=${immersiveProbe.aboutMail === "mailto:zhangjingjing962464@gmail.com"}`,
   );
   await shot(win, "设置页沉浸");
 
@@ -529,9 +537,11 @@ async function main() {
 
   // ============ v11 新增五步（19–22） ============
 
-  // 19. 设置页抽屉切换（分类钮 ↔ 面板 is-active 同步；切回 appearance 复原）
+  // 19. 设置页抽屉切换（分类钮 ↔ 面板 is-active 同步；三分类互斥；切回 appearance 复原）
   //     面板显隐由 CSS 降级门 `.kb-settings-page[data-panes-ready] .kb-settings-pane:not(.is-active)`
-  //     承担，故断言用 offsetParent 而非 classList——脚本没落 data-panes-ready 时两 pane 全显。
+  //     承担，故断言用 offsetParent 而非 classList——脚本没落 data-panes-ready 时三 pane 全显。
+  //     「关于」是纯静态面板（无 data-setting 控件），故只验切换互斥：切到它时另两个
+  //     面板同时隐去，这正是 switchPane 按 data-pane/data-pane-id 通配的直接证据。
   await win.loadURL(base + encodeURI("/设置/"));
   await sleep(600);
   const drawerProbe = await win.webContents.executeJavaScript(
@@ -539,6 +549,7 @@ async function main() {
        const q = (s) => document.querySelector(s);
        const anno = () => q('.kb-settings-pane[data-pane-id="anno"]');
        const appearance = () => q('.kb-settings-pane[data-pane-id="appearance"]');
+       const about = () => q('.kb-settings-pane[data-pane-id="about"]');
        q('.kb-settings-cat[data-pane="anno"]').click();
        const afterAnno = {
          annoActive: anno().classList.contains('is-active'),
@@ -546,28 +557,46 @@ async function main() {
          appearanceHidden: appearance().offsetParent === null,
          catAria: q('.kb-settings-cat[data-pane="anno"]').getAttribute('aria-selected'),
        };
+       q('.kb-settings-cat[data-pane="about"]').click();
+       const afterAbout = {
+         aboutActive: about().classList.contains('is-active'),
+         aboutVisible: about().offsetParent !== null,
+         annoHidden: anno().offsetParent === null,
+         appearanceHidden: appearance().offsetParent === null,
+         catAria: q('.kb-settings-cat[data-pane="about"]').getAttribute('aria-selected'),
+       };
        q('.kb-settings-cat[data-pane="appearance"]').click();
        const restored = {
          appearanceActive: appearance().classList.contains('is-active'),
          appearanceVisible: appearance().offsetParent !== null,
          annoHidden: anno().offsetParent === null,
+         aboutHidden: about().offsetParent === null,
        };
-       return { afterAnno, restored };
+       return { afterAnno, afterAbout, restored };
      })()`,
   );
   record(
-    "设置页抽屉切换（切「批注」pane 生效 + 切回「外观」复原）",
+    "设置页抽屉切换（切「批注」→「关于」三分类互斥 + 切回「外观」复原）",
     drawerProbe.afterAnno.annoActive &&
       drawerProbe.afterAnno.annoVisible &&
       drawerProbe.afterAnno.appearanceHidden &&
       drawerProbe.afterAnno.catAria === "true" &&
+      drawerProbe.afterAbout.aboutActive &&
+      drawerProbe.afterAbout.aboutVisible &&
+      drawerProbe.afterAbout.annoHidden &&
+      drawerProbe.afterAbout.appearanceHidden &&
+      drawerProbe.afterAbout.catAria === "true" &&
       drawerProbe.restored.appearanceActive &&
       drawerProbe.restored.appearanceVisible &&
-      drawerProbe.restored.annoHidden,
+      drawerProbe.restored.annoHidden &&
+      drawerProbe.restored.aboutHidden,
     `切批注：anno激活=${drawerProbe.afterAnno.annoActive}/可见=${drawerProbe.afterAnno.annoVisible}, ` +
       `appearance隐=${drawerProbe.afterAnno.appearanceHidden}, aria-selected=${drawerProbe.afterAnno.catAria}；` +
+      `切关于：about激活=${drawerProbe.afterAbout.aboutActive}/可见=${drawerProbe.afterAbout.aboutVisible}, ` +
+      `anno隐=${drawerProbe.afterAbout.annoHidden}, appearance隐=${drawerProbe.afterAbout.appearanceHidden}, ` +
+      `aria-selected=${drawerProbe.afterAbout.catAria}；` +
       `切回：appearance激活=${drawerProbe.restored.appearanceActive}/可见=${drawerProbe.restored.appearanceVisible}, ` +
-      `anno隐=${drawerProbe.restored.annoHidden}`,
+      `anno隐=${drawerProbe.restored.annoHidden}, about隐=${drawerProbe.restored.aboutHidden}`,
   );
   await shot(win, "设置页抽屉-批注pane");
 
