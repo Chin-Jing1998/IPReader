@@ -16,7 +16,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { STOPWORDS } from './lib/term-stopwords.mjs';
-import { TOPIC_NAME } from './lib/topics.mjs';
+import { termGroupOf } from './lib/topics.mjs';
 import { loadTermExtractIndex, pickDefinition, normTerm } from './lib/term-extract-index.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -135,7 +135,8 @@ for (const t of kept) {
     summary,
     tier: t.tier,
     df: t.df || 0,
-    breadcrumb: ['关键词索引', (t.topicKey && TOPIC_NAME[t.topicKey]) || '综合'],
+    // 第二段取主题分组名（与 build-quartz-md 的目录名同源），保证面包屑与词条页路径一致
+    breadcrumb: ['关键词索引', termGroupOf(t.topicKey)?.name || '综合'],
     partNum: 0,
     chapterNum: null,
     sectionNum: null,

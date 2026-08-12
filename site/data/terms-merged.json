@@ -2662,48 +2662,6 @@
     ]
   },
   {
-    "termKey": "加减方",
-    "canonical": "加减方",
-    "aliases": [
-      "合方",
-      "自组方",
-      "加减方发明"
-    ],
-    "matchers": [],
-    "topicKey": "compound",
-    "sources": {
-      "examination-guideline": [
-        "02-11-05",
-        "02-11-05-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "examination-guideline/02/011/05",
-        "text": "加减方发明，包括中药原料变更的组方发明和合方发明"
-      }
-    ]
-  },
-  {
-    "termKey": "中药制药用途的病与证",
-    "canonical": "中药制药用途的病与证",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "compound",
-    "sources": {
-      "examination-guideline": [
-        "02-11-04-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
     "termKey": "不丧失新颖性宽限期",
     "canonical": "不丧失新颖性宽限期",
     "aliases": [
@@ -4467,22 +4425,6 @@
     "sources": {
       "examination-guideline": [
         "05-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "受理",
-    "canonical": "受理",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "examProcedure",
-    "sources": {
-      "examination-guideline": [
-        "05-03"
       ]
     },
     "lawKeys": [],
@@ -8737,95 +8679,6 @@
     "evidence": []
   },
   {
-    "termKey": "错别字",
-    "canonical": "错别字",
-    "aliases": [
-      "语病",
-      "口语化",
-      "歧义词"
-    ],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-01-01"
-      ],
-      "chemistry-drafting-rules": [
-        "chem-01-01-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 2,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/001/01",
-        "text": "错别字为本义上并不影响到理解某词的清楚性"
-      },
-      {
-        "chunk": "chemistry-drafting-rules/01/001/01",
-        "text": "语病为本义上并不影响到清楚性或者理解该句所阐述的技术"
-      },
-      {
-        "chunk": "chemistry-drafting-rules/01/001/01",
-        "text": "口语化为因撰写人的口音以及所在地的文化影响"
-      }
-    ]
-  },
-  {
-    "termKey": "附图标号多余",
-    "canonical": "附图标号多余",
-    "aliases": [
-      "错误",
-      "重复",
-      "漏标"
-    ],
-    "matchers": [],
-    "topicKey": "drawings",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-01-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "商业宣传",
-    "canonical": "商业宣传",
-    "aliases": [
-      "广告",
-      "单纯功能性",
-      "商业性宣传用语"
-    ],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-01-01"
-      ],
-      "examination-guideline": [
-        "01-01-04-05",
-        "01-01-07"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 2,
-    "evidence": [
-      {
-        "chunk": "examination-guideline/01/001/04/05",
-        "text": "使用了商业性宣传用语的，可以通知申请人删除"
-      },
-      {
-        "chunk": "examination-guideline/01/001/07",
-        "text": "不得使用商业性宣传用语以及贬低或者诽谤他人或者他人产品的词句"
-      }
-    ]
-  },
-  {
     "termKey": "摘要300字",
     "canonical": "摘要 300 字",
     "aliases": [
@@ -8873,24 +8726,6 @@
     ]
   },
   {
-    "termKey": "字体字号行距",
-    "canonical": "字体字号行距",
-    "aliases": [
-      "涉外\"申请\"替代"
-    ],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-01-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
     "termKey": "择一引用",
     "canonical": "择一引用",
     "aliases": [
@@ -8927,215 +8762,6 @@
         "text": "权利要求应当采用择一引用方式表达"
       }
     ]
-  },
-  {
-    "termKey": "附图引用不超3幅",
-    "canonical": "附图引用不超 3 幅",
-    "aliases": [
-      "不跳跃式"
-    ],
-    "matchers": [],
-    "topicKey": "drawings",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-01-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "三位一体禁忌",
-    "canonical": "三位一体 禁忌",
-    "aliases": [
-      "三段式"
-    ],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-01-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "技术特征功能逻辑拆解",
-    "canonical": "技术特征功能逻辑拆解",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-02-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "新技术特征引出",
-    "canonical": "新技术特征引出",
-    "aliases": [
-      "新引出的技术特征"
-    ],
-    "matchers": [],
-    "topicKey": "claims",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-02-01"
-      ],
-      "chemistry-drafting-rules": [
-        "chem-01-03-03"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/003/03",
-        "text": "当附加的技术特征为新引出的技术特征时"
-      }
-    ]
-  },
-  {
-    "termKey": "用途表征",
-    "canonical": "用途表征",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "claims",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-02-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "mechanical-drafting-rules/01/002/01",
-        "text": "用途表征是某个产品所依附的特征，该特征不属于申请方案本身具备的特征"
-      }
-    ]
-  },
-  {
-    "termKey": "禁用\"例如/最好/约/包括但不限于/可\"",
-    "canonical": "禁用\"例如/最好/约/包括但不限于/可\"",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-02-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "虚实分离",
-    "canonical": "虚实分离",
-    "aliases": [
-      "实体依附"
-    ],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-02-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "u形象形描述禁忌",
-    "canonical": "U 形象形描述禁忌",
-    "aliases": [
-      "象形/拟物形式的描述"
-    ],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-02-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "mechanical-drafting-rules/01/002/01",
-        "text": "禁止直接采用呈“凸”形、“凹” 等中文字的象形/拟物形式的描述"
-      }
-    ]
-  },
-  {
-    "termKey": "纯功能性限定禁忌",
-    "canonical": "纯功能性限定禁忌",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-02-01",
-        "mech-01-03-06"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "第一",
-    "canonical": "第一",
-    "aliases": [
-      "第二顺序命名"
-    ],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-02-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "命名层次",
-    "canonical": "命名层次",
-    "aliases": [
-      "设备-装置-机构-组件-部件-具体零部件"
-    ],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-02-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
   },
   {
     "termKey": "方位名词改相对关系",
@@ -9234,605 +8860,6 @@
     "evidence": []
   },
   {
-    "termKey": "独权最小保护主体",
-    "canonical": "独权最小保护主体",
-    "aliases": [
-      "并列独权",
-      "产品+应用产品",
-      "产业链",
-      "最小保护主体"
-    ],
-    "matchers": [],
-    "topicKey": "claims",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-02-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "mechanical-drafting-rules/01/002/02",
-        "text": "其保护主体应当是解决对应的技术问题的最小保护主体"
-      }
-    ]
-  },
-  {
-    "termKey": "独权上位过大→新颖性问题",
-    "canonical": "独权上位过大→新颖性问题",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "novelty",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-02-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "两种状态主体写法",
-    "canonical": "两种状态主体写法",
-    "aliases": [
-      "销售形态优先"
-    ],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-02-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "中位特征",
-    "canonical": "中位特征",
-    "aliases": [
-      "中位概括"
-    ],
-    "matchers": [],
-    "topicKey": "claims",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-02-03"
-      ],
-      "chemistry-drafting-rules": [
-        "chem-01-03-03"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 2,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/003/03",
-        "text": "而是应对上位特征进行层层限缩，即在上位特征和下位特征之间引出中位特征"
-      },
-      {
-        "chunk": "mechanical-drafting-rules/01/002/03",
-        "text": "所谓中位特征，可以理解为保护范围介于上位特征和下位特征之间"
-      }
-    ]
-  },
-  {
-    "termKey": "进一步限定vs附加技术特征",
-    "canonical": "进一步限定 vs 附加技术特征",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "claims",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-02-03"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "从权特征越简越好",
-    "canonical": "从权特征越简越好",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-02-03"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "发明名称合理上位",
-    "canonical": "发明名称合理上位",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "技术领域两段式",
-    "canonical": "技术领域两段式",
-    "aliases": [
-      "两段式的写法"
-    ],
-    "matchers": [],
-    "topicKey": "description",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-02"
-      ],
-      "chemistry-drafting-rules": [
-        "chem-02-03-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 2,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/02/003/01",
-        "text": "提倡采用两段式的写法，即先写大的领域，再写小的领域"
-      },
-      {
-        "chunk": "mechanical-drafting-rules/01/003/02",
-        "text": "应当采用两段式的写法，即先写大的领域，再写小的领域"
-      }
-    ]
-  },
-  {
-    "termKey": "背景技术涉外禁忌",
-    "canonical": "背景技术涉外禁忌",
-    "aliases": [
-      "引证",
-      "前案",
-      "企业名"
-    ],
-    "matchers": [],
-    "topicKey": "description",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-03"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "背景技术不写发明点关键特征",
-    "canonical": "背景技术不写发明点关键特征",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "description",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-03"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "技术缺陷推导合理",
-    "canonical": "技术缺陷推导合理",
-    "aliases": [
-      "客观"
-    ],
-    "matchers": [],
-    "topicKey": "description",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-03"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "发明内容不含绝对性词语",
-    "canonical": "发明内容不含绝对性词语",
-    "aliases": [
-      "\"改善\"非\"避免\""
-    ],
-    "matchers": [],
-    "topicKey": "description",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-04"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "涉外不写从权内容",
-    "canonical": "涉外不写从权内容",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-04"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "相关技术附图称呼",
-    "canonical": "相关技术附图称呼",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "drawings",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-05"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "引证专利论文",
-    "canonical": "引证专利论文",
-    "aliases": [
-      "企业名禁忌"
-    ],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-06"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "模块化总分总",
-    "canonical": "模块化总分总",
-    "aliases": [
-      "特定次序",
-      "总-分-总"
-    ],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-06",
-        "mech-02-03-05"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "mechanical-drafting-rules/02/003/05",
-        "text": "总体撰写逻辑可采用“总-分-总”的逻辑"
-      }
-    ]
-  },
-  {
-    "termKey": "最小单位技术特征",
-    "canonical": "最小单位技术特征",
-    "aliases": [
-      "内部阐述次序"
-    ],
-    "matchers": [],
-    "topicKey": "claims",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-06"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "上位概念至少两个实施例",
-    "canonical": "上位概念至少两个实施例",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "embodiment",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-06"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "动作主体",
-    "canonical": "动作主体",
-    "aliases": [
-      "动力源",
-      "动作过程",
-      "传动方式"
-    ],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-06"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "附图引用与文字匹配",
-    "canonical": "附图引用与文字匹配",
-    "aliases": [
-      "不后置括号"
-    ],
-    "matchers": [],
-    "topicKey": "drawings",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-06"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "量词前\"可以是\"",
-    "canonical": "量词前\"可以是\"",
-    "aliases": [
-      "禁绝对词"
-    ],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-06"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "附图关联性",
-    "canonical": "附图关联性",
-    "aliases": [
-      "爆炸图",
-      "截面图"
-    ],
-    "matchers": [],
-    "topicKey": "drawings",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-07"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "mechanical-drafting-rules/01/003/07",
-        "text": "可以采用爆炸图、截面图的方式引出该零部件的位置"
-      }
-    ]
-  },
-  {
-    "termKey": "局部放大图规则",
-    "canonical": "局部放大图规则",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "drawings",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-07"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "标号引线粗细",
-    "canonical": "标号引线粗细",
-    "aliases": [
-      "引线指向"
-    ],
-    "matchers": [],
-    "topicKey": "drawings",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-07"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "节点性虚拟部件标记",
-    "canonical": "节点性虚拟部件标记",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "drawings",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-07"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "cad制图",
-    "canonical": "CAD 制图",
-    "aliases": [
-      "禁用工程蓝图照片截图"
-    ],
-    "matchers": [],
-    "topicKey": "drawings",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-07"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "附图中文注释规则",
-    "canonical": "附图中文注释规则",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "drawings",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-07"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "剖面线规则",
-    "canonical": "剖面线规则",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "drawings",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-07"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "附图竖向布置",
-    "canonical": "附图竖向布置",
-    "aliases": [
-      "一页一图"
-    ],
-    "matchers": [],
-    "topicKey": "drawings",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-07"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "多独权产业链布局示例",
-    "canonical": "多独权产业链布局示例",
-    "aliases": [
-      "机构-装置-集料装置-分装装置"
-    ],
-    "matchers": [],
-    "topicKey": "claims",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-02-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "模块划分四步走",
-    "canonical": "模块划分四步走",
-    "aliases": [
-      "总分总撰写逻辑"
-    ],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-02-03-05"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "附图标记逐级编号体系",
-    "canonical": "附图标记逐级编号体系",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "drawings",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-02-03-04"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
     "termKey": "化合物表征",
     "canonical": "化合物表征",
     "aliases": [
@@ -9871,277 +8898,6 @@
     ]
   },
   {
-    "termKey": "高分子化合物表征",
-    "canonical": "高分子化合物表征",
-    "aliases": [
-      "重复单元",
-      "分子量",
-      "排列状态",
-      "结构链段",
-      "聚合物限定方式"
-    ],
-    "matchers": [],
-    "topicKey": "compound",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-03-01",
-        "chem-01-05-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/005/01",
-        "text": "也可以是结构链段（此时也可称为重复单元）"
-      },
-      {
-        "chunk": "chemistry-drafting-rules/01/005/01",
-        "text": "高分子化合物在权利要求中的限定方式可以包括聚合单体的用量关系"
-      }
-    ]
-  },
-  {
-    "termKey": "组合物表征",
-    "canonical": "组合物表征",
-    "aliases": [
-      "组分+含量+其他因素"
-    ],
-    "matchers": [],
-    "topicKey": "compound",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-03-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "化学产品表征",
-    "canonical": "化学产品 表征",
-    "aliases": [
-      "反应产物"
-    ],
-    "matchers": [],
-    "topicKey": "compound",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-03-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "马库什权要",
-    "canonical": "马库什权要",
-    "aliases": [
-      "通式化合物"
-    ],
-    "matchers": [],
-    "topicKey": "compound",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-05-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "用途权要vs产品权要vs方法权要",
-    "canonical": "用途权要 vs 产品权要 vs 方法权要",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "claims",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-03-01",
-        "chem-01-05-06"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "制药用途\"在制备......中的用途\"",
-    "canonical": "制药用途 \"在制备……中的用途\"",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "claims",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-05-06"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "封闭式权要\"由......组成\"vs开放式\"包括/包含\"",
-    "canonical": "封闭式权要\"由……组成\" vs 开放式\"包括/包含\"",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "claims",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-03-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "计量单位",
-    "canonical": "计量单位",
-    "aliases": [
-      "重量份",
-      "体积比",
-      "重量比"
-    ],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-03-01",
-        "chem-01-04-06"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "多独权产品+方法布局",
-    "canonical": "多独权产品+方法布局",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "claims",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-03-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "实施例阵列",
-    "canonical": "实施例阵列",
-    "aliases": [
-      "对比例阵列",
-      "单因素试验"
-    ],
-    "matchers": [],
-    "topicKey": "embodiment",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-04-06"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "对比例与现有技术",
-    "canonical": "对比例与现有技术",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "embodiment",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-04-06"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "实施例数据落入权要范围",
-    "canonical": "实施例数据落入权要范围",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "embodiment",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-04-06"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "实施例规模与计量单位",
-    "canonical": "实施例规模 与计量单位",
-    "aliases": [
-      "小试",
-      "中试",
-      "工业化"
-    ],
-    "matchers": [],
-    "topicKey": "embodiment",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-04-06"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/004/06",
-        "text": "小试阶段是对实验室操作阶段原有的合成路线和方法进行全面的、系统的改革"
-      },
-      {
-        "chunk": "chemistry-drafting-rules/01/004/06",
-        "text": "中试不单是小试的简单的放大"
-      }
-    ]
-  },
-  {
-    "termKey": "实施例必须含具体物质",
-    "canonical": "实施例必须含具体物质",
-    "aliases": [
-      "用量",
-      "工艺参数"
-    ],
-    "matchers": [],
-    "topicKey": "embodiment",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-04-06"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
     "termKey": "检测方法",
     "canonical": "检测方法",
     "aliases": [
@@ -10161,128 +8917,6 @@
     "evidence": []
   },
   {
-    "termKey": "化合物确认",
-    "canonical": "化合物确认",
-    "aliases": [
-      "NMR",
-      "IR",
-      "MS",
-      "元素分析"
-    ],
-    "matchers": [],
-    "topicKey": "compound",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-04-06",
-        "chem-01-05-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "性能测试",
-    "canonical": "性能测试",
-    "aliases": [
-      "仪器定量",
-      "感官评定",
-      "性能检测试验"
-    ],
-    "matchers": [],
-    "topicKey": "embodiment",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-05-02",
-        "chem-01-05-03",
-        "chem-01-05-04",
-        "chem-02-03-03"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/02/003/03",
-        "text": "性能检测试验主要用于证明产品发明的技术效果，应清楚描述产品的检测试验方法"
-      }
-    ]
-  },
-  {
-    "termKey": "化妆品",
-    "canonical": "化妆品",
-    "aliases": [
-      "备案",
-      "原料目录"
-    ],
-    "matchers": [],
-    "topicKey": "compound",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-05-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "食品",
-    "canonical": "食品",
-    "aliases": [
-      "药食同源",
-      "保质期内测试"
-    ],
-    "matchers": [],
-    "topicKey": "compound",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-05-03"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/005/03",
-        "text": "食品，指各种供人食用或者饮用的成品和原料"
-      },
-      {
-        "chunk": "chemistry-drafting-rules/01/005/03",
-        "text": "添加的中药原料，必须是药食同源的原料"
-      }
-    ]
-  },
-  {
-    "termKey": "保健食品",
-    "canonical": "保健食品",
-    "aliases": [
-      "27 种功能",
-      "辅助 + 功能",
-      "严禁预防"
-    ],
-    "matchers": [],
-    "topicKey": "compound",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-05-04"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/005/04",
-        "text": "保健食品，是食品的一种，是指具有特定保健功能或者以补充维生素、矿物质为目的的食品"
-      }
-    ]
-  },
-  {
     "termKey": "中药",
     "canonical": "中药",
     "aliases": [
@@ -10295,22 +8929,6 @@
     "sources": {
       "chemistry-drafting-rules": [
         "chem-01-05-05"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "疾病诊断与治疗方法",
-    "canonical": "疾病诊断与治疗方法",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "subjectMatter",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-05-06"
       ]
     },
     "lawKeys": [],
@@ -10443,58 +9061,6 @@
     ]
   },
   {
-    "termKey": "禁止反悔与捐献规则的撰写规避",
-    "canonical": "禁止反悔与捐献规则的撰写规避",
-    "aliases": [
-      "数值多层铺陈"
-    ],
-    "matchers": [],
-    "topicKey": "estoppel",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-04-04"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "权要禁用措辞",
-    "canonical": "权要禁用措辞",
-    "aliases": [
-      "\"约\"\"左右\"\"接近\"\"例如\"\"最好是\"\"可\"\"等\""
-    ],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-03-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "同一权要禁上位下位并列",
-    "canonical": "同一权要禁上位下位并列",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-03-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
     "termKey": "同符号在不同分子式中须区分",
     "canonical": "同符号在不同分子式中须区分",
     "aliases": [],
@@ -10503,163 +9069,6 @@
     "sources": {
       "chemistry-drafting-rules": [
         "chem-01-03-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "从权层层限缩",
-    "canonical": "从权层层限缩",
-    "aliases": [
-      "上位 → 中位 → 下位"
-    ],
-    "matchers": [],
-    "topicKey": "claims",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-03-03"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "涉外案禁方法特征限定产品独权",
-    "canonical": "涉外案禁方法特征限定产品独权",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-03-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "附图引用顺序与单次幅数",
-    "canonical": "附图引用顺序与单次幅数",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "drawings",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-01-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "发明名称字数",
-    "canonical": "发明名称字数",
-    "aliases": [
-      "25 字，化学领域 40 字"
-    ],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-01-02",
-        "chem-01-04-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "附图标号一致性",
-    "canonical": "附图标号一致性",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "drawings",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-01-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "单独对比原则",
-    "canonical": "单独对比原则",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "novelty",
-    "sources": {
-      "oa-response-guide": [
-        "oa-01-01",
-        "oa-01-02",
-        "oa-01-04"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 3,
-    "evidence": [
-      {
-        "chunk": "oa-response-guide/01/001",
-        "text": "此处的单独对比原则，是指每一对比文件的一个完整的技术方案"
-      },
-      {
-        "chunk": "oa-response-guide/01/002",
-        "text": "判断发明或者实用新型专利申请的新颖性适用单独对比的原则"
-      },
-      {
-        "chunk": "oa-response-guide/01/004",
-        "text": "单独对比，应当将发明或实用新型专利申请的各项权利要求分别与每一项现有技术"
-      }
-    ]
-  },
-  {
-    "termKey": "四个相同",
-    "canonical": "四个相同",
-    "aliases": [
-      "领域",
-      "问题",
-      "效果"
-    ],
-    "matchers": [],
-    "topicKey": "novelty",
-    "sources": {
-      "oa-response-guide": [
-        "oa-01-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "oa-response-guide/01/002",
-        "text": "四个相同必须同时满足（技术领域、技术问题、技术方案、技术效果）"
-      }
-    ]
-  },
-  {
-    "termKey": "抵触申请的cn代码",
-    "canonical": "抵触申请的 CN 代码",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "novelty",
-    "sources": {
-      "oa-response-guide": [
-        "oa-01-03"
       ]
     },
     "lawKeys": [],
@@ -10779,95 +9188,6 @@
     "evidence": []
   },
   {
-    "termKey": "公知常识三层次",
-    "canonical": "公知常识三层次",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "inventiveness",
-    "sources": {
-      "oa-response-guide": [
-        "oa-02-07"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "抵触申请评创造性",
-    "canonical": "抵触申请评创造性",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "novelty",
-    "sources": {
-      "oa-response-guide": [
-        "oa-02-05",
-        "oa-02-07"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "等效手段",
-    "canonical": "等效手段",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "inventiveness",
-    "sources": {
-      "oa-response-guide": [
-        "oa-02-05",
-        "oa-02-07"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "oa-response-guide/02/005",
-        "text": "认定为等效手段的理由不充分，并不能解决相同的技术问题"
-      }
-    ]
-  },
-  {
-    "termKey": "反向技术教导",
-    "canonical": "反向技术教导",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "inventiveness",
-    "sources": {
-      "oa-response-guide": [
-        "oa-02-05",
-        "oa-02-06"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "同类",
-    "canonical": "同类",
-    "aliases": [
-      "不同类独权的相应特征"
-    ],
-    "matchers": [],
-    "sources": {
-      "oa-response-guide": [
-        "oa-03-03"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
     "termKey": "权利要求支持",
     "canonical": "权利要求支持",
     "aliases": [],
@@ -10951,27 +9271,6 @@
     ]
   },
   {
-    "termKey": "数值范围过宽",
-    "canonical": "数值范围过宽",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "support",
-    "sources": {
-      "oa-response-guide": [
-        "oa-04-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "oa-response-guide/04/002",
-        "text": "权利要求中将某一技术特征限定在一个宽的数值范围"
-      }
-    ]
-  },
-  {
     "termKey": "等同替代",
     "canonical": "等同替代",
     "aliases": [
@@ -10981,22 +9280,6 @@
     "sources": {
       "oa-response-guide": [
         "oa-04-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "必要技术特征判断",
-    "canonical": "必要技术特征判断",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "essentialFeatures",
-    "sources": {
-      "oa-response-guide": [
-        "oa-05-02"
       ]
     },
     "lawKeys": [],
@@ -11082,76 +9365,6 @@
         "text": "则可认为该发明公开不充分"
       }
     ]
-  },
-  {
-    "termKey": "隐含公开",
-    "canonical": "隐含公开",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "novelty",
-    "sources": {
-      "oa-response-guide": [
-        "oa-02-07",
-        "oa-07-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "oa-response-guide/02/007",
-        "text": "隐含公开指的是对于所属技术领域的技术人员来说"
-      }
-    ]
-  },
-  {
-    "termKey": "实验数据要求",
-    "canonical": "实验数据要求",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "sufficiency",
-    "sources": {
-      "oa-response-guide": [
-        "oa-07-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "自认无创造性陷阱",
-    "canonical": "自认无创造性陷阱",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "inventiveness",
-    "sources": {
-      "oa-response-guide": [
-        "oa-07-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
-  },
-  {
-    "termKey": "意见陈述书模板",
-    "canonical": "意见陈述书模板",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "oaResponse",
-    "sources": {
-      "oa-response-guide": [
-        "oa-02-08"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "seed",
-    "df": 0,
-    "evidence": []
   },
   {
     "termKey": "视为撤回",
@@ -11612,7 +9825,7 @@
     },
     "lawKeys": [
       "专利法实施细则第11条",
-      "专利法实施细则第20条",
+      "专利法实施细则第23条",
       "专利法实施细则第66条",
       "专利法实施细则第67条",
       "专利法第22条",
@@ -11620,8 +9833,8 @@
       "专利法第26条",
       "专利法第2条",
       "专利法第33条",
-      "专利法第59条",
       "专利法第5条",
+      "专利法第64条",
       "专利法第9条"
     ],
     "tier": "high",
@@ -12446,7 +10659,6 @@
       "专利法实施细则第47条",
       "专利法第22条",
       "专利法第26条",
-      "专利法第59条",
       "专利法第64条",
       "专利法第9条"
     ],
@@ -12836,7 +11048,7 @@
       ]
     },
     "lawKeys": [
-      "专利法实施细则第20条",
+      "专利法实施细则第23条",
       "专利法第22条",
       "专利法第26条"
     ],
@@ -13464,7 +11676,7 @@
       ]
     },
     "lawKeys": [
-      "专利法实施细则第20条"
+      "专利法实施细则第23条"
     ],
     "tier": "high",
     "df": 5,
@@ -14085,7 +12297,7 @@
       ]
     },
     "lawKeys": [
-      "专利法实施细则第20条"
+      "专利法实施细则第23条"
     ],
     "tier": "high",
     "df": 4,
@@ -16234,7 +14446,7 @@
       ]
     },
     "lawKeys": [
-      "专利法第61条"
+      "专利法第66条"
     ],
     "tier": "high",
     "df": 3,
@@ -16565,34 +14777,6 @@
     ]
   },
   {
-    "termKey": "表达方式不规范",
-    "canonical": "表达方式不规范",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-01-01"
-      ],
-      "mechanical-drafting-rules": [
-        "mech-01-01-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "high",
-    "df": 2,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/001/01",
-        "text": "表达方式不规范为缺主、谓、宾等语法错误，导致阅读不通顺"
-      },
-      {
-        "chunk": "mechanical-drafting-rules/01/001/01",
-        "text": "表达方式不规范为缺主、谓、宾等语法错误，导致阅读不通顺"
-      }
-    ]
-  },
-  {
     "termKey": "不可抗拒的事由",
     "canonical": "不可抗拒的事由",
     "aliases": [],
@@ -16818,7 +15002,7 @@
       ]
     },
     "lawKeys": [
-      "专利法实施细则第20条",
+      "专利法实施细则第23条",
       "专利法第31条"
     ],
     "tier": "high",
@@ -17160,34 +15344,6 @@
       {
         "chunk": "examination-guideline/02/007/06",
         "text": "基本检索要素的表达形式主要包括：分类号、关键词等"
-      }
-    ]
-  },
-  {
-    "termKey": "技术特征命名不一致",
-    "canonical": "技术特征命名不一致",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-01-01"
-      ],
-      "mechanical-drafting-rules": [
-        "mech-01-01-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "high",
-    "df": 2,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/001/01",
-        "text": "技术特征命名不一致为同一部件，出现多个不同的命名"
-      },
-      {
-        "chunk": "mechanical-drafting-rules/01/001/01",
-        "text": "技术特征命名不一致为同一部件，出现多个不同的命名"
       }
     ]
   },
@@ -17652,34 +15808,6 @@
     ]
   },
   {
-    "termKey": "跳跃式引用",
-    "canonical": "跳跃式引用",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "claims",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-01-02"
-      ],
-      "mechanical-drafting-rules": [
-        "mech-01-01-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "high",
-    "df": 2,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/001/02",
-        "text": "不允许存在跳跃式引用的情形"
-      },
-      {
-        "chunk": "mechanical-drafting-rules/01/001/02",
-        "text": "存在跳跃式引用，一次性引用超过3幅图的情形"
-      }
-    ]
-  },
-  {
     "termKey": "通式",
     "canonical": "通式",
     "aliases": [
@@ -18026,7 +16154,7 @@
       ]
     },
     "lawKeys": [
-      "专利法第61条"
+      "专利法第66条"
     ],
     "tier": "high",
     "df": 2,
@@ -18164,32 +16292,6 @@
       {
         "chunk": "examination-guideline/01/001/04/07",
         "text": "提交确认援引加入声明，补交相关文件"
-      }
-    ]
-  },
-  {
-    "termKey": "暂存",
-    "canonical": "暂存",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "fee",
-    "sources": {
-      "examination-guideline": [
-        "05-02-02",
-        "05-02-04"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "high",
-    "df": 2,
-    "evidence": [
-      {
-        "chunk": "examination-guideline/05/002/02",
-        "text": "费用暂时存入专利局账户（以下简称暂存）"
-      },
-      {
-        "chunk": "examination-guideline/05/002/04",
-        "text": "应当将该款项暂存在专利局账户上"
       }
     ]
   },
@@ -18626,7 +16728,7 @@
     },
     "lawKeys": [
       "专利法第11条",
-      "专利法第69条"
+      "专利法第75条"
     ],
     "tier": "high",
     "df": 1,
@@ -18680,27 +16782,6 @@
       {
         "chunk": "examination-guideline/04/005/05",
         "text": "变化状态产品，是指在销售和使用时呈现不同状态的产品"
-      }
-    ]
-  },
-  {
-    "termKey": "辨证论治",
-    "canonical": "辨证论治",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "compound",
-    "sources": {
-      "examination-guideline": [
-        "02-11-04"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "high",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "examination-guideline/02/011/04",
-        "text": "辨证论治是中医治疗疾病的基本原则"
       }
     ]
   },
@@ -18862,28 +16943,6 @@
       {
         "chunk": "examination-guideline/04/001/03",
         "text": "参审员参与审查并协助组长和主审员工作"
-      }
-    ]
-  },
-  {
-    "termKey": "产品备案",
-    "canonical": "产品备案",
-    "aliases": [
-      "备案信息"
-    ],
-    "matchers": [],
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-05-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "high",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/005/02",
-        "text": "如果备案信息没有公开该产品配方，则可同时保护产品和制备方法"
       }
     ]
   },
@@ -19400,27 +17459,6 @@
     ]
   },
   {
-    "termKey": "对比实施例",
-    "canonical": "对比实施例",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "embodiment",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-04-06"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "high",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/004/06",
-        "text": "此可视为对比实施例（注意，不是“对比例”）"
-      }
-    ]
-  },
-  {
     "termKey": "二级分类表",
     "canonical": "二级分类表",
     "aliases": [],
@@ -19530,27 +17568,6 @@
       {
         "chunk": "examination-guideline/05/007/01",
         "text": "法定期限是指专利法及其实施细则规定的各种期限"
-      }
-    ]
-  },
-  {
-    "termKey": "方法受体",
-    "canonical": "方法受体",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "claims",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-04-06"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "high",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/004/06",
-        "text": "所述方法受体，是指方法所实际针对或者产出的对象"
       }
     ]
   },
@@ -20394,29 +18411,6 @@
     ]
   },
   {
-    "termKey": "化学结构片段",
-    "canonical": "化学结构片段",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "compound",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-05-01"
-      ]
-    },
-    "lawKeys": [
-      "专利法第26条"
-    ],
-    "tier": "high",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/005/01",
-        "text": "化学结构片段可以是化学基团（例如双键、羰基、硅烷基团等）"
-      }
-    ]
-  },
-  {
     "termKey": "恢复权利请求期限",
     "canonical": "恢复权利请求期限",
     "aliases": [],
@@ -20654,7 +18648,7 @@
     },
     "lawKeys": [
       "专利法第11条",
-      "专利法第69条"
+      "专利法第75条"
     ],
     "tier": "high",
     "df": 1,
@@ -20662,27 +18656,6 @@
       {
         "chunk": "infringement-guide/05/002",
         "text": "教唆他人实施侵犯专利权行为"
-      }
-    ]
-  },
-  {
-    "termKey": "节点性特征",
-    "canonical": "节点性特征",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-03-07"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "high",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "mechanical-drafting-rules/01/003/07",
-        "text": "节点性特征应是存在于不同部件的连接处、或者部件上的不同位置处"
       }
     ]
   },
@@ -20718,7 +18691,7 @@
       ]
     },
     "lawKeys": [
-      "专利法第61条"
+      "专利法第66条"
     ],
     "tier": "high",
     "df": 1,
@@ -21237,27 +19210,6 @@
     ]
   },
   {
-    "termKey": "三位一体写法",
-    "canonical": "三位一体写法",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "mechanical-drafting-rules": [
-        "mech-01-01-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "high",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "mechanical-drafting-rules/01/001/02",
-        "text": "“三位一体” （三段式）的写法"
-      }
-    ]
-  },
-  {
     "termKey": "色彩",
     "canonical": "色彩",
     "aliases": [],
@@ -21635,7 +19587,7 @@
     },
     "lawKeys": [
       "专利法第11条",
-      "专利法第69条"
+      "专利法第75条"
     ],
     "tier": "high",
     "df": 1,
@@ -21643,27 +19595,6 @@
       {
         "chunk": "infringement-guide/05/002",
         "text": "具备实质性意义且具有“实质性非侵权用途”为判断标准"
-      }
-    ]
-  },
-  {
-    "termKey": "实质支持",
-    "canonical": "实质支持",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "support",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-04-04"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "high",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/004/04",
-        "text": "实质支持可以理解为对权利要求所概括的技术方案进行解释和支撑"
       }
     ]
   },
@@ -21930,28 +19861,6 @@
     ]
   },
   {
-    "termKey": "同日",
-    "canonical": "同日",
-    "aliases": [],
-    "matchers": [],
-    "sources": {
-      "implementation-rules": [
-        "rule-03-06"
-      ]
-    },
-    "lawKeys": [
-      "专利法第9条"
-    ],
-    "tier": "high",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "implementation-rules/03/006",
-        "text": "同日（指申请日；有优先权的，指优先权日）"
-      }
-    ]
-  },
-  {
     "termKey": "突出的实质性特点和显著的进步",
     "canonical": "突出的实质性特点和显著的进步",
     "aliases": [],
@@ -21963,7 +19872,7 @@
       ]
     },
     "lawKeys": [
-      "专利法实施细则第51条",
+      "专利法实施细则第57条",
       "专利法第22条",
       "专利法第33条"
     ],
@@ -22017,27 +19926,6 @@
       {
         "chunk": "examination-guideline/04/005/03",
         "text": "图案和色彩结合的外观设计是指请求保护色彩的并且不限定边界的平面产品的"
-      }
-    ]
-  },
-  {
-    "termKey": "退款",
-    "canonical": "退款",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "fee",
-    "sources": {
-      "examination-guideline": [
-        "05-02-04"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "high",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "examination-guideline/05/002/04",
-        "text": "多缴、重缴、错缴专利费用的，当事人可以自缴费日起三年内，提出退款请求"
       }
     ]
   },
@@ -22553,29 +20441,6 @@
     ]
   },
   {
-    "termKey": "小分子化合物",
-    "canonical": "小分子化合物",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "compound",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-05-01"
-      ]
-    },
-    "lawKeys": [
-      "专利法第26条"
-    ],
-    "tier": "high",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/005/01",
-        "text": "小分子化合物一般具有明确的化学结构"
-      }
-    ]
-  },
-  {
     "termKey": "新产品",
     "canonical": "新产品",
     "aliases": [],
@@ -22586,7 +20451,7 @@
       ]
     },
     "lawKeys": [
-      "专利法第61条"
+      "专利法第66条"
     ],
     "tier": "high",
     "df": 1,
@@ -22663,27 +20528,6 @@
       {
         "chunk": "examination-guideline/02/010/09/02",
         "text": "当涉及的微生物属于新种时，要详细记载其分类学性质，要写明鉴定为新种的理由"
-      }
-    ]
-  },
-  {
-    "termKey": "形式支持",
-    "canonical": "形式支持",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "support",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-04-04"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "high",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/004/04",
-        "text": "形式支持一般是指权利要求所记载的方案要完整记载在说明书中"
       }
     ]
   },
@@ -23599,27 +21443,6 @@
     ]
   },
   {
-    "termKey": "证型",
-    "canonical": "证型",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "compound",
-    "sources": {
-      "examination-guideline": [
-        "02-11-04"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "high",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "examination-guideline/02/011/04",
-        "text": "可以出现不同的证候分型即证型"
-      }
-    ]
-  },
-  {
     "termKey": "直接涉及共有权利的手续",
     "canonical": "直接涉及共有权利的手续",
     "aliases": [],
@@ -23662,29 +21485,6 @@
       {
         "chunk": "implementation-rules/08/003",
         "text": "由国务院专利行政部门指定管辖"
-      }
-    ]
-  },
-  {
-    "termKey": "治疗目的外科手术方法",
-    "canonical": "治疗目的外科手术方法",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "subjectMatter",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-05-06"
-      ]
-    },
-    "lawKeys": [
-      "专利法第25条"
-    ],
-    "tier": "high",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/005/06",
-        "text": "包括治疗目的外科手术方法"
       }
     ]
   },
@@ -23783,27 +21583,6 @@
       {
         "chunk": "examination-guideline/02/011/02",
         "text": "经过产地加工得到的中药材"
-      }
-    ]
-  },
-  {
-    "termKey": "中药材正名",
-    "canonical": "中药材正名",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "compound",
-    "sources": {
-      "examination-guideline": [
-        "02-11-03"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "high",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "examination-guideline/02/011/03",
-        "text": "说明书中一般应当记载中药材正名"
       }
     ]
   },
@@ -24007,30 +21786,6 @@
       {
         "chunk": "examination-guideline/02/010/09/03",
         "text": "重组载体可通过限定至少一个基因和载体来描述"
-      }
-    ]
-  },
-  {
-    "termKey": "主药",
-    "canonical": "主药",
-    "aliases": [
-      "主要药味",
-      "君药"
-    ],
-    "matchers": [],
-    "topicKey": "compound",
-    "sources": {
-      "examination-guideline": [
-        "02-11-05"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "high",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "examination-guideline/02/011/05",
-        "text": "起主要作用的中药原料（简称主要药味、主药或君药）"
       }
     ]
   },
@@ -24298,7 +22053,7 @@
     },
     "lawKeys": [
       "专利法第11条",
-      "专利法第69条"
+      "专利法第75条"
     ],
     "tier": "high",
     "df": 1,
@@ -25117,7 +22872,7 @@
     },
     "lawKeys": [
       "专利法实施细则第121条",
-      "专利法实施细则第51条",
+      "专利法实施细则第57条",
       "专利法第22条",
       "专利法第33条"
     ],
@@ -26248,39 +24003,6 @@
     ]
   },
   {
-    "termKey": "反证",
-    "canonical": "反证",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "invalidation",
-    "sources": {
-      "examination-guideline": [
-        "04-03-04",
-        "04-04-05"
-      ]
-    },
-    "lawKeys": [
-      "专利法实施细则第11条",
-      "专利法实施细则第49条",
-      "专利法第22条",
-      "专利法第26条",
-      "专利法第33条",
-      "专利法第9条"
-    ],
-    "tier": "mid",
-    "df": 2,
-    "evidence": [
-      {
-        "chunk": "examination-guideline/04/003/04",
-        "text": "针对专利权人提交的反证"
-      },
-      {
-        "chunk": "examination-guideline/04/004/05",
-        "text": "专利权人可以提出反证"
-      }
-    ]
-  },
-  {
     "termKey": "放弃实用新型专利权",
     "canonical": "放弃实用新型专利权",
     "aliases": [],
@@ -26467,32 +24189,6 @@
       {
         "chunk": "examination-guideline/06/001/04",
         "text": "当事人向专利局缴纳相关费用的，应当以国家申请号或者国际注册号缴费"
-      }
-    ]
-  },
-  {
-    "termKey": "和解",
-    "canonical": "和解",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "invalidation",
-    "sources": {
-      "examination-guideline": [
-        "04-03-02",
-        "04-04-13"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "mid",
-    "df": 2,
-    "evidence": [
-      {
-        "chunk": "examination-guideline/04/003/02",
-        "text": "当事人有权自行与对方和解"
-      },
-      {
-        "chunk": "examination-guideline/04/004/13",
-        "text": "无效宣告程序中的当事人有权与对方当事人和解"
       }
     ]
   },
@@ -26731,34 +24427,6 @@
     ]
   },
   {
-    "termKey": "拼凑权项",
-    "canonical": "拼凑权项",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "draftingPractice",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-03-01"
-      ],
-      "mechanical-drafting-rules": [
-        "mech-01-02-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "mid",
-    "df": 2,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/003/01",
-        "text": "不应存在有拼凑权项的行为"
-      },
-      {
-        "chunk": "mechanical-drafting-rules/01/002/01",
-        "text": "不应存在有拼凑权项的行为"
-      }
-    ]
-  },
-  {
     "termKey": "剖面线",
     "canonical": "剖面线",
     "aliases": [],
@@ -26871,34 +24539,6 @@
       {
         "chunk": "examination-guideline/03/002/03",
         "text": "“确认援引项目或部分决定的通知书”（PCT/RO/114表）"
-      }
-    ]
-  },
-  {
-    "termKey": "上位特征",
-    "canonical": "上位特征",
-    "aliases": [],
-    "matchers": [],
-    "topicKey": "claims",
-    "sources": {
-      "chemistry-drafting-rules": [
-        "chem-01-03-03"
-      ],
-      "mechanical-drafting-rules": [
-        "mech-02-02"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "mid",
-    "df": 2,
-    "evidence": [
-      {
-        "chunk": "chemistry-drafting-rules/01/003/03",
-        "text": "从属权利要求应避免直接将上位特征限定到下位特征"
-      },
-      {
-        "chunk": "mechanical-drafting-rules/02/002",
-        "text": "提倡先将主权中限定的上位特征进行进一步的限定"
       }
     ]
   },
@@ -27369,36 +25009,6 @@
       {
         "chunk": "examination-guideline/03/001/05/12",
         "text": "“选定通知书”（PCT/IB/331表）的改正页"
-      }
-    ]
-  },
-  {
-    "termKey": "用户体验",
-    "canonical": "用户体验",
-    "aliases": [],
-    "matchers": [],
-    "sources": {
-      "examination-guideline": [
-        "02-09-06-02",
-        "02-09-06-03"
-      ]
-    },
-    "lawKeys": [
-      "专利法第25条",
-      "专利法第26条",
-      "专利法第2条",
-      "专利法第5条"
-    ],
-    "tier": "mid",
-    "df": 2,
-    "evidence": [
-      {
-        "chunk": "examination-guideline/02/009/06/02",
-        "text": "用户体验的提升"
-      },
-      {
-        "chunk": "examination-guideline/02/009/06/03",
-        "text": "如果从用户的角度而言，客观上提升了用户体验"
       }
     ]
   },

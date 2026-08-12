@@ -76,6 +76,85 @@ export function tagTopics(text) {
 
 export const TOPIC_NAME = Object.fromEntries(TOPICS.map((t) => [t.key, t.name]));
 
+// ============ 词条主题分组：关键词索引的目录体系（2026-08-12）============
+//   动因：2026-08-12 删词后词表 968 → 851，原 36 主题 + 综合共 37 组中 17 组不足 10 词
+//   （清楚简要 1、必要技术特征 1、说明书摘要 2、相同侵权 2、禁止反悔 2、现有技术抗辩 2 …），
+//   目录过碎已妨碍浏览。此处把 36 个细粒度主题归并为 19 个体系化分组，加 99-综合共 20 组。
+//
+//   为何另设一层而非直接改 TOPICS：TOPICS 的 key 与数组下标被三处强耦合——
+//     ① data/term-topic-decisions.json 的 479 条人工归类决策按细粒度 topicKey 记录；
+//     ② data/terms-seed.json 中种子词的 topicKey；
+//     ③ nodes.json 里章节节点的 topics[]（parse-domains 的 tagTopics 产物，本次不重跑解析）。
+//   删改 TOPICS 会让上述引用变成未知 key —— 人工决策整批失效、章节标签静默丢失。
+//   故 TOPICS 37 项一律保持原样（顺序、key、kw 不动），归类判定仍在细粒度上进行；
+//   只有「目录名 / 面包屑 / 词条页标签」三处呈现改走本分组层。
+//
+//   分组顺序按专利法体系编排：授权实质条件 → 申请文件 → 特殊类型与领域 → 审查与后续程序
+//   → 侵权判定 → 权属与费用 → 综合殿后。members 为该组收编的细粒度 topicKey。
+export const TERM_TOPIC_GROUPS = [
+  // 授权实质条件。宽限期（专利法 24 条）与重复授权/同样发明（9 条）在审查指南第二部分
+  // 第三章「新颖性」项下成章，归入新颖性组有直接体系依据。
+  { key: 'gNovelty', name: '新颖性', members: ['novelty', 'gracePeriod', 'doubleProtect'] },
+  { key: 'gInventiveness', name: '创造性', members: ['inventiveness'] },
+  // 实用性（22 条 4 款）与单一性（31 条）各自不足 10 词，同属三性之外的授权要件，合并成组。
+  { key: 'gUtilityUnity', name: '实用性与单一性', members: ['utility', 'unity'] },
+  { key: 'gSubjectMatter', name: '可专利客体', members: ['subjectMatter'] },
+  // 申请文件。得到支持（26 条 4 款）、清楚简要、必要技术特征均是权利要求本身的法定要求。
+  { key: 'gClaims', name: '权利要求', members: ['claims', 'support', 'clarity', 'essentialFeatures'] },
+  // 充分公开、实施例与对比例、附图、摘要、撰写实务均围绕说明书及其附属文件。
+  {
+    key: 'gDescription',
+    name: '说明书与申请文件',
+    members: ['description', 'sufficiency', 'embodiment', 'drawings', 'abstract', 'draftingPractice'],
+  },
+  { key: 'gGeneticResources', name: '遗传资源', members: ['geneticResources'] },
+  { key: 'gAmendment', name: '修改超范围', members: ['amendment'] },
+  { key: 'gPriority', name: '优先权', members: ['priority'] },
+  // 特殊类型与领域
+  { key: 'gDesign', name: '外观设计', members: ['design'] },
+  { key: 'gCompound', name: '化合物与组合物', members: ['compound'] },
+  // 审查与后续程序。审查意见答复（6 词）与审查程序同属实审阶段的程序性内容。
+  { key: 'gExamProcedure', name: '审查程序与答复', members: ['examProcedure', 'oaResponse'] },
+  { key: 'gClassificationSearch', name: '分类与检索', members: ['classificationSearch'] },
+  { key: 'gReexam', name: '复审', members: ['reexam'] },
+  { key: 'gInvalidation', name: '无效宣告', members: ['invalidation'] },
+  { key: 'gPct', name: '国际申请与PCT', members: ['pct'] },
+  // 侵权判定：保护范围解释是侵权比对的前置步骤，与四种侵权形态及抗辩同族。
+  {
+    key: 'gInfringement',
+    name: '侵权判定',
+    members: ['protectionScope', 'literalInfringement', 'equivalence', 'estoppel',
+      'priorArtDefense', 'indirectInfringement'],
+  },
+  // 权属与费用
+  { key: 'gInventorship', name: '职务发明与权属', members: ['inventorship'] },
+  { key: 'gFee', name: '费用与期限', members: ['fee'] },
+];
+
+// 细粒度 topicKey → { key, name, no }（no 为 1 起的分组序号，供目录 NN- 前缀使用）
+const TERM_GROUP_OF = new Map();
+TERM_TOPIC_GROUPS.forEach((g, i) => {
+  for (const m of g.members) {
+    if (TERM_GROUP_OF.has(m)) {
+      throw new Error(`TERM_TOPIC_GROUPS 成员重复收编：${m}（${TERM_GROUP_OF.get(m).name} / ${g.name}）`);
+    }
+    TERM_GROUP_OF.set(m, { key: g.key, name: g.name, no: i + 1 });
+  }
+});
+// 完整性自检：TOPICS 每一项都必须被收编，否则该主题下的词条会静默落入 99-综合。
+// 日后往 TOPICS 追加主题时，此断言会在生成期立即报错，提醒同步登记分组。
+for (const t of TOPICS) {
+  if (!TERM_GROUP_OF.has(t.key)) {
+    throw new Error(`TERM_TOPIC_GROUPS 未收编主题「${t.key}」（${t.name}）：新增主题须同步登记分组`);
+  }
+}
+
+// 细粒度 topicKey → 分组信息；无 topicKey 或未收编时返回 null（调用方按 99-综合处理）
+export function termGroupOf(topicKey) {
+  if (!topicKey) return null;
+  return TERM_GROUP_OF.get(topicKey) || null;
+}
+
 // ============ 词条 → 主题 三级归类（merge-terms.mjs 消费；2026-08-11 需求⑫）============
 //   背景：原归类只做「词条名/别名 == 主题 name/kw」的精确相等匹配，968 词中仅 68 条落类、
 //         900 条（93%）堆在 99-综合。此处扩展为三级，宁可留综合、不可错归类。

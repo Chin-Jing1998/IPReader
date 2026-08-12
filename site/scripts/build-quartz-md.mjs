@@ -29,7 +29,7 @@ import { join, dirname } from 'node:path';
 import { KNOWN_DOMAINS } from './lib/domains.mjs';
 import { extractCitations } from './lib/law-cite.mjs';
 import { buildTermMatcher, linkTerms } from './lib/term-link.mjs';
-import { TOPICS, TOPIC_NAME } from './lib/topics.mjs';
+import { TOPIC_NAME, termGroupOf } from './lib/topics.mjs';
 import { cn2num } from './lib/cn-num.mjs';
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
@@ -150,12 +150,12 @@ for (const n of nodes) {
   }
 }
 
-// 术语：9-关键词索引/<NN-主题>/term-XXXX.md（topicKey 按 TOPICS 表序编号，无主题进 99-综合）
+// 术语：9-关键词索引/<NN-主题分组>/term-XXXX.md
+//   编号取 lib/topics.mjs::TERM_TOPIC_GROUPS 的组序（2026-08-12 起：36 细粒度主题归并为 19 组），
+//   无 topicKey 或未收编者进 99-综合。细粒度 topicKey 本身不变，仅目录呈现按分组收口。
 function topicDirName(topicKey) {
-  const idx = TOPICS.findIndex((t) => t.key === topicKey);
-  if (topicKey && idx >= 0) {
-    return `${String(idx + 1).padStart(2, '0')}-${sanitizeName(TOPIC_NAME[topicKey].replace(/\//g, '与'))}`;
-  }
+  const g = termGroupOf(topicKey);
+  if (g) return `${String(g.no).padStart(2, '0')}-${sanitizeName(g.name.replace(/\//g, '与'))}`;
   return '99-综合';
 }
 for (const n of nodes) {
@@ -255,8 +255,10 @@ function frontmatter(fields) {
 const tagName = (s) => s.replace(/\//g, '-');
 function tagsOf(node) {
   if (node.level === 'term') {
+    // 词条页标签取主题分组名，与其所在目录（topicDirName）严格同名，避免标签与目录两套口径
     const t = ['关键词索引'];
-    if (node.topicKey && TOPIC_NAME[node.topicKey]) t.push(tagName(TOPIC_NAME[node.topicKey]));
+    const g = termGroupOf(node.topicKey);
+    if (g) t.push(tagName(g.name));
     return t;
   }
   const meta = DOMAIN_META.get(node.domain);
@@ -899,14 +901,18 @@ if (nodePages !== nodes.length) {
   console.error(`断言失败：节点页数 ${nodePages} ≠ 节点数 ${nodes.length}`);
   process.exit(1);
 }
-// 区间下限随词表规模调整：2026-08-09 管线重跑修复 chunkText 回退后词表 907（历史 982），
-// 页面总数实测 2142（1193 章节 + 907 词条 + 42 其他）。下限取 2100 留余量。
-if (totalPages < 2100 || totalPages > 2430) {
-  console.error(`断言失败：页面总数 ${totalPages} 超出 [2100, 2430]`);
+// 区间随词表规模调整：2026-08-12 关键词索引删词（三书独有词 98 + 非专利法域泛词 19），
+// 词表 968 → 851，页面总数实测 2091（1193 章节 + 851 词条 + 47 其他）。
+// 区间按实测落点两侧各留约 5% 余量取 [1990, 2200]。
+// 历史口径：词表 907 时页面 2142（区间曾为 [2100, 2430]）。
+if (totalPages < 1990 || totalPages > 2200) {
+  console.error(`断言失败：页面总数 ${totalPages} 超出 [1990, 2200]`);
   process.exit(1);
 }
 // 术语链接量断言：随 TERM_LINK_TIERS 口径定版。
-//   全量（982 词）      实测 8352 —— 2026-08 行内链接复核定版（本期口径）
+//   全量（851 词）      实测 8142 —— 2026-08-12 删词后本期口径（区间 [7900, 8800] 下沿余量约 3%、
+//                       上沿约 8%，已比 ±5% 更紧，故沿用不放宽）
+//   全量（968 词）      实测 8272 —— 删词前口径
 //   仅 seed（424 词）   实测 3125 —— 曾短暂启用，因术语覆盖面损失过大而撤回
 // 区间容忍正文/清单微调；灾难性偏离（匹配器失效→骤降，禁区失效→骤增）在此拦截。
 // 改 TERM_LINK_TIERS 时必须同步改本区间，否则断言会挡下预期内的口径切换。

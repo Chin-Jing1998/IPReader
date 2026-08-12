@@ -1,15 +1,15 @@
 {
   "schemaVersion": 3,
-  "termCount": 968,
+  "termCount": 851,
   "edgeCounts": {
     "hierarchy": 1149,
     "xref": 251,
     "colaw": 197,
     "lawref": 897,
-    "termref": 2599,
-    "termlaw": 1697,
-    "termrel": 17,
-    "termco": 1305
+    "termref": 2450,
+    "termlaw": 1681,
+    "termrel": 193,
+    "termco": 1180
   },
-  "generatedAt": "2026-08-09T06:23:20.447Z"
+  "generatedAt": "2026-08-12T03:43:35.938Z"
 }

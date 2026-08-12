@@ -225,16 +225,17 @@ async function main() {
   );
   await shot(win, "章节页-无扩展名URL");
 
-  // 6. 词条页（term-0001 自索引分类整合后归"33-可专利客体"；断言同时核验真实渲染标题，
+  // 6. 词条页（term-0001 归"04-可专利客体"——2026-08-12 主题归并 37 组→20 组后组序由 33 变 04，
+  //    目录编号取 site/scripts/lib/topics.mjs::TERM_TOPIC_GROUPS 的组序；断言同时核验真实渲染标题，
   //    仅查 pathname 会在 404 页恒真——404 页保留请求路径，曾长期掩盖旧路径失效）
   await win.loadURL(
-    `${base}/${encodeURI("9-关键词索引/33-可专利客体/term-0001")}`,
+    `${base}/${encodeURI("9-关键词索引/04-可专利客体/term-0001")}`,
   );
   await sleep(600);
   const termTitle = await win.webContents.executeJavaScript("document.title");
   record(
     "词条页 term-0001",
-    (await currentPath(win)) === "/9-关键词索引/33-可专利客体/term-0001" &&
+    (await currentPath(win)) === "/9-关键词索引/04-可专利客体/term-0001" &&
       !/未找到|404/.test(termTitle),
     `title=${termTitle}`,
   );
@@ -465,11 +466,11 @@ async function main() {
   deepWin.close();
 
   // 18. overlay 滚动条零挤压（回到章节页；滚动前后 .explorer-ul 的 clientWidth 须完全相等——挤压回归硬断言）
-  // 路径经校验为产物中真实存在的词条页（term-0001 归类在"33-可专利客体"，非旧步骤 6 沿用的
-  // "99-综合" ——那一档并无 term-0001.html，步骤 6 的断言只验证了路径回显、未验证页面真实加载，
-  // 属既有 13 步的既有状况，本步不沿用其路径，另择已核实存在的页面）
+  // 路径经校验为产物中真实存在的词条页（term-0001 归类在"04-可专利客体"，2026-08-12 主题归并前
+  // 为"33-可专利客体"；更早的旧步骤 6 曾沿用"99-综合" ——那一档并无 term-0001.html，其断言只验证了
+  // 路径回显、未验证页面真实加载，属既有状况，本步不沿用其路径，另择已核实存在的页面）
   await win.loadURL(
-    `${base}/${encodeURI("9-关键词索引/33-可专利客体/term-0001")}`,
+    `${base}/${encodeURI("9-关键词索引/04-可专利客体/term-0001")}`,
   );
   await sleep(700);
   const widthBefore = await win.webContents.executeJavaScript(
