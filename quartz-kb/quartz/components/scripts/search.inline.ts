@@ -226,8 +226,27 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     appendLayout(preview)
   }
 
+  // ==== patent-kb: 全屏浮层期间的页面锁滚开关 ====
+  // CSS 侧事实源在 custom.scss 第十五节 F：html[data-kb-overlay] 锁 overflow
+  // 并隐藏影子滚动条 .kb-pagescroll。取值而非布尔属性，便于日后其他全屏浮层
+  // （如全局图弹窗）复用同一开关而彼此不误摘。
+  const OVERLAY_STATE = "search"
+  const releaseOverlayState = () => {
+    // 只摘自己那一档：他人持有时不得强摘，否则两层浮层交替时会互相解锁。
+    if (document.documentElement.dataset.kbOverlay === OVERLAY_STATE) {
+      delete document.documentElement.dataset.kbOverlay
+    }
+  }
+  // ==== /patent-kb ====
+
   function hideSearch() {
     container.classList.remove("active")
+    // ==== patent-kb: 摘状态必须与 .active 的移除同步 ====
+    // 漏摘的代价是落地页 html 停在 overflow: hidden、整页永久不可滚且无交互可复位，
+    // 故本函数（Esc / 点遮罩 / 点结果卡 / 键盘 Enter 跳转四条关闭路径的共同出口）
+    // 与下方 SPA cleanup 构成两道保险。
+    releaseOverlayState()
+    // ==== /patent-kb ====
     searchBar.value = "" // clear the input when we dismiss the search
     if (sidebar) sidebar.style.zIndex = ""
     removeAllChildren(results)
@@ -243,6 +262,12 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     searchType = searchTypeNew
     if (sidebar) sidebar.style.zIndex = "1"
     container.classList.add("active")
+    // ==== patent-kb: 上锁 ====
+    // 遮罩是 fixed 全屏层，其下的文档仍可被滚轮驱动（滚到遮罩内滚动器边界即链给
+    // 文档）；锁 html 的 overflow 是唯一能同时挡住「左栏边界续滚」与「遮罩空白处
+    // 滚动」的手段，各滚动器的 overscroll-behavior: contain 只是第二层保险。
+    document.documentElement.dataset.kbOverlay = OVERLAY_STATE
+    // ==== /patent-kb ====
     searchBar.focus()
   }
 
@@ -446,7 +471,14 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     const highlights = [...preview.getElementsByClassName("highlight")].sort(
       (a, b) => b.innerHTML.length - a.innerHTML.length,
     )
-    highlights[0]?.scrollIntoView({ block: "start" })
+    // ==== patent-kb: block 由 "start" 改 "center" ====
+    // "start" 把命中词顶到滚动口上缘（再由 .highlight 原有的 scroll-margin-top: 2rem
+    // 让开 32px），而 32px 不是行高 24px 的整数倍，落点恒在行内 → 容器上缘露出上一行
+    // 的下半截，观感即「预览首行被切断」。居中后命中词上下各留半屏上下文，
+    // 且 .highlight 的 scroll-margin-top 一并撤除（它是为 "start" 补的偏移，
+    // 居中模式下只会把命中词整体下压半个 margin）。
+    highlights[0]?.scrollIntoView({ block: "center" })
+    // ==== /patent-kb ====
   }
 
   async function onType(e: HTMLElementEventMap["input"]) {
@@ -513,6 +545,13 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
   window.addCleanup(() => searchButton.removeEventListener("click", () => showSearch("basic")))
   searchBar.addEventListener("input", onType)
   window.addCleanup(() => searchBar.removeEventListener("input", onType))
+  // ==== patent-kb: SPA 换页兜底摘锁 ====
+  // cleanup 在 prenav 之后、micromorph 形变之前执行（spa.inline.ts）。点结果卡与
+  // 键盘 Enter 都会先走 hideSearch，本条只为「未经 hideSearch 就换页」的路径垫底
+  //（如 Cmd 组合键分支提前 return 后又发生程序化导航）。锁滚一旦漏摘不可自愈，
+  // 故宁可重复摘除。
+  window.addCleanup(releaseOverlayState)
+  // ==== /patent-kb ====
 
   registerEscapeHandler(container, hideSearch)
   await fillDocument(data)

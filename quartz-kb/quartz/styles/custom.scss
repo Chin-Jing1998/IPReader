@@ -544,17 +544,29 @@ article table td {
   background-color: var(--scroll-thumb);
 }
 
-// 三、脚本失效时的 CSS 回落：无轨道即退回原生 thin + 可见拇指色，
+// 三、脚本失效时的 CSS 回落：脚本没跑就退回原生 thin + 可见拇指色，
 // 否则内容可滚却无任何滚动指示。
-// 必须限定非移动端：移动端 JS 按 OVERLAY_MOBILE_QUERY 整体跳过建轨，
-// 不限定则 :not(:has()) 在移动端恒真，会把已归零的原生槽位强行放出来。
-// 特异性：:not(:has(.kb-oscroll)) 取参数最高位 (0,1,0)，整条 (1,3,0)，
+//
+// 门控取 :not([data-oscroll]) 而**不是** :not(:has(.kb-oscroll))——这条判据要区分的
+// 是「脚本没跑」，而 :has(.kb-oscroll) 判的是「这个侧栏此刻有没有自绘轨道」，二者不等价：
+// 右栏在多数页面本就无需轨道（toc/backlinks 不溢出），旧门控于是把它当成脚本失效，
+// 把原生细槽整片放出来——而 base.scss 给每个 overflow 列表末尾追加的
+// li.overflow-end（0.5rem 空占位）足以让 scrollHeight > clientHeight，浏览器遂为
+// 一条空占位画出 11px 宽、永不淡出的原生滚动条，真实条目却全部可见。
+// 实测（Electron 43，1440×900）：term-0084 页反链 3 条、diff=1px，
+// scrollbar-width=thin、槽占布局宽 11px；02-11-04-02 页 diff=0 亦同。
+// data-oscroll 由 explorer.inline.ts 的 bindOverlayScrollbars 在每次 nav 幂等写到
+// 两个 .sidebar 上（移动端整体跳过，故属性不落，本回落在移动端仍然可用）。
+// 特异性不变：:not([data-oscroll]) 取参数最高位 (0,1,0)，整条仍 (1,3,0)，
 // 压得过上方归零规则的 (1,2,0)。
+// 已知取舍：绑定之后才出现的溢出（窗口缩小、TOC 展开）不会补建轨道，此时既无自绘
+// 也无原生指示；相较「78% 的页面常驻一条为空占位而生的原生滚动条」，取后者可接受，
+// 需要时应由 bindOverlayScrollbars 补建轨道来解，不得靠放开本门控来遮掩。
 //（旧核浏览器 + 脚本失效的双重降级下，webkit 零宽仍在、无滚动指示——
 //  该组合已在目标运行环境之外，不再为其加第二套 webkit 回落。）
 @media all and not ($mobile) {
-  .page > #quartz-body > .sidebar:not(:has(.kb-oscroll)),
-  .page > #quartz-body > .sidebar:not(:has(.kb-oscroll)) * {
+  .page > #quartz-body > .sidebar:not([data-oscroll]),
+  .page > #quartz-body > .sidebar:not([data-oscroll]) * {
     scrollbar-width: thin;
     scrollbar-color: var(--scroll-thumb) transparent;
   }
@@ -1106,6 +1118,20 @@ pre > code[data-theme*=" "] {
     visibility var(--duration-tooltip, 180ms) var(--ease-out, ease-out),
     background-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
 }
+
+// —— 与第十七节（整页同帧叠化）的共存关系（v13，本节条目一条未动）——
+// 自 v13 起，运行期的明暗/主题切换默认不再由本节清单表达观感：settings.inline.ts 的
+// commitTheme 把写入包进 View Transitions，切换瞬间 <html> 挂 data-kb-vt，第十七节据此
+// 以 !important 抑制全部 transition 一至二帧，本节的 260ms 因此在那条路径上不参与推进
+// （改由整页两张快照的 260ms 叠化承担，同频同相由构造保证）。
+// 本节仍是**必需**的，且必须继续按 R5 维护：
+//   ① 无 View Transitions 支持、或 prefers-reduced-motion: reduce 时 commitTheme 直写，
+//      观感 100% 回落到本节清单（叠加第八节的 80ms 降级档）；
+//   ② 本节同时承担非主题场景的着色收敛（悬停、当前项高亮、阅读进度环等），与切换无关；
+//   ③ 抑制态是瞬时属性、不改本节任何条目——新增元素照旧按本节五条规则归位，
+//      切勿因「反正有叠化」而漏收清单，否则降级路径当场退化。
+// 本节头部记载的「后变一族」根因（祖先与后代同时过渡 color 导致后代过渡逐帧重建、
+// 实际收敛 ≈2×260ms）无法靠本节任何写法消除，故才有第十七节，详见该节注。
 
 // ============================================================
 // 八、三档无障碍降级（P6）
@@ -1757,6 +1783,35 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   }
 }
 
+// —— F. 全屏浮层期间的页面锁滚与轨道隐藏 ——
+// 状态属性 html[data-kb-overlay] 由 search.inline.ts 在开合搜索时写入/摘除
+//（值 "search"；关闭四路径 Esc / 点遮罩 / 点结果卡 / 键盘 Enter 共用 hideSearch
+// 出口，另有 window.addCleanup 兜底摘除）。
+//
+// 一、锁滚。搜索遮罩是 z-index 999 的 fixed 全屏层，但其下的文档仍能被滚轮驱动：
+//   指针悬在遮罩空白处、或在结果列表滚到边界后继续滚，滚动都会链到文档，表现是
+//   「背景正文跟着动」。锁 html 的 overflow 是唯一能同时挡住两者的手段；各滚动器
+//   的 overscroll-behavior: contain（search.scss）只挡边界续滚，管不到遮罩空白处。
+// 【不置于非移动端断点内】移动端遮罩同样全屏，锁滚一并需要。
+// 【无需 scrollbar-gutter 补偿】桌面端 html[data-pagescroll="on"] 已把原生滚动槽
+//   归零（本节 E），锁滚不产生宽度变化，故不会有布局跳动。
+// 【不改 body/documentElement 的 scrollTop】overflow: hidden 只是禁止滚动，
+//   既有滚动位置原样保留，解锁后自然复位——绝不可改用 position: fixed 一类
+//   会丢失滚动位置的老写法。
+html[data-kb-overlay] {
+  overflow: hidden;
+}
+
+// 二、影子滚动条隐藏。轨道 z-index 11 低于遮罩，但遮罩是半透明玻璃，轨道会透过
+//   遮罩显形在窗口右缘，与浮层观感割裂。特异性 (0,2,1) 压得过 .kb-pagescroll
+//   的三个 (0,2,0) 显形条件（.is-visible / :hover / .is-dragging）。
+//   opacity 归零而非 display: none：轨道 opacity 自带 --duration-modal 过渡，
+//   与遮罩入场同频渐隐；pointer-events 同时关闭，防止不可见轨道截获指针。
+html[data-kb-overlay] .kb-pagescroll {
+  opacity: 0;
+  pointer-events: none;
+}
+
 // 减弱动效：本节的收缩/渐隐过渡整体归零（照第八节既有降级写法）。
 // 不与非移动端断点嵌套——`all and not (A) and (B)` 在 MQ4 语法中非法，
 // 且这些选择器在移动端本就不生效，归零无副作用。
@@ -1792,6 +1847,68 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
     > .page-nav-wrapper,
   .kb-pagescroll {
     transition: none;
+  }
+}
+
+// ====== 第十五节之二：无右栏页的栅格收敛（正文列居中于可用区域）======
+// 【为什么不占用「第十六节」编号】本文件第七节注（约 918 行）已把文末的
+// 「界面风格（v9）六套古风主题」块称作「第十六节」，占用该编号会让那处
+// 指向产生二义；本节在职责上是第十五节页面 chrome 的同族续篇，故取此名。
+//
+// 【缺陷】列表页布局（quartz.layout.ts 的 defaultListPageLayout）配置 right: []，
+// 但 renderPage.tsx 无条件渲染 `<div class="right sidebar">` 容器，故目录索引页
+// 的 DOM 里该元素存在且为空。第三节已把空栏整体 display: none（避免空玻璃卡
+// 悬浮遮挡），但 **栅格列不随之消失**：$desktopGrid 第三列是定宽
+// $sidePanelWidth，元素隐藏后该列仍占 320px 实宽 + 一道 2.25rem 列间距。
+// 实测 1440px 视口下正文列右侧凭空空出 356px，页面重心整体偏左。
+//
+// 【修法】把第三列收为 0，让中列 auto 吃回这 320px；列间距不动，正文右侧
+// 保留一道 2.25rem 气口，与左栏侧的同宽气口对称。正文列本身**不拉宽到
+// 满格**——.center 的四类直接子元素（page-header / hr / article / page-footer）
+// 早已各自限宽居中（第四节的 article 46em、第十节的其余三项 --reading-col，
+// 二者同为 782px@17px），中列一放开，它们便自动在新的可用宽度内居中。
+// 实测 1440px：正文列由 [380,1060] 变为 [489,1271]，距左栏右缘与距页面右缘
+// 均为 145px，正是「居中于左栏之外的可用区域」。故本节只需一条声明，
+// 不引入任何新的宽度或边距常量。
+//
+// 【断点门控】取 (min-width: 1201px) 而**不是** $desktop。平板段栅格是
+// `320px auto` 两列、右栏退化为文末横排，移动端为单列——两者本就不存在右侧
+// 空列，重写三列定义反而会把布局打乱。而 variables.scss 的两档断点在 1200px
+// 这一格**重叠**（$tablet 是 max-width: 1200px，$desktop 是 min-width: 1200px，
+// 端点均为闭区间）：base.scss 靠「默认层 desktop → tablet 块覆盖 → mobile 块
+// 覆盖」的位序把该格判给 tablet，而本节选择器达 (1,6,1)，用 $desktop 会反过来
+// 抢过 tablet 的 (1,2,0)——只改到 grid-template-columns、改不到同处 tablet 块的
+// grid-template-areas，落成「三列 columns + 两列 areas」的错位态。实测该格
+// 正文列反而由 812px 收窄到 792px（tablet 的 1.25rem 列间距被多算了一道），
+// 与修复意图相反。故下沿抬到 1201px，把 1200px 整格留给 tablet。
+// 影子滚动条脚本的 DESKTOP_QUERY 同值 1201px，两侧门控必须同进同退。
+//
+// 【两页排除】设置页与图谱总览页的右栏同样为空，但二者各自在组件 scss 里
+// 重写过专属栅格（settings.scss 单列 minmax(0,1fr)、graphexplorer.scss 两列
+// 240px + 1fr），且都以 (1,2,1) 声明；本节选择器达 (1,6,1) 且位序在后，
+// 不显式排除就会把那两套专属栅格连同其 grid-template-areas 一起改坏
+// （实测两页 #quartz-body 的 used 值分别为 `1392px` 与 `320px 1060px`）。
+// 排除写法与第十节、第十五节既有的 body:not([data-slug=…]) 一致。
+//
+// 【判据】`:has(> .sidebar.right:empty)` —— 直接子代且内容为空。不用
+// `:not(:has(…))` 是因为该容器**总会**渲染出来，缺的是内容而非元素本身；
+// 也不用 display 状态判定：CSS 无从选中「被自己隐藏的元素」。
+// 影子滚动条脚本（pageChrome.inline.ts）取的是逐字对应的同一判据
+// （元素存在 && matches(":empty")），两侧判据须同进同退。
+@media all and (min-width: 1201px) {
+  body:not([data-slug="0-图谱总览/index"]):not([data-slug="设置/index"])
+    .page
+    > #quartz-body:has(> .sidebar.right:empty) {
+    grid-template-columns: #{$sidePanelWidth} auto 0;
+  }
+
+  // 影子滚动条改贴窗口右缘：轨道原由 JS 内联写 left（.center 右缘 + 10px），
+  // 使其落在正文与右栏之间的空隙里；无右栏时那道空隙已不复存在，继续沿用
+  // 会把轨道悬在正文右侧的空白中段。此处以 right 接管横向定位，与本类
+  // 既有的 top/bottom 同取 0.5rem 档；JS 在同一分支下清空内联 left，
+  // 否则 left/right 双约束下 ltr 方向以 left 胜出，本条将静默失效。
+  .kb-pagescroll.is-flush-right {
+    right: 0.5rem;
   }
 }
 
@@ -2701,5 +2818,78 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
       // 避免反向链接列表继续向下延伸造成视觉上的遮挡感。
       max-height: min(24rem, calc(100vh - 10rem));
     }
+  }
+}
+
+// ============================================================
+// 第十七节：明暗 / 主题切换的整页同帧叠化（View Transitions）
+// ============================================================
+// 【编号】"第十六节"已被文末「界面风格（v9）六套古风主题」块占用（见第十五节之二注），
+// 故本节取十七，不复用该编号。
+//
+// 【要解决的观感缺陷】用户诉求原文：「同一主题在明暗切换时，能否加载完成后统一切换，
+// 目前像是每个区域单独切换变色。」修前实测（Electron 43 / Chromium 150、宣纸亮→暗、
+// 正文页、rAF ~110fps 采 computed style + CDP screencast ~80fps 采像素）各区域落定：
+//   24ms（art 底纹与术语链接文字瞬变）→ 287ms（140ms 交互档）→ 341ms（260ms 面档）
+//   → 566ms（正文/面包屑/标题条文字）→ 582ms（h1）→ 589ms（局部图画布）。
+// 跨度 565ms ≈ 目标窗口 2.2 倍，且分四五个台阶落地，故观感为「各区域各自为政」。
+// 566–582ms 那一族的根因不在清单：祖先（body / article）与后代同时过渡 color 时，
+// 后代的 CSSTransition 被逐帧重建（实测同一元素一次切换内新建 5–7 个过渡对象），
+// 祖先落定后才跑完整一轮 260ms，实际收敛 ≈ 2×260ms。第七节任何写法都消不掉这一层。
+//
+// 【机制】settings.inline.ts 的 commitTheme 把主题写入包进 document.startViewTransition：
+//   ① 旧态整页快照 + 新态整页快照做一次 opacity 叠化 —— 全区域同帧同相由构造保证；
+//   ② 写入回调内同步给 <html> 落 data-kb-vt，本节据此抑制 transition 一至二帧，
+//      使新快照拍到**终态**。这一步不可省：Chromium 的 ::view-transition-new(root)
+//      是活的，不抑制则叠化期两张快照几近同色、画面到 240ms 才动、331ms 一次性硬切；
+//   ③ 双 rAF 后摘除抑制。此刻各属性早已是终值，摘除不产生值变化，故不会触发一轮
+//      迟到的 260ms 过渡（实测 computed style 全程 1 步、落定 ≈40ms）。
+//
+// 【本节为何放在文件末尾】抑制规则用 !important，而第八节 prefers-reduced-motion 块内
+// 有同样 !important 的 `* { transition-duration: 80ms }`。两者同特异性时后位胜，放末尾
+// 才保证抑制不被它顶掉。（降级路径下 commitTheme 本就直写、不会落 data-kb-vt，此处属
+// 双保险，不是唯一防线。）
+//
+// 【与 R5 的关系】抑制态是**瞬时属性上的整体覆盖**，不是过渡事实源：它既不新增也不
+// 改写第七节任何条目，故不构成 R5 所禁的「同一元素两处事实源」。新增元素照旧按第七节
+// 五条规则归位——降级路径完全依赖那份清单。
+
+// 抑制态：切换瞬间冻结一切过渡，让新快照拍到终态。
+// 通配 `*` 是刻意的：需要冻结的元素跨越第七节五条规则、各组件 scss 自带的 140ms
+// 交互档、以及 base/glass/search 等文件里的零散声明，逐一列举既不可维护也必然漏项，
+// 而漏一个就等于该区域在新快照里定格成中间色 —— 正是本节要消除的那类错位。
+// 代价（已权衡接受）：切换瞬间若恰有 transform / grid-template-rows 类过渡在跑
+//（如目录树文件夹正在展开），它会被取消并直接定格到目标值。该窗口仅一至二帧且整个
+// 落在叠化快照之后（活 DOM 此刻不上屏），叠化结束时用户看到的已是展开完成的终态。
+// animation 不受 transition 抑制影响，故弹窗/搜索/图弹窗的入场关键帧一概照常。
+html[data-kb-vt] *,
+html[data-kb-vt] *::before,
+html[data-kb-vt] *::after {
+  transition: none !important;
+}
+
+// 叠化时长与缓动对齐全站暗色档：与第七节的 --duration-theme / --ease-in-out 同源，
+// 改一处即两处同改。Chromium 的默认根叠化是 250ms + ease，此处只改时长与曲线，
+// 不动它的 fade-out / fade-in 关键帧本身，也不动 ::view-transition-image-pair 的
+// isolation 与两张图的 mix-blend-mode: plus-lighter —— 那套默认值正是「正确的交叉
+// 淡出淡入」（既不中途压暗也不发亮），实测灰阶推进单调无过冲，改它只会引入色偏。
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--duration-theme, 260ms);
+  animation-timing-function: var(--ease-in-out, ease-in-out);
+}
+
+// 玻璃材质在叠化期的表现（已实证，留档）：快照是烘焙位图，backdrop-filter 不再重算，
+// 左栏玻璃与页面底在整个叠化窗口内保持恒定的明度偏移（例如中段 页面底=#aea59c 对
+// 左栏=#b3a9a0），无发灰、无闪烁、无二次模糊。故本节不需要为玻璃面写任何补偿规则。
+
+// 减弱动效：整页叠化整体取消。commitTheme 在该查询命中时本就直写不起叠化（渐进增强
+// 的另一半），此处再关一次伪元素动画，避免任何路径（含未来新增的调用点）漏网。
+// 关的是叠化，不是变色本身——变色仍由第七节清单 + 第八节的 80ms 档承担。
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
   }
 }

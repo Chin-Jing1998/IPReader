@@ -83,6 +83,9 @@
     width: 100vw;
     height: 100vh;
     overflow-y: auto;
+    // 遮罩滚到边界后不得把滚轮链给文档（锁滚的第二层保险；第一层是
+    // custom.scss 第十五节 F 的 html[data-kb-overlay] { overflow: hidden }）
+    overscroll-behavior: contain;
     display: none;
     // 液态玻璃体系：全屏遮罩统一为轻着色 + 模糊（见 styles/glass.scss）
     @include glass-overlay;
@@ -92,8 +95,11 @@
     }
 
     & > .search-space {
+      // 顶距的唯一事实源：下面 .search-layout > div 的高度按它反算，两处必须同值，
+      // 故以继承变量串起来——分别写字面量必然在某次调整中错位。
+      --search-top-gap: 10vh;
       width: 65%;
-      margin-top: 12vh;
+      margin-top: var(--search-top-gap);
       margin-left: auto;
       margin-right: auto;
 
@@ -142,7 +148,10 @@
         }
 
         &[data-preview] > .results-container {
-          flex: 0 0 min(30%, 450px);
+          // 30% 档（1440 窗口下仅 281px 外框、229px 文字宽）中文标题每行只容 12 字，
+          // 多数结果卡被迫折行乃至截断；34% 给到 318px / 280px 文字宽，每行 15 字。
+          // 520px 上限只在超宽窗口生效，防止左栏反过来挤压预览区。
+          flex: 0 0 min(34%, 520px);
         }
 
         @media all and not ($mobile) {
@@ -168,7 +177,18 @@
         }
 
         & > div {
-          height: calc(75vh - 12vh);
+          // 高度 = 满视口 − 顶距 − 10rem（输入框 ≈2.55rem + 输入框的 2em 下外边距
+          // + 结果区自身 2em 下外边距 + 底部呼吸）。
+          // 两个 vh 项刻意凑满 100：遮罩自身高 calc(100vh - var(--titlebar-h))，
+          // 于是「遮罩高 − 内容叠高」= 10rem − 2.55rem − 2em − 2em − 标题条高，
+          // 是与窗口高度无关的常数（桌面 38px 标题条下约 17px 余量），任何窗口尺寸
+          // 下内容都不会顶出遮罩、遮罩自身永不出现滚动条。
+          // 【调整此处 rem 值必须复核这条不变量】余量 = 16 × rem − 104.8 − 标题条高
+          //（104.8 = 输入框实测 40.8 + 两处 2em 外边距 64；rem=10、标题条 38 时得 17.2px，
+          //  已实测：1440×760 / 1440×900 / 1440×1003 三档遮罩 scrollHeight 均等于 clientHeight）。
+          // 旧值 calc(75vh - 12vh)=63vh 在 900px 窗口下只有 567px，面板底缘距窗口底
+          // 尚余 112px 空白，结果区与预览区却双双局促。
+          height: calc(100vh - var(--search-top-gap) - 10rem);
           // 圆角递进档：面板 14 → 分栏 13 → 结果卡 12 → 标签 8
           border-radius: 13px;
         }
@@ -197,7 +217,10 @@
           // --highlight 内链底；命中词靠这条 inset 下缘线拉开层级，
           // 保证「一眼可辨」。
           box-shadow: inset 0 -0.12em 0 0 var(--secondary);
-          scroll-margin-top: 2rem;
+          // 原 scroll-margin-top: 2rem 已撤除：它是为 search.inline.ts 旧的
+          // scrollIntoView({ block: "start" }) 补的顶部让位，而 32px 不是预览行高
+          // 24px 的整数倍，落点恒在行内、上缘必露半行。定位已改 block: "center"，
+          // 再留 scroll-margin 只会把命中词整体下压半个 margin，故不得复原。
           // 命中词随每次输入重建 DOM，刻意不加颜色过渡（否则每敲一键都拖影）；
           // 本文件是 .highlight 过渡的唯一事实源，custom.scss 第七节不得重复收录。
         }
@@ -211,7 +234,18 @@
           line-height: 1.5em;
           font-weight: $normalWeight;
           overflow-y: auto;
-          padding: 0 2rem;
+          // 上下 1.25rem 不可省：预览区渲染的是真实页面 DOM，首个块级元素自带的
+          // margin 会被 margin-collapse 吃掉，纵向内边距为 0 时首行与末行直接贴上
+          // 容器硬边缘、在圆角面板上被生硬切断。左右 2rem 沿用原值不动。
+          padding: 1.25rem 2rem;
+          // 【与纵向 padding 配对，缺一不可】本元素上游是 content-box（唯独
+          // .results-container 显式声明过 border-box），纵向内边距一加，盒高就比
+          // 同排的结果栏高出 40px：两栏底缘错位、分隔线与圆角对不齐，且整叠内容
+          // 超出遮罩 9px 使遮罩自身可滚。归 border-box 后 & > div 的 height 才是
+          // 两栏共同的外框高度，几何守恒。
+          box-sizing: border-box;
+          // 预览滚到边界后不得把滚轮链给文档
+          overscroll-behavior: contain;
 
           & .preview-inner {
             margin: 0 auto;
@@ -234,6 +268,8 @@
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
+          // 结果列表滚到边界后不得把滚轮链给文档
+          overscroll-behavior: contain;
 
           & .result-card {
             overflow: hidden;
@@ -253,11 +289,22 @@
             width: 100%;
             display: block;
             box-sizing: border-box;
+            // 【不可删】结果卡是定高 column flex 容器（.results-container）的项目，
+            // 而本元素带 overflow: hidden —— 按 Flexbox §4.5，overflow ≠ visible 的
+            // 项目其 min-height: auto 解析为 0，自动最小尺寸保护随之失效。默认
+            // flex-shrink: 1 于是把每张卡压到远小于内容的高度（实测 15 条结果下
+            // 单行标题卡 clientHeight 26px、内容 45px，两行卡 28px/65px，三行卡
+            // 30px/86px），overflow: hidden 再把超出部分裁掉，表现即「标题下半截被
+            // 横切」。溢出应由容器 overflow-y: auto 滚动消化，卡片一律保持自然高度。
+            flex: 0 0 auto;
 
             // normalize card props
             font-family: inherit;
             font-size: 100%;
-            line-height: 1.15;
+            // 1.4 而非上游的 1.15：卡内 h3 的行高由本条继承（h3 自身不声明行高），
+            // 中文标题常折 2–3 行，1.15 档行间几乎贴合、字面拥挤且下沉部易被误判为
+            // 裁切。改档只影响卡内标题与 no-match 提示，不涉及标签胶囊（自带 1.4rem）。
+            line-height: 1.4;
             margin: 0;
             text-transform: none;
             text-align: left;

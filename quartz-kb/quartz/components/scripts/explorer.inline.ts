@@ -121,6 +121,12 @@ let explorerLocatePending = false
  * hasScrollableContent 过滤后通常只剩内层 `.explorer-ul` 真滚；若两者同时溢出，
  * 会生成两条同右缘、同高度的重叠轨道（视觉上无差别），此处不额外去重。
  */
+/**
+ * 轨道宿主侧栏。与 custom.scss 第五节的原生槽归零/回落两条规则同一范围，
+ * 该节的回落门控 `.sidebar:not([data-oscroll])` 消费下面写入的属性。
+ */
+const OVERLAY_SIDEBAR_SELECTOR = ".page > #quartz-body > .sidebar"
+
 const OVERLAY_SCROLLER_SELECTOR = [
   ".page > #quartz-body > .sidebar.left .explorer-content",
   ".page > #quartz-body > .sidebar.left .explorer-ul",
@@ -147,9 +153,42 @@ function scheduleOverlayScrollbarSync() {
   requestAnimationFrame(() => syncOverlayScrollbars())
 }
 
+/**
+ * 判溢出与算拇指几何都必须用这个「真内容」高度，不能直接用 scrollHeight。
+ *
+ * OverflowList.tsx 给每个 overflow 列表末尾追加一条 `li.overflow-end`，base.scss
+ * 固定其高 0.5rem——它不承载内容，只为末项与底部渐隐留呼吸，却照样计入
+ * scrollHeight。于是只要滚动器的可视高度落在「真实内容高度 + 占位高」的窗口内，
+ * scrollHeight > clientHeight + 1 就恒成立：轨道照建、拇指照画，而全部真实条目
+ * 都完整可见。实测反向链接卡在窗口高 812–818px 区间即如此（clientHeight
+ * 307/309/311/313 对 scrollHeight 315，末条链接底缘仍在容器内 0.09–6.09px）。
+ *
+ * 占位高度现取而不写死常量：0.5rem 随根字号变化，且该条目并非每个滚动器都有
+ *（左栏 .explorer-content 的占位在其子 ul 内，不是自己的末子节点）。
+ */
+function contentScrollHeight(scroller: HTMLElement): number {
+  const tail = scroller.lastElementChild
+  if (!tail?.classList.contains("overflow-end")) {
+    return scroller.scrollHeight
+  }
+  return scroller.scrollHeight - tail.getBoundingClientRect().height
+}
+
 function bindOverlayScrollbars() {
   if (window.matchMedia(OVERLAY_MOBILE_QUERY).matches) {
     return
+  }
+
+  // 声明「侧栏滚动条呈现已由本脚本接管」，供 custom.scss 第五节的原生细槽回落
+  // 门控（`.sidebar:not([data-oscroll])`）区分「脚本没跑」与「脚本跑了但判定无需
+  // 轨道」。**必须写在建轨循环之前、且与是否真的建出轨道无关**：右栏多数页面无需
+  // 轨道，若沿旧门控按「有没有 .kb-oscroll」判定，原生细槽会被整片放出来，为末尾
+  // 那条 0.5rem 空占位画出 11px 宽、永不淡出的滚动条（实测 term-0084 页反链 3 条、
+  // diff=1px 即如此）。
+  // 幂等写入、不在 cleanup 中摘除，理由同 pageChrome.inline.ts 的 data-pagescroll：
+  // 换页间隙摘除会让原生滚动条闪现。
+  for (const sidebar of document.querySelectorAll<HTMLElement>(OVERLAY_SIDEBAR_SELECTOR)) {
+    sidebar.dataset.oscroll = "on"
   }
 
   const syncFns: Array<() => void> = []
@@ -166,7 +205,7 @@ function bindOverlayScrollbars() {
         clientWidth: scroller.clientWidth,
         scrollWidth: scroller.scrollWidth,
         clientHeight: scroller.clientHeight,
-        scrollHeight: scroller.scrollHeight,
+        scrollHeight: contentScrollHeight(scroller),
       })
     ) {
       continue
@@ -201,10 +240,13 @@ function bindOverlayScrollbars() {
         `${sidebarRect.right - sidebarBorderRight - scrollerRect.right}px`,
       )
 
+      // 与建轨判据同源：轨道一旦建成便常驻至换页，此后布局变化（窗口缩放、目录
+      // 折叠、右栏 flex 余量再分配）若使真实内容不再溢出，必须由这里返回
+      // visible: false 把拇指收回，故两处的 scrollHeight 口径必须一致。
       const geometry = computeThumbGeometry(
         {
           clientHeight: scroller.clientHeight,
-          scrollHeight: scroller.scrollHeight,
+          scrollHeight: contentScrollHeight(scroller),
           scrollTop: scroller.scrollTop,
         },
         trackHeight,
@@ -549,7 +591,11 @@ async function setupExplorer(currentSlug: FullSlug) {
           edgeHost.toggleAttribute("data-edge-top", scroller.scrollTop > 2)
           edgeHost.toggleAttribute(
             "data-edge-bottom",
-            scroller.scrollTop + scroller.clientHeight < scroller.scrollHeight - 2,
+            // 与建轨判据、与 util/scrollEdge.ts 的 gradient-* 判据同口径扣除末尾空占位
+            //（见 contentScrollHeight 的说明）：不扣则可视高度落在「真实内容高 + 占位高」
+            // 窗口内会亮起底部渐隐，而下方并无被遮内容。容差 2 与 scrollEdge.ts 的
+            // EDGE_TOLERANCE 同值，两处各自就地写死（该常量未导出），改一处须同步另一处。
+            scroller.scrollTop + scroller.clientHeight < contentScrollHeight(scroller) - 2,
           )
         }
         scroller.addEventListener("scroll", edge, { passive: true })

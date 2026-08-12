@@ -14,6 +14,7 @@
 // 【零 CSS 责任】轨道/thumb 外观、原生槽宽归零全部在
 // quartz/styles/custom.scss 第十五节；本文件只负责行为与如下类名契约：
 //   .kb-pagescroll / .kb-pagescroll-thumb / .is-visible / .is-dragging
+//   .is-flush-right（无右栏页贴窗口右缘，样式在同文件「第十五节之二」）
 //   html[data-pagescroll="on"] / html[data-pagescroll-drag]
 import { GRAPH_SLUG, SETTINGS_SLUG } from "../../util/appPages"
 import {
@@ -30,6 +31,17 @@ const HIDE_DELAY = 850
  * 的 OVERLAY_MOBILE_QUERY 同值。移动端正文列近乎满屏，轨道无处安放，整体跳过。
  */
 const MOBILE_QUERY = "(max-width: 800px)"
+
+/**
+ * 无右栏页栅格收敛（custom.scss「第十五节之二」）的生效断点，与那一节的
+ * `@media all and (min-width: 1201px)` 逐字同值——轨道的贴右缘分支须与栅格同进同退。
+ *
+ * 【为何不是 variables.scss 的 $desktop（1200px）】$tablet 是 (max-width: 1200px)，
+ * 与 $desktop 在 1200px 这一格闭区间重叠；该格由 base.scss 的位序判给 tablet
+ * 布局（两列、右栏退化为文末横排，本无右侧空列），故栅格收敛的下沿抬到 1201px，
+ * 此处随之。
+ */
+const DESKTOP_QUERY = "(min-width: 1201px)"
 
 const REDUCE_MOTION_QUERY = "(prefers-reduced-motion: reduce)"
 
@@ -102,8 +114,30 @@ document.addEventListener("nav", () => {
     if (!center) {
       return false
     }
-    // 贴正文列右侧：.center 的宽度随断点、阅读模式、侧栏显隐变化，故每帧现算不缓存。
-    track.style.left = `${Math.round(center.getBoundingClientRect().right) + TRACK_GAP}px`
+
+    // —— 无右栏页（列表页布局 right: []）的横向定位切换 ——
+    // 该类页面的右栏容器仍在 DOM 中（renderPage.tsx 无条件渲染）但内容为空，
+    // custom.scss「第十五节之二」已把栅格第三列收为 0，正文列右侧不再有
+    // 「正文与右栏之间的空隙」可供轨道栖身，沿用旧定位会把轨道悬在空白中段。
+    // 判据与那一节的 :has(> .sidebar.right:empty) 逐字对应——元素存在且为空，
+    // 两侧须同进同退（用 :empty 而非 display 判定：CSS 无从选中被自己隐藏的元素）。
+    // 就地写在 sync() 内，故 nav（每次导航整个回调重跑）、resize 与延时兜底
+    // 三条既有重算路径天然覆盖 SPA 换页与窗口缩放，无须另起监听。
+    const rightSidebar = document.querySelector("#quartz-body > .sidebar.right")
+    const isRightCollapsed =
+      window.matchMedia(DESKTOP_QUERY).matches && !!rightSidebar && rightSidebar.matches(":empty")
+
+    if (isRightCollapsed) {
+      // 横向定位交给 CSS 的 `right: 0.5rem`（与轨道既有的 top/bottom 同档）。
+      // 内联 left 必须清空——left/right 双约束下 ltr 方向以 left 胜出，
+      // 不清则那条 CSS 静默失效、轨道仍停在正文右缘。
+      track.classList.add("is-flush-right")
+      track.style.left = ""
+    } else {
+      track.classList.remove("is-flush-right")
+      // 贴正文列右侧：.center 的宽度随断点、阅读模式、侧栏显隐变化，故每帧现算不缓存。
+      track.style.left = `${Math.round(center.getBoundingClientRect().right) + TRACK_GAP}px`
+    }
 
     // trackHeight 必须显式传 track.clientHeight：轨道由 CSS 的 top/bottom 收窄，
     // 与视口高度并不相等，用默认值会让 thumb 溢出轨道底端。

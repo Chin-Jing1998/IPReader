@@ -16,6 +16,12 @@
 // 事件（detail 带 theme 与 style）——图谱 / mermaid / comments 均监听该事件重绘；
 // 切换界面主题同样派发，且属性先落、事件后发：监听方在同步回调里 getComputedStyle
 // 取色，顺序反了会读到上一套主题的色值。
+//
+// 切换的「同帧」纪律（v13，见下方 commitTheme 与 custom.scss 第十七节）：
+// 一切**运行期**的主题写入（明暗快捷钮 / 设置页明暗段 / 主题卡 / 跟随系统翻转 /
+// IPC 权威态纠正）必须经 commitTheme 提交，绝不直接调 applyThemeMode / applyStyle
+// / setTheme —— 直接调等于绕开整页叠化，那一次切换会退回「各区域各自渐变」的观感。
+// 唯一例外是文件末尾的首帧应用块（此时页面尚在首屏渲染，叠化只会让启动闪一下）。
 
 type ThemeMode = "light" | "dark" | "system"
 type StyleKey = "xuanzhi" | "shuimo" | "qingci" | "zhulin" | "mushan" | "xuanye"
@@ -164,6 +170,99 @@ function dispatchThemeChange(theme: "light" | "dark", style: StyleKey): void {
   document.dispatchEvent(event)
 }
 
+// ---------- 整页同帧叠化（View Transitions） ----------
+//
+// 【为什么必须有这一层】用户诉求：明暗切换时全页所有区域同一时刻、同一节奏完成变色。
+// 单靠 custom.scss 第七节的 260ms 过渡清单做不到。实测（Electron 43 / Chromium 150、
+// 宣纸亮→暗、正文页、rAF 逐帧采 computed style）修前各区域落定时刻：
+//   ·  24ms 瞬变：art 底纹（body background-image 不可过渡）、术语链接文字色；
+//   · 287ms：140ms 交互档（正文内链文字、目录树条目、词条链接下划线）；
+//   · 341ms：260ms 暗色档的「面」（body 底、左栏玻璃 ::before、右栏卡、标题条底）；
+//   · 566ms：正文段落 / 面包屑文字 / 标题条文字；582ms：页面标题 h1；
+//   · 589ms：局部图画布（PixiJS 自己的交叉淡入）。
+// 跨度约 565ms ≈ 目标窗口的 2.2 倍，正是用户所说「每个区域单独切换变色」。
+// 其中 566–582ms 那一族不是清单漏项：Web Animations API 实证显示，祖先（body /
+// article）与后代同时过渡 color 时，后代的 CSSTransition 被**逐帧重建**（同一元素
+// 一次切换内新建 5–7 个过渡对象），要等祖先落定后才真正跑完整一轮 260ms，实际收敛
+// ≈ 2×260ms。对照实验：把 body/article 的过渡清单去掉 color 后，h1 / article p /
+// .kb-titlebar 立刻回到「1 个过渡对象、292ms 落定」。改清单治不了这一层——除非让
+// 祖先不再过渡文字色，那又会把祖先自己的文字变成瞬变，只是把错位挪了个位置。
+//
+// 【解法】把主题写入包进 document.startViewTransition：旧态整页快照与新态整页快照
+// 做一次 260ms opacity 叠化（伪元素时长/缓动在 custom.scss 第十七节对齐
+// --duration-theme / --ease-in-out），所有区域按定义同帧同节奏。
+// 【关键：新快照必须拍到终态】写入回调内同步给 <html> 落 data-kb-vt，第十七节据此
+// 以 !important 抑制全部 transition，使新快照拍到的是终值而非中间色。不加这一步实测
+// **更糟**：Chromium 的 ::view-transition-new(root) 是活的，叠化期两张快照几近同色，
+// 画面到 240ms 才动、331ms 一次性硬切（比现状的分段渐变更像"卡一下再跳"）。
+// 【渐进增强】无 startViewTransition、prefers-reduced-motion、或首帧未就绪时一律直写，
+// 原样退回既有 260ms 清单（第七节）与第八节的 80ms 降级档，两条路径都要保持可用。
+
+type ViewTransitionLike = {
+  finished: Promise<void>
+  updateCallbackDone: Promise<void>
+  skipTransition: () => void
+}
+type ViewTransitionDocument = Document & {
+  startViewTransition?: (callback: () => void) => ViewTransitionLike
+}
+
+// UI 就绪门：首帧（prescript 在 head 内执行，body 尚不存在）与首帧的 IPC 权威态纠正
+// 一律直写不叠化——那时页面还在首屏渲染，叠一层整页交叉淡入等于启动时闪一下。
+// nav 首次触发即置 true（SPA 导航后保持 true，属性挂在 <html> 上不随 body 形变丢失）。
+let uiReady = false
+
+// 重入护栏（连点切换）：Chromium 实测在前一次未决时再起一次，前后两个 finished 均
+// resolve、不抛异常，视觉上是前一次被截断、后一次接管。令牌的作用不是拦截第二次，
+// 而是保证 data-kb-vt 只由**最后一次**的清理逻辑摘除——否则前一次的 double-rAF
+// 回调会在后一次正在捕获新快照时把抑制态摘掉，后一次的新快照就拍到中间色。
+let vtToken = 0
+let activeVT: ViewTransitionLike | null = null
+
+/**
+ * 主题写入的唯一提交口：把 mutate 包进整页叠化。
+ * mutate 内的一切 DOM 写入（属性、themechange 派发、设置页回显）都落在同一次样式
+ * 更新里，故新快照是原子终态；调用方不得在 commitTheme 之外另做与主题相关的写入
+ * ——那部分会被算进「旧快照」，观感上先于叠化瞬变一下。
+ */
+function commitTheme(mutate: () => void): void {
+  const doc = document as ViewTransitionDocument
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  if (!uiReady || reduceMotion || typeof doc.startViewTransition !== "function") {
+    mutate()
+    return
+  }
+  // 显式跳过前一次：不依赖「后起者自动作废前者」的实现细节，行为可预期
+  activeVT?.skipTransition()
+  const token = ++vtToken
+  const release = (): void => {
+    // 令牌守卫：更晚的一次切换已接管抑制态，交给它摘（见上方重入护栏注）
+    if (token !== vtToken) {
+      return
+    }
+    delete document.documentElement.dataset.kbVt
+  }
+  const vt = doc.startViewTransition(() => {
+    // 抑制与写入同处一次样式更新：新快照因此拍到终态
+    document.documentElement.dataset.kbVt = "1"
+    mutate()
+  })
+  activeVT = vt
+  // 双 rAF 后摘抑制：此刻新快照已拍定，且各属性早已是终值，摘除不产生任何值变化，
+  // 故不会触发一轮迟到的 260ms 过渡（实测 computed style 全程 1 步、落定 ≈40ms）。
+  vt.updateCallbackDone.then(
+    () => requestAnimationFrame(() => requestAnimationFrame(release)),
+    release,
+  )
+  const clear = (): void => {
+    if (activeVT === vt) {
+      activeVT = null
+    }
+    release()
+  }
+  vt.finished.then(clear, clear)
+}
+
 // ---------- 主题模式 ----------
 
 function setTheme(theme: "light" | "dark"): void {
@@ -183,9 +282,12 @@ let systemMedia: MediaQueryList | null = null
 let themeSeq = 0
 
 function onSystemChange(e: MediaQueryListEvent): void {
-  setTheme(e.matches ? "dark" : "light")
-  // 系统外观翻转同样换底色：不补这一报，system 模式下主进程窗口底色会停在翻转前那一侧
-  reportDesktopTheme("system")
+  // 走统一提交口：跟随系统的外观翻转与手动切换共用同一次整页叠化（坑 e）
+  commitTheme(() => {
+    setTheme(e.matches ? "dark" : "light")
+    // 系统外观翻转同样换底色：不补这一报，system 模式下主进程窗口底色会停在翻转前那一侧
+    reportDesktopTheme("system")
+  })
 }
 
 function applyThemeMode(mode: ThemeMode): void {
@@ -206,13 +308,20 @@ function applyThemeMode(mode: ThemeMode): void {
   }
   // 上报并消费主进程回传的权威亮暗态。三重守卫：令牌（丢弃陈旧往返结果）、
   // 模式（仅 system 需要权威态）、幂等（同值不再派发 themechange）。
+  //
+  // ⚠️ 顺序红线（v13）：本函数整体必须由 commitTheme 包裹调用，绝不可反过来把
+  // commitTheme 塞进 setTheme 内部。塞进去的话上面那次 setTheme 会被推迟到叠化回调
+  // （约 40ms 后）执行，而 IPC 往返可能先于它落定，下面的 readSavedTheme() 就会读到
+  // 写入前的旧值，幂等守卫失效、多写一次 saved-theme —— 即 bug#2 的双跳复发
+  // （smoke 步骤 24 正是该竞态的回归门）。
   const seq = ++themeSeq
   void reportDesktopTheme(mode).then((dark) => {
     if (dark === undefined) return
     if (seq !== themeSeq) return // 期间用户又切了模式，丢弃陈旧结果
     if (readThemeMode() !== "system") return // 仅 system 模式消费权威态
     const next = dark ? "dark" : "light"
-    if (readSavedTheme() !== next) setTheme(next) // 幂等守卫：同值不再派发 themechange
+    // 幂等守卫：同值不再派发 themechange；确需纠正时也走叠化（它是一次真实的亮暗变更）
+    if (readSavedTheme() !== next) commitTheme(() => setTheme(next))
   })
 }
 
@@ -259,6 +368,10 @@ writeStyle(initial.style)
 applyThemeMode(initial.themeMode)
 // 首帧不走 applyStyle（即不派发 themechange）：此刻尚无监听方——
 // graph / mermaid / comments 均在 nav 后绑定，绑定时自取当前态。
+// 首帧同样不走 commitTheme：uiReady 此刻恒为 false（nav 未触发），即便误调也会自动
+// 直写；写在这里的直调是「有意为之」而非漏改——首屏渲染中叠一层整页交叉淡入
+// 只会让启动闪一下。applyThemeMode 内那条 IPC 权威态纠正若在 nav 之前落定，
+// 同样按 uiReady 门直写（system 模式冷启动的常见路径），不产生启动叠化。
 
 // ---------- UI 绑定（nav 后） ----------
 //
@@ -266,18 +379,26 @@ applyThemeMode(initial.themeMode)
 // 任一块的元素缺失不得影响另一块（v8 的单块 early-return 曾把两者绑成一荣俱荣）。
 
 document.addEventListener("nav", () => {
+  // 首帧之后的一切主题写入都走整页叠化（见 commitTheme 的 uiReady 注）。
+  // 置于 nav 回调最前：两个 if 块中的任一元素缺失都不得影响这一句。
+  uiReady = true
+
   // ── 块一：左栏明暗快捷钮 ──────────────────────────────
   const toggle = document.querySelector<HTMLElement>(".kb-theme-toggle")
   if (toggle) {
     // 读当前实际亮暗取反 → 落固定值（脱离「跟随系统」）→ 全链路应用。
     // 日/月图标显隐纯 CSS 驱动（:root[saved-theme] 选择器），此处不写 JS。
+    // 落盘留在叠化之外（无视觉效果）；applyThemeMode 与设置页回显同处一次叠化回调，
+    // 否则回显那几个 is-active 的着色会被算进旧快照、先于叠化闪一下。
     const onToggleClick = () => {
       const next: ThemeMode = readSavedTheme() === "dark" ? "light" : "dark"
       const s = loadSettings()
       s.themeMode = next
       saveSettings(s)
-      applyThemeMode(next)
-      syncSettingsPage()
+      commitTheme(() => {
+        applyThemeMode(next)
+        syncSettingsPage()
+      })
     }
     toggle.addEventListener("click", onToggleClick)
     window.addCleanup(() => toggle.removeEventListener("click", onToggleClick))
@@ -320,8 +441,10 @@ document.addEventListener("nav", () => {
           const s = loadSettings()
           s.themeMode = value
           saveSettings(s)
-          applyThemeMode(s.themeMode)
-          syncSettingsPage()
+          commitTheme(() => {
+            applyThemeMode(s.themeMode)
+            syncSettingsPage()
+          })
         }
         return
       }
@@ -330,8 +453,13 @@ document.addEventListener("nav", () => {
           const s = loadSettings()
           s.style = value as StyleKey
           saveSettings(s)
-          applyStyle(s.style)
-          syncSettingsPage()
+          // 主题间切换同样叠化：错位的成因（祖先/后代同属性过渡逐帧重建）与明暗切换
+          // 完全同源，六套主题的九色全量重定义使其幅度同样可见。两条路径共用一个提交口，
+          // 也避免「明暗同步、换主题仍各自为政」的观感割裂。
+          commitTheme(() => {
+            applyStyle(s.style)
+            syncSettingsPage()
+          })
         }
         return
       }
