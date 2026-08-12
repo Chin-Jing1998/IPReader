@@ -2,7 +2,7 @@
 //
 // 全链路：启动直入文档站首页 → SPA 点进书根 → 尾斜杠容器目录 URL → SPA 点进章节页 →
 //         无扩展名章节 URL → 词条页 → 图谱总览专页出图 → 搜索"新颖性" →
-//         设置页可达 → 主题卡选择持久化（reload 后仍生效）→ 快捷钮脱离跟随系统 →
+//         设置页可达 → 主题卡选择持久化（reload 后仍生效）→ 明暗分段控件脱离跟随系统 →
 //         桌面标题条（38px+flex）→ 全局偏移（body/左栏）→ 设置页沉浸 + 抽屉双栏 →
 //         深链返回兜底（新窗口 history.length===1，R12）→ overlay 滚动条零挤压（R13）→
 //         抽屉分类切换 → 影子滚动条几何与拖拽 → SPA 不残留 →
@@ -317,12 +317,19 @@ async function main() {
   );
   await sleep(300);
 
-  // 13. 快捷钮脱离跟随（点击日/月快捷钮 → saved-theme 翻转且 themeMode 落固定值，不再是 system）
+  // 13. 明暗分段控件脱离跟随（saved-theme 翻转且 themeMode 落固定值，不再是 system）
+  //     v14 改造：左栏明暗快捷钮已删除，明暗入口只剩设置页抽屉的分段控件，故触发点
+  //     由 .kb-theme-toggle 换成 [data-setting="themeMode"]；断言目标一字未改——
+  //     取「当前实际亮暗的反面」那一段来点，等价于原快捷钮「读当前取反」的语义，
+  //     仍同时核验「确实翻转」与「脱离跟随系统」两项。
+  //     与步骤 24 的分工：本步验固定档（light/dark）的切换与落盘，24 验 system 档
+  //     的 IPC 权威态竞态（零双跳），两步互不重叠。
   const savedThemeBefore = await win.webContents.executeJavaScript(
     `document.documentElement.getAttribute('saved-theme')`,
   );
+  const flipTarget = savedThemeBefore === "dark" ? "light" : "dark";
   await win.webContents.executeJavaScript(
-    `document.querySelector('.kb-theme-toggle').click()`,
+    `document.querySelector('[data-setting="themeMode"][data-value="${flipTarget}"]').click()`,
   );
   await sleep(300);
   const savedThemeAfter = await win.webContents.executeJavaScript(
@@ -332,16 +339,17 @@ async function main() {
     `(() => { try { return JSON.parse(localStorage.getItem('kb-settings:v1')).themeMode; } catch { return null; } })()`,
   );
   record(
-    "快捷钮脱离跟随系统",
-    savedThemeAfter !== savedThemeBefore &&
+    "明暗分段控件切换（翻转生效 + 脱离跟随系统）",
+    savedThemeAfter === flipTarget &&
+      savedThemeAfter !== savedThemeBefore &&
       (themeModeAfter === "light" || themeModeAfter === "dark"),
-    `saved-theme: ${savedThemeBefore}→${savedThemeAfter}, themeMode=${themeModeAfter}`,
+    `saved-theme: ${savedThemeBefore}→${savedThemeAfter}（目标 ${flipTarget}）, themeMode=${themeModeAfter}`,
   );
-  await shot(win, "设置页-快捷钮切换");
+  await shot(win, "设置页-明暗分段切换");
 
-  // 复原，避免影响下次运行
+  // 复原为进入本步前的亮暗，避免影响下次运行
   await win.webContents.executeJavaScript(
-    `document.querySelector('.kb-theme-toggle').click()`,
+    `document.querySelector('[data-setting="themeMode"][data-value="${savedThemeBefore}"]').click()`,
   );
   await sleep(300);
 

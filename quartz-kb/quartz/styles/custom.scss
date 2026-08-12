@@ -898,7 +898,7 @@ pre:hover > .clipboard-button {
 //
 // 纪律一（防悬停发滞）：已自带 140ms 交互过渡的控件不进本清单——正文链接 a
 //   （现为「合并条」：本节 a 那条把 color 140ms 与 background-color 260ms 一次列全，
-//   不再是纯豁免）、目录树条目、TOC 条目、左栏三枚快捷钮（第十四节）、
+//   不再是纯豁免）、目录树条目、TOC 条目、左栏两枚快捷钮（第十四节）、
 //   设置页分段控件 .kb-settings-seg button 与主题卡 .kb-theme-card。
 // 纪律一之二（组件内已列全，本清单**永不收录**）：下列元素的过渡事实源在其组件
 //   scss，且已按 R5 在那一条内把 260ms 的颜色项列全，本节重复收录即会互相吃掉——
@@ -1347,8 +1347,20 @@ ul.toc-content.overflow > li > a {
   }
 
   // 正文页头沿用原有居中规则，但压缩默认 6rem 顶部留白。
+  //
+  // 取值 = 三栏首元素同基线（v14 面包屑对齐修复）。左右栏首元素的视口顶距由
+  // 第三节的三段叠加而成，缺一不可：
+  //   0.75rem 外缩（margin-top，与 sticky 的 top: calc(0.75rem + var(--titlebar-h))
+  //   配对做零跳动吸附）+ 1px 玻璃描边（glass-panel-host）+ 1.5rem 内边距
+  //   （本文件 $desktop 段把 base 的 $topSpacing 6rem 压到此值）= 37px@16px。
+  // 原值 1.5rem 只抵到其中的内边距一段，面包屑遂比左右栏首元素高出 13px——
+  // 实测 1280×720 Web 端：面包屑 top 24 vs 左栏站名 top 37 / 右栏图谱卡 top 37，
+  // 这就是「三栏头部参差」的全部来源（面包屑自身的 margin-top 12px 与本条相邻
+  // 外边距合并，取较大者，故改本条即等于改面包屑的实际起点）。
+  // --titlebar-h 不进本式：第十三节把它记在 body 的 padding-top 上，三列一视同仁，
+  // 不产生列间差——桌面壳下三列同步下移 38px，本式的差值恒等关系不变。
   body:not([data-slug="0-图谱总览/index"]) #quartz-body .center > .page-header {
-    margin-top: 1.5rem;
+    margin-top: calc(2.25rem + 1px);
   }
 
   body:not([data-slug="0-图谱总览/index"]) #quartz-body .center > .page-header .article-title {
@@ -1644,11 +1656,13 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
 }
 
 // ============================================================
-// 十四、左栏三钮统一（需求①：图标风格 / 间距 / 悬停背景态三项全改）
-// 三枚按钮分处三个组件（SettingsButton→settings.scss、同组件内的明暗钮、
+// 十四、左栏快捷钮统一（需求①：图标风格 / 间距 / 悬停背景态三项全改）
+// 原为三枚，分处三个组件（SettingsButton→settings.scss、同组件内的明暗钮、
 // ReaderMode→readermode.scss），此前各写各的几何：20×32 细长条 + svg 绝对定位，
 // 命中区窄、悬停无反馈、配色链路不一（currentColor 与直赋 --darkgray 并存）。
-// 本节把三者收敛为同一套几何与状态色。
+// 本节把它们收敛为同一套几何与状态色。
+// v14：明暗快捷钮（.kb-theme-toggle）已删除，本节现覆盖齿轮与阅读模式钮两枚；
+// 下方尺寸定稿的代价核算按当时的三钮记，保留原文以存账，不再重算。
 //
 // 覆盖依据（不是靠特异性，而是靠拼装序）：componentResources.ts 以
 // joinStyles(theme, googleFonts, ...componentResources.css, styles) 拼装，
@@ -1665,14 +1679,14 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   --kb-quick-gap: 0.4rem;
 }
 
-// .kb-quick 是齿轮与明暗钮的直接容器（settings.scss 原写死 0.55rem），
-// 接回同一变量，三钮间距才真正等距。
+// .kb-quick 是齿轮的直接容器（settings.scss 原写死 0.55rem，v14 删除明暗钮后
+// 容器内只剩齿轮一枚，本条已不再产生间距）；保留接回同一变量，是因为
+// quartz.layout.ts 两处 Flex 消费的也是它——齿轮与阅读模式钮的间距仍由此变量定。
 .kb-quick {
   gap: var(--kb-quick-gap, 0.4rem);
 }
 
 .kb-settings-btn,
-.kb-theme-toggle,
 .readermode {
   width: 28px;
   height: 28px;

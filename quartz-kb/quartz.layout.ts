@@ -35,6 +35,11 @@ const graphConfig = {
     opacityScale: 1,
     showTags: false,
     focusOnHover: true,
+    // v14：局部图此前漏配本项，落回 Graph.tsx 默认的 false——相机恒为 zoomIdentity，
+    // 节点按「力导坐标 + 画布半宽/半高」直接下笔，一跳邻居一多就铺出 250px 的卡外，
+    // 右/下缘节点被 .graph-outer 的 overflow:hidden 裁成半个圆。开启后走与全局图
+    // 同一条路径：先同步预热力导（首帧即成形，无跳变），再无过渡地落入框相机。
+    zoomToFit: true,
     // V4-B1：排除链接全站的宿主页节点（目录 index 页的 simplifySlug 带尾斜杠）
     excludeSlugs: ["0-图谱总览/", "设置/"],
   },
@@ -68,7 +73,8 @@ export const sharedPageComponents: SharedLayout = {
   // SettingsPage（v9）：独立设置页正文，仅 设置/index 页渲染（同 GraphExplorer 模式）。
   // v8 的居中模态已整体废弃——设置不再是浮层，故原「遮罩挂 document.body 规避
   // left 栏层叠上下文」的机制连同 z-850 层位一并不复存在；左栏只留
-  // SettingsButton（齿轮 <a> 跳本页 + 明暗快捷钮）
+  // SettingsButton（齿轮 <a> 跳本页；v14 已删除同排的明暗快捷钮，
+  // 明暗模式改由设置页抽屉内的分段控件独占入口）
   afterBody: [
     // TitleBar 置于首位：桌面自绘标题条（fixed 定位、CSS 门控 html[data-desktop]），
     // DOM 序首位便于排查层叠顺序问题

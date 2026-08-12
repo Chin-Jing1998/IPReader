@@ -18,7 +18,7 @@
 // 取色，顺序反了会读到上一套主题的色值。
 //
 // 切换的「同帧」纪律（v13，见下方 commitTheme 与 custom.scss 第十七节）：
-// 一切**运行期**的主题写入（明暗快捷钮 / 设置页明暗段 / 主题卡 / 跟随系统翻转 /
+// 一切**运行期**的主题写入（设置页明暗段 / 主题卡 / 跟随系统翻转 /
 // IPC 权威态纠正）必须经 commitTheme 提交，绝不直接调 applyThemeMode / applyStyle
 // / setTheme —— 直接调等于绕开整页叠化，那一次切换会退回「各区域各自渐变」的观感。
 // 唯一例外是文件末尾的首帧应用块（此时页面尚在首屏渲染，叠化只会让启动闪一下）。
@@ -375,36 +375,20 @@ applyThemeMode(initial.themeMode)
 
 // ---------- UI 绑定（nav 后） ----------
 //
-// 两个独立 if 块：快捷钮每页都有，设置页控件仅设置页有——
-// 任一块的元素缺失不得影响另一块（v8 的单块 early-return 曾把两者绑成一荣俱荣）。
+// 设置页控件仅设置页有，故整块包在 if 内；uiReady 的置位必须在 if 之外——
+// 元素缺失不得连累它（v8 的单块 early-return 曾把不相干的绑定绑成一荣俱荣）。
+//
+// v14：左栏明暗快捷钮已删除（用户裁决），原「块一」的点击绑定连同其
+//「取反 → 落固定值 → 脱离跟随系统」专属分支一并移除。运行期改主题的入口
+// 现只剩两条，且都保持既有实现不变：设置页分段控件 / 主题卡（下方块内），
+// 与「跟随系统」下的 onSystemChange 翻转；两条仍共用 commitTheme 这一提交口。
 
 document.addEventListener("nav", () => {
   // 首帧之后的一切主题写入都走整页叠化（见 commitTheme 的 uiReady 注）。
-  // 置于 nav 回调最前：两个 if 块中的任一元素缺失都不得影响这一句。
+  // 置于 nav 回调最前：下方 if 块的元素缺失都不得影响这一句。
   uiReady = true
 
-  // ── 块一：左栏明暗快捷钮 ──────────────────────────────
-  const toggle = document.querySelector<HTMLElement>(".kb-theme-toggle")
-  if (toggle) {
-    // 读当前实际亮暗取反 → 落固定值（脱离「跟随系统」）→ 全链路应用。
-    // 日/月图标显隐纯 CSS 驱动（:root[saved-theme] 选择器），此处不写 JS。
-    // 落盘留在叠化之外（无视觉效果）；applyThemeMode 与设置页回显同处一次叠化回调，
-    // 否则回显那几个 is-active 的着色会被算进旧快照、先于叠化闪一下。
-    const onToggleClick = () => {
-      const next: ThemeMode = readSavedTheme() === "dark" ? "light" : "dark"
-      const s = loadSettings()
-      s.themeMode = next
-      saveSettings(s)
-      commitTheme(() => {
-        applyThemeMode(next)
-        syncSettingsPage()
-      })
-    }
-    toggle.addEventListener("click", onToggleClick)
-    window.addCleanup(() => toggle.removeEventListener("click", onToggleClick))
-  }
-
-  // ── 块二：设置页控件（事件委托） ──────────────────────
+  // ── 设置页控件（事件委托） ────────────────────────────
   const page = document.querySelector<HTMLElement>(".kb-settings-page")
   if (page) {
     const chooseDir = async (): Promise<void> => {
@@ -527,7 +511,9 @@ function switchPane(page: HTMLElement, pane: string): void {
 
 /**
  * 设置页回显：选中态（is-active + aria-checked）与批注目录文本。
- * 设置页不存在时静默返回——快捷钮改主题后也调它，两条路径共用一份回显逻辑。
+ * 设置页不存在时静默返回：调用点虽都在 `if (page)` 内，chooseDir 却是 await
+ * 原生目录选择框之后才回调的——用户在选择期间 SPA 导航离开设置页时，这一句
+ * 就是唯一的兜底（v14 删除左栏快捷钮后，该守卫的理由只剩这一条，故就地注明）。
  */
 function syncSettingsPage(): void {
   const page = document.querySelector<HTMLElement>(".kb-settings-page")

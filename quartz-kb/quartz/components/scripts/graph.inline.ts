@@ -104,6 +104,11 @@ const DIMMED_ALPHA = 0.15
 // 避免高度数枢纽节点吞掉版面
 const MAX_NODE_RADIUS = 13
 
+// zoomToFit 的视口留白（**屏幕像素**，非世界坐标）。取 12px：略大于
+// MAX_NODE_RADIUS 之外的描边与抗锯齿余量，使最外圈节点与卡片边缘明显分离，
+// 又不至于在 250px 高的右栏小卡里吃掉可观的画面。见 computeFitTransform。
+const FIT_PAD_PX = 12
+
 // ---------- 首帧预热参数（bug#3：图谱打开瞬间节点跳变）----------
 // 预热目标 alpha：与下方 tick 回调里 zoomToFit 的触发阈值同值，
 // 二者必须一致——预热达标即等价于「tick 回调本会触发入框」，故可直接置完成标志。
@@ -1243,19 +1248,31 @@ async function createGraphInstance(
     let maxY = -Infinity
     for (const n of graphData.nodes) {
       if (n.x === undefined || n.y === undefined) continue
-      if (n.x < minX) minX = n.x
-      if (n.x > maxX) maxX = n.x
-      if (n.y < minY) minY = n.y
-      if (n.y > maxY) maxY = n.y
+      // 包围盒取「节点外缘」而非圆心（v14 修）：圆心入框不等于圆入框。半径由
+      // nodeRadius 按层级 + 度数算出，最大可达 MAX_NODE_RADIUS(13)，旧实现每侧
+      // 因此少留整整一个节点的量，表现为贴边节点只露半个圆——本轮缺陷本体。
+      const r = nodeRadius(n)
+      if (n.x - r < minX) minX = n.x - r
+      if (n.x + r > maxX) maxX = n.x + r
+      if (n.y - r < minY) minY = n.y - r
+      if (n.y + r > maxY) maxY = n.y + r
     }
     if (!isFinite(minX) || !isFinite(minY)) return null
-    const PAD = 40
-    const bw = maxX - minX + PAD * 2
-    const bh = maxY - minY + PAD * 2
-    const k = Math.max(
-      scaleExtentRange[0],
-      Math.min(scaleExtentRange[1], 0.9 * Math.min(width / bw, height / bh)),
-    )
+    const bw = Math.max(maxX - minX, 1)
+    const bh = Math.max(maxY - minY, 1)
+    // 留白改屏幕像素语义（v14 修）：旧实现把 PAD=40 加在**世界坐标**的包围盒上，
+    // 屏幕上的实际留白是 PAD*k——k 小时几近于零，等于没有边距。现改为先在屏幕侧
+    // 扣掉两侧留白、再解 k，任何缩放下留白恒为 FIT_PAD_PX 像素。
+    const availW = Math.max(width - FIT_PAD_PX * 2, 1)
+    const availH = Math.max(height - FIT_PAD_PX * 2, 1)
+    // 上界（v14 增）：非全量图不放大过 1。局部图只有一跳邻居，三五个节点的小图
+    // 若按可用区放大，节点会胀满整卡、与相邻页面的图观感失衡；夹在 1 即维持
+    // 「小图保持原尺寸、只在装不下时才缩」。全量图节点以千计，k 恒远小于 1，
+    // 该夹紧对其不产生任何影响（图谱总览专页与全局弹窗的观感因此不变）。
+    const maxFit = fullGraph ? scaleExtentRange[1] : Math.min(scaleExtentRange[1], 1)
+    // 旧实现的 0.9 安全系数在此删除：它原本是唯一有效的边距来源，现由
+    // FIT_PAD_PX 精确承担，再乘 0.9 会额外缩掉一成、白白浪费卡面。
+    const k = Math.max(scaleExtentRange[0], Math.min(maxFit, Math.min(availW / bw, availH / bh)))
     // 节点渲染坐标 = 力导坐标 + 画布半宽/半高偏移，包围盒中心按同一偏移换算
     const cx = (minX + maxX) / 2 + width / 2
     const cy = (minY + maxY) / 2 + height / 2

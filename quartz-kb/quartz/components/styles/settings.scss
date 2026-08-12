@@ -1,6 +1,6 @@
 @use "../../styles/variables.scss" as *;
 
-// 设置（v9）：左栏快捷区（齿轮 + 明暗钮）+ 独立设置页正文。
+// 设置（v9）：左栏快捷区（齿轮）+ 独立设置页正文。
 //
 // v8 的居中模态（遮罩 + 面板 + 两条 keyframes + 字体下拉字段）已整体删除——
 // 设置改为独立页面（content/设置/index.md + SettingsPage.tsx），不再有浮层，
@@ -10,8 +10,12 @@
 // custom.scss 第十五节；设置页抽屉只是常规流里的一根栅格列（sticky 自成层叠上下文，
 // 但不声明 z-index、不与任何浮层争层），故本文件的层位记账仍为零。
 //
-// 左栏两枚按钮与阅读按钮（readermode.scss）同构：20×32 尺寸、20px SVG 绝对居中、
-// darkgray 描边；齿轮是 <a>（SPA 跳转设置页），明暗钮是 <button>。
+// 左栏齿轮与阅读按钮（readermode.scss）同构：20×32 尺寸、20px SVG 绝对居中、
+// darkgray 描边；齿轮是 <a>（SPA 跳转设置页）。
+// v14：同排的明暗快捷钮（.kb-theme-toggle）连同日/月图标显隐规则已删除，
+// 明暗模式的唯一入口移交设置页抽屉内的分段控件；本文件下方的
+//「几何 / 悬停 / 按下」三条现只服务齿轮一枚（几何最终值由 custom.scss
+// 第十四节统一为 28×28，此处保留基线值不动）。
 
 // ---------- 左栏快捷区（与 .search / .readermode 同排） ----------
 
@@ -22,8 +26,7 @@
   flex-shrink: 0;
 }
 
-.kb-settings-btn,
-.kb-theme-toggle {
+.kb-settings-btn {
   cursor: pointer;
   padding: 0;
   position: relative;
@@ -57,22 +60,6 @@
 .kb-settings-btn:active svg {
   transform: rotate(30deg);
   transition: transform 0.12s ease;
-}
-
-.kb-theme-toggle:active svg {
-  transform: scale(0.88);
-  transition: transform 0.12s ease;
-}
-
-// 日/月显隐纯 CSS 驱动：脚本只落 saved-theme 属性，不碰图标——
-// 首帧（prescript 落属性、DOM 尚未就绪）即已是正确形态，无图标闪跳。
-// 呈现「当前态」：浅色显日、深色显月（与 quartz 内置 Darkmode 同一约定）。
-:root[saved-theme="dark"] .kb-icon-sun {
-  display: none;
-}
-
-:root:not([saved-theme="dark"]) .kb-icon-moon {
-  display: none;
 }
 
 // ---------- 设置页外壳（抽屉 + 面板区双栏） ----------
@@ -181,7 +168,7 @@
 
 // 分类钮与左栏目录树条目同一套状态色：hover 走 --glass-hover-wash，
 // 选中走 --nav-active-wash 底 + --secondary 文字；过渡取 140ms 档，
-// 与全站高频交互控件（分段控件、主题卡、三枚快捷钮）一致。
+// 与全站高频交互控件（分段控件、主题卡、左栏两枚快捷钮）一致。
 .kb-settings-cat {
   display: block;
   width: 100%;

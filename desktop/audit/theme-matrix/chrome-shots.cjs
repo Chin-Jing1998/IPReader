@@ -17,9 +17,11 @@
 // 「槽色同底」「高亮确已上色」这类只能在成像上看出的项也有实测值，不靠肉眼。
 //
 // 另含两组专项：
-//   ① 明暗切换协调性（宣纸 / 玄夜各一次）：rAF 采样器记录切换后 0–420ms 内三个
-//      采样点（body 背景色、左栏玻璃 ::before 背景、正文 a.internal 背景）的颜色
-//      序列，断言三者都在渐变（存在中间帧 ≠ 起点且 ≠ 终点）——成组同频而非瞬变。
+//   ① 明暗切换协调性（宣纸 / 玄夜各一次，v14 换代）：在设置页点明暗分段控件，
+//      rAF 采样器记录切换后 0–420ms 内三个采样点（正文底、抽屉玻璃底、说明文字色）
+//      的颜色序列，断言 View Transitions 确已启用（叠化期 <html data-kb-vt>）且三通道
+//      同帧一步跳变。旧版取景在章节页、靠左栏明暗快捷钮触发、断言逐帧渐变，两项
+//      前提均已不成立（钮已删除、渐变改由伪元素承担），换代理由详见该段就地注释。
 //   ② 降级路径抽查：另建**无 preload** 窗口（等效浏览器），经 CDP
 //      Emulation.setEmulatedMedia 施加 prefers-reduced-transparency: reduce 与
 //      prefers-reduced-motion: reduce，核验弹窗实底化 / 去模糊、入场动画归零、
@@ -737,9 +739,27 @@ async function main() {
   }
 
   // ============ 二、明暗切换协调性（宣纸 / 玄夜）============
+  //
+  // 判据换代（v14，两处理由缺一不可）：
+  //  ① 触发点没了——原实现点左栏明暗快捷钮 .kb-theme-toggle，该钮已按用户裁决删除，
+  //     明暗入口只剩设置页抽屉的分段控件，故取景页由章节页改为设置页，三通道随之
+  //     换成该页可见的三块「面」（正文底 / 抽屉玻璃底 / 说明文字色）。
+  //  ② 旧判据已失效——原断言「三通道 0–420ms 均在渐变（存在中间帧 ≠ 起点且 ≠ 终点）」
+  //     写于 v12，彼时切换靠 custom.scss 第七节的 260ms 过渡清单逐区域收敛。v13 起
+  //     settings.inline.ts 的 commitTheme 把写入包进 View Transitions：切换瞬间
+  //     <html> 落 data-kb-vt，第十七节据此以 !important 抑制全部 transition，DOM 计算值
+  //     **一步到位跳到终值**，渐变改由 ::view-transition 伪元素的整页叠化承担。
+  //     实测（删钮前的 HEAD 基线，宣纸/玄夜各一次）：三通道均「变=true, 中间帧0,
+  //     取值数2」——旧断言在本轮改动之前就已必然见红，属判据滞后而非功能回归。
+  //
+  // 新判据（正对 v13 模型，比旧判据更紧）：
+  //   · VT 确已启用：切换过程中观察到 <html data-kb-vt>（降级路径不落该属性）；
+  //   · 零错位：每通道在 0–420ms 内**恰好一步**变更（取值数 2），且三通道的首变
+  //     采样帧序号完全相同——即成组同帧。任一区域漏进抑制、退回 260ms/566ms 的
+  //     旧路径，都会表现为该通道多步变更或首变帧落后，当场见红。
   const coord = [];
   for (const key of PHASES.includes("coord") ? ["xuanzhi", "xuanye"] : []) {
-    // 先落到该主题 + 浅色
+    // 先落到该主题 + 浅色（取景与触发同在设置页，不再跳章节页）
     await win.loadURL(base + "/" + encodeURI(SETTINGS));
     await sleep(700);
     await win.webContents.executeJavaScript(
@@ -749,78 +769,107 @@ async function main() {
     await win.webContents.executeJavaScript(
       `document.querySelector('.kb-theme-card[data-value="${key}"]').click()`,
     );
-    await sleep(400);
-    await win.loadURL(base + "/" + encodeURI(CHAPTER));
-    await sleep(1000);
+    await sleep(600);
 
     const seq = await win.webContents.executeJavaScript(
       `(() => new Promise((resolve) => {
-         const sidebar = document.querySelector('.page > #quartz-body > .sidebar');
-         const link = document.querySelector('article a.internal[href]');
-         if (link) link.scrollIntoView({ block: 'center' });
+         const drawer = document.querySelector('.kb-settings-drawer');
+         const desc = document.querySelector('.kb-settings-desc');
+         const seg = document.querySelector('[data-setting="themeMode"][data-value="dark"]');
+         if (!drawer || !desc || !seg) {
+           resolve({ ok: false, reason: 'missing drawer/desc/seg' });
+           return;
+         }
          const samples = [];
          const read = () => ({
            body: getComputedStyle(document.body).backgroundColor,
-           sidebarBefore: sidebar ? getComputedStyle(sidebar, '::before').backgroundColor : null,
-           link: link ? getComputedStyle(link).backgroundColor : null,
+           drawer: getComputedStyle(drawer).backgroundColor,
+           desc: getComputedStyle(desc).color,
          });
+         // VT 探针：data-kb-vt 只在叠化期存在（双 rAF 后即摘），必须用 MutationObserver
+         // 抓，靠采样帧碰运气会漏
+         let vtSeen = false;
+         const obs = new MutationObserver(() => {
+           if (document.documentElement.dataset.kbVt !== undefined) vtSeen = true;
+         });
+         obs.observe(document.documentElement, { attributes: true, attributeFilter: ['data-kb-vt'] });
          const t0 = performance.now();
          samples.push({ t: 0, ...read() });
-         const toggle = document.querySelector('.kb-theme-toggle');
-         if (!toggle) { resolve({ ok: false, reason: 'no .kb-theme-toggle' }); return; }
-         toggle.click();
+         seg.click();
          const frame = () => {
            const t = Math.round((performance.now() - t0) * 10) / 10;
            samples.push({ t, ...read() });
            if (t < 420) requestAnimationFrame(frame);
-           else resolve({ ok: true, savedTheme: document.documentElement.getAttribute('saved-theme'), samples });
+           else {
+             obs.disconnect();
+             resolve({
+               ok: true,
+               vtSeen,
+               savedTheme: document.documentElement.getAttribute('saved-theme'),
+               samples,
+             });
+           }
          };
          requestAnimationFrame(frame);
        }))()`,
     );
-    // 三通道各自：起点 ≠ 终点，且存在中间帧同时 ≠ 起点与终点（=在渐变）
-    const channels = ["body", "sidebarBefore", "link"];
+    // 三通道各自：起点 ≠ 终点、恰好一步跳变（取值数 2）、首变帧序号
+    const channels = ["body", "drawer", "desc"];
     const verdict = {};
     for (const ch of channels) {
       const vals = seq.samples ? seq.samples.map((s) => s[ch]) : [];
       const first = vals[0];
       const last = vals[vals.length - 1];
-      const mids = seq.samples
-        ? seq.samples.filter(
-            (s) => s.t > 0 && s.t < 420 && s[ch] !== first && s[ch] !== last,
-          )
-        : [];
+      // 相邻不等的次数 = 变更步数；1 步 = 一跳到位，≥2 步 = 有区域仍在插值
+      let steps = 0;
+      let changeIdx = -1;
+      for (let i = 1; i < vals.length; i += 1) {
+        if (vals[i] !== vals[i - 1]) {
+          steps += 1;
+          if (changeIdx < 0) changeIdx = i;
+        }
+      }
       verdict[ch] = {
         first,
         last,
         changed: first !== last,
-        midCount: mids.length,
-        midWindow: mids.length
-          ? `${mids[0].t}–${mids[mids.length - 1].t}ms`
-          : "-",
+        steps,
+        changeIdx,
+        changeAt: changeIdx >= 0 ? seq.samples[changeIdx].t : null,
         distinct: new Set(vals).size,
-        gradual: first !== last && mids.length >= 2,
-        trace: mids.slice(0, 3).map((s) => `${s.t}:${s[ch]}`),
+        oneStep: first !== last && steps === 1,
       };
     }
-    const allGradual = channels.every((c) => verdict[c].gradual);
-    // 同频：三通道中间帧窗口相互重叠（成组同频，而非各自为政）
+    const allOneStep = channels.every((c) => verdict[c].oneStep);
+    // 同帧：三通道的首变采样帧序号一致（read() 一次同步读三通道，故同帧必同序号）
+    const idxs = channels.map((c) => verdict[c].changeIdx);
+    const sameFrame = idxs.every((i) => i >= 0 && i === idxs[0]);
     coord.push({
       theme: key,
       savedTheme: seq.savedTheme,
+      vtSeen: !!seq.vtSeen,
       frames: seq.samples ? seq.samples.length : 0,
+      allOneStep,
+      sameFrame,
       verdict,
     });
     record(
-      `切换协调性 ${key}（三通道 0–420ms 均在渐变）`,
-      allGradual,
-      channels
-        .map(
-          (c) =>
-            `${c}: ${verdict[c].first} → ${verdict[c].last}（变=${verdict[c].changed}, 中间帧${verdict[c].midCount}@${verdict[c].midWindow}, 取值数${verdict[c].distinct}）`,
-        )
-        .join(" | ") + `；采样帧=${seq.samples ? seq.samples.length : 0}`,
+      `切换协调性 ${key}（VT 启用 + 三通道同帧一步跳变）`,
+      !!seq.ok && !!seq.vtSeen && allOneStep && sameFrame,
+      `VT=${seq.vtSeen ? "已启用" : "未启用"}, 同帧=${sameFrame}（首变帧序 ${idxs.join("/")}）, ` +
+        channels
+          .map(
+            (c) =>
+              `${c}: ${verdict[c].first} → ${verdict[c].last}（变=${verdict[c].changed}, 步数${verdict[c].steps}@${verdict[c].changeAt}ms, 取值数${verdict[c].distinct}）`,
+          )
+          .join(" | ") +
+        `；采样帧=${seq.samples ? seq.samples.length : 0}`,
     );
+    // 复位为浅色，下一轮从同一起点开始
+    await win.webContents.executeJavaScript(
+      `document.querySelector('[data-setting="themeMode"][data-value="light"]').click()`,
+    );
+    await sleep(300);
   }
 
   // ============ 三、降级路径抽查（无 preload 窗口 = 等效浏览器）============
