@@ -73,7 +73,19 @@ function record(step, ok, detail) {
 
 async function shot(win, name) {
   shotSeq += 1;
-  const img = await win.capturePage();
+  // capturePage 走 Chromium Viz 合成器，多 Electron 实例连跑时偶发瞬时
+  // UnknownVizError（GPU 进程竞态）。截图仅留审计证据、不承载断言，
+  // 对瞬时错误做有限重试；三次仍失败按真异常上抛，不掩盖持续性故障。
+  let img;
+  for (let attempt = 1; ; attempt++) {
+    try {
+      img = await win.capturePage();
+      break;
+    } catch (e) {
+      if (attempt >= 3) throw e;
+      await new Promise((r) => setTimeout(r, 300 * attempt));
+    }
+  }
   const file = path.join(
     AUDIT,
     `${String(shotSeq).padStart(2, "0")}-${name}.png`,
