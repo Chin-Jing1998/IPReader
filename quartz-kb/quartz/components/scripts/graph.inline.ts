@@ -168,17 +168,19 @@ export type SavedTransform = {
  * 重建时的画布交换选项（J2）：仅 themechange 路径传入，不传即保持原行为。
  *
  * crossfade=true 时容器内的旧画布**不再先行清空**，新画布绝对定位叠在其上淡入，
- * 淡入收尾时才移除旧节点并回调 retire——消除「旧画布销毁 → 新画布就绪」之间的
- * 空白帧与颜色硬切。SPA nav、术语层 hidden 重建等既有路径一律不传，行为不变。
+ * 淡入收尾时才移除旧节点、并再延约两帧回调 retire——消除「旧画布销毁 → 新画布
+ * 就绪」之间的空白帧与颜色硬切。SPA nav、术语层 hidden 重建等既有路径一律不传，
+ * 行为不变。
  */
 export type GraphSwapOptions = {
   /** true：先建后毁 + 新画布淡入；false/不传：保持「先清空容器再建」的原路径 */
   crossfade: boolean
   /**
-   * 淡入收尾（transitionend 或硬超时先到者）时调用，由调用方销毁旧渲染实例。
+   * 淡入收尾（transitionend 或硬超时先到者）再延约两帧后调用，由调用方销毁旧渲染实例。
    * 销毁必须后置到此刻：app.destroy() 内部会 loseContext
    *（pixi.js 8 GlContextSystem.destroy），WebGL 画布随即被清空——提前销毁则底图
    * 先行消失，交叉淡入退化成「从空白淡入」，空白帧并未真正消除。
+   * 延帧的原因见 startCrossfade 内 finish 的注释（销毁与 DOM 收尾同帧会闪白）。
    */
   retire?: () => void
 }
@@ -245,6 +247,10 @@ type GraphInstance = {
 // 不派发，超时兜底保证旧节点必被移除、旧实例必被销毁（不留孤儿实例）
 const CROSSFADE_TIMEOUT_MS = 400
 
+// 延迟销毁的兜底（DOM 收尾后）：正常前台走双 rAF（约两帧）即销毁；标签页转入
+// 后台时 rAF 挂起，由本超时保证旧实例仍必被销毁。后台无合成输出，同帧销毁无害
+const RETIRE_DEFER_FALLBACK_MS = 100
+
 /**
  * 同一容器上在途的淡入收尾函数（并发闸）。新一轮渲染开工前先冲掉在途那轮，
  * 使「移除旧节点 + 销毁旧实例」按序完成，两轮的旧节点不会互相残留。
@@ -260,8 +266,8 @@ function flushPendingSwap(graph: HTMLElement) {
 
 /**
  * 新画布叠在旧节点之上淡入；收尾时移除旧节点、清掉内联样式回归常规流，
- * 并回调 retire 销毁旧渲染实例。收尾由 transitionend（仅 opacity）与硬超时竞争，
- * 先到者执行且只执行一次。
+ * 再延约两帧回调 retire 销毁旧渲染实例。收尾由 transitionend（仅 opacity）与
+ * 硬超时竞争，先到者执行且只执行一次；销毁另有 rAF 与超时双兜底，必达。
  */
 function startCrossfade(
   graph: HTMLElement,
@@ -280,26 +286,50 @@ function startCrossfade(
   style.transition = "opacity var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out)"
 
   let settled = false
+  let retired = false
   let timer: ReturnType<typeof setTimeout> | undefined
+  let retireTimer: ReturnType<typeof setTimeout> | undefined
   const onTransitionEnd = (ev: TransitionEvent) => {
     if (ev.propertyName === "opacity") finish()
+  }
+  // 销毁段（幂等）：闸的摘除随销毁走——DOM 已收尾而销毁未达期间，冲闸仍能补上销毁
+  const finalize = () => {
+    if (retired) return
+    retired = true
+    clearTimeout(retireTimer)
+    if (pendingSwaps.get(graph) === flush) pendingSwaps.delete(graph)
+    retire?.()
   }
   const finish = () => {
     if (settled) return
     settled = true
     clearTimeout(timer)
     canvas.removeEventListener("transitionend", onTransitionEnd)
-    if (pendingSwaps.get(graph) === finish) pendingSwaps.delete(graph)
     for (const node of stale) node.remove()
     style.position = ""
     style.inset = ""
     style.opacity = ""
     style.transition = ""
-    retire?.()
+    // 销毁延约两帧，不与上面的 DOM 收尾同帧：app.destroy() 会 loseContext 并释放
+    // GPU 资源，与「移除旧节点 + 撤内联样式」引发的重排重绘落在同一提交窗口时，
+    // 合成器偶发拿不到就绪纹理，画布区整块闪一帧白（暗色下刺眼；CDP 帧证据
+    // 2026-08-12，Electron 43 复现率约 2/3）。先让 DOM 收尾一帧安全落定（新旧画布
+    // 纹理此刻俱在，最坏也只是复用视觉相同的上一帧），再做纯 GPU 释放即无帧可坏。
+    // 后台 rAF 挂起时由 RETIRE_DEFER_FALLBACK_MS 超时兜底，销毁必达
+    requestAnimationFrame(() => {
+      requestAnimationFrame(finalize)
+    })
+    retireTimer = setTimeout(finalize, RETIRE_DEFER_FALLBACK_MS)
+  }
+  // 冲闸函数：flushPendingSwap 同步跑完剩余全部步骤（DOM 收尾 + 销毁），
+  // 新一轮渲染开工前旧节点必已移除、旧实例必已销毁，与拆帧前语义一致
+  const flush = () => {
+    finish()
+    finalize()
   }
   canvas.addEventListener("transitionend", onTransitionEnd)
   timer = setTimeout(finish, CROSSFADE_TIMEOUT_MS)
-  pendingSwaps.set(graph, finish)
+  pendingSwaps.set(graph, flush)
 
   // 双 rAF：首帧让浏览器把 opacity:0 记入已计算样式，次帧改值才会产生过渡。
   // settled 判定不可省：标签页转入后台时 rAF 挂起而超时照走，收尾清样式在前、
