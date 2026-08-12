@@ -13,7 +13,7 @@ import { SETTINGS_SLUG } from "../util/appPages"
  * 与页头三件，再挂一个大标题只是重复且扎眼；分区改由抽屉分类切换，不再一屏平铺。
  *
  * 三个分类：外观（主题模式 + 界面主题）· 批注（标记批注保存位置）·
- * 关于（图谱总览与专利库使用说明 + 联系方式）。
+ * 关于（应用信息 + 图谱与专利库使用说明 + 联系方式）。
  * 服务端直出即以「外观」为激活态（分类钮与面板各带 is-active、aria-selected="true"），
  * 故首帧无闪跳、无 JS 时亦有正确初态。
  *
@@ -201,6 +201,25 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
         */}
         <section class="kb-settings-pane" data-pane-id="about">
           <section class="kb-settings-sec">
+            <h2>关于 Patentia</h2>
+            <p class="kb-settings-desc">
+              Patentia 是一部完全离线的中文专利知识库桌面应用——收录七部专利审查与实务规范全文共 2077
+              页，配套 851
+              个术语词条、知识图谱、全文搜索与批注。运行期不发出任何网络请求，无遥测、无账号。
+            </p>
+            <div class="kb-about-card">
+              <p class="kb-about-row">
+                <span class="kb-about-label">版本</span>
+                <span>v1.0.0</span>
+              </p>
+              <p class="kb-about-row">
+                <span class="kb-about-label">许可</span>
+                <span>代码 MIT · 内容许可见 CONTENT_LICENSE</span>
+              </p>
+            </div>
+          </section>
+
+          <section class="kb-settings-sec">
             <h2>图谱总览使用说明</h2>
             <p class="kb-settings-desc">
               「图谱总览」页把七部规范与术语组织为一张知识图谱：节点颜色代表所属文献，节点大小代表层级（书目最大、章节居中、小节与术语最小），节点标签随画面放大逐渐显现。
@@ -240,9 +259,8 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
           <section class="kb-settings-sec">
             <h2>专利库使用说明</h2>
             <p class="kb-settings-desc">
-              本库收录七部规范全文共 2077 页：专利法 82 条、实施细则 149 条、审查指南 6 部 38
-              章、侵权判定指南 153
-              条、机械与化学案件撰写规范、审查意见答复指引。全部内容完全离线，运行期不发出任何网络请求，无遥测、无账号。
+              本库收录七部规范全文：专利法 82 条、实施细则 149 条、审查指南 6 部 38 章、侵权判定指南
+              153 条、机械与化学案件撰写规范、审查意见答复指引。
             </p>
             <div class="kb-settings-guide">
               <h3>全文搜索</h3>
