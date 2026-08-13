@@ -20,4 +20,16 @@ contextBridge.exposeInMainWorld('desktop', {
   // 批注 md 落盘（v8）：选择保存目录 + 写入/删除 Markdown 文件
   chooseAnnoDir: () => ipcRenderer.invoke('anno-choose-dir'),
   saveAnnoMarkdown: (payload) => ipcRenderer.invoke('anno-save-md', payload),
+  // 更新检查（v9）：本应用唯一会联网的功能，默认关闭。
+  //   getUpdateConfig 读当前版本号与「启动时自动检查」开关；setAutoCheckUpdate 写开关；
+  //   checkUpdate 立即查一次（只取版本号，不下载）；openReleases 用系统浏览器打开发布页。
+  // 请求在主进程侧发出，故不受页面 CSP 的 connect-src 'self' 约束，也不扩大渲染层权限。
+  getUpdateConfig: () => ipcRenderer.invoke('update-get-config'),
+  setAutoCheckUpdate: (enabled) => ipcRenderer.invoke('update-set-auto', enabled),
+  checkUpdate: () => ipcRenderer.invoke('update-check'),
+  openReleases: (url) => ipcRenderer.invoke('update-open-releases', url),
+  // MCP 接入（v9）：getMcpInfo 返回本机的真实路径（打包/开发、mac/Windows 各不相同，
+  // 故由主进程给出）；copyText 把拼好的配置命令送进系统剪贴板。
+  getMcpInfo: () => ipcRenderer.invoke('mcp-get-info'),
+  copyText: (text) => ipcRenderer.invoke('copy-text', text),
 });

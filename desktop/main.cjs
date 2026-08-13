@@ -12,10 +12,11 @@
 //     开发（npm start）  → ../quartz-kb/public
 //     打包（electron-builder）→ extraResources 带入 Resources/kb-public，
 //                             运行时经 process.resourcesPath 解析。
-const { app, BrowserWindow, shell, nativeTheme, ipcMain, dialog } = require('electron');
+const { app, BrowserWindow, shell, nativeTheme, ipcMain, dialog, clipboard } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const { startStaticServer, probeHealth, DEFAULT_PORT } = require('./server.cjs');
+const { checkForUpdate, RELEASES_PAGE } = require('./updater.cjs');
 
 const DIST = app.isPackaged
   ? path.join(process.resourcesPath, 'kb-public')
@@ -90,9 +91,10 @@ const THEME_MODES = ['light', 'dark', 'system'];
 const HEX_COLOR_RE = /^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/;
 
 /**
- * 读取持久化的主题状态。文件不存在（首次运行）或损坏一律回落默认值——
+ * 读取持久化的主题状态与更新检查偏好。文件不存在（首次运行）或损坏一律回落默认值——
  * 一个装饰性的颜色偏好绝不该阻断启动。
- * @returns {{ mode: string, byScheme: { light: string, dark: string } }}
+ * autoCheckUpdate 默认 false：不联网是本应用的默认姿态，联网须由用户显式选择。
+ * @returns {{ mode: string, byScheme: { light: string, dark: string }, autoCheckUpdate: boolean }}
  */
 function readWindowState() {
   try {
@@ -104,9 +106,10 @@ function readWindowState() {
         light: HEX_COLOR_RE.test(byScheme.light) ? byScheme.light : DEFAULT_BG.light,
         dark: HEX_COLOR_RE.test(byScheme.dark) ? byScheme.dark : DEFAULT_BG.dark,
       },
+      autoCheckUpdate: raw && raw.autoCheckUpdate === true,
     };
   } catch {
-    return { mode: 'system', byScheme: { ...DEFAULT_BG } };
+    return { mode: 'system', byScheme: { ...DEFAULT_BG }, autoCheckUpdate: false };
   }
 }
 
@@ -274,7 +277,10 @@ function applyThemeSourcePayload(sender, arg) {
   // 另一槽保留上次记录——否则跨模式冷启动会拿错颜色。
   const state = readWindowState();
   const scheme = nativeTheme.shouldUseDarkColors ? 'dark' : 'light';
+  // 展开 state 而非只列两个键：本文件是整份 window-state.json 的唯一写入者，
+  // 漏掉任一字段就等于让「切一次主题」把它重置（autoCheckUpdate 即为此类字段）
   const next = {
+    ...state,
     mode: mode || state.mode,
     byScheme: bgColor ? { ...state.byScheme, [scheme]: bgColor } : state.byScheme,
   };
@@ -339,6 +345,87 @@ ipcMain.handle('anno-save-md', (e, payload) => {
   return true;
 });
 
+// ── 更新检查 ──────────────────────────────────────────────────────────
+// 本应用默认不联网。检查更新是唯一的例外，且受两道约束：
+//   1. 手动检查须用户点击，自动检查须用户显式开启（默认关闭，见 readWindowState）；
+//   2. 只向 GitHub Releases API 取版本号与说明，不下载任何文件，不做静默升级
+//      （未签名应用无法走 Squirrel.Mac，详见 updater.cjs 的注释）。
+// 请求发自主进程而非渲染层，页面侧的 connect-src 'self' 因此保持不变。
+
+// 自动检查的延迟：让首屏渲染与本地服务先跑完，别和启动争资源
+const AUTO_CHECK_DELAY_MS = 4000;
+
+ipcMain.handle('update-get-config', () => ({
+  version: app.getVersion(),
+  autoCheck: readWindowState().autoCheckUpdate,
+  releasesUrl: RELEASES_PAGE,
+}));
+
+ipcMain.handle('update-set-auto', (_e, enabled) => {
+  const state = readWindowState();
+  const next = { ...state, autoCheckUpdate: enabled === true };
+  if (next.autoCheckUpdate !== state.autoCheckUpdate) writeWindowState(next);
+  return { autoCheck: next.autoCheckUpdate };
+});
+
+ipcMain.handle('update-check', () => checkForUpdate(app.getVersion()));
+
+// 打开发布页：只放行本项目的 Releases 地址，不接受渲染层传来的任意 URL
+ipcMain.handle('update-open-releases', (_e, url) => {
+  const target = typeof url === 'string' && url.startsWith(RELEASES_PAGE) ? url : RELEASES_PAGE;
+  shell.openExternal(target);
+  return true;
+});
+
+// ── MCP 服务接入信息 ──────────────────────────────────────────────────
+// 安装包内附一份打包好的 MCP 服务（extraResources: ../mcp/dist → Resources/mcp），
+// 让 Claude Code、Codex 等 agent 直接检索本知识库。设置页要展示的是「本机的真实路径」，
+// 故由主进程给出而非在静态页里写死——打包与开发两种形态、mac 与 Windows 两种平台，
+// 路径各不相同，写死必错其三。
+const MCP_SERVER = app.isPackaged
+  ? path.join(process.resourcesPath, 'mcp', 'server.mjs')
+  : path.join(__dirname, '..', 'mcp', 'dist', 'server.mjs');
+
+ipcMain.handle('mcp-get-info', () => ({
+  // 缺失即视为不可用：老安装包没有这份资源，设置页据此整节隐藏，不给出配不通的指引
+  available: fs.existsSync(MCP_SERVER),
+  serverPath: MCP_SERVER,
+  // Electron 可执行文件本身即 Node 运行时，配 ELECTRON_RUN_AS_NODE=1 即可当 node 用，
+  // 用户无须另装 Node
+  execPath: process.execPath,
+  platform: process.platform,
+}));
+
+// 复制到剪贴板走主进程：渲染层的 navigator.clipboard 在部分环境需要用户手势与权限，
+// 而这里是本地应用，直接用 Electron 的 clipboard 最稳
+ipcMain.handle('copy-text', (_e, text) => {
+  if (typeof text !== 'string' || !text) return false;
+  clipboard.writeText(text);
+  return true;
+});
+
+/** 启动时的自动检查：仅在用户开启后执行，发现新版才打扰用户 */
+async function autoCheckOnStartup() {
+  if (!readWindowState().autoCheckUpdate) return;
+  const result = await checkForUpdate(app.getVersion());
+  // 已是最新或检查失败一律沉默——自动检查不该因为断网就弹窗
+  if (result.status !== 'update') return;
+
+  const [win] = BrowserWindow.getAllWindows();
+  if (!win || win.isDestroyed()) return;
+  const { response } = await dialog.showMessageBox(win, {
+    type: 'info',
+    title: '有新版本可用',
+    message: `PatentReader ${result.latest} 已发布`,
+    detail: `当前版本 ${result.current}。${result.notes ? `\n\n${result.notes.slice(0, 300)}` : ''}`
+      + '\n\n本应用不做自动升级，请前往发布页下载新版安装包。',
+    buttons: ['前往下载', '稍后再说'],
+    defaultId: 0,
+    cancelId: 1,
+  });
+  if (response === 0) shell.openExternal(result.url || RELEASES_PAGE);
+}
+
 // ── Dock 图标随系统深浅色自动切换 ──────────────────────────────────────
 // 浅色模式用浅底图标（方案 A），深色模式用深蓝底图标（方案 B）。
 // macOS Dock 图标支持运行时替换；Finder/启动台中的包图标（icns）保持浅底不变。
@@ -364,6 +451,8 @@ app.whenReady().then(() => {
   nativeTheme.themeSource = readWindowState().mode;
   createWindow();
   applyDockIcon();
+  // 默认关闭；开启后也只在启动后延迟执行一次，不驻留轮询
+  setTimeout(() => { autoCheckOnStartup(); }, AUTO_CHECK_DELAY_MS);
 });
 
 // 第二次启动：聚焦已有窗口而非再开一个（配合单实例锁）

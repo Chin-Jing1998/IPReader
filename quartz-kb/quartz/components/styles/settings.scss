@@ -627,6 +627,168 @@
   border-radius: 10px;
 }
 
+// ---------- 更新检查 ----------
+//
+// 默认 hidden（SSR 直出即隐藏），由 settings.inline.ts 确认桌面壳具备更新能力后摘除。
+// 本组一律不设 transition：新增属性一旦要过渡就须登记进 custom.scss 第七节，
+// 而这里没有任何一处的颜色变化值得为它开一条纪律例外。
+.kb-update {
+  margin-top: 0.9rem;
+
+  &[hidden] {
+    display: none;
+  }
+
+  // 单独一颗按钮不必占满 22rem 的双钮行宽
+  > .kb-settings-row {
+    max-width: 10rem;
+  }
+}
+
+.kb-update-status {
+  margin: 0.5rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--darkgray);
+
+  // 空状态不占高度，免得未检查时凭空多出一行
+  &:empty {
+    display: none;
+  }
+
+  // 有新版时提高对比度；「已是最新」与错误态维持次要色，不喧宾夺主
+  &[data-state="update"] {
+    color: var(--secondary);
+    font-weight: 600;
+  }
+}
+
+// 「前往下载」：由脚本在状态行内插入，做成文字按钮而非实心钮——
+// 它是状态描述的延续，不该抢主操作钮的视觉层级
+.kb-update-go {
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--secondary);
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.kb-update-auto {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.55rem;
+  font-size: 0.78rem;
+  color: var(--darkgray);
+  cursor: pointer;
+
+  > input {
+    margin: 0;
+    cursor: pointer;
+    // 复选框沿用系统绘制，仅把强调色接到主题上，免去自绘一套控件的维护成本
+    accent-color: var(--secondary);
+  }
+}
+
+.kb-update-note {
+  margin: 0.4rem 0 0;
+  max-width: 26rem;
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: var(--gray);
+}
+
+// ---------- MCP 接入 ----------
+//
+// 默认 hidden，由 settings.inline.ts 在确认服务文件存在后摘除。
+// 命令块要能被完整看清并复制，故不截断、不省略——宁可换行也不藏字。
+.kb-mcp {
+  &[hidden] {
+    display: none;
+  }
+}
+
+.kb-mcp-cmds {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin: 0.8rem 0 0.2rem;
+  max-width: 40rem;
+}
+
+.kb-mcp-cmd-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.35rem;
+
+  button {
+    flex: none;
+    padding: 0.22rem 0.6rem;
+    font-family: inherit;
+    font-size: 0.72rem;
+    color: var(--secondary);
+    background: none;
+    border: 1px solid var(--lightgray);
+    border-radius: 6px;
+    cursor: pointer;
+    // 与 .kb-settings-row button 同档（R5），故一并在此列全，
+    // custom.scss 第七节不得重复收录
+    transition:
+      border-color var(--duration-hover, 140ms) var(--ease-hover, ease),
+      background-color var(--duration-hover, 140ms) var(--ease-hover, ease),
+      color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
+
+    &:hover {
+      border-color: var(--secondary);
+    }
+  }
+}
+
+.kb-mcp-cmd-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+// 命令原文：等宽、可换行、可选中。用户要么点复制钮，要么手动划选，两条路都要通
+.kb-mcp-code {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  font-family: var(--codeFont);
+  font-size: 0.72rem;
+  line-height: 1.7;
+  color: var(--dark);
+  white-space: pre-wrap;
+  word-break: break-all;
+  user-select: text;
+  background-color: var(--glass-inner-bg, rgba(255, 255, 255, 0.5));
+  border: 1px solid var(--glass-border, var(--lightgray));
+  border-radius: 10px;
+}
+
+.kb-mcp-hint,
+.kb-mcp-note {
+  margin: 0.45rem 0 0;
+  max-width: 40rem;
+  font-size: 0.74rem;
+  line-height: 1.65;
+  color: var(--gray);
+
+  > code {
+    font-size: 0.9em;
+    word-break: break-all;
+  }
+}
+
+.kb-mcp-note {
+  margin-top: 0.7rem;
+}
+
 // ---------- 设置页沉浸布局 ----------
 //
 // 设置页是应用面板、不是阅读页：左栏（搜索 / 目录树 / 快捷区）与右栏

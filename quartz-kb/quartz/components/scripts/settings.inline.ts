@@ -117,6 +117,30 @@ type DesktopBridge = {
   // shouldUseDarkColors，用于消除「跟随系统」的双跳（bug#2）；旧壳上恒为 undefined。
   applyThemeSource?: (mode: string, bgColor: string) => Promise<{ dark: boolean } | undefined>
   chooseAnnoDir?: () => Promise<string | null>
+  // 更新检查（v9，仅新壳）：旧壳与浏览器环境下四项均为 undefined，
+  // 关于页的更新区块因此保持 hidden，不会露出点了没反应的按钮。
+  getUpdateConfig?: () => Promise<{ version: string; autoCheck: boolean; releasesUrl: string }>
+  setAutoCheckUpdate?: (enabled: boolean) => Promise<{ autoCheck: boolean }>
+  checkUpdate?: () => Promise<UpdateResult>
+  openReleases?: (url?: string) => Promise<boolean>
+  getMcpInfo?: () => Promise<McpInfo>
+  copyText?: (text: string) => Promise<boolean>
+}
+
+type McpInfo = {
+  available: boolean
+  serverPath: string
+  execPath: string
+  platform: string
+}
+
+type UpdateResult = {
+  status: "update" | "latest" | "error"
+  current: string
+  latest?: string
+  url?: string
+  notes?: string
+  message: string
 }
 
 function desktopBridge(): DesktopBridge | undefined {
@@ -454,6 +478,28 @@ document.addEventListener("nav", () => {
       if (key === "openAnno") {
         // 事件名不在 CustomEventMap 联合内，detail 置空对象以匹配签名
         document.dispatchEvent(new CustomEvent("kb-anno-open-drawer", { detail: {} }))
+        return
+      }
+      if (key === "checkUpdate") {
+        void runUpdateCheck(page)
+        return
+      }
+      if (key === "copyMcp") {
+        void copyMcpCommand(page, settingEl)
+        return
+      }
+      if (key === "autoCheckUpdate") {
+        // checkbox 的 click 已把 checked 翻好（键盘空格同样走 click），直接读即可
+        const box = settingEl as HTMLInputElement
+        void desktopBridge()
+          ?.setAutoCheckUpdate?.(box.checked)
+          .then((r) => {
+            if (r) box.checked = r.autoCheck
+          })
+          .catch(() => {
+            // 主进程未注册 handler（旧壳）：回滚勾选态，不给出「已开启」的假象
+            box.checked = !box.checked
+          })
       }
     }
 
@@ -488,9 +534,155 @@ document.addEventListener("nav", () => {
       window.addCleanup(() => back.removeEventListener("click", onBack))
     }
 
+    void initUpdatePanel(page)
+    void initMcpPanel(page)
     syncSettingsPage()
   }
 })
+
+/**
+ * MCP 接入区块：命令里的两处路径取自主进程（打包/开发、mac/Windows 各不相同，
+ * 静态页写死必错），服务文件不存在时整节保持隐藏——老安装包没有这份资源，
+ * 与其给出一条配不通的命令，不如不显示。
+ */
+async function initMcpPanel(page: HTMLElement): Promise<void> {
+  const block = page.querySelector<HTMLElement>("[data-mcp-block]")
+  if (!block) {
+    return
+  }
+  const bridge = desktopBridge()
+  if (!bridge?.getMcpInfo) {
+    return
+  }
+  try {
+    const info = await bridge.getMcpInfo()
+    if (!info.available) {
+      return
+    }
+    for (const [target, cmd] of Object.entries(buildMcpCommands(info))) {
+      const el = block.querySelector<HTMLElement>(`[data-mcp-cmd="${target}"]`)
+      if (el) {
+        el.textContent = cmd
+      }
+    }
+    const pathEl = block.querySelector<HTMLElement>("[data-mcp-path]")
+    if (pathEl) {
+      pathEl.textContent = info.serverPath
+    }
+    block.removeAttribute("hidden")
+  } catch {
+    // 保持 hidden
+  }
+}
+
+/**
+ * 生成两种客户端的接入命令。
+ * Windows 路径含反斜杠：TOML 的双引号字符串会把 \\U 之类当转义序列，故一律用
+ * 单引号字面量字符串；shell 侧则统一用双引号包裹，容纳路径中可能出现的空格。
+ */
+function buildMcpCommands(info: McpInfo): Record<string, string> {
+  const q = (s: string) => `"${s}"`
+  const toml = (s: string) => `'${s}'`
+  return {
+    claude:
+      `claude mcp add patentreader -e ELECTRON_RUN_AS_NODE=1 -- ` +
+      `${q(info.execPath)} ${q(info.serverPath)}`,
+    codex: [
+      "[mcp_servers.patentreader]",
+      `command = ${toml(info.execPath)}`,
+      `args = [${toml(info.serverPath)}]`,
+      "startup_timeout_sec = 30",
+      "",
+      "[mcp_servers.patentreader.env]",
+      'ELECTRON_RUN_AS_NODE = "1"',
+    ].join("\n"),
+  }
+}
+
+/** 复制对应命令，并在按钮上给一次短暂的「已复制」回执 */
+async function copyMcpCommand(page: HTMLElement, btn: HTMLElement): Promise<void> {
+  const target = btn.dataset.mcpTarget
+  const code = page.querySelector<HTMLElement>(`[data-mcp-cmd="${target}"]`)
+  const bridge = desktopBridge()
+  if (!code?.textContent || !bridge?.copyText) {
+    return
+  }
+  const done = await bridge.copyText(code.textContent).catch(() => false)
+  const original = btn.dataset.label ?? btn.textContent ?? ""
+  btn.dataset.label = original
+  btn.textContent = done ? "已复制" : "复制失败"
+  window.setTimeout(() => {
+    btn.textContent = btn.dataset.label ?? original
+  }, 1600)
+}
+
+/**
+ * 关于页的更新区块：确认桌面壳具备更新能力后才摘 hidden 显示出来，
+ * 同时用主进程的权威版本号覆写静态页里的那一行（免得静态页忘记同步而说谎），
+ * 并回显「启动时自动检查」的当前状态（该状态存主进程侧的 window-state.json）。
+ * 任何一步失败都保持隐藏——宁可不显示，也不显示一个按不动的按钮。
+ */
+async function initUpdatePanel(page: HTMLElement): Promise<void> {
+  const block = page.querySelector<HTMLElement>("[data-update-block]")
+  if (!block) {
+    return
+  }
+  const bridge = desktopBridge()
+  if (!bridge?.getUpdateConfig || !bridge.checkUpdate) {
+    return
+  }
+  try {
+    const cfg = await bridge.getUpdateConfig()
+    const ver = page.querySelector<HTMLElement>("[data-update-version]")
+    if (ver && cfg.version) {
+      ver.textContent = `v${cfg.version}`
+    }
+    const box = block.querySelector<HTMLInputElement>('[data-setting="autoCheckUpdate"]')
+    if (box) {
+      box.checked = cfg.autoCheck === true
+    }
+    block.removeAttribute("hidden")
+  } catch {
+    // 保持 hidden
+  }
+}
+
+/** 手动检查一次，把结果写进状态行；发现新版时状态行内附一个前往下载的按钮 */
+async function runUpdateCheck(page: HTMLElement): Promise<void> {
+  const bridge = desktopBridge()
+  const status = page.querySelector<HTMLElement>("[data-update-status]")
+  const btn = page.querySelector<HTMLButtonElement>('[data-setting="checkUpdate"]')
+  if (!bridge?.checkUpdate || !status) {
+    return
+  }
+  if (btn) {
+    btn.disabled = true
+  }
+  status.textContent = "正在检查…"
+  status.dataset.state = "checking"
+  try {
+    const r = await bridge.checkUpdate()
+    status.textContent = r.message
+    status.dataset.state = r.status
+    if (r.status === "update") {
+      const go = document.createElement("button")
+      go.type = "button"
+      go.className = "kb-update-go"
+      go.textContent = "前往下载"
+      go.addEventListener("click", () => {
+        void bridge.openReleases?.(r.url)
+      })
+      status.append(" ", go)
+    }
+  } catch {
+    status.textContent = "检查失败，请稍后重试"
+    status.dataset.state = "error"
+  } finally {
+    if (btn) {
+      btn.disabled = false
+    }
+  }
+}
 
 /**
  * 抽屉分类切换：左栏分类钮（.kb-settings-cat[data-pane]）与右栏面板

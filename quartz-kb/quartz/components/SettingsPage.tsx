@@ -210,20 +210,50 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
           <div class="kb-about-grid">
             <section class="kb-settings-sec">
               <h2>关于 PatentReader</h2>
+              {/*
+                这段描述与下方的更新区块同处一卡，措辞须与之自洽：v9 引入检查更新后，
+                「运行期不发出任何网络请求」已不再成立，改为「默认不联网」并指明唯一例外，
+                否则就是在一个联网按钮旁边声称自己从不联网。
+              */}
               <p class="kb-settings-desc">
                 PatentReader
-                是一部完全离线的中文专利知识库桌面应用——收录七部专利审查与实务规范全文共 2077
-                页，配套 851
-                个术语词条、知识图谱、全文搜索与批注。运行期不发出任何网络请求，无遥测、无账号。
+                是一部默认完全离线的中文专利知识库桌面应用——收录七部专利审查与实务规范全文共 2077
+                页，配套 851 个术语词条、知识图谱、全文搜索与批注。无遥测、无账号，
+                唯一会联网的是下方的检查更新（默认关闭）。
               </p>
               <div class="kb-about-card">
                 <p class="kb-about-row">
                   <span class="kb-about-label">版本</span>
-                  <span>v1.0.0</span>
+                  {/* 桌面端由 settings.inline.ts 以 app.getVersion() 覆写，
+                      使版本号不因这份静态页忘记同步而说谎 */}
+                  <span data-update-version>v1.1.0</span>
                 </p>
                 <p class="kb-about-row">
                   <span class="kb-about-label">许可</span>
                   <span>代码 MIT · 内容许可见 CONTENT_LICENSE</span>
+                </p>
+              </div>
+
+              {/*
+                更新检查：全应用唯一会联网的功能，因而默认隐藏、默认关闭。
+                hidden 由 settings.inline.ts 在确认 window.desktop.checkUpdate 存在后摘除——
+                Web 形态下无从检查更新，与其摆一个点了没反应的按钮，不如不显示。
+                「启动时自动检查」的开关状态存主进程侧（window-state.json），不用 localStorage：
+                主进程要在建窗后立刻据此决定是否检查，读不到渲染层的存储。
+              */}
+              <div class="kb-update" data-update-block hidden>
+                <div class="kb-settings-row">
+                  <button type="button" data-setting="checkUpdate">
+                    检查更新
+                  </button>
+                </div>
+                <p class="kb-update-status" data-update-status aria-live="polite"></p>
+                <label class="kb-update-auto">
+                  <input type="checkbox" data-setting="autoCheckUpdate" />
+                  <span>启动时自动检查更新</span>
+                </label>
+                <p class="kb-update-note">
+                  仅向 GitHub 查询版本号，不下载任何文件，也不会自动安装。关闭此项则应用完全不联网。
                 </p>
               </div>
             </section>
@@ -300,6 +330,80 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
               </details>
             </section>
           </div>
+
+          {/*
+            MCP 接入：安装包内附一份打包好的 MCP 服务（Resources/mcp/server.mjs），
+            接上之后 Claude Code、Codex 等 agent 就能直接检索这七部法规。
+            命令里的两处路径由 settings.inline.ts 从主进程取真实值填入——打包与开发两种
+            形态、mac 与 Windows 两种平台，路径各不相同，在静态页里写死必错其三。
+            hidden 在确认服务文件确实存在后才摘除：老安装包没有这份资源，与其给出
+            一条配不通的命令，不如整节不显示。
+          */}
+          <section class="kb-settings-sec kb-mcp" data-mcp-block hidden>
+            <h2>接入 AI 助手（MCP）</h2>
+            <p class="kb-settings-desc">
+              本应用内附一个 MCP 服务，接上之后，Claude Code、Codex 等支持 MCP 的 AI
+              工具就能直接在这七部法规里检索、读原文、查术语、按条号溯源——不必再手动翻阅。
+              复制下面对应的命令执行一次即可，无须另装 Node，也无须下载任何东西。
+            </p>
+
+            <div class="kb-mcp-cmds">
+              <div class="kb-mcp-cmd">
+                <div class="kb-mcp-cmd-head">
+                  <span class="kb-mcp-cmd-name">Claude Code</span>
+                  <button type="button" data-setting="copyMcp" data-mcp-target="claude">
+                    复制命令
+                  </button>
+                </div>
+                <code class="kb-mcp-code" data-mcp-cmd="claude"></code>
+              </div>
+
+              <div class="kb-mcp-cmd">
+                <div class="kb-mcp-cmd-head">
+                  <span class="kb-mcp-cmd-name">Codex CLI</span>
+                  <button type="button" data-setting="copyMcp" data-mcp-target="codex">
+                    复制配置
+                  </button>
+                </div>
+                <code class="kb-mcp-code" data-mcp-cmd="codex"></code>
+                <p class="kb-mcp-hint">
+                  粘贴进 <code>~/.codex/config.toml</code>。其他支持 MCP 的工具（如腾讯
+                  WorkBuddy）在其 MCP 管理界面按同样的命令与参数填写即可。
+                </p>
+              </div>
+            </div>
+
+            <h3>可用的七个工具</h3>
+            <ul>
+              <li>
+                <strong>search_kb</strong> ——
+                全文检索，返回命中页面的标题、所属书目、层级路径与命中片段
+              </li>
+              <li>
+                <strong>read_node</strong> —— 按节点读取正文原文，长文自动分页续读
+              </li>
+              <li>
+                <strong>browse_toc</strong> —— 按层级浏览目录树
+              </li>
+              <li>
+                <strong>lookup_term</strong> —— 查术语：释义、在各书中的出处、关联法条与相关术语
+              </li>
+              <li>
+                <strong>find_law</strong> —— 按条号直达法条原文，并列出引用该条的全部章节
+              </li>
+              <li>
+                <strong>related_nodes</strong> —— 取知识图谱关联，按边类型分组
+              </li>
+              <li>
+                <strong>list_books</strong> —— 内容清单与规模
+              </li>
+            </ul>
+            <p class="kb-mcp-note">
+              该服务同样离线运行：它与 AI
+              工具之间走进程管道，不开端口、不发网络请求，检索全部在本机完成。 服务文件位于{" "}
+              <code class="kb-mcp-path" data-mcp-path></code>。
+            </p>
+          </section>
 
           <section class="kb-settings-sec">
             <h2>图谱总览使用说明</h2>

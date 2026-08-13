@@ -6,9 +6,13 @@
 //         桌面标题条（38px+flex）→ 全局偏移（body/左栏）→ 设置页沉浸 + 抽屉双栏 →
 //         深链返回兜底（新窗口 history.length===1，R12）→ overlay 滚动条零挤压（R13）→
 //         抽屉分类切换 → 影子滚动条几何与拖拽 → SPA 不残留 →
-//         悬停预览弹窗底色与入场不透明 → 搜索弹层主题化 → 跟随系统零双跳（bug#2 竞态回归门）。
+//         悬停预览弹窗底色与入场不透明 → 搜索弹层主题化 → 跟随系统零双跳（bug#2 竞态回归门）→
+//         更新检查的默认姿态（v9：区块就位但默认不自动检查，全程不点检查按钮）→
+//         MCP 接入说明（v9：命令按真实路径拼装、可复制入剪贴板）。
 // 每步截图存 ./audit/；全程以 webRequest 拦截并「阻断 + 记录」一切非 127.0.0.1 请求，
 // 等效断网环境（页面若依赖外网资源会直接失败），结果写 audit/offline-report.txt。
+// 外部请求计数恒为 0 仍是硬性门槛：v9 引入的更新检查是全应用唯一的联网功能，
+// 它默认关闭，本冒烟也刻意不触发它——那个 0 正是「默认完全离线」的唯一凭据。
 // 建窗统一带 titleBarStyle:'hiddenInset'（仅 darwin）：与 main.cjs 的生产建窗配置对齐，
 // 避免渲染层自绘 .kb-titlebar 与系统原生标题栏双重叠加污染截图基线（R15）。
 //
@@ -27,6 +31,7 @@ const {
   session,
   ipcMain,
   nativeTheme,
+  clipboard,
 } = require("electron");
 const path = require("path");
 const fs = require("fs");
@@ -60,6 +65,43 @@ ipcMain.handle("apply-theme-source", (_event, payload) => {
     payload && THEME_MODES.includes(payload.mode) ? payload.mode : null;
   if (mode) nativeTheme.themeSource = mode;
   return { dark: nativeTheme.shouldUseDarkColors };
+});
+
+// —— 更新检查 IPC 桩（v9）：同上，同协议、不写盘、**不联网** ——
+// 版本号取 package.json 而非 app.getVersion()：以 `electron smoke.cjs` 这种
+// 单文件入口启动时，Electron 不把 desktop/package.json 认作应用清单，
+// app.getVersion() 会返回 Electron 自身的版本（43.3.0），据此断言等于什么都没验。
+// 生产路径上 main.cjs 用的 app.getVersion() 在打包后即等于此处这个值，两者同源。
+const APP_VERSION = require("./package.json").version;
+ipcMain.handle("update-get-config", () => ({
+  version: APP_VERSION,
+  // 恒为 false：本冒烟验证的正是「默认不自动检查」，读用户真实配置反而会让断言随环境漂移
+  autoCheck: false,
+  releasesUrl: "https://github.com/Chin-Jing1998/PatentReader/releases",
+}));
+ipcMain.handle("update-set-auto", (_e, enabled) => ({
+  autoCheck: enabled === true,
+}));
+// 'update-check' 与 'update-open-releases' 刻意不注册：前者会真的请求 GitHub，
+// 让离线护栏的计数变成非零——而那个 0 是「默认完全离线」的唯一凭据；后者会拉起
+// 系统浏览器。冒烟不点这两个入口，未注册即是最硬的保险。
+
+// —— MCP 接入信息桩（v9）——
+// 用固定的假路径而非真实值：本项断言验的是「命令按模板正确拼装并可复制」，
+// 真实路径随机器而异，拿它做断言等于让结果随环境漂移。available 恒 true，
+// 使区块在冒烟环境下必然显示，从而真正验到那段渲染逻辑。
+const MCP_STUB = {
+  available: true,
+  serverPath: "/tmp/smoke-mcp/server.mjs",
+  execPath: "/tmp/smoke-mcp/PatentReader",
+  platform: process.platform,
+};
+ipcMain.handle("mcp-get-info", () => MCP_STUB);
+// 复制走真实剪贴板：断言据此核对内容，同时验证 IPC 链路本身
+ipcMain.handle("copy-text", (_e, text) => {
+  if (typeof text !== "string" || !text) return false;
+  clipboard.writeText(text);
+  return true;
 });
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -1071,6 +1113,99 @@ async function main() {
     `document.querySelector('[data-setting="themeMode"][data-value="light"]').click()`,
   );
   await sleep(300);
+
+  // 25. 更新检查的默认姿态（v9）
+  //     检查更新是全应用唯一会联网的功能，因此本项断言的重点是「默认不联网」：
+  //     开关默认未勾选，且本项刻意不点「检查更新」按钮——点了就会真的请求 GitHub，
+  //     让离线护栏的计数变成非零，而那个零正是「完全离线」这句承诺的唯一凭据。
+  //     区块本身须已由 settings.inline.ts 摘除 hidden（证明 IPC 桥接就位），
+  //     版本号须等于主进程的 app.getVersion()（证明静态页里的那行已被权威值覆写）。
+  await win.loadURL(base + encodeURI("/设置/"));
+  await sleep(900); // initUpdatePanel 走 IPC 往返，给足时间
+  const updateProbe = await win.webContents.executeJavaScript(
+    `(() => {
+       const block = document.querySelector('.kb-settings-pane[data-pane-id="about"] [data-update-block]');
+       const box = block && block.querySelector('[data-setting="autoCheckUpdate"]');
+       const ver = document.querySelector('[data-update-version]');
+       return {
+         hasBlock: !!block,
+         hiddenRemoved: !!block && !block.hasAttribute('hidden'),
+         hasButton: !!(block && block.querySelector('[data-setting="checkUpdate"]')),
+         hasCheckbox: !!box,
+         autoChecked: !!box && box.checked,
+         statusEmpty: (() => {
+           const s = block && block.querySelector('[data-update-status]');
+           return !s || s.textContent.trim() === '';
+         })(),
+         version: ver ? ver.textContent.trim() : null,
+       };
+     })()`,
+  );
+  const wantVersion = `v${APP_VERSION}`;
+  record(
+    "更新检查默认姿态（区块就位 + 默认不自动检查 + 版本号取自主进程 + 未触发任何请求）",
+    updateProbe.hasBlock &&
+      updateProbe.hiddenRemoved &&
+      updateProbe.hasButton &&
+      updateProbe.hasCheckbox &&
+      updateProbe.autoChecked === false &&
+      updateProbe.statusEmpty &&
+      updateProbe.version === wantVersion &&
+      externalAttempts.length === 0,
+    `区块在场=${updateProbe.hasBlock}, hidden已摘=${updateProbe.hiddenRemoved}, ` +
+      `按钮=${updateProbe.hasButton}, 开关=${updateProbe.hasCheckbox}, ` +
+      `自动检查默认=${updateProbe.autoChecked}（须 false）, 状态行空=${updateProbe.statusEmpty}, ` +
+      `版本=${updateProbe.version}（主进程给出 ${wantVersion}）, 此刻外部请求=${externalAttempts.length}`,
+  );
+  await shot(win, "更新检查默认姿态");
+
+  // 26. MCP 接入说明（v9）
+  //     区块须在确认服务文件存在后显示，两条命令按本机真实路径拼装（此处为桩值），
+  //     复制钮把命令原样送进系统剪贴板。断言比对剪贴板内容，链路端到端。
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.kb-settings-cat[data-pane="about"]').click()`,
+  );
+  await sleep(700);
+  clipboard.writeText("__smoke_before__");
+  await win.webContents.executeJavaScript(
+    `document.querySelector('[data-setting="copyMcp"][data-mcp-target="claude"]').click()`,
+  );
+  await sleep(500);
+  const mcpProbe = await win.webContents.executeJavaScript(
+    `(() => {
+       const b = document.querySelector('[data-mcp-block]');
+       const btn = b && b.querySelector('[data-setting="copyMcp"][data-mcp-target="claude"]');
+       return {
+         visible: !!b && b.offsetParent !== null,
+         hiddenRemoved: !!b && !b.hasAttribute('hidden'),
+         claude: (b && b.querySelector('[data-mcp-cmd="claude"]') || {}).textContent || '',
+         codex: (b && b.querySelector('[data-mcp-cmd="codex"]') || {}).textContent || '',
+         path: (b && b.querySelector('[data-mcp-path]') || {}).textContent || '',
+         toolCount: b ? b.querySelectorAll('li').length : 0,
+         copyLabel: btn ? btn.textContent : '',
+       };
+     })()`,
+  );
+  const clip = clipboard.readText();
+  record(
+    "MCP 接入说明（区块显示 + 命令按真实路径拼装 + 复制入剪贴板）",
+    mcpProbe.visible &&
+      mcpProbe.hiddenRemoved &&
+      mcpProbe.claude.includes(MCP_STUB.serverPath) &&
+      mcpProbe.claude.includes("ELECTRON_RUN_AS_NODE=1") &&
+      mcpProbe.codex.includes("[mcp_servers.patentreader]") &&
+      mcpProbe.codex.includes(MCP_STUB.execPath) &&
+      mcpProbe.path === MCP_STUB.serverPath &&
+      mcpProbe.toolCount === 7 &&
+      clip === mcpProbe.claude &&
+      mcpProbe.copyLabel === "已复制",
+    `可见=${mcpProbe.visible}, hidden已摘=${mcpProbe.hiddenRemoved}, ` +
+      `claude 命令含服务路径=${mcpProbe.claude.includes(MCP_STUB.serverPath)}, ` +
+      `codex 含表头=${mcpProbe.codex.includes("[mcp_servers.patentreader]")}, ` +
+      `路径行=${mcpProbe.path}, 工具条目=${mcpProbe.toolCount}, ` +
+      `剪贴板匹配=${clip === mcpProbe.claude}, 按钮回执="${mcpProbe.copyLabel}"`,
+  );
+  await shot(win, "MCP接入说明");
 
   // —— 离线报告 ——
   const failed = results.filter((r) => !r.ok);
