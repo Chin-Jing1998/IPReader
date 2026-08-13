@@ -9,11 +9,15 @@ async function* processFile(ctx: BuildCtx, file: VFile) {
   const ogSlug = simplifySlug(file.data.slug!)
 
   for (const aliasTarget of file.data.aliases ?? []) {
+    // ==== patent-kb: alias slug 直接落盘为 redirect html 文件名，Windows
+    // 禁用 <>:"|?*\ 这些字符（macOS 可正常写出，本机构建不暴露，CI 的
+    // windows runner 上 ENOENT）。仅移除字符、不动路径分隔符，故
+    // resolveRelative 的相对深度不受影响。====
     const aliasTargetSlug = (
       isRelativeURL(aliasTarget)
         ? path.normalize(path.join(ogSlug, "..", aliasTarget))
         : aliasTarget
-    ) as FullSlug
+    ).replace(/[<>:"|?*\\]/g, "") as FullSlug
 
     const redirUrl = resolveRelative(aliasTargetSlug, ogSlug)
     yield write({
