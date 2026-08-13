@@ -1,0 +1,59 @@
+# Windows 安装包云端构建（nsis x64）。
+# 手动触发（workflow_dispatch）→ 产物上传为 artifact；
+# 推送 v* tag → 构建后自动创建 GitHub Release 并挂载安装包。
+# 构建链刻意只有两步（quartz build → electron-builder）：content 与
+# static/content 均已入库，site 生成器与 sync-content.sh 不进 CI——
+# 后者会用 site/public/content（2044 文件）覆盖 static/content（2161
+# 文件），静默删除 117 个已入库的词条 JSON。
+name: build-windows
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: quartz-kb/.node-version
+          cache: npm
+          cache-dependency-path: |
+            quartz-kb/package-lock.json
+            desktop/package-lock.json
+
+      - name: Build static site
+        working-directory: quartz-kb
+        run: |
+          npm ci
+          npx quartz build
+
+      - name: Package Windows installer
+        working-directory: desktop
+        # --publish=never：发布动作只走下方受控的 release 步骤，
+        # 防止 electron-builder 在 tag 构建下自行上传。
+        run: |
+          npm ci
+          npm run dist:win -- --publish=never
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Patentia-windows-x64
+          path: desktop/release/Patentia-Setup-*.exe
+          if-no-files-found: error
+
+      - name: Release (tag builds only)
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          tag="${GITHUB_REF#refs/tags/}"
+          gh release create "$tag" --title "Patentia $tag" --notes "Windows 安装包（nsis x64，未签名——安装提示见 README「安装提示」节）。" desktop/release/Patentia-Setup-*.exe

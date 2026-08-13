@@ -78,7 +78,8 @@
       "perMachine": false,
       "allowToChangeInstallationDirectory": true,
       "shortcutName": "Patentia",
-      "uninstallDisplayName": "Patentia"
+      "uninstallDisplayName": "Patentia",
+      "artifactName": "Patentia-Setup-${version}.${ext}"
     }
   }
 }
