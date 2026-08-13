@@ -164,16 +164,10 @@ Windows 7/8.1 自 2026-08 起不再支持——所依赖的 Electron 版本已�
 
 ## 支持
 
-本项目免费开放，无账号、无内购、无广告。若它替你省下了翻文件的时间：
+本项目免费开放，无账号、无内购、无广告。若它替你省下了翻文件的时间，欢迎请我喝杯咖啡：
 
-<details>
-<summary>请我喝杯咖啡</summary>
+<img src="quartz-kb/quartz/static/donate-alipay.jpg" width="220" alt="支付宝收款码">
 
-<br>
-
-<img src="quartz-kb/quartz/static/donate-alipay.jpg" width="220">
-
-</details>
 
 ## 许可
 
