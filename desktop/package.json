@@ -37,6 +37,14 @@
         ]
       },
       {
+        "from": "../mcp/dist",
+        "to": "mcp",
+        "filter": [
+          "**/*",
+          "!**/.DS_Store"
+        ]
+      },
+      {
         "from": "build/icon.png",
         "to": "icons/icon-light.png",
         "filter": [

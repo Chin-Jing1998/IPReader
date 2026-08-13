@@ -73,6 +73,20 @@
 
 **深色态**　与上面第二张为同一页面。页面底色、各栏字体与图谱配色随主题一并切换。
 
+## 接入 AI Agent（MCP 服务）
+
+除了自己翻阅，这座知识库也可以交给 AI agent 直接调用。仓内的 [`mcp/`](mcp/) 是一个标准 MCP 服务，接上之后，Claude Code、Codex、腾讯 WorkBuddy 等支持 MCP 的工具就能在这七部法规里检索、读原文、查术语、按条号溯源。
+
+```bash
+claude mcp add patentreader -- node <仓库路径>/patent-kb/mcp/dist/server.mjs
+```
+
+七个工具：全文检索 `search_kb`、读原文 `read_node`、浏览目录 `browse_toc`、查术语 `lookup_term`、查法条 `find_law`、图谱关联 `related_nodes`、内容清单 `list_books`。
+
+与桌面端同样**完全离线**——stdio 是父子进程管道，不开端口、不发请求；`dist/` 是打包好的自包含单文件，无须 `npm install`。冷启动约 120 ms。装了桌面版的话，安装包内已附同一份服务，配置指向应用内路径即可，连仓库都不必克隆。
+
+配置细节、内容范围开关与其他客户端的接法见 [mcp/README.md](mcp/README.md)。
+
 ## 仓库结构
 
 ```
@@ -84,6 +98,7 @@ patent-kb/
 │   └── public/    章节与词条详情 JSON（生成器的输入，非网站产物）
 ├── quartz-kb/     文档站：Quartz v4 的定制分支，content/ 为生成结果
 ├── desktop/       Electron 壳：本地 http 托管静态站
+├── mcp/           MCP 服务：把知识库开放给 AI agent 检索，dist/ 为自包含产物
 └── docs/          界面截图（shots.cjs 的产物，供本文「界面一览」引用）
 ```
 
@@ -102,6 +117,9 @@ cd ../quartz-kb && npm ci && npx quartz build
 
 # 3. 运行桌面端
 cd ../desktop && npm ci && npm start
+
+# 4. 重建 MCP 服务产物（内容有更新时才需要）
+cd ../mcp && npm ci && npm run build
 ```
 
 打包：
@@ -123,7 +141,8 @@ Windows 安装包（nsis x64）由 GitHub Actions 云端构建：workflow `build
 1. 外层重跑解析（`parse-domains` 会覆写 `nodes.json` 布局坐标，需要时 `git checkout` 还原坐标字段）；
 2. 搬运 `site/data` 与 `site/public/content` 至本仓；
 3. 本仓重跑 `build-quartz-md.mjs`；
-4. `quartz build`。
+4. `quartz build`；
+5. `cd mcp && npm run build`——MCP 数据包由 `site/data` 与 `site/public/content` 独立生成，不随 quartz 构建更新，漏掉这一步会让 agent 侧内容静默滞后于应用侧。
 
 搬运时须与数据一同对齐的还有三处：`site/scripts/build-quartz-md.mjs` 的 `BOOKS` 域映射、`site/scripts/lib/domains.mjs` 的 `KNOWN_DOMAINS`、以及 `site/assets/book-images/<domain>/` 的目录名。三者以 `domain` 键与 `nodes.json` 耦合，域键改名而未同步会使生成器直接抛 `未知域`。
 
@@ -140,6 +159,12 @@ cd desktop && npm run smoke
 ```
 
 24 步端到端冒烟。其中**离线护栏**会阻断一切非 `127.0.0.1` 的请求并统计尝试次数——这把"完全离线"从一句承诺变成了可执行的断言，任何改动都不得让它出现非零值。
+
+```bash
+cd mcp && npm run smoke
+```
+
+MCP 服务的 89 项端到端断言：以真实 MCP 客户端经 stdio 连接，逐一验证七个工具的行为、分页游标、域白名单，并在子进程内挂载同源的离线护栏（patch `net`/`dns`/`tls`/`fetch`），同样断言外部访问为 0。
 
 服务端自身的安全行为（CSP、Host 校验、路径穿越防护、只读服务）逐条列在 [SECURITY.md](SECURITY.md)。
 

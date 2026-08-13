@@ -1,0 +1,25 @@
+{
+  "name": "patentreader-mcp",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "PatentReader MCP 服务——把七部专利法规与实务文献开放给支持 MCP 的 agent 检索、精读与溯源（纯离线，stdio 传输）",
+  "author": "张京京",
+  "license": "MIT",
+  "scripts": {
+    "build:data": "node scripts/build-data.mjs",
+    "build:code": "node scripts/build.mjs",
+    "build": "npm run build:data && npm run build:code",
+    "start": "node dist/server.mjs",
+    "smoke": "node smoke.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.0.0",
+    "flexsearch": "^0.8.205",
+    "zod": "^4.2.0"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "^2.0.0",
+    "esbuild": "^0.27.0"
+  }
+}
