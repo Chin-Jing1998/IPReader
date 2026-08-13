@@ -110,7 +110,9 @@ cd ../desktop && npm ci && npm start
 cd desktop && npm run dist:mac    # 或 dist:win
 ```
 
-Windows 安装包（nsis x64）另可由 GitHub Actions 云端构建：workflow `build-windows` 支持手动触发（产物见该次运行的 artifact），推送 `v*` tag 时自动构建并发布到 Release。
+**下载已构建的安装包**：见本仓库的 [Releases](../../releases) 页面（macOS 为 `.dmg`，Windows 为 `.exe`）。
+
+Windows 安装包（nsis x64）由 GitHub Actions 云端构建：workflow `build-windows` 支持手动触发（产物见该次运行的 artifact），推送 `v*` tag 时自动构建并发布到 Release。macOS 包在本机 `npm run dist:mac` 后随同一 tag 上传。
 
 生成器是幂等的——同样的输入重跑产出零 diff，可据此验证改动是否引入意外变化。
 
