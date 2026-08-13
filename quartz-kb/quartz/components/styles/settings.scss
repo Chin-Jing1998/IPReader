@@ -292,11 +292,18 @@
   font-family: inherit;
   text-align: center;
   color: var(--darkgray);
-  background: none;
+  // 卡面必须有稳定底色（原为 background: none）：body 的山水底图是
+  // background-attachment: fixed，外加两层径向渐变，卡片全透明时那条 1px 边框
+  // 每一段都压在不同底色上，同一条线四周对比度不等，肉眼即「粗细深浅不一」。
+  // 取 --glass-inner-bg，与抽屉、分段控件、签名卡同一玻璃语言。
+  background-color: var(--glass-inner-bg, rgba(255, 255, 255, 0.5));
   border: 1px solid var(--glass-border, var(--lightgray));
   border-radius: 14px;
   cursor: pointer;
+  // 本条是本元素 transition 的唯一事实源（第七节「纪律一」豁免项，不进 260ms 清单），
+  // 故新增的 background-color 必须就地补入，否则明暗切换时卡面底色瞬变。
   transition:
+    background-color var(--duration-hover, 140ms) var(--ease-hover, ease),
     border-color var(--duration-hover, 140ms) var(--ease-hover, ease),
     box-shadow var(--duration-hover, 140ms) var(--ease-hover, ease),
     transform var(--duration-hover, 140ms) var(--ease-hover, ease),
@@ -309,24 +316,23 @@
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   }
 
-  // 选中态描边用 --secondary（inset box-shadow 加粗一圈，不改盒模型尺寸）
+  // 选中态只用一种原语：1px border 之外再外扩 2px 环（box-shadow 无 inset）。
+  // 原写法是 border(14px 弧) + inset box-shadow(13px 弧) + 色板外描边(11px 弧)
+  // 三条线三种半径，四角必然错位、看着像一条粗细不匀的边。
+  // 外扩环的圆角 = border-radius + spread = 14 + 2 = 16px，与 border-box 外缘
+  // 严格同心，两者合成一条四周等宽的 3px 主题色环，且不改盒模型尺寸。
   &.is-active {
     border-color: var(--secondary);
     color: var(--dark);
-    box-shadow: inset 0 0 0 2px var(--secondary);
+    box-shadow: 0 0 0 2px var(--secondary);
   }
 
-  // box-shadow 不跨规则叠加：选中卡悬停时若不并写，晚出现的 is-active 内描边会
+  // box-shadow 不跨规则叠加：选中卡悬停时若不并写，晚出现的 is-active 选中环会
   // 整条覆盖掉 hover 投影（抬升却无阴影）。故此处显式并列两层。
   &.is-active:hover {
     box-shadow:
-      inset 0 0 0 2px var(--secondary),
+      0 0 0 2px var(--secondary),
       0 6px 18px rgba(0, 0, 0, 0.1);
-  }
-
-  // 选中卡的色板外描边（1px），与卡片内描边形成双层指示
-  &.is-active .kb-theme-preview {
-    box-shadow: 0 0 0 1px var(--secondary);
   }
 
   // 每卡三个色值 = 该套主题的 --light / --dark（暗态底色）/ --secondary，
@@ -366,13 +372,19 @@
 // 色板：135° 斜切分割——左上亮态、右下暗态，中缝插一条 1px 发丝线
 // （硬断色标会在斜边上产生锯齿，插入 1px 过渡带即为抗锯齿手段）。
 // 两枚强调点分别落在亮、暗两块三角的重心附近（30% / 70%），使两态各自可辨强调色。
+//
+// 外缘与中缝共用 --swatch-seam（定义见 custom.scss 第十三节末，亮暗两档）：
+// 原外缘写死 rgba(0,0,0,.08)，与卡片外框取 --glass-border（亮态为高光色）
+// 取色体系相反——一黑一白两条线并置，正是「深浅不一」的第二个来源；且恒黑的线
+// 在暗态下等于不可见。改为随亮暗翻极性的单一 token 后，卡片上只剩一套线语言。
+// 该 token 不随六套风格变：色板画的是各风格自身的固定 hex，与当前风格无关。
 .kb-theme-preview {
   position: relative;
   display: block;
   width: 100%;
   height: 5.5rem;
   border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--swatch-seam, rgba(0, 0, 0, 0.12));
 
   background-image: linear-gradient(
     135deg,
@@ -524,6 +536,25 @@
   }
 }
 
+// 「关于」分区顶部的双列：应用信息与联系方式两块内容都短，各占一整行时面板列
+// 右侧会常驻大片空白，故并排。并排单元是两个完整的 .kb-settings-sec（各自带
+// h2 与说明段），不是两张裸卡——分区语义与标题层级因此原样保留。
+// align-items 取 start：两列内容高度天然不等（左列说明长、右列行数多），
+// 默认的 stretch 只会把矮的那一列拉出无意义的空白。
+// 行/列间距分设：列间 0.9rem 与 .kb-theme-grid 同值；行间 2.4rem 只在移动端
+// 降为单列后生效，此时两分区回到 .kb-settings-pane 的常规分区间距。
+// 断点与 .kb-theme-grid 同取 $mobile（800px），保持设置页断点单一。
+.kb-about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.4rem 0.9rem;
+  align-items: start;
+
+  @media all and ($mobile) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 // 签名卡：与抽屉（.kb-settings-drawer）同一玻璃语言——--glass-inner-bg 底 +
 // --glass-border 描边 + 14px 圆角卡。带底/描边 → 已登记 custom.scss 第七节。
 .kb-about-card {
@@ -546,8 +577,12 @@
   line-height: 1.6;
 }
 
+// min-width 取 2em 而非 rem：em 相对标签自身的 0.74rem 字号，恰好等于两个汉字的
+// 字面宽，「姓名 / 电话 / 微信 / 邮箱」四个双字标签与两字母的「QQ」由此左对齐、
+// 值列起始位置一致。用 rem 会锚到根字号（16px），标签一改字号即失准。
 .kb-about-label {
   flex-shrink: 0;
+  min-width: 2em;
   font-size: 0.74rem;
   color: var(--gray);
 }
@@ -556,6 +591,40 @@
 // 此处只管长地址断行。
 .kb-about-mail {
   word-break: break-all;
+}
+
+// 赞赏码折叠块：原生 <details>，零脚本、服务端直出即最终形态、键盘与读屏原生可达。
+// 默认收起，不占版面、不打断阅读。
+// 本块不引入任何「面」——无底色、无描边、无阴影，故不进 custom.scss 第七节的
+// 260ms 清单（该节只收带底/描边且本体无过渡的元素）。
+// summary 是交互控件，自带 140ms 悬停过渡并在此列全，按第七节「纪律一」豁免，
+// 第七节不得重复收录（重复即两条互相整条替换）。
+// 折叠三角沿用浏览器原生 marker：不自绘即无需维护展开/收起两态图形。
+.kb-about-donate {
+  margin-top: 0.75rem;
+
+  > summary {
+    width: fit-content;
+    font-size: 0.78rem;
+    color: var(--darkgray);
+    cursor: pointer;
+    transition: color var(--duration-hover, 140ms) var(--ease-hover, ease);
+
+    &:hover {
+      color: var(--dark);
+    }
+  }
+}
+
+// 二维码：原图 480×720，此处按 180px 宽等比缩放（height: auto 由 img 的
+// width/height 属性给出的固有比例撑开，展开瞬间不抖版）。
+// 只加圆角、不加描边：收款码需保持自身高对比度，任何外框在暗态下都是干扰。
+.kb-about-donate-qr {
+  display: block;
+  width: 180px;
+  height: auto;
+  margin-top: 0.6rem;
+  border-radius: 10px;
 }
 
 // ---------- 设置页沉浸布局 ----------

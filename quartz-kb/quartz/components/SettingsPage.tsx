@@ -1,6 +1,6 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import style from "./styles/settings.scss"
-import { FullSlug, resolveRelative } from "../util/path"
+import { FullSlug, joinSegments, pathToRoot, resolveRelative } from "../util/path"
 import { SETTINGS_SLUG } from "../util/appPages"
 
 /**
@@ -13,7 +13,7 @@ import { SETTINGS_SLUG } from "../util/appPages"
  * 与页头三件，再挂一个大标题只是重复且扎眼；分区改由抽屉分类切换，不再一屏平铺。
  *
  * 三个分类：外观（主题模式 + 界面主题）· 批注（标记批注保存位置）·
- * 关于（应用信息 + 图谱与专利库使用说明 + 联系方式）。
+ * 关于（应用信息与联系方式两卡并排 + 图谱与专利库使用说明）。
  * 服务端直出即以「外观」为激活态（分类钮与面板各带 is-active、aria-selected="true"），
  * 故首帧无闪跳、无 JS 时亦有正确初态。
  *
@@ -194,30 +194,112 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
         </section>
 
         {/*
-          「关于」面板：纯静态展示，无交互控件。
+          「关于」面板：纯静态展示，唯一可交互的是赞赏码的原生 <details>（零脚本）。
           switchPane（settings.inline.ts）按 data-pane/data-pane-id 通配，无需任何脚本改动；
-          邮箱锚点走浏览器原生 mailto（SPA 路由对非本源 URL 早退 + data-router-ignore 双保险），
+          两枚邮箱锚点走浏览器原生 mailto（SPA 路由对非本源 URL 早退 + data-router-ignore 双保险），
           由 Electron 外部协议链路唤起系统邮件客户端，页面原地不动（desktop/main.cjs 有显式分支）。
         */}
         <section class="kb-settings-pane" data-pane-id="about">
-          <section class="kb-settings-sec">
-            <h2>关于 Patentia</h2>
-            <p class="kb-settings-desc">
-              Patentia 是一部完全离线的中文专利知识库桌面应用——收录七部专利审查与实务规范全文共 2077
-              页，配套 851
-              个术语词条、知识图谱、全文搜索与批注。运行期不发出任何网络请求，无遥测、无账号。
-            </p>
-            <div class="kb-about-card">
-              <p class="kb-about-row">
-                <span class="kb-about-label">版本</span>
-                <span>v1.0.0</span>
+          {/*
+            应用信息卡与联系卡并排（.kb-about-grid，移动端降单列）：两者同为
+            「元信息」性质、内容都短，各自独占一整行时右侧会留下大片空白。
+            并排的是两个完整的 .kb-settings-sec 而非两张裸卡——各自的 h2 与
+            说明段随之留在自己的列内，分区语义不被打散；下方两份长篇使用说明
+            仍按原样整幅铺开。
+          */}
+          <div class="kb-about-grid">
+            <section class="kb-settings-sec">
+              <h2>关于 PatentReader</h2>
+              <p class="kb-settings-desc">
+                PatentReader
+                是一部完全离线的中文专利知识库桌面应用——收录七部专利审查与实务规范全文共 2077
+                页，配套 851
+                个术语词条、知识图谱、全文搜索与批注。运行期不发出任何网络请求，无遥测、无账号。
               </p>
-              <p class="kb-about-row">
-                <span class="kb-about-label">许可</span>
-                <span>代码 MIT · 内容许可见 CONTENT_LICENSE</span>
+              <div class="kb-about-card">
+                <p class="kb-about-row">
+                  <span class="kb-about-label">版本</span>
+                  <span>v1.0.0</span>
+                </p>
+                <p class="kb-about-row">
+                  <span class="kb-about-label">许可</span>
+                  <span>代码 MIT · 内容许可见 CONTENT_LICENSE</span>
+                </p>
+              </div>
+            </section>
+
+            <section class="kb-settings-sec">
+              <h2>联系作者</h2>
+              <p class="kb-settings-desc">
+                使用中遇到问题、发现内容错漏，或有功能建议，欢迎通过以下任一方式联系。
               </p>
-            </div>
-          </section>
+              {/*
+                电话 / 微信 / QQ 一律纯文本，不做链接：tel: 在 desktop/main.cjs 的
+                will-navigate 里无对应分支，微信与 QQ 也没有可在离线环境成立的目标——
+                任何 https 外链都会在应用窗口内发起外部导航，与「运行期零网络请求」
+                的护栏和 server.cjs 的 connect-src 'self' 直接冲突。
+                两个邮箱锚点的先后不可调换：gmail 为主用地址，smoke.cjs 第 16 项按
+                文档序取「关于」面板内第一个 mailto 锚点并逐字比对该地址。
+              */}
+              <div class="kb-about-card">
+                <p class="kb-about-row">
+                  <span class="kb-about-label">姓名</span>
+                  <span>张京京</span>
+                </p>
+                <p class="kb-about-row">
+                  <span class="kb-about-label">电话</span>
+                  <span>18291402342</span>
+                </p>
+                <p class="kb-about-row">
+                  <span class="kb-about-label">微信</span>
+                  <span>China_Jing1998</span>
+                </p>
+                <p class="kb-about-row">
+                  <span class="kb-about-label">QQ</span>
+                  <span>3480989683</span>
+                </p>
+                <p class="kb-about-row">
+                  <span class="kb-about-label">邮箱</span>
+                  <a
+                    class="kb-about-mail"
+                    href="mailto:zhangjingjing962464@gmail.com"
+                    data-router-ignore
+                  >
+                    zhangjingjing962464@gmail.com
+                  </a>
+                </p>
+                <p class="kb-about-row">
+                  <span class="kb-about-label">邮箱</span>
+                  <a
+                    class="kb-about-mail"
+                    href="mailto:zhangjingjing962464@icloud.com"
+                    data-router-ignore
+                  >
+                    zhangjingjing962464@icloud.com
+                  </a>
+                </p>
+              </div>
+
+              {/*
+                赞赏码：原生 <details>，零脚本、SSR 即最终形态、键盘与读屏天然可达。
+                默认收起，不主动占版面。
+                图片路径必须是相对形式（joinSegments + pathToRoot，先例见 Head.tsx
+                的 favicon）：绝对 /static/… 在部分场景取不到，且 SPA 换页时
+                normalizeRelativeURLs 只重基 ./ 与 ../ 开头的 src，绝对路径不进重基。
+                width/height 按原图 480×720 等比给出，避免展开瞬间的布局抖动。
+              */}
+              <details class="kb-about-donate">
+                <summary>请我喝杯咖啡</summary>
+                <img
+                  class="kb-about-donate-qr"
+                  src={joinSegments(pathToRoot(fileData.slug!), "static/donate-alipay.jpg")}
+                  alt="支付宝收款码"
+                  width="180"
+                  height="270"
+                />
+              </details>
+            </section>
+          </div>
 
           <section class="kb-settings-sec">
             <h2>图谱总览使用说明</h2>
@@ -302,29 +384,6 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
                 </li>
                 <li>正文中的术语与法条引用（如「专利法第22条」）自动成链，点击即可跳转原文。</li>
               </ul>
-            </div>
-          </section>
-
-          <section class="kb-settings-sec">
-            <h2>联系作者</h2>
-            <p class="kb-settings-desc">
-              使用中遇到问题、发现内容错漏，或有功能建议，欢迎邮件联系。
-            </p>
-            <div class="kb-about-card">
-              <p class="kb-about-row">
-                <span class="kb-about-label">姓名</span>
-                <span>张京京</span>
-              </p>
-              <p class="kb-about-row">
-                <span class="kb-about-label">邮箱</span>
-                <a
-                  class="kb-about-mail"
-                  href="mailto:zhangjingjing962464@gmail.com"
-                  data-router-ignore
-                >
-                  zhangjingjing962464@gmail.com
-                </a>
-              </p>
             </div>
           </section>
         </section>
