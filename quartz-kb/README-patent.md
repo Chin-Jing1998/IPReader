@@ -1,4 +1,4 @@
-# Patentia · quartz 定制备忘（patent-kb 分支）
+# PatentReader · quartz 定制备忘（patent-kb 分支）
 
 本仓库基于 quartz v4.5.2，承载 7 部专利工具书 + 关键词索引 + 图谱总览共 2077 页的纯离线知识库。
 内容 markdown 由 `../site/scripts/build-quartz-md.mjs` 生成（幂等，重跑前自动清空受管目录）。

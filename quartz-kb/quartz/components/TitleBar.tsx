@@ -21,10 +21,10 @@ import style from "./styles/titlebar.scss"
  * `aria-hidden`：这是窗口 chrome 的视觉补齐件，非页面内容；站点标题已由
  * PageTitle 与 <title> 向辅助技术暴露，此处重复朗读只会造成冗余。
  */
-// 标题条文字与应用名（productName=Patentia）对齐，刻意不取 cfg.pageTitle——
+// 标题条文字与应用名（productName=PatentReader）对齐，刻意不取 cfg.pageTitle——
 // 显示名统一后二者当前同值，但窗口 chrome 应跟随应用身份而非站点配置：
 // 独立常量保证将来 pageTitle 再调整时窗口标题不随动。
-const APP_DISPLAY_NAME = "Patentia"
+const APP_DISPLAY_NAME = "PatentReader"
 
 const TitleBar: QuartzComponent = () => (
   <div class="kb-titlebar" aria-hidden="true">

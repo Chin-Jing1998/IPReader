@@ -1,4 +1,4 @@
-// build-quartz-md.mjs —— Patentia 数据层 → quartz 内容站 markdown 生成器（Q2 阶段）
+// build-quartz-md.mjs —— PatentReader 数据层 → quartz 内容站 markdown 生成器（Q2 阶段）
 //
 // 输入（均为只读）：
 //   data/nodes.json        2044 节点（7 部书 1193 + 术语 851）
@@ -827,7 +827,7 @@ for (const b of BOOKS) {
 
 // —— 8.8 首页 content/index.md ——
 {
-  const fm = frontmatter({ title: 'Patentia' });
+  const fm = frontmatter({ title: 'PatentReader' });
   const bookList = BOOKS.map((b) => {
     const meta = DOMAIN_META.get(b.domain);
     const count = nodes.filter((n) => n.domain === b.domain).length;

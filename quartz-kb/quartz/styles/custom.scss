@@ -3,7 +3,7 @@
 @use "./glass.scss" as *;
 
 // ============================================================
-// Patentia 定制样式 v9
+// PatentReader 定制样式 v9
 // 一、液态玻璃视觉体系：--glass-* token + 侧栏/卡片玻璃化
 // 二、中文多字体协同排版（公文体例）：
 //     页头/正文/左栏/右栏/图谱各有独立字体变量，取值随主题走
@@ -899,7 +899,10 @@ pre:hover > .clipboard-button {
 // 纪律一（防悬停发滞）：已自带 140ms 交互过渡的控件不进本清单——正文链接 a
 //   （现为「合并条」：本节 a 那条把 color 140ms 与 background-color 260ms 一次列全，
 //   不再是纯豁免）、目录树条目、TOC 条目、左栏两枚快捷钮（第十四节）、
-//   设置页分段控件 .kb-settings-seg button 与主题卡 .kb-theme-card。
+//   设置页分段控件 .kb-settings-seg button、主题卡 .kb-theme-card（v15 起其
+//   transition 内含 background-color——卡面已改为 --glass-inner-bg 实底，
+//   该项就地补在它自己那一条，本节仍不收录）、
+//   赞赏码折叠块的 .kb-about-donate > summary（仅 color 一项，140ms）。
 // 纪律一之二（组件内已列全，本清单**永不收录**）：下列元素的过渡事实源在其组件
 //   scss，且已按 R5 在那一条内把 260ms 的颜色项列全，本节重复收录即会互相吃掉——
 //   search.scss 五项：.search-button（border/bg 140 + color 260）、
@@ -1050,9 +1053,15 @@ button.toc-header,
 //     本节上方 .explorer-content .folder-outer 那条只改时长与曲线，同样不冲突；
 //   · pageNav.scss 的 .page-nav-wrapper（border-top）——它在第十五节
 //     prefers-reduced-motion 块里的 transition:none 是降级归零，非过渡事实源。
+//   · settings.scss 的 .kb-theme-preview（v15 新增）——外缘线自 v15 起取
+//     --swatch-seam（本文件第十三节末，亮暗两档），本体无自带 transition；
+//     其父卡 .kb-theme-card 自带 140ms 属另一元素，不构成替换。
+//     色板本身是 background-image（同样含 --swatch-seam），按「纪律二」不可过渡，
+//     故本元素只有 border-color 一项可收敛，归本条而非规则三。
 tr,
 .folder-outer > ul,
 .page-nav-wrapper,
+.kb-theme-preview,
 figure[data-rehype-pretty-code-figure] > [data-rehype-pretty-code-title] {
   transition: border-color var(--duration-theme, 260ms) var(--ease-in-out, ease-in-out);
 }
@@ -1638,8 +1647,12 @@ body[data-slug="0-图谱总览/index"] .graph-explorer {
 // 先于本文件落盘，写在那边会被本文件的同名规则接管。
 // v11 由 54rem 放宽到 62rem：设置页已改抽屉双栏，13rem 抽屉 + 1.5rem gap 挤占后
 // 六主题卡收窄过甚，放宽以恢复卡面。设置页无左右栏，.center 容得下这一宽度。
+// v15 再由 62rem 放宽到 66rem：62rem（992px）在 1392px 视口下左右各弃 200px，
+// 面板列被压到 760px，各分区右侧常驻空白；66rem（1056px）把左右留白降到 168px，
+// 主题卡随之由 243.7px 增至约 275px。仍不取满宽——内容列需要收口，
+// 且 .kb-settings-desc / .kb-settings-guide 的 40rem 是中文行长上限，刻意不动。
 :root {
-  --settings-col: 62rem;
+  --settings-col: 66rem;
 }
 
 body[data-slug="设置/index"] #quartz-body .center > .page-footer {
@@ -1657,6 +1670,21 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
 }
 :root[saved-theme="dark"] {
   --popover-shadow: 0 14px 44px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+// —— 主题卡色板的发丝线 token（v15）——
+// 设置页六枚主题卡的色板（.kb-theme-preview，settings.scss）同时需要一条外缘线
+// 与一条中缝线。此前外缘写死 rgba(0,0,0,.08)、中缝只有回落值 rgba(0,0,0,.12)
+// 而全仓无定义，两条线因此恒为黑：暗态下压在近黑色板上等同于不可见，且与卡片外框
+// 取 --glass-border（亮态是高光色）的取色体系正好相反，同一枚卡上并存两套线语言。
+// 本 token 令两条线随亮暗翻极性，外缘与中缝共用一值，卡上只剩一套线语言。
+// 与 --popover-shadow 同理只分亮暗、不随六套风格变——色板画的是各风格自身的固定
+// hex 色，与当前生效风格无关，故不进上方各 [data-style] 覆盖块。
+:root {
+  --swatch-seam: rgba(0, 0, 0, 0.12);
+}
+:root[saved-theme="dark"] {
+  --swatch-seam: rgba(255, 255, 255, 0.18);
 }
 
 // ============================================================

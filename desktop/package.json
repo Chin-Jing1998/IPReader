@@ -1,8 +1,8 @@
 {
-  "name": "patentia-desktop",
+  "name": "patentreader-desktop",
   "private": true,
   "version": "1.0.0",
-  "description": "Patentia · 专利知识库桌面端——quartz 静态站 + Electron 本地 http 托管（纯离线）",
+  "description": "PatentReader · 专利知识库桌面端——quartz 静态站 + Electron 本地 http 托管（纯离线）",
   "author": "张京京",
   "main": "main.cjs",
   "scripts": {
@@ -16,8 +16,8 @@
     "electron-builder": "^26.15.3"
   },
   "build": {
-    "appId": "com.patentkb.quartz",
-    "productName": "Patentia",
+    "appId": "com.patentreader.app",
+    "productName": "PatentReader",
     "directories": {
       "output": "release"
     },
@@ -77,9 +77,9 @@
       "oneClick": false,
       "perMachine": false,
       "allowToChangeInstallationDirectory": true,
-      "shortcutName": "Patentia",
-      "uninstallDisplayName": "Patentia",
-      "artifactName": "Patentia-Setup-${version}.${ext}"
+      "shortcutName": "PatentReader",
+      "uninstallDisplayName": "PatentReader",
+      "artifactName": "PatentReader-Setup-${version}.${ext}"
     }
   }
 }

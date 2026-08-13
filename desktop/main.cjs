@@ -1,4 +1,4 @@
-// Patentia 桌面端 · Electron 主进程（以 site/electron/main.cjs 为底改造）。
+// PatentReader 桌面端 · Electron 主进程（以 site/electron/main.cjs 为底改造）。
 //   渲染层是 quartz 构建好的纯静态站（quartz-kb/public/），由 server.cjs 的本地
 //   http 静态服务在 127.0.0.1 固定端口 47821 托管后加载——避免 file:// 协议下
 //   fetch contentIndex.json 等资源被安全策略拦截。
@@ -24,6 +24,18 @@ const DIST = app.isPackaged
 // 逃生口：端口长期被占时可改用其它端口启动（注意换端口后旧批注不可见，
 // 需先在旧端口下导出 JSON 再于新端口导入）
 const PORT = Number(process.env.PATENT_KB_PORT) || DEFAULT_PORT;
+
+// ── userData 目录固定 ────────────────────────────────────────────────
+// Electron 的 userData 默认解析为 appData/<app.name>，而 app.name 取自
+// package.json 的 name——品牌改名会连带把用户目录换成一个空目录。窗口底色
+// （window-state.json）与页面侧的批注/主题/批注目录（localStorage 下的
+// kb-* 键）全部存在这里，漂一次就等于用户数据全丢。历史上已因此漂过两次
+// （patent-kb-desktop → patentia-desktop）。
+// 故显式钉死为 patent-kb-desktop——与 server.cjs 的健康协议标识、批注导出的
+// EXPORT_FORMAT 同族的稳定内部标识，不随产品显示名变动。
+// 必须在 app ready 之前、且早于任何 getPath('userData')（含单实例锁自身的
+// 锁文件）执行。
+app.setPath('userData', path.join(app.getPath('appData'), 'patent-kb-desktop'));
 
 // 单实例锁：从根上避免"自己占自己的端口"这一最常见的冲突来源。
 // 顶层 return 终止模块执行（CommonJS 模块体被包装成函数，此处合法且必要）——
@@ -67,8 +79,9 @@ async function resolvePortConflict(err) {
 // 原生窗口背景色是「网页首帧渲染出来之前」和「关窗合成间隙」用户唯一看得见的颜色。
 // 曾硬编码为浅色，深色主题下关窗那一瞬会露出白底（白闪）。因此：渲染层每次主题/风格
 // 变化都把当前实际底色报上来，主进程即时改窗口底色并落盘，下次冷启动直接用对的颜色建窗。
-// 路径惰性解析：app.getPath('userData') 依赖 app.name，模块加载期取值存在拿到
-// 默认名目录（.../Electron）的风险；本文件所有调用点都在 app ready 之后。
+// 路径惰性解析：userData 已在文件顶部显式钉死，不再随 app.name（package.json 的
+// name）漂移；此处仍写成函数而非模块级常量，以保持取值时机在 app ready 之后，
+// 不对 Electron 内部的路径解析时机做任何假设。
 const windowStateFile = () => path.join(app.getPath('userData'), 'window-state.json');
 // 回落值 = 默认主题「宣纸」的亮/暗底色（与 quartz-kb 的 [data-style="xuanzhi"] 保持一致）
 const DEFAULT_BG = { light: '#feefe5', dark: '#201c16' };
@@ -133,7 +146,7 @@ async function createWindow() {
     backgroundColor: nativeTheme.shouldUseDarkColors ? byScheme.dark : byScheme.light,
     // 首帧渲染完成前不显示：即便底色已持久化，仍要避免空窗口先亮一下再上内容
     show: false,
-    title: 'Patentia',
+    title: 'PatentReader',
     autoHideMenuBar: true,
     // 仅 macOS 启用自绘标题条：Windows 上 hiddenInset 会退化为 hidden，且未配合
     // titleBarOverlay 时窗口控制按钮（最小化/最大化/关闭）会消失，必须平台门控
@@ -148,7 +161,7 @@ async function createWindow() {
     },
   });
   // SPA 每次导航都会改 document.title，不拦截会让调度中心/窗口菜单标题随页面漂移；
-  // 窗口标题固定为构造时的 Patentia（与 productName 一致）
+  // 窗口标题固定为构造时的 PatentReader（与 productName 一致）
   win.on('page-title-updated', (e) => { e.preventDefault(); });
   win.setMenuBarVisibility(false);
   win.once('ready-to-show', () => win.show());
