@@ -12,8 +12,9 @@ import { SETTINGS_SLUG } from "../util/appPages"
  * （返回钮 + 「设置」大标题）与三分区平铺已删除——设置页沉浸布局本就隐掉了面包屑
  * 与页头三件，再挂一个大标题只是重复且扎眼；分区改由抽屉分类切换，不再一屏平铺。
  *
- * 三个分类：外观（主题模式 + 界面主题）· 批注（标记批注保存位置）·
- * 关于（应用信息与联系方式两卡并排 + 图谱与专利库使用说明）。
+ * 四个分类：外观（主题模式 + 界面主题）· 批注（标记批注保存位置）·
+ * MCP（接入 AI 助手的命令，按本机真实路径生成）·
+ * 关于（应用信息与检查更新、联系方式两卡并排 + 图谱与专利库使用说明）。
  * 服务端直出即以「外观」为激活态（分类钮与面板各带 is-active、aria-selected="true"），
  * 故首帧无闪跳、无 JS 时亦有正确初态。
  *
@@ -93,6 +94,15 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
             data-pane="anno"
           >
             批注
+          </button>
+          <button
+            class="kb-settings-cat"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-pane="mcp"
+          >
+            MCP
           </button>
           <button
             class="kb-settings-cat"
@@ -190,6 +200,97 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
                 批注管理
               </button>
             </div>
+          </section>
+        </section>
+
+        {/*
+          「MCP」面板：安装包内附一份打包好的 MCP 服务（Resources/mcp/server.mjs），
+          接上之后 Claude Code、Codex 等 agent 就能直接检索这七部法规。
+          命令里的两处路径由 settings.inline.ts 从主进程取真实值填入——打包与开发两种
+          形态、mac 与 Windows 两种平台，路径各不相同，在静态页里写死必错其三。
+
+          两块内容互斥显示：服务可用时展示命令区（摘 data-mcp-block 的 hidden 并给
+          data-mcp-fallback 补上 hidden），否则维持 SSR 初态——即只显示降级说明。
+          这样 Web 形态与老安装包看到的是「此功能需桌面端」，而非一片空白或一条配不通的命令。
+        */}
+        <section class="kb-settings-pane" data-pane-id="mcp">
+          <section class="kb-settings-sec kb-mcp" data-mcp-block hidden>
+            <h2>接入 AI 助手</h2>
+            <p class="kb-settings-desc">
+              本应用内附一个 MCP 服务，接上之后，Claude Code、Codex 等支持 MCP 的 AI
+              工具就能直接在这七部法规里检索、读原文、查术语、按条号溯源——不必再手动翻阅。
+              复制下面对应的命令执行一次即可，无须另装 Node，也无须下载任何东西。
+            </p>
+
+            <div class="kb-mcp-cmds">
+              <div class="kb-mcp-cmd">
+                <div class="kb-mcp-cmd-head">
+                  <span class="kb-mcp-cmd-name">Claude Code</span>
+                  <button type="button" data-setting="copyMcp" data-mcp-target="claude">
+                    复制命令
+                  </button>
+                </div>
+                <code class="kb-mcp-code" data-mcp-cmd="claude"></code>
+                <p class="kb-mcp-hint">
+                  粘进终端执行一次即可，之后在会话里用 /mcp 可查看连接状态。
+                </p>
+              </div>
+
+              <div class="kb-mcp-cmd">
+                <div class="kb-mcp-cmd-head">
+                  <span class="kb-mcp-cmd-name">Codex CLI</span>
+                  <button type="button" data-setting="copyMcp" data-mcp-target="codex">
+                    复制配置
+                  </button>
+                </div>
+                <code class="kb-mcp-code" data-mcp-cmd="codex"></code>
+                <p class="kb-mcp-hint">
+                  粘贴进 <code>~/.codex/config.toml</code>。其他支持 MCP 的工具（如腾讯
+                  WorkBuddy）在其 MCP 管理界面按同样的命令与参数填写即可。
+                </p>
+              </div>
+            </div>
+
+            <h3>可用的七个工具</h3>
+            <ul>
+              <li>
+                <strong>search_kb</strong> ——
+                全文检索，返回命中页面的标题、所属书目、层级路径与命中片段
+              </li>
+              <li>
+                <strong>read_node</strong> —— 按节点读取正文原文，长文自动分页续读
+              </li>
+              <li>
+                <strong>browse_toc</strong> —— 按层级浏览目录树
+              </li>
+              <li>
+                <strong>lookup_term</strong> —— 查术语：释义、在各书中的出处、关联法条与相关术语
+              </li>
+              <li>
+                <strong>find_law</strong> —— 按条号直达法条原文，并列出引用该条的全部章节
+              </li>
+              <li>
+                <strong>related_nodes</strong> —— 取知识图谱关联，按边类型分组
+              </li>
+              <li>
+                <strong>list_books</strong> —— 内容清单与规模
+              </li>
+            </ul>
+            <p class="kb-mcp-note">
+              该服务同样离线运行：它与 AI
+              工具之间走进程管道，不开端口、不发网络请求，检索全部在本机完成。 服务文件位于{" "}
+              <code class="kb-mcp-path" data-mcp-path></code>。
+            </p>
+          </section>
+
+          <section class="kb-settings-sec" data-mcp-fallback>
+            <h2>接入 AI 助手</h2>
+            <p class="kb-settings-desc">
+              桌面端内附一个 MCP 服务，接上之后，Claude Code、Codex 等支持 MCP 的 AI
+              工具就能直接在这七部法规里检索、读原文、查术语、按条号溯源。
+              接入命令会按你这台电脑的实际路径生成，届时一键复制即可。
+            </p>
+            <p class="kb-settings-desc">当前环境未检测到该服务，请在桌面端应用中打开本页。</p>
           </section>
         </section>
 
@@ -330,80 +431,6 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
               </details>
             </section>
           </div>
-
-          {/*
-            MCP 接入：安装包内附一份打包好的 MCP 服务（Resources/mcp/server.mjs），
-            接上之后 Claude Code、Codex 等 agent 就能直接检索这七部法规。
-            命令里的两处路径由 settings.inline.ts 从主进程取真实值填入——打包与开发两种
-            形态、mac 与 Windows 两种平台，路径各不相同，在静态页里写死必错其三。
-            hidden 在确认服务文件确实存在后才摘除：老安装包没有这份资源，与其给出
-            一条配不通的命令，不如整节不显示。
-          */}
-          <section class="kb-settings-sec kb-mcp" data-mcp-block hidden>
-            <h2>接入 AI 助手（MCP）</h2>
-            <p class="kb-settings-desc">
-              本应用内附一个 MCP 服务，接上之后，Claude Code、Codex 等支持 MCP 的 AI
-              工具就能直接在这七部法规里检索、读原文、查术语、按条号溯源——不必再手动翻阅。
-              复制下面对应的命令执行一次即可，无须另装 Node，也无须下载任何东西。
-            </p>
-
-            <div class="kb-mcp-cmds">
-              <div class="kb-mcp-cmd">
-                <div class="kb-mcp-cmd-head">
-                  <span class="kb-mcp-cmd-name">Claude Code</span>
-                  <button type="button" data-setting="copyMcp" data-mcp-target="claude">
-                    复制命令
-                  </button>
-                </div>
-                <code class="kb-mcp-code" data-mcp-cmd="claude"></code>
-              </div>
-
-              <div class="kb-mcp-cmd">
-                <div class="kb-mcp-cmd-head">
-                  <span class="kb-mcp-cmd-name">Codex CLI</span>
-                  <button type="button" data-setting="copyMcp" data-mcp-target="codex">
-                    复制配置
-                  </button>
-                </div>
-                <code class="kb-mcp-code" data-mcp-cmd="codex"></code>
-                <p class="kb-mcp-hint">
-                  粘贴进 <code>~/.codex/config.toml</code>。其他支持 MCP 的工具（如腾讯
-                  WorkBuddy）在其 MCP 管理界面按同样的命令与参数填写即可。
-                </p>
-              </div>
-            </div>
-
-            <h3>可用的七个工具</h3>
-            <ul>
-              <li>
-                <strong>search_kb</strong> ——
-                全文检索，返回命中页面的标题、所属书目、层级路径与命中片段
-              </li>
-              <li>
-                <strong>read_node</strong> —— 按节点读取正文原文，长文自动分页续读
-              </li>
-              <li>
-                <strong>browse_toc</strong> —— 按层级浏览目录树
-              </li>
-              <li>
-                <strong>lookup_term</strong> —— 查术语：释义、在各书中的出处、关联法条与相关术语
-              </li>
-              <li>
-                <strong>find_law</strong> —— 按条号直达法条原文，并列出引用该条的全部章节
-              </li>
-              <li>
-                <strong>related_nodes</strong> —— 取知识图谱关联，按边类型分组
-              </li>
-              <li>
-                <strong>list_books</strong> —— 内容清单与规模
-              </li>
-            </ul>
-            <p class="kb-mcp-note">
-              该服务同样离线运行：它与 AI
-              工具之间走进程管道，不开端口、不发网络请求，检索全部在本机完成。 服务文件位于{" "}
-              <code class="kb-mcp-path" data-mcp-path></code>。
-            </p>
-          </section>
 
           <section class="kb-settings-sec">
             <h2>图谱总览使用说明</h2>

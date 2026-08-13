@@ -550,6 +550,7 @@ async function initMcpPanel(page: HTMLElement): Promise<void> {
   if (!block) {
     return
   }
+  const fallback = page.querySelector<HTMLElement>("[data-mcp-fallback]")
   const bridge = desktopBridge()
   if (!bridge?.getMcpInfo) {
     return
@@ -569,9 +570,11 @@ async function initMcpPanel(page: HTMLElement): Promise<void> {
     if (pathEl) {
       pathEl.textContent = info.serverPath
     }
+    // 命令区与降级说明互斥：两者同时可见会让人以为服务既可用又不可用
     block.removeAttribute("hidden")
+    fallback?.setAttribute("hidden", "")
   } catch {
-    // 保持 hidden
+    // 维持 SSR 初态：命令区隐藏、降级说明可见
   }
 }
 

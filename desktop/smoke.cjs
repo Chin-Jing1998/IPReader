@@ -449,7 +449,7 @@ async function main() {
   );
   await shot(win, "全局偏移");
 
-  // 16. 设置页沉浸 + 抽屉双栏（左右栏隐藏、占位正文让位、抽屉/返回钮/三 pane/六卡在场）
+  // 16. 设置页沉浸 + 抽屉双栏（左右栏隐藏、占位正文让位、抽屉/返回钮/四 pane/六卡在场）
   //     v11：旧断言里的 .kb-settings-title 已随抽屉改造删除（返回入口移入抽屉首行），
   //     改断言抽屉本体与两个面板，并把「占位正文让位」的探针换成真实存在的那一层——
   //     设置页由 FolderPage 渲染，正文结构是 .center > .popover-hint > article，
@@ -483,7 +483,7 @@ async function main() {
      })()`,
   );
   record(
-    "设置页沉浸 + 抽屉双栏（双栏隐藏 + 占位正文让位 + 抽屉/返回钮/三 pane/六卡）",
+    "设置页沉浸 + 抽屉双栏（双栏隐藏 + 占位正文让位 + 抽屉/返回钮/四 pane/六卡）",
     immersiveProbe.leftHidden &&
       immersiveProbe.rightHidden &&
       immersiveProbe.hasArticle &&
@@ -491,10 +491,11 @@ async function main() {
       immersiveProbe.hasDrawer &&
       immersiveProbe.hasBack &&
       !immersiveProbe.hasTitle &&
-      immersiveProbe.paneCount === 3 &&
+      // v9 起为四分类：外观 / 批注 / MCP / 关于
+      immersiveProbe.paneCount === 4 &&
       immersiveProbe.activePane === "appearance" &&
       immersiveProbe.cardCount === 6 &&
-      immersiveProbe.catCount === 3 &&
+      immersiveProbe.catCount === 4 &&
       immersiveProbe.aboutMail === "mailto:zhangjingjing962464@gmail.com",
     `left隐=${immersiveProbe.leftHidden}, right隐=${immersiveProbe.rightHidden}, ` +
       `占位正文在场=${immersiveProbe.hasArticle}/已隐=${immersiveProbe.articleHidden}, ` +
@@ -592,6 +593,7 @@ async function main() {
        const anno = () => q('.kb-settings-pane[data-pane-id="anno"]');
        const appearance = () => q('.kb-settings-pane[data-pane-id="appearance"]');
        const about = () => q('.kb-settings-pane[data-pane-id="about"]');
+       const mcp = () => q('.kb-settings-pane[data-pane-id="mcp"]');
        q('.kb-settings-cat[data-pane="anno"]').click();
        const afterAnno = {
          annoActive: anno().classList.contains('is-active'),
@@ -599,12 +601,21 @@ async function main() {
          appearanceHidden: appearance().offsetParent === null,
          catAria: q('.kb-settings-cat[data-pane="anno"]').getAttribute('aria-selected'),
        };
+       q('.kb-settings-cat[data-pane="mcp"]').click();
+       const afterMcp = {
+         mcpActive: mcp().classList.contains('is-active'),
+         mcpVisible: mcp().offsetParent !== null,
+         annoHidden: anno().offsetParent === null,
+         aboutHidden: about().offsetParent === null,
+         catAria: q('.kb-settings-cat[data-pane="mcp"]').getAttribute('aria-selected'),
+       };
        q('.kb-settings-cat[data-pane="about"]').click();
        const afterAbout = {
          aboutActive: about().classList.contains('is-active'),
          aboutVisible: about().offsetParent !== null,
          annoHidden: anno().offsetParent === null,
          appearanceHidden: appearance().offsetParent === null,
+         mcpHidden: mcp().offsetParent === null,
          catAria: q('.kb-settings-cat[data-pane="about"]').getAttribute('aria-selected'),
        };
        q('.kb-settings-cat[data-pane="appearance"]').click();
@@ -613,32 +624,44 @@ async function main() {
          appearanceVisible: appearance().offsetParent !== null,
          annoHidden: anno().offsetParent === null,
          aboutHidden: about().offsetParent === null,
+         mcpHidden: mcp().offsetParent === null,
        };
-       return { afterAnno, afterAbout, restored };
+       return { afterAnno, afterMcp, afterAbout, restored };
      })()`,
   );
   record(
-    "设置页抽屉切换（切「批注」→「关于」三分类互斥 + 切回「外观」复原）",
+    "设置页抽屉切换（切「批注」→「MCP」→「关于」四分类互斥 + 切回「外观」复原）",
     drawerProbe.afterAnno.annoActive &&
       drawerProbe.afterAnno.annoVisible &&
       drawerProbe.afterAnno.appearanceHidden &&
       drawerProbe.afterAnno.catAria === "true" &&
+      drawerProbe.afterMcp.mcpActive &&
+      drawerProbe.afterMcp.mcpVisible &&
+      drawerProbe.afterMcp.annoHidden &&
+      drawerProbe.afterMcp.aboutHidden &&
+      drawerProbe.afterMcp.catAria === "true" &&
       drawerProbe.afterAbout.aboutActive &&
       drawerProbe.afterAbout.aboutVisible &&
       drawerProbe.afterAbout.annoHidden &&
       drawerProbe.afterAbout.appearanceHidden &&
+      drawerProbe.afterAbout.mcpHidden &&
       drawerProbe.afterAbout.catAria === "true" &&
       drawerProbe.restored.appearanceActive &&
       drawerProbe.restored.appearanceVisible &&
       drawerProbe.restored.annoHidden &&
-      drawerProbe.restored.aboutHidden,
+      drawerProbe.restored.aboutHidden &&
+      drawerProbe.restored.mcpHidden,
     `切批注：anno激活=${drawerProbe.afterAnno.annoActive}/可见=${drawerProbe.afterAnno.annoVisible}, ` +
       `appearance隐=${drawerProbe.afterAnno.appearanceHidden}, aria-selected=${drawerProbe.afterAnno.catAria}；` +
+      `切MCP：mcp激活=${drawerProbe.afterMcp.mcpActive}/可见=${drawerProbe.afterMcp.mcpVisible}, ` +
+      `anno隐=${drawerProbe.afterMcp.annoHidden}, about隐=${drawerProbe.afterMcp.aboutHidden}, ` +
+      `aria-selected=${drawerProbe.afterMcp.catAria}；` +
       `切关于：about激活=${drawerProbe.afterAbout.aboutActive}/可见=${drawerProbe.afterAbout.aboutVisible}, ` +
       `anno隐=${drawerProbe.afterAbout.annoHidden}, appearance隐=${drawerProbe.afterAbout.appearanceHidden}, ` +
-      `aria-selected=${drawerProbe.afterAbout.catAria}；` +
+      `mcp隐=${drawerProbe.afterAbout.mcpHidden}, aria-selected=${drawerProbe.afterAbout.catAria}；` +
       `切回：appearance激活=${drawerProbe.restored.appearanceActive}/可见=${drawerProbe.restored.appearanceVisible}, ` +
-      `anno隐=${drawerProbe.restored.annoHidden}, about隐=${drawerProbe.restored.aboutHidden}`,
+      `anno隐=${drawerProbe.restored.annoHidden}, about隐=${drawerProbe.restored.aboutHidden}, ` +
+      `mcp隐=${drawerProbe.restored.mcpHidden}`,
   );
   await shot(win, "设置页抽屉-批注pane");
 
@@ -1159,11 +1182,12 @@ async function main() {
   );
   await shot(win, "更新检查默认姿态");
 
-  // 26. MCP 接入说明（v9）
-  //     区块须在确认服务文件存在后显示，两条命令按本机真实路径拼装（此处为桩值），
-  //     复制钮把命令原样送进系统剪贴板。断言比对剪贴板内容，链路端到端。
+  // 26. MCP 接入说明（v9，独立分类「MCP」，位于「关于」之上）
+  //     区块须在确认服务文件存在后显示、降级说明同时隐去，两条命令按本机真实路径
+  //     拼装（此处为桩值），复制钮把命令原样送进系统剪贴板。断言比对剪贴板内容，
+  //     链路端到端。
   await win.webContents.executeJavaScript(
-    `document.querySelector('.kb-settings-cat[data-pane="about"]').click()`,
+    `document.querySelector('.kb-settings-cat[data-pane="mcp"]').click()`,
   );
   await sleep(700);
   clipboard.writeText("__smoke_before__");
@@ -1174,10 +1198,13 @@ async function main() {
   const mcpProbe = await win.webContents.executeJavaScript(
     `(() => {
        const b = document.querySelector('[data-mcp-block]');
+       const fb = document.querySelector('[data-mcp-fallback]');
        const btn = b && b.querySelector('[data-setting="copyMcp"][data-mcp-target="claude"]');
        return {
          visible: !!b && b.offsetParent !== null,
          hiddenRemoved: !!b && !b.hasAttribute('hidden'),
+         fallbackHidden: !!fb && fb.hasAttribute('hidden'),
+         inOwnPane: !!b && b.closest('.kb-settings-pane').dataset.paneId === 'mcp',
          claude: (b && b.querySelector('[data-mcp-cmd="claude"]') || {}).textContent || '',
          codex: (b && b.querySelector('[data-mcp-cmd="codex"]') || {}).textContent || '',
          path: (b && b.querySelector('[data-mcp-path]') || {}).textContent || '',
@@ -1188,9 +1215,11 @@ async function main() {
   );
   const clip = clipboard.readText();
   record(
-    "MCP 接入说明（区块显示 + 命令按真实路径拼装 + 复制入剪贴板）",
+    "MCP 独立分类（区块显示于 mcp 面板 + 降级说明隐去 + 命令按真实路径拼装 + 复制入剪贴板）",
     mcpProbe.visible &&
       mcpProbe.hiddenRemoved &&
+      mcpProbe.inOwnPane &&
+      mcpProbe.fallbackHidden &&
       mcpProbe.claude.includes(MCP_STUB.serverPath) &&
       mcpProbe.claude.includes("ELECTRON_RUN_AS_NODE=1") &&
       mcpProbe.codex.includes("[mcp_servers.patentreader]") &&
@@ -1200,6 +1229,7 @@ async function main() {
       clip === mcpProbe.claude &&
       mcpProbe.copyLabel === "已复制",
     `可见=${mcpProbe.visible}, hidden已摘=${mcpProbe.hiddenRemoved}, ` +
+      `位于 mcp 面板=${mcpProbe.inOwnPane}, 降级说明已隐=${mcpProbe.fallbackHidden}, ` +
       `claude 命令含服务路径=${mcpProbe.claude.includes(MCP_STUB.serverPath)}, ` +
       `codex 含表头=${mcpProbe.codex.includes("[mcp_servers.patentreader]")}, ` +
       `路径行=${mcpProbe.path}, 工具条目=${mcpProbe.toolCount}, ` +
