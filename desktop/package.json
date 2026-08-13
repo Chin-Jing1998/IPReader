@@ -25,6 +25,7 @@
       "main.cjs",
       "preload.cjs",
       "server.cjs",
+      "updater.cjs",
       "!**/.DS_Store"
     ],
     "extraResources": [
