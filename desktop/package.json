@@ -68,8 +68,9 @@
       ],
       "category": "public.app-category.education",
       "darkModeSupport": true,
+      "hardenedRuntime": false,
       "icon": "build/icon.png",
-      "identity": null
+      "identity": "-"
     },
     "win": {
       "target": [

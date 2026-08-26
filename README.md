@@ -112,7 +112,11 @@ IPReader 面向需要长期查阅知识产权规范文件的专利代理师、�
 1. 打开 [Releases](https://github.com/Chin-Jing1998/IPReader/releases) 页面，下载与系统架构匹配的安装包。
 2. macOS：打开 `.dmg`，将 `IPReader.app` 拖入「应用程序」文件夹。
 3. Windows：运行 `IPReader-Setup-*.exe`，按安装向导完成安装。
-4. 首次启动时应用未做代码签名：macOS 按系统提示在「隐私与安全性」中允许运行；Windows 在 SmartScreen 中选择「更多信息 → 仍要运行」。
+4. macOS 发布包未使用 Apple Developer ID 证书签名，也未进行公证。首次启动若提示“应用已损坏”或无法验证开发者，请先确认安装包来自本项目 Release，再在终端执行：
+   ```bash
+   xattr -dr com.apple.quarantine /Applications/IPReader.app
+   ```
+   然后重新打开应用；也可以在 Finder 中按住 Control 点击应用，选择「打开」，并在「系统设置 → 隐私与安全性」中允许。Windows 若出现 SmartScreen 提示，选择「更多信息 → 仍要运行」。
 
 ### 本地运行
 
