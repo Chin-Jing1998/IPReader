@@ -1,98 +1,99 @@
 {
   "_说明": "原文附图索引：images 为正文实际引用并已复制入 assets/book-images/<domain>/ 的附图（build-quartz-md.mjs 据此嵌入文档站）；orphans 为源目录中从未被正文引用的孤儿图（未复制）。",
-  "generatedAt": "2026-08-08T02:35:42.109Z",
+  "generatedAt": "2026-08-24T06:43:17.128Z",
   "counts": {
-    "images": 88,
-    "orphans": 10,
+    "images": 101,
+    "orphans": 11,
     "byDomain": {
-      "examination-guideline-2025": 12,
+      "examination-guideline": 12,
       "mechanical-drafting-rules": 65,
-      "chemistry-drafting-rules": 11
+      "chemistry-drafting-rules": 11,
+      "quality-evaluation": 13
     }
   },
   "images": [
     {
       "file": "image_1.png",
-      "domain": "examination-guideline-2025",
+      "domain": "examination-guideline",
       "nodeId": "02-10-06-01",
-      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-06-01.md",
+      "page": "3-专利审查指南/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-06-01.md",
       "bytes": 14730
     },
     {
       "file": "image_2.png",
-      "domain": "examination-guideline-2025",
+      "domain": "examination-guideline",
       "nodeId": "02-10-06-01",
-      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-06-01.md",
+      "page": "3-专利审查指南/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-06-01.md",
       "bytes": 15874
     },
     {
       "file": "image_3.png",
-      "domain": "examination-guideline-2025",
+      "domain": "examination-guideline",
       "nodeId": "02-10-06-01",
-      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-06-01.md",
+      "page": "3-专利审查指南/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-06-01.md",
       "bytes": 25770
     },
     {
       "file": "image_4.png",
-      "domain": "examination-guideline-2025",
+      "domain": "examination-guideline",
       "nodeId": "02-10-06-01",
-      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-06-01.md",
+      "page": "3-专利审查指南/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-06-01.md",
       "bytes": 24294
     },
     {
       "file": "image_5.png",
-      "domain": "examination-guideline-2025",
+      "domain": "examination-guideline",
       "nodeId": "02-10-06-01",
-      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-06-01.md",
+      "page": "3-专利审查指南/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-06-01.md",
       "bytes": 26042
     },
     {
       "file": "image_6.png",
-      "domain": "examination-guideline-2025",
+      "domain": "examination-guideline",
       "nodeId": "02-10-06-01",
-      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-06-01.md",
+      "page": "3-专利审查指南/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-06-01.md",
       "bytes": 26866
     },
     {
       "file": "image_7.png",
-      "domain": "examination-guideline-2025",
+      "domain": "examination-guideline",
       "nodeId": "02-10-08-01",
-      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-08-01.md",
+      "page": "3-专利审查指南/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-08-01.md",
       "bytes": 6322
     },
     {
       "file": "image_8.png",
-      "domain": "examination-guideline-2025",
+      "domain": "examination-guideline",
       "nodeId": "02-10-08-01",
-      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-08-01.md",
+      "page": "3-专利审查指南/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-08-01.md",
       "bytes": 12795
     },
     {
       "file": "image_9.png",
-      "domain": "examination-guideline-2025",
+      "domain": "examination-guideline",
       "nodeId": "02-10-08-01",
-      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-08-01.md",
+      "page": "3-专利审查指南/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-08-01.md",
       "bytes": 8665
     },
     {
       "file": "image_10.png",
-      "domain": "examination-guideline-2025",
+      "domain": "examination-guideline",
       "nodeId": "02-10-08-01",
-      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-08-01.md",
+      "page": "3-专利审查指南/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-08-01.md",
       "bytes": 5073
     },
     {
       "file": "image_11.png",
-      "domain": "examination-guideline-2025",
+      "domain": "examination-guideline",
       "nodeId": "02-10-08-02",
-      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-08-02.md",
+      "page": "3-专利审查指南/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-08-02.md",
       "bytes": 9683
     },
     {
       "file": "image_12.png",
-      "domain": "examination-guideline-2025",
+      "domain": "examination-guideline",
       "nodeId": "02-10-08-02",
-      "page": "3-专利审查指南2025/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-08-02.md",
+      "page": "3-专利审查指南/2-实质审查/10-关于化学领域发明专利申请审查的若干规定/02-10-08-02.md",
       "bytes": 12888
     },
     {
@@ -626,6 +627,97 @@
       "nodeId": "chem-02-02",
       "page": "6-化学撰写规范/2-撰写示例及分析/chem-02-02.md",
       "bytes": 178792
+    },
+    {
+      "file": "b3488ab50b958732f6782faff7d6d3d6.jpeg",
+      "domain": "quality-evaluation",
+      "nodeId": "qeval-03-09",
+      "page": "91-专利质量评价指南/3-附图表达与布置/qeval-03-09.md",
+      "bytes": 22944
+    },
+    {
+      "file": "c5e7b8c69103f4ef3cc869e1529eb01d.jpeg",
+      "domain": "quality-evaluation",
+      "nodeId": "qeval-03-14",
+      "page": "91-专利质量评价指南/3-附图表达与布置/qeval-03-14.md",
+      "bytes": 49216
+    },
+    {
+      "file": "ea5e050b1f25356dfcf1040a258fc504.jpeg",
+      "domain": "quality-evaluation",
+      "nodeId": "qeval-03-14",
+      "page": "91-专利质量评价指南/3-附图表达与布置/qeval-03-14.md",
+      "bytes": 65173
+    },
+    {
+      "file": "de854d0985b276213cb372555e1ec4b2.jpeg",
+      "domain": "quality-evaluation",
+      "nodeId": "qeval-03-14",
+      "page": "91-专利质量评价指南/3-附图表达与布置/qeval-03-14.md",
+      "bytes": 59294
+    },
+    {
+      "file": "703d5ccde62b6204fab1a110d36ac692.jpeg",
+      "domain": "quality-evaluation",
+      "nodeId": "qeval-03-20",
+      "page": "91-专利质量评价指南/3-附图表达与布置/qeval-03-20.md",
+      "bytes": 95471
+    },
+    {
+      "file": "6b3e3d25e17e40efef76aa81470a3c99.jpeg",
+      "domain": "quality-evaluation",
+      "nodeId": "qeval-03-20",
+      "page": "91-专利质量评价指南/3-附图表达与布置/qeval-03-20.md",
+      "bytes": 42298
+    },
+    {
+      "file": "2cd06ba191f3e3019ea87c049a2a9734.jpeg",
+      "domain": "quality-evaluation",
+      "nodeId": "qeval-03-20",
+      "page": "91-专利质量评价指南/3-附图表达与布置/qeval-03-20.md",
+      "bytes": 68759
+    },
+    {
+      "file": "4a524d7bb70f3f4fd36861f822d1dab0.jpeg",
+      "domain": "quality-evaluation",
+      "nodeId": "qeval-04-03",
+      "page": "91-专利质量评价指南/4-附图线、标记线、附图标记/qeval-04-03.md",
+      "bytes": 35045
+    },
+    {
+      "file": "5617eb41ad00b363b72664c78c9e2200.jpeg",
+      "domain": "quality-evaluation",
+      "nodeId": "qeval-04-03",
+      "page": "91-专利质量评价指南/4-附图线、标记线、附图标记/qeval-04-03.md",
+      "bytes": 25745
+    },
+    {
+      "file": "0f22bf9212d99f3ac097a9fee26cc1f7.jpeg",
+      "domain": "quality-evaluation",
+      "nodeId": "qeval-04-04",
+      "page": "91-专利质量评价指南/4-附图线、标记线、附图标记/qeval-04-04.md",
+      "bytes": 71736
+    },
+    {
+      "file": "6b7e85ed3d3b13fc3185bf5fb1273750.jpeg",
+      "domain": "quality-evaluation",
+      "nodeId": "qeval-06-15",
+      "page": "91-专利质量评价指南/6-独立权利要求/qeval-06-15.md",
+      "bytes": 35288
+    },
+    {
+      "file": "15dba785e6e8710a33abf7a6fd889787.png",
+      "domain": "quality-evaluation",
+      "nodeId": "qeval-07-18",
+      "page": "91-专利质量评价指南/7-整体权利要求/qeval-07-18.md",
+      "bytes": 342099
+    },
+    {
+      "file": "09e55032e34c0b07c875d801222f286b.jpeg",
+      "domain": "quality-evaluation",
+      "nodeId": "qeval-12-02",
+      "page": "91-专利质量评价指南/12-发明实用新型内容/qeval-12-02.md",
+      "bytes": 93112
     }
   ],
   "orphans": [
@@ -678,6 +770,11 @@
       "file": "d7fb5d6f702fd59c86c54672957a5a7e668e23c84f1c77f3cdf225a19af1a0d9.jpg",
       "domain": "chemistry-drafting-rules",
       "bytes": 48500
+    },
+    {
+      "file": "49b5309cb5e48192524b6f13cbc0abc9.jpeg",
+      "domain": "quality-evaluation",
+      "bytes": 45750
     }
   ]
 }

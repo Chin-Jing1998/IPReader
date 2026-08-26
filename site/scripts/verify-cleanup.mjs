@@ -79,7 +79,8 @@ function litNew(id) {
   return { strong, soft, total: new Set([...strong, ...soft]) };
 }
 
-const dcn = (d) => ({ 'examination-guideline-2025': '审查指南', 'patent-law': '专利法', 'implementation-rules': '实施细则', 'infringement-guide': '侵权判定', 'mechanical-drafting-rules': '机械撰写', 'chemistry-drafting-rules': '化学撰写', 'oa-response-guide': '答复指引' }[d] || d);
+// ⚠ 2026-08-23 修复：旧键 'examination-guideline-2025' 随域改名同步为 'examination-guideline'；补登此前未登记的 trademark-exam-guide-2021。
+const dcn = (d) => ({ 'examination-guideline': '审查指南', 'patent-law': '专利法', 'implementation-rules': '实施细则', 'infringement-guide': '侵权判定', 'mechanical-drafting-rules': '机械撰写', 'chemistry-drafting-rules': '化学撰写', 'oa-response-guide': '答复指引', 'trademark-exam-guide-2021': '商标审查指南' }[d] || d);
 const cross = (id, set) => { const dom = NEW.byId.get(id)?.domain || OLD.byId.get(id)?.domain; let c = 0; for (const x of set) { const d = (NEW.byId.get(x) || OLD.byId.get(x))?.domain; if (d !== dom) c++; } return c; };
 
 const samples = ['02-08-04', '02-09-06', '01-01-06', '06-02-06', 'infr-02-03', 'law-03-08', '02-01-02-01'];

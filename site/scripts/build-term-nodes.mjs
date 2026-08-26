@@ -24,7 +24,10 @@ const D = join(__dirname, '..', 'data');
 
 const DF_MAX = 159; // ≈ 25% × 636 切片：df 超过即视为全库泛词，不建节点
 const ALLOW_TIERS = new Set(['seed', 'high', 'mid']);
-const DEFAULT_CAP = 1000; // 原计划 800，因审校后 keep 数偏高放宽到 1000；超过必须失败
+// 原计划 800，因审校后 keep 数偏高放宽到 1000；
+// 2026-08-23 阶段5波C：商标审查审理指南 24 万字语料入索引，851→约 1034 词，
+//   上限随语料规模一次性上调 1000→1200（merge-terms.mjs 的 TOTAL_MAX 同步）。超过必须失败。
+const DEFAULT_CAP = 1200;
 const CAP = Number(process.env.TERM_NODE_CAP) > 0 ? Number(process.env.TERM_NODE_CAP) : DEFAULT_CAP;
 const ID_PREFIX = 'term-';
 const ID_PAD = 4;

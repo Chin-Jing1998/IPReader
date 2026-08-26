@@ -75,6 +75,23 @@ ipcMain.handle("apply-theme-source", (_event, payload) => {
   return { dark: nativeTheme.shouldUseDarkColors };
 });
 
+// —— MCP 信息 IPC 桩：与 smoke.cjs 的 MCP_STUB 同构，路径取值相反 ——
+// 桩本身是必需的：本脚本不加载 main.cjs，真 handler 缺席时 initMcpPanel 的 invoke 直接
+// reject，[data-mcp-block] 保持 hidden，第 10 张只会截到「当前环境未检测到该服务」。
+// 路径取值则与 smoke 分道：smoke 用 /tmp/smoke-mcp/ 这类明假路径，图的是断言不随机器漂移；
+// 本脚本产出的是给人看的物料，故取「把 dmg 拖进应用程序文件夹后」的标准路径——它对读者
+// 才是可照抄的那一份，同时避开了真 handler 在开发形态下会暴露的 /Users/<用户名>/… 。
+// 脱敏必须发生在这一层而非截图后改 DOM：两条接入命令由 settings.inline.ts 的
+// buildMcpCommands 从这两个路径拼出，只改 [data-mcp-path] 会漏掉命令正文里的同一路径。
+const MCP_STUB = {
+  available: true,
+  serverPath:
+    "/Applications/IPReader.app/Contents/Resources/mcp/server.mjs",
+  execPath: "/Applications/IPReader.app/Contents/MacOS/IPReader",
+  platform: "darwin",
+};
+ipcMain.handle("mcp-get-info", () => MCP_STUB);
+
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /**
@@ -385,6 +402,44 @@ async function main() {
   );
   await sleep(SETTLE_LOCAL_GRAPH);
   await shot(win, "09-chapter-dark");
+
+  // —— 10. 设置页 · MCP 接入（命令区已由上方的桩填充） ——
+  // 排在深色态之后，故须先切回浅色：本张与前八张同为宣纸亮态，第 9 张是全集里唯一的暗态样张。
+  await win.loadURL(base + encodeURI("/设置/"));
+  await waitFor(
+    win,
+    `document.querySelector('.kb-settings-page .kb-settings-cat[data-pane="mcp"]')`,
+    "设置页分类钮",
+  );
+  await win.webContents.executeJavaScript(
+    `document.querySelector('[data-setting="themeMode"][data-value="light"]').click()`,
+  );
+  await waitFor(
+    win,
+    `document.documentElement.getAttribute('saved-theme') === 'light'`,
+    "设置页切回浅色",
+    { timeout: 5000 },
+  );
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.kb-settings-cat[data-pane="mcp"]').click()`,
+  );
+  // 就绪判据取「命令文本已填充」而非「面板已切换」：面板切换是同步的 class 翻转，
+  // 而命令来自一次 await 的 IPC——只等前者会截到两个空的 <code>
+  await waitFor(
+    win,
+    `(() => {
+       const block = document.querySelector('[data-mcp-block]');
+       if (!block || block.hasAttribute('hidden')) return false;
+       const claude = document.querySelector('[data-mcp-cmd="claude"]');
+       return claude && claude.textContent.trim().length > 0;
+     })()`,
+    "MCP 接入命令已填充",
+  );
+  await win.webContents.executeJavaScript(
+    `document.fonts.ready.then(() => true)`,
+  );
+  await sleep(600);
+  await shot(win, "10-settings-mcp");
 
   const total = shots.reduce((sum, s) => sum + s.size, 0);
   console.log(

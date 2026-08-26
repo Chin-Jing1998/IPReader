@@ -17,7 +17,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const useSrc = process.argv.includes('--src');
 const TARGET = join(HERE, useSrc ? 'src/server.mjs' : 'dist/server.mjs');
 const GUARD = join(HERE, 'offline-guard.cjs');
-const REPORT = join(tmpdir(), `patentreader-mcp-offline-${process.pid}.json`);
+const REPORT = join(tmpdir(), `ipreader-mcp-offline-${process.pid}.json`);
 
 let passed = 0;
 const failures = [];
@@ -41,7 +41,7 @@ function dataOf(res, label) {
 }
 
 async function connect(env = {}) {
-  const client = new Client({ name: 'patentreader-smoke', version: '1.0.0' });
+  const client = new Client({ name: 'ipreader-smoke', version: '1.0.0' });
   const transport = new StdioClientTransport({
     command: process.execPath,
     args: [TARGET],
@@ -66,7 +66,7 @@ async function main() {
   }
   if (existsSync(REPORT)) rmSync(REPORT);
 
-  console.log(`PatentReader MCP 冒烟 · 目标 ${useSrc ? 'src/server.mjs（源码）' : 'dist/server.mjs（打包产物）'}\n`);
+  console.log(`IPReader MCP 冒烟 · 目标 ${useSrc ? 'src/server.mjs（源码）' : 'dist/server.mjs（打包产物）'}\n`);
 
   // ============ 一、连接与工具清单 ============
   console.log('一、连接与协议');
@@ -86,10 +86,29 @@ async function main() {
   // ============ 二、list_books ============
   console.log('\n二、list_books');
   const books = dataOf(await client.callTool({ name: 'list_books', arguments: {} }), 'list_books');
-  ok('七部书目全开', books.books.length === 7, books.books.map((b) => b.short).join('、'));
-  ok('节点总数 2044', books.totalNodes === 2044, String(books.totalNodes));
-  ok('术语 851 条', books.termCount === 851, String(books.termCount));
-  ok('法条正文 231 条', books.lawArticleCount === 231, String(books.lawArticleCount));
+  // 2026-08-22 入库批次一「04 司法解释」25 件 + 批次二「01 法律与行政法规」15 件
+  //   + 批次三「02 部门规章与规范性文件」25 件：
+  //   + 批次四（收尾）15 件——四批 80 件全量入库收官：
+  //   书目 7 → 32 → 47 → 72 → 87，节点 2044 → 2774 → 3637 → 4585 → 5306（文档 4455 + 术语 851）
+  //   2026-08-23 阶段5波A：修复 cppl 伪第十三条与 tmeg 误升标题各 −1 节点，5306 → 5304（文档 4453 + 术语 851）
+  //   2026-08-23 阶段5波C：商标术语链路接通（关键词速查 68 行 + 109 片证据片入词表），
+  //     术语 851 → 1035，文档 4453 不变，5304 → 5488
+  //   2026-08-23 阶段5.1（商标审查审理指南四级树重建）：tmeg 空壳编标题溶解，文档 4453 → 4452，
+  //     术语 1035 不变，5488 → 5487
+  //   2026-08-24 阶段5.2（tmeg 深层两级切分 + 质量评价指南入库）：批次 W-1 将 tmeg 四级树 104 → 813
+  //     节点（+709）；批次 Q-1 将《专利质量评价指南》第 88 部入库 214 节点（书目 87 → 88）。
+  //     两批合计：文档 4452 → 5375，术语 1035 不变，5487 → 6410
+  //   2026-08-24～2026-08-25 阶段5.3（W1～W8 多批次并行改造，详见 mcp/scripts/build-data.mjs 头注）：
+  //     文档 5375 → 6247，术语 1035 不变，6410 → 7282；书目仍恒 88 部
+  //     （本行由批次 W9 同步更新，其余数据相关断言——如法条正文 2521 条、各具体检索/术语结果——
+  //     未在 grep「5375/6410/公布与施行」范围内，是否需要同步由后续统一验证批次核实）。
+  ok('八十八部书目全开', books.books.length === 88, books.books.map((b) => b.short).join('、'));
+  ok('节点总数 7282', books.totalNodes === 7282, String(books.totalNodes));
+  ok('术语 1035 条', books.termCount === 1035, String(books.termCount));
+  // 2026-08-22 阶段3批②「lawName 登记」：69 部规范授 lawName 后 lawArticles 从 231 键增至 2496 键
+  //   （设计方案 PatentReader-2026-设计方案-阶段3法条键跨法域改造 §四「全链路影响预判」）。
+  //   2026-08-23 阶段5波A：cppl 缺陷修复后补授 lawName（第 70 域），2496 → 2521 键。
+  ok('法条正文 2521 条', books.lawArticleCount === 2521, String(books.lawArticleCount));
 
   // ============ 三、search_kb ============
   console.log('\n三、search_kb');
@@ -151,7 +170,7 @@ async function main() {
   // ============ 七、browse_toc 与 related_nodes ============
   console.log('\n七、browse_toc 与 related_nodes');
   const b1 = dataOf(await client.callTool({ name: 'browse_toc', arguments: {} }), 'browse_toc');
-  ok('缺省列出七部书', b1.books.length === 7);
+  ok('缺省列出八十八部书', b1.books.length === 88);
   const b2 = dataOf(await client.callTool({ name: 'browse_toc', arguments: { root: '02-04', depth: 1 } }), 'browse_toc');
   ok('按节点展开子结构', b2.children.length > 0, `${b2.children.length} 个子节点`);
   ok('depth 生效（不递归下一层）', b2.children.every((c) => c.children === undefined));
@@ -185,7 +204,7 @@ async function main() {
   const { client: c2, transport: tr2 } = await connect({ PATENTREADER_MCP_DOMAINS: 'patent-law' });
   const d1 = dataOf(await c2.callTool({ name: 'list_books', arguments: {} }), 'list_books');
   ok('仅开放一部书', d1.books.length === 1 && d1.books[0].domain === 'patent-law', d1.books.map((b) => b.short).join('、'));
-  ok('其余六部标记为已关闭', d1.closedBooks.length === 6, d1.closedBooks.map((b) => b.title).join('、'));
+  ok('其余八十七部标记为已关闭', d1.closedBooks.length === 87, d1.closedBooks.map((b) => b.title).join('、'));
   const d2 = dataOf(await c2.callTool({ name: 'read_node', arguments: { id: '02-04-05' } }), 'read_node');
   ok('已关闭书目的节点不可读', typeof d2.error === 'string', d2.error);
   const d3 = dataOf(await c2.callTool({ name: 'search_kb', arguments: { query: '创造性判断' } }), 'search_kb');

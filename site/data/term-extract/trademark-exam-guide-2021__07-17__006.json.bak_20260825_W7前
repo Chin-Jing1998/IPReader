@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/07-17/06/04",
+  "anchorNode": "tmeg-07-17-06-04",
+  "terms": [
+    { "name": "连续三年不使用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "连续三年不使用注册商标，是指一个注册商标在其有效期内不使用，且该状态不间断地持续三年以上" },
+    { "name": "商标的使用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标的使用，是指商标的商业使用。包括将商标用于商品、商品包装或者容器以及商品交易文书上" },
+    { "name": "象征性使用", "aliases": [], "role": "used", "confidence": "high", "evidence": "仅以维持商标注册为目的的象征性使用" },
+    { "name": "举证责任", "aliases": [], "role": "used", "confidence": "high", "evidence": "系争商标不存在连续三年不使用情形的举证责任由系争商标注册人承担" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-23"
+}

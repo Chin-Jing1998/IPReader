@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/06-08/03",
+  "anchorNode": "tmeg-06-08-03",
+  "terms": [
+    { "name": "声音样本", "aliases": [], "role": "used", "confidence": "high", "evidence": "提交符合要求的声音样本" },
+    { "name": "商标描述", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标描述与声音样本应当一致" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-23"
+}

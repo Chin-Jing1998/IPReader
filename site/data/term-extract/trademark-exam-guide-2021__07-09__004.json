@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/06-09/06",
+  "anchorNode": "tmeg-06-09-06",
+  "terms": [
+    { "name": "地理标志", "aliases": [], "role": "defined", "confidence": "high", "evidence": "前款所称地理标志，是指标示某商品来源于某地区，该商品的特定质量、信誉或者其他特征，主要由该地区的自然因素或者人文因素所决定的标志" },
+    { "name": "误导公众", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标中有商品的地理标志，而该商品并非来源于该标志所标示的地区，误导公众的，不予注册并禁止使用" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-23"
+}

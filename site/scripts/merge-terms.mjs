@@ -29,7 +29,7 @@ import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync, statSy
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { cn2num } from './lib/cn-num.mjs';
-import { projectRoot } from './lib/domains.mjs';
+import { KNOWN_DOMAINS, projectRoot } from './lib/domains.mjs';
 import { STOPWORDS } from './lib/term-stopwords.mjs';
 import { classifyTopic, TOPIC_NAME } from './lib/topics.mjs';
 
@@ -44,19 +44,38 @@ const EVIDENCE_SAMPLES = 3; // 每词保留的 evidence 样例上限
 const TOP_SOURCES = 5; // 审校表「topN出处」列上限
 const TOTAL_MIN = 400;
 // 上限由 700 放宽至 1000：审校复核后 keep 数（545）高于预估，且前端按 hub 分层显隐、
-//   图渲染量级无压力；与 build-term-nodes.mjs 的 ≤1000 硬断言保持同一口径。
-const TOTAL_MAX = 1000;
+//   图渲染量级无压力；与 build-term-nodes.mjs 的硬断言保持同一口径。
+// 2026-08-23 阶段5波C：商标审查审理指南 24 万字语料入索引，851→约 1034 词，
+//   上限随语料规模一次性上调 1000→1200（build-term-nodes.mjs 的 DEFAULT_CAP 同步）。
+const TOTAL_MAX = 1200;
 
 // 归一化：与 build-seed-lexicon.mjs / prep-term-extraction.mjs 同口径
 const norm = (s) => (s || '').normalize('NFKC').replace(/\s+/g, '').toLowerCase();
 const STOP_NORM = new Set([...STOPWORDS].map(norm));
 
 // 法条引用（agent 产物 laws 数组的元素）→ 条级 lawKey（如「专利法第22条」），与 laws.json 键位对齐
-const LAW_KEY_RE = /^《?(专利法实施细则|专利法|实施细则)》?第([0-9]+|[一二三四五六七八九十百零〇两]+)条(?:之([0-9]+|[一二三四五六七八九十]+))?/;
+// 2026-08-23 阶段5波C：法名白名单由硬编码三项改为按 KNOWN_DOMAINS 的 lawName/lawAlias 动态生成，
+//   否则非专利法域（商标法、著作权法…）的条文引用一律静默丢弃（波C 前实测商标词 lawKeys 全空）。
+//   法名段按长度降序拼入正则，防子串吞噬（「商标法实施条例」须排在「商标法」之前；
+//   参照 mcp/src/search.mjs 与 law-cite.mjs 的既有教训）。条号解析沿用原有中文/阿拉伯双支持与「之N」。
+const LAW_NAME_TO_KEY = new Map();
+for (const d of KNOWN_DOMAINS) {
+  if (!d.lawName) continue;
+  LAW_NAME_TO_KEY.set(d.lawName, d.lawName);
+  if (d.lawAlias) LAW_NAME_TO_KEY.set(d.lawAlias, d.lawName);
+}
+LAW_NAME_TO_KEY.set('实施细则', '专利法实施细则'); // 历史简称，证据片沿用
+const LAW_NAME_ALT = [...LAW_NAME_TO_KEY.keys()]
+  .sort((a, b) => b.length - a.length || (a < b ? -1 : 1))
+  .map((n) => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+  .join('|');
+const LAW_KEY_RE = new RegExp(
+  `^《?(${LAW_NAME_ALT})》?第([0-9]+|[一二三四五六七八九十百零〇两]+)条(?:之([0-9]+|[一二三四五六七八九十]+))?`,
+);
 function toLawKey(cite) {
   const m = String(cite || '').match(LAW_KEY_RE);
   if (!m) return null;
-  const law = m[1] === '实施细则' ? '专利法实施细则' : m[1];
+  const law = LAW_NAME_TO_KEY.get(m[1]) || m[1];
   const art = cn2num(m[2]);
   if (!Number.isFinite(art)) return null;
   const zhi = m[3] ? cn2num(m[3]) : null;
@@ -79,6 +98,9 @@ function newEntry(canonical, isSeed, seed = null) {
     key: norm(canonical),
     canonical,
     isSeed,
+    // seed 侧法条是否为空——在建条时一次性定格，不随后续吸收而翻转
+    //   （若读 lawKeys.size 判空，首片吸收后即变非空，后续切片会被误挡）
+    seedLawEmpty: !!isSeed && !(seed && (seed.lawKeys || []).length),
     aliasMap: new Map(),
     matchers: seed ? [...(seed.matchers || [])] : [],
     topicKey: seed?.topicKey,
@@ -211,8 +233,13 @@ for (const f of extractFiles) {
     if (!evidenceOk) entry.demoted++;
     if (t.role === 'defined' && evidenceOk && !entry.definition) entry.definition = evRaw;
     if (t.role === 'defined' && confidence === 'high') entry.definedHigh = true;
-    // 新词的 lawKeys 取所在切片的条级引用（种子词 lawKeys 由 D1 归集，保持不动）
-    if (!entry.isSeed) for (const lk of chunkLawKeys) entry.lawKeys.add(lk);
+    // 新词的 lawKeys 取所在切片的条级引用；种子词 lawKeys 原则上由 D1 归集、保持不动。
+    // 2026-08-23 阶段5波C 修法：种子词「仅当 seed 侧 lawKeys 为空时」也吸收切片法条。
+    //   动机——D1 的 lawKeys 只从 patent-law / implementation-rules 两域出处归集，
+    //   商标审查审理指南接入关键词速查表后：① 补正通知书/不予受理/外观设计专利权 三个既有 high 词
+    //   升格为种子，原本已吸收的 20/4/42 条 lawKeys 归零，属回归；② 74 个 tmeg 种子词中 66 个法条全空。
+    //   两者同因。非空种子维持只信 seed 侧，避免切片法条稀释人工归集结果。
+    if (!entry.isSeed || entry.seedLawEmpty) for (const lk of chunkLawKeys) entry.lawKeys.add(lk);
   }
 }
 

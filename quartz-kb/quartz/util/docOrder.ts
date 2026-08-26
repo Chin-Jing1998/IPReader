@@ -1,5 +1,5 @@
 import type { QuartzPluginData } from "../plugins/vfile"
-import { SETTINGS_SLUG } from "./appPages"
+import { GRAPH_SLUG, SETTINGS_SLUG } from "./appPages"
 
 /**
  * 「文档序」比较器——全库单一事实源（v6 自 quartz.config.ts 迁出，逻辑零改动）。
@@ -59,10 +59,7 @@ export function byDocumentOrder(f1: QuartzPluginData, f2: QuartzPluginData): num
  */
 export function isOutsideReadingChain(slug: string): boolean {
   return (
-    slug === "index" ||
-    slug === "0-图谱总览/index" ||
-    slug === SETTINGS_SLUG ||
-    slug.startsWith("tags/")
+    slug === "index" || slug === GRAPH_SLUG || slug === SETTINGS_SLUG || slug.startsWith("tags/")
   )
 }
 

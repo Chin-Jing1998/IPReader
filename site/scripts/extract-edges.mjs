@@ -8,6 +8,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { TOPIC_NAME } from './lib/topics.mjs';
+import { KNOWN_DOMAINS } from './lib/domains.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const D = join(__dirname, '..', 'data');
@@ -81,8 +82,14 @@ for (const n of nodes) {
 // 形如：本部分第三章第2.1节 / 第二部分第六章第3节 / 本章第3.2节 / 第3.2.1节 / 第二部分第十章
 const REF_RE = /(本部分|第([一二三四五六七八九十]+)部分)?\s*(本章|第([一二三四五六七八九十]+)章)?\s*第(\d+(?:\.\d+){0,2})节/g;
 const CHAP_RE = /(本部分|第([一二三四五六七八九十]+)部分)\s*第([一二三四五六七八九十]+)章(?!第)/g;
+// 2026-08-24 阶段5.1 主会话修复：裸编号 target（pp-cc…）是《专利审查指南》专属 id 空间，
+// 「第N部分第Y章/第N节」式引用仅在专利法域语境下才指向该指南（如答复OA实务两处实为真引用）；
+// 非专利法域同款写法指其自身章节（如商标审查审理指南「第一部分第一章」），不限域会连出
+// 跨域假边（波前存量 12 条 tmeg→审查指南）。按 domains.mjs 的 field 白名单限定源节点。
+const XREF_BARE_ID_DOMAINS = new Set(KNOWN_DOMAINS.filter((d) => d.field === '专利').map((d) => d.key));
 let xrefCount = 0;
 for (const n of nodes) {
+  if (!XREF_BARE_ID_DOMAINS.has(n.domain)) continue;
   const text = bodies[n.id]?.ownText || '';
   if (!text) continue;
   // 2a. 带“节”的引用
@@ -102,13 +109,177 @@ for (const n of nodes) {
   // 2b. 仅到“章”的引用
   CHAP_RE.lastIndex = 0;
   while ((m = CHAP_RE.exec(text))) {
-    const pp = m[1] === '本部分' ? n.partNum : cn2num(m[2]);
+    // 「本部分」按当前节点自身 partNum 补全 —— 仅《专利审查指南》成立：该域 id 即 pp-cc 裸编号，
+    // 与部/章编号同构。（2026-08-24 阶段5.1 批次 T-2 增加限域：tmeg 重构为四级树后其 partNum
+    // 变为 1..8，不限域则 tmeg 正文的「本部分第X章」会组出无域前缀的裸 id，命中 examination-guideline
+    // 同名节点而连出跨域假边。限域后 tmeg 的「本部分」不解析，行为回到 T-1 波前。）
+    const pp = m[1] === '本部分' ? (n.domain === 'examination-guideline' ? n.partNum : NaN) : cn2num(m[2]);
     const cc = cn2num(m[3]);
     if (!Number.isFinite(pp) || !Number.isFinite(cc)) continue;
     const target = `${pad(pp)}-${pad(cc)}`;
     if (ids.has(target) && !hierPairs.has(pairKey(n.id, target))) { addEdge(n.id, target, 'xref', 0.45); xrefCount++; }
   }
 }
+
+// ---- 2-tmeg. xref（《商标审查审理指南》专属书内交叉引用）----
+// 2026-08-24 阶段5.2 批次 W-4 新增。与上方裸编号段**完全隔离**：上方 REF_RE/CHAP_RE 产出的
+//   `pad(pp)-pad(cc)` 目标是《专利审查指南》专属 id 空间，已由 XREF_BARE_ID_DOMAINS（field==='专利'）
+//   限定源节点，tmeg 被正确排除（历史上曾产 12 条跨域假边）。本段只处理 domain==='trademark-exam-guide-2021'
+//   的源节点，只构造 `tmeg-` 前缀目标，两段互不读写对方状态，共用的仅 addEdge/hierPairs/cn2num。
+//
+// ★ 章号口径（实测定案，勿凭直觉改）：上编「第N部分第Y章」的 Y 是**全上编连续标题序（1..25）**，
+//   不是部分内序。tmeg id 的第三段是部分内序，二者仅在上编第一部分（章 1..5）偶然重合。
+//   实测 59 处引用：按「部分内序」直算 id（tmeg-0(N+1)-pad(Y)）命中 49/59，10 处落空且全部为
+//   跨出第一部分的引用；按「标题连续序」用 part 子章 label 前缀匹配命中 59/59。
+//   决定性反例：「参见第五部分第十九章"商标申请文件的接收"」→ 实为 tmeg-06-01（label
+//   「第十九章 商标申请文件的接收」），部分内序算法会得出不存在的 tmeg-06-19。
+//   故目标章一律按 label 的「第Y章」字面匹配定位，**禁止按 id 位次硬算**（W-1 重构后位次已变）。
+//
+// 解析三形态（其余形态经全书逐处核验后不建边，理由附后）：
+//   R1「(本部分|第N部分) 第Y章 [编号]」59 处 —— 部分节点：「本部分」取源节点 id 前两段；
+//      「第N部分」按 label 前缀「上编·第N部分」定位。
+//   R2「(本编|上编|下编) 第Y章 [编号]」37 处（下编 23 + 本编 13 + 上编 0）——「下编」/下编内的
+//      「本编」定位到 label 前缀「下编·」的 part；「上编」/上编内的「本编」跨 5 个部分搜索
+//      label「第Y章」（实测上编 1..25 章号全唯一，无歧义；当前 0 命中，规则备而不用）。
+//      注：任务下发的形态频次表未列「本编第X章」，系全书实测新增发现（13 处，全在下编）。
+//   R3「参见/详见 … 本章 编号」12 处 —— 章取源节点 id 前三段，只在本章子树内按编号定位。
+//      ⚠ 与「代词类不建边」裁决的边界：本段只收**带数字编号定位符且处于参见/详见语境**者
+//      （引文均形如「参见本章1.6"审查结论"」，编号 + 引号标题双重可校验）；裸「本章/本条/
+//      前款/上述」及无参见语境的「本章3、4节」（实测 6 处）一律不建边。若需回到严格口径，
+//      把 TMEG_XREF_SELF_CHAPTER 置 false 即可（-12 条）。
+//
+// 编号 → 节点定位：章子树内按 label 前导数字编号索引；三级及更深不成节点则逐级退到父编号
+//   （实测 4 处：3.4.4→3.4、5.1.1.2→5.1、1.2.3→1.2、6.1.2→6.1，均已核验被引小节确在退级后
+//   节点正文内）；同码多命中用引文紧随的中文引号标题消歧（实测全书 716 个章内编号键零碰撞，
+//   该分支为防御性兜底）；R1/R2 编号定位失败退到章级边，R3 定位失败不建边（退章级即连到自身祖先）。
+//
+// 不建边形态（逐处核验后排除）：
+//   ·「第X章第Y条」11 处 —— **全部**是《商标国际注册马德里协定有关议定书实施细则》的外部法源
+//     引用（如「…实施细则第五章第二十四条」），无一指向本书，故本形态整体不解析。
+//   · 代词类「本章/本条/前款/上述」（无编号定位符）、裸编号 x.y / x.y.z（609+360 处，多为标题
+//     自引与列举）—— 误伤优先原则，不建边。
+//   · 已知未覆盖：「参见下编"商标审查审理编"」1 处（无章号，指向整个下编 part）、
+//     「适用于本编第三章、第四章和第五章」的并列后两章 2 处（无「本编」前缀）。漏建不误建。
+//
+// 预算：硬上限 TMEG_XREF_MAX=150；实测去重后 103 条（章级 0.45 共 57 条 / 节级 0.6 共 46 条）。
+const TMEG_DOMAIN = 'trademark-exam-guide-2021';
+const TMEG_W_CHAPTER = 0.45; // 章级引用，与上方 CHAP_RE 档位一致
+const TMEG_W_DEEP = 0.6; // 节/子节级引用，与上方 REF_RE 档位一致
+const TMEG_XREF_MAX = 150; // 硬预算：本域新增 xref 上限
+const TMEG_XREF_SELF_CHAPTER = true; // R3「参见+本章+编号」总开关（置 false 可回到严格「本章不建边」口径）
+const RE_TMEG_XREF_PART = /(本部分|第([一二三四五六七八九十百]+)部分)\s*第([一二三四五六七八九十百]+)章[ \t]*((?:\d+)(?:\.\d+){0,3})?/g;
+const RE_TMEG_XREF_BOOK = /(本编|上编|下编)\s*第([一二三四五六七八九十百]+)章[ \t]*((?:\d+)(?:\.\d+){0,3})?/g;
+// 编号与章号之间只许同行空白：用 \s* 会跨换行吞掉下一段落的编号标题（当前语料 0 例，纯属防御）
+const RE_TMEG_XREF_SELF = /(?:参见|详见)[^。；\n]{0,14}?本章[ \t]*((?:\d+)(?:\.\d+){0,3})/g;
+const RE_TMEG_UPPER_PART = /^上编·第([一二三四五六七八九十百]+)部分/; // U+00B7 间隔号，与 parse-domains 体例一致
+const RE_TMEG_LOWER_BOOK = /^下编·/;
+const RE_TMEG_CHAP_LABEL = /^第([一二三四五六七八九十百]+)章/;
+const RE_TMEG_NUM_LABEL = /^(\d+(?:\.\d+)*)/;
+let tmegXrefCount = 0;
+{
+  const dom = nodes.filter((n) => n.domain === TMEG_DOMAIN);
+  const upperPartByOrd = new Map(); // 上编部序 → part 节点 id
+  let lowerBookPart = null; // 下编 part 节点 id
+  const chapByPart = new Map(); // part id → Map(标题章号 → chapter id)
+  const chapAll = []; // 全部 chapter，供「上编第Y章」跨部搜索
+  for (const n of dom) {
+    if (n.level === 'part') {
+      const m = RE_TMEG_UPPER_PART.exec(n.label || '');
+      if (m) upperPartByOrd.set(cn2num(m[1]), n.id);
+      else if (RE_TMEG_LOWER_BOOK.test(n.label || '')) lowerBookPart = n.id;
+    } else if (n.level === 'chapter') {
+      const m = RE_TMEG_CHAP_LABEL.exec(n.label || '');
+      const cc = m ? cn2num(m[1]) : NaN;
+      if (!Number.isFinite(cc)) continue;
+      const pid = n.id.split('-').slice(0, 2).join('-');
+      if (!chapByPart.has(pid)) chapByPart.set(pid, new Map());
+      chapByPart.get(pid).set(cc, n.id);
+      chapAll.push({ id: n.id, partId: pid, cc });
+    }
+  }
+  const numIdx = new Map(); // chapter id → Map(编号 → [节点 id])
+  for (const c of chapAll) numIdx.set(c.id, new Map());
+  for (const n of dom) {
+    const m = RE_TMEG_NUM_LABEL.exec(n.label || '');
+    if (!m) continue;
+    const cid = n.id.split('-').slice(0, 3).join('-');
+    const idx = numIdx.get(cid);
+    if (!idx || cid === n.id) continue;
+    if (!idx.has(m[1])) idx.set(m[1], []);
+    idx.get(m[1]).push(n.id);
+  }
+  // 引文紧随的中文引号标题（同码消歧用）
+  const quotedAt = (text, pos) => {
+    const m = /^\s*[“"]([^”"]{1,40})[”"]/.exec(text.slice(pos));
+    return m ? m[1].trim() : '';
+  };
+  // 章内按编号定位：唯一命中直取 → 多命中靠标题消歧 → 无命中逐级退父编号 → 仍无则 null
+  const resolveNum = (chapId, code, quoted) => {
+    const idx = numIdx.get(chapId);
+    if (!idx) return null;
+    let seg = code.split('.');
+    while (seg.length) {
+      const arr = idx.get(seg.join('.'));
+      if (arr && arr.length) {
+        if (arr.length === 1) return arr[0];
+        if (quoted) {
+          const hit = arr.filter((id) => (byId.get(id).label || '').replace(RE_TMEG_NUM_LABEL, '').trim().startsWith(quoted));
+          if (hit.length === 1) return hit[0];
+        }
+        return null;
+      }
+      seg = seg.slice(0, -1);
+    }
+    return null;
+  };
+  const emit = (src, tgt, w) => {
+    if (!tgt || !ids.has(tgt) || hierPairs.has(pairKey(src, tgt))) return; // 悬空 / hierarchy 对不建
+    const before = edges.length;
+    addEdge(src, tgt, 'xref', w);
+    if (edges.length > before) tmegXrefCount++;
+  };
+
+  for (const n of dom) {
+    const text = bodies[n.id]?.ownText || '';
+    if (!text) continue;
+    const selfPart = n.id.split('-').slice(0, 2).join('-');
+    const selfChap = n.id.split('-').slice(0, 3).join('-');
+    let m;
+    // R1：部分 + 章 [+ 编号]
+    RE_TMEG_XREF_PART.lastIndex = 0;
+    while ((m = RE_TMEG_XREF_PART.exec(text))) {
+      const partId = m[1] === '本部分' ? selfPart : upperPartByOrd.get(cn2num(m[2]));
+      const chapId = partId ? chapByPart.get(partId)?.get(cn2num(m[3])) : null;
+      if (!chapId) continue;
+      const deep = m[4] ? resolveNum(chapId, m[4], quotedAt(text, m.index + m[0].length)) : null;
+      emit(n.id, deep || chapId, deep ? TMEG_W_DEEP : TMEG_W_CHAPTER);
+    }
+    // R2：编 + 章 [+ 编号]
+    RE_TMEG_XREF_BOOK.lastIndex = 0;
+    while ((m = RE_TMEG_XREF_BOOK.exec(text))) {
+      const cc = cn2num(m[2]);
+      const inLower = m[1] === '下编' || (m[1] === '本编' && selfPart === lowerBookPart);
+      let chapId = null;
+      if (inLower) chapId = chapByPart.get(lowerBookPart)?.get(cc) || null;
+      else {
+        const c = chapAll.filter((x) => x.partId !== lowerBookPart && x.cc === cc);
+        chapId = c.length === 1 ? c[0].id : null; // 上编章号全唯一；万一歧义则不建边
+      }
+      if (!chapId) continue;
+      const deep = m[3] ? resolveNum(chapId, m[3], quotedAt(text, m.index + m[0].length)) : null;
+      emit(n.id, deep || chapId, deep ? TMEG_W_DEEP : TMEG_W_CHAPTER);
+    }
+    // R3：参见/详见 + 本章 + 编号（定位失败即不建边，不退章级）
+    if (TMEG_XREF_SELF_CHAPTER) {
+      RE_TMEG_XREF_SELF.lastIndex = 0;
+      while ((m = RE_TMEG_XREF_SELF.exec(text))) {
+        const deep = resolveNum(selfChap, m[1], quotedAt(text, m.index + m[0].length));
+        if (deep) emit(n.id, deep, TMEG_W_DEEP);
+      }
+    }
+  }
+}
+console.log(`tmeg 书内 xref: ${tmegXrefCount}（预算 ${TMEG_XREF_MAX}）`);
 
 // ---- 3. colaw：共引同一法条的小团簇（高频法条过于宽泛，跳过）----
 const COLAW_MIN = 2, COLAW_MAX = 6; // 仅 2..6 个节点共引的“具体条款”连边
@@ -165,8 +336,12 @@ for (const [, ns] of topicNodes) {
     arr.sort((a, b) => (b.charLen || 0) - (a.charLen || 0));
     reps.push(...arr.slice(0, REPS_PER_DOMAIN));
   }
+  // ⚠ 2026-08-23 修复：主节点优先级原写死域名字面量 'examination-guideline-2025'，而该域已更名为
+  //   'examination-guideline'，致该分支长期恒不命中、概念边主节点长期误落 patent-law 兜底分支。
+  //   本次修复后概念边主节点将部分改选审查指南节点，边表随之漂移属预期，交由 R-1 批统一重跑验收；
+  //   本批不跑 extract-edges，此修复只落地代码不触发重跑（且 ENABLE_CONCEPT=false 时本段当前不执行）。
   const primary =
-    reps.find((r) => r.domain === 'examination-guideline-2025') ||
+    reps.find((r) => r.domain === 'examination-guideline') ||
     reps.find((r) => r.domain === 'patent-law') ||
     reps[0];
   for (const r of reps) {
@@ -443,6 +618,7 @@ if (termrefMaxPer > TERMREF_CAP) { ok = false; console.error(`✗ termref 单词
 if (termlawMaxPer > TERMLAW_CAP) { ok = false; console.error(`✗ termlaw 单词封顶失效：最多 ${termlawMaxPer} > ${TERMLAW_CAP}`); }
 if (termcoCount > TERMCO_TOTAL_MAX) { ok = false; console.error(`✗ termco 总量 ${termcoCount} 超过上限 ${TERMCO_TOTAL_MAX}`); }
 if (termcoActiveMax > TERMCO_ACTIVE_MAX) { ok = false; console.error(`✗ termco 主动配额失效：最多 ${termcoActiveMax} > ${TERMCO_ACTIVE_MAX}（入选 ${TERMCO_ACTIVE_CAP} + 补边 1）`); }
+if (tmegXrefCount > TMEG_XREF_MAX) { ok = false; console.error(`✗ tmeg 书内 xref 总量 ${tmegXrefCount} 超过硬预算 ${TMEG_XREF_MAX}`); }
 const termcoOffTerm = edges.filter((e) => e.type === 'termco' && (!termIds.has(e.source) || !termIds.has(e.target)));
 if (termcoOffTerm.length) { ok = false; console.error(`✗ termco 边端点非 term 节点: ${termcoOffTerm.length} 条`); }
 const hierOnTerm = edges.filter((e) => e.type === 'hierarchy' && (termIds.has(e.source) || termIds.has(e.target)));

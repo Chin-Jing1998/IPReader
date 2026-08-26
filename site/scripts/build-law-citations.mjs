@@ -4,14 +4,20 @@
 //   抽取器：lib/law-cite.mjs 的增强版 extractCitations（阿拉伯/中文条号、款/项、域内指代、范围展开、枚举续接）。
 // 数据源：data/node-bodies.json（ownText/fullText）+ data/nodes.json。
 //   抽取文本范围与 parse-domains.mjs 的 lawScope 规则对齐，以保证"不丢既有信息"断言成立：
-//     - examination-guideline-2025 域：section/subsection 取 fullText，part/chapter 取 ownText；
+//     - guideline 特例域（KNOWN_DOMAINS 中 special==='guideline'）：section/subsection 取 fullText，
+//       part/chapter 取 ownText——与 parse-domains.mjs::parseGuideline 的 lawScope 同规则；
 //     - 通用域：有子节点取 ownText，无子节点取 fullText（子节点内容由子节点自行计）。
 //   （若一律仅取 ownText，实测将丢失 296 个既有 (node,lawKey) 对，无法覆盖 nodes.json 的 laws[] 集合。）
+//   ⚠ 2026-08-22 修复：本判定原写死域名字面量 'examination-guideline-2025'，而该域已更名为
+//     'examination-guideline'，致判定长期恒假、审查指南 section/subsection 误走通用分支取 ownText，
+//     丢失 325 个 (node,lawKey) 对。现改为从 KNOWN_DOMAINS 读 special 标记，杜绝域名更名再次失配。
 // 末尾断言：law-citations 的 (sourceNode,lawKey) 对 ⊇ nodes.json 各节点 laws[] 的对集合；差集非空则打印明细并退出 1。
+//   ⚠ 2026-08-22 修复：产物写盘已移至断言之后，断言失败不再留下坏产物。
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractCitations } from './lib/law-cite.mjs';
+import { KNOWN_BY_KEY } from './lib/domains.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const D = join(__dirname, '..', 'data');
@@ -37,9 +43,10 @@ for (const n of nodes) {
 }
 
 // 与 parse-domains 一致的法条抽取文本范围
+const isGuidelineDomain = (domain) => KNOWN_BY_KEY.get(domain)?.special === 'guideline';
 function lawScopeOf(node, body) {
   if (!body) return '';
-  if (node.domain === 'examination-guideline-2025')
+  if (isGuidelineDomain(node.domain))
     return node.level === 'section' || node.level === 'subsection' ? body.fullText : body.ownText;
   return hasDescendant.has(node.id) ? body.ownText : body.fullText;
 }
@@ -71,8 +78,6 @@ for (const n of nodes) {
   }
 }
 
-writeFileSync(join(D, 'law-citations.json'), JSON.stringify(records, null, 0));
-
 // ---- 统计打印 ----
 const totalHits = records.reduce((a, r) => a + r.count, 0);
 console.log(`law-citations 记录数: ${records.length}（sourceNode+fullCite 聚合），累计命中次数: ${totalHits}`);
@@ -92,8 +97,13 @@ console.log(
 );
 
 // ---- 断言：不丢既有信息 —— (sourceNode,lawKey) 对 ⊇ nodes.json 的 laws[] 对集合 ----
+//   ⚠ 2026-08-22 修复：断言范围限定为文档节点。2026-08-12 起 nodes.json 并入 851 个 term 节点，
+//   其 laws[] 来自词表 terms-merged.json 的 lawKeys（词条→法条映射），并非从正文抽取而来，
+//   本脚本也不为其产出记录（term 节点无 node-bodies 条目）。把它们计入覆盖断言属口径错配。
+const isDocNode = (n) => n.level !== 'term' && n.kind !== 'term';
+const docNodes = nodes.filter(isDocNode);
 const missing = [];
-for (const n of nodes)
+for (const n of docNodes)
   for (const lk of n.laws || [])
     if (!citePairs.has(`${n.id}::${lk}`)) missing.push(`${n.id} :: ${lk}`);
 if (missing.length) {
@@ -101,8 +111,12 @@ if (missing.length) {
   for (const s of missing) console.error('  ' + s);
   process.exit(1);
 }
-const baselinePairs = nodes.reduce((a, n) => a + (n.laws || []).length, 0);
+const baselinePairs = docNodes.reduce((a, n) => a + (n.laws || []).length, 0);
 console.log(`✓ 断言通过：(sourceNode,lawKey) 对 ${citePairs.size} ⊇ nodes.laws 基线对 ${baselinePairs}（差集为空）`);
+
+// ---- 写盘：仅在全部断言通过后落地，避免坏产物覆盖既有数据 ----
+writeFileSync(join(D, 'law-citations.json'), JSON.stringify(records, null, 0));
+console.log(`✓ 已写入 data/law-citations.json（${records.length} 条记录）`);
 
 // ---- 款/项抽查：确定性随机取 20 条，打印 fullCite + 节点 label + 命中原文片段（±30 字）----
 function mulberry32(seed) {

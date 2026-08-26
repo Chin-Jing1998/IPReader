@@ -1,0 +1,794 @@
+{
+  "1": {
+    "domain": "patent-law",
+    "title": "中华人民共和国专利法",
+    "short": "专利法",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D1",
+    "docTypeName": "法律"
+  },
+  "2": {
+    "domain": "implementation-rules",
+    "title": "专利法实施细则",
+    "short": "实施细则",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D2",
+    "docTypeName": "行政法规"
+  },
+  "3": {
+    "domain": "examination-guideline",
+    "title": "专利审查指南（2025年发布）",
+    "short": "审查指南",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D5",
+    "docTypeName": "审查与实务指引"
+  },
+  "4": {
+    "domain": "infringement-guide",
+    "title": "专利侵权判定指南（2017年发布）",
+    "short": "侵权判定",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D5",
+    "docTypeName": "审查与实务指引"
+  },
+  "5": {
+    "domain": "mechanical-drafting-rules",
+    "title": "机械领域申请文件撰写规范",
+    "short": "机械撰写",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D5",
+    "docTypeName": "审查与实务指引"
+  },
+  "6": {
+    "domain": "chemistry-drafting-rules",
+    "title": "化学领域申请文件撰写规范",
+    "short": "化学撰写",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D5",
+    "docTypeName": "审查与实务指引"
+  },
+  "7": {
+    "domain": "oa-response-guide",
+    "title": "答复审查意见指南",
+    "short": "答复指引",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D5",
+    "docTypeName": "审查与实务指引"
+  },
+  "10": {
+    "domain": "plant-variety-interp-2001",
+    "title": "最高人民法院关于审理植物新品种纠纷案件若干问题的解释（2001年施行）",
+    "short": "品种解释",
+    "country": "CN",
+    "field": "品种布图",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "11": {
+    "domain": "patent-dispute-rules",
+    "title": "最高人民法院关于审理专利纠纷案件适用法律问题的若干规定",
+    "short": "专利纠纷",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "12": {
+    "domain": "tm-jurisdiction-interp",
+    "title": "最高人民法院关于审理商标案件有关管辖和法律适用范围问题的解释",
+    "short": "商标管辖",
+    "country": "CN",
+    "field": "商标",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "13": {
+    "domain": "tm-civil-interp",
+    "title": "最高人民法院关于审理商标民事纠纷案件适用法律若干问题的解释",
+    "short": "商标民事",
+    "country": "CN",
+    "field": "商标",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "14": {
+    "domain": "copyright-civil-interp",
+    "title": "最高人民法院关于审理著作权民事纠纷案件适用法律若干问题的解释",
+    "short": "著作权",
+    "country": "CN",
+    "field": "著作权",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "15": {
+    "domain": "plant-variety-rules-1",
+    "title": "最高人民法院关于审理侵害植物新品种权纠纷案件具体应用法律问题的若干规定",
+    "short": "品种规定一",
+    "country": "CN",
+    "field": "品种布图",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "16": {
+    "domain": "wellknown-tm-interp",
+    "title": "最高人民法院关于审理涉及驰名商标保护的民事纠纷案件应用法律若干问题的解释",
+    "short": "驰名商标",
+    "country": "CN",
+    "field": "商标",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "17": {
+    "domain": "patent-infringe-interp-1",
+    "title": "最高人民法院关于审理侵犯专利权纠纷案件应用法律若干问题的解释（2010年施行）",
+    "short": "侵权解释一",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "18": {
+    "domain": "tm-amend-jurisdiction-interp",
+    "title": "最高人民法院关于商标法修改决定施行后商标案件管辖和法律适用问题的解释",
+    "short": "商标新法",
+    "country": "CN",
+    "field": "商标",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "19": {
+    "domain": "ip-court-jurisdiction-2014",
+    "title": "最高人民法院关于北京、上海、广州知识产权法院案件管辖的规定（2014年施行）",
+    "short": "知产法院",
+    "country": "CN",
+    "field": "综合程序",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "20": {
+    "domain": "patent-infringe-interp-2",
+    "title": "最高人民法院关于审理侵犯专利权纠纷案件应用法律若干问题的解释（二）（2016年施行）",
+    "short": "侵权解释二",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "21": {
+    "domain": "tm-grant-validity-rules",
+    "title": "最高人民法院关于审理商标授权确权行政案件若干问题的规定（2017年施行）",
+    "short": "商标确权",
+    "country": "CN",
+    "field": "商标",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "22": {
+    "domain": "ip-injunction-rules-2018",
+    "title": "最高人民法院关于审查知识产权纠纷行为保全案件适用法律若干问题的规定（2019年施行）",
+    "short": "行为保全",
+    "country": "CN",
+    "field": "综合程序",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "23": {
+    "domain": "ip-tribunal-rules-2018",
+    "title": "最高人民法院关于知识产权法庭若干问题的规定（2019年施行）",
+    "short": "知产法庭",
+    "country": "CN",
+    "field": "综合程序",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "24": {
+    "domain": "tech-investigator-rules-2019",
+    "title": "最高人民法院关于技术调查官参与知识产权案件诉讼活动的若干规定（2019年施行）",
+    "short": "技术调查官",
+    "country": "CN",
+    "field": "综合程序",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "25": {
+    "domain": "trade-secret-civil-rules-2020",
+    "title": "最高人民法院关于审理侵犯商业秘密民事案件适用法律若干问题的规定（2020年施行）",
+    "short": "商业秘密",
+    "country": "CN",
+    "field": "竞争法",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "26": {
+    "domain": "patent-grant-validity-rules-1",
+    "title": "最高人民法院关于审理专利授权确权行政案件适用法律若干问题的规定（一）（2020年施行）",
+    "short": "授权确权一",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "27": {
+    "domain": "ip-evidence-rules-2020",
+    "title": "最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）",
+    "short": "证据规定",
+    "country": "CN",
+    "field": "综合程序",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "29": {
+    "domain": "plant-variety-rules-2",
+    "title": "最高人民法院关于审理侵害植物新品种权纠纷案件具体应用法律问题的若干规定（二）（2021年施行）",
+    "short": "品种规定二",
+    "country": "CN",
+    "field": "品种布图",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "30": {
+    "domain": "unfair-competition-interp-2022",
+    "title": "最高人民法院关于适用《中华人民共和国反不正当竞争法》若干问题的解释（2022年施行）",
+    "short": "反法解释",
+    "country": "CN",
+    "field": "竞争法",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "31": {
+    "domain": "ipc-digest-2022",
+    "title": "最高人民法院知识产权法庭裁判要旨摘要（2022）",
+    "short": "要旨2022",
+    "country": "CN",
+    "field": "综合程序",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "32": {
+    "domain": "antitrust-civil-interp-2024",
+    "title": "最高人民法院关于审理垄断民事纠纷案件适用法律若干问题的解释（2024年施行）",
+    "short": "垄断解释",
+    "country": "CN",
+    "field": "竞争法",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "33": {
+    "domain": "ipc-digest-2023",
+    "title": "最高人民法院知识产权法庭裁判要旨摘要（2023）",
+    "short": "要旨2023",
+    "country": "CN",
+    "field": "综合程序",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "34": {
+    "domain": "ip-criminal-interp-2025",
+    "title": "最高人民法院、最高人民检察院关于办理侵犯知识产权刑事案件适用法律若干问题的解释（2025年施行）",
+    "short": "刑事解释",
+    "country": "CN",
+    "field": "综合程序",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "35": {
+    "domain": "punitive-damages-interp",
+    "title": "最高人民法院关于审理侵害知识产权民事纠纷案件适用惩罚性赔偿的解释（2026年施行）",
+    "short": "惩罚赔偿",
+    "country": "CN",
+    "field": "综合程序",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "36": {
+    "domain": "ic-layout-rules-2001",
+    "title": "集成电路布图设计保护条例实施细则（2001年施行）",
+    "short": "布图细则",
+    "country": "CN",
+    "field": "品种布图",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "37": {
+    "domain": "defense-patent-regulations-2004",
+    "title": "国防专利条例（2004年施行）",
+    "short": "国防专利",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D2",
+    "docTypeName": "行政法规"
+  },
+  "38": {
+    "domain": "network-dissemination-regulations-2013",
+    "title": "信息网络传播权保护条例（2013年施行）",
+    "short": "网络传播",
+    "country": "CN",
+    "field": "著作权",
+    "docType": "D2",
+    "docTypeName": "行政法规"
+  },
+  "39": {
+    "domain": "copyright-law-rules-2013",
+    "title": "中华人民共和国著作权法实施条例（2013年施行）",
+    "short": "著作权条例",
+    "country": "CN",
+    "field": "著作权",
+    "docType": "D2",
+    "docTypeName": "行政法规"
+  },
+  "40": {
+    "domain": "software-protection-regulations-2013",
+    "title": "计算机软件保护条例（2002年施行）",
+    "short": "软件条例",
+    "country": "CN",
+    "field": "著作权",
+    "docType": "D2",
+    "docTypeName": "行政法规"
+  },
+  "41": {
+    "domain": "copyright-collective-mgmt-2013",
+    "title": "著作权集体管理条例（2005年施行）",
+    "short": "集体管理",
+    "country": "CN",
+    "field": "著作权",
+    "docType": "D2",
+    "docTypeName": "行政法规"
+  },
+  "42": {
+    "domain": "trademark-law-rules-2014",
+    "title": "中华人民共和国商标法实施条例（2014年施行）",
+    "short": "商标条例",
+    "country": "CN",
+    "field": "商标",
+    "docType": "D2",
+    "docTypeName": "行政法规"
+  },
+  "43": {
+    "domain": "customs-ip-protection-2018",
+    "title": "中华人民共和国知识产权海关保护条例（2004年施行）",
+    "short": "海关保护",
+    "country": "CN",
+    "field": "综合程序",
+    "docType": "D2",
+    "docTypeName": "行政法规"
+  },
+  "44": {
+    "domain": "patent-agency-regulations-2018",
+    "title": "专利代理条例（2019年施行）",
+    "short": "专利代理",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D2",
+    "docTypeName": "行政法规"
+  },
+  "45": {
+    "domain": "copyright-law-2020",
+    "title": "中华人民共和国著作权法（2021年施行）",
+    "short": "著作权法",
+    "country": "CN",
+    "field": "著作权",
+    "docType": "D1",
+    "docTypeName": "法律"
+  },
+  "46": {
+    "domain": "anti-monopoly-law-2022",
+    "title": "中华人民共和国反垄断法（2022年施行）",
+    "short": "反垄断法",
+    "country": "CN",
+    "field": "竞争法",
+    "docType": "D1",
+    "docTypeName": "法律"
+  },
+  "47": {
+    "domain": "plant-variety-regulations-2025",
+    "title": "中华人民共和国植物新品种保护条例（2025年施行）",
+    "short": "品种条例",
+    "country": "CN",
+    "field": "品种布图",
+    "docType": "D2",
+    "docTypeName": "行政法规"
+  },
+  "48": {
+    "domain": "anti-unfair-competition-2025",
+    "title": "中华人民共和国反不正当竞争法（2025年施行）",
+    "short": "反不正当",
+    "country": "CN",
+    "field": "竞争法",
+    "docType": "D1",
+    "docTypeName": "法律"
+  },
+  "49": {
+    "domain": "trademark-law-2026",
+    "title": "中华人民共和国商标法（2027年施行）",
+    "short": "商标法",
+    "country": "CN",
+    "field": "商标",
+    "docType": "D1",
+    "docTypeName": "法律"
+  },
+  "50": {
+    "domain": "ic-layout-regulations-2026",
+    "title": "集成电路布图设计保护条例（2026年施行）",
+    "short": "布图条例",
+    "country": "CN",
+    "field": "品种布图",
+    "docType": "D2",
+    "docTypeName": "行政法规"
+  },
+  "51": {
+    "domain": "work-registration-1994",
+    "title": "作品自愿登记试行办法（1995年施行）",
+    "short": "作品登记",
+    "country": "CN",
+    "field": "著作权",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "52": {
+    "domain": "software-copyright-registration-2002",
+    "title": "计算机软件著作权登记办法（2002年施行）",
+    "short": "软件登记",
+    "country": "CN",
+    "field": "著作权",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "53": {
+    "domain": "trademark-printing-2004",
+    "title": "商标印制管理办法（2004年施行）",
+    "short": "商标印制",
+    "country": "CN",
+    "field": "商标",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "54": {
+    "domain": "customs-ip-measures-2009",
+    "title": "中华人民共和国海关关于《中华人民共和国知识产权海关保护条例》的实施办法（2009年施行）",
+    "short": "海关办法",
+    "country": "CN",
+    "field": "综合程序",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "55": {
+    "domain": "copyright-penalty-2009",
+    "title": "著作权行政处罚实施办法（2009年施行）",
+    "short": "著权处罚",
+    "country": "CN",
+    "field": "著作权",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "56": {
+    "domain": "patent-marking-2012",
+    "title": "专利标识标注办法（2012年施行）",
+    "short": "专利标识",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "57": {
+    "domain": "compulsory-license-2012",
+    "title": "专利实施强制许可办法（2012年施行）",
+    "short": "强制许可",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "58": {
+    "domain": "trademark-review-rules-2014",
+    "title": "商标评审规则（2014年施行）",
+    "short": "商标评审",
+    "country": "CN",
+    "field": "商标",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "59": {
+    "domain": "wellknown-tm-recognition-2014",
+    "title": "驰名商标认定和保护规定（2014年施行）",
+    "short": "驰名认定",
+    "country": "CN",
+    "field": "商标",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "60": {
+    "domain": "biomaterial-deposit-2015",
+    "title": "用于专利程序的生物材料保藏办法（2015年施行）",
+    "short": "生物保藏",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "61": {
+    "domain": "patent-enforcement-2015",
+    "title": "专利行政执法办法（2015年施行）",
+    "short": "行政执法",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "62": {
+    "domain": "fee-reduction-2016",
+    "title": "专利收费减缴办法（2016年施行）",
+    "short": "收费减缴",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "63": {
+    "domain": "cnipa-normative-docs-2016",
+    "title": "国家知识产权局规范性文件制定和管理办法（2017年施行）",
+    "short": "规范文件",
+    "country": "CN",
+    "field": "综合程序",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "64": {
+    "domain": "patent-agency-admin-2019",
+    "title": "专利代理管理办法（2019年施行）",
+    "short": "代理管理",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "65": {
+    "domain": "patent-attorney-exam-2019",
+    "title": "专利代理师资格考试办法（2019年施行）",
+    "short": "资格考试",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "66": {
+    "domain": "trademark-filing-conduct-2019",
+    "title": "规范商标申请注册行为若干规定（2019年施行）",
+    "short": "申请规范",
+    "country": "CN",
+    "field": "商标",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "67": {
+    "domain": "trademark-infringement-standard-2020",
+    "title": "商标侵权判断标准",
+    "short": "侵权标准",
+    "country": "CN",
+    "field": "商标",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "68": {
+    "domain": "major-patent-adjudication-2021",
+    "title": "重大专利侵权纠纷行政裁决办法（2021年施行）",
+    "short": "行政裁决",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "69": {
+    "domain": "trademark-violation-standard-2021",
+    "title": "商标一般违法判断标准（2022年施行）",
+    "short": "违法标准",
+    "country": "CN",
+    "field": "商标",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "70": {
+    "domain": "trademark-agency-supervision-2022",
+    "title": "商标代理监督管理规定（2022年施行）",
+    "short": "商标代理",
+    "country": "CN",
+    "field": "商标",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "71": {
+    "domain": "ip-abuse-competition-2023",
+    "title": "禁止滥用知识产权排除、限制竞争行为规定（2023年施行）",
+    "short": "滥用规定",
+    "country": "CN",
+    "field": "竞争法",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "72": {
+    "domain": "fee-adjustment-notice-2024",
+    "title": "国家知识产权局关于调整部分专利收费标准和减缴政策的公告",
+    "short": "收费调整",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "73": {
+    "domain": "priority-examination-2026",
+    "title": "专利优先审查管理办法（2026年施行）",
+    "short": "优先审查",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "74": {
+    "domain": "patent-payment-guide-2026",
+    "title": "专利缴费操作指引",
+    "short": "缴费指引",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D5",
+    "docTypeName": "审查与实务指引"
+  },
+  "75": {
+    "domain": "patent-ic-fee-manual-2026",
+    "title": "专利和集成电路布图设计缴费服务指南",
+    "short": "缴费指南",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D5",
+    "docTypeName": "审查与实务指引"
+  },
+  "76": {
+    "domain": "copyright-pledge-registration-2011",
+    "title": "著作权质权登记办法（2011年施行）",
+    "short": "质权登记",
+    "country": "CN",
+    "field": "著作权",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "77": {
+    "domain": "text-work-remuneration-2014",
+    "title": "使用文字作品支付报酬办法（2014年施行）",
+    "short": "报酬办法",
+    "country": "CN",
+    "field": "著作权",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "78": {
+    "domain": "patent-adjudication-manual-2019",
+    "title": "专利侵权纠纷行政裁决办案指南（2019年施行）",
+    "short": "办案指南",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D5",
+    "docTypeName": "审查与实务指引"
+  },
+  "79": {
+    "domain": "ip-power-outline-2021",
+    "title": "知识产权强国建设纲要（2021－2035年）",
+    "short": "强国纲要",
+    "country": "CN",
+    "field": "综合程序",
+    "docType": "D6",
+    "docTypeName": "政策文件与标准索引"
+  },
+  "80": {
+    "domain": "trademark-exam-guide-2021",
+    "title": "商标审查审理指南（2022年施行）",
+    "short": "商标审查",
+    "country": "CN",
+    "field": "商标",
+    "docType": "D5",
+    "docTypeName": "审查与实务指引"
+  },
+  "81": {
+    "domain": "patent-filing-conduct-2023",
+    "title": "规范申请专利行为的规定（2024年施行）",
+    "short": "规范申请",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "82": {
+    "domain": "exam-guideline-decree-2023",
+    "title": "国家知识产权局令第78号（发布《专利审查指南》）（2024年施行）",
+    "short": "指南发布令",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D6",
+    "docTypeName": "政策文件与标准索引"
+  },
+  "83": {
+    "domain": "collective-cert-trademark-2023",
+    "title": "集体商标、证明商标注册和管理规定（2024年施行）",
+    "short": "集体商标",
+    "country": "CN",
+    "field": "商标",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "84": {
+    "domain": "gi-product-protection-2023",
+    "title": "地理标志产品保护办法（2024年施行）",
+    "short": "地理标志",
+    "country": "CN",
+    "field": "商标",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "85": {
+    "domain": "patent-adjudication-mediation-2024",
+    "title": "专利纠纷行政裁决和调解办法（2025年施行）",
+    "short": "裁决调解",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "86": {
+    "domain": "admin-reconsideration-2024",
+    "title": "国家知识产权局行政复议规程（2025年施行）",
+    "short": "行政复议",
+    "country": "CN",
+    "field": "综合程序",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "87": {
+    "domain": "rulemaking-procedure-2024",
+    "title": "国家知识产权局规章制定程序规定（2025年施行）",
+    "short": "规章程序",
+    "country": "CN",
+    "field": "综合程序",
+    "docType": "D3",
+    "docTypeName": "部门规章与规范性文件"
+  },
+  "88": {
+    "domain": "ipc-digest-2024",
+    "title": "最高人民法院知识产权法庭裁判要旨摘要（2024）",
+    "short": "要旨2024",
+    "country": "CN",
+    "field": "综合程序",
+    "docType": "D4",
+    "docTypeName": "司法解释与裁判规则"
+  },
+  "89": {
+    "domain": "ip-plan-15th-2026",
+    "title": "知识产权保护和运用“十五五”规划（2026年施行）",
+    "short": "十五五",
+    "country": "CN",
+    "field": "综合程序",
+    "docType": "D6",
+    "docTypeName": "政策文件与标准索引"
+  },
+  "90": {
+    "domain": "gb-standards-index",
+    "title": "知识产权相关 GB/T 国家标准清单与在线预览入口",
+    "short": "GB清单",
+    "country": "CN",
+    "field": "综合程序",
+    "docType": "D6",
+    "docTypeName": "政策文件与标准索引"
+  },
+  "91": {
+    "domain": "quality-evaluation",
+    "title": "专利质量评价指南",
+    "short": "质量评价",
+    "country": "CN",
+    "field": "专利",
+    "docType": "D5",
+    "docTypeName": "审查与实务指引"
+  }
+}

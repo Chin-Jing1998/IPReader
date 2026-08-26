@@ -20,14 +20,16 @@ const MISS_SIM = 0.7; // 漏连阈值：跨域未连但语义≥此 → 提示�
 const HUB_TOPIC_N = 8; // 主题命中数≥此 → "杂揽型"节点
 const GENERIC_TOPICS = new Set(['oaResponse', 'claims', 'description']); // 关键词偏宽泛的主题
 
+// ⚠ 2026-08-23 修复：旧键 'examination-guideline-2025' 随域改名同步为 'examination-guideline'；补登此前未登记的 trademark-exam-guide-2021。
 const DOMAIN_CN = {
-  'examination-guideline-2025': '审查指南',
+  'examination-guideline': '审查指南',
   'patent-law': '专利法',
   'implementation-rules': '实施细则',
   'infringement-guide': '侵权判定',
   'mechanical-drafting-rules': '机械撰写',
   'chemistry-drafting-rules': '化学撰写',
   'oa-response-guide': '答复指引',
+  'trademark-exam-guide-2021': '商标审查指南',
 };
 const dcn = (d) => DOMAIN_CN[d] || d;
 const HUB_RE = /其他文件|相关手续|相关规定|实质审查/;

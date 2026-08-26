@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/06-10/05/03/01",
+  "anchorNode": "tmeg-06-10-05-03-01",
+  "terms": [
+    { "name": "系争商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "系争商标构成对当事人驰名商标的复制、摹仿或者翻译" },
+    { "name": "混淆", "aliases": [], "role": "used", "confidence": "mid", "evidence": "系争商标的注册或者使用，容易导致混淆" }
+  ],
+  "laws": ["商标法第13条"],
+  "extractedAt": "2026-08-23"
+}

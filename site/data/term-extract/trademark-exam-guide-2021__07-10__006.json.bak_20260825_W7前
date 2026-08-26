@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/07-10/05/04",
+  "anchorNode": "tmeg-07-10-05-04",
+  "terms": [
+    { "name": "驰名商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "驰名商标是指在中国为相关公众所熟知的商标" },
+    { "name": "相关公众", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "相关公众包括但不以下列情形为限" },
+    { "name": "驰名商标受保护的记录", "aliases": [], "role": "used", "confidence": "mid", "evidence": "该商标作为驰名商标受保护的记录" },
+    { "name": "域外证据", "aliases": [], "role": "used", "confidence": "mid", "evidence": "当事人提交的域外证据材料，应当能够据以证明该商标为中国相关公众所知晓" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-23"
+}

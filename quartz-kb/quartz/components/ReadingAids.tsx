@@ -3,6 +3,7 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 import script from "./scripts/reading.inline"
 import style from "./styles/readingAids.scss"
 import { classNames } from "../util/lang"
+import { GRAPH_SLUG } from "../util/appPages"
 
 /**
  * 阅读辅助（v6）：回到顶部 FAB ＋ 内嵌阅读进度环（合一控件），
@@ -10,7 +11,7 @@ import { classNames } from "../util/lang"
  * 图谱总览页为画布应用（页面不滚动）、设置页为应用面板，均不渲染。
  */
 const ReadingAids: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
-  if (fileData.slug === "0-图谱总览/index" || fileData.slug === "设置/index") {
+  if (fileData.slug === GRAPH_SLUG || fileData.slug === "设置/index") {
     return null
   }
   return (

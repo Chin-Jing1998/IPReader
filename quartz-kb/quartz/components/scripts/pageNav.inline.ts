@@ -1,6 +1,8 @@
 // 键盘翻页（v6）：← / [ 上一节，→ / ] 下一节。
 // 无状态设计：每次按键现读 .page-nav 的 data-prev / data-next（micromorph
 // 换页后属性天然是新值，零重绑逻辑）；导航优先走 SPA 路由保留换页体验。
+import { GRAPH_SLUG } from "../../util/appPages"
+
 const NEXT_KEYS = new Set(["ArrowRight", "]"])
 const PREV_KEYS = new Set(["ArrowLeft", "["])
 
@@ -29,7 +31,7 @@ function isBlockedContext(): boolean {
     return true
   }
   // 图谱总览专页：整页为画布应用
-  if (document.body.dataset.slug === "0-图谱总览/index") {
+  if (document.body.dataset.slug === GRAPH_SLUG) {
     return true
   }
   // 设置专页：整页为设置面板应用，非阅读页面

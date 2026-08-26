@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/07-04/02/01",
+  "anchorNode": "tmeg-07-04-02-01",
+  "terms": [
+    { "name": "显著特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标的显著特征是指商标应当具备的足以使相关公众区分商品或者服务来源的特征" },
+    { "name": "固有显著性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标的显著性可以通过两种方式取得：固有显著性和通过使用获得显著性" },
+    { "name": "通用名称", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“通用名称、图形、型号”是指国家标准、行业标准规定的或者约定俗成的名称、图形、型号，其中包括全称、简称、缩写、俗称" },
+    { "name": "仅直接表示", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“仅直接表示”是指申请商标仅由对指定商品或者服务的质量、主要原料、功能、用途、重量、数量及其他特点，具有直接说明性和描述性的标志构成" },
+    { "name": "缺乏显著特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "其他缺乏显著特征的标志，是指前述两项规定以外的、依照社会通常观念，作为商标使用在指定商品或者服务上不具备商标的显著特征的标志" },
+    { "name": "经过使用取得显著特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "前款所列标志经过使用取得显著特征，并便于识别的，可以作为商标注册" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "判断某个标志是否属于经使用取得显著特征的标志，应以相关公众的认知为准" },
+    { "name": "无效宣告", "aliases": [], "role": "used", "confidence": "mid", "evidence": "无效宣告案件原则上以系争商标申请注册时的事实状态为准" }
+  ],
+  "laws": ["商标法第11条"],
+  "extractedAt": "2026-08-23"
+}

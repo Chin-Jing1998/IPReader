@@ -19,7 +19,9 @@ export interface Options {
   /**
    * 默认展开的目录层级数（F5）：folderDefaultState 为 "collapsed" 时，
    * 深度 ≤ openLevels 的文件夹初始展开（深度 = slug 段数，顶层目录为 1）。
-   * 仅在无 localStorage 保存态（fileTree）时生效；缺省 0 = 维持全折叠旧行为。
+   * 仅在无 localStorage 保存态（fileTree-v2）时生效；缺省 0 = 维持全折叠旧行为。
+   * 深度口径为渲染树层级——启用合成分组层后，第 1 层是「0-图谱总览 / 中国 /
+   * 9-关键词索引」，书目录落在第 4 层（详见 explorer.inline.ts 的 defaultCollapsed）。
    */
   openLevels?: number
   sortFn: (a: FileTrieNode, b: FileTrieNode) => number

@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/05-03/01",
+  "anchorNode": "tmeg-05-03-01",
+  "terms": [
+    { "name": "公告送达", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标文件通过上述方式无法送达的，可通过公告方式送达" },
+    { "name": "送达日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标注册部门向当事人送达各种文件的日期，邮寄的，以当事人收到的邮戳日为准" },
+    { "name": "数据电文方式送达", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以数据电文方式送达的，自文件发出之日起满15日视为送达当事人" },
+    { "name": "收件人", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "当事人未委托商标代理机构的，商标文件的收件人为当事人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-23"
+}

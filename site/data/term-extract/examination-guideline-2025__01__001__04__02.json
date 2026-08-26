@@ -1,5 +1,5 @@
 {
-  "chunk": "examination-guideline-2025/01/001/04/02",
+  "chunk": "examination-guideline/01/001/04/02",
   "anchorNode": "01-01-04-02",
   "terms": [
     { "name": "序列表", "aliases": ["计算机可读形式序列表"], "role": "defined", "confidence": "high", "evidence": "涉及核苷酸或者氨基酸序列的申请，应当将该序列表作为说明书的一个单独部分" },

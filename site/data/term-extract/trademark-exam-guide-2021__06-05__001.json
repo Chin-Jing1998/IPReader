@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/05-05",
+  "anchorNode": "tmeg-05-05",
+  "terms": [
+    { "name": "商标注册档案", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标注册档案，是指在商标注册申请、异议、撤销、复审、无效等过程中形成的" },
+    { "name": "保管期限", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "商标注册纸质档案的保管期限分为永久和定期两种" },
+    { "name": "商标注册电子档案", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标注册电子档案长期保存" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-23"
+}

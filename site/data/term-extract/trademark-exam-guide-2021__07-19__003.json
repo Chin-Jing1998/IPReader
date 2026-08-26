@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06-19/04",
+  "anchorNode": "tmeg-06-19-04",
+  "terms": [
+    { "name": "审查意见书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查意见书是商标注册部门依据《商标法》及其实施条例的有关规定，认为商标注册申请涉及不符合规定，但经说明或修正后有可能克服前述障碍等情形的" },
+    { "name": "补正文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "并提供相应补充证据或补正文件的法定程序" },
+    { "name": "暂缓审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以发审查意见书告知申请人可以依法提交请求暂缓审查的书面申请" },
+    { "name": "不以使用为目的的恶意商标注册申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "涉嫌不以使用为目的的恶意商标注册申请，可以要求申请人就申请注册商标意图及使用情况作出说明" }
+  ],
+  "laws": ["商标法第29条","商标法第28条","商标法实施条例第11条","商标法第10条","商标法第11条"],
+  "extractedAt": "2026-08-23"
+}

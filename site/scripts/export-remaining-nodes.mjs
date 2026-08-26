@@ -12,9 +12,11 @@ const OUT = join(__dirname, '..', 'audit', 'review-all');
 mkdirSync(OUT, { recursive: true });
 const PRIOR = [join(__dirname, '..', 'audit', 'review-nodes'), join(__dirname, '..', 'audit', 'review-focused')];
 
+// ⚠ 2026-08-23 修复：旧键 'examination-guideline-2025' 随域改名同步为 'examination-guideline'；补登此前未登记的 trademark-exam-guide-2021。
 const DOMAIN_CN = {
-  'examination-guideline-2025': '审查指南', 'patent-law': '专利法', 'implementation-rules': '实施细则',
+  'examination-guideline': '审查指南', 'patent-law': '专利法', 'implementation-rules': '实施细则',
   'infringement-guide': '侵权判定', 'mechanical-drafting-rules': '机械撰写', 'chemistry-drafting-rules': '化学撰写', 'oa-response-guide': '答复指引',
+  'trademark-exam-guide-2021': '商标审查指南',
 };
 const dcn = (d) => DOMAIN_CN[d] || d;
 const CENTER_LEN = 1400, NBR_LEN = 360;

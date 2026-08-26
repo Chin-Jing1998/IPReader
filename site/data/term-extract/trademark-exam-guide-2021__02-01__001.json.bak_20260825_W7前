@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/02-01",
+  "anchorNode": "tmeg-02-01",
+  "terms": [
+    { "name": "形式审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "形式审查是接收商标申请之后，受理商标申请之前的一个必要程序" },
+    { "name": "书面审查原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查员应当以申请人提交的书面文件为基础进行审查" },
+    { "name": "一次性告知原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "尽可能在一次补正通知书中指出全部应补正的内容并说明理由" },
+    { "name": "确保效率原则", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "审查员应在符合规定的情况下尽可能缩短形式审查周期" },
+    { "name": "补正通知书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "补正通知书应当指明商标申请存在的缺陷，说明理由，同时指定答复期限" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-23"
+}

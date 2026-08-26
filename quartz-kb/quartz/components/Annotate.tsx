@@ -3,6 +3,7 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 import script from "./scripts/annotate.inline"
 import style from "./styles/annotate.scss"
 import { classNames } from "../util/lang"
+import { GRAPH_SLUG } from "../util/appPages"
 
 /**
  * 选中文本标注（v7 需求7）：复制 / 高亮 / 下划线 / 笔记。
@@ -17,7 +18,7 @@ import { classNames } from "../util/lang"
  * 中文文案硬编码在此（不动 quartz/i18n，先例：GraphExplorer、PageNav）。
  */
 const Annotate: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
-  if (fileData.slug === "0-图谱总览/index") {
+  if (fileData.slug === GRAPH_SLUG) {
     return null
   }
   return (

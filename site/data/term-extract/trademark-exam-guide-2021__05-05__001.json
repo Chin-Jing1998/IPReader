@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/04-05",
+  "anchorNode": "tmeg-04-05",
+  "terms": [
+    { "name": "国际注册转国内申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "国际注册转国内申请的，应符合下列条件" },
+    { "name": "国际注册代替国内注册加注申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "国际注册代替国内注册加注申请应委托依法设立的中国商标代理机构" },
+    { "name": "国际更正", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "国际更正涉及权利日期的，若更正后的权利日期晚于原权利日期" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-23"
+}

@@ -1,7 +1,7 @@
 #!/bin/sh
 # sync-content.sh —— 同步章节/词条详情 JSON 到 quartz 静态资源目录
 #
-# 作用：把 ../site/public/content/（2175 个节点详情 JSON：章节 related/examples、
+# 作用：把 ../site/public/content/（5306 个节点详情 JSON：章节 related/examples、
 #       词条 definition/occurrences/laws 等）拷入 quartz/static/content/，
 #       quartz 每次 `npx quartz build` 会经 Static emitter 自动带到 public/static/content/，
 #       供图谱总览页（0-图谱总览）等组件按节点 id 拉取侧栏阅读内容。

@@ -1,5 +1,7 @@
 // 数据管线 D1：种子词表归集
-//   解析 7 部规范 _index.md 中「关键词速查」markdown 表（| 关键词 | 涉及条款/章节 |），
+//   解析各规范 _index.md 中「关键词速查」markdown 表（| 关键词 | 涉及条款/章节 |）——
+//     现为 8 域设有该表并接入：原 7 部规范 + 商标审查审理指南（2026-08-23 阶段5波C 接入）；
+//     第 9 域 quality-evaluation 亦自带该表但按 SKIP_DOMAINS 显式跳过（见下方裁决注释），
 //   把关键词拆分变体、剥离括号注记，按域解析"涉及条款"列并锚定到 data/nodes.json 节点，
 //   与 lib/topics.mjs 的 34 主题归并，同名合并后产出：
 //     - data/terms-seed.json          种子词条（tmpKey/canonical/aliases/matchers/topicKey/sources/lawKeys/tier）
@@ -184,7 +186,7 @@ function resolveLawCell(cell, lawName) {
   return { ids, unresolved, refCount: arts.length, fallback: 0 };
 }
 
-// —— examination-guideline-2025：部/章/节（数字周围可有空格；后续段继承部/章上下文）——
+// —— examination-guideline：部/章/节（数字周围可有空格；后续段继承部/章上下文）——
 //   节号折叠为 pp-cc-ss-uu（节点 num 最深两段）；子节不存在时退级到节/章/部。
 function resolveGuidelineCell(cell) {
   const ids = [];
@@ -352,10 +354,137 @@ function resolveOaCell(cell) {
   return { ids, unresolved, refCount, fallback };
 }
 
+// —— trademark-exam-guide-2021：编 → 部分 → 章 → 节 层级定位 ——
+//   体例：上编＝形式审查和事务工作编（下辖五个「第N部分」，章号 1..25 跨部分连续编号）、
+//   下编＝商标审查审理编（无部分层，章号 1..19）；两编章号各自独立，故须连编名一并援引。
+//   2026-08-24 阶段5.1 批次 T-2 重写：T-1 把本域重构为 part/chapter/section/subsection 四级树，
+//   上编的「编」标题已溶解为五个 part 的 label 前缀「上编·」，下编自身升为 part（label「下编·…」），
+//   原「按 id 连号推章」与「靠遍历顺序记住当前编」的写法双双失效。改为层级驱动：
+//     编 ← part 层 label 的「上编/下编」前缀（兼容历史半角空格写法）；
+//     章 ← 该编各 part 子树内 num 为「第N章」的 chapter 节点；
+//     节 ← 该章子树内 num 为「第X条」或数字条目（如 3.9.5、18.3.2）的 section/subsection。
+//   候选由细到粗（节 → 章 → 部分）并逐级退级，与 resolveGuidelineCell 同风格；命中非首选计一次退级。
+//   段间继承编/部分/章上下文（「上编第一章、第二章」的后段可省略编名），供 T-3 速查表定位列升级使用。
+function buildTmegIndex() {
+  const domainNodes = nodesByDomain.get('trademark-exam-guide-2021') || [];
+  // part 层：解析所属编与部分序号（书末「《商标审查审理指南》的说明」等说明性节点
+  //   无编名前缀，bian 为 null 不入索引；原承载体节点「前言·公布与施行」已于阶段5.3 删除）
+  const parts = [];
+  for (const n of domainNodes) {
+    if (n.level !== 'part') continue;
+    const label = (n.label || '').replace(/\s+/g, '');
+    const bm = label.match(/^(上编|下编)/);
+    if (!bm) continue;
+    const pm = label.match(new RegExp(`第(${CN_NUM})部分`));
+    const partNum = pm ? cn2num(pm[1]) : null;
+    parts.push({ id: n.id, bian: bm[1], partNum: Number.isFinite(partNum) ? partNum : null });
+  }
+  const partIdx = new Map(); // '上编:1' → 'tmeg-02'
+  const bianIdx = new Map(); // '下编' → 'tmeg-07'（无部分层的编自身即 part 节点；上编无此单节点）
+  for (const p of parts) {
+    if (p.partNum != null) partIdx.set(`${p.bian}:${p.partNum}`, p.id);
+    else if (!bianIdx.has(p.bian)) bianIdx.set(p.bian, p.id);
+  }
+  const chapterIdx = new Map(); // '上编:6' → 'tmeg-03-01'
+  for (const n of domainNodes) {
+    if (n.level !== 'chapter') continue;
+    const owner = parts.find((p) => n.id.startsWith(`${p.id}-`));
+    if (!owner) continue;
+    const m = (n.num || '').match(new RegExp(`^第(${CN_NUM})章$`));
+    if (!m) continue;
+    const c = cn2num(m[1]);
+    if (!Number.isFinite(c)) continue;
+    const key = `${owner.bian}:${c}`;
+    if (!chapterIdx.has(key)) chapterIdx.set(key, n.id); // 同编同章号只取首个（正文唯一，防御性去重）
+  }
+  return { partIdx, bianIdx, chapterIdx, domainNodes };
+}
+const tmegIndex = buildTmegIndex();
+
+// 章内按 num 定位节/子节（num 形如「第十条」或「3.9.5」）；同章重号取 id 最短者（层级最浅）
+function tmegSectionUnder(chapterId, num) {
+  const hits = tmegIndex.domainNodes
+    .filter((n) => n.id.startsWith(`${chapterId}-`) && n.num === num)
+    .sort((a, b) => a.id.length - b.id.length || (a.id < b.id ? -1 : 1));
+  return hits.length ? hits[0].id : null;
+}
+
+function resolveTmegCell(cell) {
+  const ids = [];
+  const unresolved = [];
+  let refCount = 0;
+  let fallback = 0;
+  const ctx = { bian: null, part: null, chapter: null };
+  for (const seg of cell.replace(PAREN_RE, ' ').split('、').map((s) => s.trim()).filter(Boolean)) {
+    const bm = seg.match(/^(上编|下编)/);
+    if (bm) {
+      ctx.bian = bm[1];
+      ctx.part = null;
+      ctx.chapter = null;
+    }
+    const pm = seg.match(new RegExp(`第(${CN_NUM})部分`));
+    if (pm) {
+      ctx.part = cn2num(pm[1]);
+      ctx.chapter = null;
+    }
+    const cm = seg.match(new RegExp(`第(${CN_NUM})章`));
+    if (cm) ctx.chapter = cn2num(cm[1]);
+    // 节级引用：「第X条」条文节，或「3.9.5」式数字条目（至少两段，避免误吞章号）
+    const am = seg.match(new RegExp(`第(${CN_NUM})条`));
+    const dm = seg.match(/\d+(?:\.\d+)+/);
+    const secNum = am ? `第${am[1]}条` : dm ? dm[0] : null;
+
+    if (!bm && !pm && !cm && !secNum) {
+      unresolved.push({ raw: seg, reason: '无法识别「上编/下编＋第N部分/第N章/节」结构' });
+      continue;
+    }
+    if (!ctx.bian) {
+      unresolved.push({ raw: seg, reason: '缺少「上编/下编」上下文' });
+      continue;
+    }
+
+    // 候选由细到粗：章内节 → 章 → 部分 → 编自身
+    const cands = [];
+    let chapterId = null;
+    if (ctx.chapter != null && Number.isFinite(ctx.chapter)) {
+      chapterId = tmegIndex.chapterIdx.get(`${ctx.bian}:${ctx.chapter}`) || null;
+      if (chapterId) {
+        if (secNum) {
+          const sid = tmegSectionUnder(chapterId, secNum);
+          if (sid) cands.push(sid);
+        }
+        cands.push(chapterId);
+      }
+    }
+    if (ctx.part != null && Number.isFinite(ctx.part)) {
+      const pid = tmegIndex.partIdx.get(`${ctx.bian}:${ctx.part}`);
+      if (pid) cands.push(pid);
+    }
+    if (!cands.length) {
+      const bid = tmegIndex.bianIdx.get(ctx.bian);
+      if (bid) cands.push(bid); // 下编自身即 part 节点；上编无单节点（已溶解为各部分前缀）
+    }
+
+    if (!cands.length) {
+      const what =
+        ctx.chapter != null ? `${ctx.bian}第${ctx.chapter}章` : ctx.part != null ? `${ctx.bian}第${ctx.part}部分` : ctx.bian;
+      unresolved.push({ raw: seg, reason: `未找到${what}节点` });
+      continue;
+    }
+    refCount++;
+    ids.push(cands[0]);
+    // 退级计数：请求到节却只落到章，或请求到章却只落到部分/编
+    if (secNum && chapterId && cands[0] === chapterId) fallback++;
+    else if (ctx.chapter != null && chapterId == null) fallback++;
+  }
+  return { ids, unresolved, refCount, fallback };
+}
+
 const RESOLVERS = {
   'patent-law': (cell) => resolveLawCell(cell, '专利法'),
   'implementation-rules': (cell) => resolveLawCell(cell, '专利法实施细则'),
-  'examination-guideline-2025': resolveGuidelineCell,
+  'examination-guideline': resolveGuidelineCell,
+  'trademark-exam-guide-2021': resolveTmegCell,
   'infringement-guide': resolveInfrCell,
   'chemistry-drafting-rules': (cell) => resolveNumericCell(cell, 'chemistry-drafting-rules'),
   'mechanical-drafting-rules': (cell) => resolveNumericCell(cell, 'mechanical-drafting-rules'),
@@ -390,20 +519,44 @@ function extractKeywordRows(indexPath) {
 const EXPECTED_ROWS = {
   'patent-law': 38,
   'implementation-rules': 89,
-  'examination-guideline-2025': 187,
+  'examination-guideline': 187,
   'infringement-guide': 29,
   'chemistry-drafting-rules': 42,
   'mechanical-drafting-rules': 56,
   'oa-response-guide': 40,
+  'trademark-exam-guide-2021': 68,
 };
+
+// 显式跳过名单（阶段5.2 批次 W-3 裁决）：
+//   quality-evaluation（第 88 域，批次 Q-1 召回）的 _index.md 自带「关键词速查」表，
+//   但 RESOLVERS 无对应项，跑到该域即 `RESOLVERS[dom.key] is not a function` 崩溃。
+//   裁决＝**显式跳过而非接入**：本波不把新域纳入术语链路——接入会把该域关键词灌进种子词表，
+//   连带改变 merge-terms 的合并结果，破坏下游词表 1035 词恒定的口径；待另案扩产时再补
+//   resolveQevalCell 并从本名单移除。
+//   ⚠ 只跳过名单内的域：凡「_index.md 有速查表 + RESOLVERS 未注册 + 不在本名单」的域一律报错退出，
+//     防止将来新增域时无声漏接（静默 skip 会让新域的关键词悄悄不入表且无人察觉）。
+const SKIP_DOMAINS = new Set(['quality-evaluation']);
 
 const termMap = new Map(); // norm(canonical) → 词条累加器
 const termOrder = []; // 保持首次出现顺序
 const unresolvedRows = []; // CSV 明细：{domain, keyword, rawRef, reason}
 const domainStats = {};
+const skippedDomains = [];
 
 for (const dom of KNOWN_DOMAINS) {
+  if (SKIP_DOMAINS.has(dom.key)) {
+    const n = extractKeywordRows(join(ROOT, dom.key, '_index.md')).length;
+    skippedDomains.push(`${dom.key}（速查表 ${n} 行，本波不入种子）`);
+    continue;
+  }
   const rows = extractKeywordRows(join(ROOT, dom.key, '_index.md'));
+  if (rows.length && typeof RESOLVERS[dom.key] !== 'function') {
+    console.error(
+      `✗ 域 ${dom.key} 的 _index.md 有「关键词速查」表（${rows.length} 行），但 RESOLVERS 未注册该域，` +
+      '且不在 SKIP_DOMAINS 中。\n  请为其补一个引用解析器接入术语链路，或显式加入 SKIP_DOMAINS 并在注释中写明裁决理由。',
+    );
+    process.exit(1);
+  }
   const st = { rows: rows.length, variants: 0, refOk: 0, refBad: 0, fallback: 0 };
   domainStats[dom.key] = st;
   const expected = EXPECTED_ROWS[dom.key];
@@ -517,6 +670,7 @@ const csv =
 writeFileSync(join(AUDIT_DIR, 'seed-unresolved.csv'), csv);
 
 // ============ 统计与断言 ============
+if (skippedDomains.length) console.log(`—— 显式跳过（SKIP_DOMAINS）——\n${skippedDomains.join('\n')}`);
 console.log('—— 各域解析统计 ——');
 let totalRefOk = 0;
 let totalRefBad = 0;

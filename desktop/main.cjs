@@ -1,4 +1,4 @@
-// PatentReader 桌面端 · Electron 主进程（以 site/electron/main.cjs 为底改造）。
+// IPReader 桌面端 · Electron 主进程（以 site/electron/main.cjs 为底改造）。
 //   渲染层是 quartz 构建好的纯静态站（quartz-kb/public/），由 server.cjs 的本地
 //   http 静态服务在 127.0.0.1 固定端口 47821 托管后加载——避免 file:// 协议下
 //   fetch contentIndex.json 等资源被安全策略拦截。
@@ -149,7 +149,7 @@ async function createWindow() {
     backgroundColor: nativeTheme.shouldUseDarkColors ? byScheme.dark : byScheme.light,
     // 首帧渲染完成前不显示：即便底色已持久化，仍要避免空窗口先亮一下再上内容
     show: false,
-    title: 'PatentReader',
+    title: 'IPReader',
     autoHideMenuBar: true,
     // 仅 macOS 启用自绘标题条：Windows 上 hiddenInset 会退化为 hidden，且未配合
     // titleBarOverlay 时窗口控制按钮（最小化/最大化/关闭）会消失，必须平台门控
@@ -164,7 +164,7 @@ async function createWindow() {
     },
   });
   // SPA 每次导航都会改 document.title，不拦截会让调度中心/窗口菜单标题随页面漂移；
-  // 窗口标题固定为构造时的 PatentReader（与 productName 一致）
+  // 窗口标题固定为构造时的 IPReader（与 productName 一致）
   win.on('page-title-updated', (e) => { e.preventDefault(); });
   win.setMenuBarVisibility(false);
   win.once('ready-to-show', () => win.show());
@@ -416,7 +416,7 @@ async function autoCheckOnStartup() {
   const { response } = await dialog.showMessageBox(win, {
     type: 'info',
     title: '有新版本可用',
-    message: `PatentReader ${result.latest} 已发布`,
+    message: `IPReader ${result.latest} 已发布`,
     detail: `当前版本 ${result.current}。${result.notes ? `\n\n${result.notes.slice(0, 300)}` : ''}`
       + '\n\n本应用不做自动升级，请前往发布页下载新版安装包。',
     buttons: ['前往下载', '稍后再说'],

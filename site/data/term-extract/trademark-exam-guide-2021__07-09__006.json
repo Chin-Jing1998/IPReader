@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06-09/07/03",
+  "anchorNode": "tmeg-06-09-07-03",
+  "terms": [
+    { "name": "申请人主体资格", "aliases": [], "role": "used", "confidence": "high", "evidence": "除对其标志进行审查外，还应当对其申请人主体资格、使用管理规则、指定商品或者服务的品质标准、检验检测能力等特有事项进行审查" },
+    { "name": "集体商标使用管理规则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "集体商标使用管理规则应当包括以下主要内容：使用该集体商标的宗旨" },
+    { "name": "证明商标使用管理规则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "证明商标使用管理规则应当包括以下主要内容：使用该证明商标的宗旨" },
+    { "name": "监督能力", "aliases": [], "role": "used", "confidence": "high", "evidence": "证明商标的注册申请主体应当是依法成立，且对所申请的商品或者服务的特定品质具有监督能力的组织" }
+  ],
+  "laws": ["商标法第3条"],
+  "extractedAt": "2026-08-23"
+}

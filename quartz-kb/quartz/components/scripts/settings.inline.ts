@@ -588,15 +588,15 @@ function buildMcpCommands(info: McpInfo): Record<string, string> {
   const toml = (s: string) => `'${s}'`
   return {
     claude:
-      `claude mcp add patentreader -e ELECTRON_RUN_AS_NODE=1 -- ` +
+      `claude mcp add ipreader -e ELECTRON_RUN_AS_NODE=1 -- ` +
       `${q(info.execPath)} ${q(info.serverPath)}`,
     codex: [
-      "[mcp_servers.patentreader]",
+      "[mcp_servers.ipreader]",
       `command = ${toml(info.execPath)}`,
       `args = [${toml(info.serverPath)}]`,
       "startup_timeout_sec = 30",
       "",
-      "[mcp_servers.patentreader.env]",
+      "[mcp_servers.ipreader.env]",
       'ELECTRON_RUN_AS_NODE = "1"',
     ].join("\n"),
   }

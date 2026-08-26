@@ -1,0 +1,19 @@
+{
+  "chunk": "trademark-exam-guide-2021/03-02/01",
+  "anchorNode": "tmeg-03-02-01",
+  "terms": [
+    { "name": "移转", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "因继承等事由办理商标移转申请的，还应提供有关证明文件或法律文书" },
+    { "name": "共有商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "共有商标全体共有人作为整体共同享有商标权。共有商标转让申请应经全体共有人一致确认同意" },
+    { "name": "一并转让", "aliases": [], "role": "defined", "confidence": "high", "evidence": "注册商标转让，商标注册人对其在同一种或者类似商品上注册的相同或者近似的商标，应当一并转让" },
+    { "name": "引证商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "认定转让商标和引证商标容易导致混淆、误认进而构成近似商标" }
+  ],
+  "laws": [
+    "商标法第4条",
+    "商标法第42条",
+    "商标法实施条例第17条",
+    "商标法实施条例第31条",
+    "商标法实施条例第32条",
+    "商标法实施条例第87条"
+  ],
+  "extractedAt": "2026-08-23"
+}

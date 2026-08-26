@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/06-03/02/02/08",
+  "anchorNode": "tmeg-06-03-02-02-08",
+  "terms": [
+    { "name": "党和国家领导人姓名", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以党和国家领导人姓名或名字作为商标申请注册，对我国公共利益和公共秩序产生消极、负面影响的，适用《商标法》第十条第一款第（八）项予以驳回" },
+    { "name": "不规范汉字", "aliases": [], "role": "defined", "confidence": "high", "evidence": "标志中含有不规范汉字或系对成语的不规范使用，容易误导公众特别是未成年人认知的" },
+    { "name": "突发公共事件特有词汇", "aliases": [], "role": "used", "confidence": "high", "evidence": "与我国突发公共事件特有词汇相同或者近似，扰乱公共秩序的" },
+    { "name": "烈士姓名", "aliases": [], "role": "used", "confidence": "high", "evidence": "与我国烈士姓名相同或者含有烈士姓名，容易使公众将其与烈士姓名产生联想的" },
+    { "name": "国家级新区", "aliases": [], "role": "used", "confidence": "mid", "evidence": "与我国整体发展战略关系密切的国家级新区或国家级重点开发区域名称（含规范简称）等相同或者近似，有害于我国经济、社会公共利益的" },
+    { "name": "有害于宗教信仰", "aliases": [], "role": "defined", "confidence": "high", "evidence": "标志有下列情形之一的，判定为有害于宗教信仰、宗教感情或者民间信仰" },
+    { "name": "企事业单位简称", "aliases": [], "role": "used", "confidence": "mid", "evidence": "标志中含有与我国国家名称相同或者近似的文字，但其整体是企事业单位简称，如果具备以下条件，则不以该项禁用规定为由予以驳回" }
+  ],
+  "laws": ["商标法第10条"],
+  "extractedAt": "2026-08-23"
+}

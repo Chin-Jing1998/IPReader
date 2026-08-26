@@ -1,7 +1,24 @@
+// 本文件是**全站共享**的侧栏目录树脚本：每一页都会加载并执行。
+// 阶段5.4 反转（批 D1）：图谱总览页目录点击恢复 SPA 直达文档（与文档站一致），
+// 阶段5.3 批 B4 的「点条目→图内定位」联动随之撤销；法域过滤联动（kb:graphfield）
+// 保留，仍以 `getFullSlug(window) === GRAPH_SLUG` 门控（见文末 patent-kb 联动区块），
+// 非图谱页既不绑定监听器、也不写任何属性，目录树行为与 DOM 与 B4 之前逐字一致。
+// 图谱页另启用独立折叠态存储键与「书下 3 层默认展开」规则（见 FOLDER_STATE_STORAGE_KEY
+// 一带注释），文档站 fileTree-v2 零读零写、零污染。过滤事件契约登记在 util/graphInteraction.ts。
 import { FileTrieNode } from "../../util/fileTrie"
-import { FullSlug, resolveRelative, simplifySlug } from "../../util/path"
+import {
+  FullSlug,
+  getFullSlug,
+  joinSegments,
+  pathToRoot,
+  resolveRelative,
+  simplifySlug,
+} from "../../util/path"
 import { ContentDetails } from "../../plugins/emitters/contentIndex"
 import { computeThumbGeometry, hasScrollableContent } from "../../util/scrollInteraction"
+import { GRAPH_SLUG } from "../../util/appPages"
+import { FIELD_ALL } from "../../util/graphSections"
+import { GRAPH_FIELD_EVENT, type GraphFieldDetail } from "../../util/graphInteraction"
 
 type MaybeHTMLElement = HTMLElement | undefined
 
@@ -11,6 +28,15 @@ interface ParsedOptions {
   useSavedState: boolean
   /** 默认展开的目录层级数（F5）：深度 ≤ openLevels 的文件夹无保存态时初始展开；0 = 全折叠旧行为 */
   openLevels: number
+  /**
+   * 运行期字段（不入 data-* 属性，由 setupExplorer 按当前页写入；阶段5.4 批 D1）：
+   * 图谱页的默认展开深度上限。深度口径为渲染树深度（根直接子 = 1）：
+   * 1=图谱总览/中国/关键词索引、2=field、3=docType、4=书、5=编部/章、6=章(编部下)/文件——
+   * 上限取 6 即「书下 3 层可见」（书本身、其子、其孙全展开），depth>6 的条文层折叠。
+   * 非图谱页为 undefined，defaultCollapsed 回落 openLevels 原逻辑。
+   * 保存态优先级不变：currentExplorerState 有该节点记录时 defaultCollapsed 根本不会被调用。
+   */
+  graphExpandToDepth?: number
   sortFn: (a: FileTrieNode, b: FileTrieNode) => number
   filterFn: (node: FileTrieNode) => boolean
   mapFn: (node: FileTrieNode) => void
@@ -23,21 +49,15 @@ type FolderState = {
 }
 
 /**
- * 文件夹深度：slug 有效段数（顶层「1-专利法/index」=1，「1-专利法/1-总则/index」=2）。
- * trie 的文件夹 slug 以 "/index" 收尾（FullSlug 形态），计深度时剔除该尾段与空段。
- */
-function folderDepth(path: string): number {
-  const segments = path.split("/").filter((s) => s.length > 0)
-  if (segments.length > 0 && segments[segments.length - 1] === "index") {
-    segments.pop()
-  }
-  return segments.length
-}
-
-/**
  * 无 localStorage 保存态时的初始折叠判定（F5）：
  * folderDefaultState 为 "collapsed" 且深度超出 openLevels 才折叠——
  * openLevels: 1 时顶层目录默认展开、二级及更深仍折叠；openLevels: 0 保持旧全折叠行为。
+ *
+ * 深度口径为**渲染树深度**（根的直接子节点为 1），不再由 slug 段数反推（C-3）：
+ * 合成分组层（中国 / 权利类型 / 文件归类）没有对应 slug，而其下的书目录 slug 仍只有
+ * 一段——若沿用 slug 段数，87 部书会全部落在 openLevels: 1 的展开档内，一旦展开某个
+ * 归类节点就会把整本书的章节铺开。未启用分组时渲染树与 slug 层级逐层一致，判定结果
+ * 与旧实现完全相同。
  */
 // ==== patent-kb: 消除 new Function ====
 // 上游把 Explorer.tsx 的三个函数 toString() 塞进 data 属性，再在浏览器侧 eval 回来，
@@ -92,9 +112,350 @@ function keepNode(node: FileTrieNode): boolean {
 }
 // ==== /patent-kb ====
 
-function defaultCollapsed(path: string, opts: ParsedOptions): boolean {
-  return opts.folderDefaultState === "collapsed" && folderDepth(path) > opts.openLevels
+function defaultCollapsed(depth: number, opts: ParsedOptions): boolean {
+  // 阶段5.4 批 D1：图谱页用独立的展开深度上限（书下 3 层可见，见 ParsedOptions
+  // 的 graphExpandToDepth 注释）；其余页面维持 openLevels 原逻辑。保存态优先级不变。
+  const expandToDepth = opts.graphExpandToDepth ?? opts.openLevels
+  return opts.folderDefaultState === "collapsed" && depth > expandToDepth
 }
+
+// ==== patent-kb: 侧栏合成分组层「中国 → 权利类型 → 文件归类」（C-3）====
+// 物理路径、slug、页面 id 一律不动：分组只发生在 trie 建好并排序之后的渲染树上，
+// 把 87 个顶层书目录节点整体摘下、按 /static/taxonomy.json 的 country/field/docType
+// 三级再父化，挂到三层「合成节点」下。合成节点没有对应页面，因此不可点击导航，
+// 只能折叠/展开；taxonomy 取不到或键缺失时整层不建，目录树回落为现状平铺。
+
+/** 分组数据源（相对站点根）。取数走相对路径，理由同 graphexplorer 的 fetchCard。 */
+const TAXONOMY_PATH = "static/taxonomy.json"
+
+/** 合成节点折叠态的持久化键前缀。真实 slug 不含冒号，故与任何页面路径天然不冲突。 */
+const SYNTHETIC_KEY_PREFIX = "synthetic:"
+
+/**
+ * 折叠态存储键。分组层把书目录从渲染树第 1 层推到第 4 层，旧键 `fileTree` 里
+ * 沉淀的记录（87 部书清一色 collapsed:false，是 openLevels:1 平铺时代的默认值）
+ * 会让每个归类一展开就把整本书的章节全铺出来，与「field 及以下默认折叠」相悖。
+ * 树形已变，旧记录语义作废——换键即整体作废，比逐条甄别可靠。旧键不主动删除，
+ * 以便回滚时旧版本仍能读回自己的状态。
+ */
+const FOLDER_STATE_STORAGE_KEY = "fileTree-v2"
+
+/**
+ * 图谱页独立折叠态存储键（阶段5.4 批 D1）。图谱页默认展开到渲染树第 6 层
+ * （书下 3 层可见），与文档站「field 及以下默认折叠」的折叠习惯差异极大；若共用
+ * fileTree-v2，图谱页首访就会把上千条展开记录写回文档站键，内容页再访问时整树铺开。
+ * 故图谱页改读写本键：首访无键时全部节点按「深度 ≤6 默认展开」规则渲染
+ *（GRAPH_EXPAND_TO_DEPTH）；手动折叠经 toggleFolder 落入 graph 键。
+ * 文档站的 fileTree-v2 对图谱页零读零写，两侧状态互不可见、零污染。
+ */
+const GRAPH_FOLDER_STATE_STORAGE_KEY = "fileTree-graph"
+
+/** 图谱页默认展开深度上限：渲染树 depth ≤ 6 展开（4=书，即书下 3 层可见），>6 折叠。 */
+const GRAPH_EXPAND_TO_DEPTH = 6
+
+/**
+ * 当前生效的折叠态存储键，每次 setupExplorer 开头按当前页刷新：
+ * 图谱页置 GRAPH_FOLDER_STATE_STORAGE_KEY，其余页维持 FOLDER_STATE_STORAGE_KEY。
+ * 读（setupExplorer）与写回（toggleFolder）都取该变量——toggleFolder 是独立事件回调，
+ * 拿不到 setupExplorer 的局部上下文，读模块级变量即可：SPA 换页后该变量随新页的
+ * setupExplorer 同步刷新，回调存活期间读到的一定是当前页的键，语义正确。
+ */
+let activeStorageKey = FOLDER_STATE_STORAGE_KEY
+
+/** 权利类型（field）展示顺序；taxonomy 中出现的未知取值按首次出现顺序缀在其后。 */
+const FIELD_ORDER = ["专利", "商标", "著作权", "竞争法", "品种布图", "综合程序"]
+
+/** 文件归类（docType）展示顺序；标题取 taxonomy 的 docTypeName。 */
+const DOCTYPE_ORDER = ["D1", "D2", "D3", "D4", "D5", "D6"]
+
+/** 法域（country）展示顺序与显示名。当前 87 部书全为 CN，其余法域按首次出现顺序追加。 */
+const COUNTRY_ORDER = ["CN"]
+const COUNTRY_NAMES: Record<string, string> = { CN: "中国" }
+
+interface TaxonomyEntry {
+  country?: string
+  field?: string
+  docType?: string
+  docTypeName?: string
+}
+
+type TaxonomyMap = Record<string, TaxonomyEntry>
+
+interface SyntheticMeta {
+  /** 稳定折叠键，形如 `synthetic:CN/专利/D1` */
+  key: string
+  /** 子树内是否包含当前页——合成层没有 slug，无法套用 folderIsPrefixOfCurrentSlug */
+  containsCurrent: boolean
+}
+
+/**
+ * 合成节点标记。节点每次 nav 重建，旧条目随之可回收，故用 WeakMap 而非 Map。
+ * 之所以不往 FileTrieNode 上加字段：该类由 fileTrie.ts 定义，属本批不可改文件。
+ */
+const syntheticNodes = new WeakMap<FileTrieNode, SyntheticMeta>()
+
+/** 分组表缓存：仅缓存成功结果，失败留待下次 nav 重试。 */
+let taxonomyCache: TaxonomyMap | null = null
+
+async function fetchTaxonomy(currentSlug: FullSlug): Promise<TaxonomyMap | null> {
+  if (taxonomyCache) {
+    return taxonomyCache
+  }
+  try {
+    const res = await fetch(joinSegments(pathToRoot(currentSlug), TAXONOMY_PATH))
+    if (!res.ok) {
+      return null
+    }
+    const parsed: unknown = await res.json()
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+      return null
+    }
+    taxonomyCache = parsed as TaxonomyMap
+    return taxonomyCache
+  } catch {
+    // 离线桌面壳中该文件随包分发，属本地请求；取不到即回落平铺，不打断目录渲染
+    return null
+  }
+}
+
+/** 顶层书目录名形如「12-商标案件管辖解释」，taxonomy 以其数字前缀为键。 */
+function taxonomyKeyOf(slugSegment: string): string | null {
+  const matched = slugSegment.match(/^(\d+)-/)
+  return matched ? matched[1] : null
+}
+
+function createSyntheticNode(segments: string[], displayName: string): FileTrieNode {
+  const node = new FileTrieNode(segments)
+  node.isFolder = true
+  node.displayName = displayName
+  syntheticNodes.set(node, {
+    key: SYNTHETIC_KEY_PREFIX + segments.join("/"),
+    containsCurrent: false,
+  })
+  return node
+}
+
+/** 折叠态键：合成节点用稳定 key，真实目录仍用 slug（与旧 localStorage 记录兼容）。 */
+function folderStateKey(node: FileTrieNode): string {
+  return syntheticNodes.get(node)?.key ?? node.slug
+}
+
+/** 先按 preferred 给定次序取出其中存在的键，其余按 keys 原有顺序（书号升序）追加。 */
+function orderedKeys(keys: string[], preferred: string[]): string[] {
+  const present = new Set(keys)
+  return [
+    ...preferred.filter((key) => present.has(key)),
+    ...keys.filter((key) => !preferred.includes(key)),
+  ]
+}
+
+/** 与 createFolderNode 中真实目录的判据同源：书目录 slug 是否为当前页的前缀。 */
+function nodeContainsCurrent(node: FileTrieNode, currentSlug: FullSlug): boolean {
+  const simple = simplifySlug(node.slug)
+  return simple === currentSlug.slice(0, simple.length)
+}
+
+/**
+ * 再父化：把命中 taxonomy 的顶层书目录摘出，挂进 country → field → docType 三层合成节点。
+ *
+ * 在 sort 之后执行（而非「建树后、sort 前」）：sortNodes 只认 slug 段的数字前缀，
+ * 合成节点没有数字前缀，会被排到 `9-关键词索引` 之后，与「0-图谱总览 → 中国 → 9-关键词索引」
+ * 的目标顺序相悖；若为此在 sortNodes 里加合成节点分支，等于把两套排序键耦合进同一函数。
+ * 排序后再父化则天然继承既有次序：书按数字前缀升序落进各归类，书内子树完全不动。
+ *
+ * @returns 是否真的建出了分组层（false 表示回落平铺）
+ */
+function regroupByTaxonomy(
+  trie: FileTrieNode,
+  taxonomy: TaxonomyMap,
+  currentSlug: FullSlug,
+): boolean {
+  type DocTypeBucket = { label: string; books: FileTrieNode[]; containsCurrent: boolean }
+  type FieldBucket = { docTypes: Map<string, DocTypeBucket>; containsCurrent: boolean }
+  type CountryBucket = { fields: Map<string, FieldBucket>; containsCurrent: boolean }
+
+  const countries = new Map<string, CountryBucket>()
+  const rest: FileTrieNode[] = []
+  // 分组层在顶层的落位：首部被收编的书原先所处的位置（本库即 0-图谱总览 之后、
+  // 9-关键词索引 之前）。未收编任何书时为 -1，追加到末尾。
+  let insertAt = -1
+  let bookCount = 0
+
+  for (const child of trie.children) {
+    const key = child.isFolder ? taxonomyKeyOf(child.slugSegment ?? "") : null
+    const entry = key === null ? undefined : taxonomy[key]
+    // 缺 country/field/docType 任一维度即视为未归类，原样留在顶层——宁可少分组，
+    // 不可让某部书从目录树里消失
+    if (!entry || typeof entry !== "object" || !entry.country || !entry.field || !entry.docType) {
+      rest.push(child)
+      continue
+    }
+
+    if (insertAt < 0) {
+      insertAt = rest.length
+    }
+    bookCount += 1
+
+    const country = countries.get(entry.country) ?? { fields: new Map(), containsCurrent: false }
+    countries.set(entry.country, country)
+    const field = country.fields.get(entry.field) ?? { docTypes: new Map(), containsCurrent: false }
+    country.fields.set(entry.field, field)
+    const docType = field.docTypes.get(entry.docType) ?? {
+      label: entry.docTypeName || entry.docType,
+      books: [],
+      containsCurrent: false,
+    }
+    field.docTypes.set(entry.docType, docType)
+    docType.books.push(child)
+
+    if (nodeContainsCurrent(child, currentSlug)) {
+      country.containsCurrent = true
+      field.containsCurrent = true
+      docType.containsCurrent = true
+    }
+  }
+
+  if (bookCount === 0) {
+    return false
+  }
+
+  const groups: FileTrieNode[] = []
+  for (const countryKey of orderedKeys([...countries.keys()], COUNTRY_ORDER)) {
+    const country = countries.get(countryKey)!
+    const countryNode = createSyntheticNode([countryKey], COUNTRY_NAMES[countryKey] ?? countryKey)
+    syntheticNodes.get(countryNode)!.containsCurrent = country.containsCurrent
+
+    for (const fieldKey of orderedKeys([...country.fields.keys()], FIELD_ORDER)) {
+      const field = country.fields.get(fieldKey)!
+      const fieldNode = createSyntheticNode([countryKey, fieldKey], fieldKey)
+      syntheticNodes.get(fieldNode)!.containsCurrent = field.containsCurrent
+
+      for (const docTypeKey of orderedKeys([...field.docTypes.keys()], DOCTYPE_ORDER)) {
+        const docType = field.docTypes.get(docTypeKey)!
+        const docTypeNode = createSyntheticNode([countryKey, fieldKey, docTypeKey], docType.label)
+        syntheticNodes.get(docTypeNode)!.containsCurrent = docType.containsCurrent
+        docTypeNode.children = docType.books
+        fieldNode.children.push(docTypeNode)
+      }
+
+      countryNode.children.push(fieldNode)
+    }
+
+    groups.push(countryNode)
+  }
+
+  rest.splice(insertAt < 0 ? rest.length : Math.min(insertAt, rest.length), 0, ...groups)
+  trie.children = rest
+  return true
+}
+
+/**
+ * 按渲染树遍历出全部目录节点的折叠键与显示深度（根的直接子节点为 1）。
+ * 取代上游 `trie.getFolderPaths()`：后者只认 slug，既拿不到合成节点的稳定键，
+ * 也给不出分组后的真实层级。未启用分组时两者结果等价（仅少一条恒不参与渲染的根条目）。
+ */
+function collectFolderStates(trie: FileTrieNode): Array<{ path: string; depth: number }> {
+  const out: Array<{ path: string; depth: number }> = []
+  const walk = (node: FileTrieNode, depth: number) => {
+    for (const child of node.children) {
+      if (!child.isFolder) {
+        continue
+      }
+      out.push({ path: folderStateKey(child), depth })
+      walk(child, depth + 1)
+    }
+  }
+  walk(trie, 1)
+  return out
+}
+// ==== /patent-kb ====
+
+// ==== patent-kb: 图谱总览页目录过滤联动（阶段5.3 批 B4 引入；阶段5.4 批 D1 反转）====
+// B4 曾有两条链路。阶段5.4 反转后仅剩一条：
+//   ① 定位（已撤销）：原为点目录条目 → 拦截跳转 → 派发 kb:graphlocate 在图内定位。
+//      反转后目录点击恢复 SPA 直达文档——folderClickBehavior:'link' 下书名/章名
+//      本就是 `<a data-for>`，spa.inline.ts 的 window 级 click 委托自然接管跳转，
+//      与文档站行为一致，无需任何额外导航代码。
+//   ② 过滤（保留）：收 kb:graphfield（detail.field 为法域名或哨兵 FIELD_ALL）
+//      → 只显示该法域的 field 层分支，其余分支整支 hidden。
+// 过滤事件契约（payload/方向/门控）登记在 util/graphInteraction.ts。
+//
+// 门控铁律：Explorer 是全站共享组件，以下函数一律先过 onGraphOverviewPage()。
+// 非图谱页不绑定任何监听器、不写任何 hidden 属性——首页与内容页的目录树 DOM
+// 与 B4 之前完全一致（smoke 步 27 跑在首页，断言的合成节点数、顶层 synthetic:CN、
+// 「合成节点内 <a> 数 === 0」、六 field 行齐备四项因此原样成立）。
+
+/** 当前页是否图谱总览专页。常量与 GraphExplorer.tsx 的宿主门控同源。 */
+function onGraphOverviewPage(): boolean {
+  return getFullSlug(window) === GRAPH_SLUG
+}
+
+/**
+ * 从合成节点的折叠键中取 field 名，非 field 层一律返回 null。
+ * 键形如 `synthetic:CN`（国家层，1 段）/ `synthetic:CN/专利`（field 层，2 段）/
+ * `synthetic:CN/专利/D1`（docType 层，3 段）——**段数恰为 2** 才是 field 层。
+ */
+function fieldOfSyntheticKey(folderPath: string): string | null {
+  if (!folderPath.startsWith(SYNTHETIC_KEY_PREFIX)) {
+    return null
+  }
+  const segments = folderPath.slice(SYNTHETIC_KEY_PREFIX.length).split("/")
+  return segments.length === 2 ? segments[1] : null
+}
+
+/**
+ * 按法域收窄目录树：只动 field 层分支外层 `li` 的 `hidden` 属性。
+ * FIELD_ALL（"*"）恢复全显。刻意不碰折叠态（currentExplorerState 与
+ * localStorage 当前页生效键均不写——图谱页即 fileTree-graph，见 activeStorageKey）
+ * ——过滤是**呈现**范围，与用户手动折叠的意图正交，切回「全部」后每个分支仍保持
+ * 用户原本的展开/折叠状态。未被分组收编的顶层条目（0-图谱总览、9-关键词索引）
+ * 不属任何 field 分支，恒显。
+ */
+function applyFieldBranchFilter(explorer: HTMLElement, field: string) {
+  const containers = explorer.querySelectorAll<HTMLElement>(
+    '.folder-container[data-synthetic="true"]',
+  )
+  for (const container of containers) {
+    const branchField = fieldOfSyntheticKey(container.dataset.folderpath ?? "")
+    if (branchField === null) {
+      continue
+    }
+    const li = container.closest("li")
+    if (li === null) {
+      continue
+    }
+    li.hidden = !(field === FIELD_ALL || branchField === field)
+  }
+}
+
+/**
+ * 过滤联动的绑定入口，由 setupExplorer 在每棵目录树建好后调用一次。
+ * （阶段5.4 批 D1：B4 的定位联动已整体撤销，本函数不再绑定任何 click 拦截。）
+ * 监听器随 window.addCleanup 在下次 SPA 导航前摘除；目录树本身每次 nav 由
+ * micromorph 复位回 SSR 空骨架后重建，故 hidden 属性亦不会跨页残留。
+ */
+function bindGraphLinkage(explorer: HTMLElement) {
+  if (!onGraphOverviewPage()) {
+    return
+  }
+
+  // 过滤联动。监听挂 document（派发方在图谱卡片分支，冒泡到不了 .explorer）。
+  const onFieldChange = (ev: Event) => {
+    // 二次门控：监听器虽随 cleanup 摘除，但 cleanup 的执行时机由 spa.inline 统一
+    // 编排，此处再核一次当前页，杜绝「已离开图谱页却仍在改目录树」的任何时序缝隙
+    if (!onGraphOverviewPage()) {
+      return
+    }
+    const detail = (ev as CustomEvent<GraphFieldDetail>).detail
+    if (typeof detail?.field !== "string") {
+      return
+    }
+    applyFieldBranchFilter(explorer, detail.field)
+  }
+  document.addEventListener(GRAPH_FIELD_EVENT, onFieldChange)
+  window.addCleanup(() => document.removeEventListener(GRAPH_FIELD_EVENT, onFieldChange))
+}
+// ==== /patent-kb ====
 
 // ==== patent-kb: 目录自动定位（v6）====
 // 当前项（文件行 a.active，兜底目录页 .folder-container.active）不在滚动器
@@ -394,8 +755,11 @@ function toggleFolder(evt: MouseEvent) {
 
   const stringifiedFileTree = JSON.stringify(currentExplorerState)
   // ==== patent-kb: 配额满时不得中断 nav 回调 ====
+  // 写入键取 activeStorageKey（阶段5.4 批 D1）：该变量由 setupExplorer 在每次 nav
+  // 时按当前页刷新——图谱页手动折叠落 fileTree-graph，其余页仍落 fileTree-v2，
+  // 两侧折叠态互不可见、零污染。
   try {
-    localStorage.setItem("fileTree", stringifiedFileTree)
+    localStorage.setItem(activeStorageKey, stringifiedFileTree)
   } catch {
     // 目录展开状态丢失无妨；抛出则会中断本次 nav 中后续组件的初始化
   }
@@ -426,6 +790,7 @@ function createFolderNode(
   currentSlug: FullSlug,
   node: FileTrieNode,
   opts: ParsedOptions,
+  depth: number,
 ): HTMLLIElement {
   const template = document.getElementById("template-folder") as HTMLTemplateElement
   const clone = template.content.cloneNode(true) as DocumentFragment
@@ -435,18 +800,28 @@ function createFolderNode(
   const folderOuter = li.querySelector(".folder-outer") as HTMLElement
   const ul = folderOuter.querySelector("ul") as HTMLUListElement
 
-  const folderPath = node.slug
+  // patent-kb（C-3）：合成分组节点没有 slug，折叠键取 synthetic:… 稳定键
+  const synthetic = syntheticNodes.get(node)
+  const folderPath = synthetic ? synthetic.key : node.slug
   folderContainer.dataset.folderpath = folderPath
 
-  if (currentSlug === folderPath) {
+  if (!synthetic && currentSlug === folderPath) {
     folderContainer.classList.add("active")
   }
 
-  if (opts.folderClickBehavior === "link") {
+  if (synthetic) {
+    // patent-kb（C-3）：合成节点无对应页面，绝不能渲染成 <a>（会指向不存在的路径）。
+    // 保留模板原本的 button > span 形态，仅承担折叠切换，并打 synthetic 标记供样式区分。
+    folderContainer.classList.add("synthetic")
+    folderContainer.dataset.synthetic = "true"
+    const span = titleContainer.querySelector(".folder-title") as HTMLElement
+    span.classList.add("synthetic")
+    span.textContent = node.displayName
+  } else if (opts.folderClickBehavior === "link") {
     // Replace button with link for link behavior
     const button = titleContainer.querySelector(".folder-button") as HTMLElement
     const a = document.createElement("a")
-    a.href = resolveRelative(currentSlug, folderPath)
+    a.href = resolveRelative(currentSlug, folderPath as FullSlug)
     a.dataset.for = folderPath
     a.className = "folder-title"
     a.textContent = node.displayName
@@ -459,13 +834,19 @@ function createFolderNode(
   // 折叠判定优先级：localStorage 保存态（已并入 currentExplorerState）> openLevels 默认规则
   const isCollapsed =
     currentExplorerState.find((item) => item.path === folderPath)?.collapsed ??
-    defaultCollapsed(folderPath, opts)
+    defaultCollapsed(depth, opts)
 
   // if this folder is a prefix of the current path we
   // want to open it anyways
-  const simpleFolderPath = simplifySlug(folderPath)
-  const folderIsPrefixOfCurrentSlug =
-    simpleFolderPath === currentSlug.slice(0, simpleFolderPath.length)
+  // patent-kb（C-3）：合成节点没有 slug 前缀可比，改用再父化时算好的 containsCurrent，
+  // 否则当前页所在的书虽被强制展开，却仍关在折叠的归类层里看不见
+  let folderIsPrefixOfCurrentSlug: boolean
+  if (synthetic) {
+    folderIsPrefixOfCurrentSlug = synthetic.containsCurrent
+  } else {
+    const simpleFolderPath = simplifySlug(folderPath as FullSlug)
+    folderIsPrefixOfCurrentSlug = simpleFolderPath === currentSlug.slice(0, simpleFolderPath.length)
+  }
 
   if (!isCollapsed || folderIsPrefixOfCurrentSlug) {
     folderOuter.classList.add("open")
@@ -473,7 +854,7 @@ function createFolderNode(
 
   for (const child of node.children) {
     const childNode = child.isFolder
-      ? createFolderNode(currentSlug, child, opts)
+      ? createFolderNode(currentSlug, child, opts, depth + 1)
       : createFileNode(currentSlug, child)
     ul.appendChild(childNode)
   }
@@ -484,6 +865,15 @@ function createFolderNode(
 async function setupExplorer(currentSlug: FullSlug) {
   const allExplorers = document.querySelectorAll("div.explorer") as NodeListOf<HTMLElement>
 
+  // ==== patent-kb: 图谱页独立折叠态（阶段5.4 批 D1）====
+  // 每次按当前页刷新存储键与展开深度上限：图谱页用独立键 fileTree-graph ＋
+  // 「depth ≤6 默认展开」（书下 3 层可见）；其余页维持 fileTree-v2 ＋ openLevels
+  // 原逻辑。activeStorageKey 为模块级变量，toggleFolder 等事件回调经它取当前键，
+  // SPA 换页后随本函数同步刷新，语义见其声明处注释。
+  const onGraph = onGraphOverviewPage()
+  activeStorageKey = onGraph ? GRAPH_FOLDER_STATE_STORAGE_KEY : FOLDER_STATE_STORAGE_KEY
+  // ==== /patent-kb ====
+
   for (const explorer of allExplorers) {
     const dataFns = JSON.parse(explorer.dataset.dataFns || "{}")
     const opts: ParsedOptions = {
@@ -491,6 +881,8 @@ async function setupExplorer(currentSlug: FullSlug) {
       folderDefaultState: (explorer.dataset.collapsed || "collapsed") as "collapsed" | "open",
       useSavedState: explorer.dataset.savestate === "true",
       openLevels: parseInt(explorer.dataset.openLevels ?? "0", 10) || 0,
+      // 阶段5.4 批 D1：图谱页默认展开到渲染树第 6 层（书下 3 层可见），其余页不设
+      graphExpandToDepth: onGraph ? GRAPH_EXPAND_TO_DEPTH : undefined,
       order: dataFns.order || ["filter", "map", "sort"],
       // ==== patent-kb: 见文件末尾 sortNodes / keepNode 的说明 ====
       sortFn: sortNodes,
@@ -502,7 +894,9 @@ async function setupExplorer(currentSlug: FullSlug) {
     // Get folder state from local storage
     // ==== patent-kb: 被污染的 localStorage 不得让整棵目录树消失 ====
     // 原为裸 JSON.parse，抛出即中断 setupExplorer，左侧目录整体不渲染。
-    const storageTree = localStorage.getItem("fileTree")
+    // 阶段5.4 批 D1：读键改取 activeStorageKey——图谱页读 fileTree-graph
+    //（首访无键时全按「depth ≤6 默认展开」规则渲染），其余页仍读 fileTree-v2。
+    const storageTree = localStorage.getItem(activeStorageKey)
     let serializedExplorerState: FolderState[] = []
     if (storageTree && opts.useSavedState) {
       try {
@@ -517,7 +911,8 @@ async function setupExplorer(currentSlug: FullSlug) {
       serializedExplorerState.map((entry: FolderState) => [entry.path, entry.collapsed]),
     )
 
-    const data = await fetchData
+    // patent-kb（C-3）：分组表与 contentIndex 并发取，避免串行等待拖慢首屏目录渲染
+    const [data, taxonomy] = await Promise.all([fetchData, fetchTaxonomy(currentSlug)])
     const entries = [...Object.entries(data)] as [FullSlug, ContentDetails][]
     const trie = FileTrieNode.fromEntries(entries)
 
@@ -536,14 +931,20 @@ async function setupExplorer(currentSlug: FullSlug) {
       }
     }
 
+    // patent-kb（C-3）：排序完成后再父化出「中国 → 权利类型 → 文件归类」三层合成分组；
+    // taxonomy 缺失或无书命中时静默跳过，目录树保持现状平铺
+    if (taxonomy) {
+      regroupByTaxonomy(trie, taxonomy, currentSlug)
+    }
+
     // Get folder paths for state management
-    const folderPaths = trie.getFolderPaths()
     // 初始态优先级（F5）：有保存态用保存态；无保存态按 openLevels 规则
-    currentExplorerState = folderPaths.map((path) => {
+    // patent-kb（C-3）：路径与深度均取自渲染树（含合成节点的 synthetic: 稳定键）
+    currentExplorerState = collectFolderStates(trie).map(({ path, depth }) => {
       const previousState = oldIndex.get(path)
       return {
         path,
-        collapsed: previousState === undefined ? defaultCollapsed(path, opts) : previousState,
+        collapsed: previousState === undefined ? defaultCollapsed(depth, opts) : previousState,
       }
     })
 
@@ -554,7 +955,7 @@ async function setupExplorer(currentSlug: FullSlug) {
     const fragment = document.createDocumentFragment()
     for (const child of trie.children) {
       const node = child.isFolder
-        ? createFolderNode(currentSlug, child, opts)
+        ? createFolderNode(currentSlug, child, opts, 1)
         : createFileNode(currentSlug, child)
 
       fragment.appendChild(node)
@@ -615,14 +1016,16 @@ async function setupExplorer(currentSlug: FullSlug) {
     }
 
     // Set up folder click handlers
-    if (opts.folderClickBehavior === "collapse") {
-      const folderButtons = explorer.getElementsByClassName(
-        "folder-button",
-      ) as HTMLCollectionOf<HTMLElement>
-      for (const button of folderButtons) {
-        button.addEventListener("click", toggleFolder)
-        window.addCleanup(() => button.removeEventListener("click", toggleFolder))
-      }
+    // patent-kb（C-3）：原本仅在 "collapse" 行为下绑定。"link" 行为下真实目录的标题
+    // 已被换成 <a>，留在 DOM 里的 .folder-button 只可能是合成分组节点——它们没有可跳转
+    // 的页面，标题点击必须回落为折叠切换，否则整行只有那枚 12px 的箭头能点。
+    // 两种行为下均绑定，无重复绑定风险（同一按钮在任一行为下只被这一处遍历到）。
+    const folderButtons = explorer.getElementsByClassName(
+      "folder-button",
+    ) as HTMLCollectionOf<HTMLElement>
+    for (const button of folderButtons) {
+      button.addEventListener("click", toggleFolder)
+      window.addCleanup(() => button.removeEventListener("click", toggleFolder))
     }
 
     const folderIcons = explorer.getElementsByClassName(
@@ -632,6 +1035,10 @@ async function setupExplorer(currentSlug: FullSlug) {
       icon.addEventListener("click", toggleFolder)
       window.addCleanup(() => icon.removeEventListener("click", toggleFolder))
     }
+
+    // patent-kb（B4）：图谱总览页的目录联动（点条目→图内定位 / 法域标签→分支过滤）。
+    // 内部自带页面门控，非图谱页整体空转，不绑定任何监听器
+    bindGraphLinkage(explorer)
   }
 }
 

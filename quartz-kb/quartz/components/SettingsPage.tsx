@@ -205,7 +205,7 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
 
         {/*
           「MCP」面板：安装包内附一份打包好的 MCP 服务（Resources/mcp/server.mjs），
-          接上之后 Claude Code、Codex 等 agent 就能直接检索这七部法规。
+          接上之后 Claude Code、Codex 等 agent 就能直接检索这 88 部法规与实务文献。
           命令里的两处路径由 settings.inline.ts 从主进程取真实值填入——打包与开发两种
           形态、mac 与 Windows 两种平台，路径各不相同，在静态页里写死必错其三。
 
@@ -218,7 +218,8 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
             <h2>接入 AI 助手</h2>
             <p class="kb-settings-desc">
               本应用内附一个 MCP 服务，接上之后，Claude Code、Codex 等支持 MCP 的 AI
-              工具就能直接在这七部法规里检索、读原文、查术语、按条号溯源——不必再手动翻阅。
+              工具就能直接在这 88
+              部法规与实务文献里检索、读原文、查术语、按条号溯源——不必再手动翻阅。
               复制下面对应的命令执行一次即可，无须另装 Node，也无须下载任何东西。
             </p>
 
@@ -287,7 +288,7 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
             <h2>接入 AI 助手</h2>
             <p class="kb-settings-desc">
               桌面端内附一个 MCP 服务，接上之后，Claude Code、Codex 等支持 MCP 的 AI
-              工具就能直接在这七部法规里检索、读原文、查术语、按条号溯源。
+              工具就能直接在这 88 部法规与实务文献里检索、读原文、查术语、按条号溯源。
               接入命令会按你这台电脑的实际路径生成，届时一键复制即可。
             </p>
             <p class="kb-settings-desc">当前环境未检测到该服务，请在桌面端应用中打开本页。</p>
@@ -310,16 +311,18 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
           */}
           <div class="kb-about-grid">
             <section class="kb-settings-sec">
-              <h2>关于 PatentReader</h2>
+              <h2>关于 IPReader</h2>
               {/*
                 这段描述与下方的更新区块同处一卡，措辞须与之自洽：v9 引入检查更新后，
                 「运行期不发出任何网络请求」已不再成立，改为「默认不联网」并指明唯一例外，
                 否则就是在一个联网按钮旁边声称自己从不联网。
               */}
               <p class="kb-settings-desc">
-                PatentReader
-                是一部默认完全离线的中文专利知识库桌面应用——收录七部专利审查与实务规范全文共 2077
-                页，配套 851 个术语词条、知识图谱、全文搜索与批注。无遥测、无账号，
+                IPReader 是一部默认完全离线的知识产权知识库桌面应用——当前收录中国六大
+                法域 88 部法规、司法解释与实务规范全文共 6247 个正文页，配套 1035
+                个术语词条、知识图谱、全文搜索与批注。新近入库《专利质量评价指南》，
+                覆盖专利申请文件撰写质量的评价规则。后续将扩展其他国家和地区。
+                无遥测、无账号，
                 唯一会联网的是下方的检查更新（默认关闭）。
               </p>
               <div class="kb-about-card">
@@ -327,7 +330,7 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
                   <span class="kb-about-label">版本</span>
                   {/* 桌面端由 settings.inline.ts 以 app.getVersion() 覆写，
                       使版本号不因这份静态页忘记同步而说谎 */}
-                  <span data-update-version>v1.1.0</span>
+                  <span data-update-version>v1.5.0</span>
                 </p>
                 <p class="kb-about-row">
                   <span class="kb-about-label">许可</span>
@@ -435,7 +438,10 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
           <section class="kb-settings-sec">
             <h2>图谱总览使用说明</h2>
             <p class="kb-settings-desc">
-              「图谱总览」页把七部规范与术语组织为一张知识图谱：节点颜色代表所属文献，节点大小代表层级（书目最大、章节居中、小节与术语最小），节点标签随画面放大逐渐显现。
+              「图谱总览」页把全库文献与术语组织为一张知识图谱：图谱节点按所属文献逐书着色，图例分组与显隐切换仍按法域归组进行，节点大小代表层级（书目最大、章节居中、小节与术语最小），节点标签随画面放大逐渐显现。5
+              部程序政策类文件（规范性文件制定管理办法、规章制定程序规定、强国纲要、十五五规划、GB
+              标准清单）不在图谱视图中显示，正文 / 目录 / 搜索不受影响。工具条首行另有「中国 →
+              六法域标签」导航行，用于按法域整体筛选画面；其下的图例行仍可在此基础上继续做组级微调。
             </p>
             <div class="kb-settings-guide">
               <h3>视图操作</h3>
@@ -454,10 +460,25 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
                   双击任意节点把选中切换到它；点击空白处清除选中；悬停节点时其邻居高亮、其余淡出。
                 </li>
               </ul>
-              <h3>搜索与图例</h3>
+              <h3>法域标签行、搜索与图例</h3>
               <ul>
+                <li>
+                  工具条首行为「中国 →
+                  法域标签」两级导航：国家层当前仅收录「中国」一枚，其下并列七枚标签——「全部」，以及专利、商标、著作权、竞争法、品种布图、综合程序六大法域。
+                </li>
+                <li>
+                  点击任一法域标签，画面即只保留该法域的文献节点、其余暂时隐去，并自动复位视图回到全景；点「全部」恢复全部法域。标签行只做法域级筛选，术语层不受其影响，仍由术语层三态开关单独控制；筛选之后，下方图例可继续做单组显隐等组级微调。
+                </li>
                 <li>顶部搜索框输入节点名称，回车或点击「定位」：目标节点描边高亮并平移居中。</li>
-                <li>图例共 8 项（七部文献与术语），点击任一项可隐藏 / 恢复该类全部节点。</li>
+                <li>
+                  图例共 15 项：主干七部文献各一项，扩展入库的 76
+                  部按法域归为七项——专利扩展、商标、商标审查指南、著作权、竞争法、品种布图（植物新品种与集成电路布图设计）、综合程序（跨法域的诉讼与执法程序、裁判要旨、刑事、海关、政策文件），末位为术语。点击任一项可隐藏
+                  / 恢复该项全部节点。
+                </li>
+                <li>
+                  扩展七项前另有「扩展」段控：点击一次隐藏全部 76
+                  部扩展文献、只留主干七书骨架，再点一次恢复；单独点选其中某几项后，段控显示为虚线框（部分隐藏）。
+                </li>
                 <li>术语层有独立三态开关：隐藏 / 弱化 / 显示，默认隐藏以突出文献骨架。</li>
               </ul>
               <h3>页内局部图</h3>
@@ -472,10 +493,22 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
           <section class="kb-settings-sec">
             <h2>专利库使用说明</h2>
             <p class="kb-settings-desc">
-              本库收录七部规范全文：专利法 82 条、实施细则 149 条、审查指南 6 部 38 章、侵权判定指南
-              153 条、机械与化学案件撰写规范、审查意见答复指引。
+              本库收录 88 部文献全文。主干七部为：专利法 82 条、实施细则 149 条、审查指南 6 部 38
+              章、侵权判定指南 153
+              条、机械与化学案件撰写规范、审查意见答复指引；另有司法解释与最高人民法院知识产权法庭裁判要旨
+              26 部，法律、行政法规、部门规章与规范性文件 54 部。
             </p>
             <div class="kb-settings-guide">
+              <h3>目录导航</h3>
+              <ul>
+                <li>
+                  左栏知识库目录按「中国 → 权利类型 → 文件归类」三级分组呈现：88
+                  部文献先归入专利、商标、著作权、竞争法、品种布图、综合程序六类权利类型，各类之下再按法律、行政法规、部门规章与规范性文件、司法解释与裁判规则、审查与实务指引、政策文件与标准索引六类文件归类排列。
+                </li>
+                <li>
+                  分组层本身只承担展开与收起，不指向具体页面；点击最末一层的文献条目才进入正文。
+                </li>
+              </ul>
               <h3>全文搜索</h3>
               <ul>
                 <li>
@@ -510,7 +543,7 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
               <h3>术语与引用</h3>
               <ul>
                 <li>
-                  关键词索引收录 851 个术语词条，按 23
+                  关键词索引收录 1035 个术语词条，按 24
                   个主题分组；词条页含释义、出处、相关法条与相关术语。
                 </li>
                 <li>正文中的术语与法条引用（如「专利法第22条」）自动成链，点击即可跳转原文。</li>

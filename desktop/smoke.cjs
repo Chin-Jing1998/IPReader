@@ -25,6 +25,21 @@
 // --popover-bg/--popover-border 主题 token 同源；后者核验命中词高亮改 --textHighlight、
 // 结果卡改 12px 圆角玻璃描边、.search-path 过渡 0.5s→260ms。原步骤 22「跟随系统零双跳」
 // 顺延为 24（收尾主题复位须保持最后）。
+// 阶段5波C 扩写：侧边栏三级分组（27，C-3 合成节点层）、图谱标签行（28，C-4 法域标签
+// 状态机），共 28 步。两步都排在既有 26 步之后、离线报告之前：27 会重载首页、28 会点
+// 法域标签改动图谱隐藏集，放在中段会污染前面各步的截图基线与主题/搜索收尾状态。
+// 阶段5.3 批 B5 新增：图谱页目录联动与 controller 存活（29），共 29 步，排在步 28 之后、
+// 离线报告之前——沿用步 28 已加载的图谱总览页，不再重复 loadURL。同批为步 28 追加
+// 图例行随法域标签收窄的 hidden 分布断言（既有断言不动，只追加）。
+// 阶段5.4 批 D3 随 D1/D2 目录行为反转全面改写步 29（总步数不变）：目录条目点击恢复
+// SPA 直达文档（kb:graphlocate 定位链路全站撤销）、图谱页书下 3 层默认展开且折叠态
+// 隔离进独立键 fileTree-graph、状态条提示 4s 自动消失。现断言为：初始展开规模 +
+// fileTree 双键隔离（v2 逐字节不变）、目录点击 SPA 落地文档页（含 63 隐藏书）+
+// kb:graphlocate 恒 0 + 点击瞬间无图内重建、术语三态钮存活哨兵、状态条「未找到」
+// 自动消失、法域↔目录过滤联动保留、首页对照门退化为一致性抽查。controller 存活
+// 哨兵双轨保留：window.__graphRender 包装计数在跳转前同步快照 + 页内交互后复验，
+// 术语钮 data-term-mode 真实转移——B3 批曾引入 TDZ 缺陷使 controller 恒 null，但步 28
+// 纯 UI 状态机完全绕开、28/28 仍照绿，本步专治这一类「controller 死而不僵」复发。
 const {
   app,
   BrowserWindow,
@@ -77,7 +92,7 @@ ipcMain.handle("update-get-config", () => ({
   version: APP_VERSION,
   // 恒为 false：本冒烟验证的正是「默认不自动检查」，读用户真实配置反而会让断言随环境漂移
   autoCheck: false,
-  releasesUrl: "https://github.com/Chin-Jing1998/PatentReader/releases",
+  releasesUrl: "https://github.com/Chin-Jing1998/IPReader/releases",
 }));
 ipcMain.handle("update-set-auto", (_e, enabled) => ({
   autoCheck: enabled === true,
@@ -93,7 +108,7 @@ ipcMain.handle("update-set-auto", (_e, enabled) => ({
 const MCP_STUB = {
   available: true,
   serverPath: "/tmp/smoke-mcp/server.mjs",
-  execPath: "/tmp/smoke-mcp/PatentReader",
+  execPath: "/tmp/smoke-mcp/IPReader",
   platform: process.platform,
 };
 ipcMain.handle("mcp-get-info", () => MCP_STUB);
@@ -1222,7 +1237,7 @@ async function main() {
       mcpProbe.fallbackHidden &&
       mcpProbe.claude.includes(MCP_STUB.serverPath) &&
       mcpProbe.claude.includes("ELECTRON_RUN_AS_NODE=1") &&
-      mcpProbe.codex.includes("[mcp_servers.patentreader]") &&
+      mcpProbe.codex.includes("[mcp_servers.ipreader]") &&
       mcpProbe.codex.includes(MCP_STUB.execPath) &&
       mcpProbe.path === MCP_STUB.serverPath &&
       mcpProbe.toolCount === 7 &&
@@ -1231,11 +1246,503 @@ async function main() {
     `可见=${mcpProbe.visible}, hidden已摘=${mcpProbe.hiddenRemoved}, ` +
       `位于 mcp 面板=${mcpProbe.inOwnPane}, 降级说明已隐=${mcpProbe.fallbackHidden}, ` +
       `claude 命令含服务路径=${mcpProbe.claude.includes(MCP_STUB.serverPath)}, ` +
-      `codex 含表头=${mcpProbe.codex.includes("[mcp_servers.patentreader]")}, ` +
+      `codex 含表头=${mcpProbe.codex.includes("[mcp_servers.ipreader]")}, ` +
       `路径行=${mcpProbe.path}, 工具条目=${mcpProbe.toolCount}, ` +
       `剪贴板匹配=${clip === mcpProbe.claude}, 按钮回执="${mcpProbe.copyLabel}"`,
   );
   await shot(win, "MCP接入说明");
+
+  // ============ 阶段5波C 新增两步（27–28） ============
+
+  // 27. 侧边栏三级分组（C-3）
+  //     explorer.inline.ts 取 /static/taxonomy.json 后，把 87 个顶层书目录整体摘下、
+  //     按「国家 → 权利类型 → 文件归类」再父化到三层合成节点之下。合成节点没有对应
+  //     页面，因此绝不能渲染成 <a>——真出现了就是一条指向不存在路径的死链，这正是
+  //     本步的核心回归门（另两项为分组层确已建成、六类权利类型齐备）。
+  //     取数是异步 fetch，故轮询等待分组层落地，不用固定 sleep 赌时序；taxonomy 取不到
+  //     时目录树按设计回落平铺，此时合成节点数为 0，断言即失败——正是想要的行为。
+  await win.loadURL(`${base}/`);
+  let syntheticReady = false;
+  for (let i = 0; i < 20; i += 1) {
+    await sleep(300);
+    syntheticReady = await win.webContents.executeJavaScript(
+      `document.querySelectorAll('.explorer-ul [data-synthetic="true"]').length > 0`,
+    );
+    if (syntheticReady) break;
+  }
+  // 权利类型层的六个取值与 explorer.inline.ts 的 FIELD_ORDER、
+  // quartz/util/graphSections.ts 的 FIELD_TABS 同源（taxonomy.json 的 field 字段）
+  const FIELD_ROWS = ["专利", "商标", "著作权", "竞争法", "品种布图", "综合程序"];
+  const groupProbe = await win.webContents.executeJavaScript(
+    `(() => {
+       const titleOf = (el) => {
+         const t = el && el.querySelector('.folder-title');
+         return t ? t.textContent.trim() : null;
+       };
+       const all = document.querySelectorAll('.explorer-ul [data-synthetic="true"]');
+       // 直接子选择器锁死「顶层」：国家层必须挂在 explorer 根 ul 的第一级 li 上
+       const country = document.querySelector(
+         '.explorer-ul > li > [data-synthetic="true"][data-folderpath="synthetic:CN"]',
+       );
+       const fields = ${JSON.stringify(FIELD_ROWS)}.map((f) => {
+         const el = document.querySelector(
+           '.explorer-ul [data-synthetic="true"][data-folderpath="synthetic:CN/' + f + '"]',
+         );
+         return { field: f, found: !!el, title: titleOf(el) };
+       });
+       return {
+         syntheticCount: all.length,
+         // 合成节点容器内的 <a>：子树挂在兄弟节点 .folder-outer 里，不会被此选择器误收
+         anchorInside: document.querySelectorAll('.explorer-ul [data-synthetic="true"] a').length,
+         countryTopLevel: !!country,
+         countryTitle: titleOf(country),
+         fields,
+       };
+     })()`,
+  );
+  const fieldRowsOk =
+    groupProbe.fields.length === 6 &&
+    groupProbe.fields.every((f) => f.found && f.title === f.field);
+  record(
+    "侧边栏三级分组（合成节点 ≥7 + 顶层「中国」+ 合成节点内无 <a> + 六类权利类型齐备）",
+    syntheticReady &&
+      groupProbe.syntheticCount >= 7 &&
+      groupProbe.countryTopLevel &&
+      groupProbe.countryTitle === "中国" &&
+      groupProbe.anchorInside === 0 &&
+      fieldRowsOk,
+    `合成节点=${groupProbe.syntheticCount}（须 ≥7）, 顶层国家层在场=${groupProbe.countryTopLevel}/标题="${groupProbe.countryTitle}", ` +
+      `合成节点内 <a>=${groupProbe.anchorInside}（须 0，即不可点击）, ` +
+      `权利类型行=[${groupProbe.fields.map((f) => `${f.field}→${f.found ? f.title : "缺失"}`).join(", ")}]（六类齐备→${fieldRowsOk}）`,
+  );
+  await shot(win, "侧边栏三级分组");
+
+  // 28. 图谱标签行（C-4）
+  //     工具条首行「中国 → 法域标签」：一枚国家徽标 + 七枚 .ge-field-tab（哨兵「全部」
+  //     FIELD_ALL="*" 加六法域）。初始高亮不是写死的，而由 syncFieldTabs 从 hiddenSections
+  //     反解——空隐藏集反解为「全部」，故初始态「全部」带 .active。
+  //     点「商标」后 applyField 把非术语组切成只留商标域再 resetView。本步只验状态机
+  //     （.active 的转移与 aria-pressed 同步），不验画布像素：像素随布局与显卡漂移，
+  //     拿它做断言等于让结果随环境摇摆。
+  await win.loadURL(`${base}/${encodeURI("0-图谱总览/")}`);
+  let fieldNavReady = false;
+  for (let i = 0; i < 30; i += 1) {
+    await sleep(500);
+    fieldNavReady = await win.webContents.executeJavaScript(
+      `!!document.querySelector('.ge-fieldnav') &&
+       !!document.querySelector('.ge-canvas svg, .ge-canvas canvas')`,
+    );
+    if (fieldNavReady) break;
+  }
+  await sleep(1200); // 力导布局落定后再采样，避免 resetView 与首帧动画重叠
+  const fieldNavProbe = await win.webContents.executeJavaScript(
+    `(() => {
+       const tabs = Array.from(document.querySelectorAll('.ge-field-tab[data-field]'));
+       const cn = document.querySelector('.ge-country[data-country="CN"]');
+       const all = document.querySelector('.ge-field-tab[data-field="*"]');
+       return {
+         hasNav: !!document.querySelector('.ge-fieldnav'),
+         tabCount: tabs.length,
+         tabFields: tabs.map((t) => t.dataset.field),
+         allActive: !!all && all.classList.contains('active'),
+         cnActive: !!cn && cn.classList.contains('active'),
+       };
+     })()`,
+  );
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-field-tab[data-field="商标"]').click()`,
+  );
+  await sleep(900);
+  const fieldTabAfter = await win.webContents.executeJavaScript(
+    `(() => {
+       const tm = document.querySelector('.ge-field-tab[data-field="商标"]');
+       const all = document.querySelector('.ge-field-tab[data-field="*"]');
+       return {
+         tmActive: !!tm && tm.classList.contains('active'),
+         tmPressed: tm ? tm.getAttribute('aria-pressed') : null,
+         allActive: !!all && all.classList.contains('active'),
+         allPressed: all ? all.getAttribute('aria-pressed') : null,
+       };
+     })()`,
+  );
+  // 扩断言（阶段5.3 批 B5，追加于既有断言之后，既有条件与文案一字不动）：
+  // 图例行 .ge-legend-item[data-section] 随法域标签同步收窄的 hidden 分布——商标法域在
+  // SECTION_GROUPS 中恰有两组（"8"=商标、"15"=商标审查指南，见 quartz/util/graphSections.ts
+  // 的 groupsOfField("商标")），故点「商标」后 14 枚图例钮应恰 2 枚可见、其余 12 枚 hidden；
+  // 点回「全部」后 14 枚全可见，与挂载初始态一致。
+  const TRADEMARK_LEGEND_GROUPS = ["8", "15"];
+  const legendAfterTm = await win.webContents.executeJavaScript(
+    `Array.from(document.querySelectorAll('.ge-legend-item[data-section]')).map((el) => ({ section: el.dataset.section, hidden: el.hidden }))`,
+  );
+  const legendTmOk =
+    legendAfterTm.length === 14 &&
+    legendAfterTm.every((it) =>
+      TRADEMARK_LEGEND_GROUPS.includes(it.section) ? it.hidden === false : it.hidden === true,
+    );
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-field-tab[data-field="*"]').click()`,
+  );
+  await sleep(900);
+  const legendAfterAll = await win.webContents.executeJavaScript(
+    `Array.from(document.querySelectorAll('.ge-legend-item[data-section]')).map((el) => ({ section: el.dataset.section, hidden: el.hidden }))`,
+  );
+  const legendAllOk =
+    legendAfterAll.length === 14 && legendAfterAll.every((it) => it.hidden === false);
+  record(
+    "图谱标签行（.ge-fieldnav + 七枚标签 + 初始「全部」/中国高亮 + 点「商标」后高亮转移 + 图例行随标签收窄）",
+    fieldNavReady &&
+      fieldNavProbe.hasNav &&
+      fieldNavProbe.tabCount === 7 &&
+      fieldNavProbe.allActive &&
+      fieldNavProbe.cnActive &&
+      fieldTabAfter.tmActive &&
+      fieldTabAfter.tmPressed === "true" &&
+      fieldTabAfter.allActive === false &&
+      fieldTabAfter.allPressed === "false" &&
+      legendTmOk &&
+      legendAllOk,
+    `标签行在场=${fieldNavProbe.hasNav}, 标签数=${fieldNavProbe.tabCount}（须 7：${fieldNavProbe.tabFields.join(" / ")}）, ` +
+      `初始「全部」高亮=${fieldNavProbe.allActive}, 中国徽标高亮=${fieldNavProbe.cnActive}；` +
+      `点「商标」后：商标高亮=${fieldTabAfter.tmActive}（aria-pressed=${fieldTabAfter.tmPressed}）, ` +
+      `「全部」已落灰=${!fieldTabAfter.allActive}（aria-pressed=${fieldTabAfter.allPressed}）；` +
+      `图例行分布：点「商标」后=${JSON.stringify(legendAfterTm)}（组8/15可见、其余隐→${legendTmOk}）, ` +
+      `点回「全部」后 14 枚全可见→${legendAllOk}`,
+  );
+  await shot(win, "图谱标签行");
+
+  // ============ 阶段5.3 批 B5 新增一步（29）；阶段5.4 批 D3 随目录行为反转全面改写 ============
+
+  // 29. 图谱页目录直达文档 + 书下 3 层默认展开 + 提示自动消失 + controller 存活
+  //     沿用步 28 已加载的图谱总览页与其目录树，不再 loadURL。
+  //     阶段5.4 批 D1/D2 反转后的事实基线（本步断言据此重写）：
+  //     · 目录条目点击恢复 SPA 直达文档——folderClickBehavior:'link' 下书名/章名本就是
+  //       <a data-for>，spa.inline.ts 的 window 级 click 委托接管跳转；原「拦截跳转 →
+  //       派发 kb:graphlocate 图内定位」链路已全站撤销，kb:graphlocate 不再有派发点。
+  //     · 图谱页折叠态隔离进独立键 fileTree-graph，默认展开深度放宽到 ≤6 层（书下
+  //       3 层可见）——文档站 fileTree-v2 对图谱页零读零写。
+  //     · 所有经 setStatus 写入的状态条提示（含搜索未命中的「未找到含…」）4s 自动清空。
+  //     controller 存活哨兵双轨保留（B3 教训：controller 恒 null 时术语三态失效、
+  //     定位恒走重建兜底，而纯 UI 状态机的步 28 完全绕开、照绿不报）：
+  //     ① window.__graphRender 全量重建计数——图内「重建」的唯一窗口入口
+  //        （graph.inline.ts `window.__graphRender = renderGraph`；renderCanvas 每次都重新
+  //        读该全局引用，不缓存闭包），可在挂载完成后的任意时点用一次纯 executeJavaScript
+  //        换上计数包装（原函数仍被转发调用，不改变行为）。跳转类子项在 click() 同步派发
+  //        完成瞬间快照计数——同步重建路径必先落账；页内交互子项在交互后复验恒 0。
+  //        TDZ 缺陷形态下 controller===null 强制走重建兜底，计数即非 0。
+  //     ② 术语三态钮点击后 .ge-term-btn.active 的 data-term-mode 实际落点——缺陷形态下
+  //        onTermModeClick 因 controller===null 提前 return，按钮态原地不动
+  //        （点「显示」后仍是 hidden）；比深读 controller 内部状态更直接的外部可观测信号。
+
+  // —— 初始态检查（a 之前）：书下 3 层默认展开规模 + fileTree 双键隔离 ——
+  // v2 快照此刻读取即「进入图谱页前」的值：图谱页对该键零读零写，且步 28 是直接
+  // loadURL 进图谱页，中间不存在任何会写 v2 的页面交互。
+  const v2Before = await win.webContents.executeJavaScript(
+    `localStorage.getItem('fileTree-v2')`,
+  );
+  const expandProbe = await win.webContents.executeJavaScript(
+    `(() => ({
+       open: document.querySelectorAll('.explorer-ul .folder-outer.open').length,
+       total: document.querySelectorAll('.explorer-ul .folder-outer').length,
+     }))()`,
+  );
+  const expandOk = expandProbe.open >= 1000;
+  // 手动折叠任一文件夹再展开复原：书夹标题在 link 行为下是 <a>，点它会跳走，
+  // 故经 .folder-icon 触发 toggleFolder。注意 .folder-icon 是 SVG 元素，
+  // SVGElement 无 HTMLElement.click() 方法，须派发 MouseEvent（toggleFolder 读
+  // evt.target 的 nodeName==="svg" 分支照常命中）。折叠再展开会写 fileTree-graph
+  // 两次，终值可能与初值不同——隔离断言只要求 graph 键存在 + v2 逐字节不变。
+  const TOGGLE_FOLDER = '.folder-container[data-folderpath="1-专利法/index"]';
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.explorer-ul ${TOGGLE_FOLDER} .folder-icon')
+       .dispatchEvent(new MouseEvent('click', { bubbles: true }))`,
+  );
+  await sleep(600);
+  // 中途确认折叠确实发生（folder-outer 失去 open），防止点击空转导致假绿
+  const collapsedMid = await win.webContents.executeJavaScript(
+    `(() => {
+       const c = document.querySelector('.explorer-ul ${TOGGLE_FOLDER}');
+       return !!c && !!c.nextElementSibling &&
+         !c.nextElementSibling.classList.contains('open');
+     })()`,
+  );
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.explorer-ul ${TOGGLE_FOLDER} .folder-icon')
+       .dispatchEvent(new MouseEvent('click', { bubbles: true }))`,
+  );
+  await sleep(600);
+  const isolationProbe = await win.webContents.executeJavaScript(
+    `({
+       v2After: localStorage.getItem('fileTree-v2'),
+       graphKey: localStorage.getItem('fileTree-graph'),
+     })`,
+  );
+  const isolationOk =
+    collapsedMid === true &&
+    isolationProbe.v2After === v2Before &&
+    typeof isolationProbe.graphKey === "string" &&
+    isolationProbe.graphKey.length > 0;
+
+  // —— 哨兵装置安装（保留 __graphRender 包装机制；kb:graphlocate 计数器验证全站撤销）——
+  await win.webContents.executeJavaScript(
+    `(() => {
+       if (typeof window.__smokeOrigGraphRender === 'undefined') {
+         window.__smokeOrigGraphRender = window.__graphRender;
+       }
+       window.__smokeRenderCalls = 0;
+       window.__graphRender = function (...args) {
+         window.__smokeRenderCalls += 1;
+         return window.__smokeOrigGraphRender.apply(this, args);
+       };
+       window.__smokeLocate = { count: 0, lastSlug: null };
+       document.addEventListener('kb:graphlocate', (ev) => {
+         window.__smokeLocate.count += 1;
+         window.__smokeLocate.lastSlug = ev && ev.detail ? ev.detail.slug : null;
+       });
+       return typeof window.__smokeOrigGraphRender === 'function';
+     })()`,
+  );
+
+  // a-d：点章节条目 law-01-01 —— SPA 直达文档页（path/title 变为落地页）+
+  // kb:graphlocate 恒 0（定位链路已撤销）+ 落地页无 .ge-panel +
+  // 点击同步派发完成瞬间重建计数 0（controller 存活哨兵①·同步快照：
+  // click() 的事件派发是同步的，若点击处理链同步触发图内重建，计数必先落账；
+  // SPA 换页本身异步 fetch 后换体，不会在本条 executeJavaScript 内销毁上下文）
+  const navClickSnap = await win.webContents.executeJavaScript(
+    `document.querySelector('.explorer-ul a[data-for="1-专利法/1-总则/law-01-01"]').click();
+     ({ callsAtClick: window.__smokeRenderCalls })`,
+  );
+  await sleep(1200);
+  const afterNav = await win.webContents.executeJavaScript(
+    `({
+       path: decodeURIComponent(location.pathname),
+       title: document.title,
+       locateCount: window.__smokeLocate.count,
+       panelExists: !!document.querySelector('.ge-panel'),
+     })`,
+  );
+  const navOk =
+    afterNav.path === "/1-专利法/1-总则/law-01-01" &&
+    afterNav.title === "第1条 · 立法目的" &&
+    afterNav.locateCount === 0 &&
+    afterNav.panelExists === false &&
+    navClickSnap.callsAtClick === 0;
+
+  // 回图谱总览页继续后续子项（SPA 已离开图谱页，须整页重载恢复画布与哨兵环境）
+  await win.loadURL(`${base}/0-图谱总览/`);
+  let graphReady1 = false;
+  for (let i = 0; i < 30; i += 1) {
+    await sleep(500);
+    graphReady1 = await win.webContents.executeJavaScript(
+      `!!document.querySelector('.ge-fieldnav') &&
+       !!document.querySelector('.ge-canvas svg, .ge-canvas canvas')`,
+    );
+    if (graphReady1) break;
+  }
+  await sleep(1200); // 力导布局落定后再交互，与步 28 同款缓冲
+
+  // e：controller 存活哨兵②——点术语层「显示」钮，active 钮须真落到 data-term-mode="shown"。
+  // 整页重载后是全新 JS 上下文，先重装哨兵装置（__graphRender 包装守卫防重复包装；
+  // kb:graphlocate 计数器须随上下文一并重建，供 f 子项复验），整轮「显示→隐藏」后
+  // 再复验重建计数恒 0：setTermLayer 的内部重建不经 window.__graphRender 入口，
+  // controller 存活时该计数在纯页内交互下应纹丝不动。
+  await win.webContents.executeJavaScript(
+    `(() => {
+       if (typeof window.__smokeOrigGraphRender === 'undefined') {
+         window.__smokeOrigGraphRender = window.__graphRender;
+       }
+       window.__smokeRenderCalls = 0;
+       window.__graphRender = function (...args) {
+         window.__smokeRenderCalls += 1;
+         return window.__smokeOrigGraphRender.apply(this, args);
+       };
+       window.__smokeLocate = { count: 0, lastSlug: null };
+       document.addEventListener('kb:graphlocate', (ev) => {
+         window.__smokeLocate.count += 1;
+         window.__smokeLocate.lastSlug = ev && ev.detail ? ev.detail.slug : null;
+       });
+       return true;
+     })()`,
+  );
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-term-btn[data-term-mode="shown"]').click()`,
+  );
+  await sleep(1800);
+  const termShown = await win.webContents.executeJavaScript(
+    `(() => { const b = document.querySelector('.ge-term-btn.active'); return b ? b.dataset.termMode : null; })()`,
+  );
+  // 复原：切回「隐藏」，避免污染离线报告前的收尾截图基线与后续 f/g 两项的判定基准
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-term-btn[data-term-mode="hidden"]').click()`,
+  );
+  await sleep(1800);
+  const termRestored = await win.webContents.executeJavaScript(
+    `(() => { const b = document.querySelector('.ge-term-btn.active'); return b ? b.dataset.termMode : null; })()`,
+  );
+  const termRenderCalls = await win.webContents.executeJavaScript(
+    `window.__smokeRenderCalls`,
+  );
+  const termOk =
+    termShown === "shown" && termRestored === "hidden" && termRenderCalls === 0;
+
+  // f：隐藏书条目同样直达文档——63-规范性文件制定管理办法 属 GRAPH_HIDDEN_BOOKS 五部之一
+  //（不进图谱视图），但目录条目仍是普通链接：点击 SPA 落地该书首页，kb:graphlocate 恒 0。
+  // 原「预检拦截提示」断言随定位链路撤销一并删除（EXPLORER_LOCATE_MISS 已不存在）
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.explorer-ul a[data-for="63-规范性文件制定管理办法/index"]').click()`,
+  );
+  await sleep(1200);
+  const afterBookNav = await win.webContents.executeJavaScript(
+    `({
+       path: decodeURIComponent(location.pathname),
+       title: document.title,
+       locateCount: window.__smokeLocate.count,
+     })`,
+  );
+  const bookOk =
+    // 书夹链接经 simplifySlug 剥掉 index 段后保留尾斜杠（文件条目无段可剥、无尾斜杠）
+    afterBookNav.path === "/63-规范性文件制定管理办法/" &&
+    afterBookNav.title.includes("规范性文件制定和管理办法") &&
+    afterBookNav.locateCount === 0;
+
+  // 再回图谱总览页做状态条自动消失与过滤联动两组页内断言
+  await win.loadURL(`${base}/0-图谱总览/`);
+  let graphReady2 = false;
+  for (let i = 0; i < 30; i += 1) {
+    await sleep(500);
+    graphReady2 = await win.webContents.executeJavaScript(
+      `!!document.querySelector('.ge-fieldnav') &&
+       !!document.querySelector('.ge-canvas svg, .ge-canvas canvas')`,
+    );
+    if (graphReady2) break;
+  }
+  await sleep(1200);
+
+  // 状态条自动消失（阶段5.4 新增）：搜索框输入不存在的词回车 → 「未找到含…」出现 →
+  // STATUS_AUTO_CLEAR_MS=4000 到点自动清空；观察窗取 4.5s（≥4s + 500ms 余量），不压缩
+  // 以免 flaky。命中词取 slug 与标题都不可能包含的串，确保走未命中分支。
+  const MISS_QUERY = "绝不存在的检索词zzz9";
+  await win.webContents.executeJavaScript(
+    `(() => {
+       const input = document.querySelector('.ge-search-input');
+       input.value = ${JSON.stringify(MISS_QUERY)};
+       input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+       return true;
+     })()`,
+  );
+  let missStatus = "";
+  for (let i = 0; i < 15; i += 1) {
+    await sleep(200);
+    missStatus = await win.webContents.executeJavaScript(
+      `(document.querySelector('.ge-search-status') || {}).textContent || ""`,
+    );
+    if (missStatus.includes("未找到")) break;
+  }
+  await sleep(4500);
+  const statusCleared = await win.webContents.executeJavaScript(
+    `(document.querySelector('.ge-search-status') || {}).textContent || ""`,
+  );
+  const statusAutoOk =
+    missStatus.includes("未找到") &&
+    statusCleared.includes(MISS_QUERY) === false &&
+    statusCleared === "";
+
+  // g：过滤联动——点「商标」后左栏六个 synthetic:CN/<field> 分支 li 只留商标可见
+  //（hidden 属性 + computed display 双查），点 .ge-reset 后六支全部恢复可见
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-field-tab[data-field="商标"]').click()`,
+  );
+  await sleep(800);
+  const branchAfterTm = await win.webContents.executeJavaScript(
+    `${JSON.stringify(FIELD_ROWS)}.map((f) => {
+       const c = document.querySelector(
+         '.folder-container[data-synthetic="true"][data-folderpath="synthetic:CN/' + f + '"]',
+       );
+       const li = c ? c.closest('li') : null;
+       return {
+         field: f,
+         found: !!li,
+         hidden: li ? li.hidden : null,
+         display: li ? getComputedStyle(li).display : null,
+       };
+     })`,
+  );
+  const branchTmOk =
+    branchAfterTm.length === 6 &&
+    branchAfterTm.every((b) => {
+      if (!b.found) return false;
+      const wantHidden = b.field !== "商标";
+      return (
+        b.hidden === wantHidden && (wantHidden ? b.display === "none" : b.display !== "none")
+      );
+    });
+  await win.webContents.executeJavaScript(`document.querySelector('.ge-reset').click()`);
+  await sleep(800);
+  const branchAfterReset = await win.webContents.executeJavaScript(
+    `${JSON.stringify(FIELD_ROWS)}.map((f) => {
+       const c = document.querySelector(
+         '.folder-container[data-synthetic="true"][data-folderpath="synthetic:CN/' + f + '"]',
+       );
+       const li = c ? c.closest('li') : null;
+       return { field: f, hidden: li ? li.hidden : null };
+     })`,
+  );
+  const branchResetOk =
+    branchAfterReset.length === 6 && branchAfterReset.every((b) => b.hidden === false);
+
+  await shot(win, "图谱目录直达与controller存活");
+
+  // h：首页一致性抽查——阶段5.4 定位联动全站撤销后，图谱页与非图谱页的目录点击
+  // 行为已一致（均 SPA 直达文档），原「非图谱页不触发定位」对照门退化为轻量
+  // 一致性抽查：首页点同一条目照常跳转、kb:graphlocate 恒 0，目录树无过滤残留
+  //（li[hidden] 恒 0——首页从未收到过 kb:graphfield，也没有 bindGraphLinkage 写它）
+  await win.loadURL(`${base}/`);
+  await sleep(800);
+  await win.webContents.executeJavaScript(
+    `(() => {
+       window.__smokeHomeLocate = 0;
+       document.addEventListener('kb:graphlocate', () => { window.__smokeHomeLocate += 1; });
+       return true;
+     })()`,
+  );
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.explorer-ul a[data-for="1-专利法/1-总则/law-01-01"]').click()`,
+  );
+  await sleep(900);
+  const homeAfter = await win.webContents.executeJavaScript(
+    `({
+       path: decodeURIComponent(location.pathname),
+       locateCount: window.__smokeHomeLocate,
+       hiddenLi: document.querySelectorAll('.explorer-ul li[hidden]').length,
+     })`,
+  );
+  const homeOk =
+    homeAfter.path === "/1-专利法/1-总则/law-01-01" &&
+    homeAfter.locateCount === 0 &&
+    homeAfter.hiddenLi === 0;
+
+  record(
+    "图谱页目录直达文档＋书下 3 层展开＋提示自动消失＋controller 存活（初始展开规模与 fileTree 双键隔离 / 目录点击 SPA 落地含隐藏书 / 术语显隐钮存活 / 状态条 4s 自动消失 / 法域↔目录过滤联动 / 首页一致性抽查）",
+    expandOk &&
+      isolationOk &&
+      navOk &&
+      graphReady1 &&
+      termOk &&
+      bookOk &&
+      graphReady2 &&
+      statusAutoOk &&
+      branchTmOk &&
+      branchResetOk &&
+      homeOk,
+    `初始展开：.folder-outer.open=${expandProbe.open}/${expandProbe.total}（须 ≥1000）; ` +
+      `fileTree 隔离：折叠再展开后 v2 逐字节不变=${isolationProbe.v2After === v2Before}, graph 键存在=${!!isolationProbe.graphKey}; ` +
+      `a-d 目录直达：落地 path=${afterNav.path}, title="${afterNav.title}", kb:graphlocate=${afterNav.locateCount} 次（恒 0）, ` +
+      `落地页 .ge-panel 存在=${afterNav.panelExists}（须 false）, 点击瞬间重建计数=${navClickSnap.callsAtClick}（哨兵①·同步快照）; ` +
+      `e 术语钮：点「显示」后=${termShown}（须 shown，哨兵②）, 复原后=${termRestored}, 页内交互重建计数=${termRenderCalls}（恒 0）; ` +
+      `f 隐藏书直达：落地 path=${afterBookNav.path}, title="${afterBookNav.title}", kb:graphlocate=${afterBookNav.locateCount} 次; ` +
+      `状态条自动消失：回车后="${missStatus}" → 4.5s 后="${statusCleared}"（须空）; ` +
+      `g 过滤：点「商标」后=${JSON.stringify(branchAfterTm)}；重置后六支 hidden=${JSON.stringify(branchAfterReset.map((b) => b.hidden))}；` +
+      `h 首页抽查：跳转后 path=${homeAfter.path}, kb:graphlocate=${homeAfter.locateCount} 次, li[hidden]=${homeAfter.hiddenLi}`,
+  );
 
   // —— 离线报告 ——
   const failed = results.filter((r) => !r.ok);
@@ -1279,7 +1786,11 @@ app.whenReady().then(() =>
 // （v11 由 120s 上调：新增五步各带 300–900ms 等待与截图，18 步时代的预算已不够用）
 // （v12 由 240s 上调：新增两步各带 popover 等待、340ms opacity 逐帧采样、搜索 2.5s
 // 首索引等待与截图，22 步时代的预算留白已不足）
+// （阶段5波C 由 300s 上调：新增两步各带轮询等待——27 最长 6s 等 taxonomy 取数与再父化，
+// 28 最长 15s 等图谱出图，另加两次力导落定等待与截图，26 步时代的预算留白再度告罄）
+// （阶段5.3 批 B5 未上调：新增步 29 全程复用步 28 已加载的图谱页与其目录树、不再
+// loadURL，累计新增等待约 12s，现有预算仍有充裕留白）
 setTimeout(() => {
   console.error("冒烟超时，强制退出");
   app.exit(1);
-}, 300000);
+}, 360000);

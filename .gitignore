@@ -4,6 +4,7 @@ node_modules/
 # 构建产物（可由 npx quartz build / electron-builder 重建）
 quartz-kb/public/
 quartz-kb/.quartz-cache/
+site/public/
 desktop/release/
 
 # 构建缓存

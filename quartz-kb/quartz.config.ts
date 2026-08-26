@@ -4,7 +4,7 @@ import * as Component from "./quartz/components"
 import { byDocumentOrder } from "./quartz/util/docOrder"
 
 /**
- * Quartz 4 配置 —— PatentReader（纯离线定制版）
+ * Quartz 4 配置 —— IPReader（纯离线定制版）
  *
  * 离线化要点：
  * 1. analytics 置 null，不注入任何统计脚本；
@@ -20,7 +20,7 @@ import { byDocumentOrder } from "./quartz/util/docOrder"
 
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "PatentReader",
+    pageTitle: "IPReader",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,

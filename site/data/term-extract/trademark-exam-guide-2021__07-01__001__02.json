@@ -1,0 +1,36 @@
+{
+  "chunk": "trademark-exam-guide-2021/06-01/02",
+  "anchorNode": "tmeg-06-01-02",
+  "terms": [
+    { "name": "绝对理由", "aliases": [], "role": "defined", "confidence": "high", "evidence": "绝对理由涉及违反商标法上的显著性、非功能性以及公共利益" },
+    { "name": "相对理由", "aliases": [], "role": "defined", "confidence": "high", "evidence": "相对理由涉及损害他人的在先商标权利、他人现有的其他在先权利等" },
+    { "name": "商标注册实质审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标注册实质审查工作负责审查商标注册申请是否存在法律禁止使用的情形" },
+    { "name": "商标异议", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标异议是适格主体在法定期限内对商标注册申请人经商标注册部门初步审定并刊登公告的商标提出不同意见" },
+    { "name": "商标评审", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标评审是指依照《商标法》第三十四条、第三十五条" },
+    { "name": "驳回复审", "aliases": [], "role": "used", "confidence": "high", "evidence": "驳回复审案件针对驳回决定和申请人申请复审的事实、理由、请求" },
+    { "name": "无效宣告", "aliases": [], "role": "used", "confidence": "high", "evidence": "请求无效宣告案件，应当针对当事人申请和答辩的事实、理由及请求进行审理" }
+  ],
+  "laws": [
+    "商标法第4条",
+    "商标法第10条",
+    "商标法第11条",
+    "商标法第12条",
+    "商标法第13条",
+    "商标法第15条",
+    "商标法第16条",
+    "商标法第19条",
+    "商标法第22条",
+    "商标法第30条",
+    "商标法第31条",
+    "商标法第32条",
+    "商标法第33条",
+    "商标法第34条",
+    "商标法第35条",
+    "商标法第44条",
+    "商标法第45条",
+    "商标法第49条",
+    "商标法第50条",
+    "商标法第54条"
+  ],
+  "extractedAt": "2026-08-23"
+}

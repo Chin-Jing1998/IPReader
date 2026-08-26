@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/07-05/03",
+  "anchorNode": "tmeg-07-05-03",
+  "terms": [
+    { "name": "显著识别部分", "aliases": [], "role": "used", "confidence": "high", "evidence": "中文商标的显著识别部分汉字构成相同，仅排列顺序不同，易使相关公众对商品或者服务的来源产生混淆的，判定为近似商标" },
+    { "name": "近似商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "两件商标读音相同且字形近似，判定为近似商标" },
+    { "name": "系列商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标完整地包含或者摹仿他人在先具有较高知名度或者显著性较强的文字商标，易使相关公众认为属于系列商标而对商品或者服务的来源产生混淆的，判定为近似商标" },
+    { "name": "图形商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标包含他人在先具有较高知名度或者显著性较强的图形商标，易使相关公众认为属于系列商标而对商品或者服务的来源产生混淆的，判定为近似商标" },
+    { "name": "证明商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "因为集体商标、证明商标与普通商标在功能作用、使用方式、使用条件、注册人和使用人的权利、义务等方面均有所不同" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-23"
+}

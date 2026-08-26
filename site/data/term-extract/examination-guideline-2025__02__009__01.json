@@ -1,5 +1,5 @@
 {
-  "chunk": "examination-guideline-2025/02/009/01",
+  "chunk": "examination-guideline/02/009/01",
   "anchorNode": "02-09-01",
   "terms": [
     { "name": "计算机程序", "aliases": ["计算机程序本身"], "role": "defined", "confidence": "high", "evidence": "本章所说的计算机程序本身是指为了能够得到某种结果" },

@@ -214,12 +214,33 @@ button.desktop-explorer {
       margin: 0;
       line-height: 1.5rem;
       pointer-events: none;
-      // 同上：本库 folderClickBehavior 取默认 "collapse"，目录标题实际渲染为
-      // button > span（上面的 a 形态仅 "link" 行为下出现），兜底须两处齐备
+      // 同上：本库 folderClickBehavior 取默认 "link"（Explorer.tsx 默认值，产物
+      // data-behavior="link"，目录标题实际渲染为上面的 a 形态）；button > span 为
+      // "collapse" 行为下的形态，兜底须两处齐备
       overflow-wrap: anywhere;
     }
   }
 }
+
+// ==== patent-kb: 合成分组节点「中国 / 权利类型 / 文件归类」（C-3）====
+// 这三层节点没有对应页面，渲染为 button > span 而非 <a>（见 explorer.inline.ts 的
+// createFolderNode）。缩进、折叠箭头、字号与行高全部沿用上面的通用目录规则，此处
+// 只补两件事：①与 "link" 行为下真实目录的 <a class="folder-title"> 对齐悬停反馈；
+// ②显式声明无下划线，杜绝任何主题层给标题加链接装饰。
+.folder-container.synthetic {
+  & > div > button.folder-button {
+    cursor: pointer;
+
+    & > span.folder-title.synthetic {
+      text-decoration: none;
+    }
+
+    &:hover > span.folder-title.synthetic {
+      color: var(--tertiary);
+    }
+  }
+}
+// ==== /patent-kb ====
 
 .folder-icon {
   margin-right: 5px;

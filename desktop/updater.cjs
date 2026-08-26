@@ -13,8 +13,8 @@ const { net } = require('electron');
 
 // 公开仓库的 latest release 接口。用 api.github.com 而非解析 releases 页面：
 // 前者是稳定契约，后者的 HTML 结构随时会变。
-const FEED_URL = 'https://api.github.com/repos/Chin-Jing1998/PatentReader/releases/latest';
-const RELEASES_PAGE = 'https://github.com/Chin-Jing1998/PatentReader/releases';
+const FEED_URL = 'https://api.github.com/repos/Chin-Jing1998/IPReader/releases/latest';
+const RELEASES_PAGE = 'https://github.com/Chin-Jing1998/IPReader/releases';
 // 国内网络访问 GitHub 常有长尾延迟，给足时间；但不能无限等——用户点了按钮就该有回音
 const TIMEOUT_MS = 12000;
 // 响应体上限：正常 latest release 的 JSON 约 3–8KB，超出即视为异常来源
@@ -62,7 +62,7 @@ function fetchLatest() {
     }
 
     // GitHub API 拒绝无 User-Agent 的请求
-    request.setHeader('User-Agent', 'PatentReader-Desktop');
+    request.setHeader('User-Agent', 'IPReader-Desktop');
     request.setHeader('Accept', 'application/vnd.github+json');
 
     const timer = setTimeout(() => {

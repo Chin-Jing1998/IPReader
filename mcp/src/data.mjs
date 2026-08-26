@@ -154,6 +154,28 @@ export function loadKb(options = {}) {
     if (cited.length) lawCitedBy.set(l.law, cited);
   }
 
+  // —— 法条：本节正文引用了哪些法条（正向索引，供 read_node 的 lawCites 消费） ——
+  // pack.lawCitations 每条记录形如 { sourceNode, lawKey, fullCite, count }，同一节点对同一
+  // lawKey 常有多条记录（款/项级 fullCite 不同，如「第17条第2款」「第17条第3款」各计一条），
+  // 此处按 (sourceNode, lawKey) 聚合去重：count 相加、fullCite 取首个出现的记录，一次线性
+  // 扫描即可，与记录总量（现 1598 条，波B重建后料将扩容至跨 70 部法）解耦。
+  // sourceNode 属已被域白名单剔除的节点时一并跳过，不留悬空指针（与 lawCitedBy 同一原则）。
+  // pack 无该字段（旧数据包）时 for..of 对 undefined 兜底为空数组，优雅回退为空 Map。
+  const lawCitesByNode = new Map();
+  for (const c of pack.lawCitations || []) {
+    if (!has(c.sourceNode)) continue;
+    let byLaw = lawCitesByNode.get(c.sourceNode);
+    if (!byLaw) {
+      byLaw = new Map();
+      lawCitesByNode.set(c.sourceNode, byLaw);
+    }
+    const existing = byLaw.get(c.lawKey);
+    if (existing) existing.count += c.count || 0;
+    else byLaw.set(c.lawKey, { lawKey: c.lawKey, fullCite: c.fullCite, count: c.count || 0 });
+  }
+  // 内层 Map（去重用）→ 数组（对外消费形态），排序与截断留给 tools.mjs 按需处理
+  for (const [nodeId, byLaw] of lawCitesByNode) lawCitesByNode.set(nodeId, [...byLaw.values()]);
+
   const books = pack.books.filter((b) => allowed.has(b.domain));
 
   return {
@@ -174,6 +196,7 @@ export function loadKb(options = {}) {
     termByName,
     lawArticles,
     lawCitedBy,
+    lawCitesByNode,
     slugs: pack.slugs,
   };
 }

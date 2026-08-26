@@ -8,10 +8,13 @@ import script from "./scripts/graphexplorer.inline"
 import styles from "./styles/graphexplorer.scss"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { D3Config } from "./Graph"
-import { GRAPH_EXCLUDE, SETTINGS_EXCLUDE } from "../util/appPages"
+import { GRAPH_EXCLUDE, GRAPH_SLUG, SETTINGS_EXCLUDE, GRAPH_HIDDEN_BOOKS } from "../util/appPages"
+import { FIELD_ALL, FIELD_TABS, SECTION_GROUPS, groupsOfField } from "../util/graphSections"
 
-// 宿主页 slug，与生成器（W1）产出的 content/0-图谱总览/index.md 对应
-const HOST_SLUG = "0-图谱总览/index"
+// 宿主页 slug 取 appPages.GRAPH_SLUG（阶段5.3 批 B4）：此处原为本地字面量
+// `const HOST_SLUG = "0-图谱总览/index"`，与 appPages 早已存在的同值常量、以及
+// explorer.inline.ts 新增的目录联动门控构成三处字面量，改 slug 时极易漏改其一。
+// 现统一引用同一常量，消费方清单见 appPages.GRAPH_SLUG 注释。
 
 /**
  * 专页全量图配置：
@@ -20,8 +23,10 @@ const HOST_SLUG = "0-图谱总览/index"
  * - scale 初值取小，首屏尽量呈现全景；中文标签字号与全局图一致；
  * - termLayer "hidden" 默认隐藏术语层（骨架图先行，三态钮可切换）；
  *   zoomToFit 布局成形后自动整图入框；excludeSlugs 剔除链接全站的宿主页
- *   与独立设置页（应用页非阅读页，常量见 quartz/util/appPages.ts；
- *   与 quartz.layout.ts 的 globalGraph 配置一致）。
+ *   与独立设置页（应用页非阅读页，常量见 quartz/util/appPages.ts），并追加
+ *   GRAPH_HIDDEN_BOOKS（阶段5.1 摘出 SECTION_GROUPS 的 5 部文献，同一常量、
+ *   与 quartz.layout.ts 的 globalGraph 配置一致，避免两处漂移；页内局部图刻意
+ *   不排除，理由见 appPages.GRAPH_HIDDEN_BOOKS 的适用范围说明）。
  */
 const explorerGraphConfig: D3Config = {
   drag: true,
@@ -40,38 +45,90 @@ const explorerGraphConfig: D3Config = {
   nodeClickMode: "panel",
   termLayer: "hidden",
   zoomToFit: true,
-  excludeSlugs: [GRAPH_EXCLUDE, SETTINGS_EXCLUDE],
+  excludeSlugs: [GRAPH_EXCLUDE, SETTINGS_EXCLUDE, ...GRAPH_HIDDEN_BOOKS],
 }
 
-// 域图例（七部工具书 + 术语）。
-// 图例点不再内联写死色值（D2）：色值真源是主题变量 --graph-section-1..9
-// （custom.scss 六主题 × light/dark 覆盖块），图例点仅带 data-section，
+// 域图例（v17）：项定义迁往 util/graphSections.ts 的 SECTION_GROUPS，与
+// graph.inline.ts 的着色／显隐取键、graphexplorer.inline.ts 的切换逻辑同源——
+// 三处共用一张组表，杜绝「颜色按法域分组、图例点击按单部文献生效」的错位。
+//
+// 图例点不再内联写死色值（D2）：色值真源是主题变量 --graph-section-1..14
+// （custom.scss 六主题 × light/dark 覆盖块），图例点仅带 data-section（值为**组号**），
 // 由 graphexplorer.scss 的 `.ge-legend-dot[data-section="N"]` 取变量上色——
-// 与 graph.inline.ts 的节点着色同源，主题切换时图例随 CSS 即时变色。
-// v12：七部文档域项为可点击按钮（toggleable，data-section 落在按钮上，
-// 供 graphexplorer.inline.ts 的 `.ge-legend-item[data-section]` 选中），
-// 点击切换该域全部节点与连接关系的隐藏/显示；术语（9-）由术语层三态钮
-// 单独控制，故为不可点击的 span——data-section 只落在其图例点上，不落在
-// 项本身，避免被上述选择器误当作可点按钮绑定。
-const LEGEND_ITEMS: Array<{ label: string; section: string; toggleable: boolean }> = [
-  { label: "专利法", section: "1", toggleable: true },
-  { label: "实施细则", section: "2", toggleable: true },
-  { label: "审查指南", section: "3", toggleable: true },
-  { label: "侵权判定", section: "4", toggleable: true },
-  { label: "机械撰写", section: "5", toggleable: true },
-  { label: "化学撰写", section: "6", toggleable: true },
-  { label: "答复OA", section: "7", toggleable: true },
-  { label: "术语", section: "9", toggleable: false },
+// 与节点着色同源，主题切换时图例随 CSS 即时变色。
+//
+// 分三段渲染：
+//   main 段  主干七书，各一项，可点切换（v12 行为不变）；
+//   ext  段  扩展入库 76 部按法域归的 7 组，各一项，可点切换；段首另有「扩展」总控
+//            （data-section-group="ext"），一次切换 7 组全体，三态：全显/部分隐/全隐；
+//   term 段  术语，由术语层三态钮单独控制，故为不可点击的 span——data-section 只落在
+//            其图例点上、不落在项本身，避免被 `.ge-legend-item[data-section]` 误绑。
+// 段间以 .ge-legend-sep 发丝线切分；容器 flex-wrap，窄屏折行（版面测算见设计方案 §3-2）。
+const MAIN_ITEMS = SECTION_GROUPS.filter((g) => g.tier === "main")
+const EXT_ITEMS = SECTION_GROUPS.filter((g) => g.tier === "ext")
+const TERM_ITEM = SECTION_GROUPS.find((g) => g.tier === "term")!
+
+// 扩展段规模文案（阶段5.3 批 B2）：组数与部数一律构建期从组表算，不写死数字——
+// 此处曾写死「7 个扩展法域（76 部文献）」，与 graphexplorer.inline.ts 内同样写死的
+// 「6 个扩展法域（80 部文献）」在两轮改组后各自滞后到不同的错值。改为两侧同源派生后，
+// SSR 初始 title 与脚本 syncGroupCtl 运行期回写的 title 恒等，改组表即两处同步更新。
+const EXT_BOOK_COUNT = EXT_ITEMS.reduce((n, g) => n + g.prefixes.length, 0)
+const EXT_SCALE_TEXT = `${EXT_ITEMS.length} 个扩展法域（${EXT_BOOK_COUNT} 部文献）`
+
+// 国家/标签层级导航行（C-4）：工具条首行，粗粒度导航，与其下的图例行分工——
+//   本行  「中国 → 六法域标签」两级：一次点击把非术语组切成「只看该法域」，随后 resetView；
+//   图例行 组级微调：单组显隐、扩展段控三态（沿用 v17 行为，一字未改）。
+// 国家层本期只有中国一枚静态徽标，但仍以 .ge-country-list 容器 + data-country
+// 承载，将来接入他国法域时只需往该容器追加同形制节点，不必再动布局。
+// 标签钮共七枚：「全部」（data-field 取哨兵 FIELD_ALL）+ 六法域（data-field 取法域名），
+// 交互脚本按 `[data-field]` 统一枚举，SSR 与脚本的钩子取值同源于 util/graphSections.ts。
+// 初始态：无任何组被隐藏 ⇒ 「全部」高亮，与 graphexplorer.inline.ts 挂载时的
+// syncAll() 反解结果一致（SSR 与首帧同步态不闪烁）。
+const FIELD_TAB_ITEMS: ReadonlyArray<{ field: string; label: string; title: string }> = [
+  { field: FIELD_ALL, label: "全部", title: "显示全部法域（术语层仍由术语层三态钮控制）" },
+  ...FIELD_TABS.map((field) => ({
+    field,
+    label: field,
+    title: `只看「${field}」法域：显示 ${groupsOfField(field).length} 个域组，其余暂时隐藏`,
+  })),
 ]
 
 const GraphExplorer: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
-  if (fileData.slug !== HOST_SLUG) {
+  if (fileData.slug !== GRAPH_SLUG) {
     return null
   }
   return (
     <div class="graph-explorer">
-      {/* 顶部玻璃工具条：搜索定位 + 域图例 + 重置视图 */}
+      {/* 顶部玻璃工具条：国家/标签导航行 + 搜索定位 + 域图例 + 重置视图 */}
       <div class="ge-toolbar">
+        {/* 第一行：国家（中国）→ 法域标签（全部 + 六法域），整行独占，详见上方注释 */}
+        <div class="ge-fieldnav">
+          <div class="ge-country-list" role="group" aria-label="国家/地区">
+            <span
+              class="ge-country ge-country--tier1 active"
+              data-country="CN"
+              aria-current="true"
+              title="第一级：法域范围（当前仅收录中国）"
+            >
+              <i class="ge-country-mark" aria-hidden="true"></i>
+              中国
+            </span>
+          </div>
+          <span class="ge-fieldnav-sep" aria-hidden="true"></span>
+          <div class="ge-field-tabs" role="group" aria-label="法域标签">
+            {FIELD_TAB_ITEMS.map((tab, i) => (
+              <button
+                class={i === 0 ? "ge-field-tab active" : "ge-field-tab"}
+                type="button"
+                data-field={tab.field}
+                aria-pressed={i === 0 ? "true" : "false"}
+                title={tab.title}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
         <div class="ge-search">
           <input
             class="ge-search-input"
@@ -85,25 +142,45 @@ const GraphExplorer: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
           <span class="ge-search-status" aria-live="polite"></span>
         </div>
         <div class="ge-legend" aria-label="知识域图例">
-          {LEGEND_ITEMS.map((item) =>
-            item.toggleable ? (
-              <button
-                class="ge-legend-item"
-                type="button"
-                data-section={item.section}
-                aria-pressed="false"
-                title={`点击隐藏/显示「${item.label}」的节点与连接`}
-              >
-                <i class="ge-legend-dot" data-section={item.section}></i>
-                {item.label}
-              </button>
-            ) : (
-              <span class="ge-legend-item">
-                <i class="ge-legend-dot" data-section={item.section}></i>
-                {item.label}
-              </span>
-            ),
-          )}
+          {MAIN_ITEMS.map((item) => (
+            <button
+              class="ge-legend-item"
+              type="button"
+              data-section={item.id}
+              aria-pressed="false"
+              title={`点击隐藏/显示「${item.label}」的节点与连接`}
+            >
+              <i class="ge-legend-dot" data-section={item.id}></i>
+              {item.label}
+            </button>
+          ))}
+          <span class="ge-legend-sep" aria-hidden="true"></span>
+          <button
+            class="ge-legend-groupctl"
+            type="button"
+            data-section-group="ext"
+            aria-pressed="true"
+            title={`一次隐藏全部 ${EXT_SCALE_TEXT}，只留主干七书骨架`}
+          >
+            扩展
+          </button>
+          {EXT_ITEMS.map((item) => (
+            <button
+              class="ge-legend-item ge-legend-item--ext"
+              type="button"
+              data-section={item.id}
+              aria-pressed="false"
+              title={`点击隐藏/显示「${item.label}」的节点与连接`}
+            >
+              <i class="ge-legend-dot" data-section={item.id}></i>
+              {item.label}
+            </button>
+          ))}
+          <span class="ge-legend-sep" aria-hidden="true"></span>
+          <span class="ge-legend-item">
+            <i class="ge-legend-dot" data-section={TERM_ITEM.id}></i>
+            {TERM_ITEM.label}
+          </span>
         </div>
         {/* 术语层三态分段钮：默认隐藏（与 explorerGraphConfig.termLayer 一致），
             绑定见 graphexplorer.inline.ts */}

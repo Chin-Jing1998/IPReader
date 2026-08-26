@@ -23,13 +23,21 @@ const ASSETS = join(SITE, 'assets', 'book-images');
 const CONTENT = join(SITE, '..', 'quartz-kb', 'content');
 const IMG_REF_RE = /!\[[^\]]*\]\(images\/([^)]+)\)/g;
 // 三本含图书：domain → 桌面源 images 目录
+// ⚠ 2026-08-23 修复（任务书外发现）：examination-guideline 域已由 'examination-guideline-2025' 更名，
+//   本表键仍写旧字面量，致 SRC_BY_DOMAIN[domain] 查不中，该域含图节点会在下方判空处直接抛错退出；
+//   现同步新键；桌面源目录路径本身与域 key 无关、不属本次修复范围，原样保留。
+// ⚠ 2026-08-24 补导（阶段5.2 批次 W-R，经主会话裁决批准）：批次 Q-1 将《专利质量评价指南》
+//   作为第 88 部书入库 214 节点时，仅入正文未导附图，致其 8 个节点引用的 13 张图在
+//   build-quartz-md.mjs 判为死链、硬闸 exit 1；现补入该域源目录映射，附图总数 88 → 101。
 const SRC_BY_DOMAIN = {
-  'examination-guideline-2025':
+  'examination-guideline':
     '/Users/chin.jing1998/Desktop/知识产权相关文件/专利审查指南（2025）/images',
   'mechanical-drafting-rules':
     '/Users/chin.jing1998/Desktop/知识产权相关文件/机械案件撰写规范/images',
   'chemistry-drafting-rules':
     '/Users/chin.jing1998/Desktop/知识产权相关文件/化学案件撰写规范/images',
+  'quality-evaluation':
+    '/Users/chin.jing1998/Desktop/知识产权相关文件/专利质量评价指南/images',
 };
 
 const readJson = (p) => JSON.parse(readFileSync(p, 'utf8'));

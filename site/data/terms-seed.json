@@ -24,6 +24,7 @@
       "公共利益"
     ],
     "matchers": [],
+    "topicKey": "subjectMatter",
     "sources": {
       "examination-guideline": [
         "01-01-07-02",
@@ -85,6 +86,7 @@
     "canonical": "科学发现",
     "aliases": [],
     "matchers": [],
+    "topicKey": "subjectMatter",
     "sources": {
       "examination-guideline": [
         "02-01-04-01",
@@ -127,6 +129,7 @@
     "canonical": "外科手术方法",
     "aliases": [],
     "matchers": [],
+    "topicKey": "subjectMatter",
     "sources": {
       "examination-guideline": [
         "02-01-04-03",
@@ -141,6 +144,7 @@
     "canonical": "动物和植物品种",
     "aliases": [],
     "matchers": [],
+    "topicKey": "subjectMatter",
     "sources": {
       "examination-guideline": [
         "02-01-04-04",
@@ -168,6 +172,7 @@
     "canonical": "计算机程序",
     "aliases": [],
     "matchers": [],
+    "topicKey": "subjectMatter",
     "sources": {
       "examination-guideline": [
         "02-09"
@@ -899,6 +904,7 @@
     "canonical": "检索",
     "aliases": [],
     "matchers": [],
+    "topicKey": "classificationSearch",
     "sources": {
       "examination-guideline": [
         "02-07"
@@ -1378,6 +1384,9 @@
       "patent-law": [
         "law-03-04",
         "law-03-05"
+      ],
+      "trademark-exam-guide-2021": [
+        "tmeg-01-02"
       ]
     },
     "lawKeys": [
@@ -1803,6 +1812,7 @@
       "多方面分类"
     ],
     "matchers": [],
+    "topicKey": "classificationSearch",
     "sources": {
       "examination-guideline": [
         "01-04-04-03"
@@ -2279,6 +2289,7 @@
     "canonical": "受理",
     "aliases": [],
     "matchers": [],
+    "topicKey": "examProcedure",
     "sources": {
       "examination-guideline": [
         "05-03"
@@ -2435,6 +2446,7 @@
     "canonical": "中止程序",
     "aliases": [],
     "matchers": [],
+    "topicKey": "examProcedure",
     "sources": {
       "examination-guideline": [
         "05-07-07"
@@ -2450,6 +2462,7 @@
       "国家局"
     ],
     "matchers": [],
+    "topicKey": "examProcedure",
     "sources": {
       "examination-guideline": [
         "05-07-08-02"
@@ -2465,6 +2478,7 @@
       "保护中心预审"
     ],
     "matchers": [],
+    "topicKey": "examProcedure",
     "sources": {
       "examination-guideline": [
         "05-07-08-03"
@@ -2478,6 +2492,7 @@
     "canonical": "延迟审查",
     "aliases": [],
     "matchers": [],
+    "topicKey": "examProcedure",
     "sources": {
       "examination-guideline": [
         "05-07-08-04"
@@ -2851,6 +2866,10 @@
       "implementation-rules": [
         "rule-01-11",
         "rule-08-06"
+      ],
+      "trademark-exam-guide-2021": [
+        "tmeg-06-01",
+        "tmeg-06-10"
       ]
     },
     "lawKeys": [
@@ -2927,6 +2946,7 @@
     "canonical": "实质审查",
     "aliases": [],
     "matchers": [],
+    "topicKey": "examProcedure",
     "sources": {
       "patent-law": [
         "law-04-02",
@@ -3927,6 +3947,7 @@
       "2 个月办理"
     ],
     "matchers": [],
+    "topicKey": "examProcedure",
     "sources": {
       "implementation-rules": [
         "rule-03-19"
@@ -4825,6 +4846,7 @@
       "歧义词"
     ],
     "matchers": [],
+    "topicKey": "draftingPractice",
     "sources": {
       "mechanical-drafting-rules": [
         "mech-01-01-01"
@@ -5973,6 +5995,7 @@
       "人造性器官"
     ],
     "matchers": [],
+    "topicKey": "subjectMatter",
     "sources": {
       "chemistry-drafting-rules": [
         "chem-01-05-08"
@@ -6489,6 +6512,912 @@
     "sources": {
       "oa-response-guide": [
         "oa-02-08"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-425",
+    "canonical": "一次性告知原则",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-01-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-426",
+    "canonical": "补正通知书",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-01-01",
+        "tmeg-01-02",
+        "tmeg-03-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-427",
+    "canonical": "不予受理",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-01-01",
+        "tmeg-01-02",
+        "tmeg-01-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-428",
+    "canonical": "商标代理委托书",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-01-01",
+        "tmeg-01-02",
+        "tmeg-01-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-429",
+    "canonical": "商标图样",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmFormalProc",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-01-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-430",
+    "canonical": "声音样本",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmFormalProc",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-01-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-431",
+    "canonical": "商标异议申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-01-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-432",
+    "canonical": "商标评审申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-01-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-433",
+    "canonical": "注册满三年的计算",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-01-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-434",
+    "canonical": "类似商品和服务区分表",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-01",
+        "tmeg-06-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-435",
+    "canonical": "文字检索分卡",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-436",
+    "canonical": "图形要素编码",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-437",
+    "canonical": "商标变更申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-438",
+    "canonical": "注册商标转让",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-439",
+    "canonical": "商标使用许可备案",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-440",
+    "canonical": "注册商标专用权质权登记",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-441",
+    "canonical": "注册商标续展",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-442",
+    "canonical": "马德里商标国际注册申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-443",
+    "canonical": "后期指定",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmFormalProc",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-444",
+    "canonical": "国际注册后续业务",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-02",
+        "tmeg-04-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-445",
+    "canonical": "商标国际异议",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-446",
+    "canonical": "领土延伸申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-04",
+        "tmeg-04-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-447",
+    "canonical": "商标申请文件接收",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-448",
+    "canonical": "商标规费",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-01-01",
+        "tmeg-05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-449",
+    "canonical": "商标文件送达",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-450",
+    "canonical": "补发商标注册证",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-451",
+    "canonical": "商标档案",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmFormalProc",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-452",
+    "canonical": "商标公告",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmFormalProc",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-453",
+    "canonical": "商标电子申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-454",
+    "canonical": "绝对理由与相对理由",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-455",
+    "canonical": "相关公众",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmSimilarity",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-01",
+        "tmeg-06-04",
+        "tmeg-06-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-456",
+    "canonical": "不以使用为目的的恶意注册",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-457",
+    "canonical": "不得作为商标使用的标志",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-458",
+    "canonical": "带有欺骗性",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-459",
+    "canonical": "不良影响",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmAbsoluteGrounds",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-460",
+    "canonical": "县级以上行政区划地名",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-03",
+        "tmeg-06-09"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-461",
+    "canonical": "显著特征",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmDistinctiveness",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-462",
+    "canonical": "固有显著性",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmDistinctiveness",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-463",
+    "canonical": "经过使用取得显著特征",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmDistinctiveness",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-04",
+        "tmeg-06-06",
+        "tmeg-06-08"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-464",
+    "canonical": "通用名称",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmDistinctiveness",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-04",
+        "tmeg-06-17"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-465",
+    "canonical": "近似商标",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmSimilarity",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-466",
+    "canonical": "隔离观察",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmSimilarity",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-467",
+    "canonical": "要部比对",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmSimilarity",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-468",
+    "canonical": "混淆可能性",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmSimilarity",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-05",
+        "tmeg-06-10"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-469",
+    "canonical": "三维标志商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-470",
+    "canonical": "颜色组合商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-471",
+    "canonical": "声音商标",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmDistinctiveness",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-08"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-472",
+    "canonical": "集体商标",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmCollectiveGI",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-09"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-473",
+    "canonical": "证明商标",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmCollectiveGI",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-09"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-474",
+    "canonical": "地理标志证明商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-09"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-475",
+    "canonical": "使用管理规则",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmCollectiveGI",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-01",
+        "tmeg-06-09"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-476",
+    "canonical": "驰名商标",
+    "aliases": [],
+    "matchers": [
+      "摹仿",
+      "按需认定",
+      "被动保护"
+    ],
+    "topicKey": "tmWellKnown",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-10"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-477",
+    "canonical": "复制摹仿或者翻译",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-10"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-478",
+    "canonical": "代理人抢注",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-11"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-479",
+    "canonical": "特定关系人抢注",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-12"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-480",
+    "canonical": "商标代理机构申请注册商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-13"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-481",
+    "canonical": "在先权利",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmBadFaith",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-14"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-482",
+    "canonical": "字号权",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-14"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-483",
+    "canonical": "姓名权",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmBadFaith",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-14"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-484",
+    "canonical": "外观设计专利权",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-14"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-485",
+    "canonical": "已经使用并有一定影响的商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-15"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-486",
+    "canonical": "以其他不正当手段取得注册",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-16"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-487",
+    "canonical": "连续三年不使用",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmUseRevocation",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-01-05",
+        "tmeg-06-17"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-488",
+    "canonical": "商标使用",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmUseRevocation",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-17"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-489",
+    "canonical": "撤销无效注销后一年限制",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-18"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-490",
+    "canonical": "审查意见书",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmFormalProc",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-19"
       ]
     },
     "lawKeys": [],

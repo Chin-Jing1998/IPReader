@@ -18,14 +18,16 @@ const SAMPLE_LIMIT = 10;
 const CTX_RADIUS = 35;
 const CJK_RE = /[一-鿿]/;
 const KNOWN_RESIDUE_IDS = ['term-0326', 'term-0230', 'term-0412', 'term-0386']; // 规则 A
+// ⚠ 2026-08-23 修复：旧键 'examination-guideline-2025' 随域改名同步为 'examination-guideline'；补登此前未登记的 trademark-exam-guide-2021。
 const DOMAIN_NAME = {
   'patent-law': '专利法',
   'implementation-rules': '实施细则',
-  'examination-guideline-2025': '审查指南',
+  'examination-guideline': '审查指南',
   'infringement-judgment-guide': '侵权判定',
   'oa-response-guide': '答复指引',
   'chemistry-drafting-rules': '化学撰写',
   'mechanical-drafting-rules': '机械撰写',
+  'trademark-exam-guide-2021': '商标审查指南',
 };
 
 // ---------- 数据载入 ----------

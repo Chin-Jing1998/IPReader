@@ -29,8 +29,11 @@ const BATCH_SCHEMA = {
 };
 
 // 域 key → 规范全名（与 lib/domains.mjs 的 KNOWN_DOMAINS 对齐；wf 运行时无法 import，故内联）
+// ⚠ 2026-08-23 修复（任务书外发现）：examination-guideline 域已由 'examination-guideline-2025' 更名，
+//   本表键仍写旧字面量，致该域在 DOMAIN_TITLES[domain] 查不中、静默回退为裸 key 显示；现同步新键。
+//   显示值（含"2025"版本字样的全名）与域 key 无关、不属本次修复范围，原样保留。
 const DOMAIN_TITLES = {
-  'examination-guideline-2025': '专利审查指南2025',
+  'examination-guideline': '专利审查指南2025',
   'patent-law': '中华人民共和国专利法',
   'implementation-rules': '专利法实施细则',
   'infringement-guide': '专利侵权判定指南2017',

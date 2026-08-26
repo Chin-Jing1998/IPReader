@@ -1,0 +1,25 @@
+{
+  "chunk": "trademark-exam-guide-2021/03-01/01",
+  "anchorNode": "tmeg-03-01-01",
+  "terms": [
+    { "name": "变更申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "变更申请经审查，可能作出的审查结论有补正、不予核准、视为放弃和核准四种" },
+    { "name": "全部注册商标一并变更", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标注册人对其注册的全部商标，应当一并变更" },
+    { "name": "视为放弃", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "视为放弃是针对已经发过要求一并变更的补正通知的变更申请" },
+    { "name": "中止审查", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "在审查过程中出现以下情形的，可以中止审查" }
+  ],
+  "laws": [
+    "商标法第41条",
+    "商标法实施条例第5条",
+    "商标法实施条例第6条",
+    "商标法实施条例第9条",
+    "商标法实施条例第10条",
+    "商标法实施条例第12条",
+    "商标法实施条例第14条",
+    "商标法实施条例第15条",
+    "商标法实施条例第16条",
+    "商标法实施条例第17条",
+    "商标法实施条例第18条",
+    "商标法实施条例第30条"
+  ],
+  "extractedAt": "2026-08-23"
+}

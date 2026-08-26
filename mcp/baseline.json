@@ -1,0 +1,3081 @@
+{
+  "generatedAt": "2026-08-25T13:54:21.552Z",
+  "note": "检索质量回归基线。验收口径见 criteria 字段（v2 分层判定）。",
+  "kbMeta": {
+    "totalNodes": 7282,
+    "lawArticles": 2521,
+    "books": 88
+  },
+  "params": {
+    "limit": 8,
+    "includeTerms": "默认（true）",
+    "domains": "全开放"
+  },
+  "queryCount": 50,
+  "criteria": {
+    "version": 2,
+    "summary": "分层判定：模式由 domains 快照与当前库比对确定；哨兵任何模式下 Top1 不得变。",
+    "modeA": {
+      "when": "域快照无新增（代码改动）",
+      "layers": [
+        "A0 哨兵 Top1 全部保持，否则 FAIL",
+        "A1 Top8 覆盖的 domain 集合一致，否则 FAIL",
+        "A2 Top3 节点级序列全等，否则 FAIL",
+        "A3 Top4–8 的丢失与新增按 domain 等量配平，否则 FAIL",
+        "A4 以上全满足而尾部有轮换：PASS"
+      ]
+    },
+    "modeB": {
+      "when": "域快照有新增（语料扩容）",
+      "layers": [
+        "哨兵 Top1 变化：FAIL",
+        "旧域挤出 > 新域挤入 + 旧域内新增（净减席位）：FAIL",
+        "新域挤入 ≥ 1 且席位配平：PASS（新域切题挤入，预期收益）",
+        "纯旧域轮换且 Top3 未变：PASS",
+        "纯旧域轮换且 Top3 变化：FAIL（升级人工裁决）"
+      ]
+    },
+    "legacy": "v1 口径为「Top8 结果 id 集合完全一致」；缺 domains 字段的旧档按模式 A 回落。"
+  },
+  "domains": [
+    "admin-reconsideration-2024",
+    "anti-monopoly-law-2022",
+    "anti-unfair-competition-2025",
+    "antitrust-civil-interp-2024",
+    "biomaterial-deposit-2015",
+    "chemistry-drafting-rules",
+    "cnipa-normative-docs-2016",
+    "collective-cert-trademark-2023",
+    "compulsory-license-2012",
+    "copyright-civil-interp",
+    "copyright-collective-mgmt-2013",
+    "copyright-law-2020",
+    "copyright-law-rules-2013",
+    "copyright-penalty-2009",
+    "copyright-pledge-registration-2011",
+    "customs-ip-measures-2009",
+    "customs-ip-protection-2018",
+    "defense-patent-regulations-2004",
+    "exam-guideline-decree-2023",
+    "examination-guideline",
+    "fee-adjustment-notice-2024",
+    "fee-reduction-2016",
+    "gb-standards-index",
+    "gi-product-protection-2023",
+    "ic-layout-regulations-2026",
+    "ic-layout-rules-2001",
+    "implementation-rules",
+    "infringement-guide",
+    "ip-abuse-competition-2023",
+    "ip-court-jurisdiction-2014",
+    "ip-criminal-interp-2025",
+    "ip-evidence-rules-2020",
+    "ip-injunction-rules-2018",
+    "ip-plan-15th-2026",
+    "ip-power-outline-2021",
+    "ip-tribunal-rules-2018",
+    "ipc-digest-2022",
+    "ipc-digest-2023",
+    "ipc-digest-2024",
+    "major-patent-adjudication-2021",
+    "mechanical-drafting-rules",
+    "network-dissemination-regulations-2013",
+    "oa-response-guide",
+    "patent-adjudication-manual-2019",
+    "patent-adjudication-mediation-2024",
+    "patent-agency-admin-2019",
+    "patent-agency-regulations-2018",
+    "patent-attorney-exam-2019",
+    "patent-dispute-rules",
+    "patent-enforcement-2015",
+    "patent-filing-conduct-2023",
+    "patent-grant-validity-rules-1",
+    "patent-ic-fee-manual-2026",
+    "patent-infringe-interp-1",
+    "patent-infringe-interp-2",
+    "patent-law",
+    "patent-marking-2012",
+    "patent-payment-guide-2026",
+    "plant-variety-interp-2001",
+    "plant-variety-regulations-2025",
+    "plant-variety-rules-1",
+    "plant-variety-rules-2",
+    "priority-examination-2026",
+    "punitive-damages-interp",
+    "quality-evaluation",
+    "rulemaking-procedure-2024",
+    "software-copyright-registration-2002",
+    "software-protection-regulations-2013",
+    "tech-investigator-rules-2019",
+    "text-work-remuneration-2014",
+    "tm-amend-jurisdiction-interp",
+    "tm-civil-interp",
+    "tm-grant-validity-rules",
+    "tm-jurisdiction-interp",
+    "trade-secret-civil-rules-2020",
+    "trademark-agency-supervision-2022",
+    "trademark-exam-guide-2021",
+    "trademark-filing-conduct-2019",
+    "trademark-infringement-standard-2020",
+    "trademark-law-2026",
+    "trademark-law-rules-2014",
+    "trademark-printing-2004",
+    "trademark-review-rules-2014",
+    "trademark-violation-standard-2021",
+    "unfair-competition-interp-2022",
+    "wellknown-tm-interp",
+    "wellknown-tm-recognition-2014",
+    "work-registration-1994"
+  ],
+  "sentinels": [
+    {
+      "query": "等同侵权",
+      "top1": "infr-02-03",
+      "why": "侵权判定指南「（三）等同侵权」，与 smoke 断言同源"
+    },
+    {
+      "query": "专利法第26条",
+      "top1": "law-03-01",
+      "why": "法条直达：条文原文须居首"
+    },
+    {
+      "query": "假冒专利",
+      "top1": "term-0204",
+      "why": "术语页优先于条文与章节点"
+    }
+  ],
+  "revisions": [
+    {
+      "date": "2026-08-20",
+      "reason": "任务 0-5：encoder 标点切分修复。全角标点原被并入英文缓冲区，致「（animal」类 token 前缀匹配失效。变更集中于法条直达类查询，经逐条评估为 2 条改善、4 条中性、0 条劣化。",
+      "changedCount": 6,
+      "changed": [
+        {
+          "no": 30,
+          "query": "专利法第26条",
+          "lost": [
+            "chem-02-02"
+          ],
+          "added": [
+            "02-08-04-10"
+          ]
+        },
+        {
+          "no": 31,
+          "query": "专利法第33条",
+          "lost": [],
+          "added": [
+            "03-01-02-02",
+            "03-01-05-12"
+          ]
+        },
+        {
+          "no": 34,
+          "query": "专利法第2条",
+          "lost": [
+            "01-02-09",
+            "05-09-04-01",
+            "05-11-03-03",
+            "oa-01-04",
+            "01-02-07-02"
+          ],
+          "added": [
+            "01-01-07-04",
+            "01-03-06-02",
+            "04-05-06",
+            "01-03-07-04",
+            "02-09-02"
+          ]
+        },
+        {
+          "no": 35,
+          "query": "专利法第9条",
+          "lost": [
+            "02-10-09-02"
+          ],
+          "added": [
+            "01-03-07-04"
+          ]
+        },
+        {
+          "no": 37,
+          "query": "实施细则第57条",
+          "lost": [],
+          "added": [
+            "chem-01-04-06"
+          ]
+        },
+        {
+          "no": 38,
+          "query": "专利法实施细则第11条",
+          "lost": [
+            "chem-02-02",
+            "02-06-02-02",
+            "chem-01-04-06",
+            "chem-02-03-03",
+            "chem-01-03-01"
+          ],
+          "added": [
+            "05-10-03-02",
+            "03-02-03-02",
+            "02-08-06-01",
+            "01-02-07-03",
+            "01-02-07-04",
+            "02-08-05-02"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-08-22",
+      "reason": "批次一验收（2026-08-22）：25 个司法解释域入库，节点 2044→2774、书目 7→32；经用户带保留验收。漂移 14/50：12 处新域切题挤入（含现有技术抗辩、假冒专利两处法定条文空白填补）、6 处噪声、5 处高相关七书节点挤出（登记待检索调优立项）。amd18 域经裁决剔除，law-citations 调用方缺陷已修复（1453→1500 条）。",
+      "changedCount": 14,
+      "changed": [
+        {
+          "no": 9,
+          "query": "创造性的判断方法",
+          "lost": [
+            "02-04-02",
+            "oa-02"
+          ],
+          "added": [
+            "dg23-02-16",
+            "dg23-02-22"
+          ]
+        },
+        {
+          "no": 10,
+          "query": "新颖性的判断标准",
+          "lost": [
+            "02-06-02-02"
+          ],
+          "added": [
+            "dg22-04-03"
+          ]
+        },
+        {
+          "no": 12,
+          "query": "权利要求得到说明书支持",
+          "lost": [
+            "term-0892"
+          ],
+          "added": [
+            "dg23-02-11"
+          ]
+        },
+        {
+          "no": 13,
+          "query": "等同原则",
+          "lost": [
+            "04-03-02-01"
+          ],
+          "added": [
+            "dg23-03-06"
+          ]
+        },
+        {
+          "no": 15,
+          "query": "全面覆盖原则",
+          "lost": [],
+          "added": [
+            "dg22-03-07"
+          ]
+        },
+        {
+          "no": 16,
+          "query": "现有技术抗辩",
+          "lost": [
+            "chem-02-03-02",
+            "mech-01-03-03"
+          ],
+          "added": [
+            "dg22-03-09",
+            "pii2-23"
+          ]
+        },
+        {
+          "no": 22,
+          "query": "组分的含量范围",
+          "lost": [
+            "02-04-04-03"
+          ],
+          "added": [
+            "dg23-02-10"
+          ]
+        },
+        {
+          "no": 28,
+          "query": "区别技术特征",
+          "lost": [
+            "02-10-08-01",
+            "infr-02-03"
+          ],
+          "added": [
+            "dg23-02-19",
+            "dg23-02-17"
+          ]
+        },
+        {
+          "no": 30,
+          "query": "专利法第26条",
+          "lost": [
+            "infr-01-03"
+          ],
+          "added": [
+            "dg23-02-26"
+          ]
+        },
+        {
+          "no": 34,
+          "query": "专利法第2条",
+          "lost": [
+            "02-09-03"
+          ],
+          "added": [
+            "dg23-02-26"
+          ]
+        },
+        {
+          "no": 36,
+          "query": "专利法第45条",
+          "lost": [],
+          "added": [
+            "dg22-02-13"
+          ]
+        },
+        {
+          "no": 40,
+          "query": "背景技术",
+          "lost": [
+            "rule-02-04"
+          ],
+          "added": [
+            "dg22-03-04"
+          ]
+        },
+        {
+          "no": 41,
+          "query": "客体审查",
+          "lost": [
+            "01-01-07-04"
+          ],
+          "added": [
+            "dg23-02-01"
+          ]
+        },
+        {
+          "no": 42,
+          "query": "假冒专利",
+          "lost": [],
+          "added": [
+            "dg22-03-23",
+            "ipcrm-10"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-08-22",
+      "reason": "批次二验收（2026-08-22）：15 个法律与行政法规域入库（节点 2774→3637、书目 32→47），经用户裁定「管线修复后验收」。附著作权法 33 条层级孤儿之 parseGeneric 跳级折算修复（46 域逐字节不变、cpl 孤儿归零、browse_toc 复通）。漂移 2/50：布图设计细则与专利法实施细则平行条文的第 8 位一换一（期限计算/权利恢复），A 类切题挤入、无噪声；条文小标题统一提升登记为阶段 3 增强项。",
+      "changedCount": 2,
+      "changed": [
+        {
+          "no": 8,
+          "query": "期限的计算",
+          "lost": [
+            "rule-01-05"
+          ],
+          "added": [
+            "icldr-02-08"
+          ]
+        },
+        {
+          "no": 45,
+          "query": "权利的恢复",
+          "lost": [
+            "rule-01-06"
+          ],
+          "added": [
+            "icldr-02-09"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-08-22",
+      "reason": "批次三验收（2026-08-22）：25 个部门规章域入库（节点 3637→4585、书目 47→72），经用户带保留验收。漂移 2/50：专利法第45条一处缴费噪声挤入（原仅5条结果无挤出）；假冒专利一处行政执法专章（空容器节点）挤入、刑事解释第九条实体条文滑出——「无正文容器节点降权」列入检索调优待办。表格断言重定版 GFM 7→9/raw 1→9，law-citations +24、法条键 +5。",
+      "changedCount": 2,
+      "changed": [
+        {
+          "no": 36,
+          "query": "专利法第45条",
+          "lost": [],
+          "added": [
+            "feem-03-05"
+          ]
+        },
+        {
+          "no": 42,
+          "query": "假冒专利",
+          "lost": [
+            "ipcrm-10"
+          ],
+          "added": [
+            "penf-05"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-08-22",
+      "reason": "全量收官验收（2026-08-22）：四批 80 件入库完成（书目 7→87、节点 2044→5306、法条键 123→132、law-citations 1453→1598），经用户带保留验收。批次四漂移 30/50：主体为办案指南/要旨2024 切题挤入（预期收益）；3 条纯重排系语料规模的词频效应（回归口径演进素材）；高相关挤出以「现有技术抗辩」挤出专利法第67条为最重；容器节点挤入第三次现身（padm-01×4）。检索调优立项获批（设计先行），素材：容器降权、条号精确匹配、域级命中集合口径。",
+      "changedCount": 30,
+      "changed": [
+        {
+          "no": 1,
+          "query": "授予专利权的条件",
+          "lost": [
+            "05-10-03-02"
+          ],
+          "added": [
+            "padm-06-01-01"
+          ]
+        },
+        {
+          "no": 4,
+          "query": "强制许可",
+          "lost": [
+            "law-06-07",
+            "law-06-08",
+            "law-06-09"
+          ],
+          "added": [
+            "law-06-13",
+            "law-06-14",
+            "law-06-15"
+          ]
+        },
+        {
+          "no": 8,
+          "query": "期限的计算",
+          "lost": [
+            "05-09-02-02"
+          ],
+          "added": [
+            "tmeg-07"
+          ]
+        },
+        {
+          "no": 9,
+          "query": "创造性的判断方法",
+          "lost": [
+            "dg23-02-22"
+          ],
+          "added": [
+            "dg24-02-22"
+          ]
+        },
+        {
+          "no": 10,
+          "query": "新颖性的判断标准",
+          "lost": [
+            "dg22-04-03"
+          ],
+          "added": [
+            "dg24-06-06"
+          ]
+        },
+        {
+          "no": 11,
+          "query": "说明书充分公开",
+          "lost": [
+            "oa-07-01"
+          ],
+          "added": [
+            "dg24-02-07"
+          ]
+        },
+        {
+          "no": 12,
+          "query": "权利要求得到说明书支持",
+          "lost": [
+            "oa-04",
+            "term-0019"
+          ],
+          "added": [
+            "dg24-02-09",
+            "dg24-02-08"
+          ]
+        },
+        {
+          "no": 13,
+          "query": "等同原则",
+          "lost": [
+            "01-01-02",
+            "01-02-02",
+            "01-03-02",
+            "05-11-02",
+            "oa-04-02"
+          ],
+          "added": [
+            "padm-06-01-01",
+            "padm-06-01-02",
+            "infr-01-03",
+            "padm-03-02-02",
+            "padm-05-01-02"
+          ]
+        },
+        {
+          "no": 14,
+          "query": "禁止反悔原则",
+          "lost": [],
+          "added": [
+            "padm-03-02-01",
+            "padm-06-01-02",
+            "padm-05-01-02",
+            "padm-05-02-06",
+            "tmeg-45-01"
+          ]
+        },
+        {
+          "no": 15,
+          "query": "全面覆盖原则",
+          "lost": [
+            "mech-01-02-01",
+            "02-02-02-02",
+            "02-02-03-02"
+          ],
+          "added": [
+            "padm-01",
+            "padm-06-01-02",
+            "padm-12"
+          ]
+        },
+        {
+          "no": 16,
+          "query": "现有技术抗辩",
+          "lost": [
+            "pii2-23",
+            "term-0028",
+            "law-07-04",
+            "02-03-02-01",
+            "chem-01-04-03"
+          ],
+          "added": [
+            "dg24-03-13",
+            "dg24-03-14",
+            "padm-06-01-03",
+            "padm-01",
+            "padm-03-02-02"
+          ]
+        },
+        {
+          "no": 19,
+          "query": "部件之间的连接关系",
+          "lost": [
+            "mech-02-03-05",
+            "oa-02-07"
+          ],
+          "added": [
+            "padm-06-01-01",
+            "padm-06-01-02"
+          ]
+        },
+        {
+          "no": 21,
+          "query": "实施例与对比例",
+          "lost": [
+            "infr-01-03"
+          ],
+          "added": [
+            "padm-06-01-01"
+          ]
+        },
+        {
+          "no": 22,
+          "query": "组分的含量范围",
+          "lost": [
+            "chem-01-04-04",
+            "chem-02-03-03"
+          ],
+          "added": [
+            "padm-06-01-01",
+            "padm-06-01-02"
+          ]
+        },
+        {
+          "no": 23,
+          "query": "制备方法权利要求",
+          "lost": [
+            "05-09-03-05",
+            "02-10-04-04"
+          ],
+          "added": [
+            "padm-04-01-06",
+            "padm-06-01-01"
+          ]
+        },
+        {
+          "no": 24,
+          "query": "用途权利要求",
+          "lost": [
+            "term-0892"
+          ],
+          "added": [
+            "padm-06-01-01"
+          ]
+        },
+        {
+          "no": 26,
+          "query": "意见陈述书的撰写",
+          "lost": [
+            "05-10-06"
+          ],
+          "added": [
+            "padm-06-01-01"
+          ]
+        },
+        {
+          "no": 28,
+          "query": "区别技术特征",
+          "lost": [
+            "02-02-03-03"
+          ],
+          "added": [
+            "dg24-02-13"
+          ]
+        },
+        {
+          "no": 29,
+          "query": "专利法第22条",
+          "lost": [
+            "oa-02-01"
+          ],
+          "added": [
+            "dg24-09-05"
+          ]
+        },
+        {
+          "no": 31,
+          "query": "专利法第33条",
+          "lost": [],
+          "added": [
+            "tmeg-35-04",
+            "tmeg-43-06"
+          ]
+        },
+        {
+          "no": 33,
+          "query": "专利法第59条",
+          "lost": [],
+          "added": [
+            "padm-01"
+          ]
+        },
+        {
+          "no": 34,
+          "query": "专利法第2条",
+          "lost": [
+            "01-03-06-02",
+            "04-05-06",
+            "02-09-02"
+          ],
+          "added": [
+            "02-09-03",
+            "dg23-03-24",
+            "dg24-03-28"
+          ]
+        },
+        {
+          "no": 35,
+          "query": "专利法第9条",
+          "lost": [
+            "02-08-04-04"
+          ],
+          "added": [
+            "dg24-02-03"
+          ]
+        },
+        {
+          "no": 36,
+          "query": "专利法第45条",
+          "lost": [],
+          "added": [
+            "padm-01",
+            "tmeg-35-04"
+          ]
+        },
+        {
+          "no": 38,
+          "query": "专利法实施细则第11条",
+          "lost": [
+            "02-08-05-02"
+          ],
+          "added": [
+            "padm-06-01-01"
+          ]
+        },
+        {
+          "no": 39,
+          "query": "所属技术领域的技术人员",
+          "lost": [
+            "02-07-10"
+          ],
+          "added": [
+            "oa-04-02"
+          ]
+        },
+        {
+          "no": 43,
+          "query": "富有美感",
+          "lost": [],
+          "added": [
+            "dg24-02-27",
+            "padm-04-01-01",
+            "padm-06-02"
+          ]
+        },
+        {
+          "no": 46,
+          "query": "中间文件",
+          "lost": [
+            "01-01-04-06",
+            "05-04-02-02"
+          ],
+          "added": [
+            "tmeg-28",
+            "tmeg-29"
+          ]
+        },
+        {
+          "no": 49,
+          "query": "通式",
+          "lost": [
+            "02-10-08-01"
+          ],
+          "added": []
+        },
+        {
+          "no": 50,
+          "query": "说明书及附图的解释作用",
+          "lost": [
+            "infr-01-03"
+          ],
+          "added": [
+            "dg24-03-04"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-08-22",
+      "reason": "检索调优三批实施验收后重定版（2026-08-22）：R1 目录降权/R2 容器补偿/R4 FlexSearch 名次分归零/R3 法条直达路由合并落地；模式 A 偏离 15/50 经主会话逐条评定全部采纳——法条直达类整类修复 10 条（条文原文 0/10→10/10 且全部居首）、目录噪声 padm-01 退榜 2 条、条文序列连续化 1 条、边界平票轮换 2 条；哨兵三条全过、等同侵权余量恒 100；详见设计方案与批①②③验收记录。",
+      "mode": "A",
+      "newDomains": [],
+      "changedCount": 15,
+      "verdicts": [
+        {
+          "no": 4,
+          "level": "A2-Top3",
+          "verdict": "Top3 节点级序列变化·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 15,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 — / 来 mechanical-drafting-rules）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 16,
+          "level": "A4-同域轮换",
+          "verdict": "Top4–8 同域等量轮换",
+          "fail": false
+        },
+        {
+          "no": 29,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 oa-response-guide、ipc-digest-2024 / 来 patent-law）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 30,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 ipc-digest-2023、oa-response-guide、chemistry-drafting-rules / 来 patent-law、infringement-guide）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 31,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 oa-response-guide、infringement-guide、trademark-exam-guide-2021 / 来 patent-law、ipc-digest-2022）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 32,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 — / 来 patent-law）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 33,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 infringement-guide、patent-adjudication-manual-2019 / 来 patent-law、patent-dispute-rules、patent-enforcement-2015、patent-infringe-interp-1）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 34,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 ipc-digest-2023、ipc-digest-2024 / 来 patent-law）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 35,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 oa-response-guide、ipc-digest-2024、infringement-guide / 来 patent-law）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 36,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 patent-adjudication-manual-2019、trademark-exam-guide-2021、infringement-guide / 来 patent-law、implementation-rules）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 37,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 oa-response-guide、chemistry-drafting-rules / 来 implementation-rules、examination-guideline）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 38,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 patent-adjudication-manual-2019 / 来 implementation-rules）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 39,
+          "level": "A3-跨域增删",
+          "verdict": "尾部丢失与新增未按域配平·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 50,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 ipc-digest-2024 / 来 —）·须人工裁决",
+          "fail": true
+        }
+      ],
+      "changed": [
+        {
+          "no": 4,
+          "query": "强制许可",
+          "lost": [
+            "law-06-13",
+            "law-06-14",
+            "law-06-15"
+          ],
+          "added": [
+            "law-06-07",
+            "law-06-08",
+            "law-06-09"
+          ]
+        },
+        {
+          "no": 15,
+          "query": "全面覆盖原则",
+          "lost": [
+            "padm-01"
+          ],
+          "added": [
+            "mech-01-02-01"
+          ]
+        },
+        {
+          "no": 16,
+          "query": "现有技术抗辩",
+          "lost": [
+            "padm-01"
+          ],
+          "added": [
+            "padm-05-01-01"
+          ]
+        },
+        {
+          "no": 29,
+          "query": "专利法第22条",
+          "lost": [
+            "oa-01-03",
+            "oa-01-04",
+            "03-01-03-04",
+            "03-02-01",
+            "dg24-09-05",
+            "oa-01",
+            "oa-01-01",
+            "oa-02"
+          ],
+          "added": [
+            "law-02-01",
+            "03-02-02-02",
+            "05-10-03-02",
+            "04-06-04",
+            "02-04-02-01",
+            "02-08-04-07",
+            "02-08-04-10",
+            "02-03-01"
+          ]
+        },
+        {
+          "no": 30,
+          "query": "专利法第26条",
+          "lost": [
+            "dg23-02-26",
+            "02-08-04-10",
+            "03-01-05-02",
+            "oa-04",
+            "oa-04-01",
+            "oa-07",
+            "oa-07-01",
+            "chem-02-03-03"
+          ],
+          "added": [
+            "law-03-01",
+            "03-02-02-02",
+            "05-10-03-02",
+            "01-02-07-02",
+            "02-02-02-01",
+            "02-02-02-02",
+            "02-08-04-07",
+            "infr-01-03"
+          ]
+        },
+        {
+          "no": 31,
+          "query": "专利法第33条",
+          "lost": [
+            "03-02-05-01",
+            "oa-02-08",
+            "infr-01-03",
+            "03-01-02-02",
+            "03-01-05-12",
+            "tmeg-35-04",
+            "tmeg-43-06"
+          ],
+          "added": [
+            "law-03-08",
+            "01-01-07-06",
+            "01-02-08",
+            "01-03-10",
+            "05-10-03-02",
+            "03-02-02-02",
+            "dg22-02-02",
+            "01-02-15-01"
+          ]
+        },
+        {
+          "no": 32,
+          "query": "专利法第二十二条",
+          "lost": [
+            "02-03-02-02",
+            "02-03-03-02",
+            "02-04-01"
+          ],
+          "added": [
+            "law-02-01",
+            "03-02-02-02",
+            "04-06-04"
+          ]
+        },
+        {
+          "no": 33,
+          "query": "专利法第59条",
+          "lost": [
+            "infr-02-03",
+            "padm-01"
+          ],
+          "added": [
+            "law-06-12",
+            "pdr-14",
+            "penf-03-09",
+            "pii1-02",
+            "pii1-03",
+            "pii1-09"
+          ]
+        },
+        {
+          "no": 34,
+          "query": "专利法第2条",
+          "lost": [
+            "dg23-02-26",
+            "01-01-07-04",
+            "01-03-07-04",
+            "02-09-03",
+            "dg23-03-24",
+            "dg24-03-28"
+          ],
+          "added": [
+            "law-01-02",
+            "01-01-07-01",
+            "01-02-06",
+            "01-03-07",
+            "02-01-02",
+            "01-02-06-01"
+          ]
+        },
+        {
+          "no": 35,
+          "query": "专利法第9条",
+          "lost": [
+            "oa-06-01",
+            "06-02-05-06",
+            "01-03-07-04",
+            "05-09-04-01",
+            "dg24-02-03",
+            "infr-05-01",
+            "02-06-01"
+          ],
+          "added": [
+            "law-01-09",
+            "01-02-13",
+            "01-03-11",
+            "04-05-08",
+            "03-02-02-02",
+            "04-07-02",
+            "04-07-03"
+          ]
+        },
+        {
+          "no": 36,
+          "query": "专利法第45条",
+          "lost": [
+            "padm-01",
+            "tmeg-35-04",
+            "chem-01-04-06",
+            "infr-02-03"
+          ],
+          "added": [
+            "law-05-04",
+            "04-01-01",
+            "04-03-01",
+            "rule-04-05"
+          ]
+        },
+        {
+          "no": 37,
+          "query": "实施细则第57条",
+          "lost": [
+            "oa-02-08",
+            "chem-01-04-06"
+          ],
+          "added": [
+            "rule-03-16",
+            "02-08-04-11",
+            "03-02-03-02",
+            "01-01-07-06",
+            "01-01-08",
+            "01-02-08",
+            "01-02-08-02",
+            "01-03-10-02"
+          ]
+        },
+        {
+          "no": 38,
+          "query": "专利法实施细则第11条",
+          "lost": [
+            "03-01-02-01",
+            "03-02-03-02",
+            "02-08-04-11",
+            "02-08-06-01",
+            "padm-06-01-01",
+            "01-02-07-03",
+            "01-02-07-04"
+          ],
+          "added": [
+            "rule-01-11",
+            "01-01-07-09",
+            "01-02-05",
+            "01-03-06-03",
+            "02-01-05",
+            "01-03-06",
+            "03-02-02-02"
+          ]
+        },
+        {
+          "no": 39,
+          "query": "所属技术领域的技术人员",
+          "lost": [
+            "oa-04-02"
+          ],
+          "added": [
+            "02-07-10"
+          ]
+        },
+        {
+          "no": 50,
+          "query": "说明书及附图的解释作用",
+          "lost": [
+            "dg24-03-04"
+          ],
+          "added": [
+            "term-0469"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-08-23",
+      "reason": "阶段5波A条旨落库：69域2318行条旨入label（2335条节点标题由裸条号变为『第N条 · 条旨』），另修复cppl伪第十三条与tmeg误升标题各-1节点、cppl补授lawName（lawArticles 2496→2521）。4条A1偏离经主会话逐席核实裁决：[8]期限的计算——icld-07-03/swreg-07-01/tmlr-02-12三个『期限的计算』真条文凭条旨浮出，改善；[16]现有技术抗辩——pii2-23『现有技术抗辩的法律适用』权威条文浮出，改善；[42]假冒专利——四席换为专利行政执法办法第四章假冒专利查处真条文且哨兵term-0204保持Top1，改善；[13]等同原则——尾部弱相关席位轮换（tmeg-38-02顶替padm-05-01-02），头部席位未动，中性接受。三哨兵全部保持，等同侵权margin恒100。",
+      "mode": "A",
+      "newDomains": [],
+      "changedCount": 5,
+      "verdicts": [
+        {
+          "no": 8,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 trademark-exam-guide-2021 / 来 ic-layout-regulations-2026、software-copyright-registration-2002、trademark-law-rules-2014）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 13,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 — / 来 trademark-exam-guide-2021）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 14,
+          "level": "A4-同域轮换",
+          "verdict": "Top4–8 同域等量轮换",
+          "fail": false
+        },
+        {
+          "no": 16,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 — / 来 patent-infringe-interp-2）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 42,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 ipc-digest-2022 / 来 —）·须人工裁决",
+          "fail": true
+        }
+      ],
+      "changed": [
+        {
+          "no": 8,
+          "query": "期限的计算",
+          "lost": [
+            "06-02-06-03",
+            "tmeg-07",
+            "05-07-02-01"
+          ],
+          "added": [
+            "icld-07-03",
+            "swreg-07-01",
+            "tmlr-02-12"
+          ]
+        },
+        {
+          "no": 13,
+          "query": "等同原则",
+          "lost": [
+            "padm-05-01-02"
+          ],
+          "added": [
+            "tmeg-38-02"
+          ]
+        },
+        {
+          "no": 14,
+          "query": "禁止反悔原则",
+          "lost": [
+            "tmeg-45-01"
+          ],
+          "added": [
+            "tmeg-44-01"
+          ]
+        },
+        {
+          "no": 16,
+          "query": "现有技术抗辩",
+          "lost": [
+            "padm-05-01-01"
+          ],
+          "added": [
+            "pii2-23"
+          ]
+        },
+        {
+          "no": 42,
+          "query": "假冒专利",
+          "lost": [
+            "dg22-03-23",
+            "term-0273",
+            "law-07-06",
+            "term-0552"
+          ],
+          "added": [
+            "penf-05-01",
+            "penf-05-02",
+            "penf-05-03",
+            "penf-05-09"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-08-23",
+      "reason": "阶段5波B law-cite跨法域扩展落地：laws.json 132→529键、lawref边969→2277、law-citations 1598→2592条（nodes.laws经注册表引擎全库扩容，正文内链仅两部审查指南放开）。2条A1偏离经主会话逐席核实均判改善：[29]专利法第22条——oa-01-03/04（答复审查意见指南新颖性答复专章）以900分切题挤入第4-5席，Top3未动；[33]专利法第59条——padm-06-01-01/06-02-01（行政裁决办案指南保护范围界定两节）以350分入第7-8席，Top6未动，M8用例交叉佐证。三哨兵全部保持，等同侵权margin恒100。",
+      "mode": "A",
+      "newDomains": [],
+      "changedCount": 2,
+      "verdicts": [
+        {
+          "no": 29,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 — / 来 oa-response-guide）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 33,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 examination-guideline、chemistry-drafting-rules / 来 patent-adjudication-manual-2019）·须人工裁决",
+          "fail": true
+        }
+      ],
+      "changed": [
+        {
+          "no": 29,
+          "query": "专利法第22条",
+          "lost": [
+            "02-08-04-10",
+            "02-03-01"
+          ],
+          "added": [
+            "oa-01-03",
+            "oa-01-04"
+          ]
+        },
+        {
+          "no": 33,
+          "query": "专利法第59条",
+          "lost": [
+            "02-08-04-10",
+            "chem-02-03-03"
+          ],
+          "added": [
+            "padm-06-01-01",
+            "padm-06-02-01"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-08-23",
+      "reason": "阶段5.1 tmeg 四级树重建：id 全量重排（105→104，空壳编标题溶解），偏离3条均为纯改名——[13]等同原则 tmeg-38-02→tmeg-07-05-02、[14]禁止反悔原则 tmeg-44-01→tmeg-07-11-01、[46]中间文件 tmeg-28/29→tmeg-06-03/04，标题与名次逐一不变（R-1 实测复核）；三哨兵保持；另 8 处条旨纠错与 12 条 xref 假边清除均未触动任何 live 席位。",
+      "mode": "A",
+      "newDomains": [],
+      "changedCount": 3,
+      "verdicts": [
+        {
+          "no": 13,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 (节点已不存在) / 来 trademark-exam-guide-2021）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 14,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 (节点已不存在) / 来 trademark-exam-guide-2021）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 46,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 (节点已不存在) / 来 trademark-exam-guide-2021）·须人工裁决",
+          "fail": true
+        }
+      ],
+      "changed": [
+        {
+          "no": 13,
+          "query": "等同原则",
+          "lost": [
+            "tmeg-38-02"
+          ],
+          "added": [
+            "tmeg-07-05-02"
+          ]
+        },
+        {
+          "no": 14,
+          "query": "禁止反悔原则",
+          "lost": [
+            "tmeg-44-01"
+          ],
+          "added": [
+            "tmeg-07-11-01"
+          ]
+        },
+        {
+          "no": 46,
+          "query": "中间文件",
+          "lost": [
+            "tmeg-28",
+            "tmeg-29"
+          ],
+          "added": [
+            "tmeg-06-03",
+            "tmeg-06-04"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-08-24",
+      "reason": "阶段5.2 tmeg 深层两级切分(104→813)+质量评价指南第88部入库(214)+撰写规范图谱召回：偏离8条全数收编——B-轮换3条([8][13][46]系tmeg细化节点/新id席位重排，实体未失)、B-净减1条([14]tmeg-07-11-01→07-11-02纯改名且原系第7位噪音席位，W-R取证判中性)、B-新域4条([19][21][23][40]qeval评价规则条款以更高相关度入席，属新书入库正效)；三哨兵保持；rev9收编四席位实况=2改名+2挤出（预期账勘误）。",
+      "mode": "B",
+      "newDomains": [
+        "quality-evaluation"
+      ],
+      "changedCount": 8,
+      "verdicts": [
+        {
+          "no": 8,
+          "level": "B-轮换",
+          "verdict": "旧域内轮换且 Top3 未变",
+          "fail": false,
+          "flow": {
+            "newIn": 0,
+            "oldIn": 1,
+            "newOut": 0,
+            "oldOut": 1
+          }
+        },
+        {
+          "no": 13,
+          "level": "B-轮换",
+          "verdict": "旧域内轮换且 Top3 未变",
+          "fail": false,
+          "flow": {
+            "newIn": 0,
+            "oldIn": 2,
+            "newOut": 0,
+            "oldOut": 2
+          }
+        },
+        {
+          "no": 14,
+          "level": "B-净减",
+          "verdict": "净减 1 席（旧域挤出未被补回）·真实召回退化",
+          "fail": true,
+          "flow": {
+            "newIn": 0,
+            "oldIn": 0,
+            "newOut": 0,
+            "oldOut": 1
+          }
+        },
+        {
+          "no": 19,
+          "level": "B-新域",
+          "verdict": "新域切题挤入 3 席·预期收益",
+          "fail": false,
+          "flow": {
+            "newIn": 3,
+            "oldIn": 0,
+            "newOut": 0,
+            "oldOut": 3
+          }
+        },
+        {
+          "no": 21,
+          "level": "B-新域",
+          "verdict": "新域切题挤入 3 席·预期收益",
+          "fail": false,
+          "flow": {
+            "newIn": 3,
+            "oldIn": 0,
+            "newOut": 0,
+            "oldOut": 3
+          }
+        },
+        {
+          "no": 23,
+          "level": "B-新域",
+          "verdict": "新域切题挤入 1 席·预期收益",
+          "fail": false,
+          "flow": {
+            "newIn": 1,
+            "oldIn": 0,
+            "newOut": 0,
+            "oldOut": 1
+          }
+        },
+        {
+          "no": 40,
+          "level": "B-新域",
+          "verdict": "新域切题挤入 2 席·预期收益",
+          "fail": false,
+          "flow": {
+            "newIn": 2,
+            "oldIn": 0,
+            "newOut": 0,
+            "oldOut": 2
+          }
+        },
+        {
+          "no": 46,
+          "level": "B-轮换",
+          "verdict": "旧域内轮换且 Top3 未变",
+          "fail": false,
+          "flow": {
+            "newIn": 0,
+            "oldIn": 2,
+            "newOut": 0,
+            "oldOut": 2
+          }
+        }
+      ],
+      "changed": [
+        {
+          "no": 8,
+          "query": "期限的计算",
+          "lost": [
+            "05-09-03-03"
+          ],
+          "added": [
+            "tmeg-02-04-03-02"
+          ]
+        },
+        {
+          "no": 13,
+          "query": "等同原则",
+          "lost": [
+            "tmeg-07-05-02",
+            "padm-03-02-02"
+          ],
+          "added": [
+            "tmeg-03-01-04-02",
+            "tmeg-07-01-01-04"
+          ]
+        },
+        {
+          "no": 14,
+          "query": "禁止反悔原则",
+          "lost": [
+            "tmeg-07-11-01"
+          ],
+          "added": []
+        },
+        {
+          "no": 19,
+          "query": "部件之间的连接关系",
+          "lost": [
+            "mech-01-03-07",
+            "mech-02-03-03",
+            "padm-06-01-02"
+          ],
+          "added": [
+            "qeval-03-24",
+            "qeval-03-15",
+            "qeval-07-21"
+          ]
+        },
+        {
+          "no": 21,
+          "query": "实施例与对比例",
+          "lost": [
+            "mech-01-03-06",
+            "padm-06-01-01",
+            "02-02-02-02"
+          ],
+          "added": [
+            "qeval-14-06",
+            "qeval-14-14",
+            "qeval-14-09"
+          ]
+        },
+        {
+          "no": 23,
+          "query": "制备方法权利要求",
+          "lost": [
+            "chem-02-02"
+          ],
+          "added": [
+            "qeval-14-29"
+          ]
+        },
+        {
+          "no": 40,
+          "query": "背景技术",
+          "lost": [
+            "02-02-02-02",
+            "02-08-04-02"
+          ],
+          "added": [
+            "qeval-11-04",
+            "qeval-11-07"
+          ]
+        },
+        {
+          "no": 46,
+          "query": "中间文件",
+          "lost": [
+            "tmeg-06-03",
+            "tmeg-06-04"
+          ],
+          "added": [
+            "tmeg-04-02-01-02",
+            "02-08-05-02"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-08-25",
+      "reason": "rev11 阶段5.3 收编：39 偏离全系设计内三类成因——①id 改名：「公布与施行」79 节点摘除致 79 域位次前移（padm/dg22-24/penf/pii1-2/icldr/swreg/tmlr/tmeg 等系），id-map-phase53 单步映射逐条可证；②两书深层节点化细化夺魁（正效）：新增 x.y.z 深层节点以更细粒度入席取代粗粒度父节点（[1][2][5][11][12][22][24][26][27][29][30][44][45][46][49] 等），符合节点细化提升检索精度的改造目标；③951 新增节点稀释的纯排名轮换（中性）：原节点均在库、仅名次浮动（term-0002/law-03-05/qeval-11-07 等）。成员级归因：丢失 120＝62 改名可证＋58 轮换＋0 删除，零残差；三哨兵保持（等同侵权→infr-02-03／专利法第26条→law-03-01／假冒专利→term-0204）。定版：7282 节点（doc 6247＋term 1035）／15520 边／laws 528／lawArticles 2521／70 域",
+      "mode": "A",
+      "newDomains": [],
+      "changedCount": 39,
+      "verdicts": [
+        {
+          "no": 1,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 (节点已不存在) / 来 —）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 2,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 terms / 来 —）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 5,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 patent-law、implementation-rules / 来 —）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 7,
+          "level": "A3-跨域增删",
+          "verdict": "尾部丢失与新增未按域配平·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 8,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 (节点已不存在) / 来 ic-layout-regulations-2026、software-copyright-registration-2002、trademark-exam-guide-2021、trademark-law-rules-2014）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 9,
+          "level": "A2-Top3",
+          "verdict": "Top3 节点级序列变化·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 10,
+          "level": "A2-Top3",
+          "verdict": "Top3 节点级序列变化·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 11,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 — / 来 patent-grant-validity-rules-1）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 12,
+          "level": "A2-Top3",
+          "verdict": "Top3 节点级序列变化·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 13,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 (节点已不存在) / 来 patent-adjudication-manual-2019）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 14,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 (节点已不存在) / 来 —）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 15,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 (节点已不存在) / 来 patent-adjudication-manual-2019）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 16,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 (节点已不存在) / 来 ipc-digest-2022）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 19,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 (节点已不存在) / 来 patent-adjudication-manual-2019）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 20,
+          "level": "A4-同域轮换",
+          "verdict": "Top4–8 同域等量轮换",
+          "fail": false
+        },
+        {
+          "no": 22,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 (节点已不存在) / 来 patent-adjudication-manual-2019）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 23,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 (节点已不存在) / 来 patent-adjudication-manual-2019、examination-guideline）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 24,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 (节点已不存在) / 来 —）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 26,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 (节点已不存在) / 来 patent-adjudication-manual-2019）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 27,
+          "level": "A2-Top3",
+          "verdict": "Top3 节点级序列变化·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 28,
+          "level": "A2-Top3",
+          "verdict": "Top3 节点级序列变化·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 29,
+          "level": "A2-Top3",
+          "verdict": "Top3 节点级序列变化·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 30,
+          "level": "A2-Top3",
+          "verdict": "Top3 节点级序列变化·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 31,
+          "level": "A4-同域轮换",
+          "verdict": "Top4–8 同域等量轮换",
+          "fail": false
+        },
+        {
+          "no": 32,
+          "level": "A4-同域轮换",
+          "verdict": "Top4–8 同域等量轮换",
+          "fail": false
+        },
+        {
+          "no": 33,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 (节点已不存在) / 来 patent-enforcement-2015、patent-adjudication-manual-2019）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 34,
+          "level": "A4-同域轮换",
+          "verdict": "Top4–8 同域等量轮换",
+          "fail": false
+        },
+        {
+          "no": 35,
+          "level": "A4-同域轮换",
+          "verdict": "Top4–8 同域等量轮换",
+          "fail": false
+        },
+        {
+          "no": 36,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 (节点已不存在) / 来 patent-ic-fee-manual-2026）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 38,
+          "level": "A4-同域轮换",
+          "verdict": "Top4–8 同域等量轮换",
+          "fail": false
+        },
+        {
+          "no": 39,
+          "level": "A3-跨域增删",
+          "verdict": "尾部丢失与新增未按域配平·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 40,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 — / 来 examination-guideline）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 41,
+          "level": "A2-Top3",
+          "verdict": "Top3 节点级序列变化·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 42,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 (节点已不存在) / 来 —）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 43,
+          "level": "A2-Top3",
+          "verdict": "Top3 节点级序列变化·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 44,
+          "level": "A2-Top3",
+          "verdict": "Top3 节点级序列变化·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 45,
+          "level": "A2-Top3",
+          "verdict": "Top3 节点级序列变化·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 46,
+          "level": "A1-域集合",
+          "verdict": "Top8 域集合变化（去 (节点已不存在) / 来 chemistry-drafting-rules）·须人工裁决",
+          "fail": true
+        },
+        {
+          "no": 49,
+          "level": "A2-Top3",
+          "verdict": "Top3 节点级序列变化·须人工裁决",
+          "fail": true
+        }
+      ],
+      "changed": [
+        {
+          "no": 1,
+          "query": "授予专利权的条件",
+          "lost": [
+            "05-10-04-01",
+            "02-01-03-01",
+            "padm-06-01-01"
+          ],
+          "added": [
+            "02-08-06-02-01",
+            "02-03-04-02-01",
+            "02-03-06-02-02"
+          ]
+        },
+        {
+          "no": 2,
+          "query": "不授予专利权的情形",
+          "lost": [
+            "05-10-03-02",
+            "05-10-03-03",
+            "term-0002",
+            "01-03-07-04"
+          ],
+          "added": [
+            "05-10-03-02-01",
+            "05-10-03-02-02",
+            "05-10-03-03-01",
+            "05-10-03-03-02"
+          ]
+        },
+        {
+          "no": 5,
+          "query": "要求优先权的手续",
+          "lost": [
+            "03-01-05-02",
+            "02-08-04-06",
+            "law-03-05",
+            "06-02-06-02",
+            "rule-12-04"
+          ],
+          "added": [
+            "01-01-06-02-02-01",
+            "01-03-05-02-02-01",
+            "06-02-06-02-02-01",
+            "01-01-06-02-01-02",
+            "01-01-06-02-02-02"
+          ]
+        },
+        {
+          "no": 7,
+          "query": "专利登记簿",
+          "lost": [
+            "rule-09",
+            "rule-13-01",
+            "05-09-01-01"
+          ],
+          "added": [
+            "05-09-01-03-01",
+            "05-09-01-03-02",
+            "05-09-01-03-03"
+          ]
+        },
+        {
+          "no": 8,
+          "query": "期限的计算",
+          "lost": [
+            "icldr-02-08",
+            "icld-07-03",
+            "swreg-07-01",
+            "tmlr-02-12",
+            "tmeg-02-04-03-02"
+          ],
+          "added": [
+            "icldr-01-08",
+            "icld-06-03",
+            "swreg-06-01",
+            "tmeg-01-04-03-02-03",
+            "tmlr-01-12"
+          ]
+        },
+        {
+          "no": 9,
+          "query": "创造性的判断方法",
+          "lost": [
+            "02-10-09-04",
+            "dg23-02-16",
+            "dg24-02-22"
+          ],
+          "added": [
+            "dg23-01-16",
+            "dg24-01-22",
+            "dg23-01-22"
+          ]
+        },
+        {
+          "no": 10,
+          "query": "新颖性的判断标准",
+          "lost": [
+            "dg24-06-06"
+          ],
+          "added": [
+            "dg24-05-06"
+          ]
+        },
+        {
+          "no": 11,
+          "query": "说明书充分公开",
+          "lost": [
+            "02-02-03-02",
+            "02-08-04-07",
+            "02-10-03-05",
+            "02-10-09-02",
+            "dg24-02-07"
+          ],
+          "added": [
+            "02-02-03-02-01",
+            "02-08-04-07-01",
+            "02-10-03-05-02",
+            "dg24-01-07",
+            "pgv1-06"
+          ]
+        },
+        {
+          "no": 12,
+          "query": "权利要求得到说明书支持",
+          "lost": [
+            "dg24-02-09",
+            "02-02-03-02",
+            "dg24-02-08",
+            "dg23-02-11"
+          ],
+          "added": [
+            "dg24-01-09",
+            "02-02-03-02-01",
+            "dg24-01-08",
+            "dg23-01-11"
+          ]
+        },
+        {
+          "no": 13,
+          "query": "等同原则",
+          "lost": [
+            "dg23-03-06",
+            "padm-06-01-01",
+            "padm-06-01-02",
+            "tmeg-03-01-04-02",
+            "tmeg-07-01-01-04"
+          ],
+          "added": [
+            "dg23-02-06",
+            "padm-05-01-01",
+            "padm-05-01-02",
+            "tmeg-02-01-04-02",
+            "tmeg-06-01-01-04"
+          ]
+        },
+        {
+          "no": 14,
+          "query": "禁止反悔原则",
+          "lost": [
+            "padm-03-02-01",
+            "padm-06-01-02",
+            "padm-05-02-06"
+          ],
+          "added": [
+            "padm-02-02-01",
+            "padm-04-01-02",
+            "padm-04-02-06"
+          ]
+        },
+        {
+          "no": 15,
+          "query": "全面覆盖原则",
+          "lost": [
+            "dg22-03-07",
+            "padm-06-01-02",
+            "padm-12"
+          ],
+          "added": [
+            "dg22-02-07",
+            "padm-05-01-02",
+            "padm-11"
+          ]
+        },
+        {
+          "no": 16,
+          "query": "现有技术抗辩",
+          "lost": [
+            "dg22-03-09",
+            "dg24-03-13",
+            "dg24-03-14",
+            "pii2-23",
+            "padm-06-01-03",
+            "padm-03-02-02"
+          ],
+          "added": [
+            "dg22-02-09",
+            "dg24-02-13",
+            "dg24-02-14",
+            "pii2-22",
+            "padm-05-01-03",
+            "padm-02-02-02"
+          ]
+        },
+        {
+          "no": 19,
+          "query": "部件之间的连接关系",
+          "lost": [
+            "padm-06-01-01",
+            "01-02-06-02"
+          ],
+          "added": [
+            "padm-05-01-01",
+            "01-02-06-02-02"
+          ]
+        },
+        {
+          "no": 20,
+          "query": "具体实施方式的撰写",
+          "lost": [
+            "02-02-03-03"
+          ],
+          "added": [
+            "02-02-02-02-06"
+          ]
+        },
+        {
+          "no": 22,
+          "query": "组分的含量范围",
+          "lost": [
+            "02-10-04-02",
+            "dg23-02-10",
+            "padm-06-01-01",
+            "02-08-05-02",
+            "padm-06-01-02",
+            "chem-01-03-01"
+          ],
+          "added": [
+            "02-10-04-02-02",
+            "dg23-01-10",
+            "padm-05-01-01",
+            "padm-05-01-02",
+            "02-03-03-02-04",
+            "02-08-05-02-03-02"
+          ]
+        },
+        {
+          "no": 23,
+          "query": "制备方法权利要求",
+          "lost": [
+            "padm-04-01-06",
+            "padm-06-01-01",
+            "chem-01-03-02"
+          ],
+          "added": [
+            "padm-03-01-06",
+            "padm-05-01-01",
+            "02-03-03-02-05"
+          ]
+        },
+        {
+          "no": 24,
+          "query": "用途权利要求",
+          "lost": [
+            "02-02-03-02",
+            "06-02-06-03",
+            "padm-06-01-01"
+          ],
+          "added": [
+            "02-10-04-05-01",
+            "02-10-04-05-02",
+            "02-02-03-02-02"
+          ]
+        },
+        {
+          "no": 26,
+          "query": "意见陈述书的撰写",
+          "lost": [
+            "03-01-05-12",
+            "padm-06-01-01",
+            "02-08-04-10",
+            "02-08-06-01"
+          ],
+          "added": [
+            "02-08-04-11-03-02",
+            "padm-05-01-01",
+            "02-08-04-10-02-02",
+            "padm-05-01-02"
+          ]
+        },
+        {
+          "no": 27,
+          "query": "修改超范围的答复",
+          "lost": [
+            "02-08-05-02"
+          ],
+          "added": [
+            "02-08-05-02-01-03"
+          ]
+        },
+        {
+          "no": 28,
+          "query": "区别技术特征",
+          "lost": [
+            "dg23-02-19",
+            "dg23-02-17",
+            "dg24-02-13"
+          ],
+          "added": [
+            "dg23-01-19",
+            "dg24-01-13",
+            "dg24-01-14"
+          ]
+        },
+        {
+          "no": 29,
+          "query": "专利法第22条",
+          "lost": [
+            "05-10-03-02",
+            "02-08-04-07"
+          ],
+          "added": [
+            "05-10-03-02-01",
+            "02-03-01"
+          ]
+        },
+        {
+          "no": 30,
+          "query": "专利法第26条",
+          "lost": [
+            "05-10-03-02",
+            "02-02-02-02",
+            "02-08-04-07"
+          ],
+          "added": [
+            "05-10-03-02-01",
+            "01-01-01",
+            "01-02-01"
+          ]
+        },
+        {
+          "no": 31,
+          "query": "专利法第33条",
+          "lost": [
+            "05-10-03-02",
+            "dg22-02-02",
+            "01-02-15-01"
+          ],
+          "added": [
+            "05-10-03-02-01",
+            "05-10-03-02-02",
+            "dg22-01-02"
+          ]
+        },
+        {
+          "no": 32,
+          "query": "专利法第二十二条",
+          "lost": [
+            "05-10-03-02"
+          ],
+          "added": [
+            "05-10-03-02-01"
+          ]
+        },
+        {
+          "no": 33,
+          "query": "专利法第59条",
+          "lost": [
+            "pdr-14",
+            "penf-03-09",
+            "pii1-03",
+            "pii1-09",
+            "padm-06-01-01",
+            "padm-06-02-01"
+          ],
+          "added": [
+            "pii1-01",
+            "pdr-13",
+            "penf-02-09",
+            "pii1-08",
+            "padm-05-01-01",
+            "padm-05-02-01"
+          ]
+        },
+        {
+          "no": 34,
+          "query": "专利法第2条",
+          "lost": [
+            "05-10-03-02",
+            "01-02-06-01"
+          ],
+          "added": [
+            "02-09-06-01-03",
+            "02-09-07-01-02"
+          ]
+        },
+        {
+          "no": 35,
+          "query": "专利法第9条",
+          "lost": [
+            "05-10-03-02",
+            "04-07-03"
+          ],
+          "added": [
+            "05-10-03-02-02",
+            "02-03-06-02-02"
+          ]
+        },
+        {
+          "no": 36,
+          "query": "专利法第45条",
+          "lost": [
+            "02-08-05-02",
+            "feem-03-05",
+            "dg22-02-13"
+          ],
+          "added": [
+            "feem-02-05",
+            "dg22-01-13",
+            "chem-01-04-06"
+          ]
+        },
+        {
+          "no": 38,
+          "query": "专利法实施细则第11条",
+          "lost": [
+            "05-10-03-02",
+            "03-02-02-02"
+          ],
+          "added": [
+            "05-10-03-02-01",
+            "05-10-03-02-02"
+          ]
+        },
+        {
+          "no": 39,
+          "query": "所属技术领域的技术人员",
+          "lost": [
+            "02-08-05-02"
+          ],
+          "added": [
+            "oa-04-02"
+          ]
+        },
+        {
+          "no": 40,
+          "query": "背景技术",
+          "lost": [
+            "dg22-03-04",
+            "qeval-11-07"
+          ],
+          "added": [
+            "02-02-02-02-03",
+            "dg22-02-04"
+          ]
+        },
+        {
+          "no": 41,
+          "query": "客体审查",
+          "lost": [
+            "dg23-02-01"
+          ],
+          "added": [
+            "dg23-01-01"
+          ]
+        },
+        {
+          "no": 42,
+          "query": "假冒专利",
+          "lost": [
+            "penf-05",
+            "penf-05-01",
+            "penf-05-02",
+            "penf-05-03",
+            "penf-05-09"
+          ],
+          "added": [
+            "penf-04",
+            "penf-04-01",
+            "penf-04-02",
+            "penf-04-03",
+            "penf-04-09"
+          ]
+        },
+        {
+          "no": 43,
+          "query": "富有美感",
+          "lost": [
+            "dg24-02-27",
+            "padm-04-01-01",
+            "padm-06-02"
+          ],
+          "added": [
+            "dg24-01-27",
+            "padm-03-01-01",
+            "padm-05-02"
+          ]
+        },
+        {
+          "no": 44,
+          "query": "著录事项",
+          "lost": [
+            "05-08-01-02",
+            "term-0095"
+          ],
+          "added": [
+            "01-01-06-07-01-02",
+            "01-01-06-07-01-03"
+          ]
+        },
+        {
+          "no": 45,
+          "query": "权利的恢复",
+          "lost": [
+            "icldr-02-09",
+            "05-08-01-02",
+            "05-08-01-03",
+            "06-01-03-06"
+          ],
+          "added": [
+            "06-01-03-06-02",
+            "05-08-01-03-02-14",
+            "icldr-01-09",
+            "05-08-01-02-01-04"
+          ]
+        },
+        {
+          "no": 46,
+          "query": "中间文件",
+          "lost": [
+            "05-10-04-01",
+            "tmeg-04-02-01-02",
+            "01-01-04-01",
+            "02-02-02-02",
+            "02-08-05-02"
+          ],
+          "added": [
+            "05-10-04-01-01",
+            "02-08-05-02-03-03",
+            "02-09-06-02",
+            "05-10-04",
+            "chem-01-04-06"
+          ]
+        },
+        {
+          "no": 49,
+          "query": "通式",
+          "lost": [],
+          "added": [
+            "02-10-08-01-02"
+          ]
+        }
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "no": 1,
+      "category": "book:patent-law",
+      "query": "授予专利权的条件",
+      "topIds": [
+        "law-02",
+        "03-02-02-02",
+        "02-08-06-02-01",
+        "02-08-06-02",
+        "01-03-07-04",
+        "02-03-04-02-01",
+        "02-03-06-02-02",
+        "05-09-04-03"
+      ]
+    },
+    {
+      "no": 2,
+      "category": "book:patent-law",
+      "query": "不授予专利权的情形",
+      "topIds": [
+        "law-01-05",
+        "01-03-06-02",
+        "02-07-10",
+        "05-10-03-02-01",
+        "05-10-03-02-02",
+        "05-10-03-03-01",
+        "05-10-03-03-02",
+        "02-08-04-07"
+      ]
+    },
+    {
+      "no": 3,
+      "category": "book:patent-law",
+      "query": "专利权的期限",
+      "topIds": [
+        "law-05",
+        "term-0198",
+        "law-05-01",
+        "05-09-02",
+        "05-09-04",
+        "05-09-04-01",
+        "term-0864",
+        "05-07-02-01"
+      ]
+    },
+    {
+      "no": 4,
+      "category": "book:patent-law",
+      "query": "强制许可",
+      "topIds": [
+        "term-0201",
+        "law-06-06",
+        "law-06-07",
+        "law-06-08",
+        "law-06-09",
+        "law-06-10",
+        "law-06-11",
+        "law-06-12"
+      ]
+    },
+    {
+      "no": 5,
+      "category": "book:implementation-rules",
+      "query": "要求优先权的手续",
+      "topIds": [
+        "01-01-06-02-02-01",
+        "01-03-05-02-02-01",
+        "06-02-06-02-02-01",
+        "01-01-06-02",
+        "01-03-05-02",
+        "01-01-06-02-01-02",
+        "01-01-06-02-02-02",
+        "term-0088"
+      ]
+    },
+    {
+      "no": 6,
+      "category": "book:implementation-rules",
+      "query": "恢复权利的请求",
+      "topIds": [
+        "01-01-03-04",
+        "01-02-03-04",
+        "01-03-03-04",
+        "05-07-06-03",
+        "term-0218",
+        "05-07-06",
+        "rule-01-06",
+        "term-0693"
+      ]
+    },
+    {
+      "no": 7,
+      "category": "book:implementation-rules",
+      "query": "专利登记簿",
+      "topIds": [
+        "term-0173",
+        "05-09-01-03",
+        "rule-09-01",
+        "05-09-01-03-01",
+        "05-09-01-03-02",
+        "05-09-01-03-03",
+        "term-0974",
+        "05-11-05"
+      ]
+    },
+    {
+      "no": 8,
+      "category": "book:implementation-rules",
+      "query": "期限的计算",
+      "topIds": [
+        "icldr-01-08",
+        "05-07-02-03",
+        "05-07-02",
+        "icld-06-03",
+        "swreg-06-01",
+        "tmeg-01-04-03-02-03",
+        "tmlr-01-12",
+        "05-09-03-02"
+      ]
+    },
+    {
+      "no": 9,
+      "category": "book:examination-guideline",
+      "query": "创造性的判断方法",
+      "topIds": [
+        "02-03-03-01",
+        "term-0035",
+        "dg23-01-16",
+        "oa-02-07",
+        "04-06-04",
+        "dg24-01-22",
+        "oa-02-04",
+        "dg23-01-22"
+      ]
+    },
+    {
+      "no": 10,
+      "category": "book:examination-guideline",
+      "query": "新颖性的判断标准",
+      "topIds": [
+        "term-0027",
+        "06-02-06-03",
+        "dg24-05-06",
+        "oa-01-04",
+        "02-03-02",
+        "02-10-09-04",
+        "oa-01",
+        "oa-01-01"
+      ]
+    },
+    {
+      "no": 11,
+      "category": "book:examination-guideline",
+      "query": "说明书充分公开",
+      "topIds": [
+        "term-0015",
+        "02-02-03-02-01",
+        "oa-04-02",
+        "02-08-04-07-01",
+        "02-10-03-05-02",
+        "02-11-03-01",
+        "dg24-01-07",
+        "pgv1-06"
+      ]
+    },
+    {
+      "no": 12,
+      "category": "book:examination-guideline",
+      "query": "权利要求得到说明书支持",
+      "topIds": [
+        "dg24-01-09",
+        "02-02-03-02-01",
+        "oa-04-02",
+        "oa-04-03",
+        "dg24-01-08",
+        "oa-04-04",
+        "oa-04-01",
+        "dg23-01-11"
+      ]
+    },
+    {
+      "no": 13,
+      "category": "book:infringement-guide",
+      "query": "等同原则",
+      "topIds": [
+        "dg23-02-06",
+        "padm-05-01-01",
+        "padm-05-01-02",
+        "infr-02-01",
+        "infr-02-03",
+        "tmeg-02-01-04-02",
+        "tmeg-06-01-01-04",
+        "infr-01-03"
+      ]
+    },
+    {
+      "no": 14,
+      "category": "book:infringement-guide",
+      "query": "禁止反悔原则",
+      "topIds": [
+        "padm-02-02-01",
+        "padm-05-01-02",
+        "term-0296",
+        "infr-02-03",
+        "padm-04-01-02",
+        "padm-04-02-06"
+      ]
+    },
+    {
+      "no": 15,
+      "category": "book:infringement-guide",
+      "query": "全面覆盖原则",
+      "topIds": [
+        "term-0291",
+        "infr-02-01",
+        "dg22-02-07",
+        "infr-02",
+        "padm-05-01-02",
+        "padm-11",
+        "chem-01-03-01",
+        "mech-01-02-01"
+      ]
+    },
+    {
+      "no": 16,
+      "category": "book:infringement-guide",
+      "query": "现有技术抗辩",
+      "topIds": [
+        "infr-06-05",
+        "dg22-02-09",
+        "dg24-02-13",
+        "dg24-02-14",
+        "pii2-22",
+        "term-0302",
+        "padm-05-01-03",
+        "padm-02-02-02"
+      ]
+    },
+    {
+      "no": 17,
+      "category": "book:mechanical-drafting-rules",
+      "query": "机械领域独立权利要求",
+      "topIds": [
+        "term-0021",
+        "chem-01-03-02",
+        "mech-01-02-02",
+        "term-0892",
+        "chem-02-02",
+        "oa-05-04",
+        "02-02-03-01",
+        "02-02-03-03"
+      ]
+    },
+    {
+      "no": 18,
+      "category": "book:mechanical-drafting-rules",
+      "query": "附图标记的使用",
+      "topIds": [
+        "term-0438",
+        "02-02-02-03",
+        "01-01-04-03",
+        "infr-01-03",
+        "rule-02-05",
+        "mech-01-03-07",
+        "chem-01-01-01",
+        "rule-02-06"
+      ]
+    },
+    {
+      "no": 19,
+      "category": "book:mechanical-drafting-rules",
+      "query": "部件之间的连接关系",
+      "topIds": [
+        "infr-01-02",
+        "padm-05-01-01",
+        "qeval-03-24",
+        "01-02-06-02-02",
+        "mech-01-02-01",
+        "mech-02-02",
+        "qeval-03-15",
+        "qeval-07-21"
+      ]
+    },
+    {
+      "no": 20,
+      "category": "book:mechanical-drafting-rules",
+      "query": "具体实施方式的撰写",
+      "topIds": [
+        "term-0449",
+        "mech-01-03-06",
+        "chem-01-04-06",
+        "02-02-02-02-06",
+        "02-02-02-02",
+        "mech-02-03-05",
+        "rule-02-04",
+        "chem-02-03-03"
+      ]
+    },
+    {
+      "no": 21,
+      "category": "book:chemistry-drafting-rules",
+      "query": "实施例与对比例",
+      "topIds": [
+        "qeval-14-06",
+        "term-0016",
+        "term-0546",
+        "qeval-14-14",
+        "chem-01-04-06",
+        "chem-02-03-03",
+        "02-10-03-04",
+        "qeval-14-09"
+      ]
+    },
+    {
+      "no": 22,
+      "category": "book:chemistry-drafting-rules",
+      "query": "组分的含量范围",
+      "topIds": [
+        "02-10-04-02-02",
+        "02-10-03-01",
+        "dg23-01-10",
+        "padm-05-01-01",
+        "chem-01-04-06",
+        "padm-05-01-02",
+        "02-03-03-02-04",
+        "02-08-05-02-03-02"
+      ]
+    },
+    {
+      "no": 23,
+      "category": "book:chemistry-drafting-rules",
+      "query": "制备方法权利要求",
+      "topIds": [
+        "qeval-14-29",
+        "padm-03-01-06",
+        "chem-01-04-06",
+        "chem-02-03-03",
+        "padm-05-01-01",
+        "term-0464",
+        "term-0892",
+        "02-03-03-02-05"
+      ]
+    },
+    {
+      "no": 24,
+      "category": "book:chemistry-drafting-rules",
+      "query": "用途权利要求",
+      "topIds": [
+        "02-10-04-05",
+        "02-10-04-05-01",
+        "02-10-04-05-02",
+        "term-0025",
+        "05-09-03-05",
+        "term-0026",
+        "chem-01-03-01",
+        "02-02-03-02-02"
+      ]
+    },
+    {
+      "no": 25,
+      "category": "book:oa-response-guide",
+      "query": "三步法创造性答复",
+      "topIds": [
+        "term-0036",
+        "term-0035",
+        "oa-02-03",
+        "oa-02",
+        "oa-02-08",
+        "oa-02-04",
+        "oa-02-07",
+        "02-04"
+      ]
+    },
+    {
+      "no": 26,
+      "category": "book:oa-response-guide",
+      "query": "意见陈述书的撰写",
+      "topIds": [
+        "term-0895",
+        "02-08-04-11-03-02",
+        "oa-02-08",
+        "02-08-05-01",
+        "padm-05-01-01",
+        "02-08-04-10-02-02",
+        "padm-05-01-02",
+        "02-08-04-11"
+      ]
+    },
+    {
+      "no": 27,
+      "category": "book:oa-response-guide",
+      "query": "修改超范围的答复",
+      "topIds": [
+        "term-0063",
+        "law-03-08",
+        "oa-02-08",
+        "02-08-05-02-01-03",
+        "01-01-03-04",
+        "01-02-03-04",
+        "01-03-03-04",
+        "01-01-07-06"
+      ]
+    },
+    {
+      "no": 28,
+      "category": "book:oa-response-guide",
+      "query": "区别技术特征",
+      "topIds": [
+        "term-0405",
+        "dg23-01-19",
+        "oa-01-03",
+        "oa-02-03",
+        "oa-02-04",
+        "oa-02-07",
+        "dg24-01-13",
+        "dg24-01-14"
+      ]
+    },
+    {
+      "no": 29,
+      "category": "law",
+      "query": "专利法第22条",
+      "topIds": [
+        "law-02-01",
+        "03-02-02-02",
+        "05-10-03-02-01",
+        "oa-01-03",
+        "oa-01-04",
+        "04-06-04",
+        "02-04-02-01",
+        "02-03-01"
+      ]
+    },
+    {
+      "no": 30,
+      "category": "law",
+      "query": "专利法第26条",
+      "topIds": [
+        "law-03-01",
+        "03-02-02-02",
+        "05-10-03-02-01",
+        "01-02-07-02",
+        "02-02-02-01",
+        "infr-01-03",
+        "01-01-01",
+        "01-02-01"
+      ]
+    },
+    {
+      "no": 31,
+      "category": "law",
+      "query": "专利法第33条",
+      "topIds": [
+        "law-03-08",
+        "01-01-07-06",
+        "01-02-08",
+        "01-03-10",
+        "05-10-03-02-01",
+        "03-02-02-02",
+        "05-10-03-02-02",
+        "dg22-01-02"
+      ]
+    },
+    {
+      "no": 32,
+      "category": "law",
+      "query": "专利法第二十二条",
+      "topIds": [
+        "law-02-01",
+        "01-02-11",
+        "01-02-12",
+        "03-02-02-02",
+        "04-06-04",
+        "05-10-03-02-01",
+        "02-03-01",
+        "02-03-02-01"
+      ]
+    },
+    {
+      "no": 33,
+      "category": "law",
+      "query": "专利法第59条",
+      "topIds": [
+        "law-06-12",
+        "pii1-01",
+        "pdr-13",
+        "penf-02-09",
+        "pii1-02",
+        "pii1-08",
+        "padm-05-01-01",
+        "padm-05-02-01"
+      ]
+    },
+    {
+      "no": 34,
+      "category": "law",
+      "query": "专利法第2条",
+      "topIds": [
+        "law-01-02",
+        "01-01-07-01",
+        "01-02-06",
+        "01-03-07",
+        "02-01-02",
+        "02-09-06-01-03",
+        "02-09-07-01-02",
+        "03-02-02-02"
+      ]
+    },
+    {
+      "no": 35,
+      "category": "law",
+      "query": "专利法第9条",
+      "topIds": [
+        "law-01-09",
+        "01-02-13",
+        "01-03-11",
+        "04-05-08",
+        "05-10-03-02-02",
+        "02-03-06-02-02",
+        "03-02-02-02",
+        "04-07-02"
+      ]
+    },
+    {
+      "no": 36,
+      "category": "law",
+      "query": "专利法第45条",
+      "topIds": [
+        "law-05-04",
+        "04-01-01",
+        "04-03-01",
+        "rule-04-05",
+        "chem-02-03-03",
+        "feem-02-05",
+        "dg22-01-13",
+        "chem-01-04-06"
+      ]
+    },
+    {
+      "no": 37,
+      "category": "law",
+      "query": "实施细则第57条",
+      "topIds": [
+        "rule-03-16",
+        "02-08-04-11",
+        "03-02-03-02",
+        "01-01-07-06",
+        "01-01-08",
+        "01-02-08",
+        "01-02-08-02",
+        "01-03-10-02"
+      ]
+    },
+    {
+      "no": 38,
+      "category": "law",
+      "query": "专利法实施细则第11条",
+      "topIds": [
+        "rule-01-11",
+        "01-01-07-09",
+        "01-02-05",
+        "01-03-06-03",
+        "02-01-05",
+        "01-03-06",
+        "05-10-03-02-01",
+        "05-10-03-02-02"
+      ]
+    },
+    {
+      "no": 39,
+      "category": "term",
+      "query": "所属技术领域的技术人员",
+      "topIds": [
+        "02-04-02-04",
+        "term-0041",
+        "chem-01-05-09",
+        "02-02-02-01",
+        "02-07-10",
+        "law-03-01",
+        "oa-02-02",
+        "oa-04-02"
+      ]
+    },
+    {
+      "no": 40,
+      "category": "term",
+      "query": "背景技术",
+      "topIds": [
+        "term-0391",
+        "chem-01-04-03",
+        "chem-02-03-02",
+        "mech-02-03-02",
+        "02-02-02-02-03",
+        "dg22-02-04",
+        "mech-01-03-03",
+        "qeval-11-04"
+      ]
+    },
+    {
+      "no": 41,
+      "category": "term",
+      "query": "客体审查",
+      "topIds": [
+        "term-0001",
+        "dg23-01-01",
+        "02-01-02",
+        "02-10-09-01",
+        "04-06-02",
+        "02-09",
+        "02-09-07-01",
+        "02-11-02"
+      ]
+    },
+    {
+      "no": 42,
+      "category": "term",
+      "query": "假冒专利",
+      "topIds": [
+        "term-0204",
+        "law-07-05",
+        "rule-08-07",
+        "penf-04",
+        "penf-04-01",
+        "penf-04-02",
+        "penf-04-03",
+        "penf-04-09"
+      ]
+    },
+    {
+      "no": 43,
+      "category": "term",
+      "query": "富有美感",
+      "topIds": [
+        "term-0666",
+        "01-03-07-03",
+        "dg24-01-27",
+        "01-03-07",
+        "01-03-04-04",
+        "law-01-02",
+        "padm-03-01-01",
+        "padm-05-02"
+      ]
+    },
+    {
+      "no": 44,
+      "category": "term",
+      "query": "著录事项",
+      "topIds": [
+        "term-0972",
+        "01-01-06-07-01-02",
+        "01-01-06-07-01-03",
+        "rule-13-02",
+        "term-0288",
+        "term-0498",
+        "rule-09-02",
+        "01-01-06-07"
+      ]
+    },
+    {
+      "no": 45,
+      "category": "term",
+      "query": "权利的恢复",
+      "topIds": [
+        "term-0164",
+        "05-07-06",
+        "06-01-03-06-02",
+        "05-07",
+        "05-08-01-03-02-14",
+        "icldr-01-09",
+        "05-08-01-02-01-04",
+        "06-02-06-03"
+      ]
+    },
+    {
+      "no": 46,
+      "category": "term",
+      "query": "中间文件",
+      "topIds": [
+        "term-0845",
+        "term-0603",
+        "02-07-12",
+        "05-10-04-01-01",
+        "02-08-05-02-03-03",
+        "02-09-06-02",
+        "05-10-04",
+        "chem-01-04-06"
+      ]
+    },
+    {
+      "no": 47,
+      "category": "term",
+      "query": "单一性",
+      "topIds": [
+        "term-0054",
+        "02-06",
+        "02-06-02-01",
+        "02-06-02-02",
+        "02-08-04-04",
+        "oa-03-02",
+        "oa-03-04",
+        "rule-11-16"
+      ]
+    },
+    {
+      "no": 48,
+      "category": "term",
+      "query": "优先权",
+      "topIds": [
+        "term-0088",
+        "01-01-06-02",
+        "01-03-05-02",
+        "02-03-04",
+        "02-08-04-06",
+        "law-03-04",
+        "law-03-05",
+        "rule-12-04"
+      ]
+    },
+    {
+      "no": 49,
+      "category": "term",
+      "query": "通式",
+      "topIds": [
+        "term-0576",
+        "01-04-08-08",
+        "02-10-08-01-02",
+        "06-02-06-03",
+        "chem-01-03-01",
+        "01-04-08",
+        "02-10-05"
+      ]
+    },
+    {
+      "no": 50,
+      "category": "term",
+      "query": "说明书及附图的解释作用",
+      "topIds": [
+        "term-0753",
+        "term-0453",
+        "law-07-01",
+        "infr-01-01",
+        "02-02-02-03",
+        "mech-01-03-07",
+        "term-0469",
+        "01-02-07-03"
+      ]
+    }
+  ]
+}

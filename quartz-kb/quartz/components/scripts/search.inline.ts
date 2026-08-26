@@ -22,6 +22,16 @@ interface Item {
 type SearchType = "basic" | "tags"
 let searchType: SearchType = "basic"
 let currentSearchTerm: string = ""
+// 标点与符号视作切分点。中文排版中的「（Animal Cell Lysis Solution）」，其全角左括号
+// 既非 CJK 也非空白，原会被并入其后的英文缓冲区，切出「（animal」这样的 token——而索引
+// 配置为 tokenize:'forward'（前缀匹配），「animal」不是「（animal」的前缀，该词遂永远
+// 检索不到；FlexSearch 又取 AND 交集语义，一词落空即整条多词查询落空。
+// 保留 - . _ ' 四个字符：它们在词内有构词意义（one-way、No.1、snake_case、don't），
+// 剔除会把既有词形切碎。
+// 本 encoder 与 mcp/src/search.mjs 的同名函数逐字一致，两处须同步修改。
+const PUNCT = /[\p{P}\p{S}]/u
+const KEEP_IN_WORD = new Set(["-", ".", "_", "'"])
+
 const encoder = (str: string): string[] => {
   const tokens: string[] = []
   let bufferStart = -1
@@ -40,6 +50,8 @@ const encoder = (str: string): string[] => {
       (code >= 0x20000 && code <= 0x2a6df)
 
     const isWhitespace = code === 32 || code === 9 || code === 10 || code === 13
+    // 标点与空白同等对待：二者都只作切分，自身不进入 token
+    const isBreak = isWhitespace || (!KEEP_IN_WORD.has(char) && PUNCT.test(char))
 
     if (isCJK) {
       if (bufferStart !== -1) {
@@ -47,7 +59,7 @@ const encoder = (str: string): string[] => {
         bufferStart = -1
       }
       tokens.push(char)
-    } else if (isWhitespace) {
+    } else if (isBreak) {
       if (bufferStart !== -1) {
         tokens.push(lower.slice(bufferStart, bufferEnd))
         bufferStart = -1

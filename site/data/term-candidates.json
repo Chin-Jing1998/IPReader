@@ -223,6 +223,27 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "保管期限",
+    "canonical": "保管期限",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/06-05",
+        "text": "商标注册纸质档案的保管期限分为永久和定期两种"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "保护范围过宽",
     "canonical": "保护范围过宽",
     "aliases": [],
@@ -584,6 +605,29 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "被代理人的商标",
+    "canonical": "被代理人的商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-11-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法第15条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-11/02",
+        "text": "在合同或者授权委托文件中载明的被代理人商标"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "被诉侵权技术方案",
     "canonical": "被诉侵权技术方案",
     "aliases": [],
@@ -600,6 +644,39 @@
       {
         "chunk": "infringement-guide/02/001",
         "text": "以权利要求中记载的全部技术特征与被诉侵权技术方案所对应的全部技术特征逐一进行比"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "被异议商标",
+    "canonical": "被异议商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-03-03"
+      ]
+    },
+    "lawKeys": [
+      "商标法第10条",
+      "商标法第11条",
+      "商标法第12条",
+      "商标法第13条",
+      "商标法第15条",
+      "商标法第16条",
+      "商标法第19条",
+      "商标法第30条",
+      "商标法第31条",
+      "商标法第32条",
+      "商标法第4条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-03/03",
+        "text": "在先权利的权利证书或证明文件应当能够证明相应权利的产生时间早于被异议商标的申请日期"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -651,6 +728,66 @@
       {
         "chunk": "oa-response-guide/07/001",
         "text": "必须依赖实验结果加以证实才能成立"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "变更代理机构",
+    "canonical": "变更代理机构",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-01"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第17条",
+      "商标法实施条例第29条",
+      "商标法第38条",
+      "商标法第41条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/04-01",
+        "text": "变更商标代理机构仅指申请人提交注册申请后，针对其注册申请的代理人申请变更"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "变更申请",
+    "canonical": "变更申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-01-01"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第10条",
+      "商标法实施条例第12条",
+      "商标法实施条例第14条",
+      "商标法实施条例第15条",
+      "商标法实施条例第16条",
+      "商标法实施条例第17条",
+      "商标法实施条例第18条",
+      "商标法实施条例第30条",
+      "商标法实施条例第5条",
+      "商标法实施条例第6条",
+      "商标法实施条例第9条",
+      "商标法第41条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/04-01/01",
+        "text": "变更申请经审查，可能作出的审查结论有补正、不予核准、视为放弃和核准四种"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -711,6 +848,27 @@
       {
         "chunk": "mechanical-drafting-rules/01/003/07",
         "text": "标号引线不应过短或过长"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "标准名称",
+    "canonical": "标准名称",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/03-01",
+        "text": "申请人申请商标注册时，应首先考虑使用《类似商品和服务区分表》中已列出的标准名称"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -804,6 +962,30 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "驳回期限",
+    "canonical": "驳回期限",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-04"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第42条",
+      "商标法第21条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/05-04",
+        "text": "在《商标国际注册马德里协定有关议定书》规定的驳回期限内"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "补充声明",
     "canonical": "补充声明",
     "aliases": [],
@@ -831,6 +1013,29 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "补充证据材料",
+    "canonical": "补充证据材料",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-03"
+      ]
+    },
+    "lawKeys": [
+      "商标法第33条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-03",
+        "text": "应当在商标异议申请书或者答辩书中声明，并在提交商标异议申请书或者答辩书之日起3个月内提交"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "补正书",
     "canonical": "补正书",
     "aliases": [],
@@ -847,6 +1052,33 @@
       {
         "chunk": "examination-guideline/02/008/05/01",
         "text": "经修改的申请文件（替换页和/或补正书）"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "补正文件",
+    "canonical": "补正文件",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-19-04"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第11条",
+      "商标法第10条",
+      "商标法第11条",
+      "商标法第28条",
+      "商标法第29条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-19/04",
+        "text": "并提供相应补充证据或补正文件的法定程序"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -891,6 +1123,27 @@
       {
         "chunk": "examination-guideline/01/001/03",
         "text": "对于因不可抗拒事由或者因其他正当理由耽误期限而导致专利申请被视为撤回的"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "不可省略图形要素",
+    "canonical": "不可省略图形要素",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-03-03-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/03-03/03/03",
+        "text": "图形商标如果由具有同等明显特征的几种图形要素组成，必须划分全部图形要素编码，不得省略"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -1082,6 +1335,29 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "不予公告",
+    "canonical": "不予公告",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-02-04"
+      ]
+    },
+    "lawKeys": [
+      "商标法第4条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-02/04",
+        "text": "应当依法驳回，不予公告"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "不予执行财产保全通知书",
     "canonical": "不予执行财产保全通知书",
     "aliases": [],
@@ -1119,6 +1395,33 @@
       {
         "chunk": "examination-guideline/01/004/06",
         "text": "按照部、大类、小类、大组、小组的顺序逐级进行分类"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "部分注销",
+    "canonical": "部分注销",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第17条",
+      "商标法实施条例第70条",
+      "商标法实施条例第73条",
+      "商标法实施条例第74条",
+      "商标法第40条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/04-02",
+        "text": "注册人可以注销其商标在部分指定商品/服务上的注册"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -1308,6 +1611,53 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "撤回评审申请",
+    "canonical": "撤回评审申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-04"
+      ]
+    },
+    "lawKeys": [
+      "商标法第30条",
+      "商标法第31条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-04",
+        "text": "当事人请求撤回评审申请，应符合《商标法》的要求"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "撤回商标异议申请",
+    "canonical": "撤回商标异议申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-03"
+      ]
+    },
+    "lawKeys": [
+      "商标法第33条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-03",
+        "text": "异议人在商标注册部门作出决定前，可以书面向商标注册部门要求撤回申请并说明理由"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "撤回优先权要求",
     "canonical": "撤回优先权要求",
     "aliases": [],
@@ -1404,6 +1754,76 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "撤销成为通用名称商标申请",
+    "canonical": "撤销成为通用名称商标申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-05"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第65条",
+      "商标法第18条",
+      "商标法第49条",
+      "商标法第72条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-05",
+        "text": "撤销理由应当说明被申请商标成为通用名称的有关情况，并附送相关证据"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "撤销复审",
+    "canonical": "撤销复审",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-04-03"
+      ]
+    },
+    "lawKeys": [
+      "商标法第45条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-04/03",
+        "text": "对商标注册部门作出的对注册商标撤销或不予撤销的决定不服提起复审，属于撤销复审案件的评审范围"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "撤销注册商标",
+    "canonical": "撤销注册商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-17-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-17/02",
+        "text": "期满不改正的，由商标局撤销其注册商标"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "撤销专利申请受理通知书",
     "canonical": "撤销专利申请受理通知书",
     "aliases": [],
@@ -1489,6 +1909,27 @@
       {
         "chunk": "examination-guideline/03/002/02",
         "text": "专利法实施细则第十一条：诚实信用"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "驰名商标受保护的记录",
+    "canonical": "驰名商标受保护的记录",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-10-05-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-10/05/04",
+        "text": "该商标作为驰名商标受保护的记录"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -1587,6 +2028,70 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "初步审定",
+    "canonical": "初步审定",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-05/02",
+        "text": "同他人在同一种商品或者类似商品上已经注册的或者初步审定的商标相同或者近似的，由商标局驳回申请，不予公告"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "初步审定公告",
+    "canonical": "初步审定公告",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-03"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第12条",
+      "商标法实施条例第14条",
+      "商标法实施条例第15条",
+      "商标法实施条例第18条",
+      "商标法实施条例第24条",
+      "商标法实施条例第25条",
+      "商标法实施条例第26条",
+      "商标法实施条例第27条",
+      "商标法实施条例第5条",
+      "商标法实施条例第6条",
+      "商标法实施条例第97条",
+      "商标法实施条例第9条",
+      "商标法第13条",
+      "商标法第15条",
+      "商标法第16条",
+      "商标法第18条",
+      "商标法第30条",
+      "商标法第31条",
+      "商标法第32条",
+      "商标法第33条",
+      "商标法第72条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-03",
+        "text": "异议期限起算日从初步审定公告之日的次日开始计算，初审公告当日不计算在期限内"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "初审及流程管理部受理处",
     "canonical": "初审及流程管理部受理处",
     "aliases": [],
@@ -1624,6 +2129,29 @@
       {
         "chunk": "examination-guideline/06/001/02",
         "text": "外观设计国际注册申请符合传送条件的，传送程序如下："
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "串通合谋",
+    "canonical": "串通合谋",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-16-02-02-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法第44条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-16/02/02/02",
+        "text": "也包括与系争商标申请人具有串通合谋行为或者具有特定身份关系或者其他特定联系的人申请注册的商标"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -1765,6 +2293,83 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "答辩",
+    "canonical": "答辩",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-17-04"
+      ]
+    },
+    "lawKeys": [
+      "商标法第49条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-17/04",
+        "text": "商标局受理后应当通知商标注册人，限其自收到通知之日起2个月内答辩"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "答辩通知书",
+    "canonical": "答辩通知书",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-05"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第65条",
+      "商标法第18条",
+      "商标法第49条",
+      "商标法第72条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-05",
+        "text": "撤销申请受理后，应通知注册人答辩。答辩通知书送达主送当事人视为送达"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "大小地名套用",
+    "canonical": "大小地名套用",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-09-07"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第4条",
+      "商标法第10条",
+      "商标法第11条",
+      "商标法第16条",
+      "商标法第30条",
+      "商标法第31条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-09/07",
+        "text": "地理标志集体商标、地理标志证明商标名称由具有包含关系的两级地名即“大地名+小地名+商品通用名称”构成"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "代办处",
     "canonical": "代办处",
     "aliases": [
@@ -1788,6 +2393,27 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "代理服务",
+    "canonical": "代理服务",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-13-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-13/02",
+        "text": "商标代理机构除对其代理服务申请商标注册外，不得申请注册其他商标"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "单独指定费",
     "canonical": "单独指定费",
     "aliases": [],
@@ -1804,6 +2430,50 @@
       {
         "chunk": "examination-guideline/06/001/04",
         "text": "国际局收取外观设计国际申请的单独指定费后转交专利局"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "单一颜色",
+    "canonical": "单一颜色",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-07-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-07/04",
+        "text": "我国目前只接受颜色组合作为商标申请注册，而不接受单一颜色作为商标申请注册"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "党和国家领导人姓名",
+    "canonical": "党和国家领导人姓名",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-03-02-02-08"
+      ]
+    },
+    "lawKeys": [
+      "商标法第10条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-03/02/02/08",
+        "text": "以党和国家领导人姓名或名字作为商标申请注册，对我国公共利益和公共秩序产生消极、负面影响的，适用《商标法》第十条第一款第（八）项予以驳回"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -2546,6 +3216,29 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "防御性注册",
+    "canonical": "防御性注册",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-02-05-05-01"
+      ]
+    },
+    "lawKeys": [
+      "商标法第4条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-02/05/05/01",
+        "text": "申请人辩称的防御性注册，应当是申请人在先注册商标已投入实际商业使用"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "非生产经营目的",
     "canonical": "非生产经营目的",
     "aliases": [],
@@ -2578,6 +3271,27 @@
       {
         "chunk": "chemistry-drafting-rules/01/005/08",
         "text": "非医疗目的的人造性器官或者其替代物等"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "非音乐性质的声音商标",
+    "canonical": "非音乐性质的声音商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/03-04",
+        "text": "非音乐性质的声音商标，声音要素编码为 S2"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -2713,6 +3427,27 @@
       {
         "chunk": "examination-guideline/02/010/09/04",
         "text": "与已知种的分类学特征明显不同的微生物（即新的种）具有创造性"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "服务分类原则",
+    "canonical": "服务分类原则",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/03-01",
+        "text": "依据服务所属的行业，并结合服务的目的、内容、方式、对象等因素进行综合判断"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -3090,6 +3825,32 @@
       {
         "chunk": "examination-guideline/06/002/03",
         "text": "向国际局发出给予保护声明"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "更正",
+    "canonical": "更正",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-01"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第17条",
+      "商标法实施条例第29条",
+      "商标法第38条",
+      "商标法第41条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/04-01",
+        "text": "商标更正申请的范围应为商标申请文件或者注册文件的明显错误，且不涉及商标申请文件或者注册文件的实质性内容"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -3582,6 +4343,57 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "国际变更",
+    "canonical": "国际变更",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-06"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第30条",
+      "商标法实施条例第46条",
+      "商标法实施条例第47条",
+      "商标法第41条",
+      "商标法第42条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/05-06",
+        "text": "申请国际变更的商标为有效商标或权利待定的商标"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "国际部分注销",
+    "canonical": "国际部分注销",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-06"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第48条",
+      "商标法实施条例第73条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/05-06",
+        "text": "申请国际部分注销的商标为有效商标或权利待定的商标"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "国际初步审查单位",
     "canonical": "国际初步审查单位",
     "aliases": [],
@@ -3778,6 +4590,132 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "国际续展",
+    "canonical": "国际续展",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第34条",
+      "商标法实施条例第37条",
+      "商标法实施条例第38条",
+      "商标法实施条例第40条",
+      "商标法实施条例第41条",
+      "商标法第21条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/05-02",
+        "text": "以纸件形式提出国际续展申请的，应当提交马德里商标国际注册续展申请书"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "国际注册簿",
+    "canonical": "国际注册簿",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第34条",
+      "商标法实施条例第37条",
+      "商标法实施条例第38条",
+      "商标法实施条例第40条",
+      "商标法实施条例第41条",
+      "商标法第21条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/05-02",
+        "text": "注册人名称必须与国际注册簿保持一致"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "国际注册代替国内注册加注申请",
+    "canonical": "国际注册代替国内注册加注申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/05-05",
+        "text": "国际注册代替国内注册加注申请应委托依法设立的中国商标代理机构"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "国际注销",
+    "canonical": "国际注销",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/05-02",
+        "text": "以纸件形式提出马德里商标国际注销申请的"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "国际转让",
+    "canonical": "国际转让",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第34条",
+      "商标法实施条例第37条",
+      "商标法实施条例第38条",
+      "商标法实施条例第40条",
+      "商标法实施条例第41条",
+      "商标法第21条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/05-02",
+        "text": "以纸件形式提出马德里商标国际转让申请的"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "国家安全",
     "canonical": "国家安全",
     "aliases": [],
@@ -3839,6 +4777,29 @@
       {
         "chunk": "patent-law/07/017",
         "text": "从事专利管理工作的国家机关工作人员以及其他有关国家机关工作人员"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "国家级新区",
+    "canonical": "国家级新区",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-03-02-02-08"
+      ]
+    },
+    "lawKeys": [
+      "商标法第10条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-03/02/02/08",
+        "text": "与我国整体发展战略关系密切的国家级新区或国家级重点开发区域名称（含规范简称）等相同或者近似，有害于我国经济、社会公共利益的"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -3983,6 +4944,27 @@
       {
         "chunk": "mechanical-drafting-rules/01/002/01",
         "text": "不得使用含义不确定的用语，如“厚”、“薄”、“强”、“弱”"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "汉字分卡",
+    "canonical": "汉字分卡",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/03-02",
+        "text": "商标中含有汉字的，应当划分汉字分卡。汉字间有特殊字符的，划分去掉该字符的整体汉字分卡"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -4180,6 +5162,30 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "核准续展",
+    "canonical": "核准续展",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-03"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第33条",
+      "商标法第40条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/04-03",
+        "text": "续展申请完全符合规定的，商标注册部门核准续展注册，并予以公告"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "划界",
     "canonical": "划界",
     "aliases": [],
@@ -4331,6 +5337,29 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "混淆",
+    "canonical": "混淆",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-10-05-03-01"
+      ]
+    },
+    "lawKeys": [
+      "商标法第13条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-10/05/03/01",
+        "text": "系争商标的注册或者使用，容易导致混淆"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "活性成分",
     "canonical": "活性成分",
     "aliases": [],
@@ -4371,6 +5400,33 @@
       {
         "chunk": "examination-guideline/02/011/05",
         "text": "现有技术中已经公开了与其主证和主药相同或相似的基础方"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "基于展会的优先权",
+    "canonical": "基于展会的优先权",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第20条",
+      "商标法第25条",
+      "商标法第26条",
+      "商标法第4条",
+      "商标法第8条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-02",
+        "text": "书面声明要求基于展会的优先权，完整填写申请书中"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -4643,6 +5699,29 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "监督能力",
+    "canonical": "监督能力",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-09-07-03"
+      ]
+    },
+    "lawKeys": [
+      "商标法第3条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-09/07/03",
+        "text": "证明商标的注册申请主体应当是依法成立，且对所申请的商品或者服务的特定品质具有监督能力的组织"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "检索策略",
     "canonical": "检索策略",
     "aliases": [],
@@ -4876,29 +5955,6 @@
       {
         "chunk": "mechanical-drafting-rules/01/002/01",
         "text": "全面覆盖到交底资料所揭露的全部技术方案"
-      }
-    ],
-    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
-  },
-  {
-    "termKey": "缴费通知书",
-    "canonical": "缴费通知书",
-    "aliases": [],
-    "matchers": [],
-    "sources": {
-      "examination-guideline": [
-        "05-07-03"
-      ]
-    },
-    "lawKeys": [
-      "专利法实施细则第115条"
-    ],
-    "tier": "mid",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "examination-guideline/05/007/03",
-        "text": "对尚未缴纳相关费用的专利发出缴费通知书"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -5216,6 +6272,27 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "禁用条款",
+    "canonical": "禁用条款",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-07-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-07/04",
+        "text": "颜色组合商标禁用条款审查参见本编第三章“不得作为商标标志的审查审理”"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "经常居所或者营业所",
     "canonical": "经常居所或者营业所",
     "aliases": [],
@@ -5473,6 +6550,27 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "可接受商品和服务项目名称",
+    "canonical": "可接受商品和服务项目名称",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/03-01",
+        "text": "申请人也可选择商标注册部门公布的《类似商品和服务区分表》以外可接受商品和服务项目名称"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "克隆人的方法",
     "canonical": "克隆人的方法",
     "aliases": [
@@ -5643,6 +6741,29 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "类似群",
+    "canonical": "类似群",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-13-04"
+      ]
+    },
+    "lawKeys": [
+      "商标法第19条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-13/04",
+        "text": "商标代理机构的代理服务以《类似商品和服务区分表》中对应的第四十五类4506类似群服务内容为限"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "理、法、方、药",
     "canonical": "理、法、方、药",
     "aliases": [],
@@ -5732,6 +6853,29 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "烈士姓名",
+    "canonical": "烈士姓名",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-03-02-02-08"
+      ]
+    },
+    "lawKeys": [
+      "商标法第10条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-03/02/02/08",
+        "text": "与我国烈士姓名相同或者含有烈士姓名，容易使公众将其与烈士姓名产生联想的"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "临时保护的权利",
     "canonical": "临时保护的权利",
     "aliases": [],
@@ -5789,6 +6933,27 @@
       {
         "chunk": "patent-law/07/012",
         "text": "临时通过中国领陆、领水、领空的外国运输工具，依照其所属国同中国签订的协议"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "马德里商标国际注册",
+    "canonical": "马德里商标国际注册",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-08"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/08",
+        "text": "《指南》第四部分“马德里商标国际注册审查”"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -6091,6 +7256,55 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "批准文件",
+    "canonical": "批准文件",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-09-07"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第4条",
+      "商标法第10条",
+      "商标法第11条",
+      "商标法第16条",
+      "商标法第30条",
+      "商标法第31条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-09/07",
+        "text": "地理标志集体商标和地理标志证明商标注册申请人应当提交该地理标志所标示地区县级以上人民政府或行业主管部门同意其申请注册并监督管理该地理标志的批准文件"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "拼音分卡",
+    "canonical": "拼音分卡",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/03-02",
+        "text": "商标图样上有英文字母且符合拼音规则的，应当划分拼音分卡"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "平面印刷品",
     "canonical": "平面印刷品",
     "aliases": [],
@@ -6188,6 +7402,29 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "期满不再续展",
+    "canonical": "期满不再续展",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-18-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法第50条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-18/02",
+        "text": "注册商标被撤销、被宣告无效或者期满不再续展的，自撤销、宣告无效或者注销之日起一年内，商标局对与该商标相同或者近似的商标注册申请，不予核准"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "期满未答复不影响审理",
     "canonical": "期满未答复不影响审理",
     "aliases": [],
@@ -6225,6 +7462,52 @@
       {
         "chunk": "examination-guideline/01/001/06/04",
         "text": "审查员应当发出期限届满前通知书"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "企事业单位简称",
+    "canonical": "企事业单位简称",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-03-02-02-08"
+      ]
+    },
+    "lawKeys": [
+      "商标法第10条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-03/02/02/08",
+        "text": "标志中含有与我国国家名称相同或者近似的文字，但其整体是企事业单位简称，如果具备以下条件，则不以该项禁用规定为由予以驳回"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "企业字号",
+    "canonical": "企业字号",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-02-05-04"
+      ]
+    },
+    "lawKeys": [
+      "商标法第4条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-02/05/04",
+        "text": "大量申请注册与他人企业字号、企业名称简称、电商名称、域名"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -6290,6 +7573,27 @@
       {
         "chunk": "patent-law/07/002",
         "text": "申请人民法院强制执行"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "抢先注册",
+    "canonical": "抢先注册",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-15-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-15/02",
+        "text": "也不得以不正当手段抢先注册他人已经使用并有一定影响的商标"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -6483,6 +7787,33 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "权利待定的商标",
+    "canonical": "权利待定的商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-06"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第30条",
+      "商标法实施条例第46条",
+      "商标法实施条例第47条",
+      "商标法第41条",
+      "商标法第42条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/05-06",
+        "text": "为有效商标或权利待定的商标"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "权利归属纠纷",
     "canonical": "权利归属纠纷",
     "aliases": [],
@@ -6653,6 +7984,27 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "确保效率原则",
+    "canonical": "确保效率原则",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-01",
+        "text": "审查员应在符合规定的情况下尽可能缩短形式审查周期"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "人工智能模型",
     "canonical": "人工智能模型",
     "aliases": [],
@@ -6739,6 +8091,48 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "三面视图",
+    "canonical": "三面视图",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-06-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-06/04",
+        "text": "提交的商标图样应当至少包含三面视图"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "三维标志",
+    "canonical": "三维标志",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-06-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-06/02",
+        "text": "包括文字、图形、字母、数字、三维标志、颜色组合和声音等，以及上述要素的组合，均可以作为商标申请注册"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "色彩保护",
     "canonical": "色彩保护",
     "aliases": [],
@@ -6755,6 +8149,469 @@
       {
         "chunk": "implementation-rules/02/014",
         "text": "申请人请求保护色彩的，应当提交彩色图片或者照片"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "擅自注册",
+    "canonical": "擅自注册",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-11-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法第15条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-11/02",
+        "text": "属于《商标法》第十五条第一款所指代理人、代表人的擅自注册行为"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "商标初步审定公告",
+    "canonical": "商标初步审定公告",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/06-06",
+        "text": "商标初步审定公告"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "商标囤积",
+    "canonical": "商标囤积",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-02-05"
+      ]
+    },
+    "lawKeys": [
+      "商标法第4条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-02/05",
+        "text": "扰乱商标注册秩序的商标囤积等恶意申请行为"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "商标国际异议答辩回文",
+    "canonical": "商标国际异议答辩回文",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/05-03",
+        "text": "商标国际异议答辩回文需提交以下答辩材料"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "商标国际注册缴费通知书",
+    "canonical": "商标国际注册缴费通知书",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/05-02",
+        "text": "向申请人或代理人寄送《商标国际注册缴费通知书》"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "商标描述",
+    "canonical": "商标描述",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-08-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-08/03",
+        "text": "商标描述与声音样本应当一致"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "商标名称",
+    "canonical": "商标名称",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/03-02",
+        "text": "本章所称商标名称供档案显示用，用以提示审查员该商标图样的主要内容"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "商标评审委员会",
+    "canonical": "商标评审委员会",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-17-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-17/03",
+        "text": "商标评审委员会应当自收到申请之日起九个月内做出决定，并书面通知当事人"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "商标申请声明",
+    "canonical": "商标申请声明",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-02-03-01"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第10条",
+      "商标法实施条例第12条",
+      "商标法实施条例第14条",
+      "商标法实施条例第15条",
+      "商标法实施条例第16条",
+      "商标法实施条例第18条",
+      "商标法实施条例第20条",
+      "商标法实施条例第4条",
+      "商标法实施条例第5条",
+      "商标法实施条例第6条",
+      "商标法实施条例第97条",
+      "商标法实施条例第9条",
+      "商标法第18条",
+      "商标法第19条",
+      "商标法第22条",
+      "商标法第25条",
+      "商标法第26条",
+      "商标法第27条",
+      "商标法第4条",
+      "商标法第5条",
+      "商标法第72条",
+      "商标法第8条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-02/03/01",
+        "text": "应当在“商标申请声明”栏声明，并附送相关文件"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "商标审查及审理标准",
+    "canonical": "商标审查及审理标准",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-08"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/08",
+        "text": "在《商标审查及审理标准》（原国家工商行政管理总局商标局、商标评审委员会共同制定，以下简称《标准》）的基础上"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "商标说明",
+    "canonical": "商标说明",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-02-03-01"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第10条",
+      "商标法实施条例第12条",
+      "商标法实施条例第14条",
+      "商标法实施条例第15条",
+      "商标法实施条例第16条",
+      "商标法实施条例第18条",
+      "商标法实施条例第20条",
+      "商标法实施条例第4条",
+      "商标法实施条例第5条",
+      "商标法实施条例第6条",
+      "商标法实施条例第97条",
+      "商标法实施条例第9条",
+      "商标法第18条",
+      "商标法第19条",
+      "商标法第22条",
+      "商标法第25条",
+      "商标法第26条",
+      "商标法第27条",
+      "商标法第4条",
+      "商标法第5条",
+      "商标法第72条",
+      "商标法第8条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-02/03/01",
+        "text": "申请人可在商标说明中对三维标志商标的图样作文字描述"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "商标异议答辩通知书",
+    "canonical": "商标异议答辩通知书",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-03"
+      ]
+    },
+    "lawKeys": [
+      "商标法第33条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-03",
+        "text": "被异议人应当在收到《商标异议答辩通知书》之日起30日内提交异议答辩材料"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "商标注册簿",
+    "canonical": "商标注册簿",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-17-06"
+      ]
+    },
+    "lawKeys": [
+      "商标法第49条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-17/06",
+        "text": "致使与《商标注册簿》上登记的有关事项不一致"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "商标注册电子档案",
+    "canonical": "商标注册电子档案",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/06-05",
+        "text": "商标注册电子档案长期保存"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "商标注册证明",
+    "canonical": "商标注册证明",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-04"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第64条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/06-04",
+        "text": "向商标注册部门申请出具已获得中国保护的马德里国际商标注册证明"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "商标注册秩序",
+    "canonical": "商标注册秩序",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-02-05"
+      ]
+    },
+    "lawKeys": [
+      "商标法第4条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-02/05",
+        "text": "不正当占用商标资源，扰乱商标注册秩序"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "商标专用权质权登记证",
+    "canonical": "商标专用权质权登记证",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第17条",
+      "商标法实施条例第70条",
+      "商标法实施条例第73条",
+      "商标法实施条例第74条",
+      "商标法第40条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/04-02",
+        "text": "自登记之日起2个工作日内向双方当事人发放《商标专用权质权登记证》"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "商品分类原则",
+    "canonical": "商品分类原则",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/03-01",
+        "text": "商品为制成品，原则上按功能或用途进行分类"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "商品形状",
+    "canonical": "商品形状",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-06-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-06/03",
+        "text": "仅由商品自身的性质产生的形状、为获得技术效果而需有的商品形状或者使商品具有实质性价值的形状，不得注册"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -6950,6 +8807,29 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "申请人主体资格",
+    "canonical": "申请人主体资格",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-09-07-03"
+      ]
+    },
+    "lawKeys": [
+      "商标法第3条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-09/07/03",
+        "text": "除对其标志进行审查外，还应当对其申请人主体资格、使用管理规则、指定商品或者服务的品质标准、检验检测能力等特有事项进行审查"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "审查部门",
     "canonical": "审查部门",
     "aliases": [],
@@ -7121,6 +9001,27 @@
       {
         "chunk": "mechanical-drafting-rules/02/003/01",
         "text": "根据审查指南中规定不能单纯的是上位的技术领域"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "审理期限",
+    "canonical": "审理期限",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-19-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-19/03",
+        "text": "下列期间不计入商标审查、审理期限"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -7528,6 +9429,30 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "实质性差异",
+    "canonical": "实质性差异",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-03-02-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法第10条",
+      "商标法第11条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-03/02/02",
+        "text": "通常标志所含企业名称的行政区划或者地域名称、字号、行业或者经营特点、组织形式与申请人名义不符的，判定为与申请人名义存在实质性差异"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "实质性特点",
     "canonical": "实质性特点",
     "aliases": [],
@@ -7549,6 +9474,50 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "使用的证据材料",
+    "canonical": "使用的证据材料",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-17-05"
+      ]
+    },
+    "lawKeys": [
+      "商标法第49条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-17/05",
+        "text": "前款所称使用的证据材料，包括商标注册人使用注册商标的证据材料和商标注册人许可他人使用注册商标的证据材料"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "使用方式",
+    "canonical": "使用方式",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-07-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-07/03",
+        "text": "以颜色组合申请商标注册的，应当在申请书中予以声明，说明商标的使用方式"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "使用费裁决",
     "canonical": "使用费裁决",
     "aliases": [],
@@ -7565,6 +9534,64 @@
       {
         "chunk": "patent-law/06/015",
         "text": "由国务院专利行政部门裁决"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "使用意图",
+    "canonical": "使用意图",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-16-02-02-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法第44条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-16/02/02/02",
+        "text": "系争商标申请人以不正当手段取得商标注册的，应当对系争商标具有使用意图或已经实际投入商业使用"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "使用证据",
+    "canonical": "使用证据",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-05-01"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第10条",
+      "商标法实施条例第11条",
+      "商标法实施条例第12条",
+      "商标法实施条例第14条",
+      "商标法实施条例第17条",
+      "商标法实施条例第5条",
+      "商标法实施条例第66条",
+      "商标法实施条例第6条",
+      "商标法实施条例第8条",
+      "商标法实施条例第9条",
+      "商标法第18条",
+      "商标法第49条",
+      "商标法第72条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-05/01",
+        "text": "注册人应按照《提供使用证据通知》要求，在规定期限内提交使用证据"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -8034,6 +10061,27 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "受理通知书",
+    "canonical": "受理通知书",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/05-01",
+        "text": "申请人缴纳规费后，下发受理通知书"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "授权当年年费",
     "canonical": "授权当年年费",
     "aliases": [],
@@ -8331,6 +10379,27 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "数据电文方式送达",
+    "canonical": "数据电文方式送达",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-03-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/06-03/01",
+        "text": "以数据电文方式送达的，自文件发出之日起满15日视为送达当事人"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "数学计算方法",
     "canonical": "数学计算方法",
     "aliases": [
@@ -8422,6 +10491,27 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "说明或者修正",
+    "canonical": "说明或者修正",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-19-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-19/02",
+        "text": "在审查过程中，商标局认为商标注册申请内容需要说明或者修正的，可以要求申请人做出说明或者修正"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "所属领域的技术人员",
     "canonical": "所属领域的技术人员",
     "aliases": [],
@@ -8466,6 +10556,29 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "特定关系人",
+    "canonical": "特定关系人",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-12-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法第15条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-12/02",
+        "text": "属于《商标法》第十五条第二款所指特定关系人的抢注行为"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "提成费",
     "canonical": "提成费",
     "aliases": [],
@@ -8490,6 +10603,41 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "提供使用证据通知",
+    "canonical": "提供使用证据通知",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-05-01"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第10条",
+      "商标法实施条例第11条",
+      "商标法实施条例第12条",
+      "商标法实施条例第14条",
+      "商标法实施条例第17条",
+      "商标法实施条例第5条",
+      "商标法实施条例第66条",
+      "商标法实施条例第6条",
+      "商标法实施条例第8条",
+      "商标法实施条例第9条",
+      "商标法第18条",
+      "商标法第49条",
+      "商标法第72条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-05/01",
+        "text": "《提供使用证据通知》应说明要求注册人提供的使用证据所覆盖的三年时间期限"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "提交编号",
     "canonical": "提交编号",
     "aliases": [],
@@ -8506,6 +10654,57 @@
       {
         "chunk": "examination-guideline/06/001/02",
         "text": "专利局按照收到外观设计国际注册申请的先后顺序给出提交编号"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "提交日",
+    "canonical": "提交日",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-04"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第10条",
+      "商标法实施条例第11条",
+      "商标法实施条例第12条",
+      "商标法实施条例第14条",
+      "商标法实施条例第15条",
+      "商标法实施条例第16条",
+      "商标法实施条例第49条",
+      "商标法实施条例第51条",
+      "商标法实施条例第53条",
+      "商标法实施条例第57条",
+      "商标法实施条例第58条",
+      "商标法实施条例第59条",
+      "商标法实施条例第5条",
+      "商标法实施条例第61条",
+      "商标法实施条例第62条",
+      "商标法实施条例第6条",
+      "商标法实施条例第8条",
+      "商标法实施条例第9条",
+      "商标法第18条",
+      "商标法第19条",
+      "商标法第34条",
+      "商标法第35条",
+      "商标法第44条",
+      "商标法第45条",
+      "商标法第4条",
+      "商标法第54条",
+      "商标法第5条",
+      "商标法第72条",
+      "商标法第8条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-04",
+        "text": "提交日是指评审申请提交的时间"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -8571,6 +10770,51 @@
       {
         "chunk": "oa-response-guide/02/007",
         "text": "发明实际解决技术问题就应当是提供一种解决已知问题的替代方案"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "听觉感知",
+    "canonical": "听觉感知",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-08-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-08/04",
+        "text": "两件声音商标的听觉感知或整体音乐形象相同或者近似"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "通用图形",
+    "canonical": "通用图形",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-04-02-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法第10条",
+      "商标法第11条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-04/02/02",
+        "text": "该“苹果图形”是指定商品苹果的通用图形"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -8686,6 +10930,29 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "突发公共事件特有词汇",
+    "canonical": "突发公共事件特有词汇",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-03-02-02-08"
+      ]
+    },
+    "lawKeys": [
+      "商标法第10条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-03/02/02/08",
+        "text": "与我国突发公共事件特有词汇相同或者近似，扰乱公共秩序的"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "图片或者照片",
     "canonical": "图片或者照片",
     "aliases": [],
@@ -8702,6 +10969,27 @@
       {
         "chunk": "patent-law/03/002",
         "text": "该外观设计的图片或者照片"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "图形商标",
+    "canonical": "图形商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-05-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-05/03",
+        "text": "商标包含他人在先具有较高知名度或者显著性较强的图形商标，易使相关公众认为属于系列商标而对商品或者服务的来源产生混淆的，判定为近似商标"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -8781,6 +11069,27 @@
       {
         "chunk": "examination-guideline/05/006/03",
         "text": "邮寄退回的通知和决定由发文部门作计算机登录"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "退款请求",
+    "canonical": "退款请求",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/06-02",
+        "text": "当事人可以自缴费之日起三年内，向商标注册部门提出退款请求"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -8962,6 +11271,30 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "外国国旗",
+    "canonical": "外国国旗",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-03-02-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法第10条",
+      "商标法第11条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-03/02/02",
+        "text": "有关标志与外国国旗、国徽、军旗的名称或者图案相同或者近似，足以使公众将其与外国国旗、国徽、军旗相联系的"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "外文科技术语",
     "canonical": "外文科技术语",
     "aliases": [],
@@ -9085,6 +11418,27 @@
       {
         "chunk": "patent-law/07/005",
         "text": "没收违法所得，可以处违法所得五倍以下的罚款"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "唯一对应关系",
+    "canonical": "唯一对应关系",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-03-02-02-09-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-03/02/02/09/01",
+        "text": "申请标志在实际中经过了长期的使用，与申请人主体在相关公众中形成了唯一对应关系"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -9253,6 +11607,27 @@
       {
         "chunk": "examination-guideline/05/008/02",
         "text": "实用新型专利单行本的文献种类代码为“U”"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "文字呼叫类声音商标",
+    "canonical": "文字呼叫类声音商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-08-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-08/04",
+        "text": "对于文字呼叫类声音商标，注意分辨在使用过程中真正起识别作用的是呼叫的文字，还是声音本身"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -9481,6 +11856,71 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "误导公众",
+    "canonical": "误导公众",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-09-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-09/06",
+        "text": "商标中有商品的地理标志，而该商品并非来源于该标志所标示的地区，误导公众的，不予注册并禁止使用"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "系列商标",
+    "canonical": "系列商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-05-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-05/03",
+        "text": "商标完整地包含或者摹仿他人在先具有较高知名度或者显著性较强的文字商标，易使相关公众认为属于系列商标而对商品或者服务的来源产生混淆的，判定为近似商标"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "系争商标",
+    "canonical": "系争商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-10-05-03-01"
+      ]
+    },
+    "lawKeys": [
+      "商标法第13条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-10/05/03/01",
+        "text": "系争商标构成对当事人驰名商标的复制、摹仿或者翻译"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "下位概念概括为上位概念",
     "canonical": "下位概念概括为上位概念",
     "aliases": [],
@@ -9518,6 +11958,48 @@
       {
         "chunk": "chemistry-drafting-rules/01/003/03",
         "text": "从属权利要求应避免直接将上位特征限定到下位特征"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "显著部分",
+    "canonical": "显著部分",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/03-03",
+        "text": "只对图形的显著部分和关系到是否与其他商标相同近似起决定作用的部分，进行图形要素分类"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "显著识别部分",
+    "canonical": "显著识别部分",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-05-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-05/03",
+        "text": "中文商标的显著识别部分汉字构成相同，仅排列顺序不同，易使相关公众对商品或者服务的来源产生混淆的，判定为近似商标"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -9747,6 +12229,48 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "象征性使用",
+    "canonical": "象征性使用",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-17-06-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-17/06/04",
+        "text": "仅以维持商标注册为目的的象征性使用"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "效力终止通知",
+    "canonical": "效力终止通知",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/05-01",
+        "text": "VII项应列明效力终止通知发出的时间"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "协助执行财产保全",
     "canonical": "协助执行财产保全",
     "aliases": [],
@@ -9893,6 +12417,30 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "形审结案",
+    "canonical": "形审结案",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-04"
+      ]
+    },
+    "lawKeys": [
+      "商标法第30条",
+      "商标法第31条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-04",
+        "text": "商标评审案件在形式审查期间，有以下情形的，商标注册部门经审查认为可以结案的，终止评审"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "形式缺陷",
     "canonical": "形式缺陷",
     "aliases": [],
@@ -9909,6 +12457,32 @@
       {
         "chunk": "examination-guideline/06/002/02",
         "text": "审查员不得以申请文件的形式缺陷为由驳回外观设计国际申请"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "形式审查结论",
+    "canonical": "形式审查结论",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-05"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第65条",
+      "商标法第18条",
+      "商标法第49条",
+      "商标法第72条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-05",
+        "text": "经形式审查，申请手续不符合要求、重复提交相同内容的撤销申请、申请撤销的商品或商标已经无效、商标注册未满三年的，不予受理"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -10137,6 +12711,32 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "许可期限",
+    "canonical": "许可期限",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第69条",
+      "商标法实施条例第87条",
+      "商标法第42条",
+      "商标法第43条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/04-02",
+        "text": "许可期限不得超出注册商标的有效期限"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "许可协商",
     "canonical": "许可协商",
     "aliases": [],
@@ -10338,6 +12938,27 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "颜色组合",
+    "canonical": "颜色组合",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-07-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-07/02",
+        "text": "包括文字、图形、字母、数字、三维标志、颜色组合和声音等，以及上述要素的组合，均可以作为商标申请注册"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "药品上市许可持有人",
     "canonical": "药品上市许可持有人",
     "aliases": [],
@@ -10422,6 +13043,29 @@
       {
         "chunk": "examination-guideline/01/002/04",
         "text": "要求优先权"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "一标多类",
+    "canonical": "一标多类",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-04"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第64条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/06-04",
+        "text": "对于一标多类的注册商标，出具商标注册证明时"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -10519,6 +13163,34 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "移转",
+    "canonical": "移转",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-02-01"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第17条",
+      "商标法实施条例第31条",
+      "商标法实施条例第32条",
+      "商标法实施条例第87条",
+      "商标法第42条",
+      "商标法第4条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/04-02/01",
+        "text": "因继承等事由办理商标移转申请的，还应提供有关证明文件或法律文书"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "已知产品的新用途",
     "canonical": "已知产品的新用途",
     "aliases": [],
@@ -10584,6 +13256,136 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "异议理由书",
+    "canonical": "异议理由书",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-03"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第12条",
+      "商标法实施条例第14条",
+      "商标法实施条例第15条",
+      "商标法实施条例第18条",
+      "商标法实施条例第24条",
+      "商标法实施条例第25条",
+      "商标法实施条例第26条",
+      "商标法实施条例第27条",
+      "商标法实施条例第5条",
+      "商标法实施条例第6条",
+      "商标法实施条例第97条",
+      "商标法实施条例第9条",
+      "商标法第13条",
+      "商标法第15条",
+      "商标法第16条",
+      "商标法第18条",
+      "商标法第30条",
+      "商标法第31条",
+      "商标法第32条",
+      "商标法第33条",
+      "商标法第72条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-03",
+        "text": "内容较多的，可以另附“异议理由书”"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "异议形式审查",
+    "canonical": "异议形式审查",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-03"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第12条",
+      "商标法实施条例第14条",
+      "商标法实施条例第15条",
+      "商标法实施条例第18条",
+      "商标法实施条例第24条",
+      "商标法实施条例第25条",
+      "商标法实施条例第26条",
+      "商标法实施条例第27条",
+      "商标法实施条例第5条",
+      "商标法实施条例第6条",
+      "商标法实施条例第97条",
+      "商标法实施条例第9条",
+      "商标法第13条",
+      "商标法第15条",
+      "商标法第16条",
+      "商标法第18条",
+      "商标法第30条",
+      "商标法第31条",
+      "商标法第32条",
+      "商标法第33条",
+      "商标法第72条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-03",
+        "text": "异议形式审查包括异议申请及相关材料、异议答辩书及相关材料、异议人变更及撤回申请等内容的审查"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "异议主体",
+    "canonical": "异议主体",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-03-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第12条",
+      "商标法实施条例第14条",
+      "商标法实施条例第15条",
+      "商标法实施条例第18条",
+      "商标法实施条例第24条",
+      "商标法实施条例第25条",
+      "商标法实施条例第26条",
+      "商标法实施条例第27条",
+      "商标法实施条例第45条",
+      "商标法实施条例第5条",
+      "商标法实施条例第6条",
+      "商标法实施条例第97条",
+      "商标法实施条例第9条",
+      "商标法第13条",
+      "商标法第15条",
+      "商标法第16条",
+      "商标法第18条",
+      "商标法第30条",
+      "商标法第31条",
+      "商标法第32条",
+      "商标法第33条",
+      "商标法第72条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/05-03/02",
+        "text": "商标国际异议主体与国内异议标准相同"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "意料不到的技术效果",
     "canonical": "意料不到的技术效果",
     "aliases": [],
@@ -10600,6 +13402,48 @@
       {
         "chunk": "chemistry-drafting-rules/01/004/06",
         "text": "并不能认可本申请具有意料不到的技术效果"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "意译分卡",
+    "canonical": "意译分卡",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/03-02",
+        "text": "商标包含英文且该英文有中文含义的，应当划分意译分卡及与之相对应的汉字分卡、拼音分卡"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "音乐性质的声音商标",
+    "canonical": "音乐性质的声音商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/03-04",
+        "text": "音乐性质的声音商标，如一段乐曲，声音要素编码为 S1"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -11010,6 +13854,39 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "原属局",
+    "canonical": "原属局",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-01"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第35条",
+      "商标法实施条例第36条",
+      "商标法实施条例第37条",
+      "商标法实施条例第38条",
+      "商标法实施条例第39条",
+      "商标法实施条例第40条",
+      "商标法实施条例第41条",
+      "商标法实施条例第5条",
+      "商标法实施条例第86条",
+      "商标法第18条",
+      "商标法第21条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/05-01",
+        "text": "以国家知识产权局为原属局，指定领土延伸至"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "原有范围",
     "canonical": "原有范围",
     "aliases": [],
@@ -11138,6 +14015,33 @@
       {
         "chunk": "examination-guideline/04/005/07",
         "text": "是指在先合法权利的取得日在涉案专利申请日之前"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "暂缓审查",
+    "canonical": "暂缓审查",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-19-04"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第11条",
+      "商标法第10条",
+      "商标法第11条",
+      "商标法第28条",
+      "商标法第29条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-19/04",
+        "text": "可以发审查意见书告知申请人可以依法提交请求暂缓审查的书面申请"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -11286,6 +14190,29 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "真实使用意图",
+    "canonical": "真实使用意图",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-02-05"
+      ]
+    },
+    "lawKeys": [
+      "商标法第4条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-02/05",
+        "text": "缺乏真实使用意图，不正当占用商标资源，扰乱商标注册秩序的行为"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "诊断用品",
     "canonical": "诊断用品",
     "aliases": [],
@@ -11333,6 +14260,31 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "整体视觉效果",
+    "canonical": "整体视觉效果",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-06-05-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第13条",
+      "商标法第12条",
+      "商标法第30条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-06/05/02",
+        "text": "仅由三维形状构成的三维标志商标，其整体视觉效果与他人在先的三维标志商标相同或者近似"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "正投影视图",
     "canonical": "正投影视图",
     "aliases": [],
@@ -11372,6 +14324,29 @@
       {
         "chunk": "examination-guideline/04/008/04",
         "text": "质证时，当事人应当围绕证据的关联性、合法性、真实性"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "证据目录",
+    "canonical": "证据目录",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-04-03"
+      ]
+    },
+    "lawKeys": [
+      "商标法第45条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/02-04/03",
+        "text": "申请人如提交证据，应制作相应的证据目录，一并附在正文后"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -12091,6 +15066,40 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "中止审查",
+    "canonical": "中止审查",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-01-01"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第10条",
+      "商标法实施条例第12条",
+      "商标法实施条例第14条",
+      "商标法实施条例第15条",
+      "商标法实施条例第16条",
+      "商标法实施条例第17条",
+      "商标法实施条例第18条",
+      "商标法实施条例第30条",
+      "商标法实施条例第5条",
+      "商标法实施条例第6条",
+      "商标法实施条例第9条",
+      "商标法第41条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/04-01/01",
+        "text": "在审查过程中出现以下情形的，可以中止审查"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "重大利益",
     "canonical": "重大利益",
     "aliases": [],
@@ -12178,6 +15187,30 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
+    "termKey": "重要赛事",
+    "canonical": "重要赛事",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-03-02-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法第10条",
+      "商标法第11条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-03/02/02",
+        "text": "与重要赛事、重要展会、重大考古发现名称（含规范简称）、标志等相同或者近似的，未经主办方或主管单位授权，容易导致公众误认的"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
     "termKey": "轴侧剖视图",
     "canonical": "轴侧剖视图",
     "aliases": [],
@@ -12194,6 +15227,50 @@
       {
         "chunk": "mechanical-drafting-rules/02/003/04",
         "text": "回压组件的轴侧剖视图"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "注册商标无效",
+    "canonical": "注册商标无效",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-16-02"
+      ]
+    },
+    "lawKeys": [
+      "商标法第45条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-16/02",
+        "text": "由商标局宣告该注册商标无效"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "注册原则",
+    "canonical": "注册原则",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-01-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/07-01/01",
+        "text": "我国商标专用权取得以注册原则为基本原则"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -13182,6 +16259,60 @@
       {
         "chunk": "examination-guideline/01/001/06/07",
         "text": "应当提交双方签字或者盖章的转让或者赠与合同"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "转让无效",
+    "canonical": "转让无效",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-06"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第30条",
+      "商标法实施条例第46条",
+      "商标法实施条例第47条",
+      "商标法第41条",
+      "商标法第42条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/05-06",
+        "text": "有下列情形之一的，转让无效"
+      }
+    ],
+    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
+  },
+  {
+    "termKey": "转让终局",
+    "canonical": "转让终局",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-06"
+      ]
+    },
+    "lawKeys": [
+      "商标法实施条例第30条",
+      "商标法实施条例第46条",
+      "商标法实施条例第47条",
+      "商标法第41条",
+      "商标法第42条"
+    ],
+    "tier": "mid",
+    "df": 1,
+    "evidence": [
+      {
+        "chunk": "trademark-exam-guide-2021/05-06",
+        "text": "国家知识产权局视具体情况将转让终局决定通知国际局"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"

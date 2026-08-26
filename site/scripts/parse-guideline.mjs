@@ -1,4 +1,10 @@
-// 数据管线 1/3：顺序解析主文件 examination-guideline-2025.md 的标题树
+// ⚠️ 历史副本，勿用。阶段5.3 批次 W2 起，本文件与 parse-domains.mjs 的指南分支已**分叉**：
+//   parse-domains 已把正文中的三级裸编号（394 处）与四级自链接编号（168 处）＋1 处畸形伪链接
+//   还原一并升为节点，指南子树自 826 增至 1389；本文件仍停在 826 的单源口径，且源路径指向
+//   已不存在的 examination-guideline-2025/。保留仅为沿革参考，**不做逻辑同步、不纳入管线**，
+//   实际产物一律由 parse-domains.mjs 生成。
+//
+// 数据管线 1/3（单源遗留版）：顺序解析主文件 examination-guideline-2025.md 的标题树
 //   # 部(6) / ## 章(38) / ### 节(259) / #### 子节(523) = 826 节点
 // 产物：data/nodes.json（轻量节点）、data/node-bodies.json（每节点原文正文，供详情/精构）、data/laws.json（法条→引用节点）
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';

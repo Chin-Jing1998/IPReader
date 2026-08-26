@@ -33,6 +33,135 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 
+    // ---------- 国家/标签层级导航行（C-4） ----------
+    // 工具条首行、整行独占（flex-basis 100% 强制换行），其下才是搜索区与图例行，
+    // 形成「粗粒度导航在上、组级微调在下」的层级读序。以发丝下边框与下方分隔，
+    // 与图例段分隔线 .ge-legend-sep 同一视觉语言（1px / --lightgray）。
+    // 高度成本：约 30px（含 0.45rem 下内边距），工具条 ~44px → ~74px；
+    // .ge-body 为 flex:1，画布等量收缩，900px 视口下占比约 3.3%。
+    // 配色一律取既有主题变量（--secondary / --darkgray / --lightgray / --light），
+    // 不引入任何 --graph-section-* 色——标签是导航层，不承担域配色语义。
+    .ge-fieldnav {
+      flex: 1 1 100%;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.3rem 0.6rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid var(--lightgray);
+
+      // 国家层容器：本期仅「中国」一枚，容器与 data-country 钩子为多国预留
+      .ge-country-list {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        flex-shrink: 0;
+      }
+
+      .ge-country {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.32rem;
+        padding: 0.2rem 0.6rem;
+        font-size: 0.8rem;
+        line-height: 1.45;
+        color: var(--darkgray);
+        background: var(--glass-inner-bg, transparent);
+        border: 1px solid var(--lightgray);
+        border-radius: 999px;
+        white-space: nowrap;
+
+        // 当前国家：描边与文字取强调色，不填充实底——与下方选中标签的实底
+        // 区分开，读者一眼分得清「国家是身份标识」与「标签是可切换筛选」
+        &.active {
+          color: var(--secondary);
+          border-color: var(--secondary);
+          font-weight: 600;
+        }
+
+        // 第一级视觉强化（阶段5.3 批 B2）：国家层是「法域范围」这一级，读序上高于
+        // 其右侧的法域标签行，故字重较 .active 的 600 再上调一档到 700。
+        // 必须排在 &.active 之后：两者同为双类选择器（0,2,0）特异性相等，靠源码
+        // 顺序决胜；调序或在其间插入 .active 相关声明都会让本条失效。
+        // 只动字重与字距，不动尺寸、内边距与排布，布局结构零变更。
+        &.ge-country--tier1 {
+          font-weight: $boldWeight;
+          letter-spacing: 0.02em;
+        }
+      }
+
+      // 国家徽标：纯色小方块（圆角），取强调色，无外链图像资源
+      .ge-country-mark {
+        display: inline-block;
+        width: 0.55rem;
+        height: 0.55rem;
+        border-radius: 2px;
+        background: var(--secondary);
+        flex-shrink: 0;
+      }
+
+      // 国家层 ↔ 标签层的分隔发丝线（形制同 .ge-legend-sep）
+      .ge-fieldnav-sep {
+        width: 1px;
+        height: 0.95rem;
+        background: var(--lightgray);
+        flex-shrink: 0;
+      }
+
+      // 第一级 ↔ 第二级的分隔加重（阶段5.3 批 B2）：国家层带 --tier1 修饰时，
+      // 这条线是「法域范围（第一级）」与「法域标签（第二级）」的层级界线，故较
+      // 普通段分隔线加重一档（1px → 2px、--lightgray → --gray），并在两侧各补
+      // 0.25rem 留白（叠加 .ge-fieldnav 的 0.6rem 列间距，实际间隔 0.85rem）。
+      // 仅改这条线自身的粗细、颜色与外边距，不改 flex 布局与其余元素的尺寸盒。
+      .ge-country-list:has(.ge-country--tier1) + .ge-fieldnav-sep {
+        width: 2px;
+        height: 1.15rem;
+        margin: 0 0.25rem;
+        border-radius: 1px;
+        background: var(--gray);
+      }
+
+      .ge-field-tabs {
+        display: inline-flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+      }
+
+      // 标签钮：胶囊形制，与术语层三态钮（.ge-term-btn）同族——
+      // 差别在三态钮是连体分段控件、标签是可换行的独立胶囊（七枚需窄屏折行）。
+      .ge-field-tab {
+        padding: 0.22rem 0.72rem;
+        font-size: 0.8rem;
+        line-height: 1.45;
+        color: var(--darkgray);
+        background: transparent;
+        border: 1px solid var(--lightgray);
+        border-radius: 999px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition:
+          background-color 0.18s ease,
+          color 0.18s ease,
+          border-color 0.18s ease;
+
+        &:hover,
+        &:focus-visible {
+          color: var(--dark);
+          border-color: var(--gray);
+          outline: none;
+        }
+
+        // 高亮态由脚本按 hiddenSections 反解后写入；自定义态（用户经图例微调）
+        // 七枚皆无 .active，此时标签行整体呈未选中态，属预期而非缺陷
+        &.active {
+          color: var(--light);
+          background: var(--secondary);
+          border-color: var(--secondary);
+        }
+      }
+    }
+
     .ge-search {
       display: flex;
       align-items: center;
@@ -87,12 +216,73 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
       }
     }
 
-    // 域图例：七书 + 术语的色点；v12 起七部文档域项为可点击按钮
+    // 域图例（v17）：主干七书 + 扩展七法域组 + 术语，共 15 个色项与 1 个「扩展」段控
+    //（阶段5.2 Q-1《专利质量评价指南》入库后由 main5/ext7/term1 的 13 组扩为 main7/ext7/term1 的 15 组）。
+    // 容器 flex-wrap：色项 + 段控 + 2 条分隔线版面宽约 1030px（14 项时代实测值，15 项后未复测），
+    // 工具条同层还有搜索区（flex:1 1 16rem）、术语层三态钮与重置钮约 512px，1280px 视口下必折为 2 行，
+    // 工具条高度约 44px → 66px（+22px，占 900px 视口画布高度 2.9%；同为 14 项时代实测值，未复测）。
+    // 刻意不折叠：颜色图例的价值在读图时随时可瞥，收进浮层等于取消该价值。
     .ge-legend {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
       gap: 0.3rem 0.8rem;
+
+      // 段分隔发丝线（v17）：切分「主干段 / 扩展段 / 术语段」
+      .ge-legend-sep {
+        width: 1px;
+        height: 0.9rem;
+        background: var(--lightgray);
+        flex-shrink: 0;
+      }
+
+      // 法域过滤（阶段5.3 批 B2）：graphexplorer.inline.ts 以 hidden **属性**把
+      // 非当前法域的图例项、以及随之落空的段控与段分隔线整体撤出行内。
+      // 这条声明不可省——UA 样式表的 [hidden]{display:none} 属 UA 源，会被同文件
+      // 作者源的 .ge-legend-item{display:inline-flex} 覆盖，不写则设了 hidden 照样显示。
+      // 与组显隐的 `.hidden` **类**（置灰 + 删除线、钮仍在行内）是两回事，勿混淆。
+      .ge-legend-item[hidden],
+      .ge-legend-groupctl[hidden],
+      .ge-legend-sep[hidden] {
+        display: none;
+      }
+
+      // 扩展段总控（v17）：一次切换全部 7 个扩展法域组的显隐。与图例项同形制但无色点，
+      // 以细边框与之区分；三态由 graphexplorer.inline.ts 写 .hidden / .partial 类
+      //（全显 = 无类，部分隐 = .partial 虚线框，全隐 = .hidden 置灰加删除线）。
+      .ge-legend-groupctl {
+        padding: 0 0.35rem;
+        font-size: 0.78rem;
+        line-height: 1.5;
+        color: var(--darkgray);
+        background: none;
+        border: 1px solid var(--lightgray);
+        border-radius: 0.35rem;
+        cursor: pointer;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition:
+          opacity 0.15s ease,
+          border-color 0.15s ease;
+
+        &:hover,
+        &:focus-visible {
+          opacity: 0.75;
+          outline: none;
+          border-color: var(--gray);
+        }
+
+        &.partial {
+          border-style: dashed;
+          border-color: var(--gray);
+        }
+
+        &.hidden {
+          opacity: 0.38;
+          text-decoration: line-through;
+          text-underline-offset: 2px;
+        }
+      }
 
       .ge-legend-item {
         display: inline-flex;
@@ -170,6 +360,28 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
         }
         &[data-section="9"] {
           background-color: var(--graph-section-9);
+        }
+        // v17 扩展法域组：10 专利扩展 / 11 品种布图 / 12 竞争法 / 13 著作权 / 14 综合程序
+        //（8 商标复用既有预留位，其规则已在上方 [data-section="8"] 给出）
+        // 阶段5.1 批 G-2 追加 15 商标审查指南：SECTION_GROUPS 已在 G-1 建组，
+        // 但当时无对应变量与规则，图例点渲染为透明；本条与 --graph-section-15 同批补齐。
+        &[data-section="10"] {
+          background-color: var(--graph-section-10);
+        }
+        &[data-section="11"] {
+          background-color: var(--graph-section-11);
+        }
+        &[data-section="12"] {
+          background-color: var(--graph-section-12);
+        }
+        &[data-section="13"] {
+          background-color: var(--graph-section-13);
+        }
+        &[data-section="14"] {
+          background-color: var(--graph-section-14);
+        }
+        &[data-section="15"] {
+          background-color: var(--graph-section-15);
         }
       }
     }

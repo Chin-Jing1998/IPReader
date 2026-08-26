@@ -3,7 +3,7 @@
 @use "./glass.scss" as *;
 
 // ============================================================
-// PatentReader 定制样式 v9
+// IPReader 定制样式 v9
 // 一、液态玻璃视觉体系：--glass-* token + 侧栏/卡片玻璃化
 // 二、中文多字体协同排版（公文体例）：
 //     页头/正文/左栏/右栏/图谱各有独立字体变量，取值随主题走
@@ -2021,8 +2021,10 @@ html[data-kb-overlay] .kb-pagescroll {
 //
 // --glass-bg-thick / --glass-scrim 必须逐块定义：左栏导航主体与滚动边缘渐隐读的是
 // 这两个 token，只写在全局 :root 会让左栏在六套主题下一概不变色。
-// 域色板九色的色相顺序跨主题不变（「颜色→知识域」的记忆不因换主题失效），
-// 仅调明度/彩度包络，与本主题强调色撞色的档位做 ±12° 避让。
+// 域色板（现为十五色，G-2 增组 15）的色相顺序跨主题不变（「颜色→知识域」的记忆
+// 不因换主题失效），仅调明度/彩度包络，与本主题强调色撞色的档位做 ±12° 避让。
+// G-2 起这十五色由 scripts/gen-book-colors.mjs 统一生成（基线 + 逐组增量），
+// 勿在本文件手改；节点着色已下沉到书级变量，见文末「书级图谱色板」节。
 // --titleFont / --codeFont 不主题化。玻璃 token 的分档约定（v12 修订）：模糊不随风格变；
 // 阴影按亮/暗 × 层级两维分档（面板 --glass-shadow、浮窗 --popover-shadow），
 // 两维之外仍不随六套风格变；浮窗描边 --popover-border 是唯一逐块随 --secondary 的例外
@@ -2089,18 +2091,27 @@ html[data-kb-overlay] .kb-pagescroll {
   --nav-fg-muted: #6e6059;
   --nav-active-wash: rgba(140, 90, 60, 0.1);
   --term-link-line: rgba(140, 90, 60, 0.32);
-  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  // 图谱边色 + 十五域色板（色相顺序跨主题不变；1–4/7 主干五书、9 术语层、
+  // 8+10–15 扩展入库按法域归的七组，组表见 quartz/util/graphSections.ts；
+  // 5/6 已随 G-1 摘组而无前缀命中，保留占位不删，值亦不动；
+  // 15 为 G-2 新增的商标审查指南组，由同块的 8 派生，见文末书级色板节）
   --graphLink: #bbafa8;
   --graphLinkActive: #8c5a3c;
-  --graph-section-1: #be5e66;
-  --graph-section-2: #b6684f;
-  --graph-section-3: #9d7a37;
-  --graph-section-4: #578e6d;
-  --graph-section-5: #498f84;
+  --graph-section-1: #c45868;
+  --graph-section-2: #a75f39;
+  --graph-section-3: #a6874b;
+  --graph-section-4: #49906f;
+  --graph-section-5: #458e8d;
   --graph-section-6: #5984b1;
-  --graph-section-7: #8a73af;
-  --graph-section-8: #a66b8b;
+  --graph-section-7: #9d7ab9;
+  --graph-section-8: #ac6691;
   --graph-section-9: #687bc4;
+  --graph-section-10: #768238; // 10 秋香：专利扩展
+  --graph-section-11: #337f38; // 11 草绿：品种布图
+  --graph-section-12: #248095; // 12 湖青：竞争法
+  --graph-section-13: #864b90; // 13 堇紫：著作权
+  --graph-section-14: #4745a7; // 14 青莲：综合程序
+  --graph-section-15: #9a4469; // 15 绛红：商标审查指南
   // 素描背景：远山淡影
   --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%23976446' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='1.6' stroke-opacity='0.055' d='M700 300 C730 296 764 250 786 244 C808 240 850 280 880 286 C918 292 958 236 986 228 C1012 224 1058 268 1090 272 C1128 276 1170 258 1200 244'/%3E%3Cpath stroke-width='2' stroke-opacity='0.075' d='M420 430 C452 424 496 362 520 352 C546 344 606 398 640 410 C692 420 758 342 790 330 C820 320 882 392 920 400 C972 410 1028 330 1060 318 C1094 312 1152 350 1200 364'/%3E%3Cpath stroke-width='2.8' stroke-opacity='0.1' d='M240 596 C288 590 342 476 372 466 C404 456 452 530 520 566 C562 588 606 466 640 452 C676 440 786 542 830 578 C876 550 950 452 990 440 C1026 430 1086 526 1120 566 C1146 578 1176 556 1200 548'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.08' d='M372 472 C382 514 390 554 396 596'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.08' d='M640 458 C650 502 658 542 664 584'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.07' d='M990 446 C1000 488 1008 526 1014 568'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.055' d='M330 690 C480 678 660 684 800 674'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.06' d='M470 726 C620 714 800 720 960 710'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.05' d='M600 760 C740 750 880 754 1010 744'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.075' d='M318 292 C334 278 344 278 360 292'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.06' d='M368 312 C380 302 388 302 400 312'/%3E%3C/svg%3E");
 
@@ -2152,18 +2163,27 @@ html[data-kb-overlay] .kb-pagescroll {
   --nav-fg-muted: #a2968d;
   --nav-active-wash: rgba(200, 149, 108, 0.16);
   --term-link-line: rgba(200, 149, 108, 0.4);
-  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  // 图谱边色 + 十五域色板（色相顺序跨主题不变；1–4/7 主干五书、9 术语层、
+  // 8+10–15 扩展入库按法域归的七组，组表见 quartz/util/graphSections.ts；
+  // 5/6 已随 G-1 摘组而无前缀命中，保留占位不删，值亦不动；
+  // 15 为 G-2 新增的商标审查指南组，由同块的 8 派生，见文末书级色板节）
   --graphLink: #524a44;
   --graphLinkActive: #c8956c;
-  --graph-section-1: #d6747b;
-  --graph-section-2: #ca805a;
-  --graph-section-3: #b38f4d;
-  --graph-section-4: #6ca482;
-  --graph-section-5: #5ea499;
+  --graph-section-1: #dc6e7d;
+  --graph-section-2: #b97745;
+  --graph-section-3: #bc9d60;
+  --graph-section-4: #5fa784;
+  --graph-section-5: #5ba3a3;
   --graph-section-6: #6e99c8;
-  --graph-section-7: #a088c5;
-  --graph-section-8: #bc80a0;
+  --graph-section-7: #b48fcf;
+  --graph-section-8: #c27ba6;
   --graph-section-9: #7c90dc;
+  --graph-section-10: #93a14f; // 10 秋香：专利扩展
+  --graph-section-11: #44984a; // 11 草绿：品种布图
+  --graph-section-12: #6bbdd2; // 12 湖青：竞争法
+  --graph-section-13: #ac61b9; // 13 堇紫：著作权
+  --graph-section-14: #6664d4; // 14 青莲：综合程序
+  --graph-section-15: #b0597d; // 15 绛红：商标审查指南
   // 素描背景：远山淡影
   --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%23bc8a61' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='1.6' stroke-opacity='0.072' d='M700 300 C730 296 764 250 786 244 C808 240 850 280 880 286 C918 292 958 236 986 228 C1012 224 1058 268 1090 272 C1128 276 1170 258 1200 244'/%3E%3Cpath stroke-width='2' stroke-opacity='0.098' d='M420 430 C452 424 496 362 520 352 C546 344 606 398 640 410 C692 420 758 342 790 330 C820 320 882 392 920 400 C972 410 1028 330 1060 318 C1094 312 1152 350 1200 364'/%3E%3Cpath stroke-width='2.8' stroke-opacity='0.13' d='M240 596 C288 590 342 476 372 466 C404 456 452 530 520 566 C562 588 606 466 640 452 C676 440 786 542 830 578 C876 550 950 452 990 440 C1026 430 1086 526 1120 566 C1146 578 1176 556 1200 548'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.104' d='M372 472 C382 514 390 554 396 596'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.104' d='M640 458 C650 502 658 542 664 584'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.091' d='M990 446 C1000 488 1008 526 1014 568'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.072' d='M330 690 C480 678 660 684 800 674'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.078' d='M470 726 C620 714 800 720 960 710'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.065' d='M600 760 C740 750 880 754 1010 744'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.098' d='M318 292 C334 278 344 278 360 292'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.078' d='M368 312 C380 302 388 302 400 312'/%3E%3C/svg%3E");
 }
@@ -2210,18 +2230,27 @@ html[data-kb-overlay] .kb-pagescroll {
   --nav-fg-muted: #606567;
   --nav-active-wash: rgba(64, 96, 108, 0.1);
   --term-link-line: rgba(64, 96, 108, 0.32);
-  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  // 图谱边色 + 十五域色板（色相顺序跨主题不变；1–4/7 主干五书、9 术语层、
+  // 8+10–15 扩展入库按法域归的七组，组表见 quartz/util/graphSections.ts；
+  // 5/6 已随 G-1 摘组而无前缀命中，保留占位不删，值亦不动；
+  // 15 为 G-2 新增的商标审查指南组，由同块的 8 派生，见文末书级色板节）
   --graphLink: #b1b3b5;
   --graphLinkActive: #40606c;
-  --graph-section-1: #bb6168;
-  --graph-section-2: #b06e46;
-  --graph-section-3: #9b7b3d;
-  --graph-section-4: #5a8e6e;
-  --graph-section-5: #4d8e84;
+  --graph-section-1: #c15c69;
+  --graph-section-2: #9f6532;
+  --graph-section-3: #a48850;
+  --graph-section-4: #4d9070;
+  --graph-section-5: #4a8d8d;
   --graph-section-6: #5c84af;
-  --graph-section-7: #8a74ac;
-  --graph-section-8: #a46c8b;
+  --graph-section-7: #9d7bb6;
+  --graph-section-8: #a96790;
   --graph-section-9: #697cc1;
+  --graph-section-10: #76813c; // 10 秋香：专利扩展
+  --graph-section-11: #377e3c; // 11 草绿：品种布图
+  --graph-section-12: #2c7f93; // 12 湖青：竞争法
+  --graph-section-13: #844d8d; // 13 堇紫：著作权
+  --graph-section-14: #4948a3; // 14 青莲：综合程序
+  --graph-section-15: #964669; // 15 绛红：商标审查指南
   // 素描背景：山水泼墨
   --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%234c6b77' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='4.2' stroke-opacity='0.1' d='M160 640 C280 560 330 470 400 356 C440 292 486 258 534 306 C580 352 596 428 662 398 C726 368 748 288 812 306 C892 328 902 420 986 396 C1068 372 1108 306 1200 330'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.055' d='M560 430 C640 380 690 404 756 366 C830 324 940 380 1200 348'/%3E%3Cpath stroke-width='2.6' stroke-opacity='0.085' d='M534 312 C548 380 542 448 556 512'/%3E%3Cpath stroke-width='2.6' stroke-opacity='0.085' d='M812 312 C826 372 820 428 834 486'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.07' d='M400 366 C412 428 404 486 416 544'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.05' d='M280 686 C470 674 690 680 890 668'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.055' d='M400 726 C580 714 790 720 970 708'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.045' d='M540 762 C700 752 860 756 1010 746'/%3E%3Cpath stroke-width='2' stroke-opacity='0.09' d='M600 698 C616 710 652 710 668 698'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.09' d='M634 698 L634 672'/%3E%3Cpath stroke-width='3.4' stroke-opacity='0.075' d='M180 470 C230 432 278 458 314 424'/%3E%3Cpath stroke-width='2.4' stroke-opacity='0.06' d='M196 514 C240 488 280 502 310 480'/%3E%3C/svg%3E");
 
@@ -2273,18 +2302,27 @@ html[data-kb-overlay] .kb-pagescroll {
   --nav-fg-muted: #92989b;
   --nav-active-wash: rgba(125, 163, 176, 0.16);
   --term-link-line: rgba(125, 163, 176, 0.4);
-  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  // 图谱边色 + 十五域色板（色相顺序跨主题不变；1–4/7 主干五书、9 术语层、
+  // 8+10–15 扩展入库按法域归的七组，组表见 quartz/util/graphSections.ts；
+  // 5/6 已随 G-1 摘组而无前缀命中，保留占位不删，值亦不动；
+  // 15 为 G-2 新增的商标审查指南组，由同块的 8 派生，见文末书级色板节）
   --graphLink: #464b4c;
   --graphLinkActive: #7da3b0;
-  --graph-section-1: #d3767c;
-  --graph-section-2: #c7835b;
-  --graph-section-3: #b19052;
-  --graph-section-4: #6fa383;
-  --graph-section-5: #62a399;
+  --graph-section-1: #d9717d;
+  --graph-section-2: #b67a47;
+  --graph-section-3: #ba9e64;
+  --graph-section-4: #63a585;
+  --graph-section-5: #5fa2a2;
   --graph-section-6: #7099c5;
-  --graph-section-7: #9f88c2;
-  --graph-section-8: #ba81a0;
+  --graph-section-7: #b28fcc;
+  --graph-section-8: #c07ca6;
   --graph-section-9: #7d91d8;
+  --graph-section-10: #94a053; // 10 秋香：专利扩展
+  --graph-section-11: #48974d; // 11 草绿：品种布图
+  --graph-section-12: #70bcd0; // 12 湖青：竞争法
+  --graph-section-13: #a963b6; // 13 堇紫：著作权
+  --graph-section-14: #6766cf; // 14 青莲：综合程序
+  --graph-section-15: #ae5b7e; // 15 绛红：商标审查指南
   // 素描背景：山水泼墨
   --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%237197a4' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='4.2' stroke-opacity='0.13' d='M160 640 C280 560 330 470 400 356 C440 292 486 258 534 306 C580 352 596 428 662 398 C726 368 748 288 812 306 C892 328 902 420 986 396 C1068 372 1108 306 1200 330'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.072' d='M560 430 C640 380 690 404 756 366 C830 324 940 380 1200 348'/%3E%3Cpath stroke-width='2.6' stroke-opacity='0.111' d='M534 312 C548 380 542 448 556 512'/%3E%3Cpath stroke-width='2.6' stroke-opacity='0.111' d='M812 312 C826 372 820 428 834 486'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.091' d='M400 366 C412 428 404 486 416 544'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.065' d='M280 686 C470 674 690 680 890 668'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.072' d='M400 726 C580 714 790 720 970 708'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.059' d='M540 762 C700 752 860 756 1010 746'/%3E%3Cpath stroke-width='2' stroke-opacity='0.117' d='M600 698 C616 710 652 710 668 698'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.117' d='M634 698 L634 672'/%3E%3Cpath stroke-width='3.4' stroke-opacity='0.098' d='M180 470 C230 432 278 458 314 424'/%3E%3Cpath stroke-width='2.4' stroke-opacity='0.078' d='M196 514 C240 488 280 502 310 480'/%3E%3C/svg%3E");
 }
@@ -2331,18 +2369,27 @@ html[data-kb-overlay] .kb-pagescroll {
   --nav-fg-muted: #5d6d6a;
   --nav-active-wash: rgba(61, 112, 104, 0.1);
   --term-link-line: rgba(61, 112, 104, 0.32);
-  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  // 图谱边色 + 十五域色板（色相顺序跨主题不变；1–4/7 主干五书、9 术语层、
+  // 8+10–15 扩展入库按法域归的七组，组表见 quartz/util/graphSections.ts；
+  // 5/6 已随 G-1 摘组而无前缀命中，保留占位不删，值亦不动；
+  // 15 为 G-2 新增的商标审查指南组，由同块的 8 派生，见文末书级色板节）
   --graphLink: #abb5b3;
   --graphLinkActive: #3d7068;
-  --graph-section-1: #c45963;
-  --graph-section-2: #b76938;
-  --graph-section-3: #a0792a;
-  --graph-section-4: #51906b;
-  --graph-section-5: #3a8f8f;
+  --graph-section-1: #ca5265;
+  --graph-section-2: #a6611d;
+  --graph-section-3: #a88741;
+  --graph-section-4: #3f936d;
+  --graph-section-5: #3a8e99;
   --graph-section-6: #5484b7;
-  --graph-section-7: #8c71b3;
-  --graph-section-8: #a9688c;
+  --graph-section-7: #a077bd;
+  --graph-section-8: #af6292;
   --graph-section-9: #657acc;
+  --graph-section-10: #76842c; // 10 秋香：专利扩展
+  --graph-section-11: #278230; // 11 草绿：品种布图
+  --graph-section-12: #057b91; // 12 湖青：竞争法
+  --graph-section-13: #894895; // 13 堇紫：著作权
+  --graph-section-14: #4240b1; // 14 青莲：综合程序
+  --graph-section-15: #9d3f69; // 15 绛红：商标审查指南
   // 素描背景：缠枝莲纹
   --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%23477971' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='2.4' stroke-opacity='0.1' d='M1200 788 C1080 776 952 758 870 726 C776 690 664 668 632 590 C598 508 622 448 680 428'/%3E%3Cpath stroke-width='2' stroke-opacity='0.09' d='M680 428 C732 410 764 450 746 488 C732 518 694 518 684 490'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.09' d='M632 590 C550 584 476 624 434 694 C412 730 412 764 428 800'/%3E%3Cpath stroke-width='1.9' stroke-opacity='0.085' d='M660 510 C600 468 526 478 490 526'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.1' d='M490 526 C470 474 476 422 508 394 C538 422 542 474 522 526'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.09' d='M490 526 C450 492 424 446 432 404 C474 422 502 464 508 510'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.09' d='M522 526 C562 498 594 456 590 414 C550 430 520 468 510 510'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.075' d='M482 528 C430 520 384 488 370 450 C414 446 462 474 484 510'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.075' d='M530 528 C582 526 632 500 650 462 C606 454 556 478 532 510'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.085' d='M482 528 C494 550 522 550 532 528'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.07' d='M632 590 C674 624 680 684 652 720 C622 684 616 630 632 590'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.07' d='M434 694 C386 688 344 714 330 756 C374 768 420 746 434 694'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.065' d='M746 488 C778 484 798 510 790 538 C766 538 748 516 746 488'/%3E%3C/svg%3E");
 
@@ -2394,18 +2441,27 @@ html[data-kb-overlay] .kb-pagescroll {
   --nav-fg-muted: #8e9e9b;
   --nav-active-wash: rgba(111, 170, 160, 0.16);
   --term-link-line: rgba(111, 170, 160, 0.4);
-  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  // 图谱边色 + 十五域色板（色相顺序跨主题不变；1–4/7 主干五书、9 术语层、
+  // 8+10–15 扩展入库按法域归的七组，组表见 quartz/util/graphSections.ts；
+  // 5/6 已随 G-1 摘组而无前缀命中，保留占位不删，值亦不动；
+  // 15 为 G-2 新增的商标审查指南组，由同块的 8 派生，见文末书级色板节）
   --graphLink: #42504d;
   --graphLinkActive: #6faaa0;
-  --graph-section-1: #dc6f78;
-  --graph-section-2: #ce7e4e;
-  --graph-section-3: #b68e42;
-  --graph-section-4: #66a67f;
-  --graph-section-5: #52a5a4;
+  --graph-section-1: #e3687a;
+  --graph-section-2: #bc7637;
+  --graph-section-3: #bf9c57;
+  --graph-section-4: #56a981;
+  --graph-section-5: #52a4ae;
   --graph-section-6: #6999cd;
-  --graph-section-7: #a186ca;
-  --graph-section-8: #c07da2;
+  --graph-section-7: #b68dd4;
+  --graph-section-8: #c677a8;
   --graph-section-9: #798fe3;
+  --graph-section-10: #93a245; // 10 秋香：专利扩展
+  --graph-section-11: #3c9b43; // 11 草绿：品种布图
+  --graph-section-12: #59bbd3; // 12 湖青：竞争法
+  --graph-section-13: #b05dbf; // 13 堇紫：著作权
+  --graph-section-14: #6261dc; // 14 青莲：综合程序
+  --graph-section-15: #b4547e; // 15 绛红：商标审查指南
   // 素描背景：缠枝莲纹
   --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%2365a096' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='2.4' stroke-opacity='0.13' d='M1200 788 C1080 776 952 758 870 726 C776 690 664 668 632 590 C598 508 622 448 680 428'/%3E%3Cpath stroke-width='2' stroke-opacity='0.117' d='M680 428 C732 410 764 450 746 488 C732 518 694 518 684 490'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.117' d='M632 590 C550 584 476 624 434 694 C412 730 412 764 428 800'/%3E%3Cpath stroke-width='1.9' stroke-opacity='0.111' d='M660 510 C600 468 526 478 490 526'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.13' d='M490 526 C470 474 476 422 508 394 C538 422 542 474 522 526'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.117' d='M490 526 C450 492 424 446 432 404 C474 422 502 464 508 510'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.117' d='M522 526 C562 498 594 456 590 414 C550 430 520 468 510 510'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.098' d='M482 528 C430 520 384 488 370 450 C414 446 462 474 484 510'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.098' d='M530 528 C582 526 632 500 650 462 C606 454 556 478 532 510'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.111' d='M482 528 C494 550 522 550 532 528'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.091' d='M632 590 C674 624 680 684 652 720 C622 684 616 630 632 590'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.091' d='M434 694 C386 688 344 714 330 756 C374 768 420 746 434 694'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.085' d='M746 488 C778 484 798 510 790 538 C766 538 748 516 746 488'/%3E%3C/svg%3E");
 }
@@ -2452,18 +2508,27 @@ html[data-kb-overlay] .kb-pagescroll {
   --nav-fg-muted: #616f60;
   --nav-active-wash: rgba(74, 124, 70, 0.1);
   --term-link-line: rgba(74, 124, 70, 0.32);
-  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  // 图谱边色 + 十五域色板（色相顺序跨主题不变；1–4/7 主干五书、9 术语层、
+  // 8+10–15 扩展入库按法域归的七组，组表见 quartz/util/graphSections.ts；
+  // 5/6 已随 G-1 摘组而无前缀命中，保留占位不删，值亦不动；
+  // 15 为 G-2 新增的商标审查指南组，由同块的 8 派生，见文末书级色板节）
   --graphLink: #adb6ac;
   --graphLinkActive: #4a7c46;
-  --graph-section-1: #c75662;
-  --graph-section-2: #ba6833;
-  --graph-section-3: #a17922;
-  --graph-section-4: #4e916a;
-  --graph-section-5: #3a9185;
+  --graph-section-1: #ce4e64;
+  --graph-section-2: #a86013;
+  --graph-section-3: #a9873c;
+  --graph-section-4: #3a946d;
+  --graph-section-5: #349090;
   --graph-section-6: #5184b9;
-  --graph-section-7: #8c70b6;
-  --graph-section-8: #ab678d;
+  --graph-section-7: #a076c0;
+  --graph-section-8: #b16193;
   --graph-section-9: #6479cf;
+  --graph-section-10: #758424; // 10 秋香：专利扩展
+  --graph-section-11: #1e832b; // 11 草绿：品种布图
+  --graph-section-12: #01829b; // 12 湖青：竞争法
+  --graph-section-13: #8c4698; // 13 堇紫：著作权
+  --graph-section-14: #3f3db6; // 14 青莲：综合程序
+  --graph-section-15: #9f3d69; // 15 绛红：商标审查指南
   // 素描背景：竹枝疏影
   --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%2351844d' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='3' stroke-opacity='0.1' d='M712 800 C696 690 676 578 668 466 C662 380 668 300 682 232'/%3E%3Cpath stroke-width='2.4' stroke-opacity='0.085' d='M566 800 C552 706 538 614 538 524 C538 450 550 386 570 330'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.055' d='M448 800 C438 730 432 662 436 598'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.04' d='M1040 800 C1030 700 1022 600 1026 512'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.09' d='M660 466 C666 460 676 460 680 466'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.09' d='M666 348 C672 342 682 342 686 348'/%3E%3Cpath stroke-width='2' stroke-opacity='0.08' d='M530 524 C536 518 546 518 550 524'/%3E%3Cpath stroke-width='2' stroke-opacity='0.08' d='M538 406 C544 400 554 400 558 406'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.095' d='M682 232 C716 212 752 202 780 202 C758 224 722 238 682 232'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.09' d='M676 296 C634 268 594 250 564 248 C586 278 626 298 676 296'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.09' d='M570 330 C610 316 652 314 684 322 C654 344 610 348 570 330'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.07' d='M538 524 C498 522 458 534 432 554 C464 564 504 552 538 524'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.08' d='M668 466 C708 458 750 464 776 480 C744 494 700 490 668 466'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.06' d='M542 420 C506 384 468 362 438 356 C454 392 492 420 542 420'/%3E%3C/svg%3E");
 
@@ -2515,18 +2580,27 @@ html[data-kb-overlay] .kb-pagescroll {
   --nav-fg-muted: #929e90;
   --nav-active-wash: rgba(124, 171, 116, 0.16);
   --term-link-line: rgba(124, 171, 116, 0.4);
-  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  // 图谱边色 + 十五域色板（色相顺序跨主题不变；1–4/7 主干五书、9 术语层、
+  // 8+10–15 扩展入库按法域归的七组，组表见 quartz/util/graphSections.ts；
+  // 5/6 已随 G-1 摘组而无前缀命中，保留占位不删，值亦不动；
+  // 15 为 G-2 新增的商标审查指南组，由同块的 8 派生，见文末书级色板节）
   --graphLink: #454f43;
   --graphLinkActive: #7cab74;
-  --graph-section-1: #df6c76;
-  --graph-section-2: #d17d49;
-  --graph-section-3: #b88e3c;
-  --graph-section-4: #63a67e;
-  --graph-section-5: #51a69a;
+  --graph-section-1: #e66578;
+  --graph-section-2: #bf7530;
+  --graph-section-3: #c09c52;
+  --graph-section-4: #51a981;
+  --graph-section-5: #4ca5a5;
   --graph-section-6: #6699d0;
-  --graph-section-7: #a185cd;
-  --graph-section-8: #c27ca2;
+  --graph-section-7: #b68bd7;
+  --graph-section-8: #c976a9;
   --graph-section-9: #788fe7;
+  --graph-section-10: #92a341; // 10 秋香：专利扩展
+  --graph-section-11: #369b3f; // 11 草绿：品种布图
+  --graph-section-12: #58c1d9; // 12 湖青：竞争法
+  --graph-section-13: #b25bc2; // 13 堇紫：著作权
+  --graph-section-14: #615fe0; // 14 青莲：综合程序
+  --graph-section-15: #b8527e; // 15 绛红：商标审查指南
   // 素描背景：竹枝疏影
   --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%2374a36c' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='3' stroke-opacity='0.13' d='M712 800 C696 690 676 578 668 466 C662 380 668 300 682 232'/%3E%3Cpath stroke-width='2.4' stroke-opacity='0.111' d='M566 800 C552 706 538 614 538 524 C538 450 550 386 570 330'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.072' d='M448 800 C438 730 432 662 436 598'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.052' d='M1040 800 C1030 700 1022 600 1026 512'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.117' d='M660 466 C666 460 676 460 680 466'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.117' d='M666 348 C672 342 682 342 686 348'/%3E%3Cpath stroke-width='2' stroke-opacity='0.104' d='M530 524 C536 518 546 518 550 524'/%3E%3Cpath stroke-width='2' stroke-opacity='0.104' d='M538 406 C544 400 554 400 558 406'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.123' d='M682 232 C716 212 752 202 780 202 C758 224 722 238 682 232'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.117' d='M676 296 C634 268 594 250 564 248 C586 278 626 298 676 296'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.117' d='M570 330 C610 316 652 314 684 322 C654 344 610 348 570 330'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.091' d='M538 524 C498 522 458 534 432 554 C464 564 504 552 538 524'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.104' d='M668 466 C708 458 750 464 776 480 C744 494 700 490 668 466'/%3E%3Cpath stroke-width='1.6' stroke-opacity='0.078' d='M542 420 C506 384 468 362 438 356 C454 392 492 420 542 420'/%3E%3C/svg%3E");
 }
@@ -2573,18 +2647,27 @@ html[data-kb-overlay] .kb-pagescroll {
   --nav-fg-muted: #686371;
   --nav-active-wash: rgba(109, 90, 142, 0.1);
   --term-link-line: rgba(109, 90, 142, 0.32);
-  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  // 图谱边色 + 十五域色板（色相顺序跨主题不变；1–4/7 主干五书、9 术语层、
+  // 8+10–15 扩展入库按法域归的七组，组表见 quartz/util/graphSections.ts；
+  // 5/6 已随 G-1 摘组而无前缀命中，保留占位不删，值亦不动；
+  // 15 为 G-2 新增的商标审查指南组，由同块的 8 派生，见文末书级色板节）
   --graphLink: #b3b1ba;
   --graphLinkActive: #6d5a8e;
-  --graph-section-1: #c45963;
-  --graph-section-2: #b76938;
-  --graph-section-3: #a0792a;
-  --graph-section-4: #51906b;
-  --graph-section-5: #3f9085;
+  --graph-section-1: #ca5265;
+  --graph-section-2: #a6611d;
+  --graph-section-3: #a88741;
+  --graph-section-4: #3f936d;
+  --graph-section-5: #3a8f8f;
   --graph-section-6: #5484b7;
-  --graph-section-7: #956dad;
-  --graph-section-8: #a9688c;
+  --graph-section-7: #a973b5;
+  --graph-section-8: #af6292;
   --graph-section-9: #657acc;
+  --graph-section-10: #76842c; // 10 秋香：专利扩展
+  --graph-section-11: #278230; // 11 草绿：品种布图
+  --graph-section-12: #0f8199; // 12 湖青：竞争法
+  --graph-section-13: #854890; // 13 堇紫：著作权
+  --graph-section-14: #3e3db2; // 14 青莲：综合程序
+  --graph-section-15: #9d3f69; // 15 绛红：商标审查指南
   // 素描背景：群山暮霭
   --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%23766297' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='1.6' stroke-opacity='0.05' d='M260 344 C292 340 336 270 360 264 C384 258 434 310 470 318 C518 328 572 256 600 250 C628 244 690 298 730 304 C786 312 840 250 870 244 C900 238 962 294 1000 300 C1074 312 1152 286 1200 272'/%3E%3Cpath stroke-width='1.9' stroke-opacity='0.065' d='M140 452 C176 446 240 368 268 362 C296 356 358 420 400 430 C456 442 510 350 540 344 C572 338 638 412 680 420 C740 432 798 358 830 352 C864 346 924 420 970 428 C1064 446 1148 414 1200 398'/%3E%3Cpath stroke-width='2.3' stroke-opacity='0.08' d='M40 566 C84 560 164 478 200 470 C238 462 306 530 350 540 C410 552 466 460 500 452 C536 444 610 522 660 532 C724 544 788 470 820 462 C856 454 928 530 980 540 C1074 558 1152 522 1200 506'/%3E%3Cpath stroke-width='2.9' stroke-opacity='0.1' d='M0 690 C50 684 130 594 170 586 C212 578 284 652 330 664 C394 678 456 578 490 568 C528 558 606 642 660 652 C728 664 796 586 830 576 C868 566 944 646 1000 656 C1094 674 1148 638 1200 620'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.045' d='M300 400 C450 390 610 396 740 386'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.05' d='M420 500 C580 490 760 496 916 484'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.045' d='M200 620 C400 610 620 616 820 604'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.07' d='M424 284 C424 242 458 210 500 210 C542 210 576 242 576 284'/%3E%3C/svg%3E");
 
@@ -2636,18 +2719,27 @@ html[data-kb-overlay] .kb-pagescroll {
   --nav-fg-muted: #9893a2;
   --nav-active-wash: rgba(157, 138, 196, 0.16);
   --term-link-line: rgba(157, 138, 196, 0.4);
-  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  // 图谱边色 + 十五域色板（色相顺序跨主题不变；1–4/7 主干五书、9 术语层、
+  // 8+10–15 扩展入库按法域归的七组，组表见 quartz/util/graphSections.ts；
+  // 5/6 已随 G-1 摘组而无前缀命中，保留占位不删，值亦不动；
+  // 15 为 G-2 新增的商标审查指南组，由同块的 8 派生，见文末书级色板节）
   --graphLink: #4a4653;
   --graphLinkActive: #9d8ac4;
-  --graph-section-1: #dc6f78;
-  --graph-section-2: #ce7e4e;
-  --graph-section-3: #b68e42;
-  --graph-section-4: #66a67f;
-  --graph-section-5: #56a69a;
+  --graph-section-1: #e3687a;
+  --graph-section-2: #bc7637;
+  --graph-section-3: #bf9c57;
+  --graph-section-4: #56a981;
+  --graph-section-5: #52a5a5;
   --graph-section-6: #6999cd;
-  --graph-section-7: #aa83c4;
-  --graph-section-8: #c07da2;
+  --graph-section-7: #bf8acc;
+  --graph-section-8: #c677a8;
   --graph-section-9: #798fe3;
+  --graph-section-10: #93a245; // 10 秋香：专利扩展
+  --graph-section-11: #3c9b43; // 11 草绿：品种布图
+  --graph-section-12: #60bfd7; // 12 湖青：竞争法
+  --graph-section-13: #ad5dbb; // 13 堇紫：著作权
+  --graph-section-14: #5f5dde; // 14 青莲：综合程序
+  --graph-section-15: #b4547e; // 15 绛红：商标审查指南
   // 素描背景：群山暮霭
   --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%239582bc' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='1.6' stroke-opacity='0.065' d='M260 344 C292 340 336 270 360 264 C384 258 434 310 470 318 C518 328 572 256 600 250 C628 244 690 298 730 304 C786 312 840 250 870 244 C900 238 962 294 1000 300 C1074 312 1152 286 1200 272'/%3E%3Cpath stroke-width='1.9' stroke-opacity='0.085' d='M140 452 C176 446 240 368 268 362 C296 356 358 420 400 430 C456 442 510 350 540 344 C572 338 638 412 680 420 C740 432 798 358 830 352 C864 346 924 420 970 428 C1064 446 1148 414 1200 398'/%3E%3Cpath stroke-width='2.3' stroke-opacity='0.104' d='M40 566 C84 560 164 478 200 470 C238 462 306 530 350 540 C410 552 466 460 500 452 C536 444 610 522 660 532 C724 544 788 470 820 462 C856 454 928 530 980 540 C1074 558 1152 522 1200 506'/%3E%3Cpath stroke-width='2.9' stroke-opacity='0.13' d='M0 690 C50 684 130 594 170 586 C212 578 284 652 330 664 C394 678 456 578 490 568 C528 558 606 642 660 652 C728 664 796 586 830 576 C868 566 944 646 1000 656 C1094 674 1148 638 1200 620'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.059' d='M300 400 C450 390 610 396 740 386'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.065' d='M420 500 C580 490 760 496 916 484'/%3E%3Cpath stroke-width='1.4' stroke-opacity='0.059' d='M200 620 C400 610 620 616 820 604'/%3E%3Cpath stroke-width='1.8' stroke-opacity='0.091' d='M424 284 C424 242 458 210 500 210 C542 210 576 242 576 284'/%3E%3C/svg%3E");
 }
@@ -2694,18 +2786,27 @@ html[data-kb-overlay] .kb-pagescroll {
   --nav-fg-muted: #5c6371;
   --nav-active-wash: rgba(74, 93, 138, 0.1);
   --term-link-line: rgba(74, 93, 138, 0.32);
-  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  // 图谱边色 + 十五域色板（色相顺序跨主题不变；1–4/7 主干五书、9 术语层、
+  // 8+10–15 扩展入库按法域归的七组，组表见 quartz/util/graphSections.ts；
+  // 5/6 已随 G-1 摘组而无前缀命中，保留占位不删，值亦不动；
+  // 15 为 G-2 新增的商标审查指南组，由同块的 8 派生，见文末书级色板节）
   --graphLink: #aeb1ba;
   --graphLinkActive: #4a5d8a;
-  --graph-section-1: #c85561;
-  --graph-section-2: #bb6731;
-  --graph-section-3: #a2781e;
-  --graph-section-4: #4c9169;
-  --graph-section-5: #379185;
+  --graph-section-1: #cf4d63;
+  --graph-section-2: #a95f0e;
+  --graph-section-3: #aa8639;
+  --graph-section-4: #37946c;
+  --graph-section-5: #319090;
   --graph-section-6: #5084bb;
-  --graph-section-7: #8c6fb7;
-  --graph-section-8: #ac668d;
+  --graph-section-7: #a175c1;
+  --graph-section-8: #b35f94;
   --graph-section-9: #6f75d0;
+  --graph-section-10: #748520; // 10 秋香：专利扩展
+  --graph-section-11: #1a8428; // 11 草绿：品种布图
+  --graph-section-12: #00829b; // 12 湖青：竞争法
+  --graph-section-13: #8c449a; // 13 堇紫：著作权
+  --graph-section-14: #3e3dc0; // 14 青莲：综合程序
+  --graph-section-15: #a23a6a; // 15 绛红：商标审查指南
   // 素描背景：星月夜山
   --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%23576997' stroke-opacity='0.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='2' stroke-opacity='0.1' d='M722 66 C668 78 630 128 638 182 C646 236 696 272 750 262 C702 244 674 196 678 148 C682 108 698 82 722 66'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.085' d='M470 130 C476 148 484 156 502 162 C484 168 476 176 470 194 C464 176 456 168 438 162 C456 156 464 148 470 130'/%3E%3Cpath stroke-width='1.3' stroke-opacity='0.07' d='M300 250 C304 262 310 268 322 272 C310 276 304 282 300 294 C296 282 290 276 278 272 C290 268 296 262 300 250'/%3E%3Cpath stroke-width='3.6' stroke-opacity='0.09' d='M210 96 l1 0 M386 62 l1 0 M572 322 l1 0 M136 214 l1 0 M818 352 l1 0 M300 372 l1 0'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.05' d='M420 480 C454 474 500 416 520 410 C542 404 596 456 630 462 C672 470 718 404 740 398 C766 392 822 448 860 452 C908 458 954 410 980 404 C1044 438 1140 452 1200 442'/%3E%3Cpath stroke-width='2.8' stroke-opacity='0.1' d='M0 672 C46 666 116 582 150 574 C188 566 256 640 300 650 C360 664 428 560 460 552 C500 542 574 632 620 642 C686 656 758 574 790 566 C830 556 900 640 950 648 C1058 666 1146 626 1200 606'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.08' d='M300 752 C342 748 406 704 430 700 C456 696 522 738 560 742 C608 748 674 690 700 686 C730 682 810 732 850 736 C904 744 976 694 1010 690 C1074 682 1152 726 1200 722'/%3E%3Cpath stroke-width='1.3' stroke-opacity='0.04' d='M120 712 C340 702 560 706 780 696'/%3E%3C/svg%3E");
 
@@ -2757,20 +2858,244 @@ html[data-kb-overlay] .kb-pagescroll {
   --nav-fg-muted: #8f95a2;
   --nav-active-wash: rgba(143, 163, 204, 0.16);
   --term-link-line: rgba(143, 163, 204, 0.4);
-  // 图谱边色 + 九域色板（色相顺序跨主题不变）
+  // 图谱边色 + 十五域色板（色相顺序跨主题不变；1–4/7 主干五书、9 术语层、
+  // 8+10–15 扩展入库按法域归的七组，组表见 quartz/util/graphSections.ts；
+  // 5/6 已随 G-1 摘组而无前缀命中，保留占位不删，值亦不动；
+  // 15 为 G-2 新增的商标审查指南组，由同块的 8 派生，见文末书级色板节）
   --graphLink: #404550;
   --graphLinkActive: #8fa3cc;
-  --graph-section-1: #e16b76;
-  --graph-section-2: #d27c47;
-  --graph-section-3: #b88d38;
-  --graph-section-4: #62a77e;
-  --graph-section-5: #4fa79a;
+  --graph-section-1: #e86378;
+  --graph-section-2: #c0742d;
+  --graph-section-3: #c09b4f;
+  --graph-section-4: #4faa81;
+  --graph-section-5: #4aa6a6;
   --graph-section-6: #6599d2;
-  --graph-section-7: #a284ce;
-  --graph-section-8: #c37ba3;
+  --graph-section-7: #b78ad8;
+  --graph-section-8: #ca74aa;
   --graph-section-9: #808ce8;
+  --graph-section-10: #92a33d; // 10 秋香：专利扩展
+  --graph-section-11: #339c3d; // 11 草绿：品种布图
+  --graph-section-12: #55c2dc; // 12 湖青：竞争法
+  --graph-section-13: #b35ac4; // 13 堇紫：著作权
+  --graph-section-14: #6261e5; // 14 青莲：综合程序
+  --graph-section-15: #b94f7e; // 15 绛红：商标审查指南
   // 素描背景：星月夜山
   --page-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' fill='none' stroke='%238296be' stroke-opacity='0.13' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='2' stroke-opacity='0.13' d='M722 66 C668 78 630 128 638 182 C646 236 696 272 750 262 C702 244 674 196 678 148 C682 108 698 82 722 66'/%3E%3Cpath stroke-width='1.5' stroke-opacity='0.111' d='M470 130 C476 148 484 156 502 162 C484 168 476 176 470 194 C464 176 456 168 438 162 C456 156 464 148 470 130'/%3E%3Cpath stroke-width='1.3' stroke-opacity='0.091' d='M300 250 C304 262 310 268 322 272 C310 276 304 282 300 294 C296 282 290 276 278 272 C290 268 296 262 300 250'/%3E%3Cpath stroke-width='3.6' stroke-opacity='0.117' d='M210 96 l1 0 M386 62 l1 0 M572 322 l1 0 M136 214 l1 0 M818 352 l1 0 M300 372 l1 0'/%3E%3Cpath stroke-width='1.7' stroke-opacity='0.065' d='M420 480 C454 474 500 416 520 410 C542 404 596 456 630 462 C672 470 718 404 740 398 C766 392 822 448 860 452 C908 458 954 410 980 404 C1044 438 1140 452 1200 442'/%3E%3Cpath stroke-width='2.8' stroke-opacity='0.13' d='M0 672 C46 666 116 582 150 574 C188 566 256 640 300 650 C360 664 428 560 460 552 C500 542 574 632 620 642 C686 656 758 574 790 566 C830 556 900 640 950 648 C1058 666 1146 626 1200 606'/%3E%3Cpath stroke-width='2.2' stroke-opacity='0.104' d='M300 752 C342 748 406 704 430 700 C456 696 522 738 560 742 C608 748 674 690 700 686 C730 682 810 732 850 736 C904 744 976 694 1010 690 C1074 682 1152 726 1200 722'/%3E%3Cpath stroke-width='1.3' stroke-opacity='0.052' d='M120 712 C340 702 560 706 780 696'/%3E%3C/svg%3E");
+}
+
+// ============================================================
+// 第十六节之二：书级图谱色板（阶段5.1 批 G-2）
+// ============================================================
+// 【是什么】--graph-book-<目录前缀>：图谱节点的**书级**颜色，共 87 部文献各一色。
+// 上方六主题块里的 --graph-section-<组号> 不被取代，二者分工如下：
+//   · --graph-book-*    图谱节点着色（graph.inline.ts 的 bookColor 逐节点读取）；
+//   · --graph-section-* 图例色点（graphexplorer.scss）、术语层节点色、以及
+//                       书级变量缺失时的组级回落。显隐粒度仍是**组级**，未改。
+//
+// 【为什么放在全局块而不是六主题块】书级色板全站只有 light / dark 两套，六套主题
+// 共用。若逐主题定义就是 6 × 2 × 87 = 1044 个值，既不可维护，收益也不成比例——
+// 六套主题的差异只是明度/彩度包络的小幅平移，而书级色板的全部预算已经用在
+// 「87 色两两可辨」这件事上，再按主题挪动包络只会把好不容易拉开的间距压回去。
+// 特异性上也无冲突：六主题块 (0,2,0)/(0,3,0) 一概不声明 --graph-book-*，
+// 本节 :root (0,1,0) 与 :root[saved-theme="dark"] (0,2,0) 各管明暗一套，
+// 暗态凭属性选择器压过亮态，与既有暗色块写法同构。
+//
+// 【怎么生成的】色值由 scripts/gen-book-colors.mjs 确定性生成，**勿手改**；
+// 改配色请改该脚本的参数（色阶点阵 LADDER / C_ABS、组色微调表 GROUP_TUNE、
+// 寄养表 ORPHAN_HOST）后重跑 `node scripts/gen-book-colors.mjs --write`
+// 并跑一遍 prettier。分配口径：色相 = 法域（每组一段色相带，带宽按书数加权劈分），
+// 明度/彩度 = 组内区分（9 级明度 × 3 级彩度的六方点阵）。
+// 实测（ΔEok = OKLab 欧氏距离，按量化后 hex 计；大色块 JND≈0.020，小圆点工作
+// 阈值取 2 倍即 0.040）：light 组内最小 0.0432 / 跨组最小 0.0429 / 全局最小 0.0429，
+// dark 0.0430 / 0.0453 / 0.0430，两套均 0 / 3741 对低于 0.040。
+//
+// 【为什么是 87 部而不是 80 部】G-1 移出图例的 7 部（前缀 5/6/63/79/87/89/90）
+// 在**页内局部图**仍会渲染（见 util/appPages.ts 的 GRAPH_HIDDEN_BOOKS 适用范围），
+// 故一并配色；它们按原法域归入邻近组的色相带并统一降饱和至 0.72 倍，
+// 行尾以「·寄养」标注。
+:root {
+  // >>> gen-book-colors:light
+  --graph-book-1: #c45868; // 专利法
+  --graph-book-2: #a75f39; // 实施细则
+  --graph-book-3: #a6874b; // 审查指南
+  --graph-book-4: #49906f; // 侵权判定
+  --graph-book-5: #458e8d; // 机械撰写
+  --graph-book-6: #5984b1; // 化学撰写
+  --graph-book-7: #9d7ab9; // 答复OA
+  --graph-book-10: #6abe5e; // 品种布图
+  --graph-book-11: #5a481f; // 专利扩展
+  --graph-book-12: #761d6f; // 商标
+  --graph-book-13: #943988; // 商标
+  --graph-book-14: #642887; // 著作权
+  --graph-book-15: #40793e; // 品种布图
+  --graph-book-16: #cda6c5; // 商标
+  --graph-book-17: #dab766; // 专利扩展
+  --graph-book-18: #88627e; // 商标
+  --graph-book-19: #295f98; // 综合程序
+  --graph-book-20: #716238; // 专利扩展
+  --graph-book-21: #d36fba; // 商标
+  --graph-book-22: #72a1e2; // 综合程序
+  --graph-book-23: #3e7bd8; // 综合程序
+  --graph-book-24: #516387; // 综合程序
+  --graph-book-25: #32b3b7; // 竞争法
+  --graph-book-26: #8e7418; // 专利扩展
+  --graph-book-27: #a3b4dd; // 综合程序
+  --graph-book-29: #62a36a; // 品种布图
+  --graph-book-30: #256068; // 竞争法
+  --graph-book-31: #5265a8; // 综合程序
+  --graph-book-32: #86bfcd; // 竞争法
+  --graph-book-33: #3d4a8b; // 综合程序
+  --graph-book-34: #6571d8; // 综合程序
+  --graph-book-35: #8287b0; // 综合程序
+  --graph-book-36: #84d099; // 品种布图
+  --graph-book-37: #b2a67a; // 专利扩展
+  --graph-book-38: #8f50af; // 著作权
+  --graph-book-39: #bb78da; // 著作权
+  --graph-book-40: #673b78; // 著作权
+  --graph-book-41: #9161a0; // 著作权
+  --graph-book-42: #603d56; // 商标
+  --graph-book-43: #8888d2; // 综合程序
+  --graph-book-44: #887e52; // 专利扩展
+  --graph-book-45: #cb97d8; // 著作权
+  --graph-book-46: #45788a; // 竞争法
+  --graph-book-47: #4fd188; // 品种布图
+  --graph-book-48: #70a0b8; // 竞争法
+  --graph-book-49: #bd76a6; // 商标
+  --graph-book-50: #36614a; // 品种布图
+  --graph-book-51: #7c3189; // 著作权
+  --graph-book-52: #b766c0; // 著作权
+  --graph-book-53: #a57c96; // 商标
+  --graph-book-54: #47456b; // 综合程序
+  --graph-book-55: #7b457d; // 著作权
+  --graph-book-56: #b0a04b; // 专利扩展
+  --graph-book-57: #92852d; // 专利扩展
+  --graph-book-58: #de91be; // 商标
+  --graph-book-59: #8d276b; // 商标
+  --graph-book-60: #5c582e; // 专利扩展
+  --graph-book-61: #9c9b6f; // 专利扩展
+  --graph-book-62: #b2b35e; // 专利扩展
+  --graph-book-63: #6e6d89; // 综合程序·寄养
+  --graph-book-64: #707449; // 专利扩展
+  --graph-book-65: #8f9946; // 专利扩展
+  --graph-book-66: #ac4383; // 商标
+  --graph-book-67: #c497ad; // 商标
+  --graph-book-68: #b2ba8d; // 专利扩展
+  --graph-book-69: #7a345a; // 商标
+  --graph-book-70: #a65a7e; // 商标
+  --graph-book-71: #274f68; // 竞争法
+  --graph-book-72: #6f802e; // 专利扩展
+  --graph-book-73: #b0c676; // 专利扩展
+  --graph-book-74: #91ab5d; // 专利扩展
+  --graph-book-75: #819269; // 专利扩展
+  --graph-book-76: #a76ba4; // 著作权
+  --graph-book-77: #af56a8; // 著作权
+  --graph-book-78: #40512c; // 专利扩展
+  --graph-book-79: #57526e; // 综合程序·寄养
+  --graph-book-80: #9a4469; // 商标审查指南
+  --graph-book-81: #6e9148; // 专利扩展
+  --graph-book-82: #556b47; // 专利扩展
+  --graph-book-83: #831352; // 商标
+  --graph-book-84: #cf5d92; // 商标
+  --graph-book-85: #8ebd78; // 专利扩展
+  --graph-book-86: #604f94; // 综合程序
+  --graph-book-87: #836fb8; // 综合程序·寄养
+  --graph-book-88: #83759d; // 综合程序
+  --graph-book-89: #a894c8; // 综合程序·寄养
+  --graph-book-90: #745e8e; // 综合程序·寄养
+  --graph-book-91: #94b08a; // 专利扩展
+  // <<< gen-book-colors:light
+}
+:root[saved-theme="dark"] {
+  // >>> gen-book-colors:dark
+  --graph-book-1: #dc6e7d; // 专利法
+  --graph-book-2: #b97745; // 实施细则
+  --graph-book-3: #bc9d60; // 审查指南
+  --graph-book-4: #5fa784; // 侵权判定
+  --graph-book-5: #5ba3a3; // 机械撰写
+  --graph-book-6: #6e99c8; // 化学撰写
+  --graph-book-7: #b48fcf; // 答复OA
+  --graph-book-10: #78cc6c; // 品种布图
+  --graph-book-11: #705e36; // 专利扩展
+  --graph-book-12: #8f3787; // 商标
+  --graph-book-13: #ab4f9e; // 商标
+  --graph-book-14: #7b40a0; // 著作权
+  --graph-book-15: #548e51; // 品种布图
+  --graph-book-16: #dab3d2; // 商标
+  --graph-book-17: #e6c372; // 专利扩展
+  --graph-book-18: #9c7591; // 商标
+  --graph-book-19: #3f74af; // 综合程序
+  --graph-book-20: #86764c; // 专利扩展
+  --graph-book-21: #e47ecb; // 商标
+  --graph-book-22: #80b0f2; // 综合程序
+  --graph-book-23: #508eec; // 综合程序
+  --graph-book-24: #64779d; // 综合程序
+  --graph-book-25: #46c3c7; // 竞争法
+  --graph-book-26: #a18631; // 专利扩展
+  --graph-book-27: #afc0ea; // 综合程序
+  --graph-book-29: #72b479; // 品种布图
+  --graph-book-30: #3c767e; // 竞争法
+  --graph-book-31: #6579be; // 综合程序
+  --graph-book-32: #92ccda; // 竞争法
+  --graph-book-33: #5160a4; // 综合程序
+  --graph-book-34: #7684ec; // 综合程序
+  --graph-book-35: #9398c2; // 综合程序
+  --graph-book-36: #90dca5; // 品种布图
+  --graph-book-37: #c0b587; // 专利扩展
+  --graph-book-38: #a363c5; // 著作权
+  --graph-book-39: #cb88eb; // 著作权
+  --graph-book-40: #7e5190; // 著作权
+  --graph-book-41: #a473b3; // 著作权
+  --graph-book-42: #78536c; // 商标
+  --graph-book-43: #9899e3; // 综合程序
+  --graph-book-44: #9a9064; // 专利扩展
+  --graph-book-45: #d9a4e6; // 著作权
+  --graph-book-46: #588c9e; // 竞争法
+  --graph-book-47: #5ede94; // 品种布图
+  --graph-book-48: #7fb0c8; // 竞争法
+  --graph-book-49: #cf86b6; // 商标
+  --graph-book-50: #4b775f; // 品种布图
+  --graph-book-51: #9347a1; // 著作权
+  --graph-book-52: #c977d2; // 著作权
+  --graph-book-53: #b78da6; // 商标
+  --graph-book-54: #5d5b82; // 综合程序
+  --graph-book-55: #925a93; // 著作权
+  --graph-book-56: #bfaf5a; // 专利扩展
+  --graph-book-57: #a49741; // 专利扩展
+  --graph-book-58: #ec9ecc; // 商标
+  --graph-book-59: #a63f81; // 商标
+  --graph-book-60: #716e43; // 专利扩展
+  --graph-book-61: #abab7e; // 专利扩展
+  --graph-book-62: #bfc16c; // 专利扩展
+  --graph-book-63: #80809d; // 综合程序·寄养
+  --graph-book-64: #83875c; // 专利扩展
+  --graph-book-65: #9fa957; // 专利扩展
+  --graph-book-66: #c25797; // 商标
+  --graph-book-67: #d3a5bb; // 商标
+  --graph-book-68: #bec799; // 专利扩展
+  --graph-book-69: #924a70; // 商标
+  --graph-book-70: #ba6d91; // 商标
+  --graph-book-71: #3d6680; // 竞争法
+  --graph-book-72: #819242; // 专利扩展
+  --graph-book-73: #bcd382; // 专利扩展
+  --graph-book-74: #a0ba6b; // 专利扩展
+  --graph-book-75: #91a379; // 专利扩展
+  --graph-book-76: #b97db6; // 著作权
+  --graph-book-77: #c368bb; // 著作权
+  --graph-book-78: #556841; // 专利扩展
+  --graph-book-79: #6c6884; // 综合程序·寄养
+  --graph-book-80: #b0597d; // 商标审查指南
+  --graph-book-81: #7fa35a; // 专利扩展
+  --graph-book-82: #68805a; // 专利扩展
+  --graph-book-83: #9e3068; // 商标
+  --graph-book-84: #e26ea3; // 商标
+  --graph-book-85: #9bcb85; // 专利扩展
+  --graph-book-86: #7464ab; // 综合程序
+  --graph-book-87: #9581cc; // 综合程序·寄养
+  --graph-book-88: #9587b0; // 综合程序
+  --graph-book-89: #b7a3d7; // 综合程序·寄养
+  --graph-book-90: #8871a3; // 综合程序·寄养
+  --graph-book-91: #a1be98; // 专利扩展
+  // <<< gen-book-colors:dark
 }
 
 // 青瓷正文为仿宋，细横画在 17px 下发虚 → 抬到 18px 下限（46em 行宽随之约 828px）

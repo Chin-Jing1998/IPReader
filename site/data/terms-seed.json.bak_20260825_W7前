@@ -1,0 +1,7426 @@
+[
+  {
+    "tmpKey": "seed-001",
+    "canonical": "客体审查",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-01-02",
+        "02-09",
+        "02-10-02",
+        "02-11-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-002",
+    "canonical": "不授予专利权",
+    "aliases": [
+      "违反法律",
+      "公德",
+      "公共利益"
+    ],
+    "matchers": [],
+    "topicKey": "subjectMatter",
+    "sources": {
+      "examination-guideline": [
+        "01-01-07-02",
+        "01-03-06-01",
+        "02-01-03-01"
+      ],
+      "patent-law": [
+        "law-01-05"
+      ]
+    },
+    "lawKeys": [
+      "专利法第5条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-003",
+    "canonical": "遗传资源",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "geneticResources",
+    "sources": {
+      "examination-guideline": [
+        "01-01-05-03",
+        "02-01-03-02",
+        "02-10-09-05"
+      ],
+      "implementation-rules": [
+        "rule-02-13",
+        "rule-11-09"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第126条",
+      "专利法实施细则第29条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-004",
+    "canonical": "不授予专利权的客体",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-01-04"
+      ],
+      "patent-law": [
+        "law-02-04"
+      ]
+    },
+    "lawKeys": [
+      "专利法第25条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-005",
+    "canonical": "科学发现",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "subjectMatter",
+    "sources": {
+      "examination-guideline": [
+        "02-01-04-01",
+        "02-10-02-01",
+        "02-11-02-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-006",
+    "canonical": "智力活动规则方法",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-01-04-02",
+        "02-09-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-007",
+    "canonical": "疾病的诊断和治疗方法",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-01-04-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-008",
+    "canonical": "外科手术方法",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "subjectMatter",
+    "sources": {
+      "examination-guideline": [
+        "02-01-04-03",
+        "02-05-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-009",
+    "canonical": "动物和植物品种",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "subjectMatter",
+    "sources": {
+      "examination-guideline": [
+        "02-01-04-04",
+        "02-10-09-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-010",
+    "canonical": "原子核变换方法",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-01-04-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-011",
+    "canonical": "计算机程序",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "subjectMatter",
+    "sources": {
+      "examination-guideline": [
+        "02-09"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-012",
+    "canonical": "人工智能",
+    "aliases": [
+      "大数据"
+    ],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-09-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-013",
+    "canonical": "比特流",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-09-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-014",
+    "canonical": "商业规则方法",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-09-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-015",
+    "canonical": "说明书充分公开",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-02-02-01",
+        "02-10-03",
+        "02-11-03-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-016",
+    "canonical": "实施例",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "embodiment",
+    "sources": {
+      "examination-guideline": [
+        "02-02-02-02",
+        "02-10-03-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-017",
+    "canonical": "补交实验数据",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-10-03-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-018",
+    "canonical": "权利要求清楚简要",
+    "aliases": [],
+    "matchers": [
+      "清楚、简要",
+      "清楚地限定",
+      "简要"
+    ],
+    "topicKey": "clarity",
+    "sources": {
+      "examination-guideline": [
+        "02-02-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-019",
+    "canonical": "以说明书为依据",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "support",
+    "sources": {
+      "examination-guideline": [
+        "02-02-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-020",
+    "canonical": "必要技术特征",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "essentialFeatures",
+    "sources": {
+      "examination-guideline": [
+        "02-08-06-01"
+      ],
+      "oa-response-guide": [
+        "oa-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-021",
+    "canonical": "独立权利要求",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "claims",
+    "sources": {
+      "examination-guideline": [
+        "02-02-03-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-022",
+    "canonical": "从属权利要求",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "claims",
+    "sources": {
+      "examination-guideline": [
+        "02-02-03-03",
+        "02-06-02-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-023",
+    "canonical": "功能性特征",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-02-03-03"
+      ],
+      "infringement-guide": [
+        "infr-01-03",
+        "infr-02-02",
+        "infr-02-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-024",
+    "canonical": "马库什权利要求",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-10-08-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-025",
+    "canonical": "用途权利要求",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-10-04-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-026",
+    "canonical": "瑞士型权利要求",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-10-04-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-027",
+    "canonical": "新颖性",
+    "aliases": [],
+    "matchers": [
+      "抵触申请",
+      "现有技术"
+    ],
+    "topicKey": "novelty",
+    "sources": {
+      "examination-guideline": [
+        "02-03"
+      ],
+      "patent-law": [
+        "law-02-01"
+      ],
+      "oa-response-guide": [
+        "oa-01"
+      ]
+    },
+    "lawKeys": [
+      "专利法第22条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-028",
+    "canonical": "现有技术",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "novelty",
+    "sources": {
+      "examination-guideline": [
+        "02-03-02-01"
+      ],
+      "patent-law": [
+        "law-07-04"
+      ]
+    },
+    "lawKeys": [
+      "专利法第67条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-029",
+    "canonical": "抵触申请",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "novelty",
+    "sources": {
+      "examination-guideline": [
+        "02-03-02-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-030",
+    "canonical": "单独对比",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-03-03-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-031",
+    "canonical": "上位下位概念",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-03-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-032",
+    "canonical": "惯用手段直接置换",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-03-03-02"
+      ],
+      "oa-response-guide": [
+        "oa-01-02",
+        "oa-01-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-033",
+    "canonical": "数值范围",
+    "aliases": [
+      "端点值",
+      "上下限"
+    ],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-03-03-02"
+      ],
+      "infringement-guide": [
+        "infr-02-03"
+      ],
+      "chemistry-drafting-rules": [
+        "chem-01-03-01",
+        "chem-01-04-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-034",
+    "canonical": "制法限定的产品权要",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-03-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-035",
+    "canonical": "创造性",
+    "aliases": [],
+    "matchers": [
+      "显而易见",
+      "技术启示",
+      "最接近的现有技术",
+      "三步法",
+      "突出的实质性特点",
+      "非显而易见"
+    ],
+    "topicKey": "inventiveness",
+    "sources": {
+      "examination-guideline": [
+        "02-04"
+      ],
+      "oa-response-guide": [
+        "oa-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-036",
+    "canonical": "三步法",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "inventiveness",
+    "sources": {
+      "examination-guideline": [
+        "02-04-03-02"
+      ],
+      "oa-response-guide": [
+        "oa-02-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-037",
+    "canonical": "最接近的现有技术",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "inventiveness",
+    "sources": {
+      "examination-guideline": [
+        "02-04-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-038",
+    "canonical": "区别特征",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-04-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-039",
+    "canonical": "实际解决的技术问题",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-04-03-02"
+      ],
+      "oa-response-guide": [
+        "oa-02-03",
+        "oa-02-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-040",
+    "canonical": "技术启示",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "inventiveness",
+    "sources": {
+      "examination-guideline": [
+        "02-04-03-02"
+      ],
+      "oa-response-guide": [
+        "oa-02-03",
+        "oa-02-04",
+        "oa-02-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-041",
+    "canonical": "所属技术领域的技术人员",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-04-02-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-042",
+    "canonical": "公知常识",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-04-03-02",
+        "02-08-04-10"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-043",
+    "canonical": "事后诸葛亮",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-04-06-02"
+      ],
+      "oa-response-guide": [
+        "oa-02-06",
+        "oa-02-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-044",
+    "canonical": "预料不到的技术效果",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-04-05-03",
+        "02-04-06-03"
+      ],
+      "oa-response-guide": [
+        "oa-02-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-045",
+    "canonical": "技术偏见",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-02-02-01",
+        "02-04-05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-046",
+    "canonical": "商业成功",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-04-05-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-047",
+    "canonical": "开拓性发明",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-04-04-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-048",
+    "canonical": "选择发明",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-04-04-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-049",
+    "canonical": "转用发明",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-04-04-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-050",
+    "canonical": "已知产品新用途",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-04-04-05",
+        "02-10-06-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-051",
+    "canonical": "实用性",
+    "aliases": [
+      "个体行为",
+      "有生命人",
+      "动物对象"
+    ],
+    "matchers": [
+      "能够制造或者使用"
+    ],
+    "topicKey": "utility",
+    "sources": {
+      "examination-guideline": [
+        "02-05"
+      ],
+      "chemistry-drafting-rules": [
+        "chem-01-05-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-052",
+    "canonical": "再现性",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-05-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-053",
+    "canonical": "永动机",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-05-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-054",
+    "canonical": "单一性",
+    "aliases": [
+      "多独权引用关系",
+      "总的发明构思"
+    ],
+    "matchers": [],
+    "topicKey": "unity",
+    "sources": {
+      "examination-guideline": [
+        "02-06",
+        "02-10-08"
+      ],
+      "patent-law": [
+        "law-03-06"
+      ],
+      "implementation-rules": [
+        "rule-02-23"
+      ],
+      "chemistry-drafting-rules": [
+        "chem-01-03-02"
+      ],
+      "oa-response-guide": [
+        "oa-03"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第39条",
+      "专利法第31条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-055",
+    "canonical": "特定技术特征",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-06-02-01"
+      ],
+      "oa-response-guide": [
+        "oa-03-02",
+        "oa-03-03",
+        "oa-03-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-056",
+    "canonical": "分案申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-01-05-01",
+        "02-06-03"
+      ],
+      "oa-response-guide": [
+        "oa-03-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-057",
+    "canonical": "检索",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "classificationSearch",
+    "sources": {
+      "examination-guideline": [
+        "02-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-058",
+    "canonical": "实质审查程序",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-08"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-059",
+    "canonical": "优先权审查",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-01-06-02",
+        "02-03-04",
+        "02-08-04-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-060",
+    "canonical": "答复期限",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-08-04-10",
+        "02-08-04-11"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-061",
+    "canonical": "主动修改时机",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-08-05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-062",
+    "canonical": "答复审查意见通知书时的修改",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-08-05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-063",
+    "canonical": "修改超范围",
+    "aliases": [],
+    "matchers": [
+      "超出原说明书",
+      "原始记载的范围",
+      "原说明书和权利要求书记载的范围",
+      "超范围"
+    ],
+    "topicKey": "amendment",
+    "sources": {
+      "examination-guideline": [
+        "01-01-07-06",
+        "02-08-05-02"
+      ],
+      "patent-law": [
+        "law-03-08"
+      ],
+      "oa-response-guide": [
+        "oa-02-08"
+      ]
+    },
+    "lawKeys": [
+      "专利法第33条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-064",
+    "canonical": "允许的修改",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-08-05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-065",
+    "canonical": "不允许的修改",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-08-05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-066",
+    "canonical": "数值范围放弃",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-08-05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-067",
+    "canonical": "依职权修改",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-01-08",
+        "02-08-05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-068",
+    "canonical": "驳回决定",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "reexam",
+    "sources": {
+      "examination-guideline": [
+        "01-01-03-05",
+        "02-08-06-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-069",
+    "canonical": "十一种驳回情形",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-08-06-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-070",
+    "canonical": "听证原则",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-08-06-01",
+        "04-01-02-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-071",
+    "canonical": "化学发明审查",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-10"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-072",
+    "canonical": "化合物新颖性",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-10-05-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-073",
+    "canonical": "化合物创造性",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-10-06-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-074",
+    "canonical": "组合物",
+    "aliases": [
+      "封闭式"
+    ],
+    "matchers": [],
+    "topicKey": "compound",
+    "sources": {
+      "examination-guideline": [
+        "02-10-04-02",
+        "02-10-05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-075",
+    "canonical": "医药用途",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-10-02-02",
+        "02-10-04-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-076",
+    "canonical": "制药用途新颖性",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-10-05-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-077",
+    "canonical": "生物材料保藏",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-01-05-02",
+        "02-10-09-02"
+      ],
+      "implementation-rules": [
+        "rule-02-11",
+        "rule-02-12",
+        "rule-11-08"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第125条",
+      "专利法实施细则第27条",
+      "专利法实施细则第28条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-078",
+    "canonical": "微生物",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-10-09-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-079",
+    "canonical": "基因",
+    "aliases": [
+      "DNA 片段"
+    ],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-10-09-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-080",
+    "canonical": "转基因动植物",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-10-09-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-081",
+    "canonical": "中药发明审查",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-11"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-082",
+    "canonical": "中药组合物",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-11-03-01",
+        "02-11-05-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-083",
+    "canonical": "加减方",
+    "aliases": [
+      "合方",
+      "自组方"
+    ],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-11-05-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-084",
+    "canonical": "中药制药用途的病与证",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-11-04-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-085",
+    "canonical": "不丧失新颖性宽限期",
+    "aliases": [],
+    "matchers": [
+      "不丧失新颖性",
+      "宽限期"
+    ],
+    "topicKey": "gracePeriod",
+    "sources": {
+      "examination-guideline": [
+        "01-01-06-03",
+        "02-03-05"
+      ],
+      "patent-law": [
+        "law-02-03"
+      ]
+    },
+    "lawKeys": [
+      "专利法第24条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-086",
+    "canonical": "同样的发明创造",
+    "aliases": [
+      "比较对象"
+    ],
+    "matchers": [],
+    "topicKey": "doubleProtect",
+    "sources": {
+      "examination-guideline": [
+        "02-03-06",
+        "04-07"
+      ],
+      "oa-response-guide": [
+        "oa-06-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-087",
+    "canonical": "一案两请",
+    "aliases": [
+      "同日两请"
+    ],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-03-06-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-088",
+    "canonical": "优先权",
+    "aliases": [],
+    "matchers": [
+      "本国优先权",
+      "外国优先权",
+      "在先申请"
+    ],
+    "topicKey": "priority",
+    "sources": {
+      "examination-guideline": [
+        "01-01-06-02",
+        "01-03-05-02",
+        "02-03-04"
+      ],
+      "patent-law": [
+        "law-03-04",
+        "law-03-05"
+      ],
+      "trademark-exam-guide-2021": [
+        "tmeg-02-02"
+      ]
+    },
+    "lawKeys": [
+      "专利法第29条",
+      "专利法第30条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-089",
+    "canonical": "优先权恢复",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-01-06-02"
+      ],
+      "implementation-rules": [
+        "rule-02-20",
+        "rule-11-11"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第128条",
+      "专利法实施细则第36条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-090",
+    "canonical": "优先权要求增加改正",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-01-06-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-091",
+    "canonical": "援引加入",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-01-04-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-092",
+    "canonical": "实质审查请求",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-01-06-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-093",
+    "canonical": "提前公布声明",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-01-06-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-094",
+    "canonical": "撤回专利申请声明",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-01-06-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-095",
+    "canonical": "著录项目变更",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-01-06-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-096",
+    "canonical": "专利权转让",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-01-06-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-097",
+    "canonical": "辞去委托",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-01-06-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-098",
+    "canonical": "委托代理机构",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-01-06-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-099",
+    "canonical": "实用新型客体",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-02-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-100",
+    "canonical": "实用新型只保护产品",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-02-06-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-101",
+    "canonical": "外观设计客体",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-03-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-102",
+    "canonical": "不授予外观设计的 11 种情形",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-03-07-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-103",
+    "canonical": "外观设计图片照片",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-03-04-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-104",
+    "canonical": "简要说明",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-03-04-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-105",
+    "canonical": "局部外观设计",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-03-04-04"
+      ],
+      "implementation-rules": [
+        "rule-02-14",
+        "rule-02-15",
+        "rule-02-24"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第30条",
+      "专利法实施细则第31条",
+      "专利法实施细则第40条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-106",
+    "canonical": "图形用户界面",
+    "aliases": [
+      "GUI"
+    ],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-03-04-05",
+        "01-03-07-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-107",
+    "canonical": "动态图形用户界面",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-03-04-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-108",
+    "canonical": "相似外观设计",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-03-09-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-109",
+    "canonical": "成套产品",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-03-09-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-110",
+    "canonical": "平面印刷品标识性设计",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-03-06-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-111",
+    "canonical": "外观设计相同",
+    "aliases": [
+      "实质相同",
+      "明显区别"
+    ],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-03-08",
+        "04-05-05",
+        "04-05-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-112",
+    "canonical": "一般消费者",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "design",
+    "sources": {
+      "examination-guideline": [
+        "04-05-04"
+      ],
+      "infringement-guide": [
+        "infr-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-113",
+    "canonical": "现有设计",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-114",
+    "canonical": "惯常设计",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-05-02"
+      ],
+      "infringement-guide": [
+        "infr-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-115",
+    "canonical": "外观设计转用",
+    "aliases": [
+      "组合"
+    ],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-05-06-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-116",
+    "canonical": "在先合法权利冲突",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-05-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-117",
+    "canonical": "国际专利分类 IPC",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "01-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-118",
+    "canonical": "多重分类",
+    "aliases": [
+      "多方面分类"
+    ],
+    "matchers": [],
+    "topicKey": "classificationSearch",
+    "sources": {
+      "examination-guideline": [
+        "01-04-04-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-119",
+    "canonical": "复审请求",
+    "aliases": [
+      "复审中的修改限制"
+    ],
+    "matchers": [],
+    "topicKey": "reexam",
+    "sources": {
+      "examination-guideline": [
+        "04-02"
+      ],
+      "implementation-rules": [
+        "rule-04-01",
+        "rule-04-02"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第65条",
+      "专利法实施细则第66条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-120",
+    "canonical": "复审三个月期限",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-02-02-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-121",
+    "canonical": "前置审查",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "reexam",
+    "sources": {
+      "examination-guideline": [
+        "04-02-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-122",
+    "canonical": "复审合议审查",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-02-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-123",
+    "canonical": "复审依职权审查",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-02-04-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-124",
+    "canonical": "复审修改限制",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-02-04-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-125",
+    "canonical": "复审决定类型",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-02-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-126",
+    "canonical": "复审决定的约束力",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-02-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-127",
+    "canonical": "无效宣告请求",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-128",
+    "canonical": "无效法定理由",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-03-03-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-129",
+    "canonical": "一事不再理",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-03-02-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-130",
+    "canonical": "无效宣告理由增加",
+    "aliases": [
+      "一个月"
+    ],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-03-04-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-131",
+    "canonical": "无效宣告证据补充",
+    "aliases": [
+      "一个月"
+    ],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-03-04-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-132",
+    "canonical": "无效宣告修改原则",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-03-04-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-133",
+    "canonical": "无效宣告修改方式",
+    "aliases": [
+      "删除",
+      "技术方案删除",
+      "进一步限定",
+      "明显错误修正"
+    ],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-03-04-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-134",
+    "canonical": "无效宣告修改时机限制",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-03-04-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-135",
+    "canonical": "当事人处置原则",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-03-02-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-136",
+    "canonical": "无效宣告决定类型",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-03-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-137",
+    "canonical": "部分无效",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-03-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-138",
+    "canonical": "药品专利纠纷早期解决机制",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-03-09"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-139",
+    "canonical": "口头审理",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-140",
+    "canonical": "口审申请理由",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-04-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-141",
+    "canonical": "口审通知答复期",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-04-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-142",
+    "canonical": "口审四阶段",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-04-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-143",
+    "canonical": "证人出庭作证",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-04-10"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-144",
+    "canonical": "实用新型无效审查",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-145",
+    "canonical": "实用新型创造性",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-06-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-146",
+    "canonical": "同样发明创造无效宣告",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-147",
+    "canonical": "无效宣告证据规则",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-08"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-148",
+    "canonical": "公知常识证据",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-08-04-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-149",
+    "canonical": "互联网证据",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "04-08-05-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-150",
+    "canonical": "使用公开",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "02-03-02-01",
+        "04-08-05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-151",
+    "canonical": "申请文件形式",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-152",
+    "canonical": "专利费用",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-153",
+    "canonical": "受理",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "examProcedure",
+    "sources": {
+      "examination-guideline": [
+        "05-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-154",
+    "canonical": "申请日更正",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-03-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-155",
+    "canonical": "专利申请文档",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-156",
+    "canonical": "案卷保存期限",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-04-06-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-157",
+    "canonical": "保密申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-158",
+    "canonical": "向外国申请专利的保密审查",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-05-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-159",
+    "canonical": "通知和决定",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-160",
+    "canonical": "送达方式",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-06-02-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-161",
+    "canonical": "送达日推定",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-06-02-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-162",
+    "canonical": "期限种类",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-07-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-163",
+    "canonical": "期限延长",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-07-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-164",
+    "canonical": "权利的恢复",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-07-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-165",
+    "canonical": "中止程序",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "examProcedure",
+    "sources": {
+      "examination-guideline": [
+        "05-07-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-166",
+    "canonical": "优先审查",
+    "aliases": [
+      "国家局"
+    ],
+    "matchers": [],
+    "topicKey": "examProcedure",
+    "sources": {
+      "examination-guideline": [
+        "05-07-08-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-167",
+    "canonical": "快速审查",
+    "aliases": [
+      "保护中心预审"
+    ],
+    "matchers": [],
+    "topicKey": "examProcedure",
+    "sources": {
+      "examination-guideline": [
+        "05-07-08-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-168",
+    "canonical": "延迟审查",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "examProcedure",
+    "sources": {
+      "examination-guideline": [
+        "05-07-08-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-169",
+    "canonical": "专利公报",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-08"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-170",
+    "canonical": "专利单行本",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-08-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-171",
+    "canonical": "专利权授予",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-09-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-172",
+    "canonical": "专利证书",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-09-01-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-173",
+    "canonical": "专利登记簿",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-09-01-03"
+      ],
+      "implementation-rules": [
+        "rule-09-01"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第106条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-174",
+    "canonical": "专利权期限补偿",
+    "aliases": [
+      "PTA"
+    ],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-09-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-175",
+    "canonical": "新药专利期限补偿",
+    "aliases": [
+      "PTE"
+    ],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-09-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-176",
+    "canonical": "专利权终止",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-09-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-177",
+    "canonical": "专利权评价报告",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-10"
+      ],
+      "implementation-rules": [
+        "rule-03-21",
+        "rule-03-22"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第62条",
+      "专利法实施细则第63条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-178",
+    "canonical": "专利开放许可",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "05-11"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-179",
+    "canonical": "进入国家阶段国际申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-180",
+    "canonical": "PCT 第 19/34 条修改",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "03-01-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-181",
+    "canonical": "改正译文错误",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "03-01-05-08",
+        "03-02-05-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-182",
+    "canonical": "国际单位错误改正",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "03-01-05-12"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-183",
+    "canonical": "海牙协定外观设计国际申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "06"
+      ],
+      "implementation-rules": [
+        "rule-12-01",
+        "rule-12-02",
+        "rule-12-03",
+        "rule-12-04",
+        "rule-12-05",
+        "rule-12-06",
+        "rule-12-07",
+        "rule-12-08",
+        "rule-12-09"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第136条",
+      "专利法实施细则第137条",
+      "专利法实施细则第138条",
+      "专利法实施细则第139条",
+      "专利法实施细则第140条",
+      "专利法实施细则第141条",
+      "专利法实施细则第142条",
+      "专利法实施细则第143条",
+      "专利法实施细则第144条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-184",
+    "canonical": "外观设计国际申请审查",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "06-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-185",
+    "canonical": "给予保护决定",
+    "aliases": [
+      "驳回通知"
+    ],
+    "matchers": [],
+    "sources": {
+      "examination-guideline": [
+        "06-02-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-186",
+    "canonical": "立法目的",
+    "aliases": [
+      "宗旨"
+    ],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-01-01"
+      ]
+    },
+    "lawKeys": [
+      "专利法第1条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-187",
+    "canonical": "发明创造定义",
+    "aliases": [
+      "实用新型",
+      "外观设计"
+    ],
+    "matchers": [
+      "设计要点",
+      "一般消费者",
+      "整体视觉效果"
+    ],
+    "topicKey": "design",
+    "sources": {
+      "patent-law": [
+        "law-01-02"
+      ]
+    },
+    "lawKeys": [
+      "专利法第2条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-188",
+    "canonical": "职务发明",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "inventorship",
+    "sources": {
+      "patent-law": [
+        "law-01-06",
+        "law-01-15"
+      ]
+    },
+    "lawKeys": [
+      "专利法第15条",
+      "专利法第6条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-189",
+    "canonical": "共有专利",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-01-14"
+      ]
+    },
+    "lawKeys": [
+      "专利法第14条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-190",
+    "canonical": "保密审查",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-01-19",
+        "law-07-15"
+      ]
+    },
+    "lawKeys": [
+      "专利法第19条",
+      "专利法第78条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-191",
+    "canonical": "诚实信用原则",
+    "aliases": [
+      "弄虚作假"
+    ],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-01-20"
+      ],
+      "implementation-rules": [
+        "rule-01-11",
+        "rule-08-06"
+      ],
+      "trademark-exam-guide-2021": [
+        "tmeg-07-01",
+        "tmeg-07-10"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第100条",
+      "专利法实施细则第11条",
+      "专利法第20条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-192",
+    "canonical": "外观设计授权条件",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-02-02"
+      ]
+    },
+    "lawKeys": [
+      "专利法第23条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-193",
+    "canonical": "申请文件",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-03-01",
+        "law-03-02"
+      ]
+    },
+    "lawKeys": [
+      "专利法第26条",
+      "专利法第27条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-194",
+    "canonical": "申请日",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-03-03"
+      ]
+    },
+    "lawKeys": [
+      "专利法第28条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-195",
+    "canonical": "早期公开",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-04-01"
+      ]
+    },
+    "lawKeys": [
+      "专利法第34条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-196",
+    "canonical": "实质审查",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "examProcedure",
+    "sources": {
+      "patent-law": [
+        "law-04-02",
+        "law-04-03",
+        "law-04-04",
+        "law-04-05",
+        "law-04-06"
+      ]
+    },
+    "lawKeys": [
+      "专利法第35条",
+      "专利法第36条",
+      "专利法第37条",
+      "专利法第38条",
+      "专利法第39条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-197",
+    "canonical": "复审",
+    "aliases": [],
+    "matchers": [
+      "复审请求",
+      "复审程序",
+      "驳回决定",
+      "前置审查"
+    ],
+    "topicKey": "reexam",
+    "sources": {
+      "patent-law": [
+        "law-04-08"
+      ]
+    },
+    "lawKeys": [
+      "专利法第41条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-198",
+    "canonical": "专利权期限",
+    "aliases": [
+      "PTA",
+      "PTE"
+    ],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-05-01"
+      ]
+    },
+    "lawKeys": [
+      "专利法第42条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-199",
+    "canonical": "无效宣告",
+    "aliases": [],
+    "matchers": [
+      "宣告专利权无效",
+      "无效请求"
+    ],
+    "topicKey": "invalidation",
+    "sources": {
+      "patent-law": [
+        "law-05-04",
+        "law-05-05",
+        "law-05-06"
+      ]
+    },
+    "lawKeys": [
+      "专利法第45条",
+      "专利法第46条",
+      "专利法第47条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-200",
+    "canonical": "开放许可",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-06-03",
+        "law-06-04",
+        "law-06-05"
+      ]
+    },
+    "lawKeys": [
+      "专利法第50条",
+      "专利法第51条",
+      "专利法第52条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-201",
+    "canonical": "强制许可",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-06-06",
+        "law-06-07",
+        "law-06-08",
+        "law-06-09",
+        "law-06-10",
+        "law-06-11",
+        "law-06-12",
+        "law-06-13",
+        "law-06-14",
+        "law-06-15",
+        "law-06-16"
+      ]
+    },
+    "lawKeys": [
+      "专利法第53条",
+      "专利法第54条",
+      "专利法第55条",
+      "专利法第56条",
+      "专利法第57条",
+      "专利法第58条",
+      "专利法第59条",
+      "专利法第60条",
+      "专利法第61条",
+      "专利法第62条",
+      "专利法第63条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-202",
+    "canonical": "保护范围解释",
+    "aliases": [],
+    "matchers": [
+      "保护范围",
+      "以权利要求",
+      "权利要求的内容为准"
+    ],
+    "topicKey": "protectionScope",
+    "sources": {
+      "patent-law": [
+        "law-07-01"
+      ]
+    },
+    "lawKeys": [
+      "专利法第64条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-203",
+    "canonical": "方法专利举证倒置",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-07-03"
+      ]
+    },
+    "lawKeys": [
+      "专利法第66条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-204",
+    "canonical": "假冒专利",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-07-05"
+      ]
+    },
+    "lawKeys": [
+      "专利法第68条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-205",
+    "canonical": "惩罚性赔偿",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-07-08"
+      ]
+    },
+    "lawKeys": [
+      "专利法第71条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-206",
+    "canonical": "行为保全",
+    "aliases": [
+      "财产保全"
+    ],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-07-09"
+      ]
+    },
+    "lawKeys": [
+      "专利法第72条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-207",
+    "canonical": "证据保全",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-07-10"
+      ]
+    },
+    "lawKeys": [
+      "专利法第73条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-208",
+    "canonical": "诉讼时效",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-07-11"
+      ]
+    },
+    "lawKeys": [
+      "专利法第74条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-209",
+    "canonical": "专利权用尽",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-07-12"
+      ]
+    },
+    "lawKeys": [
+      "专利法第75条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-210",
+    "canonical": "先用权",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-07-12"
+      ],
+      "infringement-guide": [
+        "infr-06-04"
+      ]
+    },
+    "lawKeys": [
+      "专利法第75条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-211",
+    "canonical": "Bolar 例外",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-07-12"
+      ],
+      "infringement-guide": [
+        "infr-06-04"
+      ]
+    },
+    "lawKeys": [
+      "专利法第75条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-212",
+    "canonical": "药品专利链接",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-07-13"
+      ]
+    },
+    "lawKeys": [
+      "专利法第76条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-213",
+    "canonical": "合法来源抗辩",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "patent-law": [
+        "law-07-14"
+      ],
+      "infringement-guide": [
+        "infr-06-06"
+      ]
+    },
+    "lawKeys": [
+      "专利法第77条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-214",
+    "canonical": "电子形式",
+    "aliases": [
+      "数据电文"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-01-02",
+        "rule-01-04"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第2条",
+      "专利法实施细则第4条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-215",
+    "canonical": "中文与外文译文",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-01-03"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第3条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-216",
+    "canonical": "递交日",
+    "aliases": [
+      "送达日",
+      "邮寄",
+      "电子",
+      "直接",
+      "公告"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-01-04"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第4条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-217",
+    "canonical": "期限计算",
+    "aliases": [
+      "开始日",
+      "届满日",
+      "休假日顺延"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-01-05"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第5条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-218",
+    "canonical": "权利恢复",
+    "aliases": [
+      "延长期限",
+      "不可抗拒",
+      "正当理由"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-01-06"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第6条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-219",
+    "canonical": "国防专利",
+    "aliases": [
+      "保密专利",
+      "保密专利申请处理"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-01-07",
+        "rule-03-20"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第61条",
+      "专利法实施细则第7条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-220",
+    "canonical": "向外国申请前的保密审查",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-01-08",
+        "rule-01-09"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第8条",
+      "专利法实施细则第9条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-221",
+    "canonical": "申请日与优先权日的区别",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-01-12"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第12条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-222",
+    "canonical": "职务发明创造的范围",
+    "aliases": [
+      "本单位",
+      "物质技术条件"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-01-13"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第13条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-223",
+    "canonical": "发明人",
+    "aliases": [
+      "设计人的认定"
+    ],
+    "matchers": [],
+    "topicKey": "inventorship",
+    "sources": {
+      "implementation-rules": [
+        "rule-01-14"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第14条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-224",
+    "canonical": "专利权转移",
+    "aliases": [
+      "许可合同备案",
+      "出质登记"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-01-15"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第15条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-225",
+    "canonical": "委托代理与可自行办理事务",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-02-01",
+        "rule-02-02"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第17条",
+      "专利法实施细则第18条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-226",
+    "canonical": "请求书记载事项",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-02-03"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第19条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-227",
+    "canonical": "说明书撰写要求",
+    "aliases": [
+      "五部分顺序"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-02-04"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第20条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-228",
+    "canonical": "附图与附图标记规则",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-02-05"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第21条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-229",
+    "canonical": "权利要求书基本要求",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-02-06"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第22条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-230",
+    "canonical": "独权",
+    "aliases": [
+      "从权的功能"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-02-07"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第23条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-231",
+    "canonical": "独权两段式",
+    "aliases": [
+      "前序+特征"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-02-08"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第24条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-232",
+    "canonical": "从权两段式",
+    "aliases": [
+      "多项从权",
+      "引用+限定"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-02-09"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第25条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-233",
+    "canonical": "说明书摘要",
+    "aliases": [],
+    "matchers": [
+      "摘要附图"
+    ],
+    "topicKey": "abstract",
+    "sources": {
+      "implementation-rules": [
+        "rule-02-10"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第26条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-234",
+    "canonical": "外观设计简要说明",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-02-15"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第31条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-235",
+    "canonical": "国际展览会",
+    "aliases": [
+      "学术",
+      "技术会议声明与证明"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-02-17"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第33条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-236",
+    "canonical": "优先权文件副本",
+    "aliases": [
+      "优先权转让证明"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-02-18"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第34条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-237",
+    "canonical": "多项优先权",
+    "aliases": [
+      "本国优先权",
+      "在先申请视为撤回"
+    ],
+    "matchers": [],
+    "topicKey": "priority",
+    "sources": {
+      "implementation-rules": [
+        "rule-02-19"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第35条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-238",
+    "canonical": "优先权要求的增加或改正",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-02-21"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第37条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-239",
+    "canonical": "撤回申请的声明",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-02-25"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第41条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-240",
+    "canonical": "审查人员回避",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-03-01"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第42条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-241",
+    "canonical": "申请日与申请号的确定",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-03-02"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第43条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-242",
+    "canonical": "不予受理的情形",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-03-03"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第44条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-243",
+    "canonical": "援引在先申请补交",
+    "aliases": [
+      "递交日保留"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-03-04"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第45条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-244",
+    "canonical": "附图缺失的补交",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-03-05"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第46条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-245",
+    "canonical": "同日同样发明双申请处理",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-03-06"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第47条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-246",
+    "canonical": "分案申请的提出与时限",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-03-07",
+        "rule-03-08"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第48条",
+      "专利法实施细则第49条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-247",
+    "canonical": "初步审查的范围",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-03-09"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第50条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-248",
+    "canonical": "早日公布请求",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-03-11"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第52条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-249",
+    "canonical": "第三人意见",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-03-13"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第54条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-250",
+    "canonical": "主动实质审查",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-03-15"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第56条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-251",
+    "canonical": "主动修改时限",
+    "aliases": [
+      "针对性修改"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-03-16"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第57条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-252",
+    "canonical": "修改替换页",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-03-17"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第58条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-253",
+    "canonical": "实质审查驳回的法定情形",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-03-18"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第59条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-254",
+    "canonical": "授权登记",
+    "aliases": [
+      "2 个月办理"
+    ],
+    "matchers": [],
+    "topicKey": "examProcedure",
+    "sources": {
+      "implementation-rules": [
+        "rule-03-19"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第60条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-255",
+    "canonical": "复审审理与决定",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-04-03"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第67条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-256",
+    "canonical": "无效宣告请求与法定理由",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-04-05"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第69条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-257",
+    "canonical": "无效不予受理",
+    "aliases": [
+      "含一事不再理"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-04-06"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第70条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-258",
+    "canonical": "无效证据补充时限",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-04-07"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第71条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-259",
+    "canonical": "无效程序修改限制",
+    "aliases": [
+      "不得扩大保护范围"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-04-09"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第73条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-260",
+    "canonical": "无效口头审理",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-04-10"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第74条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-261",
+    "canonical": "无效程序期限不得延长",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-04-11"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第75条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-262",
+    "canonical": "PTA 请求时限",
+    "aliases": [
+      "补偿天数计算"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-05-01",
+        "rule-05-02"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第77条",
+      "专利法实施细则第78条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-263",
+    "canonical": "合理延迟",
+    "aliases": [
+      "不合理延迟"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-05-02",
+        "rule-05-03"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第78条",
+      "专利法实施细则第79条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-264",
+    "canonical": "新药相关发明专利",
+    "aliases": [
+      "PTE 请求与天数"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-05-04",
+        "rule-05-05",
+        "rule-05-06"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第80条",
+      "专利法实施细则第81条",
+      "专利法实施细则第82条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-265",
+    "canonical": "PTE 期间保护范围限定",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-05-07"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第83条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-266",
+    "canonical": "开放许可声明的内容与禁止情形",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-06-01",
+        "rule-06-02"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第85条",
+      "专利法实施细则第86条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-267",
+    "canonical": "强制许可请求与决定程序",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-06-06"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第90条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-268",
+    "canonical": "强制许可使用费裁决",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-06-07"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第91条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-269",
+    "canonical": "职务发明奖金法定最低标准",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-07-02"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第93条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-270",
+    "canonical": "全国有重大影响的侵权纠纷",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-08-02"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第96条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-271",
+    "canonical": "行政处理地域管辖",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-08-03"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第97条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-272",
+    "canonical": "行政处理中的中止",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-08-04"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第98条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-273",
+    "canonical": "假冒专利行为的具体类型",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-08-07"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第101条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-274",
+    "canonical": "权属纠纷",
+    "aliases": [
+      "保全引起的程序中止"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-08-09",
+        "rule-08-10",
+        "rule-08-11"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第103条",
+      "专利法实施细则第104条",
+      "专利法实施细则第105条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-275",
+    "canonical": "专利公报公告事项",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-09-02"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第107条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-276",
+    "canonical": "费用种类",
+    "aliases": [
+      "缴费日"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-10-01",
+        "rule-10-02"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第110条",
+      "专利法实施细则第111条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-277",
+    "canonical": "申请费缴费时限",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-10-03"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第112条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-278",
+    "canonical": "年费",
+    "aliases": [
+      "滞纳金",
+      "年费终止"
+    ],
+    "matchers": [],
+    "topicKey": "fee",
+    "sources": {
+      "implementation-rules": [
+        "rule-10-05",
+        "rule-10-06"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第114条",
+      "专利法实施细则第115条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-279",
+    "canonical": "费用减缴",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-10-08"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第117条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-280",
+    "canonical": "PCT 进入中国国家阶段",
+    "aliases": [
+      "宽限费"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-11-03",
+        "rule-11-04"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第120条",
+      "专利法实施细则第121条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-281",
+    "canonical": "PCT 在华效力终止情形",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-11-05"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第122条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-282",
+    "canonical": "PCT 国际阶段修改的中文译文",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-11-06"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第123条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-283",
+    "canonical": "PCT 译文错误改正",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-11-14"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第131条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-284",
+    "canonical": "PCT 临时保护",
+    "aliases": [
+      "外文国际公布的差异"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-11-15"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第132条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-285",
+    "canonical": "PCT 分案",
+    "aliases": [
+      "单一性恢复"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-11-16"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第133条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-286",
+    "canonical": "译文错误对保护范围的影响",
+    "aliases": [
+      "取小不取大"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-11-18"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第135条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-287",
+    "canonical": "案卷查阅与保存期限",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-13-01"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第145条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-288",
+    "canonical": "著录事项变更",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-13-02"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第146条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-289",
+    "canonical": "邮寄规范",
+    "aliases": [
+      "挂号信函"
+    ],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-13-03"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第147条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-290",
+    "canonical": "审查指南的制定依据",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "implementation-rules": [
+        "rule-13-04"
+      ]
+    },
+    "lawKeys": [
+      "专利法实施细则第148条"
+    ],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-291",
+    "canonical": "全面覆盖原则",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-02-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-292",
+    "canonical": "下位概念",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-02-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-293",
+    "canonical": "封闭式权利要求",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-01-03",
+        "infr-02-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-294",
+    "canonical": "捐献规则",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-02-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-295",
+    "canonical": "等同侵权\"三基本+一非劳\"",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-02-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-296",
+    "canonical": "禁止反悔",
+    "aliases": [],
+    "matchers": [
+      "捐献"
+    ],
+    "topicKey": "estoppel",
+    "sources": {
+      "infringement-guide": [
+        "infr-02-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-297",
+    "canonical": "主题名称",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "claims",
+    "sources": {
+      "infringement-guide": [
+        "infr-01-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-298",
+    "canonical": "使用环境特征",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-01-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-299",
+    "canonical": "折衷原则",
+    "aliases": [
+      "公平原则",
+      "专利权有效原则"
+    ],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-01-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-300",
+    "canonical": "整体比对原则",
+    "aliases": [
+      "外观设计"
+    ],
+    "matchers": [
+      "设计要点",
+      "一般消费者",
+      "整体视觉效果"
+    ],
+    "topicKey": "design",
+    "sources": {
+      "infringement-guide": [
+        "infr-03",
+        "infr-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-301",
+    "canonical": "设计空间",
+    "aliases": [
+      "设计要点"
+    ],
+    "matchers": [],
+    "topicKey": "design",
+    "sources": {
+      "infringement-guide": [
+        "infr-03",
+        "infr-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-302",
+    "canonical": "现有技术抗辩",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "priorArtDefense",
+    "sources": {
+      "infringement-guide": [
+        "infr-06-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-303",
+    "canonical": "现有设计抗辩",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "priorArtDefense",
+    "sources": {
+      "infringement-guide": [
+        "infr-06-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-304",
+    "canonical": "恶意取得专利权",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-06-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-305",
+    "canonical": "共同侵权",
+    "aliases": [
+      "共谋",
+      "教唆",
+      "专用品"
+    ],
+    "matchers": [],
+    "topicKey": "indirectInfringement",
+    "sources": {
+      "infringement-guide": [
+        "infr-05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-306",
+    "canonical": "标准必要专利 SEP",
+    "aliases": [
+      "FRAND"
+    ],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-06-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-307",
+    "canonical": "临时保护期",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-05-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-308",
+    "canonical": "用尽原则",
+    "aliases": [
+      "权利用尽"
+    ],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-06-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-309",
+    "canonical": "方法专利延及产品",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-05-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-310",
+    "canonical": "新产品举证倒置",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "infringement-guide": [
+        "infr-05-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-311",
+    "canonical": "错别字",
+    "aliases": [
+      "语病",
+      "口语化",
+      "歧义词"
+    ],
+    "matchers": [],
+    "topicKey": "draftingPractice",
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-01-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-312",
+    "canonical": "附图标号多余",
+    "aliases": [
+      "错误",
+      "重复",
+      "漏标"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-01-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-313",
+    "canonical": "商业宣传",
+    "aliases": [
+      "广告",
+      "单纯功能性"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-01-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-314",
+    "canonical": "摘要 300 字",
+    "aliases": [
+      "摘要附图"
+    ],
+    "matchers": [],
+    "topicKey": "abstract",
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-01-01"
+      ],
+      "chemistry-drafting-rules": [
+        "chem-01-01-02",
+        "chem-01-02-01",
+        "chem-01-02-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-315",
+    "canonical": "字体字号行距",
+    "aliases": [
+      "涉外\"申请\"替代"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-01-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-316",
+    "canonical": "择一引用",
+    "aliases": [
+      "在先独权不引在后独权"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-01-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-317",
+    "canonical": "附图引用不超 3 幅",
+    "aliases": [
+      "不跳跃式"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-01-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-318",
+    "canonical": "三位一体 禁忌",
+    "aliases": [
+      "三段式"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-01-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-319",
+    "canonical": "技术特征功能逻辑拆解",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-320",
+    "canonical": "新技术特征引出",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-321",
+    "canonical": "用途表征",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-322",
+    "canonical": "禁用\"例如/最好/约/包括但不限于/可\"",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-323",
+    "canonical": "虚实分离",
+    "aliases": [
+      "实体依附"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-324",
+    "canonical": "U 形象形描述禁忌",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-325",
+    "canonical": "纯功能性限定禁忌",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-01",
+        "mech-01-03-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-326",
+    "canonical": "第一",
+    "aliases": [
+      "第二顺序命名"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-327",
+    "canonical": "命名层次",
+    "aliases": [
+      "设备-装置-机构-组件-部件-具体零部件"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-328",
+    "canonical": "方位名词改相对关系",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-329",
+    "canonical": "\"分别\"用法",
+    "aliases": [
+      "\"或/和\""
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-330",
+    "canonical": "子母特征不引连接关系",
+    "aliases": [
+      "上下位混用禁忌"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-331",
+    "canonical": "开放式",
+    "aliases": [
+      "封闭式",
+      "包括",
+      "包含",
+      "由……组成"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-332",
+    "canonical": "工艺步骤执行主体",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-333",
+    "canonical": "独权最小保护主体",
+    "aliases": [
+      "并列独权",
+      "产品+应用产品",
+      "产业链"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-334",
+    "canonical": "独权上位过大→新颖性问题",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-335",
+    "canonical": "两种状态主体写法",
+    "aliases": [
+      "销售形态优先"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-336",
+    "canonical": "中位特征",
+    "aliases": [
+      "中位概括"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-337",
+    "canonical": "进一步限定 vs 附加技术特征",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-338",
+    "canonical": "从权特征越简越好",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-02-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-339",
+    "canonical": "发明名称合理上位",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-340",
+    "canonical": "技术领域两段式",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-341",
+    "canonical": "背景技术涉外禁忌",
+    "aliases": [
+      "引证",
+      "前案",
+      "企业名"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-342",
+    "canonical": "背景技术不写发明点关键特征",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-343",
+    "canonical": "技术缺陷推导合理",
+    "aliases": [
+      "客观"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-344",
+    "canonical": "发明内容不含绝对性词语",
+    "aliases": [
+      "\"改善\"非\"避免\""
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-345",
+    "canonical": "涉外不写从权内容",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-346",
+    "canonical": "相关技术附图称呼",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-347",
+    "canonical": "引证专利论文",
+    "aliases": [
+      "企业名禁忌"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-348",
+    "canonical": "模块化总分总",
+    "aliases": [
+      "特定次序"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-349",
+    "canonical": "最小单位技术特征",
+    "aliases": [
+      "内部阐述次序"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-350",
+    "canonical": "上位概念至少两个实施例",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-351",
+    "canonical": "动作主体",
+    "aliases": [
+      "动力源",
+      "动作过程",
+      "传动方式"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-352",
+    "canonical": "附图引用与文字匹配",
+    "aliases": [
+      "不后置括号"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-353",
+    "canonical": "量词前\"可以是\"",
+    "aliases": [
+      "禁绝对词"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-354",
+    "canonical": "附图关联性",
+    "aliases": [
+      "爆炸图",
+      "截面图"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-355",
+    "canonical": "局部放大图规则",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-356",
+    "canonical": "标号引线粗细",
+    "aliases": [
+      "引线指向"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-357",
+    "canonical": "节点性虚拟部件标记",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-358",
+    "canonical": "CAD 制图",
+    "aliases": [
+      "禁用工程蓝图照片截图"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-359",
+    "canonical": "附图中文注释规则",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-360",
+    "canonical": "剖面线规则",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-361",
+    "canonical": "附图竖向布置",
+    "aliases": [
+      "一页一图"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-01-03-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-362",
+    "canonical": "多独权产业链布局示例",
+    "aliases": [
+      "机构-装置-集料装置-分装装置"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-02-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-363",
+    "canonical": "模块划分四步走",
+    "aliases": [
+      "总分总撰写逻辑"
+    ],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-02-03-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-364",
+    "canonical": "附图标记逐级编号体系",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "mechanical-drafting-rules": [
+        "mech-02-03-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-365",
+    "canonical": "化合物表征",
+    "aliases": [
+      "化学名称",
+      "化学式",
+      "特性参数",
+      "制备方法"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-03-01",
+        "chem-01-05-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-366",
+    "canonical": "高分子化合物表征",
+    "aliases": [
+      "重复单元",
+      "分子量",
+      "排列状态"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-03-01",
+        "chem-01-05-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-367",
+    "canonical": "组合物表征",
+    "aliases": [
+      "组分+含量+其他因素"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-03-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-368",
+    "canonical": "化学产品 表征",
+    "aliases": [
+      "反应产物"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-03-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-369",
+    "canonical": "马库什权要",
+    "aliases": [
+      "通式化合物"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-05-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-370",
+    "canonical": "用途权要 vs 产品权要 vs 方法权要",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-03-01",
+        "chem-01-05-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-371",
+    "canonical": "制药用途 \"在制备……中的用途\"",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-05-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-372",
+    "canonical": "封闭式权要\"由……组成\" vs 开放式\"包括/包含\"",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-373",
+    "canonical": "计量单位",
+    "aliases": [
+      "重量份",
+      "体积比",
+      "重量比"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-03-01",
+        "chem-01-04-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-374",
+    "canonical": "多独权产品+方法布局",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-375",
+    "canonical": "实施例阵列",
+    "aliases": [
+      "对比例阵列",
+      "单因素试验"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-04-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-376",
+    "canonical": "对比例与现有技术",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-04-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-377",
+    "canonical": "实施例数据落入权要范围",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-04-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-378",
+    "canonical": "实施例规模 与计量单位",
+    "aliases": [
+      "小试",
+      "中试",
+      "工业化"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-04-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-379",
+    "canonical": "实施例必须含具体物质",
+    "aliases": [
+      "用量",
+      "工艺参数"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-04-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-380",
+    "canonical": "检测方法",
+    "aliases": [
+      "标准",
+      "非标准"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-04-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-381",
+    "canonical": "化合物确认",
+    "aliases": [
+      "NMR",
+      "IR",
+      "MS",
+      "元素分析"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-04-06",
+        "chem-01-05-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-382",
+    "canonical": "性能测试",
+    "aliases": [
+      "仪器定量",
+      "感官评定"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-05-02",
+        "chem-01-05-03",
+        "chem-01-05-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-383",
+    "canonical": "化妆品",
+    "aliases": [
+      "备案",
+      "原料目录"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-384",
+    "canonical": "食品",
+    "aliases": [
+      "药食同源",
+      "保质期内测试"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-05-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-385",
+    "canonical": "保健食品",
+    "aliases": [
+      "27 种功能",
+      "辅助 + 功能",
+      "严禁预防"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-05-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-386",
+    "canonical": "中药",
+    "aliases": [
+      "禁用药物",
+      "临床资质",
+      "生僻药"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-05-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-387",
+    "canonical": "疾病诊断与治疗方法",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-05-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-388",
+    "canonical": "社会公德",
+    "aliases": [
+      "克隆人",
+      "人胚胎",
+      "人造性器官"
+    ],
+    "matchers": [],
+    "topicKey": "subjectMatter",
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-05-08"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-389",
+    "canonical": "生物保藏",
+    "aliases": [
+      "CCTCC",
+      "CGMCC",
+      "GDMCC",
+      "保藏证明与存活证明"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-05-09"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-390",
+    "canonical": "核苷酸",
+    "aliases": [
+      "氨基酸序列表"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-05-09"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-391",
+    "canonical": "背景技术",
+    "aliases": [
+      "禁现有技术文献引证",
+      "禁企业"
+    ],
+    "matchers": [],
+    "topicKey": "description",
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-04-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-392",
+    "canonical": "禁止反悔与捐献规则的撰写规避",
+    "aliases": [
+      "数值多层铺陈"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-04-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-393",
+    "canonical": "权要禁用措辞",
+    "aliases": [
+      "\"约\"\"左右\"\"接近\"\"例如\"\"最好是\"\"可\"\"等\""
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-03-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-394",
+    "canonical": "同一权要禁上位下位并列",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-03-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-395",
+    "canonical": "同符号在不同分子式中须区分",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-03-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-396",
+    "canonical": "从权层层限缩",
+    "aliases": [
+      "上位 → 中位 → 下位"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-03-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-397",
+    "canonical": "涉外案禁方法特征限定产品独权",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-398",
+    "canonical": "附图引用顺序与单次幅数",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-01-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-399",
+    "canonical": "发明名称字数",
+    "aliases": [
+      "25 字，化学领域 40 字"
+    ],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-01-02",
+        "chem-01-04-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-400",
+    "canonical": "附图标号一致性",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "chemistry-drafting-rules": [
+        "chem-01-01-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-401",
+    "canonical": "单独对比原则",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-01-01",
+        "oa-01-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-402",
+    "canonical": "四个相同",
+    "aliases": [
+      "领域",
+      "问题",
+      "效果"
+    ],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-01-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-403",
+    "canonical": "抵触申请的 CN 代码",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-01-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-404",
+    "canonical": "最接近现有技术",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-02-03",
+        "oa-02-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-405",
+    "canonical": "区别技术特征",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-02-03",
+        "oa-02-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-406",
+    "canonical": "显著进步",
+    "aliases": [
+      "突出的实质性特点"
+    ],
+    "matchers": [],
+    "topicKey": "inventiveness",
+    "sources": {
+      "oa-response-guide": [
+        "oa-02-01",
+        "oa-02-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-407",
+    "canonical": "整体技术方案",
+    "aliases": [
+      "不可割裂"
+    ],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-02-04",
+        "oa-02-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-408",
+    "canonical": "公知常识三层次",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-02-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-409",
+    "canonical": "抵触申请评创造性",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-02-05",
+        "oa-02-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-410",
+    "canonical": "等效手段",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-02-05",
+        "oa-02-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-411",
+    "canonical": "反向技术教导",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-02-05",
+        "oa-02-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-412",
+    "canonical": "同类",
+    "aliases": [
+      "不同类独权的相应特征"
+    ],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-03-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-413",
+    "canonical": "权利要求支持",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-414",
+    "canonical": "功能性限定",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-04-02",
+        "oa-04-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-415",
+    "canonical": "上位概念概括",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-04-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-416",
+    "canonical": "数值范围过宽",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-04-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-417",
+    "canonical": "等同替代",
+    "aliases": [
+      "明显变型"
+    ],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-04-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-418",
+    "canonical": "必要技术特征判断",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-419",
+    "canonical": "重复授权",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "doubleProtect",
+    "sources": {
+      "oa-response-guide": [
+        "oa-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-420",
+    "canonical": "公开不充分",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "sufficiency",
+    "sources": {
+      "oa-response-guide": [
+        "oa-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-421",
+    "canonical": "隐含公开",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-02-07",
+        "oa-07-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-422",
+    "canonical": "实验数据要求",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-07-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-423",
+    "canonical": "自认无创造性陷阱",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-07-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-424",
+    "canonical": "意见陈述书模板",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "oa-response-guide": [
+        "oa-02-08"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-425",
+    "canonical": "一次性告知原则",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-426",
+    "canonical": "补正通知书",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-01",
+        "tmeg-02-02",
+        "tmeg-04-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-427",
+    "canonical": "不予受理",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-01",
+        "tmeg-02-02",
+        "tmeg-02-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-428",
+    "canonical": "商标代理委托书",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-01",
+        "tmeg-02-02",
+        "tmeg-02-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-429",
+    "canonical": "商标图样",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmFormalProc",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-430",
+    "canonical": "声音样本",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmFormalProc",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-431",
+    "canonical": "商标异议申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-432",
+    "canonical": "商标评审申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-433",
+    "canonical": "注册满三年的计算",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-434",
+    "canonical": "类似商品和服务区分表",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-01",
+        "tmeg-07-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-435",
+    "canonical": "文字检索分卡",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-436",
+    "canonical": "图形要素编码",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-03-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-437",
+    "canonical": "商标变更申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-438",
+    "canonical": "注册商标转让",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-439",
+    "canonical": "商标使用许可备案",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-440",
+    "canonical": "注册商标专用权质权登记",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-441",
+    "canonical": "注册商标续展",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-442",
+    "canonical": "马德里商标国际注册申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-443",
+    "canonical": "后期指定",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmFormalProc",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-444",
+    "canonical": "国际注册后续业务",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-02",
+        "tmeg-05-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-445",
+    "canonical": "商标国际异议",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-446",
+    "canonical": "领土延伸申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-05-04",
+        "tmeg-05-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-447",
+    "canonical": "商标申请文件接收",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-448",
+    "canonical": "商标规费",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-01",
+        "tmeg-06-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-449",
+    "canonical": "商标文件送达",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-450",
+    "canonical": "补发商标注册证",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-451",
+    "canonical": "商标档案",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmFormalProc",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-452",
+    "canonical": "商标公告",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmFormalProc",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-453",
+    "canonical": "商标电子申请",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-06-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-454",
+    "canonical": "绝对理由与相对理由",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-01"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-455",
+    "canonical": "相关公众",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmSimilarity",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-01",
+        "tmeg-07-04",
+        "tmeg-07-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-456",
+    "canonical": "不以使用为目的的恶意注册",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-02"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-457",
+    "canonical": "不得作为商标使用的标志",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-458",
+    "canonical": "带有欺骗性",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-459",
+    "canonical": "不良影响",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmAbsoluteGrounds",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-03"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-460",
+    "canonical": "县级以上行政区划地名",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-03",
+        "tmeg-07-09"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-461",
+    "canonical": "显著特征",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmDistinctiveness",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-462",
+    "canonical": "固有显著性",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmDistinctiveness",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-04"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-463",
+    "canonical": "经过使用取得显著特征",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmDistinctiveness",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-04",
+        "tmeg-07-06",
+        "tmeg-07-08"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-464",
+    "canonical": "通用名称",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmDistinctiveness",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-04",
+        "tmeg-07-17"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-465",
+    "canonical": "近似商标",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmSimilarity",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-466",
+    "canonical": "隔离观察",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmSimilarity",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-467",
+    "canonical": "要部比对",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmSimilarity",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-05"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-468",
+    "canonical": "混淆可能性",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmSimilarity",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-05",
+        "tmeg-07-10"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-469",
+    "canonical": "三维标志商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-06"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-470",
+    "canonical": "颜色组合商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-07"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-471",
+    "canonical": "声音商标",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmDistinctiveness",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-08"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-472",
+    "canonical": "集体商标",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmCollectiveGI",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-09"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-473",
+    "canonical": "证明商标",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmCollectiveGI",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-09"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-474",
+    "canonical": "地理标志证明商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-09"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-475",
+    "canonical": "使用管理规则",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmCollectiveGI",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-04-01",
+        "tmeg-07-09"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-476",
+    "canonical": "驰名商标",
+    "aliases": [],
+    "matchers": [
+      "摹仿",
+      "按需认定",
+      "被动保护"
+    ],
+    "topicKey": "tmWellKnown",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-10"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-477",
+    "canonical": "复制摹仿或者翻译",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-10"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-478",
+    "canonical": "代理人抢注",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-11"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-479",
+    "canonical": "特定关系人抢注",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-12"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-480",
+    "canonical": "商标代理机构申请注册商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-13"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-481",
+    "canonical": "在先权利",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmBadFaith",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-14"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-482",
+    "canonical": "字号权",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-14"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-483",
+    "canonical": "姓名权",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmBadFaith",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-14"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-484",
+    "canonical": "外观设计专利权",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-14"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-485",
+    "canonical": "已经使用并有一定影响的商标",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-15"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-486",
+    "canonical": "以其他不正当手段取得注册",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-16"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-487",
+    "canonical": "连续三年不使用",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmUseRevocation",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-02-05",
+        "tmeg-07-17"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-488",
+    "canonical": "商标使用",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmUseRevocation",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-17"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-489",
+    "canonical": "撤销无效注销后一年限制",
+    "aliases": [],
+    "matchers": [],
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-18"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  },
+  {
+    "tmpKey": "seed-490",
+    "canonical": "审查意见书",
+    "aliases": [],
+    "matchers": [],
+    "topicKey": "tmFormalProc",
+    "sources": {
+      "trademark-exam-guide-2021": [
+        "tmeg-07-19"
+      ]
+    },
+    "lawKeys": [],
+    "tier": "seed"
+  }
+]

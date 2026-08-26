@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/05-01",
+  "anchorNode": "tmeg-05-01",
+  "terms": [
+    { "name": "商标代理机构", "aliases": [], "role": "defined", "confidence": "high", "evidence": "《商标法》所称商标代理机构，包括经市场监督管理部门登记从事商标代理业务的服务机构" },
+    { "name": "商标代理从业人员", "aliases": [], "role": "defined", "confidence": "high", "evidence": "《商标法》所称商标代理从业人员，是指在商标代理机构中从事商标代理业务的工作人员" },
+    { "name": "商标代理委托书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当提交《商标代理委托书》。《商标代理委托书》应当载明代理内容及权限" },
+    { "name": "商标注册申请日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标注册的申请日期以商标注册部门收到申请文件的日期为准" },
+    { "name": "注册商标有效期", "aliases": [], "role": "defined", "confidence": "high", "evidence": "规定的注册商标有效期从核准注册之日起计算" }
+  ],
+  "laws": [
+    "商标法第39条",
+    "商标法第40条"
+  ],
+  "extractedAt": "2026-08-23"
+}

@@ -1,0 +1,21 @@
+{
+  "chunk": "trademark-exam-guide-2021/05-02",
+  "anchorNode": "tmeg-05-02",
+  "terms": [
+    { "name": "后续业务", "aliases": [], "role": "defined", "confidence": "high", "evidence": "国内申请人马德里商标国际注册后续业务共九项" },
+    { "name": "国际续展", "aliases": [], "role": "used", "confidence": "high", "evidence": "以纸件形式提出国际续展申请的，应当提交马德里商标国际注册续展申请书" },
+    { "name": "宽展期", "aliases": [], "role": "defined", "confidence": "high", "evidence": "宽展期为国际注册到期之日起6个月" },
+    { "name": "国际转让", "aliases": [], "role": "used", "confidence": "high", "evidence": "以纸件形式提出马德里商标国际转让申请的" },
+    { "name": "主体资格证明文件", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "转让人、受让人主体资格证明文件是表明申请人具备转让资格的文件" },
+    { "name": "国际注册簿", "aliases": [], "role": "used", "confidence": "high", "evidence": "注册人名称必须与国际注册簿保持一致" }
+  ],
+  "laws": [
+    "商标法第21条",
+    "商标法实施条例第34条",
+    "商标法实施条例第37条",
+    "商标法实施条例第38条",
+    "商标法实施条例第40条",
+    "商标法实施条例第41条"
+  ],
+  "extractedAt": "2026-08-23"
+}

@@ -1,7 +1,7 @@
-// build-quartz-md.mjs —— PatentReader 数据层 → quartz 内容站 markdown 生成器（Q2 阶段）
+// build-quartz-md.mjs —— IPReader 数据层 → quartz 内容站 markdown 生成器（Q2 阶段）
 //
 // 输入（均为只读）：
-//   data/nodes.json        2044 节点（7 部书 1193 + 术语 851）
+//   data/nodes.json        5306 节点（87 域文档 4455 + 术语 851）
 //   data/edges.json        仅取 hierarchy 边构建父子链
 //   data/node-bodies.json  每节点 ownText 净文本（正文唯一来源，避免父子子树重复）
 //   public/content/{id}.json        章节详情（related[] 预解析出链、examples）
@@ -26,8 +26,9 @@
 import { readFileSync, readdirSync, rmSync, mkdirSync, writeFileSync, existsSync, statSync, copyFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join, dirname } from 'node:path';
-import { KNOWN_DOMAINS } from './lib/domains.mjs';
+import { DOC_TYPES, resolveDomainTitles } from './lib/domains.mjs';
 import { extractCitations } from './lib/law-cite.mjs';
+import { efficacySection } from './lib/book-efficacy.mjs';
 import { buildTermMatcher, linkTerms } from './lib/term-link.mjs';
 import { TOPIC_NAME, termGroupOf } from './lib/topics.mjs';
 import { cn2num } from './lib/cn-num.mjs';
@@ -41,13 +42,23 @@ const OUT_DIR = join(SCRIPT_DIR, '..', '..', 'quartz-kb', 'content');
 // 原文附图资产（import-book-images.mjs 从桌面源导入，git 跟踪）：
 // 正文 ![](images/x) 引用改写为 content 根相对路径并随生成落盘到 content/<书目录>/images/
 const ASSETS_IMG_DIR = join(SITE_DIR, 'assets', 'book-images');
-const EXPECTED_EMBEDDED_IMAGES = 88; // 七书正文实际引用的附图总数（manifest 定版）
+// 2026-08-24 阶段5.2 批次 W-R：批次 Q-1 入库的《专利质量评价指南》补导附图 13 张
+// （其语料原引用写作 ![](文件名) 无 images/ 前缀，已在语料层规范化为与其余三域同构），
+// 附图总数 88 → 101。属 W-5 定版数批次的漏更新项，经主会话裁决补记。
+const EXPECTED_EMBEDDED_IMAGES = 101; // 四书正文实际引用的附图总数（manifest 定版）
 // PDF 抽取正文的富文本定版数（详见第七节 contentBlocks 与 lib/rich-text.mjs）：
-//   内嵌 HTML 表格全库 8 张，全部在《化学撰写规范》——7 张规则网格转 GFM 管道表格，
-//   1 张含 rowspan/colspan 的合并表头表回退 raw HTML；
+//   内嵌 HTML 表格全库 48 张（2026-08-22 入库批次四后）——29 转 GFM 管道表格、19 回退 raw HTML：
+//     《专利侵权纠纷行政裁决办案指南》30 张（批次四，办案文书空白表单）：20 转 GFM
+//       （表 1-8、14-18、21-24、26、28、29），10 回退 raw（表 9-13、19、20、25、27、30），
+//       回退原因全为合并单元格——colspan=2 ×5、colspan=3 ×2、colspan=4 ×1、colspan=5 ×1、rowspan=2 ×1；
+//     以下为批次三及以前既有 18 张：
+//     《化学撰写规范》8 张：7 转 GFM，1 张（chem-02-03-03 表1，rowspan/colspan 合并表头）回退 raw；
+//     《专利和集成电路布图设计缴费服务指南》10 张（单行 HTML，TABLE_BLOCK_RE 的 [\s\S]*? 正常命中）：
+//       2 转 GFM（表4 恢复权利请求费、表10 费用标准），8 回退 raw，回退原因均为合并单元格——
+//       colspan=6 ×1、colspan=3 ×1、rowspan=2 ×2、rowspan=3 ×3、rowspan=4 ×1。
 //   行内 LaTeX 公式实测 125 处（ownText）在正文链路完成降解，取 120 为下限留余量。
-const EXPECTED_GFM_TABLES = 7;
-const EXPECTED_RAW_TABLES = 1;
+const EXPECTED_GFM_TABLES = 29;
+const EXPECTED_RAW_TABLES = 19;
 const EXPECTED_MATH_MIN = 120;
 const imagesToEmit = new Map(); // content 相对路径 → 资产绝对路径
 
@@ -60,16 +71,110 @@ const BOOKS = [
   { order: 5, domain: 'mechanical-drafting-rules', dir: '5-机械撰写规范' },
   { order: 6, domain: 'chemistry-drafting-rules', dir: '6-化学撰写规范' },
   { order: 7, domain: 'oa-response-guide', dir: '7-答复审查意见指南' },
+  // ---- 入库批次一「04 司法解释」26 件（2026-08-22）：order/dir 自 10 起连续，避开 0-图谱总览 / 1..7 各书 / 9-关键词索引 ----
+  { order: 10, domain: 'plant-variety-interp-2001', dir: '10-植物新品种纠纷解释' },
+  { order: 11, domain: 'patent-dispute-rules', dir: '11-专利纠纷案件规定' },
+  { order: 12, domain: 'tm-jurisdiction-interp', dir: '12-商标案件管辖解释' },
+  { order: 13, domain: 'tm-civil-interp', dir: '13-商标民事纠纷解释' },
+  { order: 14, domain: 'copyright-civil-interp', dir: '14-著作权民事纠纷解释' },
+  { order: 15, domain: 'plant-variety-rules-1', dir: '15-植物新品种权规定一' },
+  { order: 16, domain: 'wellknown-tm-interp', dir: '16-驰名商标保护解释' },
+  { order: 17, domain: 'patent-infringe-interp-1', dir: '17-专利侵权解释一' },
+  { order: 18, domain: 'tm-amend-jurisdiction-interp', dir: '18-商标法修改管辖解释' },
+  { order: 19, domain: 'ip-court-jurisdiction-2014', dir: '19-北上广知产法院管辖' },
+  { order: 20, domain: 'patent-infringe-interp-2', dir: '20-专利侵权解释二' },
+  { order: 21, domain: 'tm-grant-validity-rules', dir: '21-商标授权确权规定' },
+  { order: 22, domain: 'ip-injunction-rules-2018', dir: '22-知产行为保全规定' },
+  { order: 23, domain: 'ip-tribunal-rules-2018', dir: '23-知识产权法庭规定' },
+  { order: 24, domain: 'tech-investigator-rules-2019', dir: '24-技术调查官规定' },
+  { order: 25, domain: 'trade-secret-civil-rules-2020', dir: '25-侵犯商业秘密规定' },
+  { order: 26, domain: 'patent-grant-validity-rules-1', dir: '26-专利授权确权规定一' },
+  { order: 27, domain: 'ip-evidence-rules-2020', dir: '27-知产民事诉讼证据规定' },
+  // 28 号已剔除留空（ip-interps-amendment-2020「修改十八件决定」属修正案元文档，内容重复）；后续编号不重排，以免 7 个域的 slug 连锁变更
+  { order: 29, domain: 'plant-variety-rules-2', dir: '29-植物新品种权规定二' },
+  { order: 30, domain: 'unfair-competition-interp-2022', dir: '30-反不正当竞争法解释' },
+  { order: 31, domain: 'ipc-digest-2022', dir: '31-知产法庭裁判要旨2022' },
+  { order: 32, domain: 'antitrust-civil-interp-2024', dir: '32-垄断民事纠纷解释' },
+  { order: 33, domain: 'ipc-digest-2023', dir: '33-知产法庭裁判要旨2023' },
+  { order: 34, domain: 'ip-criminal-interp-2025', dir: '34-侵犯知产刑事案件解释' },
+  { order: 35, domain: 'punitive-damages-interp', dir: '35-惩罚性赔偿解释' },
+  // ---- 入库批次二「01 法律与行政法规」15 件（2026-08-22）：order/dir 自 36 起连续（28 号空缺照旧不补） ----
+  { order: 36, domain: 'ic-layout-rules-2001', dir: '36-集成电路布图设计细则' },
+  { order: 37, domain: 'defense-patent-regulations-2004', dir: '37-国防专利条例' },
+  { order: 38, domain: 'network-dissemination-regulations-2013', dir: '38-信息网络传播权条例' },
+  { order: 39, domain: 'copyright-law-rules-2013', dir: '39-著作权法实施条例' },
+  { order: 40, domain: 'software-protection-regulations-2013', dir: '40-计算机软件保护条例' },
+  { order: 41, domain: 'copyright-collective-mgmt-2013', dir: '41-著作权集体管理条例' },
+  { order: 42, domain: 'trademark-law-rules-2014', dir: '42-商标法实施条例' },
+  { order: 43, domain: 'customs-ip-protection-2018', dir: '43-知识产权海关保护条例' },
+  { order: 44, domain: 'patent-agency-regulations-2018', dir: '44-专利代理条例' },
+  { order: 45, domain: 'copyright-law-2020', dir: '45-著作权法' },
+  { order: 46, domain: 'anti-monopoly-law-2022', dir: '46-反垄断法' },
+  { order: 47, domain: 'plant-variety-regulations-2025', dir: '47-植物新品种保护条例' },
+  { order: 48, domain: 'anti-unfair-competition-2025', dir: '48-反不正当竞争法' },
+  { order: 49, domain: 'trademark-law-2026', dir: '49-商标法' },
+  { order: 50, domain: 'ic-layout-regulations-2026', dir: '50-集成电路布图设计条例' },
+  // ---- 入库批次三「02 部门规章与规范性文件」25 件（2026-08-22）：order/dir 自 51 起连续 ----
+  { order: 51, domain: 'work-registration-1994', dir: '51-作品自愿登记试行办法' },
+  { order: 52, domain: 'software-copyright-registration-2002', dir: '52-计算机软件著作权登记办法' },
+  { order: 53, domain: 'trademark-printing-2004', dir: '53-商标印制管理办法' },
+  { order: 54, domain: 'customs-ip-measures-2009', dir: '54-知识产权海关保护实施办法' },
+  { order: 55, domain: 'copyright-penalty-2009', dir: '55-著作权行政处罚实施办法' },
+  { order: 56, domain: 'patent-marking-2012', dir: '56-专利标识标注办法' },
+  { order: 57, domain: 'compulsory-license-2012', dir: '57-专利实施强制许可办法' },
+  { order: 58, domain: 'trademark-review-rules-2014', dir: '58-商标评审规则' },
+  { order: 59, domain: 'wellknown-tm-recognition-2014', dir: '59-驰名商标认定和保护规定' },
+  { order: 60, domain: 'biomaterial-deposit-2015', dir: '60-生物材料保藏办法' },
+  { order: 61, domain: 'patent-enforcement-2015', dir: '61-专利行政执法办法' },
+  { order: 62, domain: 'fee-reduction-2016', dir: '62-专利收费减缴办法' },
+  { order: 63, domain: 'cnipa-normative-docs-2016', dir: '63-规范性文件制定管理办法' },
+  { order: 64, domain: 'patent-agency-admin-2019', dir: '64-专利代理管理办法' },
+  { order: 65, domain: 'patent-attorney-exam-2019', dir: '65-专利代理师资格考试办法' },
+  { order: 66, domain: 'trademark-filing-conduct-2019', dir: '66-规范商标申请注册行为规定' },
+  { order: 67, domain: 'trademark-infringement-standard-2020', dir: '67-商标侵权判断标准' },
+  { order: 68, domain: 'major-patent-adjudication-2021', dir: '68-重大专利侵权行政裁决办法' },
+  { order: 69, domain: 'trademark-violation-standard-2021', dir: '69-商标一般违法判断标准' },
+  { order: 70, domain: 'trademark-agency-supervision-2022', dir: '70-商标代理监督管理规定' },
+  { order: 71, domain: 'ip-abuse-competition-2023', dir: '71-禁止滥用知识产权竞争规定' },
+  { order: 72, domain: 'fee-adjustment-notice-2024', dir: '72-专利收费调整公告' },
+  { order: 73, domain: 'priority-examination-2026', dir: '73-专利优先审查管理办法' },
+  { order: 74, domain: 'patent-payment-guide-2026', dir: '74-专利缴费操作指引' },
+  { order: 75, domain: 'patent-ic-fee-manual-2026', dir: '75-专利和集成电路缴费服务指南' },
+  // ---- 入库批次四（收尾）15 件（2026-08-22）：order/dir 76–90，全量入库收官 ----
+  { order: 76, domain: 'copyright-pledge-registration-2011', dir: '76-著作权质权登记办法' },
+  { order: 77, domain: 'text-work-remuneration-2014', dir: '77-使用文字作品支付报酬办法' },
+  { order: 78, domain: 'patent-adjudication-manual-2019', dir: '78-专利侵权纠纷行政裁决办案指南' },
+  { order: 79, domain: 'ip-power-outline-2021', dir: '79-知识产权强国建设纲要' },
+  { order: 80, domain: 'trademark-exam-guide-2021', dir: '80-商标审查审理指南' },
+  { order: 81, domain: 'patent-filing-conduct-2023', dir: '81-规范申请专利行为的规定' },
+  { order: 82, domain: 'exam-guideline-decree-2023', dir: '82-专利审查指南发布令' },
+  { order: 83, domain: 'collective-cert-trademark-2023', dir: '83-集体商标证明商标注册管理规定' },
+  { order: 84, domain: 'gi-product-protection-2023', dir: '84-地理标志产品保护办法' },
+  { order: 85, domain: 'patent-adjudication-mediation-2024', dir: '85-专利纠纷行政裁决和调解办法' },
+  { order: 86, domain: 'admin-reconsideration-2024', dir: '86-国家知识产权局行政复议规程' },
+  { order: 87, domain: 'rulemaking-procedure-2024', dir: '87-国家知识产权局规章制定程序规定' },
+  { order: 88, domain: 'ipc-digest-2024', dir: '88-知产法庭裁判要旨2024' },
+  { order: 89, domain: 'ip-plan-15th-2026', dir: '89-知识产权保护和运用十五五规划' },
+  { order: 90, domain: 'gb-standards-index', dir: '90-GB国家标准清单' },
+  // ---- 入库批次五（召回）1 件（2026-08-24 阶段5.2 批次 Q-1）：order 91 顺延，避开既有 8/9 与 28 号空洞语义 ----
+  { order: 91, domain: 'quality-evaluation', dir: '91-专利质量评价指南' },
 ];
 const TERM_ROOT = '9-关键词索引';
 const BOOK_BY_DOMAIN = new Map(BOOKS.map((b) => [b.domain, b]));
-const DOMAIN_META = new Map(KNOWN_DOMAINS.map((d) => [d.key, d]));
 
 // ============ 二、载入数据 ============
 const readJson = (p) => JSON.parse(readFileSync(p, 'utf8'));
 const nodes = readJson(join(DATA_DIR, 'nodes.json'));
 const edges = readJson(join(DATA_DIR, 'edges.json'));
 const bodies = readJson(join(DATA_DIR, 'node-bodies.json'));
+// DOMAIN_META 改由 resolveDomainTitles 构造（阶段5.3 批次 W3）：与 parse-domains.mjs 生成
+//   nodes.json 时 breadcrumb[0] 的派生方式同源（同一份 data/book-meta.json、同一函数），
+//   故本文件后续消费 meta.title 之处（breadcrumbLine 的书名链接、词条页出处的 crumbs 过滤
+//   `c !== meta.title`、frontmatter title 等）与 nodes.json 里的 breadcrumb[0] 文本恒等，
+//   crumbs 过滤逻辑不会因两侧派生不同步而失效。KNOWN_DOMAINS 本身字面量不变，
+//   resolveDomainTitles 默认第二参即为 KNOWN_DOMAINS，此处沿用默认、只传 bookMeta。
+const bookMeta = readJson(join(DATA_DIR, 'book-meta.json'));
+const DOMAIN_META = new Map(resolveDomainTitles(bookMeta).map((d) => [d.key, d]));
 
 const byId = new Map(nodes.map((n) => [n.id, n]));
 const parentOf = new Map();
@@ -406,10 +511,23 @@ function contentBlocks(text) {
 const lawKeyToNode = new Map();
 for (const n of nodes) if (n.lawKey) lawKeyToNode.set(n.lawKey, n.id);
 
-function linkLawCites(para, domain, selfId) {
+// 法条内链门控（波B，与下方 TERM_LINK_ENABLED 同属"回滚开关"风格）：
+//   白名单域（examination-guideline、trademark-exam-guide-2021）放开全法域引用——
+//   命中 lawKeyToNode 即链接，不再按法名过滤；非白名单域维持改造前既有行为——
+//   仅链专利法系（lawKey 以"专利法"打头，覆盖专利法与专利法实施细则），其余法域
+//   命中一律丢弃，确保现网既有的专利法内链不因本次改造而消失、也不因门控而新增。
+//   快速降级开关：清空集合＝全站退回仅专利法内链（等同改造前逐字行为）。
+const LAW_LINK_DOMAINS = new Set(['examination-guideline', 'trademark-exam-guide-2021']);
+
+// opts.force：显式绕过上述域白名单，按"放开全法域引用"档处理本次调用（阶段5.3 批次 W8 引入）。
+//   白名单的语义边界只辖**正文内链化**；书根「效力信息」的公布与施行原文属新增结构化区块，
+//   经主会话 D2 裁决单独授权全域法条直达，故由调用方显式传 force、而非把域塞进白名单。
+//   计数亦分列（stats.lawLinksPromulgation），不污染白名单域的正文口径统计。
+function linkLawCites(para, domain, selfId, { force = false } = {}) {
   const trace = [];
   extractCitations(para, domain, { trace });
   if (!trace.length) return para;
+  const allowAllLaws = force || LAW_LINK_DOMAINS.has(domain);
   // 按命中位置聚合（范围展开的多个 lawKey 共享同一 index，取首个作为链接目标）
   const hits = new Map();
   for (const t of trace) if (!hits.has(t.index)) hits.set(t.index, t);
@@ -419,6 +537,8 @@ function linkLawCites(para, domain, selfId) {
   const applied = [];
   for (const h of ordered) {
     if (!/第.+条/.test(h.raw)) continue; // 款/项级续接命中不成链
+    // 非白名单域：仅保留专利法系命中，其余法域直接丢弃；两档均沿用同一套后续替换机制
+    if (!allowAllLaws && !h.lawKey.startsWith('专利法')) continue;
     const target = lawKeyToNode.get(h.lawKey);
     if (!target || target === selfId) continue;
     applied.push({ ...h, target });
@@ -439,6 +559,8 @@ function linkLawCites(para, domain, selfId) {
     const body = h.raw.slice(sep.length);
     out = out.slice(0, h.index) + sep + linkTo(h.target, body) + out.slice(h.index + h.raw.length);
     stats.lawLinks++;
+    if (force) stats.lawLinksPromulgation = (stats.lawLinksPromulgation || 0) + 1;
+    else if (allowAllLaws) stats.lawLinksWhitelist = (stats.lawLinksWhitelist || 0) + 1;
   }
   return out;
 }
@@ -495,6 +617,28 @@ for (const a of termExcludeCfg.aliasAllowlist || []) {
   termSurfaceEntries.push({ surface: a.alias, id: a.id });
 }
 const termMatcher = buildTermMatcher(termSurfaceEntries, { exclude: TERM_LINK_EXCLUDE });
+
+// 页尾「引用法条」清单（波B，与下方 relatedSection 同构）：仅白名单域（LAW_LINK_DOMAINS）产出。
+// 入参 lawCiteCounts 为该页正文全部块的法条引用累加（Map<lawKey, count>），由调用方在
+// 正文块循环内对每块独立现算 extractCitations 后按 lawKey 聚合而成——不复用 linkLawCites
+// 内部的 trace，因为该函数只返回替换后的正文字符串，不对外暴露命中明细。
+function lawCitesSection(lawCiteCounts, node) {
+  if (!lawCiteCounts || !lawCiteCounts.size) return '';
+  const rows = [];
+  for (const [lawKey, count] of lawCiteCounts) {
+    const target = lawKeyToNode.get(lawKey);
+    if (!target) { stats.lawCiteUnresolved = (stats.lawCiteUnresolved || 0) + 1; continue; } // 不可解析：仅计入统计，不渲染
+    if (target === node.id) continue; // 自引用防御，与 linkLawCites 的 selfId 排除对齐（白名单域节点通常无 lawKey，实测不触发）
+    rows.push({ lawKey, count, target });
+  }
+  if (!rows.length) return '';
+  // 排序：出现次数降序；同次数按法名+条号升序（numeric 比较，避免"第10条"字典序排到"第2条"前）
+  rows.sort((a, b) => b.count - a.count || a.lawKey.localeCompare(b.lawKey, 'zh-CN', { numeric: true }));
+  const lines = ['## 引用法条', ''];
+  for (const r of rows) lines.push(`- ${linkTo(r.target, r.lawKey)}（${r.count} 处）`);
+  stats.lawCitesSectionEntries = (stats.lawCitesSectionEntries || 0) + rows.length;
+  return lines.join('\n');
+}
 
 // 关联分组（预解析 related[] 的 reason 全集：上级/下属/法条依据/指南交叉引用/相关/共引同一法条）
 // 所有分组统一经 linkToWithBook：跨书目标（实测出现在 法条依据/指南交叉引用/共引同一法条）
@@ -575,8 +719,10 @@ for (const n of nodes) {
   const parts = [fm, '', breadcrumbLine(n), ''];
 
   if (own) {
-    // 章节页：正文（先清洗遗留链接，再做法条引用就地成链，最后术语就地成链）→ 关联 → 示例
+    // 章节页：正文（先清洗遗留链接，再做法条引用就地成链，最后术语就地成链）→ 引用法条 → 关联 → 示例
     const skipTermLink = !TERM_LINK_ENABLED || TERM_LINK_PAGE_EXCLUDE.has(n.id);
+    const collectLawCites = LAW_LINK_DOMAINS.has(n.domain); // 仅白名单域采集页尾「引用法条」清单数据
+    const lawCiteCounts = collectLawCites ? new Map() : null;
     let linkedTerms = new Set();
     for (const blk of contentBlocks(resolveInlineRefs(own, n))) {
       if (blk.kind === 'table') {
@@ -584,6 +730,12 @@ for (const n of nodes) {
         continue;
       }
       const withLaw = linkLawCites(blk.text, n.domain, n.id);
+      if (lawCiteCounts) {
+        // 页尾清单数据独立现算（不复用 linkLawCites 内部 trace）：以 lawKey 聚合、跨块累加出现次数
+        for (const c of extractCitations(blk.text, n.domain)) {
+          lawCiteCounts.set(c.lawKey, (lawCiteCounts.get(c.lawKey) || 0) + c.count);
+        }
+      }
       if (skipTermLink) {
         parts.push(withLaw, '');
         continue;
@@ -593,6 +745,8 @@ for (const n of nodes) {
       stats.termLinks += r.added;
       parts.push(r.text, '');
     }
+    const lawCites = lawCiteCounts ? lawCitesSection(lawCiteCounts, n) : '';
+    if (lawCites) parts.push(lawCites, '');
     const rel = relatedSection(related, n);
     if (rel) parts.push(rel, '');
     const ex = examplesSection(examples, n, own);
@@ -797,9 +951,20 @@ for (const b of BOOKS) {
   const roots = domainRoots.get(b.domain) || [];
   const nodeCount = nodes.filter((n) => n.domain === b.domain).length;
   const fm = frontmatter({ title: meta.title, tags: [meta.short] });
+  // 「效力信息」小节（阶段5.3 批次 W8）：取 data/book-meta.json 的原始字段与公布与施行原文，
+  // 逐字渲染于首句与「## 子节点」之间；字段全空且无原文的域整节不出（渲染规则见 lib/book-efficacy.mjs）。
+  // renderProse 注入的两步与正文链路同规格、同顺序：先 mdParagraphs（单换行转硬换行 + < # 最小转义），
+  // 再 linkLawCites 就地成链；其中 force: true 系**阶段5.3 D2 裁决：效力原文段全域法条直达，
+  // 白名单语义仅辖正文内链化**——LAW_LINK_DOMAINS 是正文内链化的范围门控，本区块为新增结构化区块，
+  // 不受其约束，故显式绕过而不改动白名单本身。selfId 传 null：书根 index 非节点页、无自引用可言。
+  const efficacy = efficacySection(bookMeta[b.domain], {
+    renderProse: (p) => linkLawCites(mdParagraphs(p).join('\n\n'), b.domain, null, { force: true }),
+  });
   // 列表标题统一为「## 子节点」（v7 需求4）：与其余目录页同体例，
   // 使全站目录页的下钻入口只有这一种形态
-  const parts = [fm, '', `《${meta.title}》共 ${nodeCount} 个章节节点。`, '', '## 子节点', ''];
+  const parts = [fm, '', `《${meta.title}》共 ${nodeCount} 个章节节点。`, ''];
+  if (efficacy) parts.push(efficacy, '');
+  parts.push('## 子节点', '');
   for (const rid of roots) parts.push(`- ${linkTo(rid, byId.get(rid).label)}`);
   parts.push('');
   emit(`${b.dir}/index.md`, parts.join('\n'));
@@ -827,7 +992,7 @@ for (const b of BOOKS) {
 
 // —— 8.8 首页 content/index.md ——
 {
-  const fm = frontmatter({ title: 'PatentReader' });
+  const fm = frontmatter({ title: 'IPReader' });
   const bookList = BOOKS.map((b) => {
     const meta = DOMAIN_META.get(b.domain);
     const count = nodes.filter((n) => n.domain === b.domain).length;
@@ -839,9 +1004,9 @@ for (const b of BOOKS) {
     [
       fm,
       '',
-      '以 7 部专利工具书的章节体系为主体、以关键词索引为补充检索入口的中文专利知识库。全部内容离线可用；章节间通过法条引用、交叉参见与共引关系互联，可经右侧关系图与页底反链游走。',
+      `以 ${BOOKS.length} 部知识产权工具书的章节体系为主体、以关键词索引为补充检索入口的中文知识产权知识库。全部内容离线可用；章节间通过法条引用、交叉参见与共引关系互联，可经右侧关系图与页底反链游走。`,
       '',
-      '## 七部工具书',
+      `## 工具书目录（${BOOKS.length} 部）`,
       '',
       ...bookList,
       '',
@@ -855,7 +1020,7 @@ for (const b of BOOKS) {
       '1. 使用左侧搜索框全文检索（如"新颖性"、"第二十六条"），支持标题与正文命中。',
       '2. 打开章节页右侧的关系图查看两跳邻居；点击右上角地球图标切换全局图。',
       '3. 法条页（如专利法第26条）底部的 Backlinks 汇总了全库引用该条文的章节。',
-      '4. 左侧目录树按 7 部书的法律层级排序，术语区固定在最下方的「关键词索引」。',
+      `4. 左侧目录树按 ${BOOKS.length} 部书的法律层级排序，术语区固定在最下方的「关键词索引」。`,
       '',
     ].join('\n'),
   );
@@ -923,6 +1088,9 @@ const summary = {
   wikilink总数: stats.wikilinks,
   扫描到的wikilink: scanned,
   法条正文内成链: stats.lawLinks,
+  法条正文内成链_白名单域: stats.lawLinksWhitelist || 0,
+  法条成链_书根效力原文段: stats.lawLinksPromulgation || 0,
+  引用法条清单: { 条目: stats.lawCitesSectionEntries || 0, 不可解析跳过: stats.lawCiteUnresolved || 0 },
   术语正文内成链: stats.termLinks,
   跨书前缀链接: stats.crossBookPrefixed || 0,
   小节编号引用成链: stats.numRefLinks || 0,
@@ -942,9 +1110,11 @@ if (broken.length) {
   console.error('死链明细（前 20 条）：\n' + broken.slice(0, 20).join('\n'));
   process.exit(1);
 }
-// 页数断言：节点页 2044 + 书根 7 + 术语总目录 1 + 主题索引 23 + 图谱总览 1 + 首页 1 ≈ 2077。
-// 任务书预估 2350±80 系把 174 个容器索引页在 2175 个节点页之外重复计入（2175+174=2349），
-// 实际每个容器就是一个节点页，不另生成；故此处按真实构成断言，区间放宽下限。
+// 页数断言：页面总数 = 节点页（章节/容器页 + 词条页，恒等于 nodes.json 条数）
+// ＋ 其他页 115（书根 88 + 主题索引 24 + 术语总目录 1 + 图谱总览 1 + 首页 1）。
+// 先断言「节点页数 === 节点数」这一恒等式（与入库规模无关），再断言页面总数落在下方区间内。
+// 历史注记：早期任务书预估 2350±80 系把 174 个容器索引页在 2175 个节点页之外重复计入
+// （2175+174=2349），实际每个容器就是一个节点页、不另生成；故此处按真实构成断言。
 const nodePages =
   (stats.pages['章节页'] || 0) +
   (stats.pages['章节页(目录index)'] || 0) +
@@ -955,23 +1125,52 @@ if (nodePages !== nodes.length) {
   console.error(`断言失败：节点页数 ${nodePages} ≠ 节点数 ${nodes.length}`);
   process.exit(1);
 }
-// 区间随词表规模调整：2026-08-12 关键词索引删词（三书独有词 98 + 非专利法域泛词 19），
-// 词表 968 → 851，页面总数实测 2091（1193 章节 + 851 词条 + 47 其他）。
-// 区间按实测落点两侧各留约 5% 余量取 [1990, 2200]。
-// 历史口径：词表 907 时页面 2142（区间曾为 [2100, 2430]）。
-if (totalPages < 1990 || totalPages > 2200) {
-  console.error(`断言失败：页面总数 ${totalPages} 超出 [1990, 2200]`);
+// 区间随入库规模调整：2026-08-25 阶段5.3 节点细化后，页面总数预期 7397
+// （7282 节点页 + 115 其他；7282 = 章节/容器页 6247 + 词条页 1035）。
+// 本期增量来自阶段5.3 前序批次的节点细化与重切片，节点页 6410 → 7282（+872），其他页 115 不变。
+// ⚠ 上述 7282 / 6247 / 1035 三个数按批次 W8 落地时的预期账写入，**以 C1 全量重跑实测复核为准**
+// （W8 只改代码不跑全量：上游 edges/layout/term 中间态未齐，词条页数尤须 C1 实测回填）。
+// 区间按预期落点 7397 ±5% 向外取整取 [7030, 7770]，沿用历次「实测落点 ±5%」的同一口径。
+// 历史口径：阶段5.2 两批语料扩容后实测 6525（5375 章节/容器页 + 1035 词条页 + 115 其他，
+// 曾为 [6190, 6860]）；87 域态（tmeg 104 节点）实测 5419（曾为 [5140, 5690]）；
+// 批次三 72 域态实测 4683（曾为 [4440, 4920]）；批次二 47 域态实测 3710（曾为 [3520, 3900]）；
+// 批次一 32 域态实测 2832（曾为 [2690, 2980]）；含「修改十八件决定」的 26 件态曾实测 2852；
+// 词表 968→851 删词后页面 2091（曾为 [1990, 2200]）；词表 907 时页面 2142（曾为 [2100, 2430]）。
+if (totalPages < 7030 || totalPages > 7770) {
+  console.error(`断言失败：页面总数 ${totalPages} 超出 [7030, 7770]`);
   process.exit(1);
 }
-// 术语链接量断言：随 TERM_LINK_TIERS 口径定版。
-//   全量（851 词）      实测 8142 —— 2026-08-12 删词后本期口径（区间 [7900, 8800] 下沿余量约 3%、
-//                       上沿约 8%，已比 ±5% 更紧，故沿用不放宽）
+// 术语链接量断言：随 TERM_LINK_TIERS 口径与入库规模定版。
+//   全量（1035 词）+ 88 域 实测 19104 —— 2026-08-25 阶段5.3 批次 C1 管线全序重建实测
+//                       （阶段5.3 节点细化：非 term 节点页 5375 → 6247、页面总数 6525 → 7397；
+//                        词表 1035 恒。成链增幅 1.111 倍与页面增幅 1.134 倍同量级，
+//                        每页成链密度 2.636 → 2.583 微降，非匹配器/禁区失效型骤增）
+//                       区间按实测 ±5% 向外取整取 [18140, 20060]
+//   全量（1035 词）+ 88 域 实测 17201 —— 2026-08-24 阶段5.2 两批语料扩容
+//                       （W-1 tmeg 正文数字编号段升节点 +709、Q-1《专利质量评价指南》第 88 部
+//                        入库 +214；词表 1035 恒，增幅 1.128 倍与页面增幅 1.168 倍同量级）
+//                       （区间曾为 [16340, 18070]）
+//   全量（1035 词）+ 87 域 实测 15245 —— 2026-08-23 阶段5波C 商标术语接入
+//                       （商标审查审理指南关键词速查 68 行 + 109 片证据片入词表，词表 851→1035）
+//                       （区间曾为 [14480, 16010]）
+//   全量（851 词）+ 87 域  实测 12530 —— 2026-08-22 入库批次四（收尾）15 件后本期口径
+//                       （商标审查审理指南 23.4 万字 + 办案指南 19.8 万字两大件贡献主要增幅 +1984）
+//                       （区间曾为 [11900, 13160]）
+//   全量（851 词）+ 72 域  实测 10546 —— 批次三 25 件态（区间曾为 [10010, 11080]）
+//   全量（851 词）+ 47 域  实测 9673 —— 批次二 15 件态（区间曾为 [9180, 10160]）
+//   全量（851 词）+ 32 域  实测 9138 —— 批次一 25 域态（区间曾为 [8680, 9600]）；
+//                       含「修改十八件决定」的 26 件态曾实测 9247（区间曾为 [8780, 9710]）
+//   全量（851 词）+ 7 书  实测 8142 —— 入库前口径（区间曾为 [7900, 8800]）
 //   全量（968 词）      实测 8272 —— 删词前口径
 //   仅 seed（424 词）   实测 3125 —— 曾短暂启用，因术语覆盖面损失过大而撤回
 // 区间容忍正文/清单微调；灾难性偏离（匹配器失效→骤降，禁区失效→骤增）在此拦截。
-// 改 TERM_LINK_TIERS 时必须同步改本区间，否则断言会挡下预期内的口径切换。
-if (TERM_LINK_ENABLED && (stats.termLinks < 7900 || stats.termLinks > 8800)) {
-  console.error(`断言失败：术语正文内成链 ${stats.termLinks} 超出 [7900, 8800]`);
+// 改 TERM_LINK_TIERS 或增删域时必须同步改本区间，否则断言会挡下预期内的口径切换。
+// 注记（阶段5.3 批次 W8 → C1 结案）：W8 预留「C1 首跑破区间时按实测 ±5% 报批」，
+//   C1 首跑实测 19104 破旧上限 18070（+5.7%），落在报批宽带 [16340, 22600] 内，
+//   经裁决按实测 ±5% 收紧改写为 [18140, 20060]，旧区间降为沿革记录（见上表）。
+//   书根「效力信息」的公布与施行原文不经 termMatcher（只做法条内链化），对本计数零贡献。
+if (TERM_LINK_ENABLED && (stats.termLinks < 18140 || stats.termLinks > 20060)) {
+  console.error(`断言失败：术语正文内成链 ${stats.termLinks} 超出 [18140, 20060]`);
   process.exit(1);
 }
 // 附图嵌入断言：上游正文引用与已导入资产的定版数量（上游新增附图时须重跑 import-book-images.mjs 并更新此值）
@@ -979,8 +1178,8 @@ if ((stats.imgEmbedded || 0) !== EXPECTED_EMBEDDED_IMAGES) {
   console.error(`断言失败：附图嵌入 ${stats.imgEmbedded || 0} ≠ ${EXPECTED_EMBEDDED_IMAGES}`);
   process.exit(1);
 }
-// 内嵌 HTML 表格断言：全库 8 张（均在《化学撰写规范》），其中 7 张规则网格转 GFM 管道表格、
-// 1 张（chem-02-03-03 表1，rowspan/colspan 合并表头）回退 raw HTML。
+// 内嵌 HTML 表格断言：全库 48 张，29 转 GFM 管道表格、19 回退 raw HTML（逐表去向见文件头 EXPECTED_* 注释）。
+// 注：原生 markdown 管道表（如 GB 清单域）不经 TABLE_BLOCK_RE，不计入本断言。
 // 数量下滑即说明表格识别或上游切片出了问题——它是「表格重新按纯文本平铺」的回归哨兵。
 if (richStats.gfmTables !== EXPECTED_GFM_TABLES || richStats.rawTables !== EXPECTED_RAW_TABLES) {
   console.error(
@@ -1004,3 +1203,33 @@ if (richStats.converted < EXPECTED_MATH_MIN) {
   process.exit(1);
 }
 console.log(`✅ 生成完成：${totalPages} 页，wikilink ${scanned} 条全部可达，输出目录 ${OUT_DIR}`);
+
+// ============ 十一、taxonomy.json 发射（阶段5 波C 新增） ============
+// 「顶层目录数字前缀 → 分组元数据」映射：供 Explorer 合成分组层（波C-3）与图谱标签图（波C-4）
+// 消费，亦是 mcp/scripts/check-taxonomy.mjs（P9）比对 graphSections.ts 的另一侧数据源。
+// 只依赖 BOOKS（顶层目录前缀登记）与 DOMAIN_META（阶段5.3 批次 W3 起经 resolveDomainTitles
+// 派生自 KNOWN_DOMAINS + book-meta.json，title 字段可能带年份后缀，field/docType 等分类字段
+// 逐字不变），故 0-图谱总览、
+// 9-关键词索引两个非书前缀天然不入表（BOOKS 数组本就只登记 87 部书，不含二者）；
+// 落盘目标是 quartz/static/（quartz 静态资产树，与本文件其余产物所在的 content/ 是两棵不同的树），
+// 因此不经 emit()/outputs 收集，径直 writeFileSync。
+function emitTaxonomy() {
+  const table = {};
+  for (const b of BOOKS) {
+    const meta = DOMAIN_META.get(b.domain);
+    if (!meta) throw new Error(`taxonomy 发射失败：未知域 ${b.domain}`);
+    table[b.order] = {
+      domain: b.domain,
+      title: meta.title,
+      short: meta.short,
+      country: meta.country,
+      field: meta.field,
+      docType: meta.docType,
+      docTypeName: DOC_TYPES[meta.docType],
+    };
+  }
+  const outPath = join(SCRIPT_DIR, '..', '..', 'quartz-kb', 'quartz', 'static', 'taxonomy.json');
+  writeFileSync(outPath, JSON.stringify(table, null, 2) + '\n', 'utf8');
+  console.log(`taxonomy.json 已生成：${outPath}（${Object.keys(table).length} 键）`);
+}
+emitTaxonomy();

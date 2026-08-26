@@ -5,14 +5,14 @@
 //
 // 输入（除切片树外均相对 site/，全部只读）：
 //   data/terms-merged.json        851 词条：termKey/canonical/aliases/topicKey/sources/lawKeys
-//   data/nodes.json               2044 节点：章节 1193（含 231 个带 lawKey 的法条节点）+ 术语 851
-//   data/edges.json               7998 边，本脚本取三类：
+//   data/nodes.json               5306 节点：章节 4455（含 231 个带 lawKey 的法条节点）+ 术语 851
+//   data/edges.json               10446 边，本脚本取三类：
 //                                   xref    章节↔章节交叉参见
 //                                   lawref  章节→法条节点
 //                                   termrel 术语↔术语
 //   public/content/term-*.json    851 词条详情：definition/occurrences/laws/relatedTerms
 //   scripts/lib/topics.mjs        TERM_TOPIC_GROUPS（22 组，组序即目录编号 01…22）
-//   ../../<book>/_chunks/         外层仓七书切片树——**指针存在性判定的唯一依据**，只读
+//   ../../<book>/_chunks/         外层仓各书切片树——**指针存在性判定的唯一依据**，只读
 //
 // 输出 <out>/term-index/：
 //   README.md                     23 组总览表 + 指针语义 + grep 检索建议 + 数据来源

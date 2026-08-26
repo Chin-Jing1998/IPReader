@@ -1,6 +1,6 @@
-# PatentReader · quartz 定制备忘（patent-kb 分支）
+# IPReader · quartz 定制备忘（patent-kb 分支）
 
-本仓库基于 quartz v4.5.2，承载 7 部专利工具书 + 关键词索引 + 图谱总览共 2077 页的纯离线知识库。
+本仓库基于 quartz v4.5.2，承载 88 部知识产权工具书 + 关键词索引 + 图谱总览共 7397 页的纯离线知识库。
 内容 markdown 由 `../site/scripts/build-quartz-md.mjs` 生成（幂等，重跑前自动清空受管目录）。
 
 ## 构建流程
@@ -12,11 +12,11 @@
 node scripts/extract-edges.mjs           # → data/edges.json（degree/hub 写回 nodes.json）
 node scripts/compute-layout.mjs          # 增量模式：非 term 坐标取 layout-baseline.json 冻结基线
 
-# 2. 内容层（../site 内）：重新生成 quartz markdown（2077 页）
+# 2. 内容层（../site 内）：重新生成 quartz markdown（7397 页）
 node scripts/build-quartz-md.mjs
 
 # 3. 静态资源同步（本目录内）
-./sync-content.sh            # ../site/public/content/（2044 个节点详情 JSON）→ quartz/static/content/
+./sync-content.sh            # ../site/public/content/（7282 个节点详情 JSON）→ quartz/static/content/
 
 # 4. 构建站点（产物 public/）
 npx quartz build

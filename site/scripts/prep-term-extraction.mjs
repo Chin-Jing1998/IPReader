@@ -57,7 +57,10 @@ const nodes = JSON.parse(readFileSync(join(DATA_DIR, 'nodes.json'), 'utf8'));
 const nodesByDomain = new Map();
 for (const n of nodes) {
   // 面包屑路径：guideline 的 breadcrumb 不含书名；通用域首元素为规范全名，剥掉后与切片段对齐
-  const bc = n.domain === 'examination-guideline-2025' ? n.breadcrumb : n.breadcrumb.slice(1);
+  // ⚠ 2026-08-23 修复：本判定原写死域名字面量 'examination-guideline-2025'，而该域已更名为
+  //   'examination-guideline'，致判定长期恒假、专利审查指南 breadcrumb 被误切丢一级祖先。
+  //   本脚本为证据片生产工具，此修复只影响未来重跑，不触碰现有 term-extract 数据。
+  const bc = n.domain === 'examination-guideline' ? n.breadcrumb : n.breadcrumb.slice(1);
   const entry = {
     id: n.id,
     label: n.label,
