@@ -14,7 +14,7 @@ import { SETTINGS_SLUG } from "../util/appPages"
  *
  * 四个分类：外观（主题模式 + 界面主题）· 批注（标记批注保存位置）·
  * MCP（接入 AI 助手的命令，按本机真实路径生成）·
- * 关于（应用信息与检查更新、联系方式两卡并排 + 图谱与专利库使用说明）。
+ * 关于（产品信息与项目归属、检查更新、联系反馈 + 图谱与专利库使用说明）。
  * 服务端直出即以「外观」为激活态（分类钮与面板各带 is-active、aria-selected="true"），
  * 故首帧无闪跳、无 JS 时亦有正确初态。
  *
@@ -312,25 +312,29 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
           <div class="kb-about-grid">
             <section class="kb-settings-sec">
               <h2>关于 IPReader</h2>
-              {/*
-                这段描述与下方的更新区块同处一卡，措辞须与之自洽：v9 引入检查更新后，
-                「运行期不发出任何网络请求」已不再成立，改为「默认不联网」并指明唯一例外，
-                否则就是在一个联网按钮旁边声称自己从不联网。
-              */}
               <p class="kb-settings-desc">
-                IPReader 是一部默认完全离线的知识产权知识库桌面应用——当前收录中国六大
-                法域 88 部法规、司法解释与实务规范全文共 6247 个正文页，配套 1035
-                个术语词条、知识图谱、全文搜索与批注。新近入库《专利质量评价指南》，
-                覆盖专利申请文件撰写质量的评价规则。后续将扩展其他国家和地区。
-                无遥测、无账号，
-                唯一会联网的是下方的检查更新（默认关闭）。
+                IPReader
+                是面向知识产权实务的本地优先知识库桌面应用，将法规、司法解释与实务规范组织为可检索、可追溯、可批注的阅读工具。
+                本项目由张京京独立设计、开发与维护；项目中使用的第三方软件、AI
+                工具、协议客户端和构建环境仅作为工具或运行环境，不构成共同作者、共同权利人或项目维护者。
               </p>
               <div class="kb-about-card">
                 <p class="kb-about-row">
+                  <span class="kb-about-label">作者</span>
+                  <span>张京京</span>
+                </p>
+                <p class="kb-about-row">
                   <span class="kb-about-label">版本</span>
-                  {/* 桌面端由 settings.inline.ts 以 app.getVersion() 覆写，
-                      使版本号不因这份静态页忘记同步而说谎 */}
+                  {/* 桌面端由 settings.inline.ts 以 app.getVersion() 覆写，避免静态页版本信息滞后 */}
                   <span data-update-version>v1.5.0</span>
+                </p>
+                <p class="kb-about-row">
+                  <span class="kb-about-label">内容</span>
+                  <span>中国六大法域 88 部文献 · 6,247 个正文页</span>
+                </p>
+                <p class="kb-about-row">
+                  <span class="kb-about-label">索引</span>
+                  <span>1,035 个术语 · 7,282 个图谱节点</span>
                 </p>
                 <p class="kb-about-row">
                   <span class="kb-about-label">许可</span>
@@ -339,11 +343,9 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
               </div>
 
               {/*
-                更新检查：全应用唯一会联网的功能，因而默认隐藏、默认关闭。
-                hidden 由 settings.inline.ts 在确认 window.desktop.checkUpdate 存在后摘除——
-                Web 形态下无从检查更新，与其摆一个点了没反应的按钮，不如不显示。
-                「启动时自动检查」的开关状态存主进程侧（window-state.json），不用 localStorage：
-                主进程要在建窗后立刻据此决定是否检查，读不到渲染层的存储。
+                更新检查是应用唯一可能联网的功能，默认隐藏、默认关闭。
+                hidden 由 settings.inline.ts 在确认 window.desktop.checkUpdate 存在后摘除；
+                Web 形态下不显示点了无反应的按钮，桌面端则由主进程返回真实版本与开关状态。
               */}
               <div class="kb-update" data-update-block hidden>
                 <div class="kb-settings-row">
@@ -363,17 +365,14 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
             </section>
 
             <section class="kb-settings-sec">
-              <h2>联系作者</h2>
+              <h2>联系与反馈</h2>
               <p class="kb-settings-desc">
-                使用中遇到问题、发现内容错漏，或有功能建议，欢迎通过以下任一方式联系。
+                如果发现内容错漏、链接失效或功能问题，请提供文献名称、章节路径和可复现步骤；功能建议也可通过以下方式提交。
               </p>
               {/*
-                电话 / 微信 / QQ 一律纯文本，不做链接：tel: 在 desktop/main.cjs 的
-                will-navigate 里无对应分支，微信与 QQ 也没有可在离线环境成立的目标——
-                任何 https 外链都会在应用窗口内发起外部导航，与「运行期零网络请求」
-                的护栏和 server.cjs 的 connect-src 'self' 直接冲突。
-                两个邮箱锚点的先后不可调换：gmail 为主用地址，smoke.cjs 第 16 项按
-                文档序取「关于」面板内第一个 mailto 锚点并逐字比对该地址。
+                电话、微信与 QQ 保持纯文本，避免在离线应用中产生无效外部导航。
+                邮箱锚点使用 data-router-ignore，交由系统邮件客户端处理；第一个邮箱地址
+                是 smoke.cjs 的稳定探针，顺序不可调换。
               */}
               <div class="kb-about-card">
                 <p class="kb-about-row">
@@ -414,14 +413,6 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
                 </p>
               </div>
 
-              {/*
-                赞赏码：原生 <details>，零脚本、SSR 即最终形态、键盘与读屏天然可达。
-                默认收起，不主动占版面。
-                图片路径必须是相对形式（joinSegments + pathToRoot，先例见 Head.tsx
-                的 favicon）：绝对 /static/… 在部分场景取不到，且 SPA 换页时
-                normalizeRelativeURLs 只重基 ./ 与 ../ 开头的 src，绝对路径不进重基。
-                width/height 按原图 480×720 等比给出，避免展开瞬间的布局抖动。
-              */}
               <details class="kb-about-donate">
                 <summary>请我喝杯咖啡</summary>
                 <img

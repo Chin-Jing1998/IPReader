@@ -838,6 +838,14 @@ body[data-slug="0-图谱总览/index"] {
     row-gap: 0;
   }
 
+  // 通用侧栏的 sticky top 为「标题条高度 + 0.75rem」，而本页的左栏
+  // 直接跨越三个零高度网格行；在该网格约束下，sticky 会把左栏底缘
+  // 推到视口底部，造成相对画布整体下移 0.75rem。图谱页已有自身的
+  // 0.75rem 外边距，因此这里让左栏回到网格自然起点，使上下边界与画布一致。
+  .page > #quartz-body > .sidebar.left {
+    top: 0;
+  }
+
   // 显式指定 grid-center：避免 .center 无 grid-area 时被自动放置到
   // 非预期列导致塌陷
   .page > #quartz-body .center {
