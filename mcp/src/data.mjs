@@ -4,7 +4,8 @@
 // 加载全程无网络、无外部进程：读本地文件 → gunzip → JSON.parse → 建 Map 索引。
 // 实测冷启动（解压 65ms + 解析 + 建索引）约 200ms，故不做懒加载。
 //
-// 域过滤（环境变量 PATENTREADER_MCP_DOMAINS）在此层生效而非返回层：被关闭的书
+// 域过滤（环境变量 IPREADER_MCP_DOMAINS，旧名 PATENTREADER_MCP_DOMAINS 仍兜底兼容）
+// 在此层生效而非返回层：被关闭的书
 // 既不入检索索引，也无法经 read_node / related_nodes 等任何路径取到，
 // 且指向它的引用（术语出处、关联节点、法条引用）一并剔除，不留悬空指针。
 import { readFileSync, existsSync } from 'node:fs';
@@ -63,7 +64,9 @@ export function loadKb(options = {}) {
   const pack = JSON.parse(gunzipSync(readFileSync(file)).toString('utf8'));
 
   const allDomains = pack.books.map((b) => b.domain);
-  const rawFilter = options.domains !== undefined ? options.domains : process.env.PATENTREADER_MCP_DOMAINS;
+  const rawFilter = options.domains !== undefined
+    ? options.domains
+    : (process.env.IPREADER_MCP_DOMAINS ?? process.env.PATENTREADER_MCP_DOMAINS);
   const { allowed, warnings } = parseDomainFilter(rawFilter, allDomains);
   const isFullOpen = allowed.size === allDomains.length;
 

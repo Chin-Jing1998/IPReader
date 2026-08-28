@@ -6,7 +6,7 @@
 // 冒烟测试断言该计数恒为 0。
 //
 // 用法（由 smoke.mjs 注入，不参与生产运行）：
-//   NODE_OPTIONS="--require ./offline-guard.cjs" PATENTREADER_OFFLINE_REPORT=/tmp/x.json node dist/server.mjs
+//   NODE_OPTIONS="--require ./offline-guard.cjs" IPREADER_OFFLINE_REPORT=/tmp/x.json node dist/server.mjs
 const net = require('node:net');
 const dns = require('node:dns');
 const tls = require('node:tls');
@@ -66,7 +66,7 @@ if (typeof globalThis.fetch === 'function') {
 
 // —— 退出时落报告，供父进程断言 ——
 process.on('exit', () => {
-  const out = process.env.PATENTREADER_OFFLINE_REPORT;
+  const out = process.env.IPREADER_OFFLINE_REPORT;
   if (!out) return;
   try {
     fs.writeFileSync(out, JSON.stringify({ externalAttempts: attempts.length, attempts }, null, 2));

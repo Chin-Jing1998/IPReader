@@ -86,13 +86,15 @@ Windows 下应用内副本的路径为 `%LOCALAPPDATA%\Programs\IPReader\IPReade
 
 ## 内容范围开关
 
-默认开放全部 88 部书。通过环境变量 `PATENTREADER_MCP_DOMAINS` 可按书目收窄，逗号分隔：
+默认开放全部 88 部书。通过环境变量 `IPREADER_MCP_DOMAINS` 可按书目收窄，逗号分隔：
 
 ```bash
 claude mcp add ipreader \
-  -e PATENTREADER_MCP_DOMAINS=patent-law,implementation-rules,examination-guideline,infringement-guide \
+  -e IPREADER_MCP_DOMAINS=patent-law,implementation-rules,examination-guideline,infringement-guide \
   -- node <仓库路径>/patent-kb/mcp/dist/server.mjs
 ```
+
+> 更名前的旧变量名 `PATENTREADER_MCP_DOMAINS` 仍作兜底兼容：未设置新名时按旧名取值，既有配置无需立即改动；新名优先级更高，两者同时设置时以 `IPREADER_MCP_DOMAINS` 为准。
 
 主干七部书的域键：
 

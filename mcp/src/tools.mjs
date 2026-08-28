@@ -651,7 +651,7 @@ export function listBooks(ctx) {
     })),
     closedBooks: closed.map((b) => ({ domain: b.domain, title: b.title })),
     note: closed.length
-      ? `${closed.length} 部书目已由 PATENTREADER_MCP_DOMAINS 关闭，其内容不参与检索也无法读取`
+      ? `${closed.length} 部书目已由 IPREADER_MCP_DOMAINS 关闭，其内容不参与检索也无法读取`
       : `全部 ${kb.books.length} 部书目均已开放`,
     // 摘要分组：country→field→docType 三级聚合，供快速概览 88 部书目的分布，不必
     // 自行遍历 books[] 重新分组。groups 字段本身恒存在（结构性新增，非条件性出现），

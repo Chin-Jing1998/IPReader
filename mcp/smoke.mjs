@@ -49,7 +49,7 @@ async function connect(env = {}) {
     env: {
       ...process.env,
       NODE_OPTIONS: `--require ${GUARD}`,
-      PATENTREADER_OFFLINE_REPORT: REPORT,
+      IPREADER_OFFLINE_REPORT: REPORT,
       ...env,
     },
     stderr: 'pipe',
@@ -200,8 +200,8 @@ async function main() {
   }
 
   // ============ 十、域白名单 ============
-  console.log('\n十、域白名单（PATENTREADER_MCP_DOMAINS）');
-  const { client: c2, transport: tr2 } = await connect({ PATENTREADER_MCP_DOMAINS: 'patent-law' });
+  console.log('\n十、域白名单（IPREADER_MCP_DOMAINS）');
+  const { client: c2, transport: tr2 } = await connect({ IPREADER_MCP_DOMAINS: 'patent-law' });
   const d1 = dataOf(await c2.callTool({ name: 'list_books', arguments: {} }), 'list_books');
   ok('仅开放一部书', d1.books.length === 1 && d1.books[0].domain === 'patent-law', d1.books.map((b) => b.short).join('、'));
   ok('其余八十七部标记为已关闭', d1.closedBooks.length === 87, d1.closedBooks.map((b) => b.title).join('、'));
