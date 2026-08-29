@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "validate": "node scripts/validate-content.mjs"
+  },
   "dependencies": {
     "graphology": "^0.26.0",
     "graphology-layout": "^0.6.1",
