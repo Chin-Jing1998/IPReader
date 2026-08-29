@@ -1,7 +1,7 @@
 {
   "name": "ipreader-desktop",
   "private": true,
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "IPReader · 知识产权知识库桌面端——quartz 静态站 + Electron 本地 http 托管（默认离线）",
   "author": "张京京",
   "main": "main.cjs",
