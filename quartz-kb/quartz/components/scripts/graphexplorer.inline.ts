@@ -287,6 +287,11 @@ document.addEventListener("nav", async () => {
   // 图渲染控制器（V4-B1 契约）：focus / setTermLayer / resetView / destroy
   let controller: GraphController | null = null
   let disposed = false
+  // 重建在途标志（阶段5.10 波A 步5）：renderCanvas 的 await 期间为真。
+  // 期间容器尺寸的变化不必也不该走 syncSize——新实例的构造期量测本就现取容器尺寸，
+  // 而 controller 此刻指向的是即将退场（或尚未装上）的实例。A.2 会把它并入
+  // 「请求 + 排水」的并发互斥结构，语义不变。
+  let renderBusy = false
 
   // 术语层三态钮（GraphExplorer.tsx 工具条内 SSR 产出）
   const termButtons = Array.from(explorer.querySelectorAll<HTMLButtonElement>(".ge-term-btn"))
@@ -899,12 +904,20 @@ document.addEventListener("nav", async () => {
     // 非 crossfade 路径维持原时序：销毁在前，新实例再清空容器重建
     if (!crossfade) retire()
     controller = null
-    const next = await render(
-      canvas!,
-      slug,
-      termOverride,
-      crossfade ? { crossfade: true, retire } : undefined,
-    )
+    // 步5：await 期间置在途标志，供 RO 回调短路（理由见 renderBusy 声明处）。
+    // finally 保证异常路径也复位，否则一次渲染失败会让 RO 永久失效
+    let next: GraphController
+    renderBusy = true
+    try {
+      next = await render(
+        canvas!,
+        slug,
+        termOverride,
+        crossfade ? { crossfade: true, retire } : undefined,
+      )
+    } finally {
+      renderBusy = false
+    }
     // await 期间可能已离开本页（SPA 导航）：丢弃刚建好的实例并就地销毁旧实例，
     // 否则两者都失去引用却仍持有 pixi 实例与 rAF 循环（孤儿实例）
     if (disposed) {
@@ -1442,60 +1455,48 @@ document.addEventListener("nav", async () => {
   }
   document.addEventListener("themechange", onThemeChange)
 
-  // 视口变化：按新尺寸重渲染（防抖）；
-  // 重建前快照术语层模式与缩放平移（BUG-1），重建后恢复——缩放不重置。
+  // ---------- 尺寸变化一律就地同步（阶段5.10 波A-R2）----------
+  // 现状：窗口 resize 与容器 ResizeObserver 两条源都只调 controller.syncSize()——
+  // 渲染器就地 resize + zoomBehavior.extent 跟随 + 相机左上锚定补偿，节点坐标、
+  // 力导状态、纹理、选中态全部原地不动，画面零位移、零闪烁、零重建。
   //
-  // ---------- 双档防抖（阶段5.7 波A-A3）----------
-  // 两条触发源共用一个 timer 与唯一重建体 scheduleRebuild，参数各异：
-  //   · window resize：250ms / crossfade=false——与改造前逐字同参，行为零变更；
-  //   · .ge-canvas 的 ResizeObserver：400ms / crossfade=true。
-  // 共用 timer 是刻意的：窗口缩放常常同时改变容器尺寸，两条源各持一个定时器会
-  // 排出两轮全量重建；共用则后到者顺延覆盖，只重建一次。
+  // 尺寸重建路径（阶段5.7 波A-A3 的 scheduleRebuild：window resize 250ms/RO 400ms +
+  // crossfade）**已退役删除**。它的两项缺陷同时消失：其一，重建后世界原点 +width/2
+  // 随宽度漂移，整图跳 ΔW·(1+k)/2≈165–250px；其二，crossfade 实为加性双重曝光
+  //（旧层恒 α=1 不淡出、新层 260ms 淡入后硬切），跳变期间叠出残影。附带修掉的还有
+  // 「窗口 resize 的 crossfade=false 分支不可达」——两条源共用同一个 resizeTimer，
+  // RO 那档后写恒赢，5.7 注释里的「resize 行为零变更」当时已不成立。
   //
-  // RO 这一档补的是「窗口没动、容器动了」这一整类尺寸失同步。渲染器的宽高是
-  // createGraphInstance 里的一次性 const 快照（graph.inline.ts:1256-1257），全仓
-  // 无 renderer.resize；而 .ge-canvas 会被同页内的布局变化改尺寸——点法域标签使
-  // 非本域图例项 hidden 撤出布局流、工具栏折行减少，画布随之变高；右栏 .ge-panel
-  // 显隐（±300–440px）则改画布宽度。canvas 停在旧尺寸，帧缓冲之外的节点被容器的
-  // overflow:hidden 硬切，表现为下边缘露底与右侧露白。
-  // 400ms＝applyFitView 的过渡时长，使重建排在法域过滤的重排动画之后串行发生；
-  // crossfade=true 走 graph.inline.ts 既有的先建后毁淡入路径（themechange 已验证
-  // 该机制），消除重建间隙的空白帧——renderCanvas 第四参已是现成入口，
-  // graph.inline.ts 一字不改。
-  let resizeTimer: ReturnType<typeof setTimeout> | undefined
-  const scheduleRebuild = (delayMs: number, crossfade: boolean) => {
-    clearTimeout(resizeTimer)
-    resizeTimer = setTimeout(() => {
-      const termMode = controller?.getTermLayer()
-      const transform = controller?.getTransform() ?? null
-      void renderCanvas(centerSlug, termMode, transform, crossfade)
-    }, delayMs)
-  }
-  const onResize = () => scheduleRebuild(250, false)
+  // 整实例重建至此只剩两条合法路径：① themechange（取新主题色，见上方 onThemeChange，
+  // 保留 120ms 防抖与 crossfade，那才是它的原始用例：颜色整体换档、不改几何、无位移）；
+  // ② 术语层 hidden↔其它（改数据集构成，重建在 graph.inline.ts 内部完成）。
+  // 另有两处兜底调用方：selectNode 定位未命中、onReset 在 controller 缺失时回落。
+  const onResize = () => controller?.syncSize()
   window.addEventListener("resize", onResize)
 
-  // 容器尺寸观察。量测口径与 graph.inline.ts 的尺寸快照逐字对齐（offsetWidth /
-  // Math.max(offsetHeight, 250)）——比的必须是「渲染器下次会取到的值」，用 client*
-  // 会因 .ge-canvas 的 1px 边框恒差 2px 而永远判定为已变化。
+  // 容器尺寸观察（阶段5.10 波A-R2 改造）：回调只做一件事——把「容器变了」这一事件
+  // 转成一次 controller.syncSize()，由渲染层就地 resize + 相机左上锚定补偿。
   //
-  // 无回环之虞：容器尺寸由外部布局决定（$desktop 下 flex:1，窄屏 height:55vh）且
-  // overflow:hidden，与子内容无关——重建插入的新 canvas 撑不大它，故不存在
-  // 「重建→尺寸变→再重建」。阈值守卫（宽高任一变化 ≥1px 才排定）是第二道保险，
-  // 兼挡亚像素抖动；宽度为 0 的量测（安装瞬间的首次回调、尚未布局或不可见时）
-  // 只用来续写基线、不排定重建，否则页面刚挂载就会白付一次全量重建。
-  let lastCanvasW = 0
-  let lastCanvasH = 0
+  // ⚠️ 量测单点持有：本回调**不再自持任何量测与阈值**。尺寸真值只有一处口径
+  //（graph.inline.ts 的 measureCanvasSize），「变没变」也由那边的 dw/dh 双短路判定；
+  // 编排层再写一份 offsetWidth 比对，就会出现「这边说变了、那边说没变」的错位，
+  // 原先的 lastCanvasW/H + ≥1px 阈值整套因此删除。w===0 与亚像素抖动同样由
+  // syncSize 内的短路承接（w===0 直接不动、Δ为 0 即逐字等价于没调用）。
+  //
+  // 只做 rAF 合并、**不做防抖**：就地 resize 是微秒级操作，没有防抖的必要，而防抖
+  // 反而让画布慢半拍跟上。原 400ms 档是为「一次全量重建约 700ms」而设，重建退役后
+  // 失去存在理由；.ge-panel 显隐无过渡、法域标签折行也是瞬时布局，合并到下一帧即可。
+  // renderBusy 期间短路：重建在途时容器尺寸交由新实例的构造期量测承接（A.2）。
+  let roFrame = 0
   let canvasRO: ResizeObserver | undefined
   if (typeof ResizeObserver !== "undefined") {
     canvasRO = new ResizeObserver(() => {
-      const w = canvas.offsetWidth
-      const h = Math.max(canvas.offsetHeight, 250)
-      const seeded = lastCanvasW > 0
-      const changed = Math.abs(w - lastCanvasW) >= 1 || Math.abs(h - lastCanvasH) >= 1
-      lastCanvasW = w
-      lastCanvasH = h
-      if (!seeded || w === 0 || !changed) return
-      scheduleRebuild(400, true)
+      if (roFrame !== 0) return
+      roFrame = requestAnimationFrame(() => {
+        roFrame = 0
+        if (renderBusy) return
+        controller?.syncSize()
+      })
     })
     canvasRO.observe(canvas)
   }
@@ -1517,8 +1518,9 @@ document.addEventListener("nav", async () => {
   // ---------- SPA 清理（下一次导航前由 spa.inline 统一调用） ----------
   window.addCleanup(() => {
     disposed = true
-    clearTimeout(resizeTimer)
     // 未决的主题防抖回调必须撤销：导航后触发会重建到已被替换的 DOM 上
+    //（原 clearTimeout(resizeTimer) 随尺寸重建路径退役一并删除，替代者是下方的
+    //  cancelAnimationFrame(roFrame)）
     clearTimeout(themeChangeTimer)
     // 阶段5.4：未决的状态条自动清空定时器一并撤销，理由同上
     clearTimeout(statusAutoClearTimer)
@@ -1532,9 +1534,10 @@ document.addEventListener("nav", async () => {
     document.removeEventListener("themechange", onThemeChange)
     window.removeEventListener("resize", onResize)
     // 容器观察器随挂载闭包一同退场：不断开则旧观察器继续持有已被替换的 DOM 与
-    // 本闭包内的 renderCanvas，导航后仍会往死掉的容器上排重建（未决定时器已由
-    // 上方 clearTimeout(resizeTimer) 撤销，此处断的是继续产生新回调的源头）
+    // 本闭包内的 controller，导航后仍会往死掉的容器上排同步（未决的那一帧由
+    // 下方 cancelAnimationFrame 撤销，此处断的是继续产生新回调的源头）
     canvasRO?.disconnect()
+    if (roFrame !== 0) cancelAnimationFrame(roFrame)
     controller?.destroy()
     controller = null
   })
