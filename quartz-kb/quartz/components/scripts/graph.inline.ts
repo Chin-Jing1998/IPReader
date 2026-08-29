@@ -291,8 +291,11 @@ const graphIndex = (): Promise<GraphContentIndex> =>
 // ---------- 构建期预计算坐标取数（阶段5.6 波3-3.1）----------
 
 /**
- * static/graphLayout.json 的形状，产出见 plugins/emitters/graphLayout.tsx。
+ * 构建期预计算坐标产物的形状，产出见 plugins/emitters/graphLayout.tsx。
  * pos 的键是 SimpleSlug，值是参考画布尺寸（refWidth×refHeight）下的世界坐标。
+ *
+ * 两档产物同形：static/graphLayout.json（术语层 hidden 档）与
+ * static/graphLayout-terms.json（术语层 shown／dimmed 档），差别只在数据集与 key。
  */
 type PrebuiltLayout = {
   /** 数据集与力参数的指纹；运行期复算不等即整份忽略 */
@@ -305,17 +308,26 @@ type PrebuiltLayout = {
 }
 
 /**
- * 取构建期预计算的全景坐标。与 graphIndex 同风格：window 级去重、全站至多一次。
+ * 取构建期预计算的全景坐标，按术语层档位选对应产物。与 graphIndex 同风格：
+ * window 级去重、每档全站至多一次。
+ *
+ * ⚠️ 术语档（graphLayout-terms.json，约 800KB／gz 120KB）**惰性拉取**：
+ * 本函数只在建实例时按该实例的 termHidden 调用一次，故初始态（hidden）的会话永远
+ * 不会碰它，冷启动不多传一个字节；用户首次切到「显示／弱化」时才发起，且此后由
+ * window 去重位复用。两档各占一个去重位，互不覆盖。
  *
  * ⚠️ 任何失败一律化为 null，绝不 reject——本产物是纯粹的加速项，取不到就回落
  * 同步预热，图照画。故 fetch 网络错误、非 2xx、JSON 解析失败三条路径全部吞掉。
  */
-const graphLayout = (): Promise<PrebuiltLayout | null> =>
-  (window.__graphLayout ??= fetch(
-    joinSegments(pathToRoot(getFullSlug(window)), "static/graphLayout.json"),
-  )
-    .then((r) => (r.ok ? (r.json() as Promise<PrebuiltLayout>) : null))
-    .catch(() => null))
+const graphLayout = (termHidden: boolean): Promise<PrebuiltLayout | null> => {
+  const load = (file: string): Promise<PrebuiltLayout | null> =>
+    fetch(joinSegments(pathToRoot(getFullSlug(window)), file))
+      .then((r) => (r.ok ? (r.json() as Promise<PrebuiltLayout>) : null))
+      .catch(() => null)
+  return termHidden
+    ? (window.__graphLayout ??= load("static/graphLayout.json"))
+    : (window.__graphLayoutTerms ??= load("static/graphLayout-terms.json"))
+}
 
 /**
  * 32 位 FNV-1a —— 必须与 plugins/emitters/graphLayout.tsx 的同名实现逐位一致，
@@ -419,7 +431,8 @@ type GraphPerfMark = {
   layoutSeeded: boolean
   /**
    * 坐标来源（波3-3.1）：cache=模块级快照（SPA 二次打开）｜
-   * prebuilt=构建期预计算产物 static/graphLayout.json（首次打开／硬跳转）｜
+   * prebuilt=构建期预计算产物（首次打开／硬跳转，以及术语层首次切到显示档——
+   * 按 termHidden 取 static/graphLayout.json 或 static/graphLayout-terms.json）｜
    * prewarm=无现成坐标，走 d3 默认初值 + 同步预热。
    * layoutSeeded 是它的派生量（前两者为真），保留是为不改动既有探针与 smoke 断言。
    */
@@ -878,7 +891,12 @@ async function createGraphInstance(
   // 构建期坐标与轻量索引**并行**发起（波3-3.1）：两份产物互不依赖，串行等待等于
   // 白白多付一个 RTT。局部图（depth>=1）的邻域随中心页而变，产物覆盖不到，故不发起。
   // 真正 await 的位置在数据集组装之后（那时才知道节点数、算得出指纹），此处只起跑。
-  const prebuiltPromise = fullGraph ? graphLayout() : null
+  //
+  // 档位按本实例的 termHidden 选：hidden 实例取 graphLayout.json，shown／dimmed 实例
+  // 取 graphLayout-terms.json。术语层 hidden↔shown 的切换走整实例重建（setTermLayer
+  // 的重建路径），新实例在此处自然发起对应档的取数——所以术语档的字节只有真的切过去
+  // 才会下载，无需另设惰性开关。
+  const prebuiltPromise = fullGraph ? graphLayout(termHidden) : null
 
   const rawIndex = await graphIndex()
   perfMark.dataReady = performance.now()
@@ -2410,8 +2428,10 @@ async function createGraphInstance(
   // SPA 打开耗时的 47%）随之整段省掉。三级依次尝试，先命中者胜：
   //   ① 模块级快照 assemblyEntry.positions（波2）——最贴近用户离开时的样子，
   //      同一画布尺寸下取得，无需缩放；SPA 二次打开走这一级；
-  //   ② 构建期预计算 static/graphLayout.json（波3-3.1）——首次打开／硬跳转
-  //      （新 JS 上下文，模块缓存空）走这一级，按画布尺寸等比缩放后落座；
+  //   ② 构建期预计算产物（波3-3.1，按 termHidden 取 static/graphLayout.json 或
+  //      static/graphLayout-terms.json）——首次打开／硬跳转（新 JS 上下文，模块缓存空）、
+  //      以及术语层首次切到显示档（新数据集，模块缓存里没有它）走这一级，
+  //      按画布尺寸等比缩放后落座；
   //   ③ 都没有则回落原路径：d3 默认初值 + runSyncTicks 同步预热。
   //
   // 落点必须在 simulation 构造之后：forceSimulation(nodes) 会给每个节点写一遍
@@ -3197,8 +3217,16 @@ declare global {
      * 构建期预计算坐标的取数 Promise（阶段5.6 波3-3.1），首个调用方发起、其余共享。
      * 与 __graphIndex 不同，本项只有本文件消费（graphexplorer.inline.ts 不读坐标），
      * 故类型声明留在本文件的 declare global 内，不进 index.d.ts。
+     *
+     * 术语层 hidden 档（static/graphLayout.json）。
      */
     __graphLayout?: Promise<PrebuiltLayout | null>
+    /**
+     * 术语层 shown／dimmed 档（static/graphLayout-terms.json）的取数 Promise。
+     * 与上一项分开存放，使两档各自去重、互不覆盖；本位在用户首次切到显示档之前
+     * 恒为 undefined——那一档的字节因此不进初始态的下载账。
+     */
+    __graphLayoutTerms?: Promise<PrebuiltLayout | null>
   }
 }
 window.__graphRender = renderGraph

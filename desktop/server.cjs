@@ -62,6 +62,7 @@ const PRECOMPRESS_TARGETS = [
   'static/contentIndex.json',
   'static/contentIndexGraph.json',
   'static/graphLayout.json',
+  'static/graphLayout-terms.json',
   'postscript.js',
   'index.css',
 ];

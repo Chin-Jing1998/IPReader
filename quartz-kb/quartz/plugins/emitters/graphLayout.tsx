@@ -22,8 +22,18 @@ import { GRAPH_EXCLUDE, SETTINGS_EXCLUDE, GRAPH_HIDDEN_BOOKS } from "../../util/
  *
  * 目的：图谱总览首次打开时，运行期无需从 d3 的 phyllotaxis 初值起跑同步预热
  * （波2 后实测中位 229ms，占首开耗时的近一半），直接把节点摆到构建期算好的收敛
- * 终态上，首帧即定形。产物 static/graphLayout.json，消费方是
- * components/scripts/graph.inline.ts 的播种回落链第②级。
+ * 终态上，首帧即定形。消费方是 components/scripts/graph.inline.ts 的播种回落链第②级。
+ *
+ * 【两档产出（波3 后续批）】术语层「隐藏」与「显示／弱化」是两个不同的数据集
+ * （6,202 节点/29,010 边 vs 7,262 节点/59,423 边），各自有各自的收敛解，故各产一份：
+ *   · static/graphLayout.json        termHidden=true —— 专页与 globalGraph 的初始态；
+ *   · static/graphLayout-terms.json  termHidden=false —— 术语层切「显示／弱化」后的重建态。
+ *
+ * ⚠️ 双文件而非「单文件多档」，三条理由：
+ *   1) 隐藏档产物的路径与内容因此**逐字节不变**，已装版本与新版之间的差异面不扩大；
+ *   2) 运行期按需拉取——初始态只下载隐藏档，术语档的字节（约 800KB／gz 120KB）
+ *      只在用户真的切到显示档时才付，冷启动关键路径不受影响；
+ *   3) 一档的产出失败（自校验闸不过）不牵连另一档，回落粒度更细。
  *
  * ⚠️ 明确不复用 site/data/layout-baseline.json（阶段5.6 波3 裁决，三条理由）：
  *   1) 键系不通——那份基线以生成器侧的条目 id 为键，本产物以 Quartz 的 SimpleSlug
@@ -43,8 +53,17 @@ import { GRAPH_EXCLUDE, SETTINGS_EXCLUDE, GRAPH_HIDDEN_BOOKS } from "../../util/
 
 // ---------- 与 GraphExplorer.tsx 的 explorerGraphConfig 对齐的图配置 ----------
 
-/** 术语层 hidden 档：术语节点（9- 前缀）不进数据集，与专页初始态一致 */
-const TERM_HIDDEN = true
+/**
+ * 产出的两档：termHidden=true 时术语节点（9- 前缀）不进数据集（专页与 globalGraph 的
+ * 初始态）；false 时术语节点及其边一并入图（术语层切「显示／弱化」后的重建态——
+ * 运行期这两档共用同一条 dimmed↔shown 实例，只差透明度，数据集相同）。
+ *
+ * ⚠️ slug 与运行期取数器的路径一一对应，改名即两侧同改（graph.inline.ts 的 graphLayout()）。
+ */
+const LAYOUT_VARIANTS: ReadonlyArray<{ termHidden: boolean; slug: string }> = [
+  { termHidden: true, slug: "graphLayout" },
+  { termHidden: false, slug: "graphLayout-terms" },
+]
 /** 专页与 globalGraph 均为 false；为 true 时 tag 节点入图，本产物不覆盖那一档 */
 const SHOW_TAGS = false
 /** 专页 removeTags: []（showTags 为 false 时不生效，仍入 key 以与运行期同构） */
@@ -106,7 +125,7 @@ function isTermSlug(id: string): boolean {
  * tick 的累加次序，浮点加法不满足结合律，顺序一变收敛解就是另一组坐标。故三处顺序
  * 必须与运行期同构：contentIndex 的键序 → validLinks（Map 键序）→ [...neighbourhood]。
  */
-export function buildDataset(rawIndex: Record<string, GraphContentDetails>) {
+export function buildDataset(rawIndex: Record<string, GraphContentDetails>, termHidden: boolean) {
   const excluded = new Set<string>()
   const excludedPrefixes: string[] = []
   for (const raw of EXCLUDE_SLUGS) {
@@ -117,7 +136,7 @@ export function buildDataset(rawIndex: Record<string, GraphContentDetails>) {
   }
   const includeNode = (id: SimpleSlug): boolean =>
     !(excluded.has(id) || excludedPrefixes.some((p) => id.startsWith(p))) &&
-    !(TERM_HIDDEN && isTermSlug(id))
+    !(termHidden && isTermSlug(id))
 
   const data: Map<SimpleSlug, GraphContentDetails> = new Map(
     Object.entries<GraphContentDetails>(rawIndex).map(([k, v]) => [simplifySlug(k as FullSlug), v]),
@@ -228,13 +247,14 @@ function makeFingerprint(input: {
   nodeCount: number
   linkCount: number
   excludedSorted: string
+  termHidden: boolean
 }): string {
   return [
     "v1",
     `e=${input.entryCount}`,
     `n=${input.nodeCount}`,
     `l=${input.linkCount}`,
-    `th=${TERM_HIDDEN ? 1 : 0}`,
+    `th=${input.termHidden ? 1 : 0}`,
     `st=${SHOW_TAGS ? 1 : 0}`,
     `rt=${REMOVE_TAGS.join(",")}`,
     `ex=${input.excludedSorted}`,
@@ -284,100 +304,114 @@ export const GraphLayout: QuartzEmitterPlugin = () => {
         string,
         GraphContentDetails
       >
-      const { nodes, links, nodeDegree, excluded } = buildDataset(roundTripped)
-
-      // ---------- 自校验闸①：另一条派生路径的节点集必须逐一相等 ----------
-      // 上面走的是「JSON 往返后的对象」，此处走「未经序列化的原始对象」，两条路径
-      // 独立跑同一套准入判定。不等即说明序列化环节丢了字段或键序发生位移——
-      // 那样的坐标播下去就是错图，宁可不产出、让运行期回落预热路径。
-      const check = buildDataset(graphIndex)
-      const nodeSetEqual =
-        check.nodes.length === nodes.length &&
-        nodes.every((n, i) => check.nodes[i].id === n.id) &&
-        check.links.length === links.length
-      if (!nodeSetEqual) {
-        console.warn(
-          `[GraphLayout] 节点集自校验未通过（往返 ${nodes.length}/${links.length} vs 直取 ${check.nodes.length}/${check.links.length}），` +
-            `不产出 static/graphLayout.json，运行期将回落同步预热路径`,
+      // ---------- 两档逐一产出 ----------
+      // 每档独立走「组装 → 双闸自校验 → 收敛 → 产出」，任一闸不过只 continue 跳过
+      // 该档，另一档照产：隐藏档是初始态的收益主项，不该被术语档的意外牵连；反之
+      // 术语档缺失也只是切换时回落预热，即改动前的现状。
+      for (const variant of LAYOUT_VARIANTS) {
+        const outPath = `static/${variant.slug}.json`
+        const { nodes, links, nodeDegree, excluded } = buildDataset(
+          roundTripped,
+          variant.termHidden,
         )
-        return
-      }
-      if (nodes.length === 0) {
-        console.warn(`[GraphLayout] 节点集为空，不产出 static/graphLayout.json`)
-        return
-      }
 
-      // ---------- 跑至收敛 ----------
-      const nodeRadius = makeNodeRadius(nodeDegree)
-      const simulation = makeSimulation(nodes, links, nodeRadius, REF_WIDTH, REF_HEIGHT)
-      // d3 的 forceSimulation 构造即自启内部 timer，构建期一律手动 tick，先停机
-      simulation.stop()
-      let ticks = 0
-      while (simulation.alpha() >= ALPHA_MIN && ticks < MAX_TICKS) {
-        simulation.tick()
-        ticks += 1
-      }
-      const alpha = simulation.alpha()
-      if (ticks >= MAX_TICKS) {
-        console.warn(
-          `[GraphLayout] ${MAX_TICKS} tick 后仍未收敛（alpha=${alpha}），不产出 static/graphLayout.json`,
-        )
-        return
-      }
-
-      // ---------- 自校验闸②：坐标必须逐点有限且覆盖全部节点 ----------
-      const pos: Record<string, [number, number]> = {}
-      for (const n of nodes) {
-        const x = n.x
-        const y = n.y
-        if (x === undefined || y === undefined || !Number.isFinite(x) || !Number.isFinite(y)) {
+        // ---------- 自校验闸①：另一条派生路径的节点集必须逐一相等 ----------
+        // 上面走的是「JSON 往返后的对象」，此处走「未经序列化的原始对象」，两条路径
+        // 独立跑同一套准入判定。不等即说明序列化环节丢了字段或键序发生位移——
+        // 那样的坐标播下去就是错图，宁可不产出、让运行期回落预热路径。
+        const check = buildDataset(graphIndex, variant.termHidden)
+        const nodeSetEqual =
+          check.nodes.length === nodes.length &&
+          nodes.every((n, i) => check.nodes[i].id === n.id) &&
+          check.links.length === links.length
+        if (!nodeSetEqual) {
           console.warn(
-            `[GraphLayout] 节点 ${n.id} 坐标非有限值（x=${x}, y=${y}），不产出 static/graphLayout.json`,
+            `[GraphLayout] 节点集自校验未通过（往返 ${nodes.length}/${links.length} vs 直取 ${check.nodes.length}/${check.links.length}），` +
+              `不产出 ${outPath}，运行期将回落同步预热路径`,
           )
-          return
+          continue
         }
-        // 两位小数：世界坐标包围盒约 2,700px，0.01px 的精度远细于一个物理像素，
-        // 而全量写满双精度会让产物膨胀近一倍
-        pos[n.id] = [Math.round(x * 100) / 100, Math.round(y * 100) / 100]
-      }
-      if (Object.keys(pos).length !== nodes.length) {
-        console.warn(`[GraphLayout] 坐标表条目数与节点数不符，不产出 static/graphLayout.json`)
-        return
-      }
+        if (nodes.length === 0) {
+          console.warn(`[GraphLayout] 节点集为空，不产出 ${outPath}`)
+          continue
+        }
 
-      const fingerprint = makeFingerprint({
-        entryCount,
-        nodeCount: nodes.length,
-        linkCount: links.length,
-        excludedSorted: [...excluded].sort().join(","),
-      })
-      const payload = {
-        key: `g1-${fnv1a(fingerprint)}`,
-        fingerprint,
-        refWidth: REF_WIDTH,
-        refHeight: REF_HEIGHT,
-        alpha,
-        pos,
-        meta: {
-          ticks,
-          nodes: nodes.length,
-          links: links.length,
+        // ---------- 跑至收敛 ----------
+        const nodeRadius = makeNodeRadius(nodeDegree)
+        const simulation = makeSimulation(nodes, links, nodeRadius, REF_WIDTH, REF_HEIGHT)
+        // d3 的 forceSimulation 构造即自启内部 timer，构建期一律手动 tick，先停机
+        simulation.stop()
+        let ticks = 0
+        while (simulation.alpha() >= ALPHA_MIN && ticks < MAX_TICKS) {
+          simulation.tick()
+          ticks += 1
+        }
+        const alpha = simulation.alpha()
+        if (ticks >= MAX_TICKS) {
+          console.warn(
+            `[GraphLayout] ${MAX_TICKS} tick 后仍未收敛（alpha=${alpha}），不产出 ${outPath}`,
+          )
+          continue
+        }
+
+        // ---------- 自校验闸②：坐标必须逐点有限且覆盖全部节点 ----------
+        const pos: Record<string, [number, number]> = {}
+        let posOk = true
+        for (const n of nodes) {
+          const x = n.x
+          const y = n.y
+          if (x === undefined || y === undefined || !Number.isFinite(x) || !Number.isFinite(y)) {
+            console.warn(
+              `[GraphLayout] 节点 ${n.id} 坐标非有限值（x=${x}, y=${y}），不产出 ${outPath}`,
+            )
+            posOk = false
+            break
+          }
+          // 两位小数：世界坐标包围盒约 2,700px，0.01px 的精度远细于一个物理像素，
+          // 而全量写满双精度会让产物膨胀近一倍
+          pos[n.id] = [Math.round(x * 100) / 100, Math.round(y * 100) / 100]
+        }
+        if (!posOk) continue
+        if (Object.keys(pos).length !== nodes.length) {
+          console.warn(`[GraphLayout] 坐标表条目数与节点数不符，不产出 ${outPath}`)
+          continue
+        }
+
+        const fingerprint = makeFingerprint({
           entryCount,
-          buildMs: Date.now() - started,
-          d3Force: readD3ForceVersion(),
-          radialRadius: (Math.min(REF_WIDTH, REF_HEIGHT) / 2) * RADIAL_RADIUS_FACTOR,
-          collideIterations: COLLIDE_ITERATIONS,
-          radialStrength: RADIAL_STRENGTH,
-          maxNodeRadius: MAX_NODE_RADIUS,
-        },
-      }
+          nodeCount: nodes.length,
+          linkCount: links.length,
+          excludedSorted: [...excluded].sort().join(","),
+          termHidden: variant.termHidden,
+        })
+        const payload = {
+          key: `g1-${fnv1a(fingerprint)}`,
+          fingerprint,
+          refWidth: REF_WIDTH,
+          refHeight: REF_HEIGHT,
+          alpha,
+          pos,
+          meta: {
+            ticks,
+            nodes: nodes.length,
+            links: links.length,
+            entryCount,
+            buildMs: Date.now() - started,
+            d3Force: readD3ForceVersion(),
+            radialRadius: (Math.min(REF_WIDTH, REF_HEIGHT) / 2) * RADIAL_RADIUS_FACTOR,
+            collideIterations: COLLIDE_ITERATIONS,
+            radialStrength: RADIAL_STRENGTH,
+            maxNodeRadius: MAX_NODE_RADIUS,
+          },
+        }
 
-      yield write({
-        ctx,
-        content: JSON.stringify(payload),
-        slug: joinSegments("static", "graphLayout") as FullSlug,
-        ext: ".json",
-      })
+        yield write({
+          ctx,
+          content: JSON.stringify(payload),
+          slug: joinSegments("static", variant.slug) as FullSlug,
+          ext: ".json",
+        })
+      }
     },
   }
 }
