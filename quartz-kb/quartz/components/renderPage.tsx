@@ -30,6 +30,24 @@ export function pageResources(
   const contentIndexPath = joinSegments(baseDir, "static/contentIndex.json")
   const contentIndexScript = `const fetchData = fetch("${contentIndexPath}").then(data => data.json())`
 
+  // 图谱轻量索引的 head 预热（阶段5.6 backlog）：取数提前到文档 head，与上方 fetchData
+  // 同一时机、同一拼路径方式（相对站点根，绝对 /static/… 在子路径部署与 file:// 下会 404）。
+  //
+  // 【为什么能无条件预热】波2-2.1 换源后，**所有** Graph 实例都经 window.__graphIndex 取这份
+  // 索引：graph.inline.ts 的 `await graphIndex()` 位于 createGraphInstance 的 fullGraph 分支
+  // **之前**，内容页右栏局部图与全量图一视同仁；graphexplorer.inline.ts 的三个消费点同源。
+  // 故凡渲染图谱的页面本来就要拉它，预热不产生额外流量，只把取数从 afterDOMReady 提前到 head。
+  //
+  // 【余量说明】文件夹/标签列表页（quartz.layout.ts 的 defaultListPageLayout，right 为空）
+  // 无图谱实例，本来不拉这份索引。但本资源项与 fetchData 同为 spaPreserve——只在整文档加载时
+  // 执行一次，SPA 导航不重跑；桌面端冷启动落在站点根（内容页，有局部图），故该余量仅在直接
+  // 冷启动到列表页时出现，且下一次跳到任何内容页即会用上（服务端已预压缩，首请求约 4ms）。
+  //
+  // ⚠️ `??=` 的键必须与 graph.inline.ts / graphexplorer.inline.ts 内的取数器逐字一致
+  //（同为 window.__graphIndex），语义是"谁先谁建、其余共享同一个 Promise"；改键即变成各拉一份。
+  const graphIndexPath = joinSegments(baseDir, "static/contentIndexGraph.json")
+  const graphIndexScript = `window.__graphIndex ??= fetch("${graphIndexPath}").then(data => data.json())`
+
   const resources: StaticResources = {
     css: [
       {
@@ -48,6 +66,14 @@ export function pageResources(
         contentType: "inline",
         spaPreserve: true,
         script: contentIndexScript,
+      },
+      // 置于 fetchData 之后：两个 fetch 在同一任务内相继发起、并行在途，
+      // 保留 contentIndex.json 的请求先后不变（目录树与搜索的就绪时序一字不动）。
+      {
+        loadTime: "beforeDOMReady",
+        contentType: "inline",
+        spaPreserve: true,
+        script: graphIndexScript,
       },
       ...staticResources.js,
     ],
