@@ -1724,6 +1724,35 @@ async function main() {
     homeAfter.locateCount === 0 &&
     homeAfter.hiddenLi === 0;
 
+  // i：SPA 软导航落地后折叠钮仍然可用（阶段5.6 目录树 DOM 复用新增的覆盖点）
+  //    上一句的点击是 SPA 软导航，目录树自此走「复用已建 DOM + 增量更新」那条路径：
+  //    折叠监听在**建树时绑定一次且刻意不登记 window.addCleanup**（节点跨导航存活）。
+  //    若有人把它改回「每次 nav 重绑 + cleanup 摘除」的旧写法，复用路径不再重绑，
+  //    整棵目录树会当场失去折叠能力——而本步此前所有折叠断言都跑在 loadURL 之后的
+  //    重建路径上，恰好照绿不报。取一个默认折叠、且不含当前页的书目录（其展开态
+  //    不受「当前页祖先强制展开」干扰），折叠再展开、状态复原，不留痕迹。
+  const REUSE_FOLDER = '.folder-container[data-folderpath="2-专利法实施细则/index"]';
+  const reuseToggle = await win.webContents.executeJavaScript(
+    `(async () => {
+       const c = document.querySelector('.explorer-ul ${REUSE_FOLDER}');
+       if (!c || !c.nextElementSibling) return { found: false };
+       const outer = c.nextElementSibling;
+       const before = outer.classList.contains('open');
+       const hit = () => c.querySelector('.folder-icon')
+         .dispatchEvent(new MouseEvent('click', { bubbles: true }));
+       hit();
+       await new Promise((r) => setTimeout(r, 250));
+       const mid = outer.classList.contains('open');
+       hit();
+       await new Promise((r) => setTimeout(r, 250));
+       return { found: true, before, mid, after: outer.classList.contains('open') };
+     })()`,
+  );
+  const reuseToggleOk =
+    reuseToggle.found === true &&
+    reuseToggle.mid === !reuseToggle.before &&
+    reuseToggle.after === reuseToggle.before;
+
   record(
     "图谱页目录直达文档＋书下 3 层展开＋提示自动消失＋controller 存活（初始展开规模与 fileTree 双键隔离 / 目录点击 SPA 落地含隐藏书 / 术语显隐钮存活 / 状态条 4s 自动消失 / 法域↔目录过滤联动 / 首页一致性抽查）",
     expandOk &&
@@ -1736,7 +1765,8 @@ async function main() {
       statusAutoOk &&
       branchTmOk &&
       branchResetOk &&
-      homeOk,
+      homeOk &&
+      reuseToggleOk,
     `初始展开：.folder-outer.open=${expandProbe.open}/${expandProbe.total}（须 ≥1000）; ` +
       `fileTree 隔离：折叠再展开后 v2 逐字节不变=${isolationProbe.v2After === v2Before}, graph 键存在=${!!isolationProbe.graphKey}; ` +
       `a-d 目录直达：落地 path=${afterNav.path}, title="${afterNav.title}", kb:graphlocate=${afterNav.locateCount} 次（恒 0）, ` +
@@ -1745,7 +1775,8 @@ async function main() {
       `f 隐藏书直达：落地 path=${afterBookNav.path}, title="${afterBookNav.title}", kb:graphlocate=${afterBookNav.locateCount} 次; ` +
       `状态条自动消失：回车后="${missStatus}" → 4.5s 后="${statusCleared}"（须空）; ` +
       `g 过滤：点「商标」后=${JSON.stringify(branchAfterTm)}；重置后六支 hidden=${JSON.stringify(branchAfterReset.map((b) => b.hidden))}；` +
-      `h 首页抽查：跳转后 path=${homeAfter.path}, kb:graphlocate=${homeAfter.locateCount} 次, li[hidden]=${homeAfter.hiddenLi}`,
+      `h 首页抽查：跳转后 path=${homeAfter.path}, kb:graphlocate=${homeAfter.locateCount} 次, li[hidden]=${homeAfter.hiddenLi}; ` +
+      `i SPA 落地后折叠钮：目标在场=${reuseToggle.found}, open ${reuseToggle.before}→${reuseToggle.mid}→${reuseToggle.after}（须翻转后复原）`,
   );
 
   // ============ 阶段5.6 波2 新增一步（30）============

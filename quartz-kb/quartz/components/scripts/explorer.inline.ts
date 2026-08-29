@@ -153,6 +153,73 @@ const GRAPH_FOLDER_STATE_STORAGE_KEY = "fileTree-graph"
 /** 图谱页默认展开深度上限：渲染树 depth ≤ 6 展开（4=书，即书下 3 层可见），>6 折叠。 */
 const GRAPH_EXPAND_TO_DEPTH = 6
 
+// ==== patent-kb: 常设性能埋点 window.__explorerPerf（阶段5.6 目录树 DOM 复用）====
+// 目录树是全站每次 SPA 导航的固定开销（约 7,400 个 li／1,395 个文件夹节点），
+// 与页面渲染争同一条主线程。埋点常设而非临时插桩，理由同 graph.inline.ts 的
+// __graphPerf：每一次归因都要求同口径数字。默认零输出、零 I/O，开销为每次导航
+// 三次 performance.now()。localStorage 的 explorer-perf 置 "1" 时逐条 console.log。
+
+type ExplorerPerfMark = {
+  /** 本次导航落地页 slug */
+  slug: string
+  /**
+   * 走的哪条路径：
+   * build=全量重建（首次导航或缓存失效）｜reuse=复用已建 DOM 做增量更新｜
+   * stale=取数返回时已被后一次导航接管，本次放弃（快速连点两页的竞态防护）。
+   */
+  mode: "build" | "reuse" | "stale"
+  /** setupExplorer 入口（performance.now 绝对值，跨记录不可相减） */
+  start: number
+  /** setupExplorer 收尾 */
+  end: number
+  /** 派生：end - start，含 build 路径上 await fetchData/taxonomy 的微任务往返 */
+  total: number
+  /** 派生：await 之后的同步段（建树／增量更新／插入 DOM）；reuse 路径无 await，等于 total */
+  sync: number
+  /** 渲染树 li 总数（文件 + 文件夹 + 合成分组层） */
+  items: number
+  /** 文件夹节点数（含合成分组层） */
+  folders: number
+  /**
+   * 本次是否重写了全部 <a href>。相对路径只随 pathToRoot(currentSlug) 变化，
+   * 同深度页面互跳（条文页→条文页）时全树 href 原样正确，无需任何写入。
+   */
+  hrefRewritten: boolean
+}
+
+/** 保留的记录条数上限：够看清「首次导航 vs 后续导航」的对照，又不至于常驻内存 */
+const EXPLORER_PERF_MAX_MARKS = 20
+
+const explorerPerf: { marks: ExplorerPerfMark[] } = { marks: [] }
+
+declare global {
+  interface Window {
+    /** 常设性能埋点存档：最近 20 次 setupExplorer 的耗时切片与规模量 */
+    __explorerPerf?: { marks: ExplorerPerfMark[] }
+  }
+}
+window.__explorerPerf = explorerPerf
+
+function recordExplorerPerf(mark: ExplorerPerfMark) {
+  explorerPerf.marks.push(mark)
+  if (explorerPerf.marks.length > EXPLORER_PERF_MAX_MARKS) {
+    explorerPerf.marks.shift()
+  }
+  let verbose = false
+  try {
+    verbose = localStorage.getItem("explorer-perf") === "1"
+  } catch {
+    // 隐私模式等禁用 localStorage 的环境：静默即可，埋点本身不受影响
+  }
+  if (verbose) {
+    console.log(
+      `[explorer] ${mark.mode} total=${mark.total.toFixed(1)}ms sync=${mark.sync.toFixed(1)}ms ` +
+        `items=${mark.items} folders=${mark.folders} href=${mark.hrefRewritten} ${mark.slug}`,
+    )
+  }
+}
+// ==== /patent-kb ====
+
 /**
  * 当前生效的折叠态存储键，每次 setupExplorer 开头按当前页刷新：
  * 图谱页置 GRAPH_FOLDER_STATE_STORAGE_KEY，其余页维持 FOLDER_STATE_STORAGE_KEY。
@@ -696,6 +763,13 @@ function locateExplorerActive(scroller: HTMLElement) {
 // ==== /patent-kb ====
 
 let currentExplorerState: Array<FolderState>
+/**
+ * currentExplorerState 的 path→collapsed 索引，与之在同一处同时构造、内容等价
+ * （渲染树中折叠键唯一，故不存在「先到先得」与「后写覆盖」的分歧）。
+ * 建树与增量更新都要按折叠键查取值，用它把原先的线性 find 降为 O(1)：
+ * 1,383 个文件夹各查一遍原是 O(N²)。
+ */
+let explorerStateIndex = new Map<string, boolean>()
 function toggleExplorer(this: HTMLElement) {
   const nearestExplorer = this.closest(".explorer") as HTMLElement
   if (!nearestExplorer) return
@@ -752,6 +826,10 @@ function toggleFolder(evt: MouseEvent) {
       collapsed: isCollapsed,
     })
   }
+  // patent-kb（DOM 复用）：索引与 currentExplorerState 同步维护，二者恒等价。
+  // 本次改动内没有「同一页内先折叠再读索引」的路径（索引只在 setupExplorer 内构造后
+  // 即刻用完），此处同步是为不给后来者留下一个会悄悄读到旧值的半新半旧结构。
+  explorerStateIndex.set(folderContainer.dataset.folderpath as string, isCollapsed)
 
   const stringifiedFileTree = JSON.stringify(currentExplorerState)
   // ==== patent-kb: 配额满时不得中断 nav 回调 ====
@@ -770,17 +848,158 @@ function toggleFolder(evt: MouseEvent) {
   scheduleOverlayScrollbarSync()
 }
 
-function createFileNode(currentSlug: FullSlug, node: FileTrieNode): HTMLLIElement {
+// ==== patent-kb: 目录树 DOM 复用（SPA 生命周期内）====
+// 背景：setupExplorer 原本在**每次** SPA 导航都对全量 contentIndex 重建 FileTrieNode 树，
+// 再重建约 7,400 个 li／2–3 万 DOM 节点（实测同步段 124ms／次），是全站每次导航的固定税，
+// 与页面渲染争同一条主线程。而 SPA 生命周期内这棵树的**结构**是恒定的：
+//   · contentIndex 恒定——fetchData 由 renderPage.tsx 注入的 head 内联脚本以 spaPreserve
+//     形态执行一次，SPA 导航只换 body、不重跑该脚本，故全站共享同一个已 resolve 的 Promise；
+//   · 分组表恒定——taxonomyCache 模块级缓存；
+//   · 排序/过滤/再父化全是纯函数，同一输入必得同一棵树（实测：同一页三次导航的目录树
+//     innerHTML 散列逐位相同）。
+// 逐导航真正会变的只有三样：
+//   ① 每个 <a> 的相对 href（只随 pathToRoot(currentSlug) 变化——同深度页面互跳时连它也不变）；
+//   ② .active 高亮的落点；
+//   ③ 文件夹展开态（保存态 → 默认规则 → 当前页祖先链强制展开，三级判定与重建路径同一公式）。
+// 故改为：首次导航建树并缓存整棵 DOM，其后逐导航只做上述三项 O(V) 增量更新，零 DOM 创建/销毁。
+//
+// 三项配套机制：
+//   · prenav 摘树（detachExplorerTrees）——micromorph 把当前 body 与新页 SSR 空骨架逐节点
+//     比对，7,400 个 li 全落在「多余节点」侧要被逐个删除；先摘下则两侧都只剩空骨架，这段
+//     diff 成本一并归零，且摘下的节点连同其上的事件监听原样存活，下次导航直接挂回。
+//   · 增量更新一律在**离体状态**下做——离体元素不参与样式解析，.folder-outer 上那条
+//     0.3s 的 grid-template-rows 过渡（explorer.scss:150）不会被触发；挂回时是元素的首次
+//     样式解析，同样不起过渡。故展开态变化保持与重建路径一样的「瞬时到位」，无动画。
+//   · 折叠钮监听只在建树时绑定一次且**不**登记 window.addCleanup——节点跨导航存活，
+//     若沿用「每次 nav 摘除、每次 nav 重绑」的旧写法，复用路径不再重绑，文件夹会失去
+//     折叠能力。整棵树被作废重建时旧节点连同监听一起被丢弃，由 GC 回收。
+
+/** 复用路径下单个文件夹节点的增量更新上下文；children 只收文件夹，与渲染树同构。 */
+type FolderRecord = {
+  /** .folder-outer —— open 类的落点 */
+  outer: HTMLElement
+  /** 折叠键：真实目录取 slug，合成分组层取 synthetic:… 稳定键（与 folderStateKey 同源） */
+  path: string
+  /** 渲染树深度（根的直接子为 1），defaultCollapsed 的入参 */
+  depth: number
+  /** 真实目录的 simplifySlug(path)；合成分组层为 null（没有 slug 可比前缀） */
+  simple: string | null
+  children: FolderRecord[]
+}
+
+/** 复用路径下单条链接的增量更新上下文。 */
+type LinkRecord = {
+  a: HTMLAnchorElement
+  /** resolveRelative 的 target 实参（文件 slug 或目录 folderPath），慢路径回落用 */
+  target: FullSlug
+  /**
+   * href 去掉 pathToRoot 前缀后的尾段，满足 href === pathToRoot(currentSlug) + tail。
+   * 成立性来自 resolveRelative 的构造：joinSegments(root, simple) 恒以 root 开头，
+   * 其后的部分只由 target 决定、与 root 无关。建树时逐条以 startsWith 实测校验，
+   * 一旦有一条不成立即整棵树落 tailSafe=false，改走 resolveRelative 慢路径。
+   */
+  tail: string
+}
+
+/** 一棵已建好并缓存的目录树。 */
+type ExplorerTree = {
+  /** 顶层 li（不含 OverflowList 的 .overflow-end 占位） */
+  roots: HTMLLIElement[]
+  /** 前序遍历的全部文件夹记录，与 collectFolderStates 同序同内容 */
+  flatFolders: FolderRecord[]
+  /** 渲染树顶层的文件夹记录，增量更新的递归入口 */
+  rootFolders: FolderRecord[]
+  links: LinkRecord[]
+  /** 全部 tail 均由 href 切片得出且可复原；false 时 href 走 resolveRelative 慢路径 */
+  tailSafe: boolean
+  /** slug → 该 slug 命中当前页时须打 .active 的元素（文件 <a> 与真实目录的 .folder-container） */
+  activeBySlug: Map<string, HTMLElement[]>
+  /** 上一次生效的 .active 元素 */
+  active: HTMLElement[]
+  /** 上一次的 pathToRoot(currentSlug)；与本次相同则全树 href 一个字都不用改 */
+  root: string
+  /** 合成分组层的外层 li：法域过滤只写这些 li 的 hidden，复用前须复位 */
+  syntheticLis: HTMLLIElement[]
+  /** 建树时的 opts 指纹，与本次不符即整树作废重建 */
+  signature: string
+  items: number
+  folders: number
+}
+
+/**
+ * 按 document.querySelectorAll("div.explorer") 的文档序索引缓存。本库两套布局
+ * （defaultContentPageLayout / defaultListPageLayout）各只含一个 Explorer，实际恒为 1 条；
+ * 数组形态是为了在多实例布局下各实例互不串用，索引不对齐时由 signature 兜底作废。
+ */
+let explorerTrees: Array<ExplorerTree | undefined> = []
+
+/**
+ * 导航代次。setupExplorer 入口自增，await 恢复后若已被后一次导航接管即整体放弃本次
+ * （快速连点两页的竞态防护）。放弃是安全的：接管方自己会把目录树挂回并按其落地页更新。
+ */
+let explorerNavGeneration = 0
+
+/** 建树规模计数（埋点用）：每次全量重建前由 setupExplorer 归零。 */
+let builtItems = 0
+let builtFolders = 0
+
+function pushActiveTarget(tree: ExplorerTree, slug: string, el: HTMLElement) {
+  const existing = tree.activeBySlug.get(slug)
+  if (existing) {
+    existing.push(el)
+  } else {
+    tree.activeBySlug.set(slug, [el])
+  }
+}
+
+/** 登记一条链接并切出与 root 无关的尾段（切不出即整树降级到慢路径）。 */
+function registerLink(
+  tree: ExplorerTree,
+  a: HTMLAnchorElement,
+  target: FullSlug,
+  href: string,
+  root: string,
+) {
+  if (!href.startsWith(root)) {
+    tree.tailSafe = false
+  }
+  tree.links.push({ a, target, tail: href.slice(root.length) })
+}
+
+/**
+ * 摘下全部缓存树。挂在 prenav：此时 spa.inline.ts 尚未执行 cleanup、也尚未 micromorph
+ * 形变 body，正是把整棵树从 diff 面里拿走的窗口。摘下的是顶层 li（本库 3 个），O(1) 量级。
+ */
+function detachExplorerTrees() {
+  for (const tree of explorerTrees) {
+    if (!tree) continue
+    for (const li of tree.roots) {
+      li.remove()
+    }
+  }
+}
+
+function createFileNode(
+  currentSlug: FullSlug,
+  node: FileTrieNode,
+  tree: ExplorerTree,
+  root: string,
+): HTMLLIElement {
+  builtItems += 1
   const template = document.getElementById("template-file") as HTMLTemplateElement
   const clone = template.content.cloneNode(true) as DocumentFragment
   const li = clone.querySelector("li") as HTMLLIElement
   const a = li.querySelector("a") as HTMLAnchorElement
-  a.href = resolveRelative(currentSlug, node.slug)
+  const href = resolveRelative(currentSlug, node.slug)
+  a.href = href
   a.dataset.for = node.slug
   a.textContent = node.displayName
+  registerLink(tree, a, node.slug, href, root)
+  pushActiveTarget(tree, node.slug, a)
 
   if (currentSlug === node.slug) {
     a.classList.add("active")
+    tree.active.push(a)
   }
 
   return li
@@ -791,7 +1010,12 @@ function createFolderNode(
   node: FileTrieNode,
   opts: ParsedOptions,
   depth: number,
+  tree: ExplorerTree,
+  root: string,
+  siblings: FolderRecord[],
 ): HTMLLIElement {
+  builtItems += 1
+  builtFolders += 1
   const template = document.getElementById("template-folder") as HTMLTemplateElement
   const clone = template.content.cloneNode(true) as DocumentFragment
   const li = clone.querySelector("li") as HTMLLIElement
@@ -805,8 +1029,14 @@ function createFolderNode(
   const folderPath = synthetic ? synthetic.key : node.slug
   folderContainer.dataset.folderpath = folderPath
 
-  if (!synthetic && currentSlug === folderPath) {
-    folderContainer.classList.add("active")
+  if (!synthetic) {
+    pushActiveTarget(tree, folderPath, folderContainer)
+    if (currentSlug === folderPath) {
+      folderContainer.classList.add("active")
+      tree.active.push(folderContainer)
+    }
+  } else {
+    tree.syntheticLis.push(li)
   }
 
   if (synthetic) {
@@ -821,10 +1051,12 @@ function createFolderNode(
     // Replace button with link for link behavior
     const button = titleContainer.querySelector(".folder-button") as HTMLElement
     const a = document.createElement("a")
-    a.href = resolveRelative(currentSlug, folderPath as FullSlug)
+    const href = resolveRelative(currentSlug, folderPath as FullSlug)
+    a.href = href
     a.dataset.for = folderPath
     a.className = "folder-title"
     a.textContent = node.displayName
+    registerLink(tree, a, folderPath as FullSlug, href, root)
     button.replaceWith(a)
   } else {
     const span = titleContainer.querySelector(".folder-title") as HTMLElement
@@ -832,37 +1064,222 @@ function createFolderNode(
   }
 
   // 折叠判定优先级：localStorage 保存态（已并入 currentExplorerState）> openLevels 默认规则
-  const isCollapsed =
-    currentExplorerState.find((item) => item.path === folderPath)?.collapsed ??
-    defaultCollapsed(depth, opts)
+  // patent-kb（DOM 复用）：原为 currentExplorerState.find 线性查找，1,383 个文件夹各查一遍
+  // 即 O(N²)；改查同源的 Map（explorerStateIndex 与 currentExplorerState 由同一处同时构造，
+  // 键唯一故取值逐条相同）。命中不到时的回落分支与原写法一字未动。
+  const isCollapsed = explorerStateIndex.get(folderPath) ?? defaultCollapsed(depth, opts)
 
   // if this folder is a prefix of the current path we
   // want to open it anyways
   // patent-kb（C-3）：合成节点没有 slug 前缀可比，改用再父化时算好的 containsCurrent，
   // 否则当前页所在的书虽被强制展开，却仍关在折叠的归类层里看不见
-  let folderIsPrefixOfCurrentSlug: boolean
-  if (synthetic) {
-    folderIsPrefixOfCurrentSlug = synthetic.containsCurrent
-  } else {
-    const simpleFolderPath = simplifySlug(folderPath as FullSlug)
-    folderIsPrefixOfCurrentSlug = simpleFolderPath === currentSlug.slice(0, simpleFolderPath.length)
-  }
+  const simpleFolderPath = synthetic ? null : simplifySlug(folderPath as FullSlug)
+  const folderIsPrefixOfCurrentSlug =
+    simpleFolderPath === null
+      ? synthetic!.containsCurrent
+      : simpleFolderPath === currentSlug.slice(0, simpleFolderPath.length)
 
   if (!isCollapsed || folderIsPrefixOfCurrentSlug) {
     folderOuter.classList.add("open")
   }
 
+  // patent-kb（DOM 复用）：记录本节点的增量更新上下文。push 顺序＝渲染树前序遍历，
+  // 与 collectFolderStates 的产出逐条同序同值（两者都按 node.children 次序、只收文件夹、
+  // 先记本节点再下潜），故复用路径可直接据此重建 currentExplorerState。
+  const record: FolderRecord = {
+    outer: folderOuter,
+    path: folderPath,
+    depth,
+    simple: simpleFolderPath,
+    children: [],
+  }
+  tree.flatFolders.push(record)
+  siblings.push(record)
+
   for (const child of node.children) {
     const childNode = child.isFolder
-      ? createFolderNode(currentSlug, child, opts, depth + 1)
-      : createFileNode(currentSlug, child)
+      ? createFolderNode(currentSlug, child, opts, depth + 1, tree, root, record.children)
+      : createFileNode(currentSlug, child, tree, root)
     ul.appendChild(childNode)
   }
 
   return li
 }
 
+/**
+ * 复用路径的增量更新：把一棵已建好的目录树改到当前页的形态。三件套均为 O(V) 遍历、
+ * 零 DOM 创建/销毁，且调用时整棵树处于**离体**状态（见文件上方 DOM 复用注释），
+ * 因此展开态变化不会触发 .folder-outer 的 0.3s 过渡，与重建路径一样瞬时到位。
+ *
+ * @returns 本次是否重写了全部 href（埋点用）
+ */
+function updateExplorerTree(
+  tree: ExplorerTree,
+  currentSlug: FullSlug,
+  root: string,
+  savedState: Map<string, boolean>,
+  opts: ParsedOptions,
+): boolean {
+  // ① 相对 href：只随 pathToRoot(currentSlug) 变化。同深度页面互跳（条文页→条文页
+  //    占导航绝大多数）时 root 相同，整棵树的 href 原样正确，一次写入都不必做。
+  const hrefRewritten = tree.root !== root
+  if (hrefRewritten) {
+    if (tree.tailSafe) {
+      for (const link of tree.links) {
+        link.a.href = root + link.tail
+      }
+    } else {
+      // 兜底慢路径：建树时发现有 href 不以 root 开头（理论上不会发生，见 LinkRecord.tail
+      // 的说明），此时逐条重算，结果与重建路径逐字相同，只是慢一些
+      for (const link of tree.links) {
+        link.a.href = resolveRelative(currentSlug, link.target)
+      }
+    }
+    tree.root = root
+  }
+
+  // ② .active 高亮迁移。命中集取自建树时登记的 slug→元素表，与重建路径的
+  //    `currentSlug === node.slug` / `currentSlug === folderPath` 两条判据同源。
+  for (const el of tree.active) {
+    el.classList.remove("active")
+    // 文件条目的 <a> 出自 template-file，本无 class 属性；classList.remove 只清内容、
+    // 不摘属性，留下的 `class=""` 会让 DOM 与重建路径出现字面差异（无视觉影响，但
+    // 目录树 innerHTML 摘要对不上，等于放弃了「逐字节等价」这条最硬的回归判据）。
+    if (el.className === "") {
+      el.removeAttribute("class")
+    }
+  }
+  const nextActive = tree.activeBySlug.get(currentSlug) ?? []
+  for (const el of nextActive) {
+    el.classList.add("active")
+  }
+  tree.active = nextActive
+
+  // ③ 法域过滤残留复位。applyFieldBranchFilter 只写合成分支外层 li 的 hidden；
+  //    重建路径下新树天然无 hidden，复用路径须显式抹平，否则离开图谱页后过滤会残留。
+  for (const li of tree.syntheticLis) {
+    li.hidden = false
+  }
+
+  // ④ 折叠态整树重算。逐节点重跑重建路径的同一公式
+  //    （保存态 → defaultCollapsed(depth, opts) → 当前页祖先链强制展开），
+  //    因此「上一页强制展开的祖先」会随之收回，与重建结果逐位一致。
+  currentExplorerState = tree.flatFolders.map((rec) => {
+    const saved = savedState.get(rec.path)
+    return {
+      path: rec.path,
+      collapsed: saved === undefined ? defaultCollapsed(rec.depth, opts) : saved,
+    }
+  })
+  explorerStateIndex = new Map(
+    currentExplorerState.map((entry) => [entry.path, entry.collapsed] as const),
+  )
+  for (const rec of tree.rootFolders) {
+    refreshFolderOpenState(rec, currentSlug, opts)
+  }
+
+  return hrefRewritten
+}
+
+/**
+ * 递归重算单个文件夹的展开态，返回其 containsCurrent。
+ * 真实目录的 containsCurrent 就是自身 slug 前缀命中（祖先链上每一级都各自命中，
+ * 无需向下 OR）；合成分组层没有 slug，取子层的 OR——与 regroupByTaxonomy 里
+ * 「命中的书把 country/field/docType 三级一起置真」的算法等价。
+ */
+function refreshFolderOpenState(
+  rec: FolderRecord,
+  currentSlug: FullSlug,
+  opts: ParsedOptions,
+): boolean {
+  const own = rec.simple !== null && rec.simple === currentSlug.slice(0, rec.simple.length)
+  let childContains = false
+  for (const child of rec.children) {
+    // 不可短路：每个子节点都必须被重算，OR 只影响合成层的取值
+    if (refreshFolderOpenState(child, currentSlug, opts)) {
+      childContains = true
+    }
+  }
+  const containsCurrent = rec.simple === null ? childContains : own
+  const collapsed = explorerStateIndex.get(rec.path) ?? defaultCollapsed(rec.depth, opts)
+  const shouldOpen = !collapsed || containsCurrent
+  if (rec.outer.classList.contains("open") !== shouldOpen) {
+    rec.outer.classList.toggle("open", shouldOpen)
+  }
+  return containsCurrent
+}
+
+// ==== patent-kb: 目录自动定位（v6，替换上游死代码）====
+// 上游缺陷：`if (scrollTop)` 对字符串 "0" 恒真，首次 prenav 写入后
+// scrollIntoView 分支永不执行；且 scrollIntoView 未限定滚动容器，
+// 会连带滚动整个文档。策略：①先恢复上次滚动位置（保留用户在长树中
+// 的浏览位置）；②当前项已完整可见则不动（不与用户手动滚动打架）；
+// ③不可见才把内层滚动器 scrollTop 置为居中值。
+// 同步执行（getBoundingClientRect 强制布局），不用 rAF——后台标签页 /
+// 最小化的 Electron 窗口中 rAF 被完全挂起，定位将永不执行。
+// 若此刻容器尚不可滚（初载视口未布局 innerWidth=0，同上游 F5 复位注释
+// 所述场景），挂起定位，待布局就绪的 resize 补执行。
+// patent-kb（DOM 复用）：本段与下面的 bindExplorerToggles 由重建/复用两条路径共用，
+// 从 setupExplorer 内联块原样提出，逻辑一字未动。
+function restoreExplorerScroll(scroller: HTMLElement) {
+  const saved = sessionStorage.getItem("explorerScrollTop")
+  if (saved !== null) {
+    scroller.scrollTop = parseInt(saved, 10) || 0
+  }
+  if (scroller.scrollHeight > scroller.clientHeight) {
+    explorerLocatePending = false
+    locateExplorerActive(scroller)
+  } else {
+    explorerLocatePending = true
+  }
+
+  // 滚动边缘渐隐（P7）：顶/底遮罩随滚动位置显隐（样式见 custom.scss）
+  const edgeHost = scroller.closest(".explorer-content") as HTMLElement | null
+  if (!edgeHost) {
+    return
+  }
+  const edge = () => {
+    edgeHost.toggleAttribute("data-edge-top", scroller.scrollTop > 2)
+    edgeHost.toggleAttribute(
+      "data-edge-bottom",
+      // 与建轨判据、与 util/scrollEdge.ts 的 gradient-* 判据同口径扣除末尾空占位
+      //（见 contentScrollHeight 的说明）：不扣则可视高度落在「真实内容高 + 占位高」
+      // 窗口内会亮起底部渐隐，而下方并无被遮内容。容差 2 与 scrollEdge.ts 的
+      // EDGE_TOLERANCE 同值，两处各自就地写死（该常量未导出），改一处须同步另一处。
+      scroller.scrollTop + scroller.clientHeight < contentScrollHeight(scroller) - 2,
+    )
+  }
+  scroller.addEventListener("scroll", edge, { passive: true })
+  window.addCleanup(() => scroller.removeEventListener("scroll", edge))
+  edge()
+}
+// ==== /patent-kb ====
+
+/**
+ * 根级折叠钮（汉堡 / 标题钮）的监听。这两枚钮属 SSR 骨架、不在缓存树内，
+ * 每次 nav 都可能被 micromorph 换过，故沿用「逐 nav 绑定 + addCleanup 摘除」的原写法。
+ */
+function bindExplorerToggles(explorer: HTMLElement) {
+  const explorerButtons = explorer.getElementsByClassName(
+    "explorer-toggle",
+  ) as HTMLCollectionOf<HTMLElement>
+  for (const button of explorerButtons) {
+    button.addEventListener("click", toggleExplorer)
+    window.addCleanup(() => button.removeEventListener("click", toggleExplorer))
+  }
+}
+
 async function setupExplorer(currentSlug: FullSlug) {
+  const perfStart = performance.now()
+  let perfSyncStart = perfStart
+  let mode: ExplorerPerfMark["mode"] = "build"
+  let items = 0
+  let folders = 0
+  let hrefRewritten = true
+  let explorerIndex = 0
+  const generation = ++explorerNavGeneration
+  builtItems = 0
+  builtFolders = 0
   const allExplorers = document.querySelectorAll("div.explorer") as NodeListOf<HTMLElement>
 
   // ==== patent-kb: 图谱页独立折叠态（阶段5.4 批 D1）====
@@ -872,6 +1289,42 @@ async function setupExplorer(currentSlug: FullSlug) {
   // SPA 换页后随本函数同步刷新，语义见其声明处注释。
   const onGraph = onGraphOverviewPage()
   activeStorageKey = onGraph ? GRAPH_FOLDER_STATE_STORAGE_KEY : FOLDER_STATE_STORAGE_KEY
+  // ==== /patent-kb ====
+
+  // ==== patent-kb（DOM 复用）：让位一个微任务，保住 nav 监听器之间的既有先后 ====
+  // OverflowList 的 createScrollEdgeScript 也监听 nav，且注册在本脚本之后
+  //（Explorer.afterDOMLoaded = concatenateResources(script, overflowListAfterDOMLoaded)），
+  // 它按当时的 ul 尺寸翻 gradient-top-active / gradient-active——后者会给列表加上
+  // base.scss:609 那条 50px 的 mask-image 底部渐隐。现状是：本脚本的重建路径在
+  // `await Promise.all([fetchData, …])` 处让出，该监听器恒在**空 ul** 上求值，
+  // 故 gradient-* 从来不会亮（实测 maskImage 恒为 none，目录树的边缘渐隐由
+  // custom.scss 的 .explorer-content[data-edge-*] 覆盖层单独承担）。
+  // 复用路径本可全同步跑完，那会让该监听器第一次看见满树并点亮 mask 遮罩——
+  // 与现状不符的新视觉。让位一个微任务即可精确保住原有顺序：微任务在当前任务末尾、
+  // 渲染之前执行，目录树仍在同一帧内挂出，出现时序不延后。
+  // 竞态放弃：取数/让位期间已被后一次导航接管，本次整体作罢——接管方会自行把树挂回
+  // 并按其落地页更新，此处继续走下去只会往同一个 .explorer-ul 里插一棵旧页的树。
+  const bailAsStale = () => {
+    const now = performance.now()
+    recordExplorerPerf({
+      slug: currentSlug,
+      mode: "stale",
+      start: perfStart,
+      end: now,
+      total: now - perfStart,
+      sync: 0,
+      items: 0,
+      folders: 0,
+      hrefRewritten: false,
+    })
+  }
+
+  await Promise.resolve()
+  if (generation !== explorerNavGeneration) {
+    bailAsStale()
+    return
+  }
+  perfSyncStart = performance.now()
   // ==== /patent-kb ====
 
   for (const explorer of allExplorers) {
@@ -911,8 +1364,49 @@ async function setupExplorer(currentSlug: FullSlug) {
       serializedExplorerState.map((entry: FolderState) => [entry.path, entry.collapsed]),
     )
 
+    const root = pathToRoot(currentSlug)
+    // 缓存有效性指纹：只收会改变**树结构**的选项。folderClickBehavior 决定目录标题渲染
+    // 成 <a> 还是 <button>；order 决定 filter/map/sort 的施加次序。其余选项
+    //（folderDefaultState / useSavedState / openLevels / graphExpandToDepth）只影响展开态，
+    // 而展开态本就逐导航整树重算，故不入指纹——图谱页与文档站共用同一棵缓存树。
+    // 用 JSON.stringify 而非 join：ParsedOptions.order 的上游类型写作
+    // `"sort" | "filter" | "map"[]`（联合而非数组），拿不到 join
+    const signature = `${opts.folderClickBehavior}|${JSON.stringify(opts.order)}`
+    const cached = explorerTrees[explorerIndex]
+    explorerIndex += 1
+
+    if (cached && cached.signature === signature) {
+      // ---- 复用路径：全程同步，无取数、无建树、无 DOM 创建 ----
+      const explorerUl = explorer.querySelector(".explorer-ul")
+      if (!explorerUl) continue
+      // 显式摘树：prenav 已摘过，此处是幂等兜底，同时保证增量更新在离体状态下进行
+      //（离体元素不参与样式解析 ⇒ .folder-outer 的 0.3s 过渡不会被触发）
+      for (const li of cached.roots) {
+        li.remove()
+      }
+      hrefRewritten = updateExplorerTree(cached, currentSlug, root, oldIndex, opts)
+      const reuseFragment = document.createDocumentFragment()
+      for (const li of cached.roots) {
+        reuseFragment.appendChild(li)
+      }
+      explorerUl.insertBefore(reuseFragment, explorerUl.firstChild)
+      mode = "reuse"
+      items = cached.items
+      folders = cached.folders
+      restoreExplorerScroll(explorerUl as HTMLElement)
+      bindExplorerToggles(explorer)
+      bindGraphLinkage(explorer)
+      continue
+    }
+
+    // ---- 重建路径：首次导航，或缓存因指纹不符/分组表缺席而作废 ----
     // patent-kb（C-3）：分组表与 contentIndex 并发取，避免串行等待拖慢首屏目录渲染
     const [data, taxonomy] = await Promise.all([fetchData, fetchTaxonomy(currentSlug)])
+    if (generation !== explorerNavGeneration) {
+      bailAsStale()
+      return
+    }
+    perfSyncStart = performance.now()
     const entries = [...Object.entries(data)] as [FullSlug, ContentDetails][]
     const trie = FileTrieNode.fromEntries(entries)
 
@@ -947,85 +1441,63 @@ async function setupExplorer(currentSlug: FullSlug) {
         collapsed: previousState === undefined ? defaultCollapsed(depth, opts) : previousState,
       }
     })
+    explorerStateIndex = new Map(
+      currentExplorerState.map((entry) => [entry.path, entry.collapsed] as const),
+    )
 
     const explorerUl = explorer.querySelector(".explorer-ul")
     if (!explorerUl) continue
 
     // Create and insert new content
+    const tree: ExplorerTree = {
+      roots: [],
+      flatFolders: [],
+      rootFolders: [],
+      links: [],
+      tailSafe: true,
+      activeBySlug: new Map(),
+      active: [],
+      root,
+      syntheticLis: [],
+      signature,
+      items: 0,
+      folders: 0,
+    }
     const fragment = document.createDocumentFragment()
     for (const child of trie.children) {
       const node = child.isFolder
-        ? createFolderNode(currentSlug, child, opts, 1)
-        : createFileNode(currentSlug, child)
+        ? createFolderNode(currentSlug, child, opts, 1, tree, root, tree.rootFolders)
+        : createFileNode(currentSlug, child, tree, root)
 
+      tree.roots.push(node)
       fragment.appendChild(node)
     }
     explorerUl.insertBefore(fragment, explorerUl.firstChild)
+    tree.items = builtItems
+    tree.folders = builtFolders
+    items = builtItems
+    folders = builtFolders
+    // 只在分组表就位时缓存：taxonomy 取不到时目录树回落平铺，此时缓存会把这个降级形态
+    // 冻结整个 SPA 生命周期，与 fetchTaxonomy「失败留待下次 nav 重试」的既有语义相悖。
+    explorerTrees[explorerIndex - 1] = taxonomy ? tree : undefined
 
-    // ==== patent-kb: 目录自动定位（v6，替换上游死代码）====
-    // 上游缺陷：`if (scrollTop)` 对字符串 "0" 恒真，首次 prenav 写入后
-    // scrollIntoView 分支永不执行；且 scrollIntoView 未限定滚动容器，
-    // 会连带滚动整个文档。策略：①先恢复上次滚动位置（保留用户在长树中
-    // 的浏览位置）；②当前项已完整可见则不动（不与用户手动滚动打架）；
-    // ③不可见才把内层滚动器 scrollTop 置为居中值。
-    // 同步执行（getBoundingClientRect 强制布局），不用 rAF——后台标签页 /
-    // 最小化的 Electron 窗口中 rAF 被完全挂起，定位将永不执行。
-    // 若此刻容器尚不可滚（初载视口未布局 innerWidth=0，同上游 F5 复位注释
-    // 所述场景），挂起定位，待布局就绪的 resize 补执行。
-    {
-      const scroller = explorerUl as HTMLElement
-      const saved = sessionStorage.getItem("explorerScrollTop")
-      if (saved !== null) {
-        scroller.scrollTop = parseInt(saved, 10) || 0
-      }
-      if (scroller.scrollHeight > scroller.clientHeight) {
-        explorerLocatePending = false
-        locateExplorerActive(scroller)
-      } else {
-        explorerLocatePending = true
-      }
-
-      // 滚动边缘渐隐（P7）：顶/底遮罩随滚动位置显隐（样式见 custom.scss）
-      const edgeHost = scroller.closest(".explorer-content") as HTMLElement | null
-      if (edgeHost) {
-        const edge = () => {
-          edgeHost.toggleAttribute("data-edge-top", scroller.scrollTop > 2)
-          edgeHost.toggleAttribute(
-            "data-edge-bottom",
-            // 与建轨判据、与 util/scrollEdge.ts 的 gradient-* 判据同口径扣除末尾空占位
-            //（见 contentScrollHeight 的说明）：不扣则可视高度落在「真实内容高 + 占位高」
-            // 窗口内会亮起底部渐隐，而下方并无被遮内容。容差 2 与 scrollEdge.ts 的
-            // EDGE_TOLERANCE 同值，两处各自就地写死（该常量未导出），改一处须同步另一处。
-            scroller.scrollTop + scroller.clientHeight < contentScrollHeight(scroller) - 2,
-          )
-        }
-        scroller.addEventListener("scroll", edge, { passive: true })
-        window.addCleanup(() => scroller.removeEventListener("scroll", edge))
-        edge()
-      }
-    }
-    // ==== /patent-kb ====
-
-    // Set up event handlers
-    const explorerButtons = explorer.getElementsByClassName(
-      "explorer-toggle",
-    ) as HTMLCollectionOf<HTMLElement>
-    for (const button of explorerButtons) {
-      button.addEventListener("click", toggleExplorer)
-      window.addCleanup(() => button.removeEventListener("click", toggleExplorer))
-    }
+    restoreExplorerScroll(explorerUl as HTMLElement)
+    bindExplorerToggles(explorer)
 
     // Set up folder click handlers
     // patent-kb（C-3）：原本仅在 "collapse" 行为下绑定。"link" 行为下真实目录的标题
     // 已被换成 <a>，留在 DOM 里的 .folder-button 只可能是合成分组节点——它们没有可跳转
     // 的页面，标题点击必须回落为折叠切换，否则整行只有那枚 12px 的箭头能点。
     // 两种行为下均绑定，无重复绑定风险（同一按钮在任一行为下只被这一处遍历到）。
+    // patent-kb（DOM 复用）：**只在建树时绑一次，且不登记 window.addCleanup**。
+    // 这些钮所在的节点跨导航存活，若沿用「每次 nav 摘除、每次 nav 重绑」的旧写法，
+    // 复用路径不再重绑，文件夹会彻底失去折叠能力。整棵树被作废重建时旧节点连同其上的
+    // 监听一起失去引用，由 GC 回收，不构成泄漏。
     const folderButtons = explorer.getElementsByClassName(
       "folder-button",
     ) as HTMLCollectionOf<HTMLElement>
     for (const button of folderButtons) {
       button.addEventListener("click", toggleFolder)
-      window.addCleanup(() => button.removeEventListener("click", toggleFolder))
     }
 
     const folderIcons = explorer.getElementsByClassName(
@@ -1033,20 +1505,37 @@ async function setupExplorer(currentSlug: FullSlug) {
     ) as HTMLCollectionOf<HTMLElement>
     for (const icon of folderIcons) {
       icon.addEventListener("click", toggleFolder)
-      window.addCleanup(() => icon.removeEventListener("click", toggleFolder))
     }
 
     // patent-kb（B4）：图谱总览页的目录联动（点条目→图内定位 / 法域标签→分支过滤）。
     // 内部自带页面门控，非图谱页整体空转，不绑定任何监听器
     bindGraphLinkage(explorer)
   }
+
+  const perfEnd = performance.now()
+  recordExplorerPerf({
+    slug: currentSlug,
+    mode,
+    start: perfStart,
+    end: perfEnd,
+    total: perfEnd - perfStart,
+    sync: perfEnd - perfSyncStart,
+    items,
+    folders,
+    hrefRewritten,
+  })
 }
 
 document.addEventListener("prenav", async () => {
   // save explorer scrollTop position
   const explorer = document.querySelector(".explorer-ul")
-  if (!explorer) return
-  sessionStorage.setItem("explorerScrollTop", explorer.scrollTop.toString())
+  if (explorer) {
+    sessionStorage.setItem("explorerScrollTop", explorer.scrollTop.toString())
+  }
+  // patent-kb（DOM 复用）：在 spa.inline.ts 执行 cleanup 与 micromorph 之前把整棵树摘下。
+  // 摘的是顶层 li（本库 3 个），O(1) 量级；换来的是 micromorph 不必再逐个删除 7,400 个
+  // 「新页没有的多余节点」，同时这些节点连同其上的折叠监听原样存活，下次 nav 直接挂回。
+  detachExplorerTrees()
 })
 
 document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
