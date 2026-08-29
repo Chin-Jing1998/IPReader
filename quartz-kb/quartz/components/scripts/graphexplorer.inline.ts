@@ -890,39 +890,124 @@ document.addEventListener("nav", async () => {
   //（保持缩放级别与视野中心；focus 高亮不要求保留）。
   // crossfade（J2）：仅 themechange 路径传 true——新画布叠在旧画布上淡入，
   // 旧实例后置到淡入收尾才销毁（先建后毁），消除重建间隙的空白帧与颜色硬切。
-  async function renderCanvas(
+  // ---------- 重建并发互斥（阶段5.10 波A-A.2 / R6）----------
+  // 改造前 renderCanvas 是「谁调谁自己 await」的裸异步函数，两次调用叠在一起就出事：
+  //   ① prev 各自取到不同的 controller，先完成的那轮把后一轮的旧实例引用挤掉，
+  //      旧实例失去引用却仍持有 pixi 实例与 rAF 循环（孤儿实例，GPU 纹理一路涨）；
+  //   ② 后完成的那轮把先完成的实例覆盖掉，画布上留着已被摘出引用的那张 canvas，
+  //      表现为「画布永久空白」；
+  //   ③ 重建期间 controller 被置 null 长达 100–700ms，期间任何调度方读到的术语层
+  //      是 undefined、相机是 null——术语层静默关闭 + 相机跳回全景。
+  // 现在收敛成「请求 + 排水」：同一时刻只有一轮在跑，后到的请求覆盖排队位（中间态
+  // 没有渲染价值，堆积只会排出一串必然被下一个顶掉的全量重建），且全程不置空 controller。
+  type RenderRequest = {
+    slug: FullSlug
+    termOverride?: TermLayerMode
+    restoreTransform?: SavedTransform | null
+    crossfade: boolean
+  }
+  /** 单调自增的轮次号：await 返回后与当下轮次不一致即为陈旧轮，产物就地销毁 */
+  let renderSeq = 0
+  /** 排队位（只留最后一个请求，后到覆盖不堆积） */
+  let renderQueued: RenderRequest | null = null
+  /** 最近一次装机成功的良态值：controller 尚未装上（首帧前）时供调度方回落 */
+  let lastTermMode: TermLayerMode | undefined
+  let lastTransform: SavedTransform | null = null
+
+  /**
+   * 供重建调度方（themechange 等）读取「用户当下所见」的术语层与相机。
+   * controller 在重建期间**不再被置空**，且它此刻指向的正是画面上那个旧实例，
+   * 其值本身就是良态；仅当 controller 为 null（首帧尚未装上）才回落到记录值。
+   */
+  const goodTermMode = (): TermLayerMode | undefined => controller?.getTermLayer() ?? lastTermMode
+  const goodTransform = (): SavedTransform | null => controller?.getTransform() ?? lastTransform
+
+  function renderCanvas(
     slug: FullSlug,
     termOverride?: TermLayerMode,
     restoreTransform?: SavedTransform | null,
     crossfade = false,
-  ) {
+  ): Promise<void> {
+    return requestRender({ slug, termOverride, restoreTransform, crossfade })
+  }
+
+  /**
+   * 当前排水链的「跑完」信号（不会 reject，仅供串行等待；渲染异常仍由发起方承担）。
+   * 术语层切换是**另一条**重建路径（controller 内部销毁重建），与本路径共用同一个
+   * 容器：两条交叠时，先跑那路的 removeAllChildren 清不到后跑那路刚插入的画布，
+   * 容器里就会留下两张 canvas，旧的一张再无人移除（实测复现，见 A.2 验证记录）。
+   */
+  let renderIdle: Promise<unknown> = Promise.resolve()
+  const whenRenderIdle = () => renderIdle
+  /**
+   * 术语层切换在途信号（同上，不 reject）：互斥必须**双向**，缺一即漏。
+   * 实证（A.2 施工中复现）：先点术语钮、后到 themechange，两条路径各自
+   * appendChild 一张画布，容器里留下两张、旧的那张再无人移除——单向等待挡不住
+   * 这个次序，故 drainRender 每轮开工前同样等它。
+   * 无死锁：术语侧在**发起前**捕获 renderIdle，渲染侧在 renderBusy 置位**之后**
+   * 才等 termIdle，两边等的都是「对方已经在跑的那一轮」，不构成互等环。
+   */
+  let termIdle: Promise<unknown> = Promise.resolve()
+  const whenTermIdle = () => termIdle
+
+  async function requestRender(req: RenderRequest): Promise<void> {
+    if (disposed) return
+    // 已有一轮在跑：占住排队位即返回，由那一轮的排水循环接手
+    if (renderBusy) {
+      renderQueued = req
+      return
+    }
+    const running = drainRender(req)
+    renderIdle = running.catch(() => {})
+    await running
+  }
+
+  /** 排水循环：一轮跑完立刻取排队位上的最后一个请求接着跑，跑空为止 */
+  async function drainRender(first: RenderRequest): Promise<void> {
+    let req: RenderRequest | null = first
+    while (req !== null && !disposed) {
+      const seq = ++renderSeq
+      renderBusy = true
+      try {
+        // 反向互斥：术语层那条重建路径若在途，先等它落定再开工（理由见 termIdle）
+        await whenTermIdle()
+        await runRender(req, seq)
+      } finally {
+        renderBusy = false
+      }
+      req = renderQueued
+      renderQueued = null
+    }
+  }
+
+  async function runRender(req: RenderRequest, seq: number): Promise<void> {
+    const { slug, termOverride, restoreTransform, crossfade } = req
     const render = window.__graphRender
     if (!render || disposed) return
     centerSlug = slug
+    // prev 必须在 await **之前**同步取：await 之后再取，拿到的可能已是别人装上的新实例，
+    // 真正该退场的那个就此失去引用（孤儿）
     const prev = controller
     const retire = () => prev?.destroy()
     // 非 crossfade 路径维持原时序：销毁在前，新实例再清空容器重建
     if (!crossfade) retire()
-    controller = null
-    // 步5：await 期间置在途标志，供 RO 回调短路（理由见 renderBusy 声明处）。
-    // finally 保证异常路径也复位，否则一次渲染失败会让 RO 永久失效
-    let next: GraphController
-    renderBusy = true
-    try {
-      next = await render(
-        canvas!,
-        slug,
-        termOverride,
-        crossfade ? { crossfade: true, retire } : undefined,
-      )
-    } finally {
-      renderBusy = false
-    }
-    // await 期间可能已离开本页（SPA 导航）：丢弃刚建好的实例并就地销毁旧实例，
-    // 否则两者都失去引用却仍持有 pixi 实例与 rAF 循环（孤儿实例）
-    if (disposed) {
+    // ⚠️ 此处**不再置 controller = null**（原 A.2 前的写法）：那会开出一段
+    // 100–700ms 的空窗，调度方在窗内读到的术语层是 undefined、相机是 null。
+    // 保持指向旧实例即可——它此刻仍在画面上，读它得到的就是用户所见。
+    // renderBusy 由 drainRender 统一持有（覆盖整个排水过程，包括两轮之间的空隙）——
+    // 若改在本函数内起落，轮与轮之间会露出一帧的窗口，RO 正好挤进来对着在途实例
+    // 调 syncSize
+    const next = await render(
+      canvas!,
+      slug,
+      termOverride,
+      crossfade ? { crossfade: true, retire } : undefined,
+    )
+    // 陈旧守卫：await 期间若已离开本页（SPA 导航），或本轮已被更新的一轮顶替，
+    // 刚建好的实例就地销毁——不销毁则它失去引用却仍跑 rAF 与 pixi（孤儿实例）
+    if (disposed || seq !== renderSeq) {
       next.destroy()
-      retire()
+      if (disposed) retire()
       return
     }
     controller = next
@@ -944,6 +1029,10 @@ document.addEventListener("nav", async () => {
     }
     // 重建后按 controller 实际术语层模式同步三态钮（传 termOverride 时不回落）
     syncTermButtons()
+    // 良态记录（A.2）：装机成功后落一份术语层与相机，供 controller 尚为 null 的
+    // 首帧前窗口回落使用；controller 装上后 goodTermMode/goodTransform 优先读它
+    lastTermMode = controller.getTermLayer()
+    lastTransform = controller.getTransform()
   }
 
   // ---------- 面板四段渲染 ----------
@@ -1428,8 +1517,17 @@ document.addEventListener("nav", async () => {
   const onTermModeClick = async (ev: Event) => {
     const btn = ev.currentTarget as HTMLButtonElement
     const mode = btn.dataset.termMode as TermLayerMode | undefined
-    if (mode === undefined || controller === null) return
-    await controller.setTermLayer(mode)
+    if (mode === undefined) return
+    // A.2：先等在途的外部重建落定，再走术语层这条重建路径——两条路径共用一个容器，
+    // 交叠会在容器里留下第二张 canvas（理由详见 renderIdle 声明处）。
+    // controller 判空移到 await 之后：A.2 起重建期间 controller 不再被置空，
+    // 此处的 null 只可能是首帧尚未装上，等完再判才不会把用户这一次点击白白吞掉
+    await whenRenderIdle()
+    if (disposed || controller === null) return
+    const switching = controller.setTermLayer(mode)
+    // 置在途信号供 drainRender 反向等待（catch 分支只用于串行，异常仍随 await 抛出）
+    termIdle = switching.catch(() => {})
+    await switching
     syncTermButtons()
   }
   for (const btn of termButtons) {
@@ -1448,8 +1546,11 @@ document.addEventListener("nav", async () => {
   const onThemeChange = () => {
     clearTimeout(themeChangeTimer)
     themeChangeTimer = setTimeout(() => {
-      const termMode = controller?.getTermLayer()
-      const transform = controller?.getTransform() ?? null
+      // A.2：改读良态取值器。controller 在重建期间不再被置空，故此处恒能拿到
+      // 用户当下所见的术语层与相机；首帧前的极早期窗口回落到 lastTermMode/lastTransform，
+      // 不会再出现「termOverride=undefined 使术语层静默关闭 + transform=null 使相机跳全景」
+      const termMode = goodTermMode()
+      const transform = goodTransform()
       void renderCanvas(centerSlug, termMode, transform, true)
     }, THEME_CHANGE_DEBOUNCE_MS)
   }
