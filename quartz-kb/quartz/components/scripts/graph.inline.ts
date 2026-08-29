@@ -2407,6 +2407,15 @@ async function createGraphInstance(
     // pixi 8 的 autoDensity 下，resize 同步改写 canvas 的 style 尺寸与帧缓冲尺寸；
     // 事件命中区经 mapPositionToPoint 每次现取 getBoundingClientRect，自动跟随
     app.renderer.resize(w, h)
+    // d3-zoom 的 extent 同步跟到新尺寸。**滚轮锚定不依赖它**（wheeled 用
+    // pointer(event) 现取 canvas 的 getBoundingClientRect 定锚，默认 translateExtent
+    // 为无穷、defaultConstrain 恒为 no-op，实测两态五点偏移均为 0.000px），此处同步
+    // 是为「d3 内部状态与真实画布一致」这条底线：extent 还喂给 constrain 与
+    // scaleBy/scaleTo 的默认中心点、触摸手势；留着旧尺寸就是一颗定时炸弹。
+    zoomBehavior?.extent([
+      [0, 0],
+      [w, h],
+    ])
     // radial 半径属布局参数（快照语义，见构造期注释）：仅当 min(w,h) 真的变了才按
     // 同一公式重装同名力。右栏显隐只改宽度、min 恒为高度，故该分支恒不进——
     // 「开右栏完全不触碰 simulation」由此获得结构性保证，全量图力参数逐字不动。
