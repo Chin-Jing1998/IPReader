@@ -75,8 +75,22 @@ test("全量图拖拽参数逐值不变（红线：改动只许落在局部图�
 test("局部图拖拽参数：低增益加热、加大阻尼、收敛态松手即停", () => {
   assert.equal(dragAlphaTarget(false), 0.2)
   assert.equal(dragVelocityDecay(false), 0.55)
-  // 拖拽前已收敛（alpha < alphaMin）→ 松手余震直接归零
+  // 拖拽前已收敛 → 松手余震直接归零
   assert.equal(shouldSettleOnDragEnd(false, 0.0001, 0.001), true)
-  // 拖拽前尚未收敛（alpha ≥ alphaMin）→ 剩余收敛照常跑完，不提前停机
+  // 拖拽前远未收敛 → 剩余收敛照常跑完，不提前停机
   assert.equal(shouldSettleOnDragEnd(false, 0.5, 0.001), false)
+})
+
+// 阈值取 1.5×alphaMin 而非 alphaMin：局部图预热收尾的 alpha 实测就落在
+// 9.8e-4 ~ 1.0e-3，与 alphaMin(0.001) 只差一个舍入量级。判据若卡在边界上，
+// 日后预热参数微调即可让它静默转假、余震整体回潮，且不会有任何断言变红。
+// 本用例把那点余量钉死，同时守住上界不被继续放宽。
+test("松手停机阈值含 1.5 倍余量：略高于 alphaMin 仍判为已收敛，2 倍则不判", () => {
+  const alphaMin = 0.001
+  // 1.2×alphaMin：落在 [alphaMin, 1.5×alphaMin) 内，正是本次加固要救的那一档
+  assert.equal(shouldSettleOnDragEnd(false, 1.2 * alphaMin, alphaMin), true)
+  // 2×alphaMin：越过余量上界，按「尚未收敛」处理
+  assert.equal(shouldSettleOnDragEnd(false, 2 * alphaMin, alphaMin), false)
+  // 余量放宽只作用于局部图，全量图恒不提前停机（红线不受本次加固影响）
+  assert.equal(shouldSettleOnDragEnd(true, 1.2 * alphaMin, alphaMin), false)
 })

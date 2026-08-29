@@ -106,19 +106,36 @@ export function dragVelocityDecay(fullGraph: boolean): number | null {
 }
 
 /**
+ * 「拖拽开始时基本收敛」的判定余量（阶段5.10 波B 加固）：阈值取 alphaMin 的 1.5 倍，
+ * 而不是 alphaMin 本身。
+ *
+ * 原因是原判据恰好卡在边界上：局部图预热收尾的 alpha 实测落在 9.8e-4 ~ 1.0e-3，
+ * 与 alphaMin（0.001）仅差一个舍入量级。一旦日后预热 tick 数、alphaDecay 或播种
+ * 策略稍有调整，使收尾 alpha 落到 alphaMin 之上一丁点，本函数就会静默转假、
+ * 松手余震整体回潮，而这类退化不会让任何断言变红。放宽到 1.5 倍即把判据从
+ * 「恰好跨过收敛线」改为「已在收敛线附近」，语义更贴合实际意图。
+ *
+ * 取 1.5 而非更大：alpha 从 1 衰减到 1.5×alphaMin 与衰减到 alphaMin 之间仅隔约
+ * 18 个 tick（alphaDecay≈0.0228 下不足 0.3 秒），对「拖拽打断了一次真正未跑完的
+ * 收敛」这类场景不构成误伤——那种局面的 alpha 通常在 0.1 量级，高出阈值近两个数量级。
+ */
+const SETTLE_ALPHA_SLACK = 1.5
+
+/**
  * 松手（dragend）时是否直接把 alpha 归零、令力导立即停机。
  *
- * 仅局部图、且**拖拽开始前布局已自然收敛**（alphaAtDragStart < alphaMin）时为真：
- * 那种局面下松手后的一切运动都是本次拖拽注入的能量，属余震而非未完成的收敛，
- * 直接停机即「拖拽即整理，放下不回弹」。拖拽开始时布局尚未收敛（alpha ≥ alphaMin）
- * 则返回假，剩余收敛照常跑完。全量图恒返回假，行为与改前逐字一致。
+ * 仅局部图、且**拖拽开始时布局基本收敛**（alphaAtDragStart < alphaMin × 1.5，
+ * 余量理由见 SETTLE_ALPHA_SLACK）时为真：那种局面下松手后的一切运动都是本次拖拽
+ * 注入的能量，属余震而非未完成的收敛，直接停机即「拖拽即整理，放下不回弹」。
+ * 拖拽开始时布局远未收敛则返回假，剩余收敛照常跑完。
+ * 全量图恒返回假，行为与改前逐字一致。
  */
 export function shouldSettleOnDragEnd(
   fullGraph: boolean,
   alphaAtDragStart: number,
   alphaMin: number,
 ): boolean {
-  return !fullGraph && alphaAtDragStart < alphaMin
+  return !fullGraph && alphaAtDragStart < alphaMin * SETTLE_ALPHA_SLACK
 }
 
 /** 选中态下仅允许选中节点及其相关节点显示标签。 */
