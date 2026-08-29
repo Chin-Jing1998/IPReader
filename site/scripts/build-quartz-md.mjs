@@ -1210,7 +1210,7 @@ console.log(`✅ 生成完成：${totalPages} 页，wikilink ${scanned} 条全�
 // 只依赖 BOOKS（顶层目录前缀登记）与 DOMAIN_META（阶段5.3 批次 W3 起经 resolveDomainTitles
 // 派生自 KNOWN_DOMAINS + book-meta.json，title 字段可能带年份后缀，field/docType 等分类字段
 // 逐字不变），故 0-图谱总览、
-// 9-关键词索引两个非书前缀天然不入表（BOOKS 数组本就只登记 87 部书，不含二者）；
+// 9-关键词索引两个非书前缀天然不入表（BOOKS 数组本就只登记 88 部书，不含二者）；
 // 落盘目标是 quartz/static/（quartz 静态资产树，与本文件其余产物所在的 content/ 是两棵不同的树），
 // 因此不经 emit()/outputs 收集，径直 writeFileSync。
 function emitTaxonomy() {

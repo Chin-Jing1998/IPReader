@@ -55,7 +55,7 @@ type FolderState = {
  *
  * 深度口径为**渲染树深度**（根的直接子节点为 1），不再由 slug 段数反推（C-3）：
  * 合成分组层（中国 / 权利类型 / 文件归类）没有对应 slug，而其下的书目录 slug 仍只有
- * 一段——若沿用 slug 段数，87 部书会全部落在 openLevels: 1 的展开档内，一旦展开某个
+ * 一段——若沿用 slug 段数，88 部书会全部落在 openLevels: 1 的展开档内，一旦展开某个
  * 归类节点就会把整本书的章节铺开。未启用分组时渲染树与 slug 层级逐层一致，判定结果
  * 与旧实现完全相同。
  */
@@ -133,7 +133,7 @@ const SYNTHETIC_KEY_PREFIX = "synthetic:"
 
 /**
  * 折叠态存储键。分组层把书目录从渲染树第 1 层推到第 4 层，旧键 `fileTree` 里
- * 沉淀的记录（87 部书清一色 collapsed:false，是 openLevels:1 平铺时代的默认值）
+ * 沉淀的记录（各书清一色 collapsed:false，是 openLevels:1 平铺时代的默认值）
  * 会让每个归类一展开就把整本书的章节全铺出来，与「field 及以下默认折叠」相悖。
  * 树形已变，旧记录语义作废——换键即整体作废，比逐条甄别可靠。旧键不主动删除，
  * 以便回滚时旧版本仍能读回自己的状态。
@@ -168,7 +168,7 @@ const FIELD_ORDER = ["专利", "商标", "著作权", "竞争法", "品种布图
 /** 文件归类（docType）展示顺序；标题取 taxonomy 的 docTypeName。 */
 const DOCTYPE_ORDER = ["D1", "D2", "D3", "D4", "D5", "D6"]
 
-/** 法域（country）展示顺序与显示名。当前 87 部书全为 CN，其余法域按首次出现顺序追加。 */
+/** 法域（country）展示顺序与显示名。当前 88 部书全为 CN，其余法域按首次出现顺序追加。 */
 const COUNTRY_ORDER = ["CN"]
 const COUNTRY_NAMES: Record<string, string> = { CN: "中国" }
 

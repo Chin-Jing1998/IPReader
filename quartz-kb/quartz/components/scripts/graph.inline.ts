@@ -1295,7 +1295,7 @@ async function createGraphInstance(
 
   // 书级色快照（阶段5.1 批 G-2）：与上方 computedStyleMap 同一纪律——PixiJS 不认
   // CSS 变量，必须在实例创建时取一次快照；主题/明暗切换由外层重建实例重新取快照。
-  // 键集取自 BOOK_COLORS（87 部文献的目录数字前缀），CSS 变量缺失时逐键回落到
+  // 键集取自 BOOK_COLORS（88 部文献的目录数字前缀），CSS 变量缺失时逐键回落到
   // 该表对应明暗档；两者色值同出一源（scripts/gen-book-colors.mjs 一次生成）。
   const isDarkTheme = document.documentElement.getAttribute("saved-theme") === "dark"
   const rootStyle = getComputedStyle(document.documentElement)
