@@ -61,6 +61,13 @@
 // localStorage 里。全程不碰图谱页的一键收起：步 29 的「初始展开 ≥1000」正是
 // 「绝不自动收起」的常设护栏，本批新钮若被误接进 nav 回调，那条断言会立刻变红。
 // 新增两步实测合计约 20s，600s 超时预算无需上调。
+// 阶段5.10 波A（残影根治）改写既有断言、步数仍为 35：容器尺寸变化由「RO 防抖 +
+// crossfade 整实例重建」改为 controller.syncSize() 就地 resize + 相机左上锚定补偿，
+// 故步 32 扩为「四态尺寸 ≤1px ＋ 全程零重建 ＋ 画布恒 1 张 ＋ 32-e 相机守恒公式
+// ＋ 32-f 连发后竞态存活」并把三处 2000ms 等待收到 600ms；步 33-f 的 rebuilds
+// 断言由 ≥1 反转为 ===0（法域切换不再重建，抽屉自然存活）。哨兵包装器三处安装点
+// 一并把 controller 捞到 window.__smokeCtl（A.0），供 32-f 直接读术语层。
+// 总超时仍为 600s：新增断言全是同步取数，等待反而净减约 4s。
 const {
   app,
   BrowserWindow,
@@ -2058,17 +2065,22 @@ async function main() {
       `fullGraph=${b31.mark ? String(b31.mark.full) : "-"}（须 false）`,
   );
 
-  // 32. 图谱总览画布尺寸同步（波A-A3）
-  //     渲染器的宽高是 createGraphInstance 里的一次性 const 快照，全仓无 renderer.resize；
-  //     .ge-canvas 却会被同页内的布局变化改尺寸——点法域标签使非本域图例项 hidden 撤出
-  //     布局流、工具栏折行减少而画布变高（下边缘露底），右栏 .ge-panel 显隐则改画布宽度
-  //     （右侧露白）。A3 给容器装了 ResizeObserver（400ms 防抖 + crossfade 淡入重建），
-  //     本步守的就是「容器变了、画布跟得上」。
+  // 32. 图谱总览画布尺寸同步（阶段5.7 波A-A3 立步；阶段5.10 波A-R2 改写机制）
+  //     机制现状：容器尺寸一变，ResizeObserver 合并到下一帧调 controller.syncSize()——
+  //     渲染器 renderer.resize 就地改尺寸 + zoomBehavior.extent 跟随 + 相机左上锚定补偿，
+  //     **不重建实例**。节点坐标、力导、纹理、选中态全部原地不动，画面零位移。
+  //     改造前这里走的是「RO 400ms 防抖 → crossfade 整实例重建」：新旧实例的世界原点
+  //     都是 +width/2，重建后整图平移 ΔW·(1+k)/2≈165–250px，叠加加性双重曝光的淡入，
+  //     观感即用户报的「点目录选定后残影跳闪」。本步现在同时守三件事：
+  //       ① 画布尺寸跟得上容器（Δ≤1px，四态）；
+  //       ② 全程**零重建**（三段 __smokeRenderCalls 增量恒 0）且 canvas 恒 1 张；
+  //       ③ 右栏显现前后**相机守恒**（32-e：k 逐位不变，x 精确等于 x−k·ΔW/2）。
   //     ⚠️ 量测口径必须是容器 offsetWidth/Math.max(offsetHeight,250) 对画布的
-  //       getBoundingClientRect：前者与 graph.inline.ts 的尺寸快照逐字同源；若改用
-  //       clientWidth，会因 .ge-canvas 的 1px 边框（全局 border-box）恒差 2px 而永远误红。
-  //     ⚠️ 取画布须取容器内**最后一个** canvas：crossfade 期间旧画布留在容器里充当
-  //       淡入底图（position:absolute），取第一个会读到即将退场的旧尺寸。
+  //       getBoundingClientRect：前者与 graph.inline.ts 的 measureCanvasSize 逐字同源；
+  //       若改用 clientWidth，会因 .ge-canvas 的 1px 边框（全局 border-box）恒差 2px 而永远误红。
+  //     ⚠️ 取画布仍取容器内**最后一个** canvas，但语义已变：尺寸路径不再 crossfade，
+  //       容器里本就只该有一张（canvases===1 已成硬断言），这里取末位纯属守卫——
+  //       万一真出现第二张（并发互斥失守），取到的也是当下在画的那张，不会拿旧尺寸误绿。
   //     b/c/d 三项只在视口宽 ≥1200px（$desktop 断点，画布与右栏并排）时断言——窄屏
   //     是纵向堆叠，右栏显隐不改画布宽度，那几项本就不适用。
   const MEASURE_CANVAS = `(() => {
@@ -2079,6 +2091,10 @@ async function main() {
      if (!cv) return null;
      const r = cv.getBoundingClientRect();
      const panel = document.querySelector('.ge-panel');
+     // __zoom 是 d3-zoom 存在 DOM 节点上的当前变换（相机的**权威**副本）：
+     // 波A 的补偿必须经 zoomBehavior.transform 应用，直写模块内的镜像变量会与它失同步，
+     // 故 32-e 直接读它，既验相机守恒又验「d3 内部状态没被绕过」
+     const z = cv.__zoom;
      return {
        boxW: box.offsetWidth,
        boxH: Math.max(box.offsetHeight, 250),
@@ -2087,6 +2103,8 @@ async function main() {
        canvases: list.length,
        panelHidden: panel ? panel.hidden : null,
        viewportW: document.documentElement.clientWidth,
+       zoom: z ? { k: z.k, x: z.x, y: z.y } : null,
+       calls: window.__smokeRenderCalls,
      };
    })()`;
   const fitsBox = (m) =>
@@ -2108,17 +2126,38 @@ async function main() {
   }
   await sleep(1200); // 力导落定，与步 28/29 同款缓冲
 
+  // 哨兵装置（阶段5.10 波A）：本步的「零重建」与 32-f 的「竞态存活」都要它。
+  // loadURL 换了 JS 上下文，步 29 装的那份已失效，此处按同一形状重装。
+  await win.webContents.executeJavaScript(
+    `(() => {
+       if (typeof window.__smokeOrigGraphRender === 'undefined') {
+         window.__smokeOrigGraphRender = window.__graphRender;
+       }
+       window.__smokeRenderCalls = 0;
+       window.__graphRender = function (...args) {
+         window.__smokeRenderCalls += 1;
+         return window.__smokeOrigGraphRender.apply(this, args).then((c) => {
+           window.__smokeCtl = c;
+           return c;
+         });
+       };
+       return typeof window.__smokeOrigGraphRender === 'function';
+     })()`,
+  );
+
   // a. 基线：初始态画布与容器同尺寸
   const m32a = await win.webContents.executeJavaScript(MEASURE_CANVAS);
   const wide32 = !!m32a && m32a.viewportW >= 1200;
   const a32Ok = fitsBox(m32a);
 
   // b. 点「商标」法域标签 → 图例行收窄、工具栏折行减少 → 容器变高
-  //    等待 2s：400ms RO 防抖 + 约 230ms 重建 + 260ms 淡入，另留余量
+  //    等待 600ms：RO 合并到下一帧 + 就地 resize 是微秒级，2000ms 那档是给
+  //    「400ms 防抖 + 约 230ms 重建 + 260ms 淡入」留的，重建退役后不再需要；
+  //    600ms 仍留足法域过滤自身的重排与 applyFitView 过渡余量
   await win.webContents.executeJavaScript(
     `document.querySelector('.ge-field-tab[data-field="商标"]').click()`,
   );
-  await sleep(2000);
+  await sleep(600);
   const m32b = await win.webContents.executeJavaScript(MEASURE_CANVAS);
   const b32Ok = !wide32 || fitsBox(m32b);
   await shot(win, "画布尺寸同步-法域商标");
@@ -2127,7 +2166,7 @@ async function main() {
   await win.webContents.executeJavaScript(
     `document.querySelector('.ge-field-tab[data-field="*"]').click()`,
   );
-  await sleep(2000);
+  await sleep(600);
   const m32c = await win.webContents.executeJavaScript(MEASURE_CANVAS);
   const c32Ok = !wide32 || fitsBox(m32c);
 
@@ -2139,28 +2178,123 @@ async function main() {
        new CustomEvent('graphnodeselect', { detail: { slug: '1-专利法/', dbl: true } }),
      )`,
   );
-  await sleep(2000);
+  await sleep(600);
   const m32d = await win.webContents.executeJavaScript(MEASURE_CANVAS);
   const d32Ok = !wide32 || (fitsBox(m32d) && m32d.panelHidden === false);
   await shot(win, "画布尺寸同步-右栏显现");
 
+  // 零重建 + 单画布（阶段5.10 波A）：三段（a→b、b→c、c→d）的重建计数增量必须全 0。
+  // 增量非 0 即说明尺寸变化又走回了整实例重建那条路——那正是残影跳闪的病灶本体。
+  const calls32 = [m32a, m32b, m32c, m32d].map((m) => (m ? m.calls : null));
+  const zero32 =
+    calls32.every((c) => typeof c === "number") &&
+    calls32[1] - calls32[0] === 0 &&
+    calls32[2] - calls32[1] === 0 &&
+    calls32[3] - calls32[2] === 0;
+  const single32 = [m32a, m32b, m32c, m32d].every((m) => !!m && m.canvases === 1);
+
+  // e. 相机守恒（阶段5.10 波A 步4）：d 步右栏显现使画布变窄 ΔW，相机应恰好被
+  //    左上锚定补偿吃掉这份漂移——k 逐位不变，x 精确等于 x_before − k·ΔW/2
+  //    （节点渲染坐标 = 力导坐标 + 画布半宽，故画布变宽 ΔW 时整图右移 k·ΔW/2）。
+  //    容差 0.5px：公式本身是精确的，容差只为浮点与四舍五入留余地。
+  const dW32 = m32d && m32c ? m32d.boxW - m32c.boxW : null;
+  const expX32 =
+    m32c && m32c.zoom && dW32 !== null ? m32c.zoom.x - (m32c.zoom.k * dW32) / 2 : null;
+  const dx32 =
+    expX32 !== null && m32d && m32d.zoom ? Math.abs(m32d.zoom.x - expX32) : null;
+  const e32Ok =
+    !wide32 ||
+    (!!m32c &&
+      !!m32d &&
+      !!m32c.zoom &&
+      !!m32d.zoom &&
+      m32d.zoom.k === m32c.zoom.k &&
+      dx32 !== null &&
+      dx32 <= 0.5);
+
+  // f. 竞态存活（阶段5.10 波A A.2）：50ms 间隔连发「开右栏→点商标→点全部→关右栏」两轮，
+  //    末尾补一次 themechange（既制造一轮真重建以让哨兵捕获 controller，又把外部重建
+  //    与显隐/过滤操作叠在一起压并发互斥）。2s 后三条判据必须同时成立：
+  //    controller 非空（改造前重建期间会被置 null 长达 100–700ms）、术语层是合法值
+  //    （非 undefined——置空窗口内读到的就是它，后果是术语层静默关闭）、画布恒 1 张
+  //    （两条重建路径交叠会各插一张，旧的那张再无人移除）。
+  //    末动作刻意停在「右栏显现 + 法域全部」，与步 33 依赖的遗留状态一致。
+  await win.webContents.executeJavaScript(
+    `(() => {
+       const ex = document.querySelector('.graph-explorer');
+       const fire = (slug, dbl) => ex.dispatchEvent(
+         new CustomEvent('graphnodeselect', { detail: { slug, dbl } }));
+       const tab = (f) => document.querySelector('.ge-field-tab[data-field="' + f + '"]').click();
+       const seq = [
+         () => fire(null),
+         () => fire('1-专利法/', true),
+         () => tab('商标'),
+         () => tab('*'),
+         () => fire(null),
+         () => fire('1-专利法/', true),
+         () => document.dispatchEvent(new Event('themechange')),
+         () => tab('商标'),
+         () => tab('*'),
+         () => fire('1-专利法/', true),
+       ];
+       seq.forEach((fn, i) => setTimeout(fn, i * 50));
+       return true;
+     })()`,
+  );
+  await sleep(2000);
+  const s32f = await win.webContents.executeJavaScript(
+    `(() => {
+       const box = document.querySelector('.ge-canvas');
+       const list = box ? box.querySelectorAll('canvas') : [];
+       let term = 'ERR';
+       try { term = window.__smokeCtl ? window.__smokeCtl.getTermLayer() : 'NO-CTL'; }
+       catch (e) { term = 'THROW'; }
+       return {
+         hasCtl: !!window.__smokeCtl,
+         term: term,
+         canvases: list.length,
+         panelHidden: (() => { const p = document.querySelector('.ge-panel'); return p ? p.hidden : null; })(),
+       };
+     })()`,
+  );
+  const m32f = await win.webContents.executeJavaScript(MEASURE_CANVAS);
+  const f32Ok =
+    !!s32f &&
+    s32f.hasCtl === true &&
+    ["hidden", "dimmed", "shown"].includes(s32f.term) &&
+    s32f.canvases === 1 &&
+    fitsBox(m32f);
+
   record(
-    "图谱总览画布尺寸同步（容器 ResizeObserver 重建：基线／法域标签收窄／回全部／右栏显现四态下画布与容器差 ≤1px）",
-    graphReady32 && a32Ok && b32Ok && c32Ok && d32Ok,
-    `视口宽=${m32a ? m32a.viewportW : "-"}px（${wide32 ? "≥1200，b/c/d 全断言" : "<1200，窄屏纵向堆叠，b/c/d 不适用已跳过"}）; ` +
+    "图谱总览画布尺寸同步（就地 resize：四态画布与容器差 ≤1px ＋ 全程零重建 ＋ 画布恒 1 张 ＋ 右栏显现相机守恒 ＋ 连发操作后竞态存活）",
+    graphReady32 &&
+      a32Ok &&
+      b32Ok &&
+      c32Ok &&
+      d32Ok &&
+      zero32 &&
+      single32 &&
+      e32Ok &&
+      f32Ok,
+    `视口宽=${m32a ? m32a.viewportW : "-"}px（${wide32 ? "≥1200，b/c/d/e 全断言" : "<1200，窄屏纵向堆叠，b/c/d/e 不适用已跳过"}）; ` +
       `a 基线：${fmtBox(m32a)}; ` +
       `b 点「商标」后：${fmtBox(m32b)}; ` +
       `c 回「全部」后：${fmtBox(m32c)}; ` +
-      `d 右栏显现后：${fmtBox(m32d)}，panel.hidden=${m32d ? m32d.panelHidden : "-"}（须 false）`,
+      `d 右栏显现后：${fmtBox(m32d)}，panel.hidden=${m32d ? m32d.panelHidden : "-"}（须 false）; ` +
+      `零重建：三段重建计数 ${calls32.join("→")}（增量须全 0）, 画布张数 ${[m32a, m32b, m32c, m32d].map((m) => (m ? m.canvases : "-")).join("/")}（须全 1）; ` +
+      `e 相机守恒：ΔW=${dW32}, k ${m32c && m32c.zoom ? m32c.zoom.k : "-"}→${m32d && m32d.zoom ? m32d.zoom.k : "-"}（须逐位相等）, ` +
+      `x ${m32c && m32c.zoom ? m32c.zoom.x.toFixed(4) : "-"}→${m32d && m32d.zoom ? m32d.zoom.x.toFixed(4) : "-"}，期望 ${expX32 === null ? "-" : expX32.toFixed(4)}，|Δ|=${dx32 === null ? "-" : dx32.toFixed(4)}px（须 ≤0.5）; ` +
+      `f 竞态存活：controller 非空=${s32f ? s32f.hasCtl : "-"}, 术语层=${s32f ? s32f.term : "-"}（须 hidden/dimmed/shown）, ` +
+      `画布张数=${s32f ? s32f.canvases : "-"}（须 1）, 连发后 ${fmtBox(m32f)}, panel.hidden=${s32f ? s32f.panelHidden : "-"}`,
   );
 
   // ============ 阶段5.7 波B 新增一步（33）============
 
   // 33. 图谱总览目录导航抽屉（波B）
   //     沿用步 32 已加载的图谱总览页，不再 loadURL——本步与步 32 同处一个上下文，
-  //     且刻意依赖它遗留的两个状态：法域=「全部」、右栏已显现。后者尤其要紧：
-  //     右栏若在本步中途才首次显现，会改变 .ge-canvas 宽度并触发波A 的 RO 重建，
-  //     33-c 的「重建计数增量 0」就会被这条无关的重建污染，从而失去意义。
+  //     且沿用它遗留的两个状态：法域=「全部」、右栏已显现（步 32-f 的连发序列刻意
+  //     停在这两个状态上）。阶段5.10 波A 后，右栏显隐已不再触发任何重建，33-c 的
+  //     「重建计数增量 0」不会再被尺寸变化污染；沿用遗留状态是为让断言从同一起点出发。
   //     九项分工：
   //       a 结构（SSR 骨架在场、初始收起、树为空壳——惰性未被写坏的凭据）
   //       b 首次点开：树可见耗时 + 法域行 6 / 书行 83
@@ -2168,8 +2302,9 @@ async function main() {
   //         （增量非 0 即说明走了重建兜底，那是 700ms 的全量重建，不是 focus 定位）
   //       d 展开一本书：章行数与 __graphIndex 现算一致（不写死，随语料增删自适应）
   //       e 置灰联动：点「商标」后，data-group 不属 {8,15} 的行全部 dimmed；回「全部」全亮
-  //       f 存活守门（R6）：两次法域切换各触发一次 RO 重建后，抽屉仍在、83 书行未被清
-  //         ——抽屉挂在 .ge-body 而非 .ge-canvas，正是为了躲开重建时的 removeAllChildren
+  //       f 存活守门：两次法域切换后抽屉仍在、83 书行未被清，且**零重建**（阶段5.10 波A
+  //         反转，原断言为「各触发一次 RO 重建」）——抽屉挂在 .ge-body 而非 .ge-canvas
+  //         这条设计仍然成立，只是尺寸变化已不再重建，守的对象改为「重建计数纹丝不动」
   //       g 尺寸中立：抽屉开→关→开，.ge-canvas 尺寸逐像素不动（脱流的凭据）
   //       h 钉住持久化：reload 后抽屉仍展开
   //       i 收尾复位 removeItem（硬性，同步骤 24 主题复位规约，防污染用户 localStorage）
@@ -2356,11 +2491,16 @@ async function main() {
     !!s33e2 &&
     s33e2.dimmed === 0;
 
-  // f. 存活守门（R6）：两次法域切换后抽屉与 83 书行都还在，且确有重建发生过
+  // f. 存活守门（阶段5.10 波A 反转）：两次法域切换后抽屉与 83 书行都还在，
+  //    且**一次重建都没有发生**。原断言是 rebuilds>=1——那时法域切换会改画布高度、
+  //    触发 RO 的 400ms 防抖整实例重建，本项守的是「抽屉挂在 .ge-body 而非 .ge-canvas，
+  //    重建时的 removeAllChildren 扫不到它」。波A 把尺寸变化改成就地 resize 后，
+  //    法域切换根本不再重建，抽屉自然存活，语义随之从「重建后仍在」变为
+  //    「压根没重建，且抽屉与书行原样不动」。rebuilds 若回到 ≥1，说明尺寸重建路径复活。
   const callsAfterField = await win.webContents.executeJavaScript(READ_RENDER_CALLS);
   const rebuilds = callsAfterField - callsBeforeField;
   const f33Ok =
-    !!s33e2 && s33e2.drawerHidden === false && s33e2.books === 83 && rebuilds >= 1;
+    !!s33e2 && s33e2.drawerHidden === false && s33e2.books === 83 && rebuilds === 0;
 
   // g. 尺寸中立：抽屉开→关→开，.ge-canvas 逐像素不动（绝对定位脱流的凭据）
   const g33Open1 = await win.webContents.executeJavaScript(MEASURE_TOC_BOX);
@@ -2418,7 +2558,7 @@ async function main() {
   const i33Ok = !!s33i && s33i.stored === null && s33i.pinned === "false";
 
   record(
-    "图谱总览目录导航抽屉（惰性首建 6 法域+83 书行／点行即 selectNode 且零重建／章行数与索引一致／置灰联动／RO 重建后存活／尺寸中立／钉住持久化／收尾复位）",
+    "图谱总览目录导航抽屉（惰性首建 6 法域+83 书行／点行即 selectNode 且零重建／章行数与索引一致／置灰联动／法域切换零重建且抽屉存活／尺寸中立／钉住持久化／收尾复位）",
     a33Ok && b33Ok && c33Ok && d33Ok && e33Ok && f33Ok && g33Ok && h33Ok && i33Ok,
     `a 结构：drawer.hidden=${s33a ? s33a.drawerHidden : "无"}（须 true）, aria-expanded=${s33a ? s33a.expanded : "-"}, 树内行数=${s33a ? s33a.rows : "-"}（须 0，惰性）; ` +
       `b 首开：点开→树可见 ${typeof openMs === "number" ? openMs.toFixed(1) : openMs}ms（目标 ≤50ms）, ${fmtToc(s33b)}（须 6 法域 / 83 书）; ` +
@@ -2426,7 +2566,7 @@ async function main() {
       `c2「${c33b.title}」（期望「${tocTitles.law}」）钉住→drawer.hidden=${c33b.drawerHidden}（须 false）, 重建计数=${c33b.calls}（须 0）; ` +
       `d 展开 1-专利法：built=${d33 ? d33.built : "-"}, 章行=${d33 ? d33.rows : "-"}（索引现算=${chapterExpected}）; ` +
       `e 置灰：点「商标」后未置灰组=${s33e1 ? JSON.stringify(s33e1.litGroups) : "-"}（须 ["15","8"]）、置灰行=${s33e1 ? s33e1.dimmed : "-"}；回「全部」后置灰行=${s33e2 ? s33e2.dimmed : "-"}（须 0）; ` +
-      `f 存活：两次法域切换触发重建 ${rebuilds} 次（须 ≥1），drawer.hidden=${s33e2 ? s33e2.drawerHidden : "-"}, 书行=${s33e2 ? s33e2.books : "-"}（须 83）; ` +
+      `f 存活：两次法域切换触发重建 ${rebuilds} 次（须 0——就地 resize 零重建），drawer.hidden=${s33e2 ? s33e2.drawerHidden : "-"}, 书行=${s33e2 ? s33e2.books : "-"}（须 83）; ` +
       `g 尺寸中立：开 ${g33Open1 ? g33Open1.w + "×" + g33Open1.h : "-"} → 关 ${g33Closed ? g33Closed.w + "×" + g33Closed.h : "-"} → 开 ${g33Open2 ? g33Open2.w + "×" + g33Open2.h : "-"}（须逐像素等）; ` +
       `h 钉住 reload：就绪=${ready33}, drawer.hidden=${s33h ? s33h.drawerHidden : "-"}（须 false）, pin=${s33h ? s33h.pinned : "-"}, localStorage=${s33h ? s33h.stored : "-"}, 书行=${s33h ? s33h.books : "-"}; ` +
       `i 收尾：取消钉住后 pin=${s33i ? s33i.pinned : "-"}, localStorage=${s33i ? JSON.stringify(s33i.stored) : "-"}（须 null）`,
