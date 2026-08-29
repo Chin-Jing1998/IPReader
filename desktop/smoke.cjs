@@ -31,6 +31,10 @@
 // 阶段5.3 批 B5 新增：图谱页目录联动与 controller 存活（29），共 29 步，排在步 28 之后、
 // 离线报告之前——沿用步 28 已加载的图谱总览页，不再重复 loadURL。同批为步 28 追加
 // 图例行随法域标签收窄的 hidden 分布断言（既有断言不动，只追加）。
+// 阶段5.6 波2 新增：图谱首帧零标签光栅化 + SPA 往返命中组装缓存与坐标播种（30），
+// 共 30 步，排在步 29 之后、离线报告之前。它守的是两项性能机制的**存活**而非指标：
+// firstFrameVisibleLabels=0（波1-1.2 标签门控）与 assemblyCacheHit/layoutSeeded
+// （波2-2.2 组装缓存与坐标播种）为硬失败结构断言，时间只设 1200ms 宽熔断抓塌方。
 // 阶段5.4 批 D3 随 D1/D2 目录行为反转全面改写步 29（总步数不变）：目录条目点击恢复
 // SPA 直达文档（kb:graphlocate 定位链路全站撤销）、图谱页书下 3 层默认展开且折叠态
 // 隔离进独立键 fileTree-graph、状态条提示 4s 自动消失。现断言为：初始展开规模 +
@@ -1744,6 +1748,111 @@ async function main() {
       `h 首页抽查：跳转后 path=${homeAfter.path}, kb:graphlocate=${homeAfter.locateCount} 次, li[hidden]=${homeAfter.hiddenLi}`,
   );
 
+  // ============ 阶段5.6 波2 新增一步（30）============
+
+  // 30. 图谱首帧零标签光栅化 + SPA 往返命中组装缓存与坐标播种
+  //     两类断言分工明确：
+  //     ① 结构断言（硬失败）——不随机器快慢漂移，是波1/波2 两项机制的存活证明：
+  //        · firstFrameVisibleLabels === 0：波1-1.2 标签渲染门控。首帧 k≈0.05–0.2 使
+  //          scaleOpacity 恒为 0，本就没有一个标签该显示；该值一旦非 0，说明门控被
+  //          绕开（例如有人给 label.visible 开了第二条通路），6,202 个 Text 会在首帧
+  //          全部 canvas 光栅化——那正是首次 render 2.0s 的病灶。
+  //        · assemblyCacheHit && layoutSeeded：波2-2.2 模块级组装缓存与坐标播种。
+  //          两者同时为真，才说明「二次打开跳过了全部组装趟、且没有再跑同步预热」。
+  //     ② 时间断言（宽熔断）——SPA 二次打开 total < 1200ms。取值刻意远离实测中位
+  //        （约 250ms）：本步的职责是抓「机制失效导致的塌方」，不是守护性能指标，
+  //        指标的对照留给 /tmp 下的采数探针。CI 机器慢一倍也不会误报。
+  //
+  //     ⚠️ 返回图谱页必须走 SPA 软导航，不能用 loadURL：硬跳转新建 JS 上下文，
+  //     模块级 assemblyCache 随之清空，cacheHit 恒 false，本步的断言就永远绿不了
+  //     （或永远红）。条文页的目录树里没有图谱总览条目（GRAPH_EXCLUDE 只作用于图谱
+  //     数据集，但该页本就不在 explorer 的可见树内），无从「点回去」，故用
+  //     history.back() 触发 popstate——spa.inline.ts 对它的处理与点击链接同一条路径。
+  //     哨兵沿用步 29e 所建，本步不重复安装（loadURL 已换上下文，也无从沿用计数值）。
+  await win.loadURL(`${base}/0-图谱总览/`);
+  let graphReady30 = false;
+  for (let i = 0; i < 40; i += 1) {
+    await sleep(500);
+    graphReady30 = await win.webContents.executeJavaScript(
+      `!!document.querySelector('.ge-fieldnav') &&
+       !!document.querySelector('.ge-canvas canvas')`,
+    );
+    if (graphReady30) break;
+  }
+  // 埋点最新一条全量图记录；firstFrame 尚未落定时返回 null，由调用侧轮询
+  const READ_GRAPH_MARK = `(() => {
+     const p = window.__graphPerf;
+     if (!p || !p.marks) return null;
+     const full = p.marks.filter((m) => m.fullGraph);
+     const m = full[full.length - 1];
+     if (!m || m.firstFrame === null) return null;
+     return {
+       total: m.total,
+       labels1st: m.firstFrameVisibleLabels,
+       cacheHit: m.assemblyCacheHit,
+       seeded: m.layoutSeeded,
+       termHidden: m.termHidden,
+       nodes: m.nodeCount,
+     };
+   })()`;
+  const waitGraphMark = async () => {
+    for (let i = 0; i < 40; i += 1) {
+      const m = await win.webContents.executeJavaScript(READ_GRAPH_MARK);
+      if (m) return m;
+      await sleep(300);
+    }
+    return null;
+  };
+  const hardMark = await waitGraphMark();
+  const hardLabelsOk = !!hardMark && hardMark.labels1st === 0;
+
+  // 力导预热后的基线快照要等实例销毁（SPA 离开图谱页）或自然收敛才写回缓存；
+  // 此处只需给首帧之后的渲染留出落定时间，销毁写回由下一步的软导航触发
+  await sleep(1500);
+
+  // 图谱页 →（点目录条目）→ 条文页：SPA 软导航，模块缓存存活
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.explorer-ul a[data-for="1-专利法/1-总则/law-01-01"]').click()`,
+  );
+  await sleep(1500);
+  const leftGraph = await win.webContents.executeJavaScript(
+    `decodeURIComponent(location.pathname)`,
+  );
+  // 清空埋点后再返回，确保读到的是「二次打开」那一条而非首开残留
+  await win.webContents.executeJavaScript(
+    `(() => { if (window.__graphPerf) window.__graphPerf.marks.length = 0; return true; })()`,
+  );
+  await win.webContents.executeJavaScript(`history.back()`);
+  await sleep(1200);
+  const spaMark = await waitGraphMark();
+  const backPath = await win.webContents.executeJavaScript(
+    `decodeURIComponent(location.pathname)`,
+  );
+  const spaStructOk =
+    !!spaMark &&
+    spaMark.cacheHit === true &&
+    spaMark.seeded === true &&
+    spaMark.labels1st === 0;
+  const spaTimeOk = !!spaMark && spaMark.total < 1200;
+  await shot(win, "图谱缓存命中与坐标播种");
+
+  record(
+    "图谱首帧零标签光栅化＋SPA 往返命中组装缓存与坐标播种（结构断言硬失败：firstFrameVisibleLabels=0 / assemblyCacheHit / layoutSeeded；时间宽熔断：二次打开 total<1200ms）",
+    graphReady30 &&
+      hardLabelsOk &&
+      leftGraph === "/1-专利法/1-总则/law-01-01" &&
+      backPath === "/0-图谱总览/" &&
+      spaStructOk &&
+      spaTimeOk,
+    `直开图谱：就绪=${graphReady30}, 首帧可见标签=${hardMark ? hardMark.labels1st : "无记录"}（须 0）, ` +
+      `节点数=${hardMark ? hardMark.nodes : "-"}, 首开 cacheHit=${hardMark ? hardMark.cacheHit : "-"}; ` +
+      `SPA 离开落地=${leftGraph}, popstate 返回落地=${backPath}; ` +
+      `二次打开：cacheHit=${spaMark ? spaMark.cacheHit : "无记录"}（须 true）, ` +
+      `layoutSeeded=${spaMark ? spaMark.seeded : "-"}（须 true）, ` +
+      `首帧可见标签=${spaMark ? spaMark.labels1st : "-"}（须 0）, ` +
+      `total=${spaMark ? spaMark.total.toFixed(1) : "-"}ms（宽熔断 <1200ms）`,
+  );
+
   // —— 离线报告 ——
   const failed = results.filter((r) => !r.ok);
   const report = [
@@ -1790,7 +1899,9 @@ app.whenReady().then(() =>
 // 28 最长 15s 等图谱出图，另加两次力导落定等待与截图，26 步时代的预算留白再度告罄）
 // （阶段5.3 批 B5 未上调：新增步 29 全程复用步 28 已加载的图谱页与其目录树、不再
 // loadURL，累计新增等待约 12s，现有预算仍有充裕留白）
+// （阶段5.6 波2 由 360s 上调至 420s：新增步 30 要一次 loadURL 直开图谱页 + 两次 SPA
+// 软导航往返 + 两轮埋点轮询，累计新增等待约 25s，360s 的留白已不足以吸收机器慢档）
 setTimeout(() => {
   console.error("冒烟超时，强制退出");
   app.exit(1);
-}, 360000);
+}, 420000);

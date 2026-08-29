@@ -21,6 +21,16 @@ export type ContentDetails = {
   description?: string
 }
 
+/**
+ * 图谱链路专用的四字段投影（阶段5.6 波2-2.1）。
+ *
+ * 图谱（graph.inline.ts）与图谱总览专页（graphexplorer.inline.ts）对索引的全部用途
+ * 只有四项：slug（节点身份）、title（节点文本与搜索定位）、links（边与子节点 chips）、
+ * tags（tag 节点，showTags 为真时才用）。content 字段占全量索引的 40.7%，
+ * 图谱一字不读却要随之解析——故另出一份瘦身产物，见下方 emit 的 contentIndexGraph。
+ */
+export type GraphContentDetails = Pick<ContentDetails, "slug" | "title" | "links" | "tags">
+
 interface Options {
   enableSiteMap: boolean
   enableRSS: boolean
@@ -153,6 +163,42 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
         ctx,
         content: JSON.stringify(simplifiedIndex),
         slug: fp,
+        ext: ".json",
+      })
+
+      // ---------- 图谱专用轻量索引（阶段5.6 波2-2.1）----------
+      // 产物 static/contentIndexGraph.json：四字段投影（约 5.7MB，gz 392KB），
+      // 全量 contentIndex.json 为 13.45MB（content 字段占 40.7%，图谱一字不读）。
+      // 收益不止于体量——图谱链路由此脱离 fetchData 的排队：contentIndex 的那份
+      // Promise 还要供 search.inline.ts 的 flexsearch 全文索引消费，二者在同一次
+      // resolve 后争抢主线程，冷启动尤甚。
+      //
+      // ⚠️ 硬约束：两份索引必须**同一次构建、从同一个 linkIndex 派生**。
+      // 它们描述的是同一批页面，图谱按 slug 取节点、搜索与目录按 slug 取详情，
+      // 一旦分头生成（例如挪进独立 emitter、或改从别处取 links），两者的节点集与
+      // 边集就可能错位，表现为「图上点得到、面板查无此页」这类难查的幽灵缺陷。
+      // 故本块紧随上面的 contentIndex 写出、共用同一 linkIndex，不得拆分。
+      //
+      // 位置刻意排在 simplifiedIndex 之后：上面那段用 delete 就地改的是 linkIndex 里
+      // 的同一批对象（description/date），本块若排在其前，读到的字段集合取决于两段的
+      // 书写顺序——四字段投影虽不含这两项、结果一样，但那是巧合而非保证。
+      const graphFp = joinSegments("static", "contentIndexGraph") as FullSlug
+      const graphIndex: Record<FullSlug, GraphContentDetails> = Object.fromEntries(
+        Array.from(linkIndex).map(([slug, content]) => [
+          slug,
+          {
+            slug: content.slug,
+            title: content.title,
+            links: content.links,
+            tags: content.tags,
+          } satisfies GraphContentDetails,
+        ]),
+      )
+
+      yield write({
+        ctx,
+        content: JSON.stringify(graphIndex),
+        slug: graphFp,
         ext: ".json",
       })
     },

@@ -33,7 +33,7 @@
 // 6) SPA 生命周期：document "nav" 挂载、window.addCleanup 清理；themechange/resize
 //    重渲染（V5-B：重建保持术语层模式；resize 与 themechange 均快照并恢复缩放平移，
 //    themechange 另走交叉淡入——新画布叠加淡入完成后才销毁旧实例）。
-import type { ContentDetails } from "../../plugins/emitters/contentIndex"
+import type { GraphContentDetails } from "../../plugins/emitters/contentIndex"
 import type { GraphController, SavedTransform } from "./graph.inline"
 import type { TermLayerMode } from "../Graph"
 import {
@@ -155,6 +155,20 @@ const EXT_GROUP_SET: ReadonlySet<string> = new Set(EXT_TIER_GROUPS.map((g) => g.
 // 「图例只剩商标一组、图上却全域可见」的失配。
 let activeFieldFilter: string = FIELD_ALL
 
+/**
+ * 取图谱专用的四字段索引（阶段5.6 波2-2.1，产出见
+ * plugins/emitters/contentIndex.tsx）。本文件的三个消费点（resolveIdToFullSlug /
+ * showPanel / locateByQuery）只用 slug、title、links，全在四字段之内。
+ *
+ * window.__graphIndex 是与 graph.inline.ts 汇合的去重位：两者被分别独立打包，
+ * 抽不出公共模块，故这三行在两处各写一份、共享同一个 Promise——图谱总览页同时
+ * 加载两个脚本，若各 fetch 一次即多付一份 5.7MB 的解析。
+ */
+const graphIndex = (): Promise<GraphContentIndex> =>
+  (window.__graphIndex ??= fetch(
+    joinSegments(pathToRoot(getFullSlug(window)), "static/contentIndexGraph.json"),
+  ).then((r) => r.json() as Promise<GraphContentIndex>))
+
 // 内容卡片缓存：id → Promise（去重并发请求；null 表示该 id 无卡片或请求失败）
 const cardCache = new Map<string, Promise<ContentCard | null>>()
 
@@ -200,7 +214,7 @@ function leafId(slug: SimpleSlug): string | null {
  * 2) 容器：找末段以 "<id>-" 开头且层级差最小的后代叶子，向上剥目录得容器 …/index。
  */
 async function resolveIdToFullSlug(id: string): Promise<FullSlug | null> {
-  const data = await fetchData
+  const data = await graphIndex()
   const slugs = Object.keys(data) as FullSlug[]
 
   for (const slug of slugs) {
@@ -754,8 +768,8 @@ document.addEventListener("nav", async () => {
   /** 容器节点降级面板：标题 + 目录级提示 + 子节点 chips（由 contentIndex links 推导） */
   function renderContainerPanel(
     slug: SimpleSlug,
-    details: ContentDetails | undefined,
-    data: Record<string, ContentDetails>,
+    details: GraphContentDetails | undefined,
+    data: Record<string, GraphContentDetails>,
   ) {
     const nodes: HTMLElement[] = []
     const title = details?.title ?? decodeURIComponent(slug)
@@ -805,7 +819,7 @@ document.addEventListener("nav", async () => {
    */
   function renderCardPanel(
     slug: SimpleSlug,
-    details: ContentDetails | undefined,
+    details: GraphContentDetails | undefined,
     card: ContentCard,
   ) {
     const isTerm = card.id.startsWith("term-")
@@ -892,8 +906,8 @@ document.addEventListener("nav", async () => {
 
   /** 面板总入口：按 slug 分流容器/叶子；叶子取卡片失败时降级为容器式提示 */
   async function showPanel(slug: SimpleSlug) {
-    const data = await fetchData
-    const details = data[toFullSlug(slug)] as ContentDetails | undefined
+    const data = await graphIndex()
+    const details = data[toFullSlug(slug)] as GraphContentDetails | undefined
 
     if (isContainerSlug(slug)) {
       renderContainerPanel(slug, details, data)
@@ -1026,8 +1040,8 @@ document.addEventListener("nav", async () => {
   async function locateByQuery() {
     const query = (searchInput?.value ?? "").trim()
     if (query.length === 0) return
-    const data = await fetchData
-    const entries = Object.entries(data) as Array<[FullSlug, ContentDetails]>
+    const data = await graphIndex()
+    const entries = Object.entries(data) as Array<[FullSlug, GraphContentDetails]>
     // 排除宿主页自身与 tags 页
     const candidates = entries.filter(([slug]) => slug !== hostSlug && !slug.startsWith("tags/"))
     const hit =

@@ -8,6 +8,12 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
+const { promisify } = require('util');
+
+// 异步压缩（阶段5.6 波1-1.5）：zlib.gzipSync 把 13.4MB 的 contentIndex.json 压一遍要
+// 84ms，那 84ms 是**整个事件循环**停摆——首屏并发请求的 HTML/CSS/JS 全排在它后面。
+// 改走线程池后主线程只等回调，同一时间窗内其余请求照常收发。
+const gzipAsync = promisify(zlib.gzip);
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -38,11 +44,21 @@ const COMPRESSIBLE = new Set(['.html', '.js', '.mjs', '.css', '.json', '.xml', '
 
 // 小于此阈值的文件现压即可（压缩耗时可忽略），不占缓存
 const COMPRESS_CACHE_MIN = 16 * 1024;
-// 压缩缓存的总字节上限。产物静态且访问集中（contentIndex.json 4.7MB + postscript.js 755KB
-// 就占了绝大部分收益），超限时整体清空即可，无需 LRU 的复杂度
+// 压缩缓存的总字节上限。产物静态且访问集中（contentIndex.json 13.4MB + postscript.js
+// 828KB 就占了绝大部分收益），超限时整体清空即可，无需 LRU 的复杂度
 const COMPRESS_CACHE_MAX = 32 * 1024 * 1024;
 const gzipCache = new Map();
 let gzipCacheBytes = 0;
+// 在途压缩去重（1.5）：异步化之后，同一文件的并发请求会各自发起一次压缩——
+// 首屏正是这种形态（页面与其内联脚本几乎同时取 contentIndex.json）。
+// 以缓存键登记在途 Promise，后来者直接搭车，压缩只跑一遍。
+const gzipInFlight = new Map();
+
+/**
+ * 启动后台预压缩的目标（1.5）：三个「首屏必取且体量最大」的产物。
+ * 预热之后首个真实请求直接命中缓存，TTFB 不再包含那 84ms 的压缩。
+ */
+const PRECOMPRESS_TARGETS = ['static/contentIndex.json', 'postscript.js', 'index.css'];
 
 /**
  * 内容安全策略。产物是本地构建的静态站，此处为纵深防御而非补现有洞：
@@ -112,22 +128,52 @@ function acceptsGzip(req) {
 }
 
 /**
- * 取文件的 gzip 结果，大文件走缓存。
- * @returns {Buffer}
+ * 取文件的 gzip 结果，大文件走缓存（1.5 起改异步 + 在途去重）。
+ * 三级取值：缓存命中 → 在途 Promise 搭车 → 新起一次线程池压缩。
+ * 缓存上限与「超限整体清空」的策略原样保留。
+ * @returns {Promise<Buffer>}
  */
 function gzipOf(filePath, key, raw) {
   const hit = gzipCache.get(key);
-  if (hit) return hit;
-  const out = zlib.gzipSync(raw, { level: 6 });
-  if (raw.length >= COMPRESS_CACHE_MIN) {
-    if (gzipCacheBytes + out.length > COMPRESS_CACHE_MAX) {
-      gzipCache.clear();
-      gzipCacheBytes = 0;
-    }
-    gzipCache.set(key, out);
-    gzipCacheBytes += out.length;
+  if (hit) return Promise.resolve(hit);
+  const pending = gzipInFlight.get(key);
+  if (pending) return pending;
+  const task = gzipAsync(raw, { level: 6 })
+    .then((out) => {
+      if (raw.length >= COMPRESS_CACHE_MIN) {
+        if (gzipCacheBytes + out.length > COMPRESS_CACHE_MAX) {
+          gzipCache.clear();
+          gzipCacheBytes = 0;
+        }
+        gzipCache.set(key, out);
+        gzipCacheBytes += out.length;
+      }
+      return out;
+    })
+    .finally(() => {
+      // 成败都要摘掉在途登记：失败还挂着的话，后续请求会永久搭上一个已 reject 的车
+      gzipInFlight.delete(key);
+    });
+  gzipInFlight.set(key, task);
+  return task;
+}
+
+/**
+ * 后台预压缩单个产物（1.5）。键的算法必须与 sendFile 逐字一致
+ *（`${filePath}:${size}:${mtimeMs}`），否则预热的结果请求侧命不中，白压一遍。
+ * 失败一律静默：预热不是必需品，真实请求到来时按原路现压即可。
+ */
+async function precompress(distRoot, rel) {
+  try {
+    const filePath = path.join(distRoot, rel);
+    if (!COMPRESSIBLE.has(path.extname(filePath).toLowerCase())) return;
+    const stat = await fs.promises.stat(filePath);
+    if (!stat.isFile()) return;
+    const raw = await fs.promises.readFile(filePath);
+    await gzipOf(filePath, `${filePath}:${stat.size}:${stat.mtimeMs}`, raw);
+  } catch {
+    /* 预热失败无副作用，静默 */
   }
-  return out;
 }
 
 // 判定文件存在且为普通文件
@@ -184,7 +230,8 @@ const HEALTH_PATH = '/__patent-kb-health';
 
 /**
  * 送出一份已确认存在的文件：先做 ETag 协商，再按类型选 gzip 或流式传输。
- * 文本走 gzip（contentIndex.json 4.7MB → 773KB、postscript.js 755KB → 229KB）；
+ * 文本走 gzip（实测 2026-08-29：contentIndex.json 13.4MB → 1.96MB、
+ * postscript.js 828KB → 253KB、index.css 152KB → 28KB）；
  * 二进制走 stream，避免把大文件整块读进内存。
  */
 async function sendFile(req, res, filePath, status) {
@@ -208,7 +255,7 @@ async function sendFile(req, res, filePath, status) {
 
   if (COMPRESSIBLE.has(ext) && acceptsGzip(req)) {
     const raw = await fs.promises.readFile(filePath);
-    const body = gzipOf(filePath, `${filePath}:${stat.size}:${stat.mtimeMs}`, raw);
+    const body = await gzipOf(filePath, `${filePath}:${stat.size}:${stat.mtimeMs}`, raw);
     res.writeHead(
       status,
       headers(
@@ -291,6 +338,9 @@ function startStaticServer(distRoot, options = {}) {
     server.listen(listenPort, '127.0.0.1', () => {
       const addr = server.address();
       boundPort = typeof addr === 'object' && addr ? addr.port : listenPort;
+      // 后台预压缩（1.5）：不 await，不影响 listen 的返回时机；压缩跑在线程池里，
+      // 与随后到来的首屏请求并行而非串行。失败静默（precompress 内部已吞）
+      void Promise.all(PRECOMPRESS_TARGETS.map((rel) => precompress(distRoot, rel)));
       resolve({ server, port: boundPort });
     });
   });

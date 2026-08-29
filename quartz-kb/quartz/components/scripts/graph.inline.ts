@@ -1,4 +1,4 @@
-import type { ContentDetails } from "../../plugins/emitters/contentIndex"
+import type { GraphContentDetails } from "../../plugins/emitters/contentIndex"
 import {
   SimulationNodeDatum,
   SimulationLinkDatum,
@@ -16,7 +16,16 @@ import {
   type ZoomBehavior,
   type ZoomTransform,
 } from "d3"
-import { Text, Graphics, Application, Container, Circle } from "pixi.js"
+import {
+  Text,
+  TextStyle,
+  Graphics,
+  GraphicsContext,
+  Application,
+  Container,
+  Circle,
+  type FederatedPointerEvent,
+} from "pixi.js"
 // ==== patent-kb: 让 PixiJS 不依赖 'unsafe-eval' ====
 // PixiJS 8 默认以字符串生成 shader / uniform / UBO / 粒子的同步代码，需要 CSP 放行
 // 'unsafe-eval'。官方为此提供了本子模块：副作用导入即执行 selfInstall()，把这些
@@ -26,7 +35,15 @@ import "pixi.js/unsafe-eval"
 // ==== /patent-kb ====
 import { Group as TweenGroup, Tween as Tweened } from "@tweenjs/tween.js"
 import { registerEscapeHandler, removeAllChildren } from "./util"
-import { FullSlug, SimpleSlug, getFullSlug, resolveRelative, simplifySlug } from "../../util/path"
+import {
+  FullSlug,
+  SimpleSlug,
+  getFullSlug,
+  joinSegments,
+  pathToRoot,
+  resolveRelative,
+  simplifySlug,
+} from "../../util/path"
 import {
   isGraphBackgroundClick,
   isSelectedAnchorLink,
@@ -67,6 +84,22 @@ type NodeRenderData = {
   alpha: number
   active: boolean
   radius: number
+  /**
+   * 标签「自身要不要显示」（阶段5.6 波1-1.2 标签渲染门控）。
+   * 它只表达透明度侧的意愿，最终是否 visible 还要与统一可见性谓词
+   * isNodeRenderVisible 合取——合取动作集中在 syncLabelRender 一处，不得另开通路。
+   */
+  labelWanted: boolean
+  /**
+   * 悬停前的标签透明度，pointerleave 时据此还原（阶段5.6 波1-1.4）。
+   * 原先是构造循环里的闭包变量，随事件处理器共享化一并移进本结构。
+   */
+  oldLabelOpacity: number
+  /**
+   * 悬停态标签文本（书名 · 标题），首次悬停时才由 withBookName 算出并缓存。
+   * undefined ＝ 尚未悬停过本节点，其 label.text 也就从未被换过。
+   */
+  hoverText?: string
 }
 
 /**
@@ -159,6 +192,13 @@ function withBookName(id: string, text: string): string {
 const MAX_LOCAL_NODES = 60
 // 术语层 dimmed 模式下节点/边的透明度
 const DIMMED_ALPHA = 0.15
+
+/**
+ * 标签「有效可见」的 alpha 阈值（阶段5.6 波1-1.2）。
+ * 取 0.004 ≈ 1/255：8 位通道下低于此值的文字在屏幕上与全透明不可分辨，
+ * 拿它当门限既不会漏掉任何肉眼可见的标签，又能把渐隐尾巴上的无效帧挡在光栅化之外。
+ */
+const LABEL_ALPHA_EPSILON = 0.004
 // 节点半径上限：一级（书根）与总入口基础半径 + 弱化度数修正后截顶，
 // 避免高度数枢纽节点吞掉版面
 const MAX_NODE_RADIUS = 13
@@ -222,6 +262,173 @@ function addToVisited(slug: SimpleSlug) {
   }
 }
 // ==== /patent-kb ====
+
+// ---------- 图谱轻量索引取数（阶段5.6 波2-2.1）----------
+
+/**
+ * 取图谱专用的四字段索引（static/contentIndexGraph.json，产出见
+ * plugins/emitters/contentIndex.tsx）。首个调用方发起 fetch，其余共享同一 Promise
+ * ——window.__graphIndex 作为跨脚本、跨实例的去重位：本文件与
+ * graphexplorer.inline.ts 是**两个独立打包的产物**，无法共用模块变量，
+ * 只能经 window 汇合（同理，这三行在两处各写一份，不是复制粘贴的疏漏）。
+ *
+ * 路径拼法与 graphexplorer 的 fetchCard 同源：以当前页 slug 反推站点根的**相对**
+ * 路径，绝对路径 /static/… 在子路径部署或 file:// 场景下会 404。
+ */
+const graphIndex = (): Promise<GraphContentIndex> =>
+  (window.__graphIndex ??= fetch(
+    joinSegments(pathToRoot(getFullSlug(window)), "static/contentIndexGraph.json"),
+  ).then((r) => r.json() as Promise<GraphContentIndex>))
+
+// ---------- 模块级组装缓存（阶段5.6 波2-2.2）----------
+
+/**
+ * 一次全量图组装的可复用产物。
+ *
+ * 缓存的是「与中心页、与画布尺寸、与主题都无关」的那一部分——数据集本身及其派生表，
+ * 外加一份全景基线坐标。渲染期的东西（颜色、Text/Graphics、命中区）一律不进：它们
+ * 依赖主题快照与实例状态，缓存了就是错。
+ *
+ * ⚠️ ids 的顺序即 d3 的 node index 顺序，必须稳定：linkPairs 存的是 ids 的下标对，
+ * positions 虽按 id 索引不受顺序影响，但 forceLink 的 bias/strength 与 forceManyBody
+ * 的四叉树遍历次序都随节点数组顺序而定——顺序一变，同一份坐标就不再是同一个收敛态。
+ */
+type AssemblyCacheEntry = {
+  /** 节点 id，顺序即 d3 node index 顺序 */
+  ids: SimpleSlug[]
+  /** 与 ids 同序的节点显示文本（tag 节点为 "#标签"，其余取索引 title） */
+  titles: string[]
+  /** 节点 id → tags 数组（只读共享，NodeData.tags 全文无写入点） */
+  tagsById: Map<SimpleSlug, string[]>
+  /** 边的端点下标对（对应 ids 的下标） */
+  linkPairs: Array<[number, number]>
+  /** 无向邻接表（只读） */
+  adjacency: Map<SimpleSlug, SimpleSlug[]>
+  /** 节点度数（只读） */
+  nodeDegree: Map<SimpleSlug, number>
+  /** 术语 id → 出处法域集合（只读） */
+  termFields: Map<string, Set<string>>
+  /** 全景基线坐标快照；尚未收敛过即 null（此时不播种，走原预热路径） */
+  positions: Map<SimpleSlug, { x: number; y: number }> | null
+  /** 取快照那一刻的 alpha，播种后据此决定停机还是重放剩余演化 */
+  baseAlpha: number
+  /** 快照来源的索引条目数，仅供排障对照（键内已含同一值） */
+  entryCount: number
+}
+
+/**
+ * 条目上限。全量图的键取值面很窄——术语层 hidden/非 hidden 两档 × 现存两处配置
+ * （二者 showTags/removeTags/excluded 相同，实际只有两条），4 条留足余量。
+ */
+const ASSEMBLY_CACHE_MAX = 4
+
+/**
+ * 模块级（非实例级）：SPA 软导航不换 JS 上下文，故缓存跨页存活，二次打开图谱即命中。
+ * loadURL 硬跳转会新建上下文、缓存随之清空——那是设计如此，不是缺陷。
+ */
+const assemblyCache = new Map<string, AssemblyCacheEntry>()
+
+// ---------- 常设性能埋点（阶段5.6 波1-1.1）----------
+
+/**
+ * 单次 createGraphInstance 的耗时切片与结构量。时间字段一律取 performance.now()
+ * 的**绝对值**（相对 timeOrigin），派生量在同一条记录内自减得出，跨记录不可相减。
+ *
+ * 常设而非临时插桩：图谱打开延迟的每一次归因都要求同口径数字，临时插桩会在下一轮
+ * 优化时失传，届时只能重新拍脑袋。默认零输出、零 I/O，开销仅 8 次 performance.now()
+ * 与首帧一次 label.visible 计数（6,200 次布尔取值，微秒量级）。
+ */
+type GraphPerfMark = {
+  /** createGraphInstance 入口 */
+  t0: number
+  /** 图谱轻量索引取数完成、已转成 Map（波2-2.1 前取的是 fetchData 全量索引） */
+  dataReady: number
+  /** 数据集组装收尾（links/nodes/adjacency/nodeDegree/termFields 全部就绪） */
+  assembled: number
+  /** await app.init() 返回（WebGL 上下文就绪） */
+  appReady: number
+  /** 节点 Text/Graphics 构造循环跑完 */
+  nodesBuilt: number
+  /** 首帧同步预热（runSyncTicks + 落相机）跑完 */
+  prewarmed: number
+  /** createGraphInstance 返回前 */
+  returned: number
+  /** animate() 首次 app.renderer.render 完成时刻；首帧尚未出即为 null */
+  firstFrame: number | null
+  nodeCount: number
+  linkCount: number
+  /** depth<0 的全量图 */
+  fullGraph: boolean
+  /** 术语层 hidden（数据集已剔除术语节点） */
+  termHidden: boolean
+  /** 首帧渲染时 label.visible 为真的标签数——首帧 canvas 光栅化量的直接代理指标 */
+  firstFrameVisibleLabels: number | null
+  /** 模块级组装缓存是否命中（波2-2.2；局部图不启用缓存，恒 false） */
+  assemblyCacheHit: boolean
+  /** 坐标是否由缓存的全景基线播种（波2-2.2；播种即跳过同步预热） */
+  layoutSeeded: boolean
+  /** 派生：returned - t0，createGraphInstance 全程 */
+  total: number
+  /** 派生：nodesBuilt - appReady，节点构造段 */
+  buildMs: number
+  /** 派生：firstFrame - returned，返回到首帧渲染完成 */
+  frameMs: number | null
+  /**
+   * 首次 app.renderer.render(stage) 自身的同步耗时。与 frameMs 的差额即
+   * 「返回后、首帧之前」占用主线程的其他工作（目录树重建、SPA 收尾等），
+   * 二者分开才谈得上归因——只看 frameMs 会把别人的账记到渲染头上。
+   */
+  firstRenderMs: number | null
+}
+
+/** 保留的记录条数上限：够看清「首开 vs 二次打开」的对照，又不至于常驻内存 */
+const GRAPH_PERF_MAX_MARKS = 10
+
+/**
+ * 埋点存档，同时挂到 window.__graphPerf 供外部探针（desktop 侧 electron 脚本）读取。
+ * localStorage 的 graph-perf 置 "1" 时每条记录 console.table 一行，否则全程静默。
+ */
+const graphPerf: { marks: GraphPerfMark[] } = { marks: [] }
+
+/** 埋点是否输出到控制台（每次读 localStorage，改开关无需刷新页面） */
+function graphPerfVerbose(): boolean {
+  try {
+    return localStorage.getItem("graph-perf") === "1"
+  } catch {
+    return false
+  }
+}
+
+/** 记录入档（超上限丢最旧一条）。返回同一对象，首帧字段由调用方后续就地补写 */
+function pushGraphPerfMark(mark: GraphPerfMark): GraphPerfMark {
+  graphPerf.marks.push(mark)
+  if (graphPerf.marks.length > GRAPH_PERF_MAX_MARKS) graphPerf.marks.shift()
+  return mark
+}
+
+/** 首帧补写完成后的一次性输出（静默模式下空转） */
+function logGraphPerfMark(mark: GraphPerfMark) {
+  if (!graphPerfVerbose()) return
+  console.table([
+    {
+      total: Math.round(mark.total),
+      dataMs: Math.round(mark.dataReady - mark.t0),
+      assembleMs: Math.round(mark.assembled - mark.dataReady),
+      initMs: Math.round(mark.appReady - mark.assembled),
+      buildMs: Math.round(mark.buildMs),
+      prewarmMs: Math.round(mark.prewarmed - mark.nodesBuilt),
+      frameMs: mark.frameMs === null ? null : Math.round(mark.frameMs),
+      renderMs: mark.firstRenderMs === null ? null : Math.round(mark.firstRenderMs),
+      nodes: mark.nodeCount,
+      links: mark.linkCount,
+      labels1st: mark.firstFrameVisibleLabels,
+      full: mark.fullGraph,
+      termHidden: mark.termHidden,
+      cacheHit: mark.assemblyCacheHit,
+      seeded: mark.layoutSeeded,
+    },
+  ])
+}
 
 type TweenNode = {
   update: (time: number) => void
@@ -493,6 +700,30 @@ async function createGraphInstance(
   termOverride?: TermLayerMode,
   swap?: GraphSwapOptions,
 ): Promise<GraphInstance> {
+  // 埋点（1.1）：入口即取时基。整条记录先以零值占位、逐段就地补写，
+  // 避免用 8 个 const 分散声明——animate() 闭包会读它，const 不提升，
+  // 声明顺序一旦被后续改动打乱就是运行期 TDZ（本文件已有同类教训，见 basePositions）。
+  const perfMark: GraphPerfMark = {
+    t0: performance.now(),
+    dataReady: 0,
+    assembled: 0,
+    appReady: 0,
+    nodesBuilt: 0,
+    prewarmed: 0,
+    returned: 0,
+    firstFrame: null,
+    nodeCount: 0,
+    linkCount: 0,
+    fullGraph: false,
+    termHidden: false,
+    firstFrameVisibleLabels: null,
+    assemblyCacheHit: false,
+    layoutSeeded: false,
+    total: 0,
+    buildMs: 0,
+    frameMs: null,
+    firstRenderMs: null,
+  }
   const slug = simplifySlug(fullSlug)
   const visited = getVisited()
   // 并发闸：同容器上若有在途淡入，先就地收尾再快照本轮旧节点
@@ -585,140 +816,285 @@ async function createGraphInstance(
     window.spaNavigate(new URL(targ, window.location.toString()))
   }
 
-  const data: Map<SimpleSlug, ContentDetails> = new Map(
-    Object.entries<ContentDetails>(await fetchData).map(([k, v]) => [
-      simplifySlug(k as FullSlug),
-      v,
-    ]),
-  )
-  const links: SimpleLinkData[] = []
-  const tags: SimpleSlug[] = []
-  const validLinks = new Set(data.keys())
+  const rawIndex = await graphIndex()
+  perfMark.dataReady = performance.now()
+
+  // ---------- 模块级组装缓存的查表（阶段5.6 波2-2.2）----------
+  //
+  // 键 = 决定组装结果的全部输入：索引条目数（内容变了就换一份产物，构建期一变即失效）
+  // ｜术语层是否 hidden（决定术语节点进不进数据集）｜showTags 与 removeTags（决定 tag
+  // 节点与其边）｜excluded（排除前缀集，排序后拼接以消除书写顺序差异）。
+  //
+  // ⚠️ 键**刻意不含 slug**：全量图的组装结果与「当前在哪一页」无关——slug 的唯一影响
+  // 是 color() 里 d.id === slug 那一支高亮色，那是渲染期判定，不进缓存。把 slug 塞进键
+  // 等于每换一页就多一份缓存，命中率归零。
+  //
+  // ⚠️ 只对 depth<0 的全量图启用：局部图（depth>=1）的邻域随中心页而变，缓存必然打空，
+  // 徒增内存与失效面。
+  //
+  // ⚠️ 力参数（repelForce/centerForce/linkDistance/enableRadial）同样不在键内：现存两处
+  // 全量图配置（GraphExplorer.tsx 的专页与 quartz.layout.ts 的 globalGraph）这四项逐字
+  // 相同，已核。新增第三处全量图配置且力参数不同时，本键须同步扩展——否则两者会共享
+  // 同一份坐标快照（positions），播种出的是另一套力参数的收敛态。
+  const assemblyKey = fullGraph
+    ? [
+        Object.keys(rawIndex).length,
+        termHidden,
+        showTags,
+        removeTags.join(","),
+        [...excluded].sort().join(","),
+      ].join("|")
+    : null
+  const cachedAssembly = assemblyKey === null ? undefined : assemblyCache.get(assemblyKey)
+  perfMark.assemblyCacheHit = cachedAssembly !== undefined
 
   const tweens = new Map<string, TweenNode>()
-  for (const [source, details] of data.entries()) {
-    // 术语层过滤 + excludeSlugs：被剔除节点的出边整体跳过
-    if (!includeNode(source)) continue
-    const outgoing = details.links ?? []
 
-    for (const dest of outgoing) {
-      if (validLinks.has(dest) && includeNode(dest)) {
-        links.push({ source: source, target: dest })
-      }
-    }
-
-    if (showTags) {
-      const localTags = details.tags
-        .filter((tag) => !removeTags.includes(tag))
-        .map((tag) => simplifySlug(("tags/" + tag) as FullSlug))
-
-      tags.push(...localTags.filter((tag) => !tags.includes(tag)))
-
-      for (const tag of localTags) {
-        links.push({ source: source, target: tag })
-      }
-    }
-  }
-
-  // 邻接表：一次 O(E) 构建，替代原 BFS 中对全量 links 的逐节点 filter（O(N·E) 病灶）
-  const adjacency = new Map<SimpleSlug, SimpleSlug[]>()
-  const addAdjacency = (a: SimpleSlug, b: SimpleSlug) => {
-    const list = adjacency.get(a)
-    if (list !== undefined) {
-      list.push(b)
-    } else {
-      adjacency.set(a, [b])
-    }
-  }
-  for (const l of links) {
-    addAdjacency(l.source, l.target)
-    addAdjacency(l.target, l.source)
-  }
-
-  const neighbourhood = new Set<SimpleSlug>()
-  if (depth >= 0) {
-    // links 已按 includeNode 预过滤，邻接表内只会出现准入节点；仅 BFS 种子需单独判定
-    const wl: (SimpleSlug | "__SENTINEL")[] = includeNode(slug) ? [slug, "__SENTINEL"] : []
-    while (depth >= 0 && wl.length > 0) {
-      // compute neighbours
-      const cur = wl.shift()!
-      if (cur === "__SENTINEL") {
-        depth--
-        wl.push("__SENTINEL")
-      } else if (!neighbourhood.has(cur)) {
-        neighbourhood.add(cur)
-        wl.push(...(adjacency.get(cur) ?? []))
-      }
-    }
-  } else {
-    validLinks.forEach((id) => {
-      if (includeNode(id)) neighbourhood.add(id)
-    })
-    if (showTags) tags.forEach((tag) => neighbourhood.add(tag))
-  }
-
-  // 局部图 top-60 截断（V4-B1）：depth>=1 且邻居数超上限时按确定性排序保留前 60 个。
-  // 排序权重：同书（顶层目录前缀与当前页一致）> 非术语（非 9- 前缀）> 全局度数升序，
-  // 末位以 slug 字典序兜底保证确定性。
+  // 组装产物：命中即从缓存条目重建，未命中走下方原路径并在收尾写入缓存。
+  // 一律 let（原为 const）——两条路径各自赋值，其余引用点一字未动。
+  let adjacency: Map<SimpleSlug, SimpleSlug[]>
+  let nodeDegree: Map<SimpleSlug, number>
+  let termFields: Map<string, Set<string>>
+  let nodeById: Map<SimpleSlug, NodeData>
+  let graphData: { nodes: NodeData[]; links: LinkData[] }
+  // 局部图截断 badge 的两个计数（全量图恒 0，故缓存命中路径无须重算）
   let truncatedTotal = 0 // 截断前邻居总数 M
   let truncatedShown = 0 // 截断后显示邻居数 N
-  if (isLocalDepth) {
-    const neighbours = [...neighbourhood].filter((id) => id !== slug)
-    if (neighbours.length > MAX_LOCAL_NODES) {
-      const globalDegree = new Map<SimpleSlug, number>()
-      for (const l of links) {
-        globalDegree.set(l.source, (globalDegree.get(l.source) ?? 0) + 1)
-        globalDegree.set(l.target, (globalDegree.get(l.target) ?? 0) + 1)
-      }
-      const curBook = slug.split("/")[0]
-      neighbours.sort((a, b) => {
-        const bookA = a.split("/")[0] === curBook ? 0 : 1
-        const bookB = b.split("/")[0] === curBook ? 0 : 1
-        if (bookA !== bookB) return bookA - bookB
-        const termA = isTermSlug(a) ? 1 : 0
-        const termB = isTermSlug(b) ? 1 : 0
-        if (termA !== termB) return termA - termB
-        const degA = globalDegree.get(a) ?? 0
-        const degB = globalDegree.get(b) ?? 0
-        if (degA !== degB) return degA - degB
-        return a < b ? -1 : a > b ? 1 : 0
-      })
-      const hadCenter = neighbourhood.has(slug)
-      const kept = neighbours.slice(0, MAX_LOCAL_NODES)
-      truncatedTotal = neighbours.length
-      truncatedShown = kept.length
-      neighbourhood.clear()
-      if (hadCenter) neighbourhood.add(slug)
-      for (const id of kept) neighbourhood.add(id)
-    }
-  }
 
-  const nodes = [...neighbourhood].map((url) => {
-    const text = url.startsWith("tags/") ? "#" + url.substring(5) : (data.get(url)?.title ?? url)
-    return {
-      id: url,
-      text,
-      tags: data.get(url)?.tags ?? [],
-    }
-  })
-  // 端点解析用 Map：替代原 links.map 内的 nodes.find（O(N·E) 病灶）
-  const nodeById = new Map<SimpleSlug, NodeData>(nodes.map((n) => [n.id, n]))
-  const graphData: { nodes: NodeData[]; links: LinkData[] } = {
-    nodes,
-    links: links
-      .filter((l) => neighbourhood.has(l.source) && neighbourhood.has(l.target))
-      .map((l) => ({
-        source: nodeById.get(l.source)!,
-        target: nodeById.get(l.target)!,
+  if (cachedAssembly !== undefined) {
+    // ⚠️ NodeData 对象**必须每次新建**：d3-force 会往节点上写 x/y/vx/vy/index，
+    // 而专页全量图与 Ctrl+G 弹窗全量图可以并存（同键、同一条缓存），共用节点对象
+    // 会让两个 simulation 互相踩坐标——表现为一边拖拽另一边跟着抖。
+    // 文本与标签数组是只读值，可安全共享。
+    const nodes: NodeData[] = cachedAssembly.ids.map((id, i) => ({
+      id,
+      text: cachedAssembly.titles[i],
+      tags: cachedAssembly.tagsById.get(id) ?? [],
+    }))
+    nodeById = new Map<SimpleSlug, NodeData>(nodes.map((n) => [n.id, n]))
+    graphData = {
+      nodes,
+      // linkPairs 存的是 ids 数组的下标对，故 ids 的顺序即 d3 的 node index 顺序，
+      // 写入与重建两侧必须同序（写入侧用 graphData.nodes 的顺序建表，见下方写入块）
+      links: cachedAssembly.linkPairs.map(([si, ti]) => ({
+        source: nodes[si],
+        target: nodes[ti],
       })),
+    }
+    // ⚠️ 以下三张表直接引用缓存条目，**只读，任何路径禁写**：它们被同键的所有实例共享，
+    // 就地改一处即污染此后每一次命中。现有消费点均为只读（adjacency→computeSelectedSet、
+    // nodeDegree→nodeRadius、termFields→isTermFieldHidden/getTermFieldCount），新增消费点
+    // 若需要改写，必须先复制一份再改。
+    adjacency = cachedAssembly.adjacency
+    nodeDegree = cachedAssembly.nodeDegree
+    termFields = cachedAssembly.termFields
+  } else {
+    // 换源（波2-2.1）：由全站共用的 fetchData（13.45MB 全量索引）改取图谱专用的
+    // 四字段索引。图谱只用 slug/title/links/tags，且由此不再与 search.inline.ts 的
+    // flexsearch 全文索引在同一份 Promise 上排队。fetchData 本身语义一字未动，
+    // 其余消费方（explorer/search）照旧。
+    const data: Map<SimpleSlug, GraphContentDetails> = new Map(
+      Object.entries<GraphContentDetails>(rawIndex).map(([k, v]) => [
+        simplifySlug(k as FullSlug),
+        v,
+      ]),
+    )
+    const links: SimpleLinkData[] = []
+    const tags: SimpleSlug[] = []
+    const validLinks = new Set(data.keys())
+
+    for (const [source, details] of data.entries()) {
+      // 术语层过滤 + excludeSlugs：被剔除节点的出边整体跳过
+      if (!includeNode(source)) continue
+      const outgoing = details.links ?? []
+
+      for (const dest of outgoing) {
+        if (validLinks.has(dest) && includeNode(dest)) {
+          links.push({ source: source, target: dest })
+        }
+      }
+
+      if (showTags) {
+        const localTags = details.tags
+          .filter((tag) => !removeTags.includes(tag))
+          .map((tag) => simplifySlug(("tags/" + tag) as FullSlug))
+
+        tags.push(...localTags.filter((tag) => !tags.includes(tag)))
+
+        for (const tag of localTags) {
+          links.push({ source: source, target: tag })
+        }
+      }
+    }
+
+    // 邻接表：一次 O(E) 构建，替代原 BFS 中对全量 links 的逐节点 filter（O(N·E) 病灶）
+    adjacency = new Map<SimpleSlug, SimpleSlug[]>()
+    const addAdjacency = (a: SimpleSlug, b: SimpleSlug) => {
+      const list = adjacency.get(a)
+      if (list !== undefined) {
+        list.push(b)
+      } else {
+        adjacency.set(a, [b])
+      }
+    }
+    for (const l of links) {
+      addAdjacency(l.source, l.target)
+      addAdjacency(l.target, l.source)
+    }
+
+    const neighbourhood = new Set<SimpleSlug>()
+    if (depth >= 0) {
+      // links 已按 includeNode 预过滤，邻接表内只会出现准入节点；仅 BFS 种子需单独判定
+      const wl: (SimpleSlug | "__SENTINEL")[] = includeNode(slug) ? [slug, "__SENTINEL"] : []
+      while (depth >= 0 && wl.length > 0) {
+        // compute neighbours
+        const cur = wl.shift()!
+        if (cur === "__SENTINEL") {
+          depth--
+          wl.push("__SENTINEL")
+        } else if (!neighbourhood.has(cur)) {
+          neighbourhood.add(cur)
+          wl.push(...(adjacency.get(cur) ?? []))
+        }
+      }
+    } else {
+      validLinks.forEach((id) => {
+        if (includeNode(id)) neighbourhood.add(id)
+      })
+      if (showTags) tags.forEach((tag) => neighbourhood.add(tag))
+    }
+
+    // 局部图 top-60 截断（V4-B1）：depth>=1 且邻居数超上限时按确定性排序保留前 60 个。
+    // 排序权重：同书（顶层目录前缀与当前页一致）> 非术语（非 9- 前缀）> 全局度数升序，
+    // 末位以 slug 字典序兜底保证确定性。
+    if (isLocalDepth) {
+      const neighbours = [...neighbourhood].filter((id) => id !== slug)
+      if (neighbours.length > MAX_LOCAL_NODES) {
+        const globalDegree = new Map<SimpleSlug, number>()
+        for (const l of links) {
+          globalDegree.set(l.source, (globalDegree.get(l.source) ?? 0) + 1)
+          globalDegree.set(l.target, (globalDegree.get(l.target) ?? 0) + 1)
+        }
+        const curBook = slug.split("/")[0]
+        neighbours.sort((a, b) => {
+          const bookA = a.split("/")[0] === curBook ? 0 : 1
+          const bookB = b.split("/")[0] === curBook ? 0 : 1
+          if (bookA !== bookB) return bookA - bookB
+          const termA = isTermSlug(a) ? 1 : 0
+          const termB = isTermSlug(b) ? 1 : 0
+          if (termA !== termB) return termA - termB
+          const degA = globalDegree.get(a) ?? 0
+          const degB = globalDegree.get(b) ?? 0
+          if (degA !== degB) return degA - degB
+          return a < b ? -1 : a > b ? 1 : 0
+        })
+        const hadCenter = neighbourhood.has(slug)
+        const kept = neighbours.slice(0, MAX_LOCAL_NODES)
+        truncatedTotal = neighbours.length
+        truncatedShown = kept.length
+        neighbourhood.clear()
+        if (hadCenter) neighbourhood.add(slug)
+        for (const id of kept) neighbourhood.add(id)
+      }
+    }
+
+    const nodes = [...neighbourhood].map((url) => {
+      const text = url.startsWith("tags/") ? "#" + url.substring(5) : (data.get(url)?.title ?? url)
+      return {
+        id: url,
+        text,
+        tags: data.get(url)?.tags ?? [],
+      }
+    })
+    // 端点解析用 Map：替代原 links.map 内的 nodes.find（O(N·E) 病灶）
+    nodeById = new Map<SimpleSlug, NodeData>(nodes.map((n) => [n.id, n]))
+    graphData = {
+      nodes,
+      links: links
+        .filter((l) => neighbourhood.has(l.source) && neighbourhood.has(l.target))
+        .map((l) => ({
+          source: nodeById.get(l.source)!,
+          target: nodeById.get(l.target)!,
+        })),
+    }
+
+    // 节点度数预计算：替代原 nodeRadius 内对 graphData.links 的全量扫描
+    nodeDegree = new Map<SimpleSlug, number>()
+    for (const l of graphData.links) {
+      nodeDegree.set(l.source.id, (nodeDegree.get(l.source.id) ?? 0) + 1)
+      nodeDegree.set(l.target.id, (nodeDegree.get(l.target.id) ?? 0) + 1)
+    }
+
+    // 术语法域表（阶段5.3 需求6）：随波2-2.2 由下方「术语层法域过滤」区块上移至此，
+    // 与其余组装趟归拢在同一条缓存分支内（消费点 isTermFieldHidden / getTermFieldCount
+    // 仍在原处，逻辑一字未动）。
+    /**
+     * 术语节点 → 其出处所覆盖的法域集合。构建口径：**只算术语节点的出边**
+     *（contentIndex 中术语页自身 links 指向的章节，即术语卡「出处」区块）。
+     *
+     * ⚠️ 方向策略已裁决，勿「优化」成双向（20260825 裁决，理由三条）：
+     *   1) 语义：术语的「所属法域」由**出处索引**定义——该词条从哪些文献抽取而来，
+     *      是策展事实；入边（各书正文页自动注入的术语链接）语义是「被提及」而非
+     *      「所属」，审查指南正文提到某词不改变该词条的抽取来源。
+     *   2) 区分度：实测双向口径下 28% 的术语跨两域及以上，过滤形同虚设；
+     *      仅出边 2.5% 跨域，过滤有效。
+     *   3) 事实自洽：仅出边口径下「术语抽取现仅覆盖专利/商标两域」为真陈述
+     *      （实测专利 852 / 商标 209 / 跨两域 26 / 其余四域 0 / 1035 术语全覆盖），
+     *      编排层的空域提示据此成立；双向口径下该提示永不触发且与事实冲突。
+     *
+     * 一次 O(E) 扫描建表，与 nodeDegree 同一纪律（不在渲染路径上重复扫全量边）。
+     * 术语容器节点（词条分类目录，如「9-关键词索引/01-新颖性/」）出边只指向同层
+     * 术语，集合恒空——法域过滤生效时随之隐藏，符合「该法域视图内不列术语目录」。
+     */
+    termFields = new Map<string, Set<string>>()
+    for (const l of graphData.links) {
+      // 只取「术语 → 非术语」这一向；术语↔术语、非术语→术语均不贡献法域
+      if (!isTermSlug(l.source.id) || isTermSlug(l.target.id)) continue
+      const field = fieldOfSlug(l.target.id)
+      if (field === undefined) continue
+      const set = termFields.get(l.source.id)
+      if (set === undefined) {
+        termFields.set(l.source.id, new Set([field]))
+      } else {
+        set.add(field)
+      }
+    }
+
+    // 组装收尾：把可复用的产物写入模块级缓存（波2-2.2）。
+    // positions/baseAlpha 此刻还没有——坐标要等力导收敛，由 saveAssemblySnapshot
+    // 在 simulation "end" 与 destroyInstance 两处回填。
+    if (assemblyKey !== null) {
+      const idxById = new Map<SimpleSlug, number>()
+      graphData.nodes.forEach((n, i) => idxById.set(n.id, i))
+      // 超上限即整体清空，不做 LRU：全量图的键取值极少（术语层两档 × 少数配置），
+      // 4 条足以覆盖一次会话内的来回切换；真超了说明键的取值面判断有误，
+      // 与其半吊子淘汰不如整体重建，逻辑简单且不会留下过期条目。
+      if (assemblyCache.size >= ASSEMBLY_CACHE_MAX) assemblyCache.clear()
+      assemblyCache.set(assemblyKey, {
+        ids: graphData.nodes.map((n) => n.id),
+        titles: graphData.nodes.map((n) => n.text),
+        tagsById: new Map(graphData.nodes.map((n) => [n.id, n.tags])),
+        linkPairs: graphData.links.map((l) => [
+          idxById.get(l.source.id)!,
+          idxById.get(l.target.id)!,
+        ]),
+        adjacency,
+        nodeDegree,
+        termFields,
+        positions: null,
+        baseAlpha: 0,
+        entryCount: Object.keys(rawIndex).length,
+      })
+    }
   }
 
-  // 节点度数预计算：替代原 nodeRadius 内对 graphData.links 的全量扫描
-  const nodeDegree = new Map<SimpleSlug, number>()
-  for (const l of graphData.links) {
-    nodeDegree.set(l.source.id, (nodeDegree.get(l.source.id) ?? 0) + 1)
-    nodeDegree.set(l.target.id, (nodeDegree.get(l.target.id) ?? 0) + 1)
-  }
+  /**
+   * 本次实例对应的缓存条目（局部图恒 null）。命中与未命中两条路径拿到的是**同一个
+   * 对象**：未命中那条刚在上面写入，此处取回，坐标快照后续就回填到它身上。
+   */
+  const assemblyEntry: AssemblyCacheEntry | null =
+    assemblyKey === null ? null : (assemblyCache.get(assemblyKey) ?? null)
+
   /** 容器/叶子半径分级（v14，阶段5.3 需求3 重构）：Quartz 的 simplifySlug 使目录页 slug
    * 恒以「/」结尾、文件页恒不以「/」结尾——`id.endsWith("/")` 即容器/叶子的充要判据。
    * 原实现按 slug 段数定级（4 段 3.5 / 3 段 5.5 / 1-2 段 10），导致同为叶子的审查指南
@@ -902,39 +1278,17 @@ async function createGraphInstance(
     return group !== undefined && hiddenSections.has(group)
   }
 
-  // ---------- 术语层法域过滤（阶段5.3 需求6）----------
+  // 埋点（1.1）：数据集组装收尾——此前是取数之后的全部 O(V+E) 趟。
+  // 口径不变（波2-2.2 只把 termFields 的构建挪进上方缓存分支，落点仍在本行之前）：
+  // assembleMs 依旧含 simulation 构造与 computedStyleMap 快照，与波1 数字可比。
+  perfMark.assembled = performance.now()
+  perfMark.nodeCount = graphData.nodes.length
+  perfMark.linkCount = graphData.links.length
+  perfMark.fullGraph = fullGraph
+  perfMark.termHidden = termHidden
 
-  /**
-   * 术语节点 → 其出处所覆盖的法域集合。构建口径：**只算术语节点的出边**
-   *（contentIndex 中术语页自身 links 指向的章节，即术语卡「出处」区块）。
-   *
-   * ⚠️ 方向策略已裁决，勿「优化」成双向（20260825 裁决，理由三条）：
-   *   1) 语义：术语的「所属法域」由**出处索引**定义——该词条从哪些文献抽取而来，
-   *      是策展事实；入边（各书正文页自动注入的术语链接）语义是「被提及」而非
-   *      「所属」，审查指南正文提到某词不改变该词条的抽取来源。
-   *   2) 区分度：实测双向口径下 28% 的术语跨两域及以上，过滤形同虚设；
-   *      仅出边 2.5% 跨域，过滤有效。
-   *   3) 事实自洽：仅出边口径下「术语抽取现仅覆盖专利/商标两域」为真陈述
-   *      （实测专利 852 / 商标 209 / 跨两域 26 / 其余四域 0 / 1035 术语全覆盖），
-   *      编排层的空域提示据此成立；双向口径下该提示永不触发且与事实冲突。
-   *
-   * 一次 O(E) 扫描建表，与 nodeDegree 同一纪律（不在渲染路径上重复扫全量边）。
-   * 术语容器节点（词条分类目录，如「9-关键词索引/01-新颖性/」）出边只指向同层
-   * 术语，集合恒空——法域过滤生效时随之隐藏，符合「该法域视图内不列术语目录」。
-   */
-  const termFields = new Map<string, Set<string>>()
-  for (const l of graphData.links) {
-    // 只取「术语 → 非术语」这一向；术语↔术语、非术语→术语均不贡献法域
-    if (!isTermSlug(l.source.id) || isTermSlug(l.target.id)) continue
-    const field = fieldOfSlug(l.target.id)
-    if (field === undefined) continue
-    const set = termFields.get(l.source.id)
-    if (set === undefined) {
-      termFields.set(l.source.id, new Set([field]))
-    } else {
-      set.add(field)
-    }
-  }
+  // ---------- 术语层法域过滤（阶段5.3 需求6）----------
+  // 表本身（termFields）在上方组装分支内构建，本区块只留过滤器状态与两个谓词。
 
   /** 当前法域过滤器：null = 不过滤（FIELD_ALL 在入口即归一为 null） */
   let termFieldFilter: string | null = null
@@ -955,11 +1309,94 @@ async function createGraphInstance(
   const isLinkRenderVisible = (l: LinkData): boolean =>
     isNodeRenderVisible(l.source.id) && isNodeRenderVisible(l.target.id)
 
+  /**
+   * 标签视口裁剪（阶段5.6 波1-1.2b）的世界坐标边界。初值放到无穷大＝不裁剪，
+   * 首帧 refreshLabelViewport 之后才生效。
+   *
+   * 为什么必须加这一层：1.2 只把光栅化从「打开时一次性 6,202 个」推迟到
+   * 「缩放越过 k>1 的那一帧一次性 6,202 个」，实测那一帧长达 1018ms（本轮采数），
+   * 卡顿只是换了个地方发生。按视口裁剪后，任一时刻只对屏幕内（含边距）的标签
+   * 付光栅化成本，且 PixiJS 的文字纹理建一次即缓存，来回平移不重复付费。
+   * 屏幕外的标签本就一像素都不着，裁掉零语义变更——与 alpha=0 等同 visible=false
+   * 是同一条理由。
+   */
+  const labelViewport = { minX: -Infinity, minY: -Infinity, maxX: Infinity, maxY: Infinity }
+
+  /**
+   * 视口外扩边距，单位是**世界坐标**而非屏幕像素——这是本实现的关键：
+   * 标签是 stage 的子节点，其世界宽度恒为 文本宽度 / scale，与缩放级别 k 无关，
+   * 故用世界边距一劳永逸覆盖「节点已出屏、标签还露半截」的情形，无需随 k 调整。
+   * 取 220：全库最长标题约 26 个中文字符 × 10.5px ≈ 273px，除以 scale 后半宽约 130，
+   * 留足余量。
+   */
+  const LABEL_VIEWPORT_MARGIN = 220
+
+  /**
+   * 按当前缩放平移重算标签视口（屏幕矩形 → 世界矩形的逆变换）。
+   * 节点渲染坐标 = 力导坐标 + 画布半宽/半高，故解出的是力导坐标系下的边界。
+   * ⚠️ 只能在 currentTransform 初始化之后调用（本函数声明会提升、那个 let 不会）。
+   */
+  function refreshLabelViewport() {
+    const k = currentTransform.k
+    if (!(k > 0)) {
+      labelViewport.minX = -Infinity
+      labelViewport.minY = -Infinity
+      labelViewport.maxX = Infinity
+      labelViewport.maxY = Infinity
+      return
+    }
+    labelViewport.minX = -currentTransform.x / k - width / 2 - LABEL_VIEWPORT_MARGIN
+    labelViewport.maxX = (width - currentTransform.x) / k - width / 2 + LABEL_VIEWPORT_MARGIN
+    labelViewport.minY = -currentTransform.y / k - height / 2 - LABEL_VIEWPORT_MARGIN
+    labelViewport.maxY = (height - currentTransform.y) / k - height / 2 + LABEL_VIEWPORT_MARGIN
+  }
+
+  /** 节点是否落在标签视口内（坐标未初始化的节点按「不在」处理，下一帧自会补上） */
+  const inLabelViewport = (d: NodeData): boolean => {
+    const { x, y } = d
+    if (x === undefined || y === undefined) return false
+    return (
+      x >= labelViewport.minX &&
+      x <= labelViewport.maxX &&
+      y >= labelViewport.minY &&
+      y <= labelViewport.maxY
+    )
+  }
+
+  /**
+   * 标签门控（阶段5.6 波1-1.2）：把 label.visible 同步到
+   * 「labelWanted（透明度侧的意愿）∧ isNodeRenderVisible（域显隐/法域过滤）
+   *   ∧ inLabelViewport（视口裁剪，1.2b）」。
+   *
+   * 全文一切对 label.visible 的写入只此一处——与 isNodeRenderVisible 是「唯一可见性
+   * 谓词」同一条纪律；开第二条通路必然出现后写的一方覆盖前一方判定的老病。
+   *
+   * 为什么必须门控 visible 而不能只靠 alpha=0：PixiJS 8 的文字是**懒光栅化**的，
+   * 渲染收集只看 visible/renderable/culled，不看 alpha——alpha:0 的 Text 一样会被
+   * 收集、一样要在 canvas 上把字画出来生成纹理。全量图 6,202 个标签在首帧被一次性
+   * 光栅化，实测首次 render 耗时 2.0s（埋点 firstRenderMs，2026-08-29 基线）。
+   * visible=false 与 alpha=0 在画面上完全等同（两者都不着一像素），故门控零语义变更，
+   * 拿掉的纯粹是看不见的那部分光栅化开销。
+   */
+  const syncLabelRender = (n: NodeRenderData) => {
+    const want =
+      n.labelWanted && isNodeRenderVisible(n.simulationData.id) && inLabelViewport(n.simulationData)
+    if (n.label.visible === want) return
+    n.label.visible = want
+    if (want) {
+      // 隐藏期间 syncPositions 不再更新其坐标（见该函数），转可见的瞬间必须补一次，
+      // 否则本帧会把标签画在上一次可见时的旧位置上
+      const { x, y } = n.simulationData
+      if (x && y) n.label.position.set(x + width / 2, y + height / 2)
+    }
+  }
+
   /** 把某节点的 Sprite 与标签同步到统一谓词的判定结果 */
   const syncNodeVisibility = (n: NodeRenderData) => {
     const visible = isNodeRenderVisible(n.simulationData.id)
     n.gfx.visible = visible
-    n.label.visible = visible
+    // 标签走门控合取：域显隐/法域过滤放行之后，还要它自己想显示才画
+    syncLabelRender(n)
   }
 
   /**
@@ -1085,6 +1522,24 @@ async function createGraphInstance(
   const nodeRenderDataById = new Map<SimpleSlug, NodeRenderData>()
   // focus() 高亮的节点 id（描边圆环随帧绘制）
   let focusedNodeId: SimpleSlug | null = null
+
+  /**
+   * 标签意愿判据（阶段5.6 波1-1.2）：唯一一处从 alpha / hover / 选中态推出
+   * labelWanted 的地方。是否真的画由 syncLabelRender 与可见性谓词合取后决定。
+   * hover 与选中目标额外置真，是因为 renderLabels 把它们的 alpha 交给 100ms tween——
+   * tween 起步那一帧 alpha 仍接近 0，只看 alpha 会让标签晚一帧才浮现。
+   * dimmed 术语节点恒假：该态下「术语无标签」是既定语义（updateLabelOpacities 与
+   * renderLabels 都不给它拉 alpha），此处短路顺带保证 hover 也不会把它拉出来。
+   *
+   * ⚠️ 声明位置卡在两处之间，勿上下挪：须排在 hoveredNodeId / selectedNodeId 两个
+   * let 之后（const 不提升，排前即运行期 TDZ，本文件 basePositions 有同款教训），
+   * 又须排在节点构造循环之前（循环内的 pointerover/pointerleave 闭包引用它）。
+   */
+  const wantsLabel = (n: NodeRenderData): boolean => {
+    const id = n.simulationData.id
+    if (isDimmedNode(id)) return false
+    return n.label.alpha > LABEL_ALPHA_EPSILON || id === hoveredNodeId || id === selectedNodeId
+  }
 
   // dirty-flag 按需渲染（V4-B1）：仅在力导 tick / tween 活跃 / zoom / drag / hover
   // 触发时渲染一帧；力导停机（alpha<alphaMin）后稳态 CPU≈0
@@ -1273,6 +1728,8 @@ async function createGraphInstance(
     resolution: window.devicePixelRatio,
     eventMode: "static",
   })
+  // 埋点（1.1）：WebGL 上下文就绪（本函数唯一的第二个 await 点）
+  perfMark.appReady = performance.now()
   graph.appendChild(app.canvas)
   // 此处**不**起手交叉淡入：本函数在 appendChild 之后还有一大段同步构建
   //（逐节点建 Text/Graphics、力导预热），全量图实测约 700ms 阻塞主线程——
@@ -1311,6 +1768,95 @@ async function createGraphInstance(
   const focusGfx = new Graphics({ interactive: false, eventMode: "none" })
   focusContainer.addChild(focusGfx)
 
+  // ---------- 构造循环的共享化（阶段5.6 波1-1.4）----------
+  // 病灶：每节点各建一份 TextStyle、各自绘制一份圆形几何、各挂三个事件闭包，
+  // 全量图即 6,202 份样式 + 6,202 份几何 + 18,600 个闭包。以下三项分别对治。
+
+  /**
+   * 全图共用的标签样式（1.4）：6,202 次 new TextStyle 变一次。
+   *
+   * ⚠️ 禁止对任何单个 `label.style` 赋值或改其属性——所有标签共用这一个实例，
+   * 改一处即改全图，且 PixiJS 会把挂在该样式上的全部 Text 一起标脏重排。
+   * 需要「只改一个标签」时改的是 `label.text`（现有 hover 补书名即如此），不是 style。
+   */
+  const labelStyle = new TextStyle({
+    fontSize: fontSize * 15,
+    fill: computedStyleMap["--dark"],
+    fontFamily: graphFontFamily,
+  })
+
+  /**
+   * 节点圆形几何池（1.4）：键＝半径|填充色|有无描边。全库半径只有 6 档
+   *（3/3.5/5.5/7/10/12 加度数修正）、颜色不过百余种，实际去重率极高。
+   *
+   * ⚠️ 构造之后禁止对任何节点 gfx 调 clear()/circle()/fill()/stroke()——几何是共享的，
+   * 动一个节点等于动同组全部节点。逐实例的差异只准走这三条：
+   * hitArea（命中区）、alpha（hover 变暗、dimmed 压暗）、position。
+   */
+  const ctxPool = new Map<string, GraphicsContext>()
+  const contextFor = (r: number, fill: string, ring: boolean): GraphicsContext => {
+    const key = `${r.toFixed(2)}|${fill}|${ring ? 1 : 0}`
+    const hit = ctxPool.get(key)
+    if (hit !== undefined) return hit
+    const ctx = new GraphicsContext().circle(0, 0, r).fill({ color: fill })
+    if (ring) ctx.stroke({ width: 2, color: computedStyleMap["--tertiary"] })
+    ctxPool.set(key, ctx)
+    return ctx
+  }
+
+  // 三个共享事件处理器（1.4）：替代每节点各一份闭包（18,600 个）。
+  // 上下文改由 e.target.label（即节点 slug）反查 nodeRenderDataById 取得——
+  // 该 label 正是下方建 Graphics 时写入的 nodeId，与命中对象一一对应。
+  // 取 currentTarget 而非 target：pixi 的 pointerleave 是沿祖先链逐级派发的，
+  // 派发过程中 event.target 会被就地改写成上一级父容器（EventBoundary.js 的
+  // `leaveEvent.target = leaveEvent.target.parent`），只有 currentTarget 恒等于
+  // 「此刻正在执行其监听器的那个对象」。target 作兜底，二者在本处的首帧取值一致。
+  const nodeOf = (e: FederatedPointerEvent): NodeRenderData | undefined => {
+    const el = (e.currentTarget ?? e.target) as Container | null
+    const id = el?.label
+    return typeof id === "string" ? nodeRenderDataById.get(id as SimpleSlug) : undefined
+  }
+  const onNodePointerDown = () => {
+    // 空白点击判定（v14）：记录节点命中时刻
+    lastNodeHitAt = Date.now()
+  }
+  const onNodePointerOver = (e: FederatedPointerEvent) => {
+    const n = nodeOf(e)
+    if (n === undefined) return
+    const nodeId = n.simulationData.id
+    updateHoverInfo(nodeId)
+    n.oldLabelOpacity = n.label.alpha
+    // 悬停态标签文本（G-2）改懒算（1.4）：withBookName 只在首次悬停该节点时算一次，
+    // 此后缓存在 NodeRenderData 上；构造期 6,202 次字符串切分与拼接就此免除
+    const hoverText = (n.hoverText ??= withBookName(nodeId, n.simulationData.text))
+    if (hoverText !== n.simulationData.text) n.label.text = hoverText
+    // 门控（1.2）：hover 目标先置真再触发渲染——renderLabels 把它的 alpha 交给
+    // 100ms tween，只等 alpha 越阈值会让标签晚一帧才浮现
+    n.labelWanted = wantsLabel(n)
+    syncLabelRender(n)
+    if (!dragging) {
+      renderPixiFromD3()
+    }
+    markDirty()
+  }
+  const onNodePointerLeave = (e: FederatedPointerEvent) => {
+    const n = nodeOf(e)
+    if (n === undefined) return
+    updateHoverInfo(null)
+    n.label.alpha = n.oldLabelOpacity
+    // hoverText 为 undefined 说明从未悬停过本节点，文本也就从未被换过，无需还原
+    if (n.hoverText !== undefined && n.hoverText !== n.simulationData.text) {
+      n.label.text = n.simulationData.text
+    }
+    // 门控（1.2）：alpha 已还原，就地重算意愿（通常落回隐藏），不等下一帧
+    n.labelWanted = wantsLabel(n)
+    syncLabelRender(n)
+    if (!dragging) {
+      renderPixiFromD3()
+    }
+    markDirty()
+  }
+
   for (const n of graphData.nodes) {
     const nodeId = n.id
 
@@ -1319,57 +1865,44 @@ async function createGraphInstance(
       eventMode: "none",
       text: n.text,
       alpha: 0,
+      // 门控（1.2）：建出来就是隐藏的。首帧 k≈0.05–0.2 使 scaleOpacity 恒为 0，
+      // 本就没有一个标签该显示；不显式关掉 visible，PixiJS 仍会把 6,202 个
+      // alpha:0 的 Text 全部收集并光栅化（实测首次 render 2.0s）。
+      // 此后由 syncLabelRender 统一按「labelWanted ∧ isNodeRenderVisible」开合。
+      visible: false,
       anchor: { x: 0.5, y: 1.2 },
-      style: {
-        fontSize: fontSize * 15,
-        fill: computedStyleMap["--dark"],
-        fontFamily: graphFontFamily,
-      },
-      resolution: window.devicePixelRatio * 4,
+      // 共享样式单例（1.4）——切勿改成每节点新建，亦不可就地改它的属性
+      style: labelStyle,
+      // 标签纹理分辨率上限（阶段5.6 波1-1.3）：dpr×4 是为高倍缩放留的清晰度余量，
+      // 但它是**平方**吃显存的——单张标签纹理按 po2 对齐后可达 MB 级，6,202 张叠起来
+      // 就是 GB 量级。夹到 8 的依据：图内标签最大有效放大倍率 = 缩放上限 k=4 ×
+      // label.scale(1/scale≈1) ≈ 4，再乘屏幕 dpr(2) 恰为 8，已覆盖最清晰的呈现需求。
+      // 落地影响面：dpr≤2 的机器（含本机与绝大多数 Retina）算出的 4/8 本就不超上限，
+      // 一像素不变；只有 dpr=3 的机器由 12 夹到 8，而 8 仍高于其实际所需。
+      resolution: Math.min(window.devicePixelRatio * 4, 8),
     })
     label.scale.set(1 / scale)
 
-    let oldLabelOpacity = 0
-    // 悬停态标签文本（G-2）：常态标签仍是原标题，仅在指针悬停时临时补上书名前缀，
-    // 见 withBookName 的说明。相等（书根/tag 节点）时下面两处 setter 直接跳过。
-    const hoverText = withBookName(nodeId, n.text)
     const isTagNode = nodeId.startsWith("tags/")
     const r = nodeRadius(n)
+    // 每节点只算一次颜色（1.4）：原实现在 fill 与 NodeRenderData.color 两处各算一遍。
+    // 注意 tag 节点的**填充**是 --light、而 NodeRenderData.color 记的仍是 color(n)，
+    // 二者本就不同名同物，合并时须分开保留，不得图省事写成同一个值
+    const nodeColor = color(n)
+    const fill = isTagNode ? computedStyleMap["--light"] : nodeColor
     const gfx = new Graphics({
+      // 共享几何（1.4）：同「半径|色|描边」的节点共用一份 GraphicsContext。
+      // hitArea 与 alpha 仍逐实例，命中判定与 hover 变暗语义因此一字未变
+      context: contextFor(r, fill, isTagNode),
       interactive: true,
       label: nodeId,
       eventMode: "static",
       hitArea: new Circle(0, 0, r),
       cursor: "pointer",
     })
-      .circle(0, 0, r)
-      .fill({ color: isTagNode ? computedStyleMap["--light"] : color(n) })
-      .on("pointerdown", () => {
-        // 空白点击判定（v14）：记录节点命中时刻
-        lastNodeHitAt = Date.now()
-      })
-      .on("pointerover", (e) => {
-        updateHoverInfo(e.target.label)
-        oldLabelOpacity = label.alpha
-        if (hoverText !== n.text) label.text = hoverText
-        if (!dragging) {
-          renderPixiFromD3()
-        }
-        markDirty()
-      })
-      .on("pointerleave", () => {
-        updateHoverInfo(null)
-        label.alpha = oldLabelOpacity
-        if (hoverText !== n.text) label.text = n.text
-        if (!dragging) {
-          renderPixiFromD3()
-        }
-        markDirty()
-      })
-
-    if (isTagNode) {
-      gfx.stroke({ width: 2, color: computedStyleMap["--tertiary"] })
-    }
+      .on("pointerdown", onNodePointerDown)
+      .on("pointerover", onNodePointerOver)
+      .on("pointerleave", onNodePointerLeave)
 
     // dimmed 术语节点初始即压暗
     if (isDimmedNode(nodeId)) {
@@ -1383,15 +1916,22 @@ async function createGraphInstance(
       simulationData: n,
       gfx,
       label,
-      color: color(n),
+      color: nodeColor,
       alpha: 1,
       active: false,
       radius: r,
+      // 门控（1.2）：初始无标签（首帧 scaleOpacity=0），随缩放/hover/选中态再开
+      labelWanted: false,
+      // 共享事件处理器所需的逐节点上下文（1.4）：原为循环内的闭包变量
+      oldLabelOpacity: 0,
+      hoverText: undefined,
     }
 
     nodeRenderData.push(nodeRenderDatum)
     nodeRenderDataById.set(nodeId, nodeRenderDatum)
   }
+  // 埋点（1.1）：节点构造循环收尾（buildMs = 本刻 - appReady）
+  perfMark.nodesBuilt = performance.now()
 
   for (const l of graphData.links) {
     linkRenderData.push({
@@ -1455,6 +1995,8 @@ async function createGraphInstance(
   function updateLabelOpacities() {
     const scaleFactor = currentTransform.k * opacityScale
     const scaleOpacity = Math.max((scaleFactor - 1) / 3.75, 0)
+    // 视口裁剪（1.2b）：本函数由 zoom 事件驱动，变换刚变，边界须先跟上再逐节点同步
+    refreshLabelViewport()
     for (const n of nodeRenderData) {
       // hover 高亮中的标签透明度交给 tween，缩放不覆盖
       if (n.active) continue
@@ -1464,11 +2006,16 @@ async function createGraphInstance(
       ) {
         n.label.alpha = 0
         n.label.scale.set(1 / scale)
+        // 门控（1.2）：写完 alpha 就地重算意愿并同步，别等下一帧
+        n.labelWanted = wantsLabel(n)
+        syncLabelRender(n)
         continue
       }
       // 选中节点标签由 renderLabels 拉起（v16），缩放不覆盖
       if (selectedNodeId !== null && n.simulationData.id === selectedNodeId) continue
       n.label.alpha = isDimmedNode(n.simulationData.id) ? 0 : scaleOpacity
+      n.labelWanted = wantsLabel(n)
+      syncLabelRender(n)
     }
   }
 
@@ -1635,9 +2182,42 @@ async function createGraphInstance(
   /** 力导默认衰减（子集重布局会临时调快，还原全景时改回，使拖拽手感跨切换一致） */
   const baseAlphaDecay = simulation.alphaDecay()
 
+  // ---------- 坐标播种（阶段5.6 波2-2.2）----------
+  // 缓存条目带着上一实例的全景基线时，直接把节点摆到那组坐标上，同步预热（实测中位
+  // 229ms，占波1 后 SPA 打开耗时的 47%）随之整段省掉。
+  //
+  // 落点必须在 simulation 构造之后：forceSimulation(nodes) 会给每个节点写一遍
+  // phyllotaxis 初值，排在其前会被覆盖。而 forceLink/forceManyBody 的 initialize 只读
+  // 节点数组与 index、不读坐标，故此刻改坐标对它们无影响。
+  //
+  // vx/vy 清零与 restoreBaseLayout 同策：快照只存位置不存速度，留着上一实例的残余速度
+  // 会让画面在首帧之后自己漂一段。
+  let layoutSeeded = false
+  const seedPositions = assemblyEntry?.positions ?? null
+  if (seedPositions !== null) {
+    for (const n of graphData.nodes) {
+      const p = seedPositions.get(n.id)
+      if (p === undefined) continue
+      n.x = p.x
+      n.y = p.y
+      n.vx = 0
+      n.vy = 0
+    }
+    layoutSeeded = true
+    perfMark.layoutSeeded = true
+  }
+
   if (fitViewEnabled && enableZoom) {
     simulation.stop()
-    runSyncTicks(PREWARM_MAX_TICKS, PREWARM_TARGET_ALPHA)
+    if (layoutSeeded) {
+      // 播种路径：布局已是现成的收敛态，只需把 alpha 摆到快照当时那一档——
+      // <alphaMin 即基线取自自然收敛终态，置 0 表示无剩余演化可跑；否则按快照 alpha
+      // 让力导接着把剩下的路走完（与 restoreBaseLayout 的分流同一条判据）
+      const seedAlpha = assemblyEntry?.baseAlpha ?? 0
+      simulation.alpha(seedAlpha < simulation.alphaMin() ? 0 : seedAlpha)
+    } else {
+      runSyncTicks(PREWARM_MAX_TICKS, PREWARM_TARGET_ALPHA)
+    }
     // 全景基线快照（需求4）：预热收敛之后、落相机之前取，作为此后一切重布局的
     // 确定性起点。取在此处而非 tick 回调里，是因为这一刻的坐标唯一且可复现——
     // 同一数据集、同一力参数、同一 tick 数必得同一组坐标（d3-force 无随机源，
@@ -1653,9 +2233,19 @@ async function createGraphInstance(
       clearTimeout(zoomToFitTimer)
     }
     // 未达标（预算耗尽的超大图）则保留兜底：后续真实 tick 的 alpha 首降或 800ms
-    // 定时器会再走一次 triggerZoomToFit，以 400ms 动画完成残余修正
-    simulation.restart()
+    // 定时器会再走一次 triggerZoomToFit，以 400ms 动画完成残余修正。
+    //
+    // 播种自收敛终态（alpha 已在 alphaMin 之下）的那一路**不 restart**，与
+    // relayoutVisible 收敛后的处置同策：d3 的 step 会先无条件跑一次完整 tick 再判停，
+    // 而 forceCollide 不乘 alpha——那一 tick 足以把逐位复现的坐标推开零点几像素，
+    // 「往返零漂移」随即不成立。拖拽仍能经 alphaTarget(1).restart() 正常唤醒力导。
+    if (!(layoutSeeded && simulation.alpha() < simulation.alphaMin())) {
+      simulation.restart()
+    }
   }
+  // 埋点（1.1）：首帧同步预热收尾（局部图 zoomToFit:false 时本段零成本，
+  // 该刻与 nodesBuilt 相差无几，属预期）
+  perfMark.prewarmed = performance.now()
 
   // ---------- 子集重布局（阶段5.3 需求4：点法域标签后可见子集就地收拢）----------
   // 病灶：法域切换只改 Sprite 可见性，剩下的一成节点仍钉在全景布局的原位——
@@ -1672,6 +2262,25 @@ async function createGraphInstance(
       basePositions.set(n.id, { x: n.x ?? 0, y: n.y ?? 0 })
     }
     baseAlpha = simulation.alpha()
+  }
+
+  /**
+   * 把全景基线写回模块级缓存（阶段5.6 波2-2.2），供下一次同键实例播种。
+   *
+   * ⚠️ 写的只能是 basePositions（全景基线）与其 baseAlpha，**严禁**改写成读
+   * n.x/n.y 的现值：法域过滤/域隐藏之后 simulation 跑的是可见子集，节点现值是那个
+   * 子集的收敛态，一旦当作全景存进缓存，下一次打开就是「上一次筛选后的形状」。
+   * basePositions 只由 captureBaseLayout 更新，而后者仅在预热收尾与「end 且跑的是
+   * 全集」两处被调，天然是全景，这是本函数敢直接取用它的前提。
+   *
+   * new Map 是必须的浅拷贝：basePositions 会被 captureBaseLayout 就地 clear，
+   * 直接存引用等于把缓存交给一个随时被清空的容器（值对象每次新建，不会被就地改写，
+   * 故浅拷贝足够）。
+   */
+  const saveAssemblySnapshot = () => {
+    if (assemblyEntry === null || basePositions.size === 0) return
+    assemblyEntry.positions = new Map(basePositions)
+    assemblyEntry.baseAlpha = baseAlpha
   }
 
   /**
@@ -1795,6 +2404,9 @@ async function createGraphInstance(
   simulation.on("end", () => {
     if (simulation.nodes().length !== graphData.nodes.length) return
     captureBaseLayout()
+    // 写回模块级缓存（波2-2.2）：此刻的基线是自然收敛终态，是最值得播种的一版——
+    // 下一次同键打开据它落座，首帧即终态、零预热
+    saveAssemblySnapshot()
   })
 
   // ---------- 局部图截断 badge（V4-B1）----------
@@ -1820,7 +2432,10 @@ async function createGraphInstance(
       const { x, y } = n.simulationData
       if (!x || !y) continue
       n.gfx.position.set(x + width / 2, y + height / 2)
-      if (n.label) {
+      // 门控（1.2）：隐藏的标签不必逐帧搬位置——力导跑动期间这是每帧 6,200 次
+      // 无意义的 Transform 写入与脏标记。转可见的那一刻由 syncLabelRender 补一次坐标，
+      // 且本函数在 animate 里排在标签同步之后，同帧内必被重新定位
+      if (n.label.visible) {
         n.label.position.set(x + width / 2, y + height / 2)
       }
     }
@@ -1957,10 +2572,39 @@ async function createGraphInstance(
     if (tweensActive) dirty = true
 
     if (dirty) {
+      // 门控（1.2）：tween 每帧都在改 label.alpha（hover/选中/渐隐），labelWanted 必须
+      // 跟着重算，否则会出现「alpha 已拉起、visible 还是 false」的该出不出。
+      // 放在 syncPositions 之前：本帧转可见的标签随即被 syncPositions 定位。
+      // 纯比较 + 偶发赋值，无分配，稳态下这一趟对 6,202 个节点约几十微秒。
+      // 视口边界也在此刷新：力导跑动、拖拽、缩放动画都会改坐标或变换
+      refreshLabelViewport()
+      for (const n of nodeRenderData) {
+        const want = wantsLabel(n)
+        if (n.labelWanted !== want) n.labelWanted = want
+        syncLabelRender(n)
+      }
       syncPositions()
       drawLinks()
       drawFocusRing()
-      app.renderer.render(stage)
+      // 埋点（1.1）：首帧只记一次，且单独给 render 计时。分两支写而非在稳态帧上
+      // 也取两次 performance.now()——稳态帧每秒 60 次，不给它加任何常驻开销。
+      // 可见标签数在 render 之后统计：本轮渲染收集已结束，二者之间无可见性写入，
+      // 计数即这一帧真正被光栅化的标签量
+      if (perfMark.firstFrame === null) {
+        const renderStart = performance.now()
+        app.renderer.render(stage)
+        perfMark.firstFrame = performance.now()
+        perfMark.firstRenderMs = perfMark.firstFrame - renderStart
+        perfMark.frameMs = perfMark.returned > 0 ? perfMark.firstFrame - perfMark.returned : null
+        let visibleLabels = 0
+        for (const n of nodeRenderData) {
+          if (n.label.visible) visibleLabels++
+        }
+        perfMark.firstFrameVisibleLabels = visibleLabels
+        logGraphPerfMark(perfMark)
+      } else {
+        app.renderer.render(stage)
+      }
       dirty = false
     }
     requestAnimationFrame(animate)
@@ -2054,6 +2698,10 @@ async function createGraphInstance(
   function destroyInstance() {
     if (instanceDisposed) return
     instanceDisposed = true
+    // 写回坐标快照（波2-2.2）：力导常常还没跑到 end 用户就离开了（SPA 导航、
+    // 术语层重建、themechange），此处补一次，使「打开→离开→再打开」也能播种。
+    // 写的仍是全景基线而非节点现值，理由见 saveAssemblySnapshot
+    saveAssemblySnapshot()
     // 停机部分立即执行：rAF 循环、力导、补间、截断 badge 一律就地了断，
     // 不留孤儿——延后的只有 app.destroy() 这一步纯 GPU 资源释放
     stopAnimation = true
@@ -2073,8 +2721,24 @@ async function createGraphInstance(
     // 与不闪白的那两成用例本就同一观感），提交完成后再释放，无帧可坏。
     // 交叉淡入（themechange）路径同受益且零回归：本延后只会让释放更晚，
     // e44efa9 的「DOM 收尾后再延两帧」时序原样保留，绝不提前。
-    deferPastCommit(() => app.destroy())
+    deferPastCommit(() => {
+      app.destroy()
+      // 共享几何池的释放（1.4）：以 `new Graphics({ context })` 传入的 context 不归
+      // Graphics 所有，Graphics.destroy 与 app.destroy 都不会连带释放它
+      //（pixi 8 只在 _ownedContext 非空时销毁）。不显式销毁，每建一次实例就漏一批
+      // GPU 几何缓冲——图谱页来回进出十几次即可观。
+      for (const ctx of ctxPool.values()) ctx.destroy()
+      ctxPool.clear()
+    })
   }
+
+  // 埋点（1.1）：返回前收口并入档。firstFrame/frameMs/firstFrameVisibleLabels 三项
+  // 由 animate 首帧就地补写到**同一对象**上（marks 里存的是引用），故外部探针可以
+  // 先读到记录、再轮询等首帧字段落定
+  perfMark.returned = performance.now()
+  perfMark.total = perfMark.returned - perfMark.t0
+  perfMark.buildMs = perfMark.nodesBuilt - perfMark.appReady
+  pushGraphPerfMark(perfMark)
 
   return {
     focus: focusNode,
@@ -2237,9 +2901,12 @@ async function renderGraph(
 declare global {
   interface Window {
     __graphRender?: typeof renderGraph
+    /** 常设性能埋点存档（阶段5.6 波1-1.1）：最近 10 次 createGraphInstance 的耗时切片 */
+    __graphPerf?: { marks: GraphPerfMark[] }
   }
 }
 window.__graphRender = renderGraph
+window.__graphPerf = graphPerf
 
 // themechange 重建防抖窗口：主题卡连点时只重建最后一次
 const THEME_CHANGE_DEBOUNCE_MS = 120
