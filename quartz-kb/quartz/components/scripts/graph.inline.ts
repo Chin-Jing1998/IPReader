@@ -91,6 +91,14 @@ type NodeRenderData = {
    */
   labelWanted: boolean
   /**
+   * 标签纹理是否已经光栅化过（阶段5.6 缩放优化 C/A）。
+   * PixiJS 8 的 Text 纹理建一次即缓存，此后 visible 反复开合零成本；只有**首次**
+   * 转可见那一帧要付 canvas 光栅化（实测每标签 0.11-0.15ms，resolution=8 下）。
+   * 该标志把「贵的首次」与「免费的复现」区分开，供缩放手势冻结与逐帧预算判定——
+   * 它只是 syncLabelRender 谓词的一个输入项，不构成第二条可见性通路。
+   */
+  labelReady: boolean
+  /**
    * 悬停前的标签透明度，pointerleave 时据此还原（阶段5.6 波1-1.4）。
    * 原先是构造循环里的闭包变量，随事件处理器共享化一并移进本结构。
    */
@@ -1426,6 +1434,68 @@ async function createGraphInstance(
   const labelViewport = { minX: -Infinity, minY: -Infinity, maxX: Infinity, maxY: Infinity }
 
   /**
+   * ---------- 标签光栅化调度（阶段5.6 缩放卡顿根治）----------
+   *
+   * 诊断实测（2026-08-29，逐帧成本分解探针）：连续缩放的每帧成本本就只有
+   * 5-12ms（render 4.7-9.2、drawLinks 0.4-3.5、O(V) 两趟合计 <1），唯一超标项是
+   * **越过 k>1 标签浮现档位的那一帧**——该帧一次性把视口内 636 个标签（1348×852 画布；
+   * 更大画布或更密区域可达 1500+）全部首次光栅化，render 96.9ms、整帧 99.7ms
+   * （波1 记录的 205.6ms 即同一现象在更大标签批下的量）。
+   *
+   * 对策两条，都只作为 syncLabelRender 谓词的输入项，不另开可见性通路：
+   * ① 手势冻结：滚轮缩放（及程序化变换动画）进行中不新建标签纹理，已建的照常开合——
+   *    已可见标签靠 stage transform 跟随，纯 GPU，零 CPU 成本；
+   * ② 逐帧预算：任一帧新建纹理数受 LABEL_RASTER_BUDGET_MS 的时间预算约束，
+   *    未获配额的标签留待下一帧（labelRasterPending 会把帧循环续上），
+   *    把「一帧集中光栅化」摊成数帧快速渐显。
+   * 二者都不改变**稳态**的可见集：预算耗尽即置 pending 续帧，直至无人被拒，
+   * 收敛后的 visible 集合与门控原实现逐个相同。
+   */
+  const LABEL_RASTER_BUDGET_MS = 10
+  const LABEL_RASTER_MIN_BATCH = 16
+  const LABEL_RASTER_MAX_BATCH = 512
+  /** 单标签光栅化耗时估计（ms），初值取实测均值，运行期按 render 实际增量自校正 */
+  let labelRasterCostMs = 0.15
+  /** 无新增光栅化时的 render 基线（ms），用于从 render 总耗时中剥离光栅化增量 */
+  let renderBaseMs = 6
+  /** 本帧剩余的新建纹理配额（animate 每帧重置） */
+  let labelRasterBudget = 0
+  /** 本帧有标签因配额耗尽被拒 ⇒ 下一帧必须续跑，否则可见集停在半途 */
+  let labelRasterPending = false
+  /** 本帧实际新建的纹理数（用于成本自校正） */
+  let labelRasterThisFrame = 0
+  /** 缩放手势进行中且该手势属于「滚轮/程序化变换」⇒ 冻结新建纹理 */
+  let zoomFreezeLabels = false
+  /** 缩放事件已改动相机 ⇒ 本帧需重算一次标签透明度（合并同一帧内的多个滚轮事件） */
+  let labelOpacityDirty = false
+  /** 冻结兜底定时器：d3 的 end 事件万一没来也能解冻（正常路径由 end 提前清掉） */
+  let zoomFreezeTimer: ReturnType<typeof setTimeout> | undefined
+  // 取 400ms：d3-zoom 滚轮空闲判定为 150ms，程序化变换动画为 400ms，
+  // 取二者上界即可保证正常路径永远轮不到兜底触发
+  const ZOOM_FREEZE_WATCHDOG_MS = 400
+
+  /** 解冻并唤醒一帧补齐（手势 end 与兜底定时器共用） */
+  function releaseZoomFreeze() {
+    clearTimeout(zoomFreezeTimer)
+    if (!zoomFreezeLabels) return
+    zoomFreezeLabels = false
+    // 手势期间被拒的标签在这一帧起按预算分批补齐（labelRasterPending 负责续帧）
+    markViewDirty()
+  }
+
+  /**
+   * 是否允许为该节点新建标签纹理。
+   * hover / 选中 / 定位目标三类是**优先项**：它们要求标签即时在位（hover 即时、
+   * 定位直达标签立即在位是已验收语义），不受冻结与预算约束——三者至多各一个节点，
+   * 破例不构成成本。
+   */
+  const canRasterizeLabel = (id: string): boolean => {
+    if (id === hoveredNodeId || id === selectedNodeId || id === focusedNodeId) return true
+    if (zoomFreezeLabels) return false
+    return labelRasterBudget > 0
+  }
+
+  /**
    * 视口外扩边距，单位是**世界坐标**而非屏幕像素——这是本实现的关键：
    * 标签是 stage 的子节点，其世界宽度恒为 文本宽度 / scale，与缩放级别 k 无关，
    * 故用世界边距一劳永逸覆盖「节点已出屏、标签还露半截」的情形，无需随 k 调整。
@@ -1482,8 +1552,23 @@ async function createGraphInstance(
    * 拿掉的纯粹是看不见的那部分光栅化开销。
    */
   const syncLabelRender = (n: NodeRenderData) => {
-    const want =
-      n.labelWanted && isNodeRenderVisible(n.simulationData.id) && inLabelViewport(n.simulationData)
+    const id = n.simulationData.id
+    // 前三项＝波1 的门控合取（意愿 ∧ 域显隐/法域过滤 ∧ 视口裁剪）；
+    // 第四项＝纹理调度（阶段5.6）：纹理已建者恒放行，未建者须拿到新建许可。
+    // 「隐藏」方向永不受调度约束——撤下标签是零成本操作，画面正确性优先。
+    let want = n.labelWanted && isNodeRenderVisible(id) && inLabelViewport(n.simulationData)
+    if (want && !n.labelReady) {
+      if (canRasterizeLabel(id)) {
+        n.labelReady = true
+        labelRasterBudget--
+        labelRasterThisFrame++
+      } else {
+        want = false
+        // 被拒者留待下一帧补齐（冻结期不置：手势结束时由 zoom end 统一唤醒，
+        // 免得整个手势期间每帧空转重排）
+        if (!zoomFreezeLabels) labelRasterPending = true
+      }
+    }
     if (n.label.visible === want) return
     n.label.visible = want
     if (want) {
@@ -1647,7 +1732,24 @@ async function createGraphInstance(
   // dirty-flag 按需渲染（V4-B1）：仅在力导 tick / tween 活跃 / zoom / drag / hover
   // 触发时渲染一帧；力导停机（alpha<alphaMin）后稳态 CPU≈0
   let dirty = true
+  /**
+   * 几何脏标（阶段5.6 缩放优化 E）：节点/边/焦点环的坐标与批次是否需要重建。
+   *
+   * 依据现场坐标系设计：节点、标签、边全部画在 **stage 的世界坐标**里，缩放平移只改
+   * stage.scale / stage.position（见 zoom 回调）——即相机变了、几何一点没变。故只有相机
+   * 变化的那一类帧无需重跑 syncPositions（O(V) 次 Transform 写入）与 drawLinks
+   * （clear + 29,010 条边重建路径批次），render 直接拿上一帧的几何画即可。
+   *
+   * markDirty 保守地同时置两个标（既有调用点语义一字不变），只有**明确只动相机**的
+   * 路径才走 markViewDirty。
+   */
+  let geometryDirty = true
   const markDirty = () => {
+    dirty = true
+    geometryDirty = true
+  }
+  /** 只有相机变换变化（缩放/平移）：需要重绘一帧，但几何无须重建 */
+  const markViewDirty = () => {
     dirty = true
   }
 
@@ -2025,6 +2127,8 @@ async function createGraphInstance(
       radius: r,
       // 门控（1.2）：初始无标签（首帧 scaleOpacity=0），随缩放/hover/选中态再开
       labelWanted: false,
+      // 纹理未建：首次转可见时才付光栅化，届时由 syncLabelRender 置真
+      labelReady: false,
       // 共享事件处理器所需的逐节点上下文（1.4）：原为循环内的闭包变量
       oldLabelOpacity: 0,
       hoverText: undefined,
@@ -2135,15 +2239,31 @@ async function createGraphInstance(
         [width, height],
       ])
       .scaleExtent(scaleExtentRange)
-      .on("zoom", ({ transform }) => {
+      .on("zoom", ({ transform, sourceEvent }) => {
         currentTransform = transform
         stage.scale.set(transform.k, transform.k)
         stage.position.set(transform.x, transform.y)
 
-        // zoom adjusts opacity of labels too
-        updateLabelOpacities()
-        markDirty()
+        // 手势性质判定（阶段5.6 C）：滚轮缩放（含触控板捏合，Chromium 一律派发 wheel）
+        // 与程序化变换动画（sourceEvent 为空：zoomToFit / focusNode / resetView）冻结
+        // 新建标签纹理；鼠标拖拽平移不冻结——平移每帧新进视口的标签本就只有个位数，
+        // 有逐帧预算兜底即可，冻结它反而让「拖到哪、标签才到哪」变成松手才出。
+        const src = sourceEvent?.type
+        zoomFreezeLabels = src === undefined || src === "wheel"
+        // 冻结兜底：万一 d3 的 end 事件没来（gesture 被打断），到点强制解冻并补齐
+        clearTimeout(zoomFreezeTimer)
+        zoomFreezeTimer = setTimeout(releaseZoomFreeze, ZOOM_FREEZE_WATCHDOG_MS)
+
+        // zoom adjusts opacity of labels too：改为**推迟到本帧的 animate 里做一次**。
+        // 滚轮事件流一帧可来数个，逐个跑 O(V) 的透明度重算纯属重复劳动；而两者之间
+        // 不存在任何渲染，合并到帧内做与逐事件做的画面结果逐像素相同。
+        labelOpacityDirty = true
+        // 缩放只动相机：几何（节点位置/边批次）在世界坐标里一点没变，无须重建
+        markViewDirty()
       })
+      // 手势收尾（阶段5.6 C）：滚轮停后 d3 的 150ms wheelDelay 到点即派发 end，
+      // 正是「手势停止 debounce」——无须自建防抖，直接借 d3 既有节奏
+      .on("end", releaseZoomFreeze)
     select<HTMLCanvasElement, NodeData>(app.canvas).call(zoomBehavior)
   }
 
@@ -2702,9 +2822,25 @@ async function createGraphInstance(
       t.update(time)
       if (t.active()) tweensActive = true
     })
-    if (tweensActive) dirty = true
+    // tween 活跃走 markDirty 而非只置 dirty：边的整层透明度（linkTweenState.fade/overlay）
+    // 是**烘进** drawLinks 的批次里的，tween 每帧改它就必须重建边批次，
+    // 只置 dirty 会让边的渐变卡在上一帧的透明度上
+    if (tweensActive) markDirty()
 
     if (dirty) {
+      // 本帧的新建纹理配额（阶段5.6 A）：按实测单标签成本折算成条数，
+      // 使集中光栅化摊成每帧约 LABEL_RASTER_BUDGET_MS 的快速渐显而非一帧长卡。
+      labelRasterBudget = Math.max(
+        LABEL_RASTER_MIN_BATCH,
+        Math.min(LABEL_RASTER_MAX_BATCH, Math.round(LABEL_RASTER_BUDGET_MS / labelRasterCostMs)),
+      )
+      labelRasterPending = false
+      labelRasterThisFrame = 0
+      // 缩放事件推迟到帧内合并处理（见 zoom 回调）：一帧多个滚轮事件只重算一次透明度
+      if (labelOpacityDirty) {
+        labelOpacityDirty = false
+        updateLabelOpacities()
+      }
       // 门控（1.2）：tween 每帧都在改 label.alpha（hover/选中/渐隐），labelWanted 必须
       // 跟着重算，否则会出现「alpha 已拉起、visible 还是 false」的该出不出。
       // 放在 syncPositions 之前：本帧转可见的标签随即被 syncPositions 定位。
@@ -2716,18 +2852,25 @@ async function createGraphInstance(
         if (n.labelWanted !== want) n.labelWanted = want
         syncLabelRender(n)
       }
-      syncPositions()
-      drawLinks()
-      drawFocusRing()
-      // 埋点（1.1）：首帧只记一次，且单独给 render 计时。分两支写而非在稳态帧上
-      // 也取两次 performance.now()——稳态帧每秒 60 次，不给它加任何常驻开销。
-      // 可见标签数在 render 之后统计：本轮渲染收集已结束，二者之间无可见性写入，
-      // 计数即这一帧真正被光栅化的标签量
+      // 几何重建只在几何真的变了时才做（阶段5.6 E）：缩放帧走 markViewDirty，
+      // 节点坐标与边批次在世界坐标里未变，跳过这三趟纯属白拿
+      if (geometryDirty) {
+        syncPositions()
+        drawLinks()
+        drawFocusRing()
+      }
+      // 逐帧给 render 计时（阶段5.6 A）：两次 performance.now() 约 0.05µs，相对 5-10ms
+      // 的帧成本可忽略，换来的是光栅化成本的**在线自校正**——单标签成本随机型、dpr、
+      // 标题长度浮动，写死常数必然在某类机器上要么卡顿要么渐显过慢。
+      // 埋点（1.1）：首帧的记录仍只做一次。可见标签数在 render 之后统计：本轮渲染收集
+      // 已结束，二者之间无可见性写入，计数即这一帧真正被光栅化的标签量
+      const renderStart = performance.now()
+      app.renderer.render(stage)
+      const renderEnd = performance.now()
+      const renderMs = renderEnd - renderStart
       if (perfMark.firstFrame === null) {
-        const renderStart = performance.now()
-        app.renderer.render(stage)
-        perfMark.firstFrame = performance.now()
-        perfMark.firstRenderMs = perfMark.firstFrame - renderStart
+        perfMark.firstFrame = renderEnd
+        perfMark.firstRenderMs = renderMs
         perfMark.frameMs = perfMark.returned > 0 ? perfMark.firstFrame - perfMark.returned : null
         let visibleLabels = 0
         for (const n of nodeRenderData) {
@@ -2735,10 +2878,23 @@ async function createGraphInstance(
         }
         perfMark.firstFrameVisibleLabels = visibleLabels
         logGraphPerfMark(perfMark)
+      }
+      // 成本自校正：有新建纹理的帧，其超出基线的部分即光栅化开销；无新建的帧刷新基线。
+      // 夹紧上下界防止个别异常帧（GC、窗口切换）把估计打飞
+      if (labelRasterThisFrame > 0) {
+        const extra = renderMs - renderBaseMs
+        if (extra > 0) {
+          const sample = extra / labelRasterThisFrame
+          labelRasterCostMs = Math.min(1, Math.max(0.02, labelRasterCostMs * 0.7 + sample * 0.3))
+        }
       } else {
-        app.renderer.render(stage)
+        renderBaseMs = renderBaseMs * 0.9 + renderMs * 0.1
       }
       dirty = false
+      geometryDirty = false
+      // 本帧被配额挡下的标签，下一帧接着补——不续帧就会停在半途，
+      // 收敛后的可见集必须与门控原实现逐个相同。几何未变，只需重绘
+      if (labelRasterPending) markViewDirty()
     }
     requestAnimationFrame(animate)
   }
@@ -2839,6 +2995,7 @@ async function createGraphInstance(
     // 不留孤儿——延后的只有 app.destroy() 这一步纯 GPU 资源释放
     stopAnimation = true
     clearTimeout(zoomToFitTimer)
+    clearTimeout(zoomFreezeTimer)
     simulation.stop()
     tweens.forEach((t) => t.stop())
     tweens.clear()
