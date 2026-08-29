@@ -1,85 +1,86 @@
 {
  "batchNo": 52,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/08/007.md",
-   "chunkId": "implementation-rules/08/007",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-08-07",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第八章 专利权的保护 ｜ 第一百零一条",
-   "charLen": 417
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/05/03/03/02.md",
+   "chunkId": "trademark-exam-guide-2021/05/05/03/03/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-05-03-03-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十三章 商标档案 ｜ 3对外查阅与复制 ｜ 3.3商标注册人 ｜ 3.3.2商标注册人为自然人",
+   "charLen": 125
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/08/008.md",
-   "chunkId": "implementation-rules/08/008",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-08-08",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第八章 专利权的保护 ｜ 第一百零二条",
-   "charLen": 202
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/05/04/01/01.md",
+   "chunkId": "trademark-exam-guide-2021/05/05/04/01/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-05-04-01-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十三章 商标档案 ｜ 4保管期限及销毁 ｜ 4.1商标注册纸质档案 ｜ 4.1.1永久保管类",
+   "charLen": 369
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/08/009.md",
-   "chunkId": "implementation-rules/08/009",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-08-09",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第八章 专利权的保护 ｜ 第一百零三条",
-   "charLen": 339
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/05/04/01/02.md",
+   "chunkId": "trademark-exam-guide-2021/05/05/04/01/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-05-04-01-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十三章 商标档案 ｜ 4保管期限及销毁 ｜ 4.1商标注册纸质档案 ｜ 4.1.2定期保管类",
+   "charLen": 197
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/08/010.md",
-   "chunkId": "implementation-rules/08/010",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-08-10",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第八章 专利权的保护 ｜ 第一百零四条",
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/05/04/01/03.md",
+   "chunkId": "trademark-exam-guide-2021/05/05/04/01/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-05-04-01-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十三章 商标档案 ｜ 4保管期限及销毁 ｜ 4.1商标注册纸质档案 ｜ 4.1.3销毁",
    "charLen": 144
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/08/011.md",
-   "chunkId": "implementation-rules/08/011",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-08-11",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第八章 专利权的保护 ｜ 第一百零五条",
-   "charLen": 135
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/05/04/02.md",
+   "chunkId": "trademark-exam-guide-2021/05/05/04/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-05-04-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十三章 商标档案 ｜ 4保管期限及销毁 ｜ 4.2商标注册电子档案",
+   "charLen": 28
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/09/001.md",
-   "chunkId": "implementation-rules/09/001",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-09-01",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第九章 专利登记和专利公报 ｜ 第一百零六条",
-   "charLen": 214
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/06/01.md",
+   "chunkId": "trademark-exam-guide-2021/05/06/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-06-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十四章 商标公告 ｜ 1引言",
+   "charLen": 69
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/09/002.md",
-   "chunkId": "implementation-rules/09/002",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-09-02",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第九章 专利登记和专利公报 ｜ 第一百零七条",
-   "charLen": 387
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/06/02.md",
+   "chunkId": "trademark-exam-guide-2021/05/06/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-06-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十四章 商标公告 ｜ 2公告内容",
+   "charLen": 534
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/09/003.md",
-   "chunkId": "implementation-rules/09/003",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-09-03",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第九章 专利登记和专利公报 ｜ 第一百零八条",
-   "charLen": 67
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/06/03.md",
+   "chunkId": "trademark-exam-guide-2021/05/06/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-06-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十四章 商标公告 ｜ 3马德里国际注册公告",
+   "charLen": 106
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/09/004.md",
-   "chunkId": "implementation-rules/09/004",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-09-04",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第九章 专利登记和专利公报 ｜ 第一百零九条",
-   "charLen": 54
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/07/01.md",
+   "chunkId": "trademark-exam-guide-2021/05/07/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-07-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十五章 电子申请有关规定 ｜ 1电子申请用户",
+   "charLen": 207
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/10/001.md",
-   "chunkId": "implementation-rules/10/001",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-10-01",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十章 费 用 ｜ 第一百一十条",
-   "charLen": 261
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/07/02.md",
+   "chunkId": "trademark-exam-guide-2021/05/07/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-07-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十五章 电子申请有关规定 ｜ 2商标数字证书",
+   "charLen": 216
   }
  ]
 }

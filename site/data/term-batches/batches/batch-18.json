@@ -1,85 +1,86 @@
 {
  "batchNo": 18,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/001/05/09.md",
-   "chunkId": "examination-guideline-2025/03/001/05/09",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "03-01-05-09",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第一章进入国家阶段的国际申请的初步审查和事务处理 ｜ 5.其他文件的审查 ｜ 5.9实质审查请求",
-   "charLen": 97
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/02/10/02.md",
+   "chunkId": "trademark-exam-guide-2021/02/02/10/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-02-10-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第七章 商标文字检索要素分类 ｜ 10特殊情形 ｜ 10.2不具备或缺乏显著特征部分",
+   "charLen": 496
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/001/05/10.md",
-   "chunkId": "examination-guideline-2025/03/001/05/10",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "03-01-05-10",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第一章进入国家阶段的国际申请的初步审查和事务处理 ｜ 5.其他文件的审查 ｜ 5.10著录项目变更",
-   "charLen": 774
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/02/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第八章 商标图形要素分类 ｜ 1引言",
+   "charLen": 112
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/001/05/11.md",
-   "chunkId": "examination-guideline-2025/03/001/05/11",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "03-01-05-11",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第一章进入国家阶段的国际申请的初步审查和事务处理 ｜ 5.其他文件的审查 ｜ 5.11请求复查",
-   "charLen": 655
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/03/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/02/03/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-03-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第八章 商标图形要素分类 ｜ 2需要进行图形要素分类的情形 ｜ 2.1商标包含图形的",
+   "charLen": 153
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/001/05/12.md",
-   "chunkId": "examination-guideline-2025/03/001/05/12",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "03-01-05-12",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第一章进入国家阶段的国际申请的初步审查和事务处理 ｜ 5.其他文件的审查 ｜ 5.12国际单位错误的改正",
-   "charLen": 712
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/03/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/02/03/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-03-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第八章 商标图形要素分类 ｜ 2需要进行图形要素分类的情形 ｜ 2.2商标包含文字或字母的",
+   "charLen": 200
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/001/06.md",
-   "chunkId": "examination-guideline-2025/03/001/06",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "03-01-06",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第一章进入国家阶段的国际申请的初步审查和事务处理 ｜ 6.国家公布",
-   "charLen": 1190
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/03/02/03.md",
+   "chunkId": "trademark-exam-guide-2021/02/03/02/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-03-02-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第八章 商标图形要素分类 ｜ 2需要进行图形要素分类的情形 ｜ 2.3商标包含符号的",
+   "charLen": 53
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/001/07.md",
-   "chunkId": "examination-guideline-2025/03/001/07",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "03-01-07",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第一章进入国家阶段的国际申请的初步审查和事务处理 ｜ 7.缴费的特殊规定",
-   "charLen": 613
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/03/02/04.md",
+   "chunkId": "trademark-exam-guide-2021/02/03/02/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-03-02-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第八章 商标图形要素分类 ｜ 2需要进行图形要素分类的情形 ｜ 2.4商标包含数字的",
+   "charLen": 126
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/002/01.md",
-   "chunkId": "examination-guideline-2025/03/002/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "03-02-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第二章进入国家阶段的国际申请的实质审查 ｜ 1.引言",
-   "charLen": 139
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/03/02/05.md",
+   "chunkId": "trademark-exam-guide-2021/02/03/02/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-03-02-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第八章 商标图形要素分类 ｜ 2需要进行图形要素分类的情形 ｜ 2.5商标指定颜色的",
+   "charLen": 85
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/002/02.md",
-   "chunkId": "examination-guideline-2025/03/002/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "03-02-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第二章进入国家阶段的国际申请的实质审查 ｜ 2.实质审查原则",
-   "charLen": 934
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/03/02/06.md",
+   "chunkId": "trademark-exam-guide-2021/02/03/02/06",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-03-02-06",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第八章 商标图形要素分类 ｜ 2需要进行图形要素分类的情形 ｜ 2.6颜色组合商标",
+   "charLen": 29
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/002/03.md",
-   "chunkId": "examination-guideline-2025/03/002/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "03-02-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第二章进入国家阶段的国际申请的实质审查 ｜ 3.实质审查依据文本的确认",
-   "charLen": 1244
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/03/02/07.md",
+   "chunkId": "trademark-exam-guide-2021/02/03/02/07",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-03-02-07",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第八章 商标图形要素分类 ｜ 2需要进行图形要素分类的情形 ｜ 2.7三维标志商标",
+   "charLen": 150
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/002/04.md",
-   "chunkId": "examination-guideline-2025/03/002/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "03-02-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第二章进入国家阶段的国际申请的实质审查 ｜ 4.实质审查中的检索",
-   "charLen": 620
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/03/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/02/03/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-03-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第八章 商标图形要素分类 ｜ 3图形要素划分原则 ｜ 3.1图形要素编码",
+   "charLen": 212
   }
  ]
 }

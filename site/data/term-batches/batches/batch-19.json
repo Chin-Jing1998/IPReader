@@ -1,85 +1,86 @@
 {
  "batchNo": 19,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/002/05.md",
-   "chunkId": "examination-guideline-2025/03/002/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "03-02-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第二章进入国家阶段的国际申请的实质审查 ｜ 5.实质审查所涉及的内容和审查要求",
-   "charLen": 3687
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/03/03/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/02/03/03/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-03-03-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第八章 商标图形要素分类 ｜ 3图形要素划分原则 ｜ 3.2对商标的显著部分进行图形要素分类 ｜ 18.3.2 （省略26.11.2 - 13）",
+   "charLen": 25
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/001/01.md",
-   "chunkId": "examination-guideline-2025/04/001/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-01-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第一章总则 ｜ 1.引言",
-   "charLen": 216
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/03/03/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/02/03/03/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-03-03-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第八章 商标图形要素分类 ｜ 3图形要素划分原则 ｜ 3.2对商标的显著部分进行图形要素分类 ｜ 7.11.1 （省略26.11.3 - 13）",
+   "charLen": 25
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/001/02.md",
-   "chunkId": "examination-guideline-2025/04/001/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-01-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第一章总则 ｜ 2.审查原则",
-   "charLen": 816
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/03/03/03.md",
+   "chunkId": "trademark-exam-guide-2021/02/03/03/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-03-03-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第八章 商标图形要素分类 ｜ 3图形要素划分原则 ｜ 3.3不可省略图形要素的情形",
+   "charLen": 105
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/001/03.md",
-   "chunkId": "examination-guideline-2025/04/001/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-01-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第一章总则 ｜ 3.合议审查",
-   "charLen": 840
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/03/03/04.md",
+   "chunkId": "trademark-exam-guide-2021/02/03/03/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-03-03-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第八章 商标图形要素分类 ｜ 3图形要素划分原则 ｜ 3.4需要增加图形要素的情形",
+   "charLen": 204
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/001/04.md",
-   "chunkId": "examination-guideline-2025/04/001/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-01-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第一章总则 ｜ 4.独任审查",
-   "charLen": 48
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/03/03/05.md",
+   "chunkId": "trademark-exam-guide-2021/02/03/03/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-03-03-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第八章 商标图形要素分类 ｜ 3图形要素划分原则 ｜ 3.5图形作为背景或为非显著部分的情形",
+   "charLen": 145
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/001/05.md",
-   "chunkId": "examination-guideline-2025/04/001/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-01-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第一章总则 ｜ 5.回避制度与从业禁止",
-   "charLen": 194
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/04/01.md",
+   "chunkId": "trademark-exam-guide-2021/02/04/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-04-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第九章 商标其他检索要素分类 ｜ 1引言",
+   "charLen": 70
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/001/06.md",
-   "chunkId": "examination-guideline-2025/04/001/06",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-01-06",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第一章总则 ｜ 6.审查决定",
-   "charLen": 1507
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/04/02.md",
+   "chunkId": "trademark-exam-guide-2021/02/04/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-04-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第九章 商标其他检索要素分类 ｜ 2音乐性质的声音商标",
+   "charLen": 39
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/001/07.md",
-   "chunkId": "examination-guideline-2025/04/001/07",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-01-07",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第一章总则 ｜ 7.更正及驳回请求",
-   "charLen": 444
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/04/03.md",
+   "chunkId": "trademark-exam-guide-2021/02/04/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-04-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第九章 商标其他检索要素分类 ｜ 3非音乐性质的声音商标",
+   "charLen": 144
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/001/08.md",
-   "chunkId": "examination-guideline-2025/04/001/08",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-01-08",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第一章总则 ｜ 8.关于审查决定被法院生效判决撤销后的审查程序",
-   "charLen": 174
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/04/04.md",
+   "chunkId": "trademark-exam-guide-2021/02/04/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-04-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第九章 商标其他检索要素分类 ｜ 4声音要素划分原则",
+   "charLen": 195
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/002/01.md",
-   "chunkId": "examination-guideline-2025/04/002/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-02-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第二章复审请求的审查 ｜ 1.引言",
-   "charLen": 191
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/01/01/01.md",
+   "chunkId": "trademark-exam-guide-2021/03/01/01/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-01-01-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十章 商标变更类申请 ｜ 1商标注册人/申请人名称或地址的变更 ｜ 1.1法律依据",
+   "charLen": 69
   }
  ]
 }

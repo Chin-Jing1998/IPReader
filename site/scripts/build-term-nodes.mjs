@@ -4,13 +4,13 @@
 //
 //   三道过滤闸（依次执行，均打印被排除清单/计数）：
 //     1) 停用词兜底：canonical 归一后整词命中 lib/term-stopwords.mjs 者不建节点（merge-terms 已挡一层，此处兜底）；
-//     2) 超高频泛词：df > DF_MAX（159 ≈ 25% × 636 切片）者不建节点；
+//     2) 超高频泛词：df > DF_MAX 者不建节点。DF_MAX 运行期派生 = round(0.25 × term-extract 实际片数)；
 //     3) tier 门槛：只收 seed / high / mid。
 //
 //   id registry：data/terms.json（canonical → term-NNNN，4 位零填充）。存在则读取，映射永不改变、id 永不回收；
 //   新词按词表顺序追加递增编号。canonical 从词表消失时其映射仍保留（占位不复用）。
 //
-//   断言：term 节点数 ≤ TERM_NODE_CAP（默认 1000；环境变量 TERM_NODE_CAP 仅供开发验证临时放宽），
+//   断言：term 节点数 ≤ TERM_NODE_CAP（默认见 DEFAULT_CAP；环境变量 TERM_NODE_CAP 仅供开发验证临时放宽），
 //   超限打印按 df 升序的尾部裁剪建议并 exit 1。
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -22,12 +22,20 @@ import { loadTermExtractIndex, pickDefinition, normTerm } from './lib/term-extra
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const D = join(__dirname, '..', 'data');
 
-const DF_MAX = 159; // ≈ 25% × 636 切片：df 超过即视为全库泛词，不建节点
+// DF_MAX（超高频泛词闸）自 2026-08-29 阶段5.9 波0 起改为运行期派生，不再写死。
+//   口径：Math.round(0.25 × 实际参与提取的切片片数)，片数取 loadTermExtractIndex().files。
+//   改派生的原因：原值 159 是「25% × 636 片」的一次性快照，而本批提取片数将由 636 增至
+//   约 1915（专利域 636 ＋ 商标 895 ＋ 四法域 384）。**分母必须是「参与提取的片数」而非
+//   「语料总叶数 2594」**——用后者会把闸门抬高约 35%，等于变相取消该闸。
+//   本次改动为零行为变更：现闸从未触发（实测全表 max df = 39，远低于任何候选阈值）。
+//   派生值在下方 loadTermExtractIndex 之后计算，故索引加载被前置到过滤闸之前。
 const ALLOW_TIERS = new Set(['seed', 'high', 'mid']);
 // 原计划 800，因审校后 keep 数偏高放宽到 1000；
 // 2026-08-23 阶段5波C：商标审查审理指南 24 万字语料入索引，851→约 1034 词，
 //   上限随语料规模一次性上调 1000→1200（merge-terms.mjs 的 TOTAL_MAX 同步）。超过必须失败。
-const DEFAULT_CAP = 1200;
+// 2026-08-29 阶段5.9 波0：术语索引扩充批，1200→2000。推算依据见 merge-terms.mjs 的
+//   TOTAL_MAX 注释（落点 1380-1590 词，留 25-45% 余量）。两处口径必须同步。
+const DEFAULT_CAP = 2000;
 const CAP = Number(process.env.TERM_NODE_CAP) > 0 ? Number(process.env.TERM_NODE_CAP) : DEFAULT_CAP;
 const ID_PREFIX = 'term-';
 const ID_PAD = 4;
@@ -43,6 +51,12 @@ function readJson(name) {
 
 const terms = readJson('terms-merged.json');
 const nodes = readJson('nodes.json');
+
+// ---- term-extract 索引（前置加载：DF_MAX 需据其片数派生，且下方 evidence 填充复用同一份）----
+const extractIndex = loadTermExtractIndex(join(D, 'term-extract'));
+const DF_MAX = Math.round(0.25 * extractIndex.files);
+console.log(`term-extract 索引: ${extractIndex.files} 片 / ${extractIndex.byNorm.size} 个归一词键`);
+console.log(`DF_MAX 运行期派生: round(0.25 × ${extractIndex.files} 片) = ${DF_MAX}`);
 
 // ---- 三道过滤闸 ----
 const STOP_NORM = new Set([...STOPWORDS].map(normTerm));
@@ -101,8 +115,7 @@ writeFileSync(REG_PATH, JSON.stringify(registry, null, 2));
 console.log(`id registry: 既有 ${Object.keys(registry).length - newIds} 条，本次新增 ${newIds} 条 → data/terms.json`);
 
 // ---- 定义处 evidence（summary）：term-extract 中 role=defined 的记录，无则留空 ----
-const extractIndex = loadTermExtractIndex(join(D, 'term-extract'));
-console.log(`term-extract 索引: ${extractIndex.files} 片 / ${extractIndex.byNorm.size} 个归一词键`);
+//   索引已在文件上方前置加载（DF_MAX 派生所需），此处直接复用 extractIndex，不重复读盘。
 
 // ---- 组装 term 节点（字段口径与既有内容节点对齐，x/y/size 由 compute-layout 写、degree 由 extract-edges 写）----
 const baseNodes = nodes.filter((n) => n.kind !== 'term'); // 幂等：先移除历史 term 节点再追加

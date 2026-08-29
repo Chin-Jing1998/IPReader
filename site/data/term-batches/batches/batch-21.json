@@ -1,85 +1,86 @@
 {
  "batchNo": 21,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/003/03.md",
-   "chunkId": "examination-guideline-2025/04/003/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-03-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第三章无效宣告请求的审查 ｜ 3.无效宣告请求的形式审查",
-   "charLen": 3515
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/01/01/06/04.md",
+   "chunkId": "trademark-exam-guide-2021/03/01/01/06/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-01-01-06-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十章 商标变更类申请 ｜ 1商标注册人/申请人名称或地址的变更 ｜ 1.6审查结论 ｜ 1.6.4核准变更",
+   "charLen": 60
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/003/04.md",
-   "chunkId": "examination-guideline-2025/04/003/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-03-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第三章无效宣告请求的审查 ｜ 4.无效宣告请求的合议审查",
-   "charLen": 3690
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/01/01/07/01.md",
+   "chunkId": "trademark-exam-guide-2021/03/01/01/07/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-01-01-07-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十章 商标变更类申请 ｜ 1商标注册人/申请人名称或地址的变更 ｜ 1.7变更申请的撤回和中止审查 ｜ 1.7.1撤回变更申请",
+   "charLen": 367
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/003/05.md",
-   "chunkId": "examination-guideline-2025/04/003/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-03-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第三章无效宣告请求的审查 ｜ 5.无效宣告请求审查决定的类型",
-   "charLen": 597
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/01/01/07/02.md",
+   "chunkId": "trademark-exam-guide-2021/03/01/01/07/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-01-01-07-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十章 商标变更类申请 ｜ 1商标注册人/申请人名称或地址的变更 ｜ 1.7变更申请的撤回和中止审查 ｜ 1.7.2中止审查",
+   "charLen": 261
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/003/06.md",
-   "chunkId": "examination-guideline-2025/04/003/06",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-03-06",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第三章无效宣告请求的审查 ｜ 6.无效宣告请求审查决定的送达、登记和公告",
-   "charLen": 346
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/01/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/03/01/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-01-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十章 商标变更类申请 ｜ 2商标注册申请人的代理机构的变更 ｜ 2.1法律依据",
+   "charLen": 37
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/003/07.md",
-   "chunkId": "examination-guideline-2025/04/003/07",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-03-07",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第三章无效宣告请求的审查 ｜ 7.与外观设计国际申请有关的送达",
-   "charLen": 106
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/01/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/03/01/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-01-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十章 商标变更类申请 ｜ 2商标注册申请人的代理机构的变更 ｜ 2.2申请人",
+   "charLen": 29
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/003/08.md",
-   "chunkId": "examination-guideline-2025/04/003/08",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-03-08",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第三章无效宣告请求的审查 ｜ 8.无效宣告程序的终止",
-   "charLen": 226
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/01/02/03.md",
+   "chunkId": "trademark-exam-guide-2021/03/01/02/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-01-02-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十章 商标变更类申请 ｜ 2商标注册申请人的代理机构的变更 ｜ 2.3商标",
+   "charLen": 183
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/003/09.md",
-   "chunkId": "examination-guideline-2025/04/003/09",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-03-09",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第三章无效宣告请求的审查 ｜ 9.涉及药品专利纠纷早期解决机制的无效宣告请求案件审查的特殊规定",
-   "charLen": 846
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/01/02/04.md",
+   "chunkId": "trademark-exam-guide-2021/03/01/02/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-01-02-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十章 商标变更类申请 ｜ 2商标注册申请人的代理机构的变更 ｜ 2.4审查结论",
+   "charLen": 64
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/004/01.md",
-   "chunkId": "examination-guideline-2025/04/004/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-04-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第四章复审和无效宣告程序中有关口头审理的规定 ｜ 1.引言",
-   "charLen": 70
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/01/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/03/01/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-01-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十章 商标变更类申请 ｜ 3文件接收人的变更 ｜ 3.1法律依据",
+   "charLen": 37
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/004/02.md",
-   "chunkId": "examination-guideline-2025/04/004/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-04-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第四章复审和无效宣告程序中有关口头审理的规定 ｜ 2.口头审理的确定",
-   "charLen": 519
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/01/03/02.md",
+   "chunkId": "trademark-exam-guide-2021/03/01/03/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-01-03-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十章 商标变更类申请 ｜ 3文件接收人的变更 ｜ 3.2申请人",
+   "charLen": 151
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/004/03.md",
-   "chunkId": "examination-guideline-2025/04/004/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-04-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第四章复审和无效宣告程序中有关口头审理的规定 ｜ 3.口头审理的通知",
-   "charLen": 1092
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/01/03/03.md",
+   "chunkId": "trademark-exam-guide-2021/03/01/03/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-01-03-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十章 商标变更类申请 ｜ 3文件接收人的变更 ｜ 3.3商标",
+   "charLen": 68
   }
  ]
 }

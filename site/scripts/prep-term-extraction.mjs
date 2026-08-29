@@ -8,10 +8,14 @@
 //     - data/term-batches/manifest.json   [{batchNo, chunks:[{chunkPath, chunkId, domain,
 //                                           anchorNodeId, breadcrumb, charLen}]}]
 //       批规模 8~10 片、同域切片聚在同批（提示词共享域上下文）。
+//     - data/term-batches/batches/batch-NN.json  逐批文件（每次运行清空重写，与 manifest 恒同源）。
 //     - audit/terms/anchor-unresolved.csv 锚定失败清单（UTF-8 BOM；正常应仅表头）。
-//   末尾断言：切片总数 636±5 且锚定率 100%，不满足则打印全部失败项并 exit 1。
-//   运行：node scripts/prep-term-extraction.mjs
-import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync, existsSync } from 'node:fs';
+//   末尾断言：逐域切片数命中 EXPECTED_CHUNKS_BY_DOMAIN（TOLERANCE=0）且锚定率 100%，
+//     不满足则打印全部失败项并 exit 1。
+//   运行：
+//     node scripts/prep-term-extraction.mjs                      # 全部有 _chunks 的域，减 DEFAULT_EXCLUDE
+//     node scripts/prep-term-extraction.mjs --domains a,b,c      # 仅指定域（不套默认排除）
+import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync, existsSync, rmSync } from 'node:fs';
 import { join, dirname, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { KNOWN_DOMAINS, projectRoot } from './lib/domains.mjs';
@@ -21,15 +25,58 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = projectRoot(__dirname);
 const DATA_DIR = join(__dirname, '..', 'data');
 const BATCH_DIR = join(DATA_DIR, 'term-batches');
+const BATCHES_DIR = join(BATCH_DIR, 'batches');
 const AUDIT_DIR = join(__dirname, '..', 'audit', 'terms');
 mkdirSync(BATCH_DIR, { recursive: true });
 mkdirSync(AUDIT_DIR, { recursive: true });
 
 // 批规模约束：8~10 片/批（同域）
 const BATCH_MAX = 10;
-// 切片总数断言区间（任务书基线 636±5）
-const EXPECTED_CHUNKS = 636;
-const CHUNK_TOLERANCE = 5;
+
+// ============ 域级切片数期望表（阶段5.9 波0 引入，替换原全局 636±5）============
+// 为什么改域级：原断言是「切片总数 636±5」的全局值，只在「恰好跑那 7 个专利域」时成立。
+//   自阶段5.2 起语料扩至 88 域、且可用 --domains 任选子集，全局总数已无意义——
+//   跑一个域是 895、跑三个域是另一个数，同一个常量不可能同时正确。
+//   改为「逐域登记期望值、TOLERANCE=0 精确比对」后，断言与所跑域集合自动对齐。
+// TOLERANCE=0 的依据：切片数由节点树确定性派生（叶节点数），不存在合理浮动区间；
+//   数值变化必然意味着语料或解析口径变动，应当显式改表而非被容差吞掉。
+// 未登记域：仅告警放行（不阻断），便于新域接入时先跑通再补登记。
+const EXPECTED_CHUNKS_BY_DOMAIN = {
+  // ---- 9 个现存 _chunks 域，2026-08-29 波0 实测 ----
+  'examination-guideline': 1042,
+  'patent-law': 82,
+  'implementation-rules': 149,
+  'infringement-guide': 153,
+  'mechanical-drafting-rules': 20,
+  'chemistry-drafting-rules': 28,
+  'oa-response-guide': 26,
+  // 商标审查审理指南：波0 经 build-chunks-from-nodes.mjs 按节点树镜像重建，
+  //   1200 节点 = 叶 895（切片）+ 内部 305（_preamble，walkMd 跳过、不计数）。
+  //   重建前为旧切片树 896 片（含 1 个 README.md），正文缺 markdown 标题行致锚定率仅 3.9%。
+  'trademark-exam-guide-2021': 895,
+  'quality-evaluation': 199,
+  // ---- 8 部新书（波2 落盘后启用；数值＝各域 hasOwnText 叶节点数，已由
+  //      build-chunks-from-nodes.mjs --dry-run 四条自断言逐书核过，合计 384）----
+  'copyright-law-2020': 67,
+  'copyright-law-rules-2013': 38,
+  'anti-unfair-competition-2025': 41,
+  'anti-monopoly-law-2022': 70,
+  'plant-variety-regulations-2025': 49,
+  'ic-layout-regulations-2026': 54,
+  'customs-ip-protection-2018': 32,
+  'ip-evidence-rules-2020': 33,
+};
+
+// ============ 默认排除域（不带 --domains 时生效）============
+// 二者均须排除，理由不同，勿合并理解：
+//   · quality-evaluation：既有裁决「不纳入术语链路」（《专利质量评价指南》是撰写质量评价规则，
+//     非法条术语源）。若不排除会平白卷入 199 片提取预算。
+//   · infringement-guide：**结构性不可锚**——该域 nodes.json 仅 21 个节点（三级：域→一、二…→（一）（二）…），
+//     而 _chunks 有 153 片（细到「1、专利权有效原则…」条目级），切片比节点树细一级，
+//     第四级节点根本不存在，四级锚定必然全数失败（2026-08-29 实测锚定率 0%）。
+//     其既有的 17 片 term-extract 提取产物是旧切片树时代的资产，按基线保留、不再重跑；
+//     若日后要恢复该域，须先让节点树与切片树粒度对齐（重解析或按节点树镜像重建）。
+const DEFAULT_EXCLUDE = new Set(['quality-evaluation', 'infringement-guide']);
 
 const pad = (n) => String(n).padStart(2, '0');
 // 归一化：NFKC（全半角统一）+ 去空白 + 小写（与 build-seed-lexicon.mjs 同口径）
@@ -195,8 +242,39 @@ function resolveAnchor(domainKey, chunkId, parsed, derivedId) {
   return null;
 }
 
+// ============ 域过滤（--domains）============
+// 显式指定时：严格按给定顺序与集合，不套用 DEFAULT_EXCLUDE（调用方自负其责），
+//   但缺 _chunks 目录必须**显式报错**而非静默跳过——否则「未建切片的新域」会被当成 0 片默默略过，
+//   使用者误以为跑过了。
+const domainsArgIdx = process.argv.indexOf('--domains');
+const domainsArg =
+  domainsArgIdx >= 0 && process.argv[domainsArgIdx + 1] && !process.argv[domainsArgIdx + 1].startsWith('--')
+    ? process.argv[domainsArgIdx + 1].split(',').map((s) => s.trim()).filter(Boolean)
+    : null;
+
+let domains;
+if (domainsArg) {
+  const byKey = new Map(KNOWN_DOMAINS.map((d) => [d.key, d]));
+  const unknown = domainsArg.filter((k) => !byKey.has(k));
+  if (unknown.length) {
+    console.error(`✗ 未在 KNOWN_DOMAINS 注册的域：${unknown.join('、')}`);
+    process.exit(1);
+  }
+  const missing = domainsArg.filter((k) => !existsSync(join(ROOT, k, '_chunks')));
+  if (missing.length) {
+    console.error(`✗ 以下域尚未建立 _chunks 切片目录，无法枚举切片：${missing.join('、')}`);
+    console.error('  若为新入库域，请先运行：node scripts/build-chunks-from-nodes.mjs --domains <key> --force');
+    process.exit(1);
+  }
+  domains = domainsArg.map((k) => byKey.get(k));
+} else {
+  domains = KNOWN_DOMAINS.filter((d) => existsSync(join(ROOT, d.key, '_chunks')) && !DEFAULT_EXCLUDE.has(d.key));
+  const skipped = KNOWN_DOMAINS.filter((d) => existsSync(join(ROOT, d.key, '_chunks')) && DEFAULT_EXCLUDE.has(d.key));
+  if (skipped.length) console.log(`（默认排除域：${skipped.map((d) => d.key).join('、')}，理由见 DEFAULT_EXCLUDE 注释；如需纳入请显式 --domains）`);
+}
+console.log(`本次域集合（${domains.length} 个）：${domains.map((d) => d.key).join('、')}`);
+
 // ============ 主流程：逐域枚举 → 锚定 → 分批 ============
-const domains = KNOWN_DOMAINS.filter((d) => existsSync(join(ROOT, d.key, '_chunks')));
 const allChunks = []; // {chunkPath, chunkId, domain, anchorNodeId, breadcrumb, charLen}
 const unresolved = []; // {domain, chunkId, chunkPath, breadcrumb, heading, reason}
 const domainStats = {}; // key → {chunks, methods:{}, derivedAgree}
@@ -266,6 +344,23 @@ for (const dom of domains) {
 }
 writeFileSync(join(BATCH_DIR, 'manifest.json'), JSON.stringify(manifest, null, 1));
 
+// ---- 批次文件拆分（阶段5.9 波0 P4 补齐）----
+// 原先本脚本只写 manifest.json，batches/batch-NN.json 靠人工或已失传的脚本产出，
+//   致 data/term-batches/batches/ 长期滞留 66 个死件（内含失效绝对路径与旧域 key）。
+//   现由本脚本在 manifest 之后**清空重写**整个 batches/ 目录，保证两者恒同源。
+// ⚠ 批号补零位数两侧一致性：此处用 padStart(2)，wf-extract-terms.js 的 pad2 必须同宽。
+//   批号 ≥100 时 padStart(2) 自然产出 3 位（'100'），两侧行为一致故无需特殊处理；
+//   但若日后改为 padStart(3)，**必须与 wf 侧同步修改**，否则引用模式按 batch-NN 找不到文件。
+if (existsSync(BATCHES_DIR)) rmSync(BATCHES_DIR, { recursive: true, force: true });
+mkdirSync(BATCHES_DIR, { recursive: true });
+for (const b of manifest) {
+  writeFileSync(
+    join(BATCHES_DIR, `batch-${pad(b.batchNo)}.json`),
+    JSON.stringify({ batchNo: b.batchNo, domain: b.chunks[0]?.domain || null, chunks: b.chunks }, null, 1),
+  );
+}
+console.log(`批次文件: 清空重写 ${manifest.length} 个 → data/term-batches/batches/batch-NN.json`);
+
 // ---- 统计打印 ----
 console.log('—— 各域切片锚定统计 ——');
 for (const dom of domains) {
@@ -290,9 +385,18 @@ console.log(`产物: data/term-batches/manifest.json、audit/terms/anchor-unreso
 // ---- 断言 ----
 let ok = true;
 const total = allChunks.length + unresolved.length;
-if (Math.abs(total - EXPECTED_CHUNKS) > CHUNK_TOLERANCE) {
-  ok = false;
-  console.error(`✗ 断言失败：切片总数 ${total} 超出 ${EXPECTED_CHUNKS}±${CHUNK_TOLERANCE}`);
+// 域级切片数断言（TOLERANCE=0，逐域精确比对；未登记域仅告警放行）
+for (const dom of domains) {
+  const actual = domainStats[dom.key].chunks;
+  const expected = EXPECTED_CHUNKS_BY_DOMAIN[dom.key];
+  if (expected === undefined) {
+    console.warn(`⚠ 域 ${dom.key} 未登记于 EXPECTED_CHUNKS_BY_DOMAIN（实测 ${actual} 片），本次放行；请确认无误后补登记。`);
+    continue;
+  }
+  if (actual !== expected) {
+    ok = false;
+    console.error(`✗ 断言失败：域 ${dom.key} 切片数 ${actual} ≠ 期望 ${expected}`);
+  }
 }
 if (unresolved.length) {
   ok = false;

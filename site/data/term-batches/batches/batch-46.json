@@ -1,85 +1,86 @@
 {
  "batchNo": 46,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/02/025.md",
-   "chunkId": "implementation-rules/02/025",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-02-25",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第二章 专利的申请 ｜ 第四十一条",
-   "charLen": 133
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/01/04/04.md",
+   "chunkId": "trademark-exam-guide-2021/05/01/04/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-01-04-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第十九章 商标申请文件的接收 ｜ 4申请文件接收程序 ｜ 4.4纸质文件电子化",
+   "charLen": 46
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/001.md",
-   "chunkId": "implementation-rules/03/001",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-01",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第四十二条",
-   "charLen": 172
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/01/05/01.md",
+   "chunkId": "trademark-exam-guide-2021/05/01/05/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-01-05-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第十九章 商标申请文件的接收 ｜ 5申请日和提交日 ｜ 5.1商标注册申请日",
+   "charLen": 42
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/002.md",
-   "chunkId": "implementation-rules/03/002",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-02",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第四十三条",
-   "charLen": 111
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/01/05/02.md",
+   "chunkId": "trademark-exam-guide-2021/05/01/05/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-01-05-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第十九章 商标申请文件的接收 ｜ 5申请日和提交日 ｜ 5.2其他",
+   "charLen": 217
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/003.md",
-   "chunkId": "implementation-rules/03/003",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-03",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第四十四条",
-   "charLen": 232
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/01/06/01.md",
+   "chunkId": "trademark-exam-guide-2021/05/01/06/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-01-06-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第十九章 商标申请文件的接收 ｜ 6期限届满日 ｜ 6.1期限",
+   "charLen": 47
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/004.md",
-   "chunkId": "implementation-rules/03/004",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-04",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第四十五条",
-   "charLen": 142
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/01/06/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/05/01/06/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-01-06-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第十九章 商标申请文件的接收 ｜ 6期限届满日 ｜ 6.2期限计算和期限届满日 ｜ 6.2.1注册商标有效期",
+   "charLen": 205
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/005.md",
-   "chunkId": "implementation-rules/03/005",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-05",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第四十六条",
-   "charLen": 123
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/01/06/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/05/01/06/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-01-06-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第十九章 商标申请文件的接收 ｜ 6期限届满日 ｜ 6.2期限计算和期限届满日 ｜ 6.2.2期限计算一般规定",
+   "charLen": 344
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/006.md",
-   "chunkId": "implementation-rules/03/006",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-06",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第四十七条",
-   "charLen": 431
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/01/07/01.md",
+   "chunkId": "trademark-exam-guide-2021/05/01/07/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-01-07-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第十九章 商标申请文件的接收 ｜ 7商标代理机构备案 ｜ 7.1商标代理机构",
+   "charLen": 69
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/007.md",
-   "chunkId": "implementation-rules/03/007",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-07",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第四十八条",
-   "charLen": 212
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/01/07/02.md",
+   "chunkId": "trademark-exam-guide-2021/05/01/07/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-01-07-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第十九章 商标申请文件的接收 ｜ 7商标代理机构备案 ｜ 7.2商标代理从业人员",
+   "charLen": 77
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/008.md",
-   "chunkId": "implementation-rules/03/008",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-08",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第四十九条",
-   "charLen": 117
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/01/07/03.md",
+   "chunkId": "trademark-exam-guide-2021/05/01/07/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-01-07-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第十九章 商标申请文件的接收 ｜ 7商标代理机构备案 ｜ 7.3备案要求",
+   "charLen": 149
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/009.md",
-   "chunkId": "implementation-rules/03/009",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-09",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第五十条",
-   "charLen": 752
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/01/07/04.md",
+   "chunkId": "trademark-exam-guide-2021/05/01/07/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-01-07-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第十九章 商标申请文件的接收 ｜ 7商标代理机构备案 ｜ 7.4其他要求",
+   "charLen": 87
   }
  ]
 }

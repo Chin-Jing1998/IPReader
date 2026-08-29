@@ -1,85 +1,86 @@
 {
  "batchNo": 33,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/01/001.md",
-   "chunkId": "patent-law/01/001",
-   "domain": "patent-law",
-   "anchorNodeId": "law-01-01",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第一章 总 则 ｜ 第一条",
-   "charLen": 64
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/02/07/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/02/07/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-02-07-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十四章 马德里商标国际注册后续业务申请审查 ｜ 7国际注销 ｜ 7.1申请文件",
+   "charLen": 176
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/01/002.md",
-   "chunkId": "patent-law/01/002",
-   "domain": "patent-law",
-   "anchorNodeId": "law-01-02",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第一章 总 则 ｜ 第二条",
-   "charLen": 154
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/02/07/02.md",
+   "chunkId": "trademark-exam-guide-2021/04/02/07/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-02-07-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十四章 马德里商标国际注册后续业务申请审查 ｜ 7国际注销 ｜ 7.2申请人资格",
+   "charLen": 44
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/01/003.md",
-   "chunkId": "patent-law/01/003",
-   "domain": "patent-law",
-   "anchorNodeId": "law-01-03",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第一章 总 则 ｜ 第三条",
-   "charLen": 84
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/02/07/03.md",
+   "chunkId": "trademark-exam-guide-2021/04/02/07/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-02-07-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十四章 马德里商标国际注册后续业务申请审查 ｜ 7国际注销 ｜ 7.3内容及要求",
+   "charLen": 184
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/01/004.md",
-   "chunkId": "patent-law/01/004",
-   "domain": "patent-law",
-   "anchorNodeId": "law-01-04",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第一章 总 则 ｜ 第四条",
-   "charLen": 43
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/02/08/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/02/08/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-02-08-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十四章 马德里商标国际注册后续业务申请审查 ｜ 8代理人名称或地址变更 ｜ 8.1申请文件",
+   "charLen": 143
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/01/005.md",
-   "chunkId": "patent-law/01/005",
-   "domain": "patent-law",
-   "anchorNodeId": "law-01-05",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第一章 总 则 ｜ 第五条",
-   "charLen": 83
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/02/08/02.md",
+   "chunkId": "trademark-exam-guide-2021/04/02/08/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-02-08-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十四章 马德里商标国际注册后续业务申请审查 ｜ 8代理人名称或地址变更 ｜ 8.2申请人资格",
+   "charLen": 70
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/01/006.md",
-   "chunkId": "patent-law/01/006",
-   "domain": "patent-law",
-   "anchorNodeId": "law-01-06",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第一章 总 则 ｜ 第六条",
-   "charLen": 235
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/02/08/03.md",
+   "chunkId": "trademark-exam-guide-2021/04/02/08/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-02-08-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十四章 马德里商标国际注册后续业务申请审查 ｜ 8代理人名称或地址变更 ｜ 8.3内容及要求",
+   "charLen": 117
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/01/007.md",
-   "chunkId": "patent-law/01/007",
-   "domain": "patent-law",
-   "anchorNodeId": "law-01-07",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第一章 总 则 ｜ 第七条",
-   "charLen": 40
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/02/09/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/02/09/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-02-09-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十四章 马德里商标国际注册后续业务申请审查 ｜ 9指定代理人 ｜ 9.1申请文件",
+   "charLen": 169
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/01/008.md",
-   "chunkId": "patent-law/01/008",
-   "domain": "patent-law",
-   "anchorNodeId": "law-01-08",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第一章 总 则 ｜ 第八条",
-   "charLen": 110
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/02/09/02.md",
+   "chunkId": "trademark-exam-guide-2021/04/02/09/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-02-09-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十四章 马德里商标国际注册后续业务申请审查 ｜ 9指定代理人 ｜ 9.2申请人资格",
+   "charLen": 72
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/01/009.md",
-   "chunkId": "patent-law/01/009",
-   "domain": "patent-law",
-   "anchorNodeId": "law-01-09",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第一章 总 则 ｜ 第九条",
-   "charLen": 137
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/02/09/03.md",
+   "chunkId": "trademark-exam-guide-2021/04/02/09/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-02-09-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十四章 马德里商标国际注册后续业务申请审查 ｜ 9指定代理人 ｜ 9.3内容及要求",
+   "charLen": 135
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/01/010.md",
-   "chunkId": "patent-law/01/010",
-   "domain": "patent-law",
-   "anchorNodeId": "law-01-10",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第一章 总 则 ｜ 第十条",
-   "charLen": 156
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/02/10/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/02/10/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-02-10-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十四章 马德里商标国际注册后续业务申请审查 ｜ 10国际放弃 ｜ 10.1申请文件",
+   "charLen": 177
   }
  ]
 }

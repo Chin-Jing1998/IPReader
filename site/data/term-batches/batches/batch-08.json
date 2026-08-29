@@ -1,85 +1,86 @@
 {
  "batchNo": 8,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/001/05.md",
-   "chunkId": "examination-guideline-2025/02/001/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-01-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第一章不授予专利权的申请 ｜ 5.根据专利法实施细则第十一条的审查",
-   "charLen": 65
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/05/04.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/05/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-05-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 5申请人要求优先权 ｜ 5.4优先权无效情形",
+   "charLen": 281
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/002/01.md",
-   "chunkId": "examination-guideline-2025/02/002/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-02-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第二章说明书和权利要求书 ｜ 1.引言",
-   "charLen": 381
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/06/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/06/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-06-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 6撤回注册申请 ｜ 6.1申请文件",
+   "charLen": 175
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/002/02/01.md",
-   "chunkId": "examination-guideline-2025/02/002/02/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-02-02-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第二章说明书和权利要求书 ｜ 2.说明书 ｜ 2.1说明书应当满足的要求",
-   "charLen": 1526
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/06/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/06/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-06-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 6撤回注册申请 ｜ 6.2内容与要求",
+   "charLen": 143
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/002/02/02.md",
-   "chunkId": "examination-guideline-2025/02/002/02/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-02-02-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第二章说明书和权利要求书 ｜ 2.说明书 ｜ 2.2说明书的撰写方式和顺序",
-   "charLen": 5295
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/06/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/06/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-06-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 6撤回注册申请 ｜ 6.3审查结论 ｜ 6.3.1准予撤回",
+   "charLen": 28
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/002/02/03.md",
-   "chunkId": "examination-guideline-2025/02/002/02/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-02-02-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第二章说明书和权利要求书 ｜ 2.说明书 ｜ 2.3说明书附图",
-   "charLen": 424
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/06/03/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/06/03/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-06-03-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 6撤回注册申请 ｜ 6.3审查结论 ｜ 6.3.2不予受理",
+   "charLen": 135
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/002/02/04.md",
-   "chunkId": "examination-guideline-2025/02/002/02/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-02-02-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第二章说明书和权利要求书 ｜ 2.说明书 ｜ 2.4说明书摘要",
-   "charLen": 652
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 1法律依据",
+   "charLen": 99
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/002/03/01.md",
-   "chunkId": "examination-guideline-2025/02/002/03/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-02-03-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第二章说明书和权利要求书 ｜ 3.权利要求书 ｜ 3.1权利要求",
-   "charLen": 1737
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 2引言 ｜ 2.1基本要求",
+   "charLen": 103
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/002/03/02.md",
-   "chunkId": "examination-guideline-2025/02/002/03/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-02-03-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第二章说明书和权利要求书 ｜ 3.权利要求书 ｜ 3.2权利要求书应当满足的要求",
-   "charLen": 4098
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 2引言 ｜ 2.2异议申请材料",
+   "charLen": 218
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/002/03/03.md",
-   "chunkId": "examination-guideline-2025/02/002/03/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-02-03-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第二章说明书和权利要求书 ｜ 3.权利要求书 ｜ 3.3权利要求的撰写规定",
-   "charLen": 2995
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/03/01/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/03/01/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-03-01-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 3形式审查 ｜ 3.1异议期限 ｜ 3.1.1邮寄提交的",
+   "charLen": 167
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/003/01.md",
-   "chunkId": "examination-guideline-2025/02/003/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-03-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第三章新颖性 ｜ 1.引言",
-   "charLen": 88
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/03/01/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/03/01/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-03-01-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 3形式审查 ｜ 3.1异议期限 ｜ 3.1.2通过邮政企业以外的快递企业递交的",
+   "charLen": 80
   }
  ]
 }

@@ -1,85 +1,86 @@
 {
  "batchNo": 60,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/003/06.md",
-   "chunkId": "mechanical-drafting-rules/01/003/06",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-01-03-06",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 3. 说明书 ｜ 3.6.具体实施方式",
-   "charLen": 4128
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/07/01/04.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/07/01/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-07-01-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.7带有欺骗性，容易使公众对商品的质量等特点或者产地产生误认的 ｜ 3.7.1容易使公众对商品或者服务的质量、品质、功能、用途、原料、内容、重量、数量、价格、工艺、技术等特点产生误认的 ｜ 3.7.1.4容易使公众对商品的重量、数量、价格、生产时间、工艺、技术等特点产生误认的",
+   "charLen": 127
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/003/07.md",
-   "chunkId": "mechanical-drafting-rules/01/003/07",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-01-03-07",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 3. 说明书 ｜ 3.7. 说明书附图",
-   "charLen": 3994
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/07/01/05.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/07/01/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-07-01-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.7带有欺骗性，容易使公众对商品的质量等特点或者产地产生误认的 ｜ 3.7.1容易使公众对商品或者服务的质量、品质、功能、用途、原料、内容、重量、数量、价格、工艺、技术等特点产生误认的 ｜ 3.7.1.5容易使公众对服务的内容、性质等特点产生误认的例如：",
+   "charLen": 144
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/02/001.md",
-   "chunkId": "mechanical-drafting-rules/02/001",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-02-01",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第二章 撰写示例及分析 ｜ 说明书摘要",
-   "charLen": 430
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/07/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/07/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-07-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.7带有欺骗性，容易使公众对商品的质量等特点或者产地产生误认的 ｜ 3.7.2容易使公众对商品或者服务的产地、来源产生误认的 ｜ 3.7.2.1标志由地名构成或者包含地名，申请人并非来自该地，使用在指定商品上，容易使公众发生产地误认的（属于《商标法》第十条第二款规定的不得作为商标使用的情形的，应同时适用该条款）",
+   "charLen": 353
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/02/002.md",
-   "chunkId": "mechanical-drafting-rules/02/002",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-02-02",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第二章 撰写示例及分析 ｜ 权利要求书",
-   "charLen": 8343
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/07/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/07/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-07-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.7带有欺骗性，容易使公众对商品的质量等特点或者产地产生误认的 ｜ 3.7.2容易使公众对商品或者服务的产地、来源产生误认的 ｜ 3.7.2.2标志文字构成与我国县级以上行政区划的地名或者公众知晓的外国地名不同，但字形、读音近似足以使公众误认为该地名，从而发生商品产地误认的例如：",
+   "charLen": 172
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/02/003/01.md",
-   "chunkId": "mechanical-drafting-rules/02/003/01",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-02-03-01",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第二章 撰写示例及分析 ｜ 说明书 ｜ 技术领域",
-   "charLen": 161
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/07/02/03.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/07/02/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-07-02-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.7带有欺骗性，容易使公众对商品的质量等特点或者产地产生误认的 ｜ 3.7.2容易使公众对商品或者服务的产地、来源产生误认的 ｜ 3.7.2.3标志由我国县级以上行政区划的地名之外的其他地名构成或者含有此类地名，使用在其指定的商品上，容易使公众发生商品产地误认的例如：",
+   "charLen": 422
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/02/003/02.md",
-   "chunkId": "mechanical-drafting-rules/02/003/02",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-02-03-02",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第二章 撰写示例及分析 ｜ 说明书 ｜ 背景技术",
-   "charLen": 657
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/07/02/04.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/07/02/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-07-02-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.7带有欺骗性，容易使公众对商品的质量等特点或者产地产生误认的 ｜ 3.7.2容易使公众对商品或者服务的产地、来源产生误认的 ｜ 3.7.2.4标志包含国家名称，但申请人并非来自该国，使用在其指定的商品上，容易使公众发生商品产地误认的",
+   "charLen": 126
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/02/003/03.md",
-   "chunkId": "mechanical-drafting-rules/02/003/03",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-02-03-03",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第二章 撰写示例及分析 ｜ 说明书 ｜ 发明内容",
-   "charLen": 5134
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/07/02/05.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/07/02/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-07-02-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.7带有欺骗性，容易使公众对商品的质量等特点或者产地产生误认的 ｜ 3.7.2容易使公众对商品或者服务的产地、来源产生误认的 ｜ 3.7.2.5标志包含企业名称，而该企业名称与申请人名义存在实质性差异的，容易导致公众误认的",
+   "charLen": 625
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/02/003/04.md",
-   "chunkId": "mechanical-drafting-rules/02/003/04",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-02-03-04",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第二章 撰写示例及分析 ｜ 说明书 ｜ 附图说明",
-   "charLen": 747
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/07/02/06.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/07/02/06",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-07-02-06",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.7带有欺骗性，容易使公众对商品的质量等特点或者产地产生误认的 ｜ 3.7.2容易使公众对商品或者服务的产地、来源产生误认的 ｜ 3.7.2.6与公众人物姓名、肖像等相同或者近似，容易导致公众误认的",
+   "charLen": 232
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/02/003/05.md",
-   "chunkId": "mechanical-drafting-rules/02/003/05",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-02-03-05",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第二章 撰写示例及分析 ｜ 说明书 ｜ 具体实施方式",
-   "charLen": 8864
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/07/02/07.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/07/02/07",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-07-02-07",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.7带有欺骗性，容易使公众对商品的质量等特点或者产地产生误认的 ｜ 3.7.2容易使公众对商品或者服务的产地、来源产生误认的 ｜ 3.7.2.7与具有一定知名度的教育院校、体育组织、环保组织、慈善组织等机构的名称、标志相同或者近似，未经该机构许可，容易导致公众对商品或者服务来源产生误认的",
+   "charLen": 281
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/02/003/06.md",
-   "chunkId": "mechanical-drafting-rules/02/003/06",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-02-03-06",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第二章 撰写示例及分析 ｜ 说明书 ｜ 说明书附图",
-   "charLen": 1075
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/07/02/08.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/07/02/08",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-07-02-08",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.7带有欺骗性，容易使公众对商品的质量等特点或者产地产生误认的 ｜ 3.7.2容易使公众对商品或者服务的产地、来源产生误认的 ｜ 3.7.2.8与重要赛事、重要展会、重大考古发现名称（含规范简称）、标志等相同或者近似的，未经主办方或主管单位授权，容易导致公众误认的",
+   "charLen": 390
   }
  ]
 }

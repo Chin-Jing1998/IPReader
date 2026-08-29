@@ -1,85 +1,86 @@
 {
  "batchNo": 54,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/11/004.md",
-   "chunkId": "implementation-rules/11/004",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-11-04",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十一章 关于发明、实用新型国际申请的特别规定 ｜ 第一百二十一条",
-   "charLen": 599
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/01/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/06/01/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-01-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第一章 概述 ｜ 2审查审理范围 ｜ 2.2商标注册实质审查",
+   "charLen": 398
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/11/005.md",
-   "chunkId": "implementation-rules/11/005",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-11-05",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十一章 关于发明、实用新型国际申请的特别规定 ｜ 第一百二十二条",
-   "charLen": 271
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/01/02/03.md",
+   "chunkId": "trademark-exam-guide-2021/06/01/02/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-01-02-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第一章 概述 ｜ 2审查审理范围 ｜ 2.3商标异议审查",
+   "charLen": 305
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/11/006.md",
-   "chunkId": "implementation-rules/11/006",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-11-06",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十一章 关于发明、实用新型国际申请的特别规定 ｜ 第一百二十三条",
-   "charLen": 112
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/01/02/04.md",
+   "chunkId": "trademark-exam-guide-2021/06/01/02/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-01-02-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第一章 概述 ｜ 2审查审理范围 ｜ 2.4商标评审审理",
+   "charLen": 573
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/11/007.md",
-   "chunkId": "implementation-rules/11/007",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-11-07",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十一章 关于发明、实用新型国际申请的特别规定 ｜ 第一百二十四条",
-   "charLen": 155
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/01/02/05.md",
+   "chunkId": "trademark-exam-guide-2021/06/01/02/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-01-02-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第一章 概述 ｜ 2审查审理范围 ｜ 2.5注册商标撤销审查",
+   "charLen": 129
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/11/008.md",
-   "chunkId": "implementation-rules/11/008",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-11-08",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十一章 关于发明、实用新型国际申请的特别规定 ｜ 第一百二十五条",
-   "charLen": 266
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/01/02/06.md",
+   "chunkId": "trademark-exam-guide-2021/06/01/02/06",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-01-02-06",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第一章 概述 ｜ 2审查审理范围 ｜ 2.6注册商标转让审查",
+   "charLen": 127
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/11/009.md",
-   "chunkId": "implementation-rules/11/009",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-11-09",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十一章 关于发明、实用新型国际申请的特别规定 ｜ 第一百二十六条",
-   "charLen": 77
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/01/02/07.md",
+   "chunkId": "trademark-exam-guide-2021/06/01/02/07",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-01-02-07",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第一章 概述 ｜ 2审查审理范围 ｜ 2.7注册商标依职权主动宣告无效",
+   "charLen": 182
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/11/010.md",
-   "chunkId": "implementation-rules/11/010",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-11-10",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十一章 关于发明、实用新型国际申请的特别规定 ｜ 第一百二十七条",
-   "charLen": 266
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/01/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/06/01/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-01-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第一章 概述 ｜ 3基本概念 ｜ 3.1商标",
+   "charLen": 449
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/11/011.md",
-   "chunkId": "implementation-rules/11/011",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-11-11",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十一章 关于发明、实用新型国际申请的特别规定 ｜ 第一百二十八条",
-   "charLen": 155
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/01/03/02.md",
+   "chunkId": "trademark-exam-guide-2021/06/01/03/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-01-03-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第一章 概述 ｜ 3基本概念 ｜ 3.2商标的显著特征",
+   "charLen": 190
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/11/012.md",
-   "chunkId": "implementation-rules/11/012",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-11-12",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十一章 关于发明、实用新型国际申请的特别规定 ｜ 第一百二十九条",
-   "charLen": 133
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/01/03/03.md",
+   "chunkId": "trademark-exam-guide-2021/06/01/03/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-01-03-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第一章 概述 ｜ 3基本概念 ｜ 3.3商标相同与近似",
+   "charLen": 605
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/11/013.md",
-   "chunkId": "implementation-rules/11/013",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-11-13",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第十一章 关于发明、实用新型国际申请的特别规定 ｜ 第一百三十条",
-   "charLen": 85
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/01/03/04.md",
+   "chunkId": "trademark-exam-guide-2021/06/01/03/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-01-03-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第一章 概述 ｜ 3基本概念 ｜ 3.4同一种与类似商品或者服务",
+   "charLen": 987
   }
  ]
 }

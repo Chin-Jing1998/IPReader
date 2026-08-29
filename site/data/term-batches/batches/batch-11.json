@@ -1,85 +1,86 @@
 {
  "batchNo": 11,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/007/05.md",
-   "chunkId": "examination-guideline-2025/02/007/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-07-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第七章检索 ｜ 5.检索前的准备",
-   "charLen": 2691
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/06/02/03.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/06/02/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-06-02-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 6异议人变更 ｜ 6.2异议人变更的审查 ｜ 6.2.3不予变更情形",
+   "charLen": 98
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/007/06.md",
-   "chunkId": "examination-guideline-2025/02/007/06",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-07-06",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第七章检索 ｜ 6.对发明专利申请的检索",
-   "charLen": 2376
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/07/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/07/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-07-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 7撤回商标异议申请审查 ｜ 7.1文件要求",
+   "charLen": 336
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/007/07.md",
-   "chunkId": "examination-guideline-2025/02/007/07",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-07-07",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第七章检索 ｜ 7.防止重复授权的检索",
-   "charLen": 122
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/07/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/07/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-07-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 7撤回商标异议申请审查 ｜ 7.2审查结论",
+   "charLen": 327
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/007/08.md",
-   "chunkId": "examination-guideline-2025/02/007/08",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-07-08",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第七章检索 ｜ 8.中止检索",
-   "charLen": 827
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/08.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/08",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-08",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 8被异议商标撤回相关异议申请的处理",
+   "charLen": 59
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/007/09.md",
-   "chunkId": "examination-guideline-2025/02/007/09",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-07-09",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第七章检索 ｜ 9.特殊情况的检索",
-   "charLen": 1027
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/09.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/09",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-09",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 9商标异议申请驳回",
+   "charLen": 61
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/007/10.md",
-   "chunkId": "examination-guideline-2025/02/007/10",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-07-10",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第七章检索 ｜ 10.不必检索的情况",
-   "charLen": 221
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/04/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/04/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-04-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第四章 评审形式审查 ｜ 1法律依据",
+   "charLen": 171
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/007/11.md",
-   "chunkId": "examination-guideline-2025/02/007/11",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-07-11",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第七章检索 ｜ 11.补充检索",
-   "charLen": 318
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/04/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/04/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-04-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第四章 评审形式审查 ｜ 2引言",
+   "charLen": 115
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/007/12.md",
-   "chunkId": "examination-guideline-2025/02/007/12",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-07-12",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第七章检索 ｜ 12.检索报告",
-   "charLen": 820
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/04/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/04/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-04-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第四章 评审形式审查 ｜ 3形式审查 ｜ 3.1申请主体",
+   "charLen": 214
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/01.md",
-   "chunkId": "examination-guideline-2025/02/008/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-08-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 1.引言",
-   "charLen": 519
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/04/03/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/04/03/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-04-03-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第四章 评审形式审查 ｜ 3形式审查 ｜ 3.2期限 ｜ 3.2.1送达日的确定",
+   "charLen": 542
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/02.md",
-   "chunkId": "examination-guideline-2025/02/008/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-08-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 2.实质审查程序及其基本原则",
-   "charLen": 896
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/04/03/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/04/03/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-04-03-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第四章 评审形式审查 ｜ 3形式审查 ｜ 3.2期限 ｜ 3.2.2提交日的确定",
+   "charLen": 329
   }
  ]
 }

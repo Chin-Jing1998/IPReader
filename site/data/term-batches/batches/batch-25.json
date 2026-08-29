@@ -1,85 +1,86 @@
 {
  "batchNo": 25,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/001/05.md",
-   "chunkId": "examination-guideline-2025/05/001/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-01-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第一章专利申请文件及手续 ｜ 5.书写规则",
-   "charLen": 532
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/02/05.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/02/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-02-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 2注册商标的使用许可备案（变更许可人、被许可人名称，许可提前终止） ｜ 2.5许可期限及许可商品/服务项目",
+   "charLen": 165
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/001/06.md",
-   "chunkId": "examination-guideline-2025/05/001/06",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-01-06",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第一章专利申请文件及手续 ｜ 6.证明文件",
-   "charLen": 411
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/02/06.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/02/06",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-02-06",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 2注册商标的使用许可备案（变更许可人、被许可人名称，许可提前终止） ｜ 2.6许可人及被许可人名称变更",
+   "charLen": 279
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/001/07.md",
-   "chunkId": "examination-guideline-2025/05/001/07",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-01-07",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第一章专利申请文件及手续 ｜ 7.文件份数",
-   "charLen": 77
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/02/07.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/02/07",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-02-07",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 2注册商标的使用许可备案（变更许可人、被许可人名称，许可提前终止） ｜ 2.7商标使用许可提前终止备案",
+   "charLen": 102
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/001/08.md",
-   "chunkId": "examination-guideline-2025/05/001/08",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-01-08",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第一章专利申请文件及手续 ｜ 8.签字或者盖章",
-   "charLen": 185
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/02/08.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/02/08",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-02-08",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 2注册商标的使用许可备案（变更许可人、被许可人名称，许可提前终止） ｜ 2.8撤回许可备案和中止审查",
+   "charLen": 87
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/001/09.md",
-   "chunkId": "examination-guideline-2025/05/001/09",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-01-09",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第一章专利申请文件及手续 ｜ 9.专利业务办理系统的注册",
-   "charLen": 244
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 3注册商标专用权质权登记 ｜ 3.1法律依据",
+   "charLen": 57
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/002/01.md",
-   "chunkId": "examination-guideline-2025/05/002/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-02-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第二章专利费用 ｜ 1.费用缴纳的期限",
-   "charLen": 667
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/03/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/03/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-03-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 3注册商标专用权质权登记 ｜ 3.2质权登记申请 ｜ 3.2.1提交申请的途径",
+   "charLen": 48
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/002/02.md",
-   "chunkId": "examination-guideline-2025/05/002/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-02-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第二章专利费用 ｜ 2.费用支付和结算方式",
-   "charLen": 879
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/03/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/03/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-03-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 3注册商标专用权质权登记 ｜ 3.2质权登记申请 ｜ 3.2.2申请文件",
+   "charLen": 105
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/002/03.md",
-   "chunkId": "examination-guideline-2025/05/002/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-02-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第二章专利费用 ｜ 3.收费的减缴",
-   "charLen": 465
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/03/02/03.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/03/02/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-03-02-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 3注册商标专用权质权登记 ｜ 3.2质权登记申请 ｜ 3.2.3申请文件的要求",
+   "charLen": 336
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/002/04.md",
-   "chunkId": "examination-guideline-2025/05/002/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-02-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第二章专利费用 ｜ 4.费用的暂存与退款",
-   "charLen": 1979
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/03/02/04.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/03/02/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-03-02-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 3注册商标专用权质权登记 ｜ 3.2质权登记申请 ｜ 3.2.4出质的商标",
+   "charLen": 174
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/002/05.md",
-   "chunkId": "examination-guideline-2025/05/002/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-02-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第二章专利费用 ｜ 5.费用的查询",
-   "charLen": 101
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/03/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/03/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-03-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 3注册商标专用权质权登记 ｜ 3.3审查结论 ｜ 3.3.1登记发证",
+   "charLen": 143
   }
  ]
 }

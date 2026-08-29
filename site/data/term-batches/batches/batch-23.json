@@ -1,85 +1,86 @@
 {
  "batchNo": 23,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/005/01.md",
-   "chunkId": "examination-guideline-2025/04/005/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-05-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第五章无效宣告程序中外观设计专利的审查 ｜ 1.引言",
-   "charLen": 89
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/01/02/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/01/02/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-01-02-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 1注册商标/注册申请的转让和移转 ｜ 1.2转让申请文件 ｜ 1.2.3集体商标、证明商标转让/移转申请文件的特殊要求 ｜ 1.2.3.1申请集体商标转让/移转的",
+   "charLen": 165
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/005/02.md",
-   "chunkId": "examination-guideline-2025/04/005/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-05-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第五章无效宣告程序中外观设计专利的审查 ｜ 2.现有设计",
-   "charLen": 211
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/01/02/03/02.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/01/02/03/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-01-02-03-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 1注册商标/注册申请的转让和移转 ｜ 1.2转让申请文件 ｜ 1.2.3集体商标、证明商标转让/移转申请文件的特殊要求 ｜ 1.2.3.2申请证明商标转让/移转的",
+   "charLen": 168
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/005/03.md",
-   "chunkId": "examination-guideline-2025/04/005/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-05-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第五章无效宣告程序中外观设计专利的审查 ｜ 3.判断客体",
-   "charLen": 504
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/01/02/03/03.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/01/02/03/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-01-02-03-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 1注册商标/注册申请的转让和移转 ｜ 1.2转让申请文件 ｜ 1.2.3集体商标、证明商标转让/移转申请文件的特殊要求 ｜ 1.2.3.3申请地理标志集体商标/地理标志证明商标转让/移转的",
+   "charLen": 224
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/005/04.md",
-   "chunkId": "examination-guideline-2025/04/005/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-05-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第五章无效宣告程序中外观设计专利的审查 ｜ 4.判断主体",
-   "charLen": 297
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/01/02/04.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/01/02/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-01-02-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 1注册商标/注册申请的转让和移转 ｜ 1.2转让申请文件 ｜ 1.2.4申请文件的审查方式",
+   "charLen": 231
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/005/05.md",
-   "chunkId": "examination-guideline-2025/04/005/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-05-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第五章无效宣告程序中外观设计专利的审查 ｜ 5.根据专利法第二十三条第一款的审查",
-   "charLen": 4054
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/01/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/01/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-01-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 1注册商标/注册申请的转让和移转 ｜ 1.3转让双方的民事主体资格 ｜ 1.3.1转让人",
+   "charLen": 308
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/005/06.md",
-   "chunkId": "examination-guideline-2025/04/005/06",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-05-06",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第五章无效宣告程序中外观设计专利的审查 ｜ 6.根据专利法第二十三条第二款的审查",
-   "charLen": 2768
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/01/03/02.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/01/03/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-01-03-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 1注册商标/注册申请的转让和移转 ｜ 1.3转让双方的民事主体资格 ｜ 1.3.2共有商标",
+   "charLen": 57
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/005/07.md",
-   "chunkId": "examination-guideline-2025/04/005/07",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-05-07",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第五章无效宣告程序中外观设计专利的审查 ｜ 7.根据专利法第二十三条第三款的审查",
-   "charLen": 805
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/01/04.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/01/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-01-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 1注册商标/注册申请的转让和移转 ｜ 1.4商标",
+   "charLen": 34
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/005/08.md",
-   "chunkId": "examination-guideline-2025/04/005/08",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-05-08",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第五章无效宣告程序中外观设计专利的审查 ｜ 8.根据专利法第九条的审查",
-   "charLen": 175
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/01/05.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/01/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-01-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 1注册商标/注册申请的转让和移转 ｜ 1.5相同或者近似商标一并转让",
+   "charLen": 201
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/005/09.md",
-   "chunkId": "examination-guideline-2025/04/005/09",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-05-09",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第五章无效宣告程序中外观设计专利的审查 ｜ 9.外观设计优先权的核实",
-   "charLen": 1270
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/01/06.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/01/06",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-01-06",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 1注册商标/注册申请的转让和移转 ｜ 1.6商标相同或者近似和同一种或类似商品/服务的判断",
+   "charLen": 661
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/04/006.md",
-   "chunkId": "examination-guideline-2025/04/006",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "04-06",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第四部分 复审与无效请求的审查 ｜ 第六章无效宣告程序中实用新型专利审查的若干规定",
-   "charLen": 941
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/01/07.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/01/07",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-01-07",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 1注册商标/注册申请的转让和移转 ｜ 1.7容易导致混淆或其他不良影响的转让",
+   "charLen": 520
   }
  ]
 }

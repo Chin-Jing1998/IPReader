@@ -1,85 +1,86 @@
 {
  "batchNo": 27,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/004/03.md",
-   "chunkId": "examination-guideline-2025/05/004/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-04-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第四章专利申请文档 ｜ 3.电子文档",
-   "charLen": 329
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/04/04.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/04/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-04-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 4注册申请的商品/服务项目的删减 ｜ 4.4申请删减的商品/服务项目",
+   "charLen": 90
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/004/04.md",
-   "chunkId": "examination-guideline-2025/05/004/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-04-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第四章专利申请文档 ｜ 4.法律效力",
-   "charLen": 57
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/04/05/01.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/04/05/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-04-05-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 4注册申请的商品/服务项目的删减 ｜ 4.5审查结论 ｜ 4.5.1不予核准",
+   "charLen": 152
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/004/05.md",
-   "chunkId": "examination-guideline-2025/05/004/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-04-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第四章专利申请文档 ｜ 5.查阅和复制",
-   "charLen": 1275
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/04/05/02.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/04/05/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-04-05-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 4注册申请的商品/服务项目的删减 ｜ 4.5审查结论 ｜ 4.5.2核准删减",
+   "charLen": 43
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/004/06.md",
-   "chunkId": "examination-guideline-2025/05/004/06",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-04-06",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第四章专利申请文档 ｜ 6.案卷的保存期限和销毁",
-   "charLen": 315
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/05/01.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/05/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-05-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 5注册商标的注销 ｜ 5.1法律依据",
+   "charLen": 31
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/005/01.md",
-   "chunkId": "examination-guideline-2025/05/005/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-05-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第五章保密申请与向外国申请专利的保密审查 ｜ 1.保密的范围",
-   "charLen": 197
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/05/02.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/05/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-05-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 5注册商标的注销 ｜ 5.2申请文件",
+   "charLen": 338
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/005/02.md",
-   "chunkId": "examination-guideline-2025/05/005/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-05-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第五章保密申请与向外国申请专利的保密审查 ｜ 2.保密的基准",
-   "charLen": 26
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/05/03.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/05/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-05-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 5注册商标的注销 ｜ 5.3商标",
+   "charLen": 104
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/005/03.md",
-   "chunkId": "examination-guideline-2025/05/005/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-05-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第五章保密申请与向外国申请专利的保密审查 ｜ 3.专利申请的保密确定",
-   "charLen": 889
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/05/04.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/05/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-05-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 5注册商标的注销 ｜ 5.4审查结论",
+   "charLen": 174
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/005/04.md",
-   "chunkId": "examination-guideline-2025/05/005/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-05-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第五章保密申请与向外国申请专利的保密审查 ｜ 4.保密专利申请的审批流程",
-   "charLen": 601
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/05/05.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/05/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-05-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 5注册商标的注销 ｜ 5.5注销申请的撤回和中止审查",
+   "charLen": 49
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/005/05.md",
-   "chunkId": "examination-guideline-2025/05/005/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-05-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第五章保密申请与向外国申请专利的保密审查 ｜ 5.专利申请（或者专利）的解密程序",
-   "charLen": 532
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/06/01.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/06/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-06-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 6注册商标有效期满未续展的注销 ｜ 6.1法律依据",
+   "charLen": 20
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/005/06.md",
-   "chunkId": "examination-guideline-2025/05/005/06",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-05-06",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第五章保密申请与向外国申请专利的保密审查 ｜ 6.向外国申请专利的保密审查",
-   "charLen": 1565
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/02/06/02.md",
+   "chunkId": "trademark-exam-guide-2021/03/02/06/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-02-06-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十一章 商标权的处分类申请 ｜ 6注册商标有效期满未续展的注销 ｜ 6.2期满未续展注销",
+   "charLen": 69
   }
  ]
 }

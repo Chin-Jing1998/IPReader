@@ -1,77 +1,86 @@
 {
  "batchNo": 31,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/011/04.md",
-   "chunkId": "examination-guideline-2025/05/011/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-11-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第十一章专利开放许可 ｜ 4.专利开放许可声明的撤回",
-   "charLen": 435
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/07/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/07/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-07-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 7效力终止的通知 ｜ 7.1条件",
+   "charLen": 269
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/011/05.md",
-   "chunkId": "examination-guideline-2025/05/011/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-11-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第十一章专利开放许可 ｜ 5.专利开放许可的登记和公告",
-   "charLen": 202
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/07/02.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/07/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-07-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 7效力终止的通知 ｜ 7.2通知书式与通知方式",
+   "charLen": 779
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/011/06.md",
-   "chunkId": "examination-guideline-2025/05/011/06",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-11-06",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第十一章专利开放许可 ｜ 6.专利开放许可实施合同的生效",
-   "charLen": 238
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/07/03.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/07/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-07-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 7效力终止的通知 ｜ 7.3审查标准",
+   "charLen": 397
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/011/07.md",
-   "chunkId": "examination-guideline-2025/05/011/07",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-11-07",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第十一章专利开放许可 ｜ 7.专利开放许可实施合同的备案",
-   "charLen": 275
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十四章 马德里商标国际注册后续业务申请审查 ｜ 1法律依据",
+   "charLen": 155
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/011/08.md",
-   "chunkId": "examination-guideline-2025/05/011/08",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-11-08",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第十一章专利开放许可 ｜ 8.专利开放许可实施期间费减手续的办理",
-   "charLen": 281
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/04/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十四章 马德里商标国际注册后续业务申请审查 ｜ 2引言",
+   "charLen": 201
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/011/09.md",
-   "chunkId": "examination-guideline-2025/05/011/09",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-11-09",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第十一章专利开放许可 ｜ 9.已实行开放许可的专利相关手续办理",
-   "charLen": 251
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/02/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/02/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-02-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十四章 马德里商标国际注册后续业务申请审查 ｜ 3国际续展 ｜ 3.1申请文件",
+   "charLen": 173
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/06/001/01.md",
-   "chunkId": "examination-guideline-2025/06/001/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "06-01-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第六部分 外观设计国际申请 ｜ 第一章外观设计国际注册申请的事务处理 ｜ 1.引言",
-   "charLen": 156
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/02/03/02.md",
+   "chunkId": "trademark-exam-guide-2021/04/02/03/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-02-03-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十四章 马德里商标国际注册后续业务申请审查 ｜ 3国际续展 ｜ 3.2申请人资格",
+   "charLen": 44
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/06/001/02.md",
-   "chunkId": "examination-guideline-2025/06/001/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "06-01-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第六部分 外观设计国际申请 ｜ 第一章外观设计国际注册申请的事务处理 ｜ 2.外观设计国际注册申请的提交",
-   "charLen": 818
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/02/03/03.md",
+   "chunkId": "trademark-exam-guide-2021/04/02/03/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-02-03-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十四章 马德里商标国际注册后续业务申请审查 ｜ 3国际续展 ｜ 3.3续展期限",
+   "charLen": 150
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/06/001/03.md",
-   "chunkId": "examination-guideline-2025/06/001/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "06-01-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第六部分 外观设计国际申请 ｜ 第一章外观设计国际注册申请的事务处理 ｜ 3.外观设计国际申请的事务处理",
-   "charLen": 1353
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/02/03/04.md",
+   "chunkId": "trademark-exam-guide-2021/04/02/03/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-02-03-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十四章 马德里商标国际注册后续业务申请审查 ｜ 3国际续展 ｜ 3.4内容及要求",
+   "charLen": 133
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/02/04/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/02/04/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-02-04-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十四章 马德里商标国际注册后续业务申请审查 ｜ 4注册人名称或地址变更 ｜ 4.1申请文件",
+   "charLen": 212
   }
  ]
 }

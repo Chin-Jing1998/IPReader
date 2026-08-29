@@ -1,77 +1,86 @@
 {
  "batchNo": 29,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/007/08.md",
-   "chunkId": "examination-guideline-2025/05/007/08",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-07-08",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第七章期限、权利的恢复、中止、审查的顺序 ｜ 8.审查的顺序",
-   "charLen": 883
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/03/07.md",
+   "chunkId": "trademark-exam-guide-2021/03/03/07",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-03-03-07",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十二章 注册商标的续展 ｜ 7续展申请的撤回和中止审查",
+   "charLen": 46
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/008/01/01.md",
-   "chunkId": "examination-guideline-2025/05/008/01/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-08-01-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第八章专利公报和单行本的编辑 ｜ 1.专利公报 ｜ 1.1专利公报的种类",
-   "charLen": 123
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 1法律依据",
+   "charLen": 151
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/008/01/02.md",
-   "chunkId": "examination-guideline-2025/05/008/01/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-08-01-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第八章专利公报和单行本的编辑 ｜ 1.专利公报 ｜ 1.2专利公报的内容",
-   "charLen": 2459
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/02.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 2引言",
+   "charLen": 205
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/008/01/03.md",
-   "chunkId": "examination-guideline-2025/05/008/01/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-08-01-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第八章专利公报和单行本的编辑 ｜ 1.专利公报 ｜ 1.3专利公报的编辑",
-   "charLen": 2640
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 3申请人资格与申请条件 ｜ 3.1申请人资格",
+   "charLen": 79
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/008/02.md",
-   "chunkId": "examination-guideline-2025/05/008/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-08-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第八章专利公报和单行本的编辑 ｜ 2.专利申请及专利单行本",
-   "charLen": 1150
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/03/02.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/03/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-03-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 3申请人资格与申请条件 ｜ 3.2申请条件",
+   "charLen": 116
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/009/01.md",
-   "chunkId": "examination-guideline-2025/05/009/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-09-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第九章专利权的授予和终止 ｜ 1.专利权的授予",
-   "charLen": 1791
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/04.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 4书式要求",
+   "charLen": 225
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/009/02.md",
-   "chunkId": "examination-guideline-2025/05/009/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-09-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第九章专利权的授予和终止 ｜ 2.根据专利法第四十二条第二款的专利权期限补偿",
-   "charLen": 1439
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/05/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/05/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-05-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 5马德里商标国际注册申请审查标准 ｜ 5.1申请人信息",
+   "charLen": 275
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/009/03.md",
-   "chunkId": "examination-guideline-2025/05/009/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-09-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第九章专利权的授予和终止 ｜ 3.根据专利法第四十二条第三款的专利权期限补偿",
-   "charLen": 2179
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/05/02.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/05/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-05-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 5马德里商标国际注册申请审查标准 ｜ 5.2代理人信息",
+   "charLen": 86
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/009/04.md",
-   "chunkId": "examination-guideline-2025/05/009/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-09-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第九章专利权的授予和终止 ｜ 4.专利权的终止",
-   "charLen": 2067
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/05/03.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/05/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-05-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 5马德里商标国际注册申请审查标准 ｜ 5.3商标信息",
+   "charLen": 555
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/05/04.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/05/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-05-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 5马德里商标国际注册申请审查标准 ｜ 5.4商品/服务信息",
+   "charLen": 171
   }
  ]
 }

@@ -1,85 +1,86 @@
 {
  "batchNo": 6,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/003/12.md",
-   "chunkId": "examination-guideline-2025/01/003/12",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-03-12",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第三章外观设计专利申请的初步审查 ｜ 12.外观设计分类",
-   "charLen": 1746
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/03/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-03-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.2身份证明文件、主体资格证明文件",
+   "charLen": 56
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/01.md",
-   "chunkId": "examination-guideline-2025/01/004/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-04-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 1.引言",
-   "charLen": 235
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/03.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/03/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-03-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.3商标代理委托书",
+   "charLen": 40
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/02.md",
-   "chunkId": "examination-guideline-2025/01/004/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-04-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 2.分类的内容",
-   "charLen": 312
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/04.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/03/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-03-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.4申请资格",
+   "charLen": 205
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/03.md",
-   "chunkId": "examination-guideline-2025/01/004/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-04-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 3.技术主题",
-   "charLen": 1679
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/05.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/03/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-03-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.5集体商标相关文件",
+   "charLen": 296
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/04/01.md",
-   "chunkId": "examination-guideline-2025/01/004/04/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-04-04-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 4.分类方法 ｜ 4.1整体分类",
-   "charLen": 393
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/06.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/03/06",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-03-06",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.6证明商标相关文件",
+   "charLen": 318
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/04/02.md",
-   "chunkId": "examination-guideline-2025/01/004/04/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-04-04-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 4.分类方法 ｜ 4.2功能分类或者应用分类的确定",
-   "charLen": 1219
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/07.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/03/07",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-03-07",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.7其他文件",
+   "charLen": 58
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/04/03.md",
-   "chunkId": "examination-guideline-2025/01/004/04/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-04-04-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 4.分类方法 ｜ 4.3多重分类",
-   "charLen": 843
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/04/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/04/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-04-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 4审查结论 ｜ 4.1形式审查合格",
+   "charLen": 83
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/04/04.md",
-   "chunkId": "examination-guideline-2025/01/004/04/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-04-04-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 4.分类方法 ｜ 4.4技术主题的特殊分类",
-   "charLen": 208
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/04/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/04/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-04-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 4审查结论 ｜ 4.2需要补正的情形 ｜ 4.2.1申请事项",
+   "charLen": 628
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/05.md",
-   "chunkId": "examination-guideline-2025/01/004/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-04-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 5.分类位置的规则简述",
-   "charLen": 121
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/04/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/04/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-04-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 4审查结论 ｜ 4.2需要补正的情形 ｜ 4.2.2商标图样和声音样本",
+   "charLen": 265
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/004/06.md",
-   "chunkId": "examination-guideline-2025/01/004/06",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-04-06",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第四章专利分类 ｜ 6.分类的步骤",
-   "charLen": 49
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/04/02/03.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/04/02/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-04-02-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 4审查结论 ｜ 4.2需要补正的情形 ｜ 4.2.3商品服务项目",
+   "charLen": 125
   }
  ]
 }

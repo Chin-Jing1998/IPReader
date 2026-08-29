@@ -1,85 +1,86 @@
 {
  "batchNo": 5,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/003/04/03.md",
-   "chunkId": "examination-guideline-2025/01/003/04/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-03-04-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第三章外观设计专利申请的初步审查 ｜ 4.申请文件的审查 ｜ 4.3简要说明",
-   "charLen": 796
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/01/04/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/03/01/04/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-03-01-04-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.1申请书 ｜ 3.1.4商标图样 ｜ 3.1.4.1一般图样要求",
+   "charLen": 185
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/003/04/04.md",
-   "chunkId": "examination-guideline-2025/01/003/04/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-03-04-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第三章外观设计专利申请的初步审查 ｜ 4.申请文件的审查 ｜ 4.4局部外观设计",
-   "charLen": 774
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/01/04/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/03/01/04/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-03-01-04-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.1申请书 ｜ 3.1.4商标图样 ｜ 3.1.4.2三维标志商标 ｜ 3.1.4.2.1图样",
+   "charLen": 795
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/003/04/05.md",
-   "chunkId": "examination-guideline-2025/01/003/04/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-03-04-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第三章外观设计专利申请的初步审查 ｜ 4.申请文件的审查 ｜ 4.5涉及图形用户界面的产品外观设计",
-   "charLen": 1466
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/01/04/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/03/01/04/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-03-01-04-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.1申请书 ｜ 3.1.4商标图样 ｜ 3.1.4.2三维标志商标 ｜ 3.1.4.2.2商标说明和使用方式",
+   "charLen": 267
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/003/05.md",
-   "chunkId": "examination-guideline-2025/01/003/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-03-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第三章外观设计专利申请的初步审查 ｜ 5.其他文件和相关手续的审查",
-   "charLen": 2546
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/01/04/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/03/01/04/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-03-01-04-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.1申请书 ｜ 3.1.4商标图样 ｜ 3.1.4.3颜色组合商标 ｜ 3.1.4.3.1图样",
+   "charLen": 110
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/003/06.md",
-   "chunkId": "examination-guideline-2025/01/003/06",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-03-06",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第三章外观设计专利申请的初步审查 ｜ 6.根据专利法第五条第一款、第二十五条第一款第（六）项和专利法实施细则第十一条的审查",
-   "charLen": 1375
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/01/04/03/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/03/01/04/03/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-03-01-04-03-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.1申请书 ｜ 3.1.4商标图样 ｜ 3.1.4.3颜色组合商标 ｜ 3.1.4.3.2商标说明和使用方式",
+   "charLen": 479
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/003/07.md",
-   "chunkId": "examination-guideline-2025/01/003/07",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-03-07",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第三章外观设计专利申请的初步审查 ｜ 7.根据专利法第二条第四款的审查",
-   "charLen": 1485
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/01/04/04/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/03/01/04/04/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-03-01-04-04-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.1申请书 ｜ 3.1.4商标图样 ｜ 3.1.4.4声音商标 ｜ 3.1.4.4.1声音样本",
+   "charLen": 183
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/003/08.md",
-   "chunkId": "examination-guideline-2025/01/003/08",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-03-08",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第三章外观设计专利申请的初步审查 ｜ 8.根据专利法第二十三条第一款、第二款的审查",
-   "charLen": 501
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/01/04/04/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/03/01/04/04/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-03-01-04-04-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.1申请书 ｜ 3.1.4商标图样 ｜ 3.1.4.4声音商标 ｜ 3.1.4.4.2声音商标描述",
+   "charLen": 1423
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/003/09.md",
-   "chunkId": "examination-guideline-2025/01/003/09",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-03-09",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第三章外观设计专利申请的初步审查 ｜ 9.根据专利法第三十一条第二款的审查",
-   "charLen": 2868
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/01/04/04/03.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/03/01/04/04/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-03-01-04-04-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.1申请书 ｜ 3.1.4商标图样 ｜ 3.1.4.4声音商标 ｜ 3.1.4.4.3商标说明和使用方式",
+   "charLen": 414
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/003/10.md",
-   "chunkId": "examination-guideline-2025/01/003/10",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-03-10",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第三章外观设计专利申请的初步审查 ｜ 10.根据专利法第三十三条的审查",
-   "charLen": 1780
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/01/05.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/03/01/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-03-01-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.1申请书 ｜ 3.1.5商品/服务项目",
+   "charLen": 323
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/003/11.md",
-   "chunkId": "examination-guideline-2025/01/003/11",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-03-11",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第三章外观设计专利申请的初步审查 ｜ 11.根据专利法第九条的审查",
-   "charLen": 352
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/01/06.md",
+   "chunkId": "trademark-exam-guide-2021/01/02/03/01/06",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-02-03-01-06",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.1申请书 ｜ 3.1.6共同申请人",
+   "charLen": 42
   }
  ]
 }

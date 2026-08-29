@@ -1,4 +1,4 @@
-// 数据管线 D3-2：636 切片术语提取（Claude Code Workflow 脚本）
+// 数据管线 D3-2：切片术语提取（Claude Code Workflow 脚本）
 //   每批一个 agent：Read 该批（同域）8~10 个切片 → 逐片提取术语 → Write 到
 //   `${outDirAbs}/${chunkId 扁平化（/ → __）}.json`。幂等：输出文件已存在则跳过该片，
 //   支持断点续跑（重跑同一批只补缺失片）。
@@ -8,6 +8,13 @@
 //       outDirAbs: 输出目录绝对路径（如 <site>/data/term-extract，需已存在或由首个 Write 创建），
 //       extractedAt: 统一时间戳字符串（如 '2026-07-12T00:00:00+08:00'），
 //       model:     可选，默认 'sonnet'
+//       ---- 阶段5.9 波0 新增的工艺参数（均可选，不传则用内置表兜底）----
+//       domainTitles:  {域key: 书名}，覆盖 DOMAIN_TITLES_BUILTIN
+//       domainFields:  {域key: 六标签field}，覆盖 DOMAIN_FIELDS_BUILTIN（决定提示词里的角色领域）
+//       fieldExamples: {field: 正例串}，覆盖 FIELD_EXAMPLES_BUILTIN（决定铁律 1 的正例池）
+//       batchDomains:  {批号: 域key}，**仅引用模式需要**——该模式下 wf 侧只有批号、
+//                      拿不到域信息，不传则角色降级为「知识产权」通用表述、正例回落专利池。
+//                      取值可直接由 manifest 派生：manifest.map(b => [b.batchNo, b.chunks[0].domain])。
 //     }
 //   参考 wf-enrich.js：本脚本经 Workflow 运行时执行，无 Node fs/path API，路径全部来自 args。
 export const meta = {
@@ -32,7 +39,10 @@ const BATCH_SCHEMA = {
 // ⚠ 2026-08-23 修复（任务书外发现）：examination-guideline 域已由 'examination-guideline-2025' 更名，
 //   本表键仍写旧字面量，致该域在 DOMAIN_TITLES[domain] 查不中、静默回退为裸 key 显示；现同步新键。
 //   显示值（含"2025"版本字样的全名）与域 key 无关、不属本次修复范围，原样保留。
-const DOMAIN_TITLES = {
+// ⚠ 2026-08-29 阶段5.9 波0：本表原仅 7 个专利域，商标与四法域切片进来后会静默回退为裸 key
+//   （提示词里出现「本批切片全部出自《trademark-exam-guide-2021》」这种机器串），故补全至 16 域。
+//   同时支持 args.domainTitles 覆盖：传入者优先，未传的域用本表兜底。
+const DOMAIN_TITLES_BUILTIN = {
   'examination-guideline': '专利审查指南2025',
   'patent-law': '中华人民共和国专利法',
   'implementation-rules': '专利法实施细则',
@@ -40,6 +50,42 @@ const DOMAIN_TITLES = {
   'mechanical-drafting-rules': '机械领域申请文件撰写规范',
   'chemistry-drafting-rules': '化学领域申请文件撰写规范',
   'oa-response-guide': '答复审查意见指南',
+  // ---- 阶段5.9 新增：商标域 ----
+  'trademark-exam-guide-2021': '商标审查审理指南',
+  // ---- 阶段5.9 新增：著作权/竞争法/品种布图/综合程序四法域核心法律 8 部 ----
+  'copyright-law-2020': '中华人民共和国著作权法',
+  'copyright-law-rules-2013': '中华人民共和国著作权法实施条例',
+  'anti-unfair-competition-2025': '中华人民共和国反不正当竞争法',
+  'anti-monopoly-law-2022': '中华人民共和国反垄断法',
+  'plant-variety-regulations-2025': '中华人民共和国植物新品种保护条例',
+  'ic-layout-regulations-2026': '集成电路布图设计保护条例',
+  'customs-ip-protection-2018': '中华人民共和国知识产权海关保护条例',
+  'ip-evidence-rules-2020': '最高人民法院关于知识产权民事诉讼证据的若干规定',
+};
+
+// 域 → 六标签 field（取值与 lib/domains.mjs 的 FIELDS 一致）。
+//   用途：把提示词里写死的角色「中国专利法律领域的术语工程专家」改为按域取 field，
+//   避免让 agent 以专利视角去读商标/著作权条文（实测会把「显著特征」误判为非本域术语）。
+const DOMAIN_FIELDS_BUILTIN = {
+  'examination-guideline': '专利', 'patent-law': '专利', 'implementation-rules': '专利',
+  'infringement-guide': '专利', 'mechanical-drafting-rules': '专利',
+  'chemistry-drafting-rules': '专利', 'oa-response-guide': '专利',
+  'trademark-exam-guide-2021': '商标',
+  'copyright-law-2020': '著作权', 'copyright-law-rules-2013': '著作权',
+  'anti-unfair-competition-2025': '竞争法', 'anti-monopoly-law-2022': '竞争法',
+  'plant-variety-regulations-2025': '品种布图', 'ic-layout-regulations-2026': '品种布图',
+  'customs-ip-protection-2018': '综合程序', 'ip-evidence-rules-2020': '综合程序',
+};
+
+// 铁律 1 的正例池按 field 分设。原提示词固定举专利例（抵触申请/等同原则/…），
+//   拿去跑商标或著作权语料会把 agent 的判准锚在专利概念上，压低本域术语召回。
+const FIELD_EXAMPLES_BUILTIN = {
+  '专利': '「抵触申请」「等同原则」「优先权恢复」「马库什权利要求」',
+  '商标': '「显著特征」「在先权利」「类似商品」「地理标志」',
+  '著作权': '「合理使用」「法定许可」「信息网络传播权」「邻接权」',
+  '竞争法': '「市场支配地位」「相关市场界定」「混淆行为」「商业秘密」',
+  '品种布图': '「特异性」「一致性」「稳定性」「布图设计专有权」',
+  '综合程序': '「举证妨碍」「行为保全」「证据保全」「技术调查官」',
 };
 
 // 停用词表节选（全量见 scripts/lib/term-stopwords.mjs；merge-terms.mjs 会按全量表再兜底过滤）
@@ -66,16 +112,35 @@ const model = input.model || 'sonnet';
 const flat = (chunkId) => chunkId.split('/').join('__');
 const pad2 = (n) => String(n).padStart(2, '0');
 
+// ---- 域相关工艺参数（args 覆盖优先，内置表兜底）----
+const DOMAIN_TITLES = { ...DOMAIN_TITLES_BUILTIN, ...(input.domainTitles || {}) };
+const DOMAIN_FIELDS = { ...DOMAIN_FIELDS_BUILTIN, ...(input.domainFields || {}) };
+const FIELD_EXAMPLES = { ...FIELD_EXAMPLES_BUILTIN, ...(input.fieldExamples || {}) };
+// 引用模式下 wf 侧只有批号，域信息在批次文件内。prep-term-extraction.mjs 生成的
+//   batch-NN.json 已含 domain 字段，主会话可据 manifest 传入 {批号: 域key} 映射；
+//   未传时降级为通用表述（不写域名与正例池），行为与阶段5.9 之前一致。
+const BATCH_DOMAINS = input.batchDomains || {};
+
+/** 按域产出提示词的三处可变件：角色领域、书名、正例池 */
+function domainCtx(domain) {
+  const field = DOMAIN_FIELDS[domain] || '知识产权';
+  return {
+    field,
+    title: DOMAIN_TITLES[domain] || domain || '',
+    examples: FIELD_EXAMPLES[field] || FIELD_EXAMPLES['专利'],
+  };
+}
+
 function prompt(batch) {
   const domain = batch.chunks[0].domain;
-  const title = DOMAIN_TITLES[domain] || domain;
+  const { field, title, examples } = domainCtx(domain);
   const list = batch.chunks
     .map(
       (c, i) =>
         `${i + 1}. chunkId: ${c.chunkId}\n   原文: ${c.chunkPath}\n   输出: ${outDirAbs}/${flat(c.chunkId)}.json\n   anchorNode: ${c.anchorNodeId}\n   面包屑: 〔${c.breadcrumb}〕`,
     )
     .join('\n');
-  return `你是中国专利法律领域的术语工程专家，为专利知识库的术语图谱做受控术语提取。本批 ${batch.chunks.length} 个切片全部出自《${title}》。
+  return `你是中国${field}法律领域的术语工程专家，为知识产权知识库的术语图谱做受控术语提取。本批 ${batch.chunks.length} 个切片全部出自《${title}》。
 
 ## 任务：对下列每个切片，逐片完成「查重 → 读原文 → 提取 → 写出」
 ${list}
@@ -96,7 +161,7 @@ ${list}
 }
 
 ## 提取铁律（最高优先级）
-1. 只提取专利/法律领域有实质内涵的术语与概念（如「抵触申请」「等同原则」「优先权恢复」「马库什权利要求」），不提取泛词与程序动作词。泛词示例（节选，命中一律不取）：${STOP_EXCERPT}。
+1. 只提取${field}/法律领域有实质内涵的术语与概念（如${examples}），不提取泛词与程序动作词。泛词示例（节选，命中一律不取）：${STOP_EXCERPT}。
 2. 每个术语必须附 evidence，且 evidence 必须是该片正文中逐字连续的子串（含标点原样复制，不超过 40 字）；找不到合格 evidence 的词宁可不取。
 3. 宁缺毋滥：每片一般 3~15 词；正文极短的切片可以更少甚至为空数组。
 4. role 判定：该片给出了这个术语的定义、构成要件或判断标准 → "defined"；仅使用/提及 → "used"。
@@ -110,9 +175,16 @@ ${list}
 }
 
 // 批次文件引用模式的提示词：agent 先读批次清单，再逐片处理
+// ⚠ 本函数与上方 prompt() 是两条**并行**的提示词生产线，任何铁律/角色/正例池调整必须两处同改。
+//   阶段5.9 波0 前，本函数完全不含域标题与域正例（连书名都没有），跑非专利语料时
+//   agent 只能靠切片正文自行揣摩领域，是商标批召回偏低的成因之一。
 function promptByRef(no) {
   const fileAbs = `${batchDir}/batch-${pad2(no)}.json`;
-  return `你是中国专利法律领域的术语工程专家，为专利知识库的术语图谱做受控术语提取。
+  const domain = BATCH_DOMAINS[no] || BATCH_DOMAINS[String(no)] || '';
+  const { field, title, examples } = domainCtx(domain);
+  const roleField = domain ? field : '知识产权';
+  const fromBook = title ? `本批切片全部出自《${title}》。` : '';
+  return `你是中国${roleField}法律领域的术语工程专家，为知识产权知识库的术语图谱做受控术语提取。${fromBook}
 
 ## 第一步：用 Read 读取批次清单 ${fileAbs}
 该 JSON 的 chunks 数组列出本批 8~10 个切片，每片含：chunkPath（原文绝对路径）、chunkId、anchorNodeId、breadcrumb。
@@ -134,7 +206,7 @@ function promptByRef(no) {
 }
 
 ## 提取铁律（最高优先级）
-1. 只提取专利/法律领域有实质内涵的术语与概念（如「抵触申请」「等同原则」「优先权恢复」「马库什权利要求」），不提取泛词与程序动作词。泛词示例（节选，命中一律不取）：${STOP_EXCERPT}。
+1. 只提取${roleField}/法律领域有实质内涵的术语与概念（如${examples}），不提取泛词与程序动作词。泛词示例（节选，命中一律不取）：${STOP_EXCERPT}。
 2. 每个术语必须附 evidence，且 evidence 必须是该片正文中逐字连续的子串（含标点原样复制，不超过 40 字）；找不到合格 evidence 的词宁可不取。
 3. 宁缺毋滥：每片一般 3~15 词；正文极短的切片可以更少甚至为空数组。
 4. role 判定：该片给出了这个术语的定义、构成要件或判断标准 → "defined"；仅使用/提及 → "used"。

@@ -1,77 +1,86 @@
 {
  "batchNo": 37,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/04/005.md",
-   "chunkId": "patent-law/04/005",
-   "domain": "patent-law",
-   "anchorNodeId": "law-04-05",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第四章 专利申请的审查和批准 ｜ 第三十八条",
-   "charLen": 58
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/03/05/03.md",
+   "chunkId": "trademark-exam-guide-2021/04/03/05/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-03-05-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十五章 商标国际异议形式审查 ｜ 5撤回商标国际异议申请材料的审查 ｜ 5.3审查结论",
+   "charLen": 352
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/04/006.md",
-   "chunkId": "patent-law/04/006",
-   "domain": "patent-law",
-   "anchorNodeId": "law-04-06",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第四章 专利申请的审查和批准 ｜ 第三十九条",
-   "charLen": 84
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/03/05/04.md",
+   "chunkId": "trademark-exam-guide-2021/04/03/05/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-03-05-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十五章 商标国际异议形式审查 ｜ 5撤回商标国际异议申请材料的审查 ｜ 5.4被异议商标撤回相关异议申请的处理",
+   "charLen": 63
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/04/007.md",
-   "chunkId": "patent-law/04/007",
-   "domain": "patent-law",
-   "anchorNodeId": "law-04-07",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第四章 专利申请的审查和批准 ｜ 第四十条",
-   "charLen": 112
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/03/06.md",
+   "chunkId": "trademark-exam-guide-2021/04/03/06",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-03-06",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十五章 商标国际异议形式审查 ｜ 6国际商标异议申请驳回",
+   "charLen": 61
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/04/008.md",
-   "chunkId": "patent-law/04/008",
-   "domain": "patent-law",
-   "anchorNodeId": "law-04-08",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第四章 专利申请的审查和批准 ｜ 第四十一条",
-   "charLen": 135
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/04/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/04/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-04-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十六章 马德里商标领土延伸申请审查 ｜ 1法律依据",
+   "charLen": 85
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/05/001.md",
-   "chunkId": "patent-law/05/001",
-   "domain": "patent-law",
-   "anchorNodeId": "law-05-01",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第五章 专利权的期限、终止和无效 ｜ 第四十二条",
-   "charLen": 252
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/04/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/04/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-04-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十六章 马德里商标领土延伸申请审查 ｜ 2审查 ｜ 2.1形式审查",
+   "charLen": 59
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/05/002.md",
-   "chunkId": "patent-law/05/002",
-   "domain": "patent-law",
-   "anchorNodeId": "law-05-02",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第五章 专利权的期限、终止和无效 ｜ 第四十三条",
-   "charLen": 30
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/04/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/04/04/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-04-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十六章 马德里商标领土延伸申请审查 ｜ 2审查 ｜ 2.2商品和服务项目翻译",
+   "charLen": 113
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/05/003.md",
-   "chunkId": "patent-law/05/003",
-   "domain": "patent-law",
-   "anchorNodeId": "law-05-03",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第五章 专利权的期限、终止和无效 ｜ 第四十四条",
-   "charLen": 92
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/04/02/03.md",
+   "chunkId": "trademark-exam-guide-2021/04/04/02/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-04-02-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十六章 马德里商标领土延伸申请审查 ｜ 2审查 ｜ 2.3实质审查",
+   "charLen": 64
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/05/004.md",
-   "chunkId": "patent-law/05/004",
-   "domain": "patent-law",
-   "anchorNodeId": "law-05-04",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第五章 专利权的期限、终止和无效 ｜ 第四十五条",
-   "charLen": 78
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/05/01/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/05/01/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-05-01-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十七章 领土延伸至中国的 国际注册后续业务形式审查 ｜ 1国际注册转国内申请 ｜ 1.1法律依据",
+   "charLen": 38
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/05/005.md",
-   "chunkId": "patent-law/05/005",
-   "domain": "patent-law",
-   "anchorNodeId": "law-05-05",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第五章 专利权的期限、终止和无效 ｜ 第四十六条",
-   "charLen": 163
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/05/01/02.md",
+   "chunkId": "trademark-exam-guide-2021/04/05/01/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-05-01-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十七章 领土延伸至中国的 国际注册后续业务形式审查 ｜ 1国际注册转国内申请 ｜ 1.2申请条件",
+   "charLen": 121
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/05/01/03.md",
+   "chunkId": "trademark-exam-guide-2021/04/05/01/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-05-01-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十七章 领土延伸至中国的 国际注册后续业务形式审查 ｜ 1国际注册转国内申请 ｜ 1.3申请途径",
+   "charLen": 47
   }
  ]
 }

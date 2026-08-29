@@ -1,77 +1,86 @@
 {
  "batchNo": 65,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/02/006.md",
-   "chunkId": "oa-response-guide/02/006",
-   "domain": "oa-response-guide",
-   "anchorNodeId": "oa-02-06",
-   "breadcrumb": "《审意答复指引》 ｜ 第二节 创造性的答复方式 ｜ 6. 常见的反驳套话：",
-   "charLen": 539
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/04/02/02/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/06/04/02/02/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-04-02-02-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第四章 商标显著特征的审查审理 ｜ 第十一条 ｜ 3具体适用：缺乏显著特征的 ｜ 3.2仅直接表示商品的质量、主要原料、功能、用途、重量、数量及其他特点的 ｜ 3.2.2仅直接表示指定商品的主要原料的",
+   "charLen": 76
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/02/007.md",
-   "chunkId": "oa-response-guide/02/007",
-   "domain": "oa-response-guide",
-   "anchorNodeId": "oa-02-07",
-   "breadcrumb": "《审意答复指引》 ｜ 第二节 创造性的答复方式 ｜ 7. 创造性的答复方式:",
-   "charLen": 5900
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/04/02/02/02/03.md",
+   "chunkId": "trademark-exam-guide-2021/06/04/02/02/02/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-04-02-02-02-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第四章 商标显著特征的审查审理 ｜ 第十一条 ｜ 3具体适用：缺乏显著特征的 ｜ 3.2仅直接表示商品的质量、主要原料、功能、用途、重量、数量及其他特点的 ｜ 3.2.3仅直接表示指定商品或者服务的功能、用途的例如：",
+   "charLen": 112
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/02/008.md",
-   "chunkId": "oa-response-guide/02/008",
-   "domain": "oa-response-guide",
-   "anchorNodeId": "oa-02-08",
-   "breadcrumb": "《审意答复指引》 ｜ 第二节 创造性的答复方式 ｜ 8. 本申请的权利要求具备创造性时的答复模板（不一定必须和模板一模一样，只要答复意见的思路类似即可）：",
-   "charLen": 1669
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/04/02/02/02/04.md",
+   "chunkId": "trademark-exam-guide-2021/06/04/02/02/02/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-04-02-02-02-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第四章 商标显著特征的审查审理 ｜ 第十一条 ｜ 3具体适用：缺乏显著特征的 ｜ 3.2仅直接表示商品的质量、主要原料、功能、用途、重量、数量及其他特点的 ｜ 3.2.4仅直接表示指定商品或者服务的重量、数量的",
+   "charLen": 54
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/03/001.md",
-   "chunkId": "oa-response-guide/03/001",
-   "domain": "oa-response-guide",
-   "anchorNodeId": "oa-03-01",
-   "breadcrumb": "《审意答复指引》 ｜ 第三节 单一性的答复方式 ｜ 1. 单一性的理解",
-   "charLen": 90
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/04/02/02/02/05.md",
+   "chunkId": "trademark-exam-guide-2021/06/04/02/02/02/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-04-02-02-02-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第四章 商标显著特征的审查审理 ｜ 第十一条 ｜ 3具体适用：缺乏显著特征的 ｜ 3.2仅直接表示商品的质量、主要原料、功能、用途、重量、数量及其他特点的 ｜ 3.2.5仅直接表示指定商品或者服务的其他特点的",
+   "charLen": 1304
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/03/002.md",
-   "chunkId": "oa-response-guide/03/002",
-   "domain": "oa-response-guide",
-   "anchorNodeId": "oa-03-02",
-   "breadcrumb": "《审意答复指引》 ｜ 第三节 单一性的答复方式 ｜ 2. 单一性的判断原则",
-   "charLen": 126
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/04/02/02/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/06/04/02/02/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-04-02-02-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第四章 商标显著特征的审查审理 ｜ 第十一条 ｜ 3具体适用：缺乏显著特征的 ｜ 3.3其他缺乏显著特征的 ｜ 3.3.1过于简单的线条、普通几何图形",
+   "charLen": 28
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/03/003.md",
-   "chunkId": "oa-response-guide/03/003",
-   "domain": "oa-response-guide",
-   "anchorNodeId": "oa-03-03",
-   "breadcrumb": "《审意答复指引》 ｜ 第三节 单一性的答复方式 ｜ 3. 单一性的答复步骤",
-   "charLen": 611
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/04/02/02/03/02.md",
+   "chunkId": "trademark-exam-guide-2021/06/04/02/02/03/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-04-02-02-03-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第四章 商标显著特征的审查审理 ｜ 第十一条 ｜ 3具体适用：缺乏显著特征的 ｜ 3.3其他缺乏显著特征的 ｜ 3.3.2一个或者两个普通表现形式的字母",
+   "charLen": 60
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/03/004.md",
-   "chunkId": "oa-response-guide/03/004",
-   "domain": "oa-response-guide",
-   "anchorNodeId": "oa-03-04",
-   "breadcrumb": "《审意答复指引》 ｜ 第三节 单一性的答复方式 ｜ 4. 单一性的答复思路（不一定必须和模板一模一样，只要答复意见的思路类似即可）",
-   "charLen": 323
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/04/02/02/03/03.md",
+   "chunkId": "trademark-exam-guide-2021/06/04/02/02/03/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-04-02-02-03-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第四章 商标显著特征的审查审理 ｜ 第十一条 ｜ 3具体适用：缺乏显著特征的 ｜ 3.3其他缺乏显著特征的 ｜ 3.3.3普通形式的阿拉伯数字",
+   "charLen": 57
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/04/001.md",
-   "chunkId": "oa-response-guide/04/001",
-   "domain": "oa-response-guide",
-   "anchorNodeId": "oa-04-01",
-   "breadcrumb": "《审意答复指引》 ｜ 第四节 权利要求能否得到说明书支持的答复方式 ｜ 1. 权利要求能否得到说明书支持的理解",
-   "charLen": 68
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/04/02/02/03/04.md",
+   "chunkId": "trademark-exam-guide-2021/06/04/02/02/03/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-04-02-02-03-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第四章 商标显著特征的审查审理 ｜ 第十一条 ｜ 3具体适用：缺乏显著特征的 ｜ 3.3其他缺乏显著特征的 ｜ 3.3.4过于复杂的文字、图形、数字、字母或上述要素的组合",
+   "charLen": 38
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/oa-response-guide/_chunks/04/002.md",
-   "chunkId": "oa-response-guide/04/002",
-   "domain": "oa-response-guide",
-   "anchorNodeId": "oa-04-02",
-   "breadcrumb": "《审意答复指引》 ｜ 第四节 权利要求能否得到说明书支持的答复方式 ｜ 2. 权利要求得不到说明书支持的判断原则",
-   "charLen": 3218
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/04/02/02/03/05.md",
+   "chunkId": "trademark-exam-guide-2021/06/04/02/02/03/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-04-02-02-03-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第四章 商标显著特征的审查审理 ｜ 第十一条 ｜ 3具体适用：缺乏显著特征的 ｜ 3.3其他缺乏显著特征的 ｜ 3.3.5商品的外包装",
+   "charLen": 67
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/04/02/02/03/06.md",
+   "chunkId": "trademark-exam-guide-2021/06/04/02/02/03/06",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-04-02-02-03-06",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第四章 商标显著特征的审查审理 ｜ 第十一条 ｜ 3具体适用：缺乏显著特征的 ｜ 3.3其他缺乏显著特征的 ｜ 3.3.6指定商品的容器或者装饰性图案",
+   "charLen": 28
   }
  ]
 }

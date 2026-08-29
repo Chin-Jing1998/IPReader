@@ -1,85 +1,86 @@
 {
  "batchNo": 16,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/010/09/04.md",
-   "chunkId": "examination-guideline-2025/02/010/09/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-10-09-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十章关于化学领域发明专利申请审查的若干规定 ｜ 9.生物技术领域发明专利申请的审查 ｜ 9.4新颖性、创造性和实用性的审查",
-   "charLen": 2849
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/05/02/07.md",
+   "chunkId": "trademark-exam-guide-2021/01/05/02/07",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-05-02-07",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第五章 撤销注册商标申请形式审查 ｜ 2撤销成为通用名称商标申请的形式审查 ｜ 2.7撤回申请",
+   "charLen": 29
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/010/09/05.md",
-   "chunkId": "examination-guideline-2025/02/010/09/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-10-09-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十章关于化学领域发明专利申请审查的若干规定 ｜ 9.生物技术领域发明专利申请的审查 ｜ 9.5遗传资源来源的披露",
-   "charLen": 1112
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/01/01.md",
+   "chunkId": "trademark-exam-guide-2021/02/01/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-01-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第六章 商品服务分类 ｜ 1引言",
+   "charLen": 304
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/011/01.md",
-   "chunkId": "examination-guideline-2025/02/011/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-11-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十一章关于中药领域发明专利申请审查的若干规定 ｜ 1.引言",
-   "charLen": 208
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/01/02.md",
+   "chunkId": "trademark-exam-guide-2021/02/01/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-01-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第六章 商品服务分类 ｜ 2商品和服务分类概述",
+   "charLen": 504
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/011/02.md",
-   "chunkId": "examination-guideline-2025/02/011/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-11-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十一章关于中药领域发明专利申请审查的若干规定 ｜ 2.中药发明专利保护的客体",
-   "charLen": 840
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/01/03.md",
+   "chunkId": "trademark-exam-guide-2021/02/01/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-01-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第六章 商品服务分类 ｜ 3商品和服务项目申报原则",
+   "charLen": 578
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/011/03.md",
-   "chunkId": "examination-guideline-2025/02/011/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-11-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十一章关于中药领域发明专利申请审查的若干规定 ｜ 3.说明书和权利要求书",
-   "charLen": 2105
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/01/04/01.md",
+   "chunkId": "trademark-exam-guide-2021/02/01/04/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-01-04-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第六章 商品服务分类 ｜ 4商品和服务分类原则 ｜ 4.1商品分类原则",
+   "charLen": 792
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/011/04.md",
-   "chunkId": "examination-guideline-2025/02/011/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-11-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十一章关于中药领域发明专利申请审查的若干规定 ｜ 4.新颖性",
-   "charLen": 1346
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/01/04/02.md",
+   "chunkId": "trademark-exam-guide-2021/02/01/04/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-01-04-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第六章 商品服务分类 ｜ 4商品和服务分类原则 ｜ 4.2服务分类原则",
+   "charLen": 521
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/011/05.md",
-   "chunkId": "examination-guideline-2025/02/011/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-11-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十一章关于中药领域发明专利申请审查的若干规定 ｜ 5.创造性",
-   "charLen": 3619
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/01/05.md",
+   "chunkId": "trademark-exam-guide-2021/02/01/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-01-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第六章 商品服务分类 ｜ 5商品和服务项目申报基本要求",
+   "charLen": 885
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/011/06.md",
-   "chunkId": "examination-guideline-2025/02/011/06",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-11-06",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十一章关于中药领域发明专利申请审查的若干规定 ｜ 6.实用性",
-   "charLen": 159
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/02/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第七章 商标文字检索要素分类 ｜ 1引言",
+   "charLen": 72
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/001/01.md",
-   "chunkId": "examination-guideline-2025/03/001/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "03-01-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第一章进入国家阶段的国际申请的初步审查和事务处理 ｜ 1.引言",
-   "charLen": 766
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/02/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/02/02/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-02-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第七章 商标文字检索要素分类 ｜ 2商标名称 ｜ 2.1商标名称确定原则",
+   "charLen": 380
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/03/001/02.md",
-   "chunkId": "examination-guideline-2025/03/001/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "03-01-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第三部分 进入国家阶段的国际申请的审查 ｜ 第一章进入国家阶段的国际申请的初步审查和事务处理 ｜ 2.国际申请进入国家阶段手续的审查",
-   "charLen": 1963
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/02/02/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/02/02/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-02-02-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第二部分 商品服务和商标检索要素的分类 ｜ 第七章 商标文字检索要素分类 ｜ 2商标名称 ｜ 2.2商标名称的修改",
+   "charLen": 81
   }
  ]
 }

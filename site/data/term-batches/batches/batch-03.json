@@ -1,85 +1,86 @@
 {
  "batchNo": 3,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/002/01.md",
-   "chunkId": "examination-guideline-2025/01/002/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-02-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第二章实用新型专利申请的初步审查 ｜ 1.引言",
-   "charLen": 705
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/04/04/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/01/04/04/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-01-04-04-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 4申请文件审查 ｜ 4.4共同申请 ｜ 4.4.2其他共同申请人",
+   "charLen": 135
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/002/02.md",
-   "chunkId": "examination-guideline-2025/01/002/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-02-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第二章实用新型专利申请的初步审查 ｜ 2.审查原则",
-   "charLen": 572
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/04/05/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/01/04/05/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-01-04-05-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 4申请文件审查 ｜ 4.5代理信息 ｜ 4.5.1代理机构名称、章戳",
+   "charLen": 98
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/002/03.md",
-   "chunkId": "examination-guideline-2025/01/002/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-02-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第二章实用新型专利申请的初步审查 ｜ 3.审查程序",
-   "charLen": 2069
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/04/05/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/01/04/05/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-01-04-05-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 4申请文件审查 ｜ 4.5代理信息 ｜ 4.5.2代理人签字",
+   "charLen": 65
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/002/04.md",
-   "chunkId": "examination-guideline-2025/01/002/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-02-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第二章实用新型专利申请的初步审查 ｜ 4.其他文件和相关手续的审查",
-   "charLen": 173
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/04/06.md",
+   "chunkId": "trademark-exam-guide-2021/01/01/04/06",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-01-04-06",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 4申请文件审查 ｜ 4.6申请人章戳（签字）",
+   "charLen": 113
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/002/05.md",
-   "chunkId": "examination-guideline-2025/01/002/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-02-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第二章实用新型专利申请的初步审查 ｜ 5.根据专利法第五条、第二十五条和专利法实施细则第十一条的审查",
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/05/01/01/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/01/05/01/01/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-01-05-01-01-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 5其他申请文件审查 ｜ 5.1身份证明文件、主体资格证明文件 ｜ 5.1.1基本要求 ｜ 5.1.1.1身份证明文件",
+   "charLen": 356
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/05/01/01/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/01/05/01/01/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-01-05-01-01-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 5其他申请文件审查 ｜ 5.1身份证明文件、主体资格证明文件 ｜ 5.1.1基本要求 ｜ 5.1.1.2主体资格证明文件",
+   "charLen": 435
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/05/01/01/03.md",
+   "chunkId": "trademark-exam-guide-2021/01/01/05/01/01/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-01-05-01-01-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 5其他申请文件审查 ｜ 5.1身份证明文件、主体资格证明文件 ｜ 5.1.1基本要求 ｜ 5.1.1.3其他",
+   "charLen": 157
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/05/01/02/01/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/01/05/01/02/01/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-01-05-01-02-01-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 5其他申请文件审查 ｜ 5.1身份证明文件、主体资格证明文件 ｜ 5.1.2国内申请人 ｜ 5.1.2.1内地（大陆）申请人 ｜ 5.1.2.1.1法人或者其他组织",
+   "charLen": 192
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/05/01/02/01/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/01/05/01/02/01/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-01-05-01-02-01-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 5其他申请文件审查 ｜ 5.1身份证明文件、主体资格证明文件 ｜ 5.1.2国内申请人 ｜ 5.1.2.1内地（大陆）申请人 ｜ 5.1.2.1.2自然人",
    "charLen": 146
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/002/06.md",
-   "chunkId": "examination-guideline-2025/01/002/06",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-02-06",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第二章实用新型专利申请的初步审查 ｜ 6.根据专利法第二条第三款的审查",
-   "charLen": 2057
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/002/07.md",
-   "chunkId": "examination-guideline-2025/01/002/07",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-02-07",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第二章实用新型专利申请的初步审查 ｜ 7.申请文件的审查",
-   "charLen": 3562
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/002/08.md",
-   "chunkId": "examination-guideline-2025/01/002/08",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-02-08",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第二章实用新型专利申请的初步审查 ｜ 8.根据专利法第三十三条的审查",
-   "charLen": 1729
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/002/09.md",
-   "chunkId": "examination-guideline-2025/01/002/09",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-02-09",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第二章实用新型专利申请的初步审查 ｜ 9.根据专利法第三十一条第一款的审查",
-   "charLen": 141
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/01/002/10.md",
-   "chunkId": "examination-guideline-2025/01/002/10",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "01-02-10",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第一部分 初步审查 ｜ 第二章实用新型专利申请的初步审查 ｜ 10.根据专利法实施细则第四十九条的审查",
-   "charLen": 105
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/05/01/02/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/01/05/01/02/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-01-05-01-02-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 5其他申请文件审查 ｜ 5.1身份证明文件、主体资格证明文件 ｜ 5.1.2国内申请人 ｜ 5.1.2.2香港特别行政区、澳门特别行政区及台湾地区申请人 ｜ 5.1.2.2.1法人或者其他组织",
+   "charLen": 107
   }
  ]
 }

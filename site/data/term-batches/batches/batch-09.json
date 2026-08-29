@@ -1,85 +1,86 @@
 {
  "batchNo": 9,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/003/02.md",
-   "chunkId": "examination-guideline-2025/02/003/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-03-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第三章新颖性 ｜ 2.新颖性的概念",
-   "charLen": 2878
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/03/01/03.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/03/01/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-03-01-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 3形式审查 ｜ 3.1异议期限 ｜ 3.1.3直接递交的",
+   "charLen": 40
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/003/03.md",
-   "chunkId": "examination-guideline-2025/02/003/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-03-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第三章新颖性 ｜ 3.新颖性的审查",
-   "charLen": 4271
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/03/01/04.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/03/01/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-03-01-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 3形式审查 ｜ 3.1异议期限 ｜ 3.1.4以电子方式提交的",
+   "charLen": 76
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/003/04.md",
-   "chunkId": "examination-guideline-2025/02/003/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-03-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第三章新颖性 ｜ 4.优先权",
-   "charLen": 3328
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/03/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/03/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-03-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 3形式审查 ｜ 3.2异议主体",
+   "charLen": 509
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/003/05.md",
-   "chunkId": "examination-guideline-2025/02/003/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-03-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第三章新颖性 ｜ 5.不丧失新颖性的宽限期",
-   "charLen": 1223
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/03/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/03/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-03-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 3形式审查 ｜ 3.3内容及要求 ｜ 3.3.1申请书",
+   "charLen": 321
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/003/06.md",
-   "chunkId": "examination-guideline-2025/02/003/06",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-03-06",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第三章新颖性 ｜ 6.对同样的发明创造的处理",
-   "charLen": 1803
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/03/03/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/03/03/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-03-03-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 3形式审查 ｜ 3.3内容及要求 ｜ 3.3.2身份证明文件",
+   "charLen": 92
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/004/01.md",
-   "chunkId": "examination-guideline-2025/02/004/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-04-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第四章创造性 ｜ 1.引言",
-   "charLen": 105
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/03/03/03.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/03/03/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-03-03-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 3形式审查 ｜ 3.3内容及要求 ｜ 3.3.3明确的异议理由、事实和法律依据",
+   "charLen": 194
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/004/02.md",
-   "chunkId": "examination-guideline-2025/02/004/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-04-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第四章创造性 ｜ 2.发明创造性的概念",
-   "charLen": 751
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/03/03/04/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/03/03/04/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-03-03-04-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 3形式审查 ｜ 3.3内容及要求 ｜ 3.3.4主体资格证明文件 ｜ 3.3.4.1文件提交",
+   "charLen": 522
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/004/03.md",
-   "chunkId": "examination-guideline-2025/02/004/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-04-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第四章创造性 ｜ 3.发明创造性的审查",
-   "charLen": 4252
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/03/03/04/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/03/03/04/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-03-03-04-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 3形式审查 ｜ 3.3内容及要求 ｜ 3.3.4主体资格证明文件 ｜ 3.3.4.2主体资格证明文件的一般性要求",
+   "charLen": 267
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/004/04.md",
-   "chunkId": "examination-guideline-2025/02/004/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-04-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第四章创造性 ｜ 4.几种不同类型发明的创造性判断",
-   "charLen": 3886
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/03/03/05.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/03/03/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-03-03-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 3形式审查 ｜ 3.3内容及要求 ｜ 3.3.5商标代理委托书",
+   "charLen": 303
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/004/05.md",
-   "chunkId": "examination-guideline-2025/02/004/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-04-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第四章创造性 ｜ 5.判断发明创造性时需考虑的其他因素",
-   "charLen": 951
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/03/04/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/03/03/04/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-03-03-04-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 3形式审查 ｜ 3.4审查结论 ｜ 3.4.1受理",
+   "charLen": 57
   }
  ]
 }

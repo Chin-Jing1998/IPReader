@@ -28,7 +28,12 @@ const TERMCO_W_MAX = 0.7; // weight = min(共享数, TERMCO_W_SAT) / TERMCO_W_SA
 const TERMCO_W_SAT = 5; // 共享数饱和点（≥5 视为满权）
 const TERMCO_ACTIVE_CAP = 8; // 每词"主动入选"配额（超出按 共享数↓ → 对方df↓ → 对方canonical↑ 取前 8）
 const TERMCO_ACTIVE_MAX = TERMCO_ACTIVE_CAP + 1; // 主动配额上限 = 入选 8 + 孤立补边 1
-const TERMCO_TOTAL_MAX = 2000; // termco 总量断言上限
+// termco 总量断言上限。2026-08-29 阶段5.9 波0：2000→3000。
+//   推算：现实测 1.32 条 termco 边/词；本批词表落点约 1800 词（上限 2000，见 merge-terms.mjs
+//   的 TOTAL_MAX 推算注释）→ 1.32 × 1800 ≈ 2380 条，取 3000 留约 25% 余量。
+//   注意：本常量在文件末尾（约 :619）是**硬断言**，超限直接 exit 1，词表扩容时必须同步上调，
+//   否则波4 全量重建会在 extract-edges 环节整链中断。
+const TERMCO_TOTAL_MAX = 3000;
 function readJson(name) {
   try {
     return JSON.parse(readFileSync(join(D, name), 'utf8'));

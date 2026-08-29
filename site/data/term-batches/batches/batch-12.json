@@ -1,85 +1,86 @@
 {
  "batchNo": 12,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/03.md",
-   "chunkId": "examination-guideline-2025/02/008/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-08-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 3.申请文件的核查与实审准备",
-   "charLen": 1265
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/04/03/02/03.md",
+   "chunkId": "trademark-exam-guide-2021/01/04/03/02/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-04-03-02-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第四章 评审形式审查 ｜ 3形式审查 ｜ 3.2期限 ｜ 3.2.3期限的计算",
+   "charLen": 156
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/04/01.md",
-   "chunkId": "examination-guideline-2025/02/008/04/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-08-04-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 4.实质审查 ｜ 4.1审查的文本",
-   "charLen": 661
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/04/03/03.md",
+   "chunkId": "trademark-exam-guide-2021/01/04/03/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-04-03-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第四章 评审形式审查 ｜ 3形式审查 ｜ 3.3评审范围",
+   "charLen": 404
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/04/02.md",
-   "chunkId": "examination-guideline-2025/02/008/04/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-08-04-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 4.实质审查 ｜ 4.2阅读申请文件并理解发明",
-   "charLen": 200
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/04/03/04/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/04/03/04/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-04-03-04-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第四章 评审形式审查 ｜ 3形式审查 ｜ 3.4内容及要求 ｜ 3.4.1首页",
+   "charLen": 291
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/04/03.md",
-   "chunkId": "examination-guideline-2025/02/008/04/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-08-04-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 4.实质审查 ｜ 4.3不必检索即可发出审查意见通知书的情况",
-   "charLen": 147
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/04/03/04/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/04/03/04/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-04-03-04-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第四章 评审形式审查 ｜ 3形式审查 ｜ 3.4内容及要求 ｜ 3.4.2明确的评审理由、事实和法律依据",
+   "charLen": 79
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/04/04.md",
-   "chunkId": "examination-guideline-2025/02/008/04/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-08-04-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 4.实质审查 ｜ 4.4对缺乏单一性申请的处理",
-   "charLen": 1328
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/04/03/04/03.md",
+   "chunkId": "trademark-exam-guide-2021/01/04/03/04/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-04-03-04-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第四章 评审形式审查 ｜ 3形式审查 ｜ 3.4内容及要求 ｜ 3.4.3证据",
+   "charLen": 168
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/04/05.md",
-   "chunkId": "examination-guideline-2025/02/008/04/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-08-04-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 4.实质审查 ｜ 4.5检索",
-   "charLen": 66
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/04/03/04/04.md",
+   "chunkId": "trademark-exam-guide-2021/01/04/03/04/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-04-03-04-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第四章 评审形式审查 ｜ 3形式审查 ｜ 3.4内容及要求 ｜ 3.4.4代理委托书",
+   "charLen": 186
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/04/06.md",
-   "chunkId": "examination-guideline-2025/02/008/04/06",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-08-04-06",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 4.实质审查 ｜ 4.6优先权的核实",
-   "charLen": 2089
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/04/03/04/05.md",
+   "chunkId": "trademark-exam-guide-2021/01/04/03/04/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-04-03-04-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第四章 评审形式审查 ｜ 3形式审查 ｜ 3.4内容及要求 ｜ 3.4.5身份证明文件",
+   "charLen": 102
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/04/07.md",
-   "chunkId": "examination-guideline-2025/02/008/04/07",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-08-04-07",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 4.实质审查 ｜ 4.7全面审查",
-   "charLen": 2790
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/04/03/04/06.md",
+   "chunkId": "trademark-exam-guide-2021/01/04/03/04/06",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-04-03-04-06",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第四章 评审形式审查 ｜ 3形式审查 ｜ 3.4内容及要求 ｜ 3.4.6主体资格证明文件",
+   "charLen": 305
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/04/08.md",
-   "chunkId": "examination-guideline-2025/02/008/04/08",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-08-04-08",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 4.实质审查 ｜ 4.8不全面审查的情况",
-   "charLen": 199
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/04/03/05/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/04/03/05/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-04-03-05-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第四章 评审形式审查 ｜ 3形式审查 ｜ 3.5审查结论 ｜ 3.5.1受理",
+   "charLen": 41
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/008/04/09.md",
-   "chunkId": "examination-guideline-2025/02/008/04/09",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-08-04-09",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第八章实质审查程序 ｜ 4.实质审查 ｜ 4.9对公众意见的处理",
-   "charLen": 127
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/04/03/05/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/04/03/05/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-04-03-05-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第四章 评审形式审查 ｜ 3形式审查 ｜ 3.5审查结论 ｜ 3.5.2不予受理",
+   "charLen": 98
   }
  ]
 }

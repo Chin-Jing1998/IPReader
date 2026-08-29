@@ -1,77 +1,86 @@
 {
  "batchNo": 40,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/002.md",
-   "chunkId": "patent-law/07/002",
-   "domain": "patent-law",
-   "anchorNodeId": "law-07-02",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第六十五条",
-   "charLen": 296
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/05/03/03/08.md",
+   "chunkId": "trademark-exam-guide-2021/04/05/03/03/08",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-05-03-03-08",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十七章 领土延伸至中国的 国际注册后续业务形式审查 ｜ 3国际更正分拣 ｜ 3.3对国际后续业务更正的分拣标准 ｜ 3.3.8对其他后续业务的更正",
+   "charLen": 44
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/003.md",
-   "chunkId": "patent-law/07/003",
-   "domain": "patent-law",
-   "anchorNodeId": "law-07-03",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第六十六条",
-   "charLen": 214
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/01/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/06/01/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-06-01-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 1国际变更（注册人名称/地址变更） ｜ 1.1法律依据",
+   "charLen": 64
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/004.md",
-   "chunkId": "patent-law/07/004",
-   "domain": "patent-law",
-   "anchorNodeId": "law-07-04",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第六十七条",
-   "charLen": 59
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/01/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/06/01/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-06-01-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 1国际变更（注册人名称/地址变更） ｜ 1.2审查结论 ｜ 1.2.1核准",
+   "charLen": 55
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/005.md",
-   "chunkId": "patent-law/07/005",
-   "domain": "patent-law",
-   "anchorNodeId": "law-07-05",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第六十八条",
-   "charLen": 114
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/01/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/04/06/01/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-06-01-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 1国际变更（注册人名称/地址变更） ｜ 1.2审查结论 ｜ 1.2.2不予核准",
+   "charLen": 84
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/006.md",
-   "chunkId": "patent-law/07/006",
-   "domain": "patent-law",
-   "anchorNodeId": "law-07-06",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第六十九条",
-   "charLen": 295
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/06/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-06-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 2国际续展 ｜ 2.1法律依据",
+   "charLen": 71
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/007.md",
-   "chunkId": "patent-law/07/007",
-   "domain": "patent-law",
-   "anchorNodeId": "law-07-07",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第七十条",
-   "charLen": 153
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/02/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/06/02/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-06-02-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 2国际续展 ｜ 2.2审查结论 ｜ 2.2.1核准",
+   "charLen": 47
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/008.md",
-   "chunkId": "patent-law/07/008",
-   "domain": "patent-law",
-   "anchorNodeId": "law-07-08",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第七十一条",
-   "charLen": 361
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/02/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/04/06/02/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-06-02-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 2国际续展 ｜ 2.2审查结论 ｜ 2.2.2不予核准",
+   "charLen": 71
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/009.md",
-   "chunkId": "patent-law/07/009",
-   "domain": "patent-law",
-   "anchorNodeId": "law-07-09",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第七十二条",
-   "charLen": 121
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/06/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-06-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 3国际转让 ｜ 3.1法律依据",
+   "charLen": 72
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/patent-law/_chunks/07/010.md",
-   "chunkId": "patent-law/07/010",
-   "domain": "patent-law",
-   "anchorNodeId": "law-07-10",
-   "breadcrumb": "《中华人民共和国专利法》 ｜ 第七章 专利权的保护 ｜ 第七十三条",
-   "charLen": 69
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/03/02.md",
+   "chunkId": "trademark-exam-guide-2021/04/06/03/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-06-03-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 3国际转让 ｜ 3.2受让人资格",
+   "charLen": 80
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/03/03.md",
+   "chunkId": "trademark-exam-guide-2021/04/06/03/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-06-03-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 3国际转让 ｜ 3.3一并转让",
+   "charLen": 76
   }
  ]
 }

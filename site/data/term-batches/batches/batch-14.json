@@ -1,85 +1,86 @@
 {
  "batchNo": 14,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/009/01.md",
-   "chunkId": "examination-guideline-2025/02/009/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-09-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第九章关于涉及计算机程序的发明专利申请审查的若干规定 ｜ 1.引言",
-   "charLen": 502
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/05/01/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/05/01/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-05-01-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第五章 撤销注册商标申请形式审查 ｜ 1撤销连续三年不使用注册商标申请的形式审查 ｜ 1.1法律依据",
+   "charLen": 89
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/009/02.md",
-   "chunkId": "examination-guideline-2025/02/009/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-09-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第九章关于涉及计算机程序的发明专利申请审查的若干规定 ｜ 2.涉及计算机程序的发明专利申请的审查基准",
-   "charLen": 1515
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/05/01/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/05/01/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-05-01-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第五章 撤销注册商标申请形式审查 ｜ 1撤销连续三年不使用注册商标申请的形式审查 ｜ 1.2申请文件及要求",
+   "charLen": 271
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/009/03.md",
-   "chunkId": "examination-guideline-2025/02/009/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-09-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第九章关于涉及计算机程序的发明专利申请审查的若干规定 ｜ 3.涉及计算机程序的发明专利申请的审查示例",
-   "charLen": 5607
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/05/01/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/05/01/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-05-01-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第五章 撤销注册商标申请形式审查 ｜ 1撤销连续三年不使用注册商标申请的形式审查 ｜ 1.3注册商标注册满三年的计算 ｜ 1.3.1国内注册商标",
+   "charLen": 37
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/009/04.md",
-   "chunkId": "examination-guideline-2025/02/009/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-09-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第九章关于涉及计算机程序的发明专利申请审查的若干规定 ｜ 4.汉字编码方法及计算机汉字输入方法",
-   "charLen": 1005
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/05/01/03/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/05/01/03/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-05-01-03-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第五章 撤销注册商标申请形式审查 ｜ 1撤销连续三年不使用注册商标申请的形式审查 ｜ 1.3注册商标注册满三年的计算 ｜ 1.3.2马德里国际注册商标",
+   "charLen": 444
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/009/05.md",
-   "chunkId": "examination-guideline-2025/02/009/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-09-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第九章关于涉及计算机程序的发明专利申请审查的若干规定 ｜ 5.涉及计算机程序的发明专利申请的说明书及权利要求书的撰写",
-   "charLen": 3100
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/05/01/04/01.md",
+   "chunkId": "trademark-exam-guide-2021/01/05/01/04/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-05-01-04-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第五章 撤销注册商标申请形式审查 ｜ 1撤销连续三年不使用注册商标申请的形式审查 ｜ 1.4文件送达 ｜ 1.4.1主送",
+   "charLen": 409
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/009/06/01.md",
-   "chunkId": "examination-guideline-2025/02/009/06/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-09-06-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第九章关于涉及计算机程序的发明专利申请审查的若干规定 ｜ 6.涉及人工智能、大数据等包含算法特征或商业规则和方法特征的发明专利申请审查相关规定 ｜ 6.1审查基准",
-   "charLen": 2091
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/05/01/04/02.md",
+   "chunkId": "trademark-exam-guide-2021/01/05/01/04/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-05-01-04-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第五章 撤销注册商标申请形式审查 ｜ 1撤销连续三年不使用注册商标申请的形式审查 ｜ 1.4文件送达 ｜ 1.4.2抄送",
+   "charLen": 188
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/009/06/02.md",
-   "chunkId": "examination-guideline-2025/02/009/06/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-09-06-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第九章关于涉及计算机程序的发明专利申请审查的若干规定 ｜ 6.涉及人工智能、大数据等包含算法特征或商业规则和方法特征的发明专利申请审查相关规定 ｜ 6.2审查示例",
-   "charLen": 15338
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/05/01/04/03.md",
+   "chunkId": "trademark-exam-guide-2021/01/05/01/04/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-05-01-04-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第五章 撤销注册商标申请形式审查 ｜ 1撤销连续三年不使用注册商标申请的形式审查 ｜ 1.4文件送达 ｜ 1.4.3送达公告",
+   "charLen": 80
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/009/06/03.md",
-   "chunkId": "examination-guideline-2025/02/009/06/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-09-06-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第九章关于涉及计算机程序的发明专利申请审查的若干规定 ｜ 6.涉及人工智能、大数据等包含算法特征或商业规则和方法特征的发明专利申请审查相关规定 ｜ 6.3说明书及权利要求书的撰写",
-   "charLen": 3532
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/05/01/05.md",
+   "chunkId": "trademark-exam-guide-2021/01/05/01/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-05-01-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第五章 撤销注册商标申请形式审查 ｜ 1撤销连续三年不使用注册商标申请的形式审查 ｜ 1.5连续三年不使用之三年期间的确定",
+   "charLen": 162
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/009/07.md",
-   "chunkId": "examination-guideline-2025/02/009/07",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-09-07",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第九章关于涉及计算机程序的发明专利申请审查的若干规定 ｜ 7.包含比特流的发明专利申请审查相关规定",
-   "charLen": 1334
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/05/01/06.md",
+   "chunkId": "trademark-exam-guide-2021/01/05/01/06",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-05-01-06",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第五章 撤销注册商标申请形式审查 ｜ 1撤销连续三年不使用注册商标申请的形式审查 ｜ 1.6使用证据的接收",
+   "charLen": 193
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/02/010/01.md",
-   "chunkId": "examination-guideline-2025/02/010/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "02-10-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第二部分 实质审查 ｜ 第十章关于化学领域发明专利申请审查的若干规定 ｜ 1.引言",
-   "charLen": 265
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/05/01/07.md",
+   "chunkId": "trademark-exam-guide-2021/01/05/01/07",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-01-05-01-07",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第五章 撤销注册商标申请形式审查 ｜ 1撤销连续三年不使用注册商标申请的形式审查 ｜ 1.7审查过程中的变更",
+   "charLen": 211
   }
  ]
 }

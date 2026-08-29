@@ -1,77 +1,86 @@
 {
  "batchNo": 30,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/010/01.md",
-   "chunkId": "examination-guideline-2025/05/010/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-10-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第十章专利权评价报告 ｜ 1.引言",
-   "charLen": 371
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/05/05.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/05/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-05-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 5马德里商标国际注册申请审查标准 ｜ 5.5缔约方信息",
+   "charLen": 99
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/010/02.md",
-   "chunkId": "examination-guideline-2025/05/010/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-10-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第十章专利权评价报告 ｜ 2.专利权评价报告请求的形式审查",
-   "charLen": 1839
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/05/06.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/05/06",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-05-06",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 5马德里商标国际注册申请审查标准 ｜ 5.6申请人/代理人章戳或签字",
+   "charLen": 98
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/010/03.md",
-   "chunkId": "examination-guideline-2025/05/010/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-10-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第十章专利权评价报告 ｜ 3.专利权评价",
-   "charLen": 1955
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/05/07.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/05/07",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-05-07",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 5马德里商标国际注册申请审查标准 ｜ 5.7指定美国使用意图声明",
+   "charLen": 110
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/010/04.md",
-   "chunkId": "examination-guideline-2025/05/010/04",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-10-04",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第十章专利权评价报告 ｜ 4.专利权评价报告",
-   "charLen": 1339
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/05/08.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/05/08",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-05-08",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 5马德里商标国际注册申请审查标准 ｜ 5.8申请人身份证明文件",
+   "charLen": 201
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/010/05.md",
-   "chunkId": "examination-guideline-2025/05/010/05",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-10-05",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第十章专利权评价报告 ｜ 5.专利权评价报告的查阅与复制",
-   "charLen": 103
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/05/09.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/05/09",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-05-09",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 5马德里商标国际注册申请审查标准 ｜ 5.9马德里商标国际注册申请代理委托书",
+   "charLen": 240
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/010/06.md",
-   "chunkId": "examination-guideline-2025/05/010/06",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-10-06",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第十章专利权评价报告 ｜ 6.专利权评价报告的更正",
-   "charLen": 835
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/05/10.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/05/10",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-05-10",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 5马德里商标国际注册申请审查标准 ｜ 5.10审查结论",
+   "charLen": 124
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/011/01.md",
-   "chunkId": "examination-guideline-2025/05/011/01",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-11-01",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第十一章专利开放许可 ｜ 1.引言",
-   "charLen": 411
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/05/11.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/05/11",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-05-11",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 5马德里商标国际注册申请审查标准 ｜ 5.11规费",
+   "charLen": 109
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/011/02.md",
-   "chunkId": "examination-guideline-2025/05/011/02",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-11-02",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第十一章专利开放许可 ｜ 2.开放许可相关原则",
-   "charLen": 293
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/06/01.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/06/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-06-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 6国际申请撤回 ｜ 6.1撤回申请文件",
+   "charLen": 125
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/examination-guideline-2025/_chunks/05/011/03.md",
-   "chunkId": "examination-guideline-2025/05/011/03",
-   "domain": "examination-guideline-2025",
-   "anchorNodeId": "05-11-03",
-   "breadcrumb": "《专利审查指南（2025）》 ｜ 第五部分 专利申请及事务处理 ｜ 第十一章专利开放许可 ｜ 3.专利开放许可声明的提出",
-   "charLen": 1257
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/06/02.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/06/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-06-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 6国际申请撤回 ｜ 6.2审查标准",
+   "charLen": 109
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/06/03.md",
+   "chunkId": "trademark-exam-guide-2021/04/01/06/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-04-01-06-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 6国际申请撤回 ｜ 6.3审查结论",
+   "charLen": 44
   }
  ]
 }

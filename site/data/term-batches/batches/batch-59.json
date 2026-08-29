@@ -1,85 +1,86 @@
 {
  "batchNo": 59,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/001/01.md",
-   "chunkId": "mechanical-drafting-rules/01/001/01",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-01-01-01",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 1. 形式及格式要求 ｜ 1.1.形式要求",
-   "charLen": 1766
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/01/05.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/01/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-01-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.1同中华人民共和国的国家名称、国旗、国徽、国歌、军旗、军徽、军歌、勋章等相同或者近似的，以及同中央国家机关的名称、标志、所在地特定地点的名称或者标志性建筑物的名称、图形相同的 ｜ 3.1.5同中央国家机关的名称、标志、所在地特定地点的名称或者标志性建筑物的名称、图形相同的",
+   "charLen": 128
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/001/02.md",
-   "chunkId": "mechanical-drafting-rules/01/001/02",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-01-01-02",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 1. 形式及格式要求 ｜ 1.2.格式要求",
-   "charLen": 1526
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.2同外国的国家名称、国旗、国徽、军旗等相同或者近似的 ｜ 3.2.1同外国的国家名称相同或者近似的",
+   "charLen": 1167
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/002/01.md",
-   "chunkId": "mechanical-drafting-rules/01/002/01",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-01-02-01",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 2. 权利要求书 ｜ 2.1.整体技术方案",
-   "charLen": 4778
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.2同外国的国家名称、国旗、国徽、军旗等相同或者近似的 ｜ 3.2.2与外国国旗、国徽、军旗等的名称或者图案相同或者近似的",
+   "charLen": 304
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/002/02.md",
-   "chunkId": "mechanical-drafting-rules/01/002/02",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-01-02-02",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 2. 权利要求书 ｜ 2.2.独立权利要求",
-   "charLen": 1066
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/03.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.3同政府间国际组织的名称、旗帜、徽记等相同或者近似的",
+   "charLen": 299
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/002/03.md",
-   "chunkId": "mechanical-drafting-rules/01/002/03",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-01-02-03",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 2. 权利要求书 ｜ 2.3.从属权利要求",
-   "charLen": 849
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/04.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.4与表明实施控制、予以保证的官方标志、检验印记相同或者近似的",
+   "charLen": 439
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/003/01.md",
-   "chunkId": "mechanical-drafting-rules/01/003/01",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-01-03-01",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 3. 说明书 ｜ 3.1.发明名称",
-   "charLen": 90
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/05.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.5同“红十字”“红新月”的名称、标志相同或者近似的",
+   "charLen": 367
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/003/02.md",
-   "chunkId": "mechanical-drafting-rules/01/003/02",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-01-03-02",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 3. 说明书 ｜ 3.2.技术领域",
-   "charLen": 239
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/06.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/06",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-06",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.6带有民族歧视性的",
+   "charLen": 95
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/003/03.md",
-   "chunkId": "mechanical-drafting-rules/01/003/03",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-01-03-03",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 3. 说明书 ｜ 3.3.背景技术",
-   "charLen": 1508
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/07/01/01.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/07/01/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-07-01-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.7带有欺骗性，容易使公众对商品的质量等特点或者产地产生误认的 ｜ 3.7.1容易使公众对商品或者服务的质量、品质、功能、用途、原料、内容、重量、数量、价格、工艺、技术等特点产生误认的 ｜ 3.7.1.1容易使公众对商品或者服务的质量、品质等特点产生误认的例如：",
+   "charLen": 488
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/003/04.md",
-   "chunkId": "mechanical-drafting-rules/01/003/04",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-01-03-04",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 3. 说明书 ｜ 3.4. 发明/实用新型内容",
-   "charLen": 447
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/07/01/02.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/07/01/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-07-01-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.7带有欺骗性，容易使公众对商品的质量等特点或者产地产生误认的 ｜ 3.7.1容易使公众对商品或者服务的质量、品质、功能、用途、原料、内容、重量、数量、价格、工艺、技术等特点产生误认的 ｜ 3.7.1.2容易使公众对商品的功能、用途等特点产生误认的例如：",
+   "charLen": 121
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/mechanical-drafting-rules/_chunks/01/003/05.md",
-   "chunkId": "mechanical-drafting-rules/01/003/05",
-   "domain": "mechanical-drafting-rules",
-   "anchorNodeId": "mech-01-03-05",
-   "breadcrumb": "《机械案件撰写规范》 ｜ 第一章 撰写规范 ｜ 3. 说明书 ｜ 3.5.附图说明",
-   "charLen": 415
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/07/01/03.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/07/01/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-07-01-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.7带有欺骗性，容易使公众对商品的质量等特点或者产地产生误认的 ｜ 3.7.1容易使公众对商品或者服务的质量、品质、功能、用途、原料、内容、重量、数量、价格、工艺、技术等特点产生误认的 ｜ 3.7.1.3容易使公众对商品的种类、主要原料、成分等特点产生误认的例如：",
+   "charLen": 167
   }
  ]
 }

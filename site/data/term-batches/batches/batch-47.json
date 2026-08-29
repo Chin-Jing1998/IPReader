@@ -1,85 +1,86 @@
 {
  "batchNo": 47,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/010.md",
-   "chunkId": "implementation-rules/03/010",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-10",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第五十一条",
-   "charLen": 125
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/05/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十章 商标费用 ｜ 1规费项目",
+   "charLen": 220
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/011.md",
-   "chunkId": "implementation-rules/03/011",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-11",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第五十二条",
-   "charLen": 81
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/05/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十章 商标费用 ｜ 2缴费期限和缴费日",
+   "charLen": 160
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/012.md",
-   "chunkId": "implementation-rules/03/012",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-12",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第五十三条",
-   "charLen": 103
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/02/03.md",
+   "chunkId": "trademark-exam-guide-2021/05/02/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-02-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十章 商标费用 ｜ 3缴纳方式",
+   "charLen": 314
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/013.md",
-   "chunkId": "implementation-rules/03/013",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-13",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第五十四条",
-   "charLen": 72
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/02/04/01.md",
+   "chunkId": "trademark-exam-guide-2021/05/02/04/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-02-04-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十章 商标费用 ｜ 4退款 ｜ 4.1退款规则",
+   "charLen": 67
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/014.md",
-   "chunkId": "implementation-rules/03/014",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-14",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第五十五条",
-   "charLen": 76
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/02/04/02/01.md",
+   "chunkId": "trademark-exam-guide-2021/05/02/04/02/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-02-04-02-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十章 商标费用 ｜ 4退款 ｜ 4.2退款情形 ｜ 4.2.1当事人可以请求退款的情形",
+   "charLen": 235
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/015.md",
-   "chunkId": "implementation-rules/03/015",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-15",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第五十六条",
-   "charLen": 72
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/02/04/02/02.md",
+   "chunkId": "trademark-exam-guide-2021/05/02/04/02/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-02-04-02-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十章 商标费用 ｜ 4退款 ｜ 4.2退款情形 ｜ 4.2.2不予退款的情形",
+   "charLen": 105
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/016.md",
-   "chunkId": "implementation-rules/03/016",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-16",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第五十七条",
-   "charLen": 244
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/02/04/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/05/02/04/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-02-04-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十章 商标费用 ｜ 4退款 ｜ 4.3退款手续 ｜ 4.3.1退款请求的提出",
+   "charLen": 177
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/017.md",
-   "chunkId": "implementation-rules/03/017",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-17",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第五十八条",
-   "charLen": 94
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/02/04/03/02.md",
+   "chunkId": "trademark-exam-guide-2021/05/02/04/03/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-02-04-03-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十章 商标费用 ｜ 4退款 ｜ 4.3退款手续 ｜ 4.3.2退款的处理",
+   "charLen": 87
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/018.md",
-   "chunkId": "implementation-rules/03/018",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-18",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第五十九条",
-   "charLen": 227
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/02/04/03/03.md",
+   "chunkId": "trademark-exam-guide-2021/05/02/04/03/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-02-04-03-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十章 商标费用 ｜ 4退款 ｜ 4.3退款手续 ｜ 4.3.3退款的效力",
+   "charLen": 28
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/03/019.md",
-   "chunkId": "implementation-rules/03/019",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-03-19",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第三章 专利申请的审查和批准 ｜ 第六十条",
-   "charLen": 118
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/03/01/01/01.md",
+   "chunkId": "trademark-exam-guide-2021/05/03/01/01/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-03-01-01-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十一章 商标文件的送达 ｜ 1商标文件的送达 ｜ 1.1送达方式 ｜ 1.1.1邮寄",
+   "charLen": 79
   }
  ]
 }

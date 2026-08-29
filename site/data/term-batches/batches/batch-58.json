@@ -1,69 +1,86 @@
 {
  "batchNo": 58,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/05/002.md",
-   "chunkId": "infringement-guide/05/002",
-   "domain": "infringement-guide",
-   "anchorNodeId": "infr-05-02",
-   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 五、专利侵权行为的认定 ｜ （二）共同侵犯专利权行为的认定",
-   "charLen": 859
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/01/04.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/01/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-01-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 2释义 ｜ 2.4与表明实施控制、予以保证的官方标志、检验印记相同或者近似的",
+   "charLen": 497
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/06/001.md",
-   "chunkId": "infringement-guide/06/001",
-   "domain": "infringement-guide",
-   "anchorNodeId": "infr-06-01",
-   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 六、专利侵权抗辩 ｜ （一）专利权效力抗辩",
-   "charLen": 127
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/01/05.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/01/05",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-01-05",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 2释义 ｜ 2.5同“红十字”“红新月”的名称、标志相同或者近似的",
+   "charLen": 417
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/06/002.md",
-   "chunkId": "infringement-guide/06/002",
-   "domain": "infringement-guide",
-   "anchorNodeId": "infr-06-02",
-   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 六、专利侵权抗辩 ｜ （二）滥用专利权抗辩",
-   "charLen": 367
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/01/06.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/01/06",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-01-06",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 2释义 ｜ 2.6带有民族歧视性的",
+   "charLen": 90
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/06/003.md",
-   "chunkId": "infringement-guide/06/003",
-   "domain": "infringement-guide",
-   "anchorNodeId": "infr-06-03",
-   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 六、专利侵权抗辩 ｜ （三）不侵权抗辩",
-   "charLen": 381
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/01/07.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/01/07",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-01-07",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 2释义 ｜ 2.7带有欺骗性，容易使公众对商品的质量等特点或者产地产生误认的",
+   "charLen": 312
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/06/004.md",
-   "chunkId": "infringement-guide/06/004",
-   "domain": "infringement-guide",
-   "anchorNodeId": "infr-06-04",
-   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 六、专利侵权抗辩 ｜ （四）不视为侵权的抗辩",
-   "charLen": 1382
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/01/08.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/01/08",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-01-08",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 2释义 ｜ 2.8有害于社会主义道德风尚或者有其他不良影响的",
+   "charLen": 541
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/06/005.md",
-   "chunkId": "infringement-guide/06/005",
-   "domain": "infringement-guide",
-   "anchorNodeId": "infr-06-05",
-   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 六、专利侵权抗辩 ｜ （五）现有技术抗辩及现有设计抗辩",
-   "charLen": 855
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/01/09.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/01/09",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-01-09",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 2释义 ｜ 2.9含地名标志的审查审理",
+   "charLen": 605
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/06/006.md",
-   "chunkId": "infringement-guide/06/006",
-   "domain": "infringement-guide",
-   "anchorNodeId": "infr-06-06",
-   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 六、专利侵权抗辩 ｜ （六）合法来源抗辩",
-   "charLen": 237
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/01/01.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/01/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-01-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.1同中华人民共和国的国家名称、国旗、国徽、国歌、军旗、军徽、军歌、勋章等相同或者近似的，以及同中央国家机关的名称、标志、所在地特定地点的名称或者标志性建筑物的名称、图形相同的 ｜ 3.1.1同我国的国家名称相同或者近似的",
+   "charLen": 190
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/infringement-guide/_chunks/06/007.md",
-   "chunkId": "infringement-guide/06/007",
-   "domain": "infringement-guide",
-   "anchorNodeId": "infr-06-07",
-   "breadcrumb": "《北京市高级人民法院专利侵权判定指南（2017）》 ｜ 六、专利侵权抗辩 ｜ （七）不停止侵权抗辩",
-   "charLen": 1596
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/01/02.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/01/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-01-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.1同中华人民共和国的国家名称、国旗、国徽、国歌、军旗、军徽、军歌、勋章等相同或者近似的，以及同中央国家机关的名称、标志、所在地特定地点的名称或者标志性建筑物的名称、图形相同的 ｜ 3.1.2同我国的国旗、国徽、国歌相同或者近似的",
+   "charLen": 193
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/01/03.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/01/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-01-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.1同中华人民共和国的国家名称、国旗、国徽、国歌、军旗、军徽、军歌、勋章等相同或者近似的，以及同中央国家机关的名称、标志、所在地特定地点的名称或者标志性建筑物的名称、图形相同的 ｜ 3.1.3同我国的军旗、军徽、军歌等相同或者近似的",
+   "charLen": 114
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/06/03/02/02/01/04.md",
+   "chunkId": "trademark-exam-guide-2021/06/03/02/02/01/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-06-03-02-02-01-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 下编·商标审查审理编 ｜ 第三章 不得作为商标标志的审查审理 ｜ 第十条 ｜ 3具体适用 ｜ 3.1同中华人民共和国的国家名称、国旗、国徽、国歌、军旗、军徽、军歌、勋章等相同或者近似的，以及同中央国家机关的名称、标志、所在地特定地点的名称或者标志性建筑物的名称、图形相同的 ｜ 3.1.4同我国的勋章相同或者近似的",
+   "charLen": 82
   }
  ]
 }

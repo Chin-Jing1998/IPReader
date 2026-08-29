@@ -1,85 +1,86 @@
 {
  "batchNo": 50,
+ "domain": "trademark-exam-guide-2021",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/05/005.md",
-   "chunkId": "implementation-rules/05/005",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-05-05",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第五章 专利权期限补偿 ｜ 第八十一条",
-   "charLen": 197
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/04/03/01.md",
+   "chunkId": "trademark-exam-guide-2021/05/04/03/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-04-03-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十二章 出具和补发证明文件 ｜ 3商标变更、转让、续展证明的补发 ｜ 3.1法律依据",
+   "charLen": 28
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/05/006.md",
-   "chunkId": "implementation-rules/05/006",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-05-06",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第五章 专利权期限补偿 ｜ 第八十二条",
-   "charLen": 94
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/04/03/02.md",
+   "chunkId": "trademark-exam-guide-2021/05/04/03/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-04-03-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十二章 出具和补发证明文件 ｜ 3商标变更、转让、续展证明的补发 ｜ 3.2申请文件",
+   "charLen": 192
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/05/007.md",
-   "chunkId": "implementation-rules/05/007",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-05-07",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第五章 专利权期限补偿 ｜ 第八十三条",
-   "charLen": 89
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/04/03/03.md",
+   "chunkId": "trademark-exam-guide-2021/05/04/03/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-04-03-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十二章 出具和补发证明文件 ｜ 3商标变更、转让、续展证明的补发 ｜ 3.3申请人",
+   "charLen": 133
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/05/008.md",
-   "chunkId": "implementation-rules/05/008",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-05-08",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第五章 专利权期限补偿 ｜ 第八十四条",
-   "charLen": 120
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/04/03/04.md",
+   "chunkId": "trademark-exam-guide-2021/05/04/03/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-04-03-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十二章 出具和补发证明文件 ｜ 3商标变更、转让、续展证明的补发 ｜ 3.4商标",
+   "charLen": 56
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/06/001.md",
-   "chunkId": "implementation-rules/06/001",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-06-01",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第六章 专利实施的特别许可 ｜ 第八十五条",
-   "charLen": 147
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/04/03/05/01.md",
+   "chunkId": "trademark-exam-guide-2021/05/04/03/05/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-04-03-05-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十二章 出具和补发证明文件 ｜ 3商标变更、转让、续展证明的补发 ｜ 3.5审查结论 ｜ 3.5.1不予核准通知",
+   "charLen": 194
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/06/002.md",
-   "chunkId": "implementation-rules/06/002",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-06-02",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第六章 专利实施的特别许可 ｜ 第八十六条",
-   "charLen": 139
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/04/03/05/02.md",
+   "chunkId": "trademark-exam-guide-2021/05/04/03/05/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-04-03-05-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十二章 出具和补发证明文件 ｜ 3商标变更、转让、续展证明的补发 ｜ 3.5审查结论 ｜ 3.5.2核准补发证明",
+   "charLen": 64
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/06/003.md",
-   "chunkId": "implementation-rules/06/003",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-06-03",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第六章 专利实施的特别许可 ｜ 第八十七条",
-   "charLen": 62
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/04/04/01.md",
+   "chunkId": "trademark-exam-guide-2021/05/04/04/01",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-04-04-01",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十二章 出具和补发证明文件 ｜ 4商标注册证的补发 ｜ 4.1法律依据",
+   "charLen": 25
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/06/004.md",
-   "chunkId": "implementation-rules/06/004",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-06-04",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第六章 专利实施的特别许可 ｜ 第八十八条",
-   "charLen": 58
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/04/04/02.md",
+   "chunkId": "trademark-exam-guide-2021/05/04/04/02",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-04-04-02",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十二章 出具和补发证明文件 ｜ 4商标注册证的补发 ｜ 4.2申请文件",
+   "charLen": 52
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/06/005.md",
-   "chunkId": "implementation-rules/06/005",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-06-05",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第六章 专利实施的特别许可 ｜ 第八十九条",
-   "charLen": 171
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/04/04/03.md",
+   "chunkId": "trademark-exam-guide-2021/05/04/04/03",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-04-04-03",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十二章 出具和补发证明文件 ｜ 4商标注册证的补发 ｜ 4.3申请人",
+   "charLen": 169
   },
   {
-   "chunkPath": "/Users/chin.jing1998/claude code 编程项目研究/专利知识库/implementation-rules/_chunks/06/006.md",
-   "chunkId": "implementation-rules/06/006",
-   "domain": "implementation-rules",
-   "anchorNodeId": "rule-06-06",
-   "breadcrumb": "《中华人民共和国专利法实施细则》 ｜ 第六章 专利实施的特别许可 ｜ 第九十条",
-   "charLen": 280
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/05/04/04/04.md",
+   "chunkId": "trademark-exam-guide-2021/05/04/04/04",
+   "domain": "trademark-exam-guide-2021",
+   "anchorNodeId": "tmeg-05-04-04-04",
+   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第五部分 商标申请事务处理 ｜ 第二十二章 出具和补发证明文件 ｜ 4商标注册证的补发 ｜ 4.4商标",
+   "charLen": 33
   }
  ]
 }
