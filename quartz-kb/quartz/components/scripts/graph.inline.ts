@@ -1268,8 +1268,12 @@ async function createGraphInstance(
     return Math.min(base + boost, MAX_NODE_RADIUS)
   }
 
-  const width = graph.offsetWidth
-  const height = Math.max(graph.offsetHeight, 250)
+  // 画布尺寸（阶段5.10 波A-R2）：由 const 改 let——容器尺寸变化改走 syncSize 的
+  // renderer 就地 resize，本对变量随之改写，下游 15 处读取里除两处快照语义外
+  //（见下方 radial 半径与 seedScale 的注释）全是**每次现读**，故自动跟随新尺寸，
+  // 无须逐处改动。改造前这里是一次性快照 + 整实例重建，重建即残影跳变。
+  let width = graph.offsetWidth
+  let height = Math.max(graph.offsetHeight, 250)
 
   // we virtualize the simulation and use pixi to actually render it
   const simulation: Simulation<NodeData, LinkData> = forceSimulation<NodeData>(graphData.nodes)
@@ -1287,6 +1291,10 @@ async function createGraphInstance(
   const localVelocityDecay = dragVelocityDecay(fullGraph)
   if (localVelocityDecay !== null) simulation.velocityDecay(localVelocityDecay)
 
+  // ⚠️ 快照语义之一（阶段5.10 波A-R2）：radial 半径是**布局参数**，不是每帧现读的
+  // 渲染量，此处取的是构造期的 min(w,h)。resize 后由 syncSize 在 **min(w,h) 真的变了**
+  // 时重装同名力（forceRadial 半径同公式重算），min 未变则一字不动——右栏显隐纯改宽度、
+  // min 恒为高度，因此「开右栏不触碰 simulation」有结构性保证，全量图力参数不变。
   const radius = (Math.min(width, height) / 2) * 0.8
   if (enableRadial) simulation.force("radial", forceRadial(radius).strength(0.2))
 
@@ -2527,6 +2535,11 @@ async function createGraphInstance(
     // radial 力的半径参与布局（forceCenter() 不带参数，中心恒为原点），故按
     // min(w,h) 之比整体缩放即可保形；尺度差异随后由 zoomToFit 的相机吸收。
     // 尺寸相同时系数恰为 1（浮点上也是精确的 1），坐标逐位等于产物值。
+    // ⚠️ 快照语义之二（阶段5.10 波A-R2）：seedScale 系**构造期一次性播种读取**，
+    // 禁止随 resize 重算。重算 = 每开一次右栏就把全部 6202 个节点的坐标整体平移缩放
+    // 一遍（等于把 resize 变成一次全图重排），且破坏「往返零漂移」——基线坐标与
+    // 产物值的逐位等同关系一旦按新尺寸再缩放就不可逆。尺度差异本就由相机（zoomToFit
+    // 与 syncSize 的左上锚定补偿）吸收，布局侧无须跟随。
     const seedScale =
       Math.min(width, height) / Math.min(prebuiltLayout.refWidth, prebuiltLayout.refHeight)
     for (const n of graphData.nodes) {
