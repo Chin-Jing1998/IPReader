@@ -276,7 +276,11 @@ document.addEventListener("nav", async () => {
   const resetBtn = explorer.querySelector(".ge-reset") as HTMLButtonElement | null
   if (!canvas || !panelEmpty || !panelContent) return
 
-  // v8：右侧栏未点击节点时整体隐藏，点击节点后显现
+  // v8：右侧栏未点击节点时整体隐藏，点击节点后显现。
+  // ⚠️ 唯一写入口纪律（R4）的**唯一豁免**：本行是挂载时的初始态写入，不得改经
+  // setPanelVisible——那个函数体里读 controller，而 `let controller` 声明在本行之下，
+  // 此刻调用会踩 TDZ（ReferenceError 直接打死整个挂载闭包，图与目录全不出）。
+  // 豁免无代价：此刻渲染实例尚未创建，初始尺寸由其构造期量测承接，无同步可言。
   const panelBox = panelContent!.closest(".ge-panel") as HTMLElement | null
   if (panelBox) panelBox.hidden = true
 
@@ -1143,17 +1147,32 @@ document.addEventListener("nav", async () => {
     return wrap
   }
 
+  /**
+   * `.ge-panel` 显隐的**唯一写入口**（阶段5.10 波A-R4）。
+   *
+   * 右栏一显一隐就改画布宽度 312–452px，画布尺寸与相机口径必须在同一刻落定，
+   * 所以写完 hidden 立刻 syncSize()——**同步重排（约 0.3ms）是刻意为之**：等
+   * ResizeObserver 的下一帧回调也能把画布尺寸补上，但那已经晚了一步，中间夹着的
+   * focus / setSelected / restoreBaseLayout 全都会读到旧宽度，算出偏右 ΔW/2 的相机。
+   * 正确的相机口径优先于省这 0.3ms。
+   *
+   * 收敛为唯一写入口的意义：hidden 属性此前散落在 showPanelDom / showEmptyState
+   * 两处，任何一处漏改都会留下「宽度变了但没人同步」的静默失配。
+   */
+  function setPanelVisible(visible: boolean) {
+    if (panelBox === null) return
+    panelBox.hidden = !visible
+    controller?.syncSize()
+  }
+
   function showPanelDom(nodes: HTMLElement[]) {
     panelEmpty!.hidden = true
     panelContent!.hidden = false
     panelContent!.replaceChildren(...nodes)
     panelContent!.scrollTop = 0
     // 面板本身是滚动容器，重置滚动位置
-    const panel = panelContent!.closest(".ge-panel") as HTMLElement | null
-    if (panel) {
-      panel.hidden = false
-      panel.scrollTop = 0
-    }
+    setPanelVisible(true)
+    if (panelBox) panelBox.scrollTop = 0
   }
 
   function showEmptyState() {
@@ -1161,8 +1180,7 @@ document.addEventListener("nav", async () => {
     panelContent!.replaceChildren()
     panelEmpty!.hidden = false
     // v8：未点击节点时右栏整体隐藏
-    const panel = panelContent!.closest(".ge-panel") as HTMLElement | null
-    if (panel) panel.hidden = true
+    setPanelVisible(false)
   }
 
   // 状态条消息自动消失定时器（阶段5.4）：句柄存于本挂载闭包，
@@ -1357,6 +1375,9 @@ document.addEventListener("nav", async () => {
     )
     if (action === "ignore") return
     if (action === "select") {
+      // R4：与 selectNode 同理——右栏即将显现，先把新宽度灌进渲染器再改选中态，
+      // 否则这一刻之后的一切相机计算用的都是旧宽度
+      setPanelVisible(true)
       controller?.setSelected(simple, 1)
       selectedSlug = simple
       selectedHops = 1
@@ -1374,6 +1395,12 @@ document.addEventListener("nav", async () => {
   async function selectNode(target: FullSlug) {
     const simple = simplifySlug(target)
     void showPanel(simple)
+    // R4（阶段5.10 波A）：先弹右栏并把新宽度同步进渲染器，再 focus。
+    // ⚠️ 只调 DOM 时序不够：focus 用的是渲染器持有的 width（闭包变量），不是 DOM 现值。
+    // showPanel 是异步的（取卡片要 await），右栏真正显现落在下一个微任务之后，
+    // 而 focus 就在下面这几行同步执行——不先把宽度灌进去，节点会被居中到**旧宽度**
+    // 的中点，右栏显现后即偏右 ΔW/2（约 175px），观感就是「定位到一半又被挤走」。
+    setPanelVisible(true)
     if (controller !== null) {
       if (controller.focus(simple)) {
         // v14：定位成功 → 图内选中该节点（相关节点亮起闪烁）
