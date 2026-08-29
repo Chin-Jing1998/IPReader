@@ -1512,7 +1512,14 @@ async function main() {
        window.__smokeRenderCalls = 0;
        window.__graphRender = function (...args) {
          window.__smokeRenderCalls += 1;
-         return window.__smokeOrigGraphRender.apply(this, args);
+         // A.0（阶段5.10 波A）：顺手把 controller 捞到 window.__smokeCtl。
+         // renderGraph 返回 Promise<GraphController>，故经 .then 透传、不改调用方语义；
+         // 后续步骤据此直接调 getTransform()/syncSize()/getTermLayer() 做相机守恒与
+         // 竞态存活断言，无须再从页面脚本的闭包里翻 controller。
+         return window.__smokeOrigGraphRender.apply(this, args).then((c) => {
+           window.__smokeCtl = c;
+           return c;
+         });
        };
        window.__smokeLocate = { count: 0, lastSlug: null };
        document.addEventListener('kb:graphlocate', (ev) => {
@@ -1574,7 +1581,14 @@ async function main() {
        window.__smokeRenderCalls = 0;
        window.__graphRender = function (...args) {
          window.__smokeRenderCalls += 1;
-         return window.__smokeOrigGraphRender.apply(this, args);
+         // A.0（阶段5.10 波A）：顺手把 controller 捞到 window.__smokeCtl。
+         // renderGraph 返回 Promise<GraphController>，故经 .then 透传、不改调用方语义；
+         // 后续步骤据此直接调 getTransform()/syncSize()/getTermLayer() 做相机守恒与
+         // 竞态存活断言，无须再从页面脚本的闭包里翻 controller。
+         return window.__smokeOrigGraphRender.apply(this, args).then((c) => {
+           window.__smokeCtl = c;
+           return c;
+         });
        };
        window.__smokeLocate = { count: 0, lastSlug: null };
        document.addEventListener('kb:graphlocate', (ev) => {
@@ -2230,7 +2244,14 @@ async function main() {
        window.__smokeRenderCalls = 0;
        window.__graphRender = function (...args) {
          window.__smokeRenderCalls += 1;
-         return window.__smokeOrigGraphRender.apply(this, args);
+         // A.0（阶段5.10 波A）：顺手把 controller 捞到 window.__smokeCtl。
+         // renderGraph 返回 Promise<GraphController>，故经 .then 透传、不改调用方语义；
+         // 后续步骤据此直接调 getTransform()/syncSize()/getTermLayer() 做相机守恒与
+         // 竞态存活断言，无须再从页面脚本的闭包里翻 controller。
+         return window.__smokeOrigGraphRender.apply(this, args).then((c) => {
+           window.__smokeCtl = c;
+           return c;
+         });
        };
        return typeof window.__smokeOrigGraphRender === 'function';
      })()`,
