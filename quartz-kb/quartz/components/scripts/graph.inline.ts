@@ -45,9 +45,12 @@ import {
   simplifySlug,
 } from "../../util/path"
 import {
+  dragAlphaTarget,
+  dragVelocityDecay,
   isGraphBackgroundClick,
   isSelectedAnchorLink,
   selectedLinkStroke,
+  shouldSettleOnDragEnd,
   shouldShowLabelDuringSelection,
 } from "../../util/graphInteraction"
 import { D3Config, TermLayerMode } from "../Graph"
@@ -1275,6 +1278,15 @@ async function createGraphInstance(
     .force("link", forceLink(graphData.links).distance(linkDistance))
     .force("collide", forceCollide<NodeData>((n) => nodeRadius(n)).iterations(3))
 
+  // 局部图专属阻尼（阶段5.10 波B-1）：**独立语句、不并入上方链式表达式**，
+  // 使全量图的力配置文本一眼可辨未动。dragVelocityDecay 返回 null 即「不调用
+  // velocityDecay」，全量图恒走这一路、沿用 d3 默认 0.4。
+  // ⚠️ 红线：fullGraph 必须写在下面这一行、不得先折成布尔中间变量再判——
+  // graphLayout.json 的指纹不含 velocityDecay，全量图误改无任何断言会红（详见
+  // quartz/util/graphInteraction.ts 顶部说明）。
+  const localVelocityDecay = dragVelocityDecay(fullGraph)
+  if (localVelocityDecay !== null) simulation.velocityDecay(localVelocityDecay)
+
   const radius = (Math.min(width, height) / 2) * 0.8
   if (enableRadial) simulation.force("radial", forceRadial(radius).strength(0.2))
 
@@ -1815,6 +1827,18 @@ async function createGraphInstance(
 
   let dragStartTime = 0
   let dragging = false
+  /**
+   * 本次拖拽按下那一刻的 simulation.alpha()（阶段5.10 波B-4）。
+   * 松手时据它判定「拖拽前布局是否已收敛」——已收敛则松手后的运动全是本次拖拽
+   * 注入的余震，可直接停机（见 shouldSettleOnDragEnd）。
+   */
+  let dragStartAlpha = 0
+  /**
+   * 本次按下之后是否真的产生过位移（阶段5.10 波B-5）。
+   * 力导加热改由**首个 drag 事件**触发而非 start：单击（<500ms 且从不触发 drag）
+   * 从此完全不加热，点一下不再抖 3-4 秒。
+   */
+  let dragHeated = false
   // 双击判定（v14）：两次单击间隔 <350ms 视为双击（展开二跳连接）
   let lastClickAt = 0
   // 空白点击判定（v14）：节点命中（pointerdown）时间戳，canvas 原生 click
@@ -2178,6 +2202,11 @@ async function createGraphInstance(
   }
 
   let currentTransform = zoomIdentity
+  // 拖拽期的力导增益地板（阶段5.10 波B-3）。
+  // ⚠️ 红线同 velocityDecay：fullGraph 就写在本行，不折成布尔中间变量。
+  // 全量图恒 1（上游 Quartz 原值，行为逐字不变）；局部图 0.2，只够邻接节点让位，
+  // 不足以把整张迷你图的残余收敛全速重放。
+  const DRAG_ALPHA_TARGET = dragAlphaTarget(fullGraph)
   if (enableDrag) {
     select<HTMLCanvasElement, NodeData | undefined>(app.canvas).call(
       drag<HTMLCanvasElement, NodeData | undefined>()
@@ -2187,7 +2216,8 @@ async function createGraphInstance(
           hoveredNodeId !== null ? nodeById.get(hoveredNodeId as SimpleSlug) : undefined,
         )
         .on("start", function dragstarted(event) {
-          if (!event.active) simulation.alphaTarget(1).restart()
+          // 阶段5.10 波B-4：**此处不再加热**（原为 alphaTarget(1).restart()）。
+          // 加热推迟到首个 drag 事件（见下方 dragged），单击因而彻底不动力导。
           event.subject.fx = event.subject.x
           event.subject.fy = event.subject.y
           event.subject.__initialDragPos = {
@@ -2198,14 +2228,38 @@ async function createGraphInstance(
           }
           dragStartTime = Date.now()
           dragging = true
+          dragStartAlpha = simulation.alpha()
+          dragHeated = false
         })
         .on("drag", function dragged(event) {
+          // 阶段5.10 波B-5：首个 drag 事件才升温，且只升到 DRAG_ALPHA_TARGET。
+          // ⚠️ 判据是 `event.active <= 1` 而**不是** start 处的 `!event.active`：
+          // d3-drag 的 active 是并发手势计数，dispatch 时 start 取 `n = active++`
+          //（首个手势得 0）、drag 取 `n = active`（同一手势期间恒 ≥1）、end 先 `--active`
+          // 再取（末个手势得 0）。把 start 的写法照搬到 drag 里，条件恒假、力导永不升温——
+          // 收敛态下没有 tick，被拖的节点连位置都不会刷新（fx→x 只在 tick 内生效），
+          // 拖拽整体失效。<=1 才等价于 start 处「没有其他手势在跑」的原意。
+          if (!dragHeated) {
+            dragHeated = true
+            if (event.active <= 1) simulation.alphaTarget(DRAG_ALPHA_TARGET).restart()
+          }
           const initPos = event.subject.__initialDragPos
           event.subject.fx = initPos.x + (event.x - initPos.x) / currentTransform.k
           event.subject.fy = initPos.y + (event.y - initPos.y) / currentTransform.k
         })
         .on("end", function dragended(event) {
           if (!event.active) simulation.alphaTarget(0)
+          // 阶段5.10 波B-6：局部图「拖拽即整理、放下不回弹」——拖拽前布局已收敛
+          // （alpha < alphaMin）时，松手后的一切运动都是本次拖拽注入的余震，直接归零
+          // 停机（现状约 290 tick、4.8s 才自行停下）。纯单击 dragHeated=false，不碰 alpha。
+          // 与下方「播种自收敛终态不 restart」的既有契约同源：停机态由拖拽经
+          // alphaTarget().restart() 唤醒，唤醒之后仍由本行负责收场。
+          if (
+            dragHeated &&
+            shouldSettleOnDragEnd(fullGraph, dragStartAlpha, simulation.alphaMin())
+          ) {
+            simulation.alpha(0)
+          }
           event.subject.fx = null
           event.subject.fy = null
           dragging = false

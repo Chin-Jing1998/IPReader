@@ -1978,7 +1978,16 @@ async function main() {
      const local = p.marks.filter((m) => !m.fullGraph);
      const m = local[local.length - 1];
      if (!m || m.firstFrame === null) return null;
-     return { nodes: m.nodeCount, links: m.linkCount, labels1st: m.firstFrameVisibleLabels };
+     return {
+       nodes: m.nodeCount,
+       links: m.linkCount,
+       labels1st: m.firstFrameVisibleLabels,
+       // 阶段5.10 波B：分流谓词回读。拖拽手感三参数（velocityDecay/alphaTarget/
+       // 松手停机）全部按 fullGraph 分流，且只许改局部图那一路；此处断言严格 === false
+       //（而非上面 filter 的宽松 !m.fullGraph）以确保该字段确为布尔假、不是 undefined
+       // ——谓词若因改动退化成缺失值，filter 照样放行，断言才拦得住。
+       full: m.fullGraph,
+     };
    })()`;
   const READ_BADGE = `(() => {
      const b = document.querySelector('.graph-truncation-note');
@@ -2011,20 +2020,28 @@ async function main() {
     a31.ready &&
     a31.badge === "已显示 120/247 个关联" &&
     !!a31.mark &&
-    a31.mark.nodes === 121;
+    a31.mark.nodes === 121 &&
+    a31.mark.full === false;
   await shot(win, "局部图截断上限120-超限页");
 
   const b31 = await openLocalGraph(`${base}/1-专利法/1-总则/law-01-18`);
-  const b31Ok = b31.ready && b31.badge === null && !!b31.mark && b31.mark.nodes >= 62;
+  const b31Ok =
+    b31.ready &&
+    b31.badge === null &&
+    !!b31.mark &&
+    b31.mark.nodes >= 62 &&
+    b31.mark.full === false;
   await shot(win, "局部图截断上限120-未超限页");
 
   record(
-    "局部图截断上限 60→120（超限页徽标 120/247 且节点数 121；旧上限下会被截断的 95 邻居页现无徽标且节点数 ≥62）",
+    "局部图截断上限 60→120（超限页徽标 120/247 且节点数 121；旧上限下会被截断的 95 邻居页现无徽标且节点数 ≥62）＋局部图页 fullGraph 谓词恒 false（波B 拖拽参数分流前提）",
     a31Ok && b31Ok,
     `term-0028（邻居 247，必截断）：就绪=${a31.ready}, 徽标=${a31.badge === null ? "无" : `「${a31.badge}」`}（须「已显示 120/247 个关联」）, ` +
-      `节点数=${a31.mark ? a31.mark.nodes : "无记录"}（须 121＝120 邻居+中心）, 边数=${a31.mark ? a31.mark.links : "-"}; ` +
+      `节点数=${a31.mark ? a31.mark.nodes : "无记录"}（须 121＝120 邻居+中心）, 边数=${a31.mark ? a31.mark.links : "-"}, ` +
+      `fullGraph=${a31.mark ? String(a31.mark.full) : "-"}（须 false）; ` +
       `law-01-18（邻居 95，旧上限 60 下会截断）：就绪=${b31.ready}, 徽标=${b31.badge === null ? "无" : `「${b31.badge}」`}（须无）, ` +
-      `节点数=${b31.mark ? b31.mark.nodes : "无记录"}（须 ≥62，排除上限仍为 60 的 61）`,
+      `节点数=${b31.mark ? b31.mark.nodes : "无记录"}（须 ≥62，排除上限仍为 60 的 61）, ` +
+      `fullGraph=${b31.mark ? String(b31.mark.full) : "-"}（须 false）`,
   );
 
   // 32. 图谱总览画布尺寸同步（波A-A3）

@@ -71,6 +71,56 @@ export function isGraphBackgroundClick(
   return now - lastNodeHitAt >= threshold && now - lastLinkHitAt >= threshold
 }
 
+// ============================================================
+// 拖拽手感参数（阶段5.10 波B）
+// ============================================================
+// 三个取值全部以 fullGraph 分流，且**只有局部图（迷你图）那一路改动**：全量图
+// 一路必须逐值维持上游 Quartz 的原样。提纯到本模块而不写在 graph.inline.ts 里，
+// 是因为 static/graphLayout.json 的指纹只覆盖节点集与 charge/link/collide 等力参数，
+// **不含 velocityDecay 与 alphaTarget**——全量图这两项一旦被误改，既有断言
+// （含 smoke 步 30 的坐标播种校验）不会变红，只会让构建期预计算坐标与运行期力导
+// 参数静默错配、总览图布局逐次漂移。故把红线交给下方 graphInteraction.test.ts
+// 的逐值断言机器化守卫，调用处则一律把 fullGraph 写在同一行、不经布尔中间变量绕层。
+
+/**
+ * 拖拽期间的 alphaTarget（力导增益的地板值）。
+ *
+ * 全量图 1：上游 Quartz 原值，拖拽即把整张图重新加热到满增益。
+ * 局部图 0.2：迷你图只有几十到一百余个节点、且多为单中心星形，满增益会把
+ * 「冻结在半途的残余收敛」全速重放——实测拖拽期间 98% 的位移来自这一重加热而非鼠标，
+ * 表现为「拖一个点、满屏乱跳」。0.2 只够让邻接节点跟随让位，不足以重启全局收敛。
+ */
+export function dragAlphaTarget(fullGraph: boolean): number {
+  return fullGraph ? 1 : 0.2
+}
+
+/**
+ * velocityDecay（速度阻尼）覆盖值；返回 null 表示**不调用** velocityDecay、
+ * 沿用 d3 默认 0.4——全量图恒走这一路，其力导配置文本因此一字未动。
+ *
+ * 局部图 0.55：阻尼加大即单 tick 保留的速度更少，跟随位移更快衰减，
+ * 消除松手后的余震拖尾。取 0.55 而非更高，是为保住「拖动时邻接点仍会让位」的手感。
+ */
+export function dragVelocityDecay(fullGraph: boolean): number | null {
+  return fullGraph ? null : 0.55
+}
+
+/**
+ * 松手（dragend）时是否直接把 alpha 归零、令力导立即停机。
+ *
+ * 仅局部图、且**拖拽开始前布局已自然收敛**（alphaAtDragStart < alphaMin）时为真：
+ * 那种局面下松手后的一切运动都是本次拖拽注入的能量，属余震而非未完成的收敛，
+ * 直接停机即「拖拽即整理，放下不回弹」。拖拽开始时布局尚未收敛（alpha ≥ alphaMin）
+ * 则返回假，剩余收敛照常跑完。全量图恒返回假，行为与改前逐字一致。
+ */
+export function shouldSettleOnDragEnd(
+  fullGraph: boolean,
+  alphaAtDragStart: number,
+  alphaMin: number,
+): boolean {
+  return !fullGraph && alphaAtDragStart < alphaMin
+}
+
 /** 选中态下仅允许选中节点及其相关节点显示标签。 */
 export function shouldShowLabelDuringSelection(
   selectedNode: SimpleSlug | null,
