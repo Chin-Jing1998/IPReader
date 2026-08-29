@@ -58,7 +58,13 @@ const gzipInFlight = new Map();
  * 启动后台预压缩的目标（1.5）：三个「首屏必取且体量最大」的产物。
  * 预热之后首个真实请求直接命中缓存，TTFB 不再包含那 84ms 的压缩。
  */
-const PRECOMPRESS_TARGETS = ['static/contentIndex.json', 'postscript.js', 'index.css'];
+const PRECOMPRESS_TARGETS = [
+  'static/contentIndex.json',
+  'static/contentIndexGraph.json',
+  'static/graphLayout.json',
+  'postscript.js',
+  'index.css',
+];
 
 /**
  * 内容安全策略。产物是本地构建的静态站，此处为纵深防御而非补现有洞：

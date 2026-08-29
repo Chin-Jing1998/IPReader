@@ -1791,6 +1791,8 @@ async function main() {
        labels1st: m.firstFrameVisibleLabels,
        cacheHit: m.assemblyCacheHit,
        seeded: m.layoutSeeded,
+       layoutSource: m.layoutSource,
+       prewarmMs: m.prewarmed - m.nodesBuilt,
        termHidden: m.termHidden,
        nodes: m.nodeCount,
      };
@@ -1805,6 +1807,11 @@ async function main() {
   };
   const hardMark = await waitGraphMark();
   const hardLabelsOk = !!hardMark && hardMark.labels1st === 0;
+  // 波3-3.1 追加：硬跳转是新 JS 上下文，模块级 assemblyCache 必空，坐标只可能来自
+  // 构建期产物 static/graphLayout.json。该值一旦退回 "prewarm"，说明产物缺失、key
+  // 不匹配或节点覆盖不全（三者都会静默回落，功能不坏但首开又要多付约 230ms 预热），
+  // 正是本断言要抓的那类无声失效。
+  const hardPrebuiltOk = !!hardMark && hardMark.layoutSource === "prebuilt";
 
   // 力导预热后的基线快照要等实例销毁（SPA 离开图谱页）或自然收敛才写回缓存；
   // 此处只需给首帧之后的渲染留出落定时间，销毁写回由下一步的软导航触发
@@ -1832,23 +1839,32 @@ async function main() {
     !!spaMark &&
     spaMark.cacheHit === true &&
     spaMark.seeded === true &&
+    // 波3-3.1 追加：模块级快照优先于构建期产物——二次打开必须走 "cache"。
+    // 若这里读到 "prebuilt"，说明快照写回（simulation "end" / destroyInstance 两处
+    // saveAssemblySnapshot）失灵，坐标退化成「每次都是构建期那一版」，
+    // 用户离开前的布局与拖动结果不再延续。
+    spaMark.layoutSource === "cache" &&
     spaMark.labels1st === 0;
   const spaTimeOk = !!spaMark && spaMark.total < 1200;
   await shot(win, "图谱缓存命中与坐标播种");
 
   record(
-    "图谱首帧零标签光栅化＋SPA 往返命中组装缓存与坐标播种（结构断言硬失败：firstFrameVisibleLabels=0 / assemblyCacheHit / layoutSeeded；时间宽熔断：二次打开 total<1200ms）",
+    "图谱首帧零标签光栅化＋首开命中构建期坐标＋SPA 往返命中组装缓存与坐标播种（结构断言硬失败：firstFrameVisibleLabels=0 / 首开 layoutSource=prebuilt / 二开 assemblyCacheHit+layoutSeeded+layoutSource=cache；时间宽熔断：二次打开 total<1200ms）",
     graphReady30 &&
       hardLabelsOk &&
+      hardPrebuiltOk &&
       leftGraph === "/1-专利法/1-总则/law-01-01" &&
       backPath === "/0-图谱总览/" &&
       spaStructOk &&
       spaTimeOk,
     `直开图谱：就绪=${graphReady30}, 首帧可见标签=${hardMark ? hardMark.labels1st : "无记录"}（须 0）, ` +
-      `节点数=${hardMark ? hardMark.nodes : "-"}, 首开 cacheHit=${hardMark ? hardMark.cacheHit : "-"}; ` +
+      `节点数=${hardMark ? hardMark.nodes : "-"}, 首开 cacheHit=${hardMark ? hardMark.cacheHit : "-"}（须 false，硬跳转无模块缓存）, ` +
+      `首开 layoutSource=${hardMark ? hardMark.layoutSource : "-"}（须 prebuilt）, ` +
+      `首开 prewarmMs=${hardMark ? hardMark.prewarmMs.toFixed(1) : "-"}ms; ` +
       `SPA 离开落地=${leftGraph}, popstate 返回落地=${backPath}; ` +
       `二次打开：cacheHit=${spaMark ? spaMark.cacheHit : "无记录"}（须 true）, ` +
       `layoutSeeded=${spaMark ? spaMark.seeded : "-"}（须 true）, ` +
+      `layoutSource=${spaMark ? spaMark.layoutSource : "-"}（须 cache）, ` +
       `首帧可见标签=${spaMark ? spaMark.labels1st : "-"}（须 0）, ` +
       `total=${spaMark ? spaMark.total.toFixed(1) : "-"}ms（宽熔断 <1200ms）`,
   );

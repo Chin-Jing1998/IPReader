@@ -280,6 +280,48 @@ const graphIndex = (): Promise<GraphContentIndex> =>
     joinSegments(pathToRoot(getFullSlug(window)), "static/contentIndexGraph.json"),
   ).then((r) => r.json() as Promise<GraphContentIndex>))
 
+// ---------- 构建期预计算坐标取数（阶段5.6 波3-3.1）----------
+
+/**
+ * static/graphLayout.json 的形状，产出见 plugins/emitters/graphLayout.tsx。
+ * pos 的键是 SimpleSlug，值是参考画布尺寸（refWidth×refHeight）下的世界坐标。
+ */
+type PrebuiltLayout = {
+  /** 数据集与力参数的指纹；运行期复算不等即整份忽略 */
+  key: string
+  refWidth: number
+  refHeight: number
+  /** 构建期收敛终态的 alpha（必 < alphaMin） */
+  alpha: number
+  pos: Record<string, [number, number]>
+}
+
+/**
+ * 取构建期预计算的全景坐标。与 graphIndex 同风格：window 级去重、全站至多一次。
+ *
+ * ⚠️ 任何失败一律化为 null，绝不 reject——本产物是纯粹的加速项，取不到就回落
+ * 同步预热，图照画。故 fetch 网络错误、非 2xx、JSON 解析失败三条路径全部吞掉。
+ */
+const graphLayout = (): Promise<PrebuiltLayout | null> =>
+  (window.__graphLayout ??= fetch(
+    joinSegments(pathToRoot(getFullSlug(window)), "static/graphLayout.json"),
+  )
+    .then((r) => (r.ok ? (r.json() as Promise<PrebuiltLayout>) : null))
+    .catch(() => null))
+
+/**
+ * 32 位 FNV-1a —— 必须与 plugins/emitters/graphLayout.tsx 的同名实现逐位一致，
+ * 改一处即两处同改（不一致的后果是产物永远被判为不匹配、收益静默归零）。
+ */
+function fnv1a(str: string): string {
+  let h = 0x811c9dc5
+  for (let i = 0; i < str.length; i += 1) {
+    h ^= str.charCodeAt(i)
+    h = Math.imul(h, 0x01000193) >>> 0
+  }
+  return h.toString(16).padStart(8, "0")
+}
+
 // ---------- 模块级组装缓存（阶段5.6 波2-2.2）----------
 
 /**
@@ -365,8 +407,15 @@ type GraphPerfMark = {
   firstFrameVisibleLabels: number | null
   /** 模块级组装缓存是否命中（波2-2.2；局部图不启用缓存，恒 false） */
   assemblyCacheHit: boolean
-  /** 坐标是否由缓存的全景基线播种（波2-2.2；播种即跳过同步预热） */
+  /** 坐标是否由现成的全景基线播种（波2-2.2；播种即跳过同步预热） */
   layoutSeeded: boolean
+  /**
+   * 坐标来源（波3-3.1）：cache=模块级快照（SPA 二次打开）｜
+   * prebuilt=构建期预计算产物 static/graphLayout.json（首次打开／硬跳转）｜
+   * prewarm=无现成坐标，走 d3 默认初值 + 同步预热。
+   * layoutSeeded 是它的派生量（前两者为真），保留是为不改动既有探针与 smoke 断言。
+   */
+  layoutSource: "cache" | "prebuilt" | "prewarm"
   /** 派生：returned - t0，createGraphInstance 全程 */
   total: number
   /** 派生：nodesBuilt - appReady，节点构造段 */
@@ -426,6 +475,7 @@ function logGraphPerfMark(mark: GraphPerfMark) {
       termHidden: mark.termHidden,
       cacheHit: mark.assemblyCacheHit,
       seeded: mark.layoutSeeded,
+      layout: mark.layoutSource,
     },
   ])
 }
@@ -719,6 +769,7 @@ async function createGraphInstance(
     firstFrameVisibleLabels: null,
     assemblyCacheHit: false,
     layoutSeeded: false,
+    layoutSource: "prewarm",
     total: 0,
     buildMs: 0,
     frameMs: null,
@@ -815,6 +866,11 @@ async function createGraphInstance(
     const targ = resolveRelative(fullSlug, targetId)
     window.spaNavigate(new URL(targ, window.location.toString()))
   }
+
+  // 构建期坐标与轻量索引**并行**发起（波3-3.1）：两份产物互不依赖，串行等待等于
+  // 白白多付一个 RTT。局部图（depth>=1）的邻域随中心页而变，产物覆盖不到，故不发起。
+  // 真正 await 的位置在数据集组装之后（那时才知道节点数、算得出指纹），此处只起跑。
+  const prebuiltPromise = fullGraph ? graphLayout() : null
 
   const rawIndex = await graphIndex()
   perfMark.dataReady = performance.now()
@@ -1094,6 +1150,53 @@ async function createGraphInstance(
    */
   const assemblyEntry: AssemblyCacheEntry | null =
     assemblyKey === null ? null : (assemblyCache.get(assemblyKey) ?? null)
+
+  // ---------- 构建期坐标的取回与校验（阶段5.6 波3-3.1）----------
+  //
+  // 落点选在此处而非播种点，是因为这里还没有 simulation：forceSimulation 一构造就自启
+  // 内部 timer，此后再插 await 便可能让出到事件循环、白跑几个 tick。数据集此刻已就绪，
+  // 指纹（含节点数/边数）算得出来，条件齐备。
+  //
+  // 模块级快照（第①级）已有坐标时不等这份 Promise：它更新、更贴近用户离开时的样子，
+  // 且无需缩放。fetch 仍在后台跑完并留在 window 上，下次需要时即取即用。
+  const prebuiltExpectedKey =
+    assemblyKey === null
+      ? null
+      : `g1-${fnv1a(
+          [
+            "v1",
+            `e=${Object.keys(rawIndex).length}`,
+            `n=${graphData.nodes.length}`,
+            `l=${graphData.links.length}`,
+            `th=${termHidden ? 1 : 0}`,
+            `st=${showTags ? 1 : 0}`,
+            `rt=${removeTags.join(",")}`,
+            `ex=${[...excluded].sort().join(",")}`,
+            `rf=${repelForce}`,
+            `cf=${centerForce}`,
+            `ld=${linkDistance}`,
+            `rad=${enableRadial ? 1 : 0}`,
+          ].join("|"),
+        )}`
+  const prebuiltRaw =
+    prebuiltPromise === null || assemblyEntry?.positions != null ? null : await prebuiltPromise
+  /**
+   * 通过全部校验、可直接播种的构建期坐标；任一条不过即 null，静默回落同步预热。
+   * 校验三关，缺一不可：
+   *   1) key 逐字符相等——数据集规模或力参数一变，这份坐标就是另一套解；
+   *   2) refWidth/refHeight 为正——缩放系数的分母，为 0 会把整图坐标算成 NaN/Infinity；
+   *   3) 覆盖全部当前节点——少一个节点就会留在 phyllotaxis 初值上飞在图外，
+   *      比整体回落预热更难看，故宁可整份弃用。
+   */
+  const prebuiltLayout: PrebuiltLayout | null = (() => {
+    if (prebuiltRaw === null || prebuiltExpectedKey === null) return null
+    if (prebuiltRaw.key !== prebuiltExpectedKey) return null
+    if (!(prebuiltRaw.refWidth > 0) || !(prebuiltRaw.refHeight > 0)) return null
+    for (const n of graphData.nodes) {
+      if (prebuiltRaw.pos[n.id] === undefined) return null
+    }
+    return prebuiltRaw
+  })()
 
   /** 容器/叶子半径分级（v14，阶段5.3 需求3 重构）：Quartz 的 simplifySlug 使目录页 slug
    * 恒以「/」结尾、文件页恒不以「/」结尾——`id.endsWith("/")` 即容器/叶子的充要判据。
@@ -2182,9 +2285,14 @@ async function createGraphInstance(
   /** 力导默认衰减（子集重布局会临时调快，还原全景时改回，使拖拽手感跨切换一致） */
   const baseAlphaDecay = simulation.alphaDecay()
 
-  // ---------- 坐标播种（阶段5.6 波2-2.2）----------
-  // 缓存条目带着上一实例的全景基线时，直接把节点摆到那组坐标上，同步预热（实测中位
-  // 229ms，占波1 后 SPA 打开耗时的 47%）随之整段省掉。
+  // ---------- 坐标播种（阶段5.6 波2-2.2，波3-3.1 扩为三级回落链）----------
+  // 有现成坐标就不必从 phyllotaxis 初值起跑，同步预热（实测中位 229ms，占波1 后
+  // SPA 打开耗时的 47%）随之整段省掉。三级依次尝试，先命中者胜：
+  //   ① 模块级快照 assemblyEntry.positions（波2）——最贴近用户离开时的样子，
+  //      同一画布尺寸下取得，无需缩放；SPA 二次打开走这一级；
+  //   ② 构建期预计算 static/graphLayout.json（波3-3.1）——首次打开／硬跳转
+  //      （新 JS 上下文，模块缓存空）走这一级，按画布尺寸等比缩放后落座；
+  //   ③ 都没有则回落原路径：d3 默认初值 + runSyncTicks 同步预热。
   //
   // 落点必须在 simulation 构造之后：forceSimulation(nodes) 会给每个节点写一遍
   // phyllotaxis 初值，排在其前会被覆盖。而 forceLink/forceManyBody 的 initialize 只读
@@ -2193,6 +2301,8 @@ async function createGraphInstance(
   // vx/vy 清零与 restoreBaseLayout 同策：快照只存位置不存速度，留着上一实例的残余速度
   // 会让画面在首帧之后自己漂一段。
   let layoutSeeded = false
+  /** 播种源对应的 alpha：决定播种后是就此停机还是把剩余演化跑完（见下方分流） */
+  let seedAlpha = 0
   const seedPositions = assemblyEntry?.positions ?? null
   if (seedPositions !== null) {
     for (const n of graphData.nodes) {
@@ -2204,16 +2314,37 @@ async function createGraphInstance(
       n.vy = 0
     }
     layoutSeeded = true
-    perfMark.layoutSeeded = true
+    seedAlpha = assemblyEntry?.baseAlpha ?? 0
+    perfMark.layoutSource = "cache"
+  } else if (prebuiltLayout !== null) {
+    // 等比缩放：构建期坐标算在 refWidth×refHeight 的参考画布上，而画布尺寸只经
+    // radial 力的半径参与布局（forceCenter() 不带参数，中心恒为原点），故按
+    // min(w,h) 之比整体缩放即可保形；尺度差异随后由 zoomToFit 的相机吸收。
+    // 尺寸相同时系数恰为 1（浮点上也是精确的 1），坐标逐位等于产物值。
+    const seedScale =
+      Math.min(width, height) / Math.min(prebuiltLayout.refWidth, prebuiltLayout.refHeight)
+    for (const n of graphData.nodes) {
+      const p = prebuiltLayout.pos[n.id]
+      // 覆盖完整性已在取回处逐节点校验过，此处的守卫只是不信任兜底
+      if (p === undefined) continue
+      n.x = p[0] * seedScale
+      n.y = p[1] * seedScale
+      n.vx = 0
+      n.vy = 0
+    }
+    layoutSeeded = true
+    seedAlpha = prebuiltLayout.alpha
+    perfMark.layoutSource = "prebuilt"
   }
+  perfMark.layoutSeeded = layoutSeeded
 
   if (fitViewEnabled && enableZoom) {
     simulation.stop()
     if (layoutSeeded) {
-      // 播种路径：布局已是现成的收敛态，只需把 alpha 摆到快照当时那一档——
-      // <alphaMin 即基线取自自然收敛终态，置 0 表示无剩余演化可跑；否则按快照 alpha
-      // 让力导接着把剩下的路走完（与 restoreBaseLayout 的分流同一条判据）
-      const seedAlpha = assemblyEntry?.baseAlpha ?? 0
+      // 播种路径：布局已是现成的收敛态，只需把 alpha 摆到播种源当时那一档——
+      // <alphaMin 即坐标取自自然收敛终态（模块快照的收敛版本、或构建期产物），
+      // 置 0 表示无剩余演化可跑；否则按该 alpha 让力导接着把剩下的路走完
+      //（与 restoreBaseLayout 的分流同一条判据）
       simulation.alpha(seedAlpha < simulation.alphaMin() ? 0 : seedAlpha)
     } else {
       runSyncTicks(PREWARM_MAX_TICKS, PREWARM_TARGET_ALPHA)
@@ -2236,7 +2367,9 @@ async function createGraphInstance(
     // 定时器会再走一次 triggerZoomToFit，以 400ms 动画完成残余修正。
     //
     // 播种自收敛终态（alpha 已在 alphaMin 之下）的那一路**不 restart**，与
-    // relayoutVisible 收敛后的处置同策：d3 的 step 会先无条件跑一次完整 tick 再判停，
+    // relayoutVisible 收敛后的处置同策——模块快照的收敛版本与构建期产物
+    //（emitter 跑到 alpha<alphaMin 才产出，恒属此列）都走这一支：
+    // d3 的 step 会先无条件跑一次完整 tick 再判停，
     // 而 forceCollide 不乘 alpha——那一 tick 足以把逐位复现的坐标推开零点几像素，
     // 「往返零漂移」随即不成立。拖拽仍能经 alphaTarget(1).restart() 正常唤醒力导。
     if (!(layoutSeeded && simulation.alpha() < simulation.alphaMin())) {
@@ -2903,6 +3036,12 @@ declare global {
     __graphRender?: typeof renderGraph
     /** 常设性能埋点存档（阶段5.6 波1-1.1）：最近 10 次 createGraphInstance 的耗时切片 */
     __graphPerf?: { marks: GraphPerfMark[] }
+    /**
+     * 构建期预计算坐标的取数 Promise（阶段5.6 波3-3.1），首个调用方发起、其余共享。
+     * 与 __graphIndex 不同，本项只有本文件消费（graphexplorer.inline.ts 不读坐标），
+     * 故类型声明留在本文件的 declare global 内，不进 index.d.ts。
+     */
+    __graphLayout?: Promise<PrebuiltLayout | null>
   }
 }
 window.__graphRender = renderGraph

@@ -2,6 +2,11 @@ import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 import * as Component from "./quartz/components"
 import { byDocumentOrder } from "./quartz/util/docOrder"
+// 阶段5.6 波3-3.1：图谱全景坐标预计算 emitter。刻意不经 `Plugin.` 命名空间——
+// 那需要在 quartz/plugins/emitters/index.ts 追加一行 export，而本轮改动面被限定在
+// 四个文件内。功能等价，直接 import 即可；日后若要与其余 emitter 同风格，
+// 补上那行 export 再改回 Plugin.GraphLayout() 即可，无其他耦合。
+import { GraphLayout } from "./quartz/plugins/emitters/graphLayout"
 
 /**
  * Quartz 4 配置 —— IPReader（纯离线定制版）
@@ -114,6 +119,12 @@ const config: QuartzConfig = {
         enableSiteMap: true,
         enableRSS: true,
       }),
+      // 图谱全景坐标预计算（阶段5.6 波3-3.1）：产 static/graphLayout.json，供
+      // graph.inline.ts 首次打开时直接播种收敛终态、省掉同步预热。
+      // 位置排在 ContentIndex 之后是**书写惯例而非依赖**——emit 由
+      // processors/emit.ts 以 Promise.all 并行调度，本 emitter 从同一份 content
+      // 自行派生索引，不读 ContentIndex 的产物文件（理由见 graphLayout.tsx 注释）。
+      GraphLayout(),
       Plugin.Assets(),
       Plugin.Static(),
       Plugin.Favicon(),
