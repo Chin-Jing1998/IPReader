@@ -8,6 +8,12 @@ import { GRAPH_SLUG, SETTINGS_SLUG } from "./appPages"
  *   1. FolderPage / TagPage 列表排序（quartz.config.ts 传入）；
  *   2. PageNav 翻页链（getReadingChain）。
  *
+ * 阶段5.8 反向登记（与 explorer.inline.ts 的 sortNodes 文档块互指）：侧栏目录树的
+ * 显示序此后可被用户拖拽覆盖——合成分组层的三层子项（法域行 / docType 行 / 书目行）
+ * 顺序存于 kb-explorer-order:v1（util/explorerOrder.ts），只作用于目录树的呈现。
+ * **本模块不读该表**，故翻页链恒按文档逻辑序：拖拽改的是「找书的顺序」，
+ * 不是「读文的顺序」。两侧的默认序仍同源（同 collator 参数、同数字前缀优先规则）。
+ *
  * 规则：
  *   1. 逐段比较 slug，先剥去 index 尾段——目录页因此紧排在自己的子条目之前；
  *   2. 每段先比数字前缀（parseInt），使未补零的中文目录名按数值序（9-… < 10-费用）；

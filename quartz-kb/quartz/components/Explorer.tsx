@@ -107,28 +107,94 @@ export default ((userOpts?: Partial<Options>) => {
             <line x1="4" x2="20" y1="18" y2="18" />
           </svg>
         </button>
-        <button
-          type="button"
-          class="title-button explorer-toggle desktop-explorer"
-          data-mobile={false}
-          aria-expanded={true}
-        >
-          <h2>{opts.title ?? i18n(cfg.locale).components.explorer.title}</h2>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="14"
-            height="14"
-            viewBox="5 8 14 8"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="fold"
+        {/*
+          patent-kb（阶段5.8）：标题钮与动作组同处一行。**移动端汉堡钮刻意留在
+          .explorer 的直接子层**（上方那枚）——explorer.scss 的
+          `.hide-until-loaded ~ .explorer-content` 依赖它与内容区是兄弟，
+          包进本容器即会打断该选择器。
+        */}
+        <div class="explorer-header">
+          <button
+            type="button"
+            class="title-button explorer-toggle desktop-explorer"
+            data-mobile={false}
+            aria-expanded={true}
           >
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
+            <h2>{opts.title ?? i18n(cfg.locale).components.explorer.title}</h2>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="5 8 14 8"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="fold"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          {/*
+            两枚钮 SSR 即 disabled，由 explorer.inline.ts 的 bindExplorerHeaderActions
+            放开——「脚本活着」才是它们可用的前提（无 JS 时点了不会有任何反应）。
+            「恢复默认排序」另受 CSS 的 [data-has-custom-order] 门控，无自定义序时
+            整枚不显示（display 控制，禁用 hidden 属性——目录树里的 hidden 是法域
+            过滤的专用信号）。
+          */}
+          <div class="explorer-actions">
+            <button
+              type="button"
+              class="explorer-action explorer-action-collapse"
+              disabled
+              aria-disabled="true"
+              title="全部收起（保留当前页所在层级）"
+              aria-label="全部收起"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide-chevrons-up"
+              >
+                <polyline points="17 11 12 6 7 11"></polyline>
+                <polyline points="17 18 12 13 7 18"></polyline>
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="explorer-action explorer-action-reset"
+              disabled
+              aria-disabled="true"
+              title="恢复默认排序（只清排序，不动展开状态）"
+              aria-label="恢复默认排序"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide-rotate-ccw"
+              >
+                <path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path>
+                <path d="M3 3v5h5"></path>
+              </svg>
+              <span class="explorer-action-confirm">确认恢复？</span>
+            </button>
+          </div>
+        </div>
         <div id={id} class="explorer-content" aria-expanded={false} role="group">
           <OverflowList class="explorer-ul" />
         </div>
@@ -164,6 +230,36 @@ export default ((userOpts?: Partial<Options>) => {
               <ul class="content"></ul>
             </div>
           </li>
+        </template>
+        {/*
+          patent-kb（阶段5.8）：同级重排手柄。**刻意不并入 template-folder**——
+          全库 1,395 个文件夹行里只有约 119 行开放重排（合成分组层的三层子项），
+          其余 1,276 行若各带一枚手柄，等于凭空多出上千个节点与上千次事件绑定。
+          由 explorer.inline.ts 的 attachDragHandle 对可重排行按需 clone。
+          形态约束（对表冒烟既有断言）：必须是 button 而非 <a>（合成节点内 <a> 数
+          恒为 0），不得带 .folder-title 类（标题取值按该类选择），且恒为
+          .folder-container 的最后一个子元素（container 与 folder-outer 之间零插入）。
+          tabindex=-1 + aria-hidden：拖拽是纯指针增强，键盘与读屏用户不受影响，
+          Tab 序里也不该凭空多出上百个停靠点。
+        */}
+        <template id="template-drag-handle">
+          <button type="button" class="explorer-drag-handle" tabindex={-1} aria-hidden="true">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="10"
+              height="16"
+              viewBox="0 0 10 16"
+              fill="currentColor"
+              class="drag-grip"
+            >
+              <circle cx="3" cy="3" r="1.1" />
+              <circle cx="7" cy="3" r="1.1" />
+              <circle cx="3" cy="8" r="1.1" />
+              <circle cx="7" cy="8" r="1.1" />
+              <circle cx="3" cy="13" r="1.1" />
+              <circle cx="7" cy="13" r="1.1" />
+            </svg>
+          </button>
         </template>
       </div>
     )

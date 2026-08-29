@@ -111,6 +111,94 @@ button.desktop-explorer {
   }
 }
 
+// ==== patent-kb: 头部动作组（阶段5.8）====
+// 标题钮与两枚动作钮同处一行。汉堡钮不在本容器内（见 Explorer.tsx 的说明）。
+.explorer-header {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  // 标题钮吃掉剩余宽度，动作组恒贴右缘
+  & > .title-button {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+
+.explorer-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  flex: 0 0 auto;
+}
+
+.explorer-action {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 2px 3px;
+  border: none;
+  border-radius: 4px;
+  background-color: transparent;
+  color: var(--darkgray);
+  font-family: var(--leftFont, var(--headerFont));
+  font-size: 0.75rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.6;
+  transition:
+    opacity 0.15s ease,
+    color 0.15s ease;
+
+  &:hover:not(:disabled) {
+    opacity: 1;
+    color: var(--tertiary);
+  }
+
+  &:disabled {
+    opacity: 0.22;
+    cursor: default;
+  }
+}
+
+// 「恢复默认排序」仅在存在自定义序时出现。用 display 而非 hidden 属性：
+// 目录树里的 hidden 是法域过滤的专用信号（冒烟按它做不变式断言），不容混用。
+.explorer-action-reset {
+  display: none;
+}
+
+.explorer-action-reset[data-has-custom-order] {
+  display: flex;
+}
+
+// 两段式内联确认（全仓零 window.confirm，也不引模态）：首点进入本态显出文案，
+// 4s 内再点才真的执行，超时自动回退。
+.explorer-action-confirm {
+  display: none;
+}
+
+.explorer-action-reset[data-confirm] {
+  opacity: 1;
+  color: var(--tertiary);
+
+  & .explorer-action-confirm {
+    display: inline;
+  }
+}
+
+// 根级折叠时动作组随标题一起收起；移动端顶部横条不放动作组
+// （拖拽重排本就是指针交互，收起在横条形态下也无意义）
+.explorer.collapsed .explorer-actions {
+  display: none;
+}
+
+@media all and ($mobile) {
+  .explorer-actions {
+    display: none;
+  }
+}
+// ==== /patent-kb ====
+
 .explorer-content {
   list-style: none;
   overflow: hidden;
@@ -238,6 +326,94 @@ button.desktop-explorer {
     &:hover > span.folder-title.synthetic {
       color: var(--tertiary);
     }
+  }
+}
+// ==== /patent-kb ====
+
+// ==== patent-kb: 同级重排手柄与拖拽指示（阶段5.8）====
+// 开放重排的只有合成分组层的三层子项（法域行 / docType 行 / 书目行，约 119 行），
+// 判据是 explorer.inline.ts 写在行上的 data-orderable（一属性两职：既是标记，
+// 取值又是落表用的父键）。顶层三巨头与章节层没有该属性，因而没有槽位也没有手柄。
+.folder-container[data-orderable] {
+  // 指示线伪元素的包含块
+  position: relative;
+  // 槽位常驻：手柄绝对定位、平时只是 opacity:0，hover 时不改变任何几何，
+  // 整行零回流（若改用 display 切换，1,395 行的目录树会在每次悬停时抖一下）
+  padding-right: 1.15rem;
+}
+
+.explorer-drag-handle {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 1rem;
+  height: 1.15rem;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: var(--darkgray);
+  cursor: grab;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  // 指针事件独占：不加则触摸设备上的纵向滚动会抢走手势，pointermove 收不全
+  touch-action: none;
+}
+
+.folder-container[data-orderable]:hover > .explorer-drag-handle,
+.explorer-drag-handle:focus-visible {
+  opacity: 0.8;
+}
+
+// 被拖行留在原位、只淡化（不做 transform 跟随：整行几何一动，
+// pointerdown 时缓存的同级中点就全部作废）
+.folder-container.is-dragging {
+  opacity: 0.55;
+
+  & > .explorer-drag-handle {
+    opacity: 0.9;
+    cursor: grabbing;
+  }
+}
+
+// 落点指示线：伪元素实现，零新增 DOM、零 hidden 属性
+// （目录树里 li[hidden] 是法域过滤的专用信号，冒烟按它做不变式断言）
+.folder-container.is-drop-before::after,
+.folder-container.is-drop-after::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--tertiary);
+  pointer-events: none;
+}
+
+.folder-container.is-drop-before::after {
+  top: -1px;
+}
+
+.folder-container.is-drop-after::after {
+  bottom: -1px;
+}
+
+// 移动端不开放同级重排：既无 hover 可依（手柄平时 opacity:0，只在悬停时现身），
+// 触摸拖动又会与目录树自身的纵向滚动互抢手势。手柄整枚不渲染、槽位一并收回，
+// 使移动端目录行的几何与本批之前逐像素相同。
+// **必须写在本区块末尾**：这几条与上面的基础规则同特异性（(0,1,0) 与 (0,2,0)），
+// 胜负只由源码顺序决定——放到文件前部那个 $mobile 块里会被后面的
+// `.explorer-drag-handle { display: flex }` 反压回去（实测如此）。
+@media all and ($mobile) {
+  .explorer-drag-handle {
+    display: none;
+  }
+
+  .folder-container[data-orderable] {
+    padding-right: 0;
   }
 }
 // ==== /patent-kb ====

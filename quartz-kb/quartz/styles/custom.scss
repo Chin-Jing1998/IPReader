@@ -1792,6 +1792,13 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
     user-select: none;
     -webkit-user-select: none;
   }
+  // 同上，用于侧栏目录树的同级重排（阶段5.8）：手柄拖过正文时既不选字，
+  // 光标也统一为抓取态（.explorer-drag-handle 自身的 cursor 只覆盖手柄那 16px）
+  html[data-explorer-drag] {
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: grabbing;
+  }
 
   .kb-pagescroll {
     position: fixed;

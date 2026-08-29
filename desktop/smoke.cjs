@@ -53,6 +53,14 @@
 // 哨兵双轨保留：window.__graphRender 包装计数在跳转前同步快照 + 页内交互后复验，
 // 术语钮 data-term-mode 真实转移——B3 批曾引入 TDZ 缺陷使 controller 恒 null，但步 28
 // 纯 UI 状态机完全绕开、28/28 仍照绿，本步专治这一类「controller 死而不僵」复发。
+// 阶段5.8 新增：目录树自定义排序（34）、目录树一键收起（35），共 35 步，排在步 33
+// 之后、离线报告之前。两步都要 loadURL 换页（34 先回首页拖法域行、再硬跳章节页拖书目行，
+// 35 去 law-01-01 点收起），放在中段会污染前面各步的图谱状态与截图基线。
+// 两步各自持有硬性收尾：34-g 把 kb-explorer-order:v1 复位回步首快照，35-d 把
+// fileTree-v2 写回步首快照——冒烟不得把「自定义排序」或「全部收起」留在用户的
+// localStorage 里。全程不碰图谱页的一键收起：步 29 的「初始展开 ≥1000」正是
+// 「绝不自动收起」的常设护栏，本批新钮若被误接进 nav 回调，那条断言会立刻变红。
+// 新增两步实测合计约 20s，600s 超时预算无需上调。
 const {
   app,
   BrowserWindow,
@@ -2384,6 +2392,387 @@ async function main() {
       `g 尺寸中立：开 ${g33Open1 ? g33Open1.w + "×" + g33Open1.h : "-"} → 关 ${g33Closed ? g33Closed.w + "×" + g33Closed.h : "-"} → 开 ${g33Open2 ? g33Open2.w + "×" + g33Open2.h : "-"}（须逐像素等）; ` +
       `h 钉住 reload：就绪=${ready33}, drawer.hidden=${s33h ? s33h.drawerHidden : "-"}（须 false）, pin=${s33h ? s33h.pinned : "-"}, localStorage=${s33h ? s33h.stored : "-"}, 书行=${s33h ? s33h.books : "-"}; ` +
       `i 收尾：取消钉住后 pin=${s33i ? s33i.pinned : "-"}, localStorage=${s33i ? JSON.stringify(s33i.stored) : "-"}（须 null）`,
+  );
+
+  // ============ 阶段5.8 新增两步（34–35） ============
+  // 页面内公共片段：合成指针事件 + 同级行取数 + 顺序表读取 + 「拖到首位」配方。
+  // 以字符串注入各次 executeJavaScript（同 PARSE_COLOR_FN 的做法）。
+  // 拖拽配方与步 20 的影子滚动条同源：合成 PointerEvent 优先，因为
+  // explorer.inline.ts 的 setPointerCapture 外包了 try/catch（合成指针会抛
+  // InvalidPointerId），move/up 一律挂 window，冒泡即可收到。
+  const EXPLORER_ORDER_FNS = `
+    const mkPtr = (type, x, y) => new PointerEvent(type, {
+      bubbles: true, cancelable: true, composed: true,
+      clientX: x, clientY: y, pointerId: 1, isPrimary: true,
+      pointerType: 'mouse', button: 0, buttons: 1,
+    });
+    function orderRows(parentKey) {
+      const c = document.querySelector('.explorer-ul .folder-container[data-folderpath="' + parentKey + '"]');
+      if (!c || !c.nextElementSibling) return [];
+      const ul = c.nextElementSibling.querySelector(':scope > ul');
+      if (!ul) return [];
+      return Array.from(ul.children).filter(
+        (li) => li.tagName === 'LI' && !li.classList.contains('overflow-end'),
+      );
+    }
+    function orderKeys(parentKey) {
+      return orderRows(parentKey).map((li) => {
+        const c = li.querySelector(':scope > .folder-container');
+        return c ? c.dataset.folderpath : null;
+      });
+    }
+    function orderTable() {
+      try { return JSON.parse(localStorage.getItem('kb-explorer-order:v1') || 'null'); }
+      catch (e) { return 'ERR'; }
+    }
+    function orderInvariants() {
+      return {
+        hiddenLis: document.querySelectorAll('.explorer-ul li[hidden]').length,
+        anchorsInSynthetic: document.querySelectorAll('.explorer-ul [data-synthetic="true"] a').length,
+        topLevelCN: !!document.querySelector(
+          '.explorer-ul > li > [data-synthetic="true"][data-folderpath="synthetic:CN"]',
+        ),
+        siblingBroken: Array.from(document.querySelectorAll('.explorer-ul .folder-container')).filter(
+          (c) => !(c.nextElementSibling && c.nextElementSibling.classList.contains('folder-outer')),
+        ).length,
+        handles: document.querySelectorAll('.explorer-drag-handle').length,
+        orderables: document.querySelectorAll('.folder-container[data-orderable]').length,
+      };
+    }
+    // 把 parentKey 下第 childIndex 行拖到同级首位。三段式：先移 8px 越过 4px 阈值
+    // 并断言真的进入了拖拽态（防「事件派发了但状态机没启动」的空转假绿），
+    // 再移到首行矩形内并断言指示线落位，最后抬指落定。
+    function dragRowToTop(parentKey, childIndex) {
+      const rows = orderRows(parentKey);
+      const li = rows[childIndex];
+      if (!li || rows.length < 2) return { error: 'rows=' + rows.length + ' idx=' + childIndex };
+      const container = li.querySelector(':scope > .folder-container');
+      const handle = container.querySelector(':scope > .explorer-drag-handle');
+      if (!handle) return { error: 'no handle' };
+      const hr = handle.getBoundingClientRect();
+      const firstRow = rows[0].querySelector(':scope > .folder-container');
+      const cx = hr.left + hr.width / 2;
+      const cy = hr.top + hr.height / 2;
+      handle.dispatchEvent(mkPtr('pointerdown', cx, cy));
+      handle.dispatchEvent(mkPtr('pointermove', cx, cy - 8));
+      const engaged = container.classList.contains('is-dragging');
+      const globalFlag = document.documentElement.dataset.explorerDrag || null;
+      const ty = firstRow.getBoundingClientRect().top + 1;
+      handle.dispatchEvent(mkPtr('pointermove', cx, ty));
+      const markedFirst = firstRow.classList.contains('is-drop-before');
+      const markCount = document.querySelectorAll('.is-drop-before, .is-drop-after').length;
+      handle.dispatchEvent(mkPtr('pointerup', cx, ty));
+      return {
+        engaged, globalFlag, markedFirst, markCount,
+        residueDragging: document.querySelectorAll('.folder-container.is-dragging').length,
+        residueMarks: document.querySelectorAll('.is-drop-before, .is-drop-after').length,
+        residueFlag: document.documentElement.dataset.explorerDrag || null,
+      };
+    }
+  `;
+  const evalOrder = (body) =>
+    win.webContents.executeJavaScript(`(() => {${EXPLORER_ORDER_FNS}\n${body}})()`);
+
+  // 34. 目录树自定义排序（同级拖拽重排 + 双路径保持 + 恢复默认）
+  //     开放重排的只有合成分组层的三层子项（法域行 / docType 行 / 书目行），判据是
+  //     explorer.inline.ts 写在行上的 data-orderable（取值即落表用的父键）；顶层三巨头
+  //     的父是根、章节层的父是真实目录，两者天然锁死。顺序表是**全站单表**
+  //     kb-explorer-order:v1（图谱页与文档站共用同一棵缓存 DOM 树，分双键必然出现
+  //     「存了不生效」的幽灵态），故本步收尾必须按步首快照原样复位。
+  //     书层靶刻意选 CN/专利/D5（9 本）：D1 组只有 1 本，无从重排，拿它做靶必然假绿。
+  //     d 段的 SPA 往返是**复用路径回归门**——手柄监听若被误登记 window.addCleanup，
+  //     首次软导航后全站手柄哑火，而只测重建路径的用例会照常全绿，唯有此处能抓到。
+  await win.loadURL(`${base}/`);
+  let orderReady = false;
+  for (let i = 0; i < 20; i += 1) {
+    await sleep(300);
+    orderReady = await win.webContents.executeJavaScript(
+      `document.querySelectorAll('.explorer-ul .folder-container[data-orderable]').length > 0`,
+    );
+    if (orderReady) break;
+  }
+  // a. 步首快照（收尾据此复位）+ 默认序基线
+  const s34a = await evalOrder(
+    `return {
+       orderBefore: (function () { try { return localStorage.getItem('kb-explorer-order:v1'); } catch (e) { return 'ERR'; } })(),
+       treeBefore: (function () { try { return localStorage.getItem('fileTree-v2'); } catch (e) { return 'ERR'; } })(),
+       fields: orderKeys('synthetic:CN'),
+       inv: orderInvariants(),
+     };`,
+  );
+  const a34Ok =
+    orderReady &&
+    !!s34a &&
+    s34a.fields.length === 6 &&
+    s34a.inv.orderables >= 100 &&
+    s34a.inv.handles === s34a.inv.orderables;
+
+  // b. 第一层（法域行）：把「商标」拖到首位
+  const s34b = await evalOrder(
+    `const before = orderKeys('synthetic:CN');
+     const probe = dragRowToTop('synthetic:CN', before.indexOf('synthetic:CN/商标'));
+     const table = orderTable();
+     const after = orderKeys('synthetic:CN');
+     return { before, probe, after, first: after[0], tableFirst: table && table.parents && table.parents['synthetic:CN'] ? table.parents['synthetic:CN'][0] : null, tableLen: table && table.parents && table.parents['synthetic:CN'] ? table.parents['synthetic:CN'].length : null };`,
+  );
+  const b34Ok =
+    !!s34b &&
+    s34b.probe.engaged === true &&
+    s34b.probe.globalFlag === "on" &&
+    s34b.probe.markedFirst === true &&
+    s34b.probe.markCount === 1 &&
+    s34b.probe.residueDragging === 0 &&
+    s34b.probe.residueMarks === 0 &&
+    s34b.probe.residueFlag === null &&
+    s34b.first === "synthetic:CN/商标" &&
+    s34b.tableFirst === "synthetic:CN/商标" &&
+    s34b.tableLen === 6 &&
+    s34b.after.length === s34b.before.length;
+  await shot(win, "目录树自定义排序-法域行拖到首位");
+
+  // c. 不变式复核：拖拽既不新增 hidden、也不给合成节点造出 <a>，
+  //    更不能在 .folder-container 与其兄弟 .folder-outer 之间插进任何东西
+  const s34c = await evalOrder(`return orderInvariants();`);
+  const c34Ok =
+    !!s34c &&
+    s34c.hiddenLis === 0 &&
+    s34c.anchorsInSynthetic === 0 &&
+    s34c.topLevelCN === true &&
+    s34c.siblingBroken === 0;
+
+  // d. SPA 软导航往返（复用路径）后次序保持
+  await win.webContents.executeJavaScript(
+    `window.spaNavigate(new URL(${JSON.stringify("/" + encodeURI(SPA_HOPS[1]))}, location.href))`,
+  );
+  await sleep(900);
+  await win.webContents.executeJavaScript(
+    `window.spaNavigate(new URL("/", location.href))`,
+  );
+  await sleep(900);
+  const s34d = await evalOrder(
+    `return { path: location.pathname, fields: orderKeys('synthetic:CN'), inv: orderInvariants() };`,
+  );
+  const d34Ok =
+    !!s34d &&
+    s34d.path === "/" &&
+    s34d.fields[0] === "synthetic:CN/商标" &&
+    s34d.inv.handles === s34d.inv.orderables &&
+    s34d.inv.handles > 0;
+
+  // e. 硬跳（重建路径）后次序保持，并在书层再拖一次——双侧（DOM 与表）一致
+  await win.loadURL(`${base}/${encodeURI(SPA_HOPS[1])}`);
+  let bookReady = false;
+  for (let i = 0; i < 20; i += 1) {
+    await sleep(300);
+    bookReady = await win.webContents.executeJavaScript(
+      `document.querySelectorAll('.explorer-ul .folder-container[data-orderable]').length > 0`,
+    );
+    if (bookReady) break;
+  }
+  const s34e = await evalOrder(
+    `const fields = orderKeys('synthetic:CN');
+     const booksBefore = orderKeys('synthetic:CN/专利/D5');
+     const probe = dragRowToTop('synthetic:CN/专利/D5', 1);
+     const booksAfter = orderKeys('synthetic:CN/专利/D5');
+     const table = orderTable();
+     const stored = table && table.parents ? table.parents['synthetic:CN/专利/D5'] : null;
+     return {
+       fields, booksBefore, probe, booksAfter, stored,
+       domMatchesTable: !!stored && stored.length === booksAfter.length && stored.every((k, i) => k === booksAfter[i]),
+     };`,
+  );
+  const e34Ok =
+    bookReady &&
+    !!s34e &&
+    s34e.fields[0] === "synthetic:CN/商标" &&
+    s34e.booksBefore.length === 9 &&
+    s34e.probe.engaged === true &&
+    s34e.probe.markedFirst === true &&
+    s34e.booksAfter.length === 9 &&
+    s34e.booksAfter[0] === s34e.booksBefore[1] &&
+    s34e.domMatchesTable === true;
+  await shot(win, "目录树自定义排序-书目行拖到首位");
+
+  // f. 恢复默认排序：两段式内联确认（首点只进确认态，防误触），
+  //    执行后序回默认 + 顺序键删除 + 恢复钮隐去，而**折叠态键 fileTree-v2 不得被动**
+  const s34f1 = await evalOrder(
+    `const treeSnapshot = (function () { try { return localStorage.getItem('fileTree-v2'); } catch (e) { return 'ERR'; } })();
+     const btn = document.querySelector('.explorer-action-reset');
+     const visibleBefore = btn ? getComputedStyle(btn).display : null;
+     if (btn) btn.click();
+     return {
+       treeSnapshot,
+       visibleBefore,
+       confirm: btn ? (btn.dataset.confirm || null) : null,
+       fields: orderKeys('synthetic:CN'),
+       order: (function () { try { return localStorage.getItem('kb-explorer-order:v1'); } catch (e) { return 'ERR'; } })(),
+     };`,
+  );
+  await shot(win, "目录树自定义排序-恢复默认两段确认");
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.explorer-action-reset').click()`,
+  );
+  await sleep(1500);
+  const s34f2 = await evalOrder(
+    `const btn = document.querySelector('.explorer-action-reset');
+     return {
+       fields: orderKeys('synthetic:CN'),
+       books: orderKeys('synthetic:CN/专利/D5'),
+       order: (function () { try { return localStorage.getItem('kb-explorer-order:v1'); } catch (e) { return 'ERR'; } })(),
+       tree: (function () { try { return localStorage.getItem('fileTree-v2'); } catch (e) { return 'ERR'; } })(),
+       resetDisplay: btn ? getComputedStyle(btn).display : null,
+       hasCustomAttr: btn ? btn.hasAttribute('data-has-custom-order') : null,
+       roots: document.querySelectorAll('.explorer-ul > li').length,
+       inv: orderInvariants(),
+     };`,
+  );
+  const f34Ok =
+    !!s34f1 &&
+    !!s34f2 &&
+    s34f1.visibleBefore !== "none" &&
+    s34f1.confirm === "on" &&
+    s34f1.fields[0] === "synthetic:CN/商标" &&
+    s34f2.fields[0] === "synthetic:CN/专利" &&
+    s34f2.books[0] === s34e.booksBefore[0] &&
+    s34f2.order === null &&
+    s34f2.resetDisplay === "none" &&
+    s34f2.hasCustomAttr === false &&
+    // 只删顺序表，折叠习惯毫发无损
+    s34f2.tree === s34f1.treeSnapshot &&
+    // 就地重建不得留下双树叠加（3 个顶层 li + 1 条 overflow-end 占位）
+    s34f2.roots === 4 &&
+    s34f2.inv.handles === s34f2.inv.orderables;
+
+  // g. 收尾：顺序表复位回步首快照（本就为 null 时删键）
+  const s34g = await evalOrder(
+    `const before = ${JSON.stringify(s34a ? s34a.orderBefore : null)};
+     try {
+       if (before === null) localStorage.removeItem('kb-explorer-order:v1');
+       else localStorage.setItem('kb-explorer-order:v1', before);
+     } catch (e) {}
+     let now = 'ERR';
+     try { now = localStorage.getItem('kb-explorer-order:v1'); } catch (e) {}
+     return { restored: now === before, now: now };`,
+  );
+  const g34Ok = !!s34g && s34g.restored === true;
+
+  record(
+    "目录树自定义排序（三层可拖/顶层与章节层锁死 + 拖拽落定双侧一致 + 复用与重建两路径保持 + 恢复默认两段确认且不动折叠态 + 收尾复位）",
+    a34Ok && b34Ok && c34Ok && d34Ok && e34Ok && f34Ok && g34Ok,
+    `a 基线：可重排行=${s34a ? s34a.inv.orderables : "-"}／手柄=${s34a ? s34a.inv.handles : "-"}（须相等且 ≥100）, 法域行=${s34a ? s34a.fields.length : "-"}（须 6）, 默认首=${s34a ? s34a.fields[0] : "-"}; ` +
+      `b 拖「商标」到首：进入拖拽态=${s34b ? s34b.probe.engaged : "-"}（须 true，防空转假绿）, 全局禁选=${s34b ? s34b.probe.globalFlag : "-"}, 首行指示线=${s34b ? s34b.probe.markedFirst : "-"}／指示线数=${s34b ? s34b.probe.markCount : "-"}（须 1）, ` +
+      `DOM 首=${s34b ? s34b.first : "-"}／表首=${s34b ? s34b.tableFirst : "-"}（须均为 synthetic:CN/商标）, 表长=${s34b ? s34b.tableLen : "-"}（须 6，整段写入）, 抬指残留 dragging=${s34b ? s34b.probe.residueDragging : "-"}／指示线=${s34b ? s34b.probe.residueMarks : "-"}／全局标记=${s34b ? String(s34b.probe.residueFlag) : "-"}; ` +
+      `c 不变式：li[hidden]=${s34c ? s34c.hiddenLis : "-"}（须 0）, 合成节点内 <a>=${s34c ? s34c.anchorsInSynthetic : "-"}（须 0）, 顶层直达链=${s34c ? s34c.topLevelCN : "-"}, container→outer 相邻破坏=${s34c ? s34c.siblingBroken : "-"}（须 0）; ` +
+      `d 复用路径（SPA 往返）：落地=${s34d ? s34d.path : "-"}, 法域首=${s34d ? s34d.fields[0] : "-"}（须 synthetic:CN/商标）, 手柄=${s34d ? s34d.inv.handles : "-"}／可重排行=${s34d ? s34d.inv.orderables : "-"}（须相等且 >0——手柄监听若误登记 cleanup，此处必为 0）; ` +
+      `e 重建路径（硬跳 ${SPA_HOPS[1]}）：法域首=${s34e ? s34e.fields[0] : "-"}, D5 书=${s34e ? s34e.booksBefore.length : "-"} 本（须 9）, 第二本拖到首=${s34e ? s34e.booksAfter[0] : "-"}（期望 ${s34e ? s34e.booksBefore[1] : "-"}）, DOM 与表逐项一致=${s34e ? s34e.domMatchesTable : "-"}; ` +
+      `f 恢复默认：首点后 data-confirm=${s34f1 ? s34f1.confirm : "-"}（须 on）且序未变=${s34f1 ? s34f1.fields[0] : "-"}; 再点后法域首=${s34f2 ? s34f2.fields[0] : "-"}（须 synthetic:CN/专利）, 书首=${s34f2 ? s34f2.books[0] : "-"}, 顺序键=${s34f2 ? JSON.stringify(s34f2.order) : "-"}（须 null）, 恢复钮 display=${s34f2 ? s34f2.resetDisplay : "-"}（须 none）, fileTree-v2 未被动=${s34f1 && s34f2 ? s34f2.tree === s34f1.treeSnapshot : "-"}, 顶层 li=${s34f2 ? s34f2.roots : "-"}（须 4＝3 顶层+1 占位，防双树叠加）; ` +
+      `g 收尾：顺序表复位=${g34Ok}（步首快照=${s34a ? JSON.stringify(s34a.orderBefore) : "-"}）`,
+  );
+
+  // 35. 目录树一键收起
+  //     **绝不自动执行**：只有用户点这枚钮才收起（图谱页首访仍按「书下 3 层可见」
+  //     铺开，步 29 的 open ≥1000 即这条纪律的常设护栏，本步全程不碰图谱页）。
+  //     语义＝「全部置 collapsed，再用既有公式 refreshFolderOpenState 重算」，
+  //     故净效果是「除当前页祖先链外全收」——祖先链恒为合成三层 + 书 + 章，
+  //     b 段用结构化判据钉死（每个仍展开的节点必须是当前页祖先或 synthetic:），
+  //     不写死数字，语料增删也不会把这条断言变成噪声。
+  const COLLAPSE_PAGE = "1-专利法/1-总则/law-01-01";
+  await win.loadURL(`${base}/${encodeURI(COLLAPSE_PAGE)}`);
+  let collapseReady = false;
+  for (let i = 0; i < 20; i += 1) {
+    await sleep(300);
+    collapseReady = await win.webContents.executeJavaScript(
+      `!!document.querySelector('.explorer-action-collapse') &&
+       document.querySelectorAll('.explorer-ul .folder-outer').length > 0`,
+    );
+    if (collapseReady) break;
+  }
+  const COLLAPSE_STATS = `(() => {
+     const opens = Array.from(document.querySelectorAll('.explorer-ul .folder-outer.open'));
+     const current = document.body.dataset.slug || '';
+     const paths = opens.map((o) => (o.previousElementSibling ? o.previousElementSibling.dataset.folderpath : null));
+     const btn = document.querySelector('.explorer-action-collapse');
+     let saved = 'ERR';
+     try { saved = localStorage.getItem('fileTree-v2'); } catch (e) {}
+     let everyCollapsed = null, savedLen = null;
+     try {
+       const parsed = JSON.parse(saved || 'null');
+       if (Array.isArray(parsed)) { everyCollapsed = parsed.every((e) => e.collapsed === true); savedLen = parsed.length; }
+     } catch (e) {}
+     return {
+       open: opens.length,
+       total: document.querySelectorAll('.explorer-ul .folder-outer').length,
+       paths: paths,
+       ancestorOnly: paths.every((p) => {
+         if (!p) return false;
+         if (p.indexOf('synthetic:') === 0) return true;
+         return current.indexOf(p.replace(/\\/index$/, '')) === 0;
+       }),
+       disabled: btn ? btn.disabled : null,
+       ariaDisabled: btn ? btn.getAttribute('aria-disabled') : null,
+       everyCollapsed: everyCollapsed,
+       savedLen: savedLen,
+       saved: saved,
+       slug: current,
+     };
+   })()`;
+  // a. 快照（fileTree-v2 原值供收尾写回）+ 收起前规模 + 钮可用
+  const s35a = await win.webContents.executeJavaScript(COLLAPSE_STATS);
+  const a35Ok =
+    collapseReady && !!s35a && s35a.open > 0 && s35a.disabled === false;
+
+  // b. 点收起
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.explorer-action-collapse').click()`,
+  );
+  await sleep(500);
+  const s35b = await win.webContents.executeJavaScript(COLLAPSE_STATS);
+  const b35Ok =
+    !!s35b &&
+    s35b.open < s35a.open &&
+    s35b.open <= 6 &&
+    s35b.ancestorOnly === true &&
+    s35b.everyCollapsed === true &&
+    s35b.savedLen === s35b.total &&
+    s35b.disabled === true &&
+    s35b.ariaDisabled === "true";
+  await shot(win, "目录树一键收起");
+
+  // c. SPA 往返后仍保持（复用路径逐导航整树重算，收起结果来自落盘态而非 DOM 残留）
+  await win.webContents.executeJavaScript(
+    `window.spaNavigate(new URL(${JSON.stringify("/" + encodeURI(SPA_HOPS[1]))}, location.href))`,
+  );
+  await sleep(900);
+  await win.webContents.executeJavaScript(
+    `window.spaNavigate(new URL(${JSON.stringify("/" + encodeURI(COLLAPSE_PAGE))}, location.href))`,
+  );
+  await sleep(900);
+  const s35c = await win.webContents.executeJavaScript(COLLAPSE_STATS);
+  const c35Ok = !!s35c && s35c.open <= 6 && s35c.ancestorOnly === true;
+
+  // d. 收尾：fileTree-v2 写回步首快照（硬性——不把「全部收起」留给用户）
+  const s35d = await win.webContents.executeJavaScript(
+    `(() => {
+       const before = ${JSON.stringify(s35a ? s35a.saved : null)};
+       try {
+         if (before === null) localStorage.removeItem('fileTree-v2');
+         else localStorage.setItem('fileTree-v2', before);
+       } catch (e) {}
+       let now = 'ERR';
+       try { now = localStorage.getItem('fileTree-v2'); } catch (e) {}
+       return { restored: now === before, len: now ? now.length : null };
+     })()`,
+  );
+  const d35Ok = !!s35d && s35d.restored === true;
+
+  record(
+    "目录树一键收起（点钮才收 + 除当前页祖先链外全收 + 落盘全 collapsed + 钮置灰 + SPA 往返保持 + 收尾复位）",
+    a35Ok && b35Ok && c35Ok && d35Ok,
+    `a 收起前：展开=${s35a ? s35a.open : "-"}/${s35a ? s35a.total : "-"}, 钮 disabled=${s35a ? s35a.disabled : "-"}（须 false）, 当前页=${s35a ? s35a.slug : "-"}; ` +
+      `b 点收起后：展开=${s35b ? s35b.open : "-"}（须 <${s35a ? s35a.open : "-"} 且 ≤6）, 仍展开的节点=${s35b ? JSON.stringify(s35b.paths) : "-"}, 全为祖先或合成层=${s35b ? s35b.ancestorOnly : "-"}, ` +
+      `落盘 every(collapsed)=${s35b ? s35b.everyCollapsed : "-"}（须 true）／条目=${s35b ? s35b.savedLen : "-"}（须 =${s35b ? s35b.total : "-"}）, 钮 disabled=${s35b ? s35b.disabled : "-"}／aria=${s35b ? s35b.ariaDisabled : "-"}; ` +
+      `c SPA 往返后：展开=${s35c ? s35c.open : "-"}（须 ≤6）, 全为祖先或合成层=${s35c ? s35c.ancestorOnly : "-"}; ` +
+      `d 收尾：fileTree-v2 写回=${d35Ok}（长度 ${s35d ? s35d.len : "-"}）`,
   );
 
   // —— 离线报告 ——

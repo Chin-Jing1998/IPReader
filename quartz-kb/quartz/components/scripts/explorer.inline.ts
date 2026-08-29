@@ -19,6 +19,17 @@ import { computeThumbGeometry, hasScrollableContent } from "../../util/scrollInt
 import { GRAPH_SLUG } from "../../util/appPages"
 import { FIELD_ALL } from "../../util/graphSections"
 import { GRAPH_FIELD_EVENT, type GraphFieldDetail } from "../../util/graphInteraction"
+import {
+  EXPLORER_ORDER_STORAGE_KEY,
+  EXPLORER_SYNTHETIC_PREFIX,
+  applyOrderToItems,
+  hasCustomOrder,
+  isOrderableParentKey,
+  parseOrderTable,
+  serializeOrderTable,
+  withParentOrder,
+  type ExplorerOrderTable,
+} from "../../util/explorerOrder"
 
 type MaybeHTMLElement = HTMLElement | undefined
 
@@ -79,6 +90,14 @@ type FolderState = {
  * 该回退只是防御性写法，不构成第二套语序。
  * 「文件夹优先」规则保留：实测本库无「同级既有子目录又有非 index 文档」的混排目录，
  * 该分支不会与 docOrder 的逐段比较产生分歧。
+ *
+ * 阶段5.8 补记——本函数给出的是**默认显示序**，不是最终显示序：
+ * 合成分组层的三层子项（法域行 / docType 行 / 书目行）可被用户拖拽重排，
+ * 结果存在 kb-explorer-order:v1（util/explorerOrder.ts），由 applyCustomOrder 在
+ * 再父化之后叠加到渲染树上。**PageNav 的「上一节/下一节」翻页链不读该表**
+ *（util/docOrder.ts 的 byDocumentOrder 恒按文档逻辑序），即拖拽只改「找书的顺序」，
+ * 不改「读文的顺序」。本函数与 docOrder 的比较键同源这一条因此仍然成立：
+ * 两者仍是同一套默认序，自定义序是叠加在目录树一侧的呈现层覆盖。
  */
 const explorerCollator = new Intl.Collator("zh-CN", { numeric: true, sensitivity: "base" })
 
@@ -128,8 +147,12 @@ function defaultCollapsed(depth: number, opts: ParsedOptions): boolean {
 /** 分组数据源（相对站点根）。取数走相对路径，理由同 graphexplorer 的 fetchCard。 */
 const TAXONOMY_PATH = "static/taxonomy.json"
 
-/** 合成节点折叠态的持久化键前缀。真实 slug 不含冒号，故与任何页面路径天然不冲突。 */
-const SYNTHETIC_KEY_PREFIX = "synthetic:"
+/**
+ * 合成节点折叠态的持久化键前缀。真实 slug 不含冒号，故与任何页面路径天然不冲突。
+ * 阶段5.8：字面量迁往 util/explorerOrder.ts（那里的 isOrderableParentKey 以它为
+ * 「可重排」的唯一判据），此处改为引用，杜绝两份真相。
+ */
+const SYNTHETIC_KEY_PREFIX = EXPLORER_SYNTHETIC_PREFIX
 
 /**
  * 折叠态存储键。分组层把书目录从渲染树第 1 层推到第 4 层，旧键 `fileTree` 里
@@ -434,6 +457,78 @@ function collectFolderStates(trie: FileTrieNode): Array<{ path: string; depth: n
   }
   walk(trie, 1)
   return out
+}
+// ==== /patent-kb ====
+
+// ==== patent-kb: 目录树自定义排序（阶段5.8）====
+// 纯逻辑（表结构/解析/部分排序合并/搬移）全在 util/explorerOrder.ts 并由单测钉死；
+// 本文件只负责三件事：读写 localStorage、把表施加到渲染树、把可重排行标记出来。
+//
+// 可重排的判据只有一条：**父节点的折叠键以 `synthetic:` 开头**。合成分组层恰是
+// 三层（国家 / 权利类型 / 文件归类），其子恰是开放重排的三层（法域行 / docType 行 /
+// 书目行）；顶层三巨头的父是根、章节层的父是真实目录，两者据此天然锁死，
+// 无需任何深度魔数。
+
+/**
+ * 顺序表的会话内缓存。整页加载时读一次即可：SPA 生命周期内只有拖拽与「恢复默认」
+ * 会改它，两者都走 writeOrderTable / 置空缓存，故缓存与 localStorage 恒一致。
+ * 多窗口并存时另一窗口的改动本窗口看不到（已知限制，与折叠态表同）。
+ */
+let orderTableCache: ExplorerOrderTable | null = null
+
+function readOrderTable(): ExplorerOrderTable {
+  if (orderTableCache) {
+    return orderTableCache
+  }
+  let raw: string | null = null
+  try {
+    raw = localStorage.getItem(EXPLORER_ORDER_STORAGE_KEY)
+  } catch {
+    // 隐私模式等禁用 localStorage 的环境：按「无自定义序」处理，目录树照常渲染
+  }
+  orderTableCache = parseOrderTable(raw)
+  return orderTableCache
+}
+
+function writeOrderTable(table: ExplorerOrderTable) {
+  orderTableCache = table
+  try {
+    localStorage.setItem(EXPLORER_ORDER_STORAGE_KEY, serializeOrderTable(table))
+  } catch {
+    // 配额满/隐私模式：本会话内的内存缓存仍生效；抛出会中断拖拽收尾，留下
+    // 半吊子的 is-dragging 类与全局禁选标记，比丢一次持久化严重得多
+  }
+}
+
+/**
+ * 把自定义序施加到渲染树。调用点唯一：regroupByTaxonomy 之后、collectFolderStates
+ * 之前——前者造出合成层（此前根本没有可重排的父），后者与建树都依赖 children 的
+ * 最终次序（folderStateKey 与深度都不受重排影响，但前序遍历的**顺序**必须与
+ * 建树一致，否则 flatFolders 与 currentExplorerState 对不上）。
+ *
+ * 遍历只在合成层内下潜：遇到非合成节点（书目录及其以下）立即止步，
+ * 故实际访问约 114 个节点，不会下潜到 7,400 个渲染节点。
+ */
+function applyCustomOrder(trie: FileTrieNode, table: ExplorerOrderTable) {
+  if (!hasCustomOrder(table)) {
+    return
+  }
+  const walk = (node: FileTrieNode) => {
+    for (const child of node.children) {
+      if (!child.isFolder) {
+        continue
+      }
+      const key = folderStateKey(child)
+      // 非合成节点：它的子项不开放重排，其整棵子树也不可能含合成节点，就此止步
+      if (!isOrderableParentKey(key)) {
+        continue
+      }
+      child.children = applyOrderToItems(child.children, table.parents[key], folderStateKey)
+      walk(child)
+    }
+  }
+  // 从根的直接子开始：根自身的子序（顶层三巨头）不开放重排，故不对 trie.children 施加
+  walk(trie)
 }
 // ==== /patent-kb ====
 
@@ -846,6 +941,10 @@ function toggleFolder(evt: MouseEvent) {
   // 折叠/展开改变目录树高度：下一帧先按动画首帧几何重算一次（避免整段动画期间
   // thumb 完全过期），动画落定后的精确值由滚动器上的 transitionend 补齐。
   scheduleOverlayScrollbarSync()
+
+  // patent-kb（阶段5.8）：任一文件夹被手动展开后「全部已收起」即不再成立，
+  // 一键收起钮须随之解除置灰
+  refreshHeaderActionState()
 }
 
 // ==== patent-kb: 目录树 DOM 复用（SPA 生命周期内）====
@@ -934,6 +1033,24 @@ type ExplorerTree = {
 let explorerTrees: Array<ExplorerTree | undefined> = []
 
 /**
+ * 每个 `.explorer` 实例本次导航的上下文（阶段5.8）。头部的「一键收起 / 恢复默认排序」
+ * 两枚钮用具名回调绑定（同一函数引用天然去重，见 bindExplorerHeaderActions），
+ * 回调里拿不到 setupExplorer 的局部变量，改由被点的钮 closest('.explorer') 反查本表。
+ *
+ * 与 explorerTrees 同索引，但**taxonomy 缺席时也登记**：那种情况下目录树回落平铺、
+ * 本次建出的树刻意不进 explorerTrees 缓存（见其赋值处注释），若上下文也跟着缺席，
+ * 一键收起就会在回落形态下整个失灵。此处存的是本次真实生效的那棵树的引用。
+ */
+type ExplorerContext = {
+  explorer: HTMLElement
+  ul: HTMLElement
+  tree: ExplorerTree
+  currentSlug: FullSlug
+  opts: ParsedOptions
+}
+let explorerContexts: Array<ExplorerContext | undefined> = []
+
+/**
  * 导航代次。setupExplorer 入口自增，await 恢复后若已被后一次导航接管即整体放弃本次
  * （快速连点两页的竞态防护）。放弃是安全的：接管方自己会把目录树挂回并按其落地页更新。
  */
@@ -979,6 +1096,382 @@ function detachExplorerTrees() {
   }
 }
 
+// ==== patent-kb: 同级拖拽重排（阶段5.8）====
+// 只在 data-orderable 行上生效（合成分组层的三层子项）。被拖行留在原位只淡化，
+// 落点用伪元素指示线表示；指针抬起才做**一次** insertBefore，并从 DOM 反读
+// 整段子键序写表（所见即所存）。取消（Esc / pointercancel / 窗口失焦 / 标签页隐藏 /
+// SPA 导航）一律不动 DOM、不落盘。
+
+/** 进入拖拽态的位移阈值：不到它就按「点了一下手柄」处理，零副作用 */
+const DRAG_ENGAGE_THRESHOLD = 4
+/** 贴滚动器上/下缘多少像素内启动自动滚动 */
+const DRAG_AUTOSCROLL_EDGE = 28
+const DRAG_AUTOSCROLL_MIN = 2
+const DRAG_AUTOSCROLL_MAX = 14
+
+type DragCandidate = {
+  li: HTMLLIElement
+  /**
+   * 该行 **.folder-container 矩形**的垂直中点，换算到滚动器内容坐标系。
+   * 严禁用 li 矩形：展开的书 li 高达数千像素，其中点落在书的正文条目堆里，
+   * 命中判定会整段错位。
+   */
+  mid: number
+}
+
+type ExplorerDragState = {
+  handle: HTMLElement
+  container: HTMLElement
+  li: HTMLLIElement
+  parentUl: HTMLElement
+  /** 落表用的父键，直接取自 data-orderable */
+  parentKey: string
+  scroller: HTMLElement
+  /** pointerdown 时滚动器视口顶缘（clientY → 内容坐标的换算基准） */
+  scrollerTop: number
+  pointerId: number
+  startX: number
+  startY: number
+  /** 位移是否已越过阈值。false 时抬指等同「什么都没发生」 */
+  engaged: boolean
+  /** 自身在同级完整列表（含自身）中的下标 */
+  selfIndex: number
+  /** 除自身外的同级行；顺序即 DOM 序 */
+  others: DragCandidate[]
+  /** 当前落点：移除自身后的插入下标，取值域 [0, others.length] */
+  targetIndex: number
+  /** 当前打着指示线类的行容器 */
+  marked: HTMLElement | null
+  clientY: number
+  rafId: number | null
+  autoScrollStep: number
+}
+
+let explorerDrag: ExplorerDragState | null = null
+
+/** 取一行的可测量容器：可重排行恒有 .folder-container，回落到 li 只是防御。 */
+function dragRowOf(li: HTMLElement): HTMLElement {
+  return li.querySelector<HTMLElement>(":scope > .folder-container") ?? li
+}
+
+/**
+ * 从 DOM 反读一个父 ul 的完整子键序（WYSIWYG）。整段写入而非增量补丁：
+ * 语料增删改名后表里的陈旧键会在下一次拖拽时被自然冲掉，无需另做清理。
+ */
+function readChildKeys(parentUl: HTMLElement): string[] {
+  const keys: string[] = []
+  for (const child of Array.from(parentUl.children)) {
+    if (child.tagName !== "LI" || child.classList.contains("overflow-end")) {
+      continue
+    }
+    const container = child.querySelector<HTMLElement>(":scope > .folder-container")
+    const key =
+      container?.dataset.folderpath ??
+      child.querySelector<HTMLAnchorElement>(":scope > a[data-for]")?.dataset.for
+    if (key) {
+      keys.push(key)
+    }
+  }
+  return keys
+}
+
+/**
+ * 手柄挂载。**监听在建树时绑一次且绝不 window.addCleanup**——纪律同折叠钮
+ * （见 setupExplorer 里 folderButtons 的说明）：手柄随缓存树跨导航存活，
+ * 若逐 nav 摘除，复用路径不再重绑，首次软导航后全站手柄哑火，而只测重建路径的
+ * 用例会照常全绿（冒烟步 34-d 的软导航往返正是为抓这一类而设）。
+ */
+function attachDragHandle(container: HTMLElement) {
+  const template = document.getElementById("template-drag-handle") as HTMLTemplateElement | null
+  if (!template) {
+    return
+  }
+  const clone = template.content.cloneNode(true) as DocumentFragment
+  const handle = clone.querySelector<HTMLElement>(".explorer-drag-handle")
+  if (!handle) {
+    return
+  }
+  handle.addEventListener("pointerdown", onDragHandlePointerDown)
+  // 必须是 .folder-container 的最后一个子元素：container 与其兄弟 .folder-outer
+  // 之间零插入，toggleFolder 的 nextElementSibling 取法不受影响
+  container.appendChild(handle)
+}
+
+function onDragHandlePointerDown(this: HTMLElement, ev: PointerEvent) {
+  if (ev.button !== 0) {
+    return
+  }
+  // preventDefault 掐掉原生拖影与文本选择；stopPropagation 使这次按下不外泄到
+  // 折叠钮与 spa 的 window 级委托
+  ev.preventDefault()
+  ev.stopPropagation()
+  const container = this.closest<HTMLElement>(".folder-container")
+  const parentKey = container?.dataset.orderable
+  if (!container || !parentKey) {
+    return
+  }
+  const li = container.closest("li")
+  const parentUl = li?.parentElement
+  const scroller = container.closest<HTMLElement>(".explorer-ul")
+  if (!li || !parentUl || !scroller) {
+    return
+  }
+  // 上一次拖拽若因异常未收尾，先抹干净再开新的
+  cancelExplorerDrag()
+  try {
+    this.setPointerCapture(ev.pointerId)
+  } catch {
+    // 刻意偏离 pageChrome.inline.ts 的裸调：合成 PointerEvent 没有真实指针，
+    // Chromium 会抛 InvalidPointerId。捕获失败无碍——move/up 都挂在 window 上，
+    // 事件照样冒泡收得到（冒烟的单轨合成事件即依赖这一点）。
+  }
+
+  // 全部同级行的几何在此**一次性**缓存：拖拽期间 DOM 不动、行高不变，
+  // 逐次 getBoundingClientRect 只会白白触发上百次强制布局。
+  const scrollerTop = scroller.getBoundingClientRect().top
+  const scrollTop = scroller.scrollTop
+  const others: DragCandidate[] = []
+  let selfIndex = 0
+  let index = 0
+  for (const child of Array.from(parentUl.children)) {
+    if (child.tagName !== "LI" || child.classList.contains("overflow-end")) {
+      continue
+    }
+    if (child === li) {
+      selfIndex = index
+    } else {
+      const rect = dragRowOf(child as HTMLElement).getBoundingClientRect()
+      others.push({
+        li: child as HTMLLIElement,
+        mid: rect.top + rect.height / 2 - scrollerTop + scrollTop,
+      })
+    }
+    index += 1
+  }
+
+  explorerDrag = {
+    handle: this,
+    container,
+    li: li as HTMLLIElement,
+    parentUl,
+    parentKey,
+    scroller,
+    scrollerTop,
+    pointerId: ev.pointerId,
+    startX: ev.clientX,
+    startY: ev.clientY,
+    engaged: false,
+    selfIndex,
+    others,
+    targetIndex: selfIndex,
+    marked: null,
+    clientY: ev.clientY,
+    rafId: null,
+    autoScrollStep: 0,
+  }
+
+  window.addEventListener("pointermove", onExplorerDragMove)
+  window.addEventListener("pointerup", onExplorerDragUp)
+  window.addEventListener("pointercancel", onExplorerDragAbort)
+  window.addEventListener("keydown", onExplorerDragKey)
+  window.addEventListener("blur", onExplorerDragAbort)
+  document.addEventListener("visibilitychange", onExplorerDragVisibility)
+}
+
+function onExplorerDragMove(ev: PointerEvent) {
+  const drag = explorerDrag
+  if (!drag) {
+    return
+  }
+  drag.clientY = ev.clientY
+  if (!drag.engaged) {
+    if (
+      Math.abs(ev.clientY - drag.startY) < DRAG_ENGAGE_THRESHOLD &&
+      Math.abs(ev.clientX - drag.startX) < DRAG_ENGAGE_THRESHOLD
+    ) {
+      return
+    }
+    drag.engaged = true
+    drag.container.classList.add("is-dragging")
+    // 全局禁选 + 抓取光标（custom.scss 第五节，照 pagescroll-drag 先例）
+    document.documentElement.dataset.explorerDrag = "on"
+  }
+  updateDragTarget(drag)
+  updateDragAutoScroll(drag)
+}
+
+/** 按当前指针位置重算落点与指示线。自动滚动每帧也调它（滚动会改变相对位置）。 */
+function updateDragTarget(drag: ExplorerDragState) {
+  const y = drag.clientY - drag.scrollerTop + drag.scroller.scrollTop
+  let index = drag.others.length
+  for (let i = 0; i < drag.others.length; i++) {
+    if (y < drag.others[i].mid) {
+      index = i
+      break
+    }
+  }
+  drag.targetIndex = index
+  clearDropMarker(drag)
+  if (drag.others.length === 0) {
+    return
+  }
+  // 越界自然被钳到同级首/尾：index 恒落在 [0, others.length]
+  if (index < drag.others.length) {
+    const row = dragRowOf(drag.others[index].li)
+    row.classList.add("is-drop-before")
+    drag.marked = row
+  } else {
+    const row = dragRowOf(drag.others[drag.others.length - 1].li)
+    row.classList.add("is-drop-after")
+    drag.marked = row
+  }
+}
+
+function clearDropMarker(drag: ExplorerDragState) {
+  if (drag.marked) {
+    drag.marked.classList.remove("is-drop-before", "is-drop-after")
+    drag.marked = null
+  }
+}
+
+/**
+ * 贴边自动滚动：**只写 scrollTop**，绝不用 scrollIntoView
+ * （后者会连带滚动整个文档，见目录自动定位一节的同款纪律）。
+ * 速度随入侵深度线性放大，每帧滚完立即重算落点。
+ */
+function updateDragAutoScroll(drag: ExplorerDragState) {
+  const rect = drag.scroller.getBoundingClientRect()
+  const topDepth = rect.top + DRAG_AUTOSCROLL_EDGE - drag.clientY
+  const bottomDepth = drag.clientY - (rect.bottom - DRAG_AUTOSCROLL_EDGE)
+  let step = 0
+  if (topDepth > 0) {
+    step = -dragAutoScrollSpeed(topDepth)
+  } else if (bottomDepth > 0) {
+    step = dragAutoScrollSpeed(bottomDepth)
+  }
+  drag.autoScrollStep = step
+  if (step === 0) {
+    if (drag.rafId !== null) {
+      cancelAnimationFrame(drag.rafId)
+      drag.rafId = null
+    }
+    return
+  }
+  if (drag.rafId !== null) {
+    return
+  }
+  const tick = () => {
+    const current = explorerDrag
+    if (!current || !current.engaged || current.autoScrollStep === 0) {
+      return
+    }
+    current.scroller.scrollTop += current.autoScrollStep
+    updateDragTarget(current)
+    current.rafId = requestAnimationFrame(tick)
+  }
+  drag.rafId = requestAnimationFrame(tick)
+}
+
+function dragAutoScrollSpeed(depth: number): number {
+  const ratio = Math.min(depth / DRAG_AUTOSCROLL_EDGE, 1)
+  return DRAG_AUTOSCROLL_MIN + (DRAG_AUTOSCROLL_MAX - DRAG_AUTOSCROLL_MIN) * ratio
+}
+
+function onExplorerDragUp() {
+  const drag = explorerDrag
+  if (!drag) {
+    return
+  }
+  // 没越过阈值，或落点就是原位：一律零写盘、零 DOM 变更
+  if (!drag.engaged || drag.targetIndex === drag.selfIndex) {
+    cancelExplorerDrag()
+    return
+  }
+
+  // ① DOM 落定：单次 insertBefore（末位时插到 OverflowList 的占位之前）
+  if (drag.targetIndex < drag.others.length) {
+    drag.parentUl.insertBefore(drag.li, drag.others[drag.targetIndex].li)
+  } else {
+    drag.parentUl.insertBefore(
+      drag.li,
+      drag.parentUl.querySelector<HTMLElement>(":scope > li.overflow-end"),
+    )
+  }
+
+  // ② 顶层守卫：**当前恒不触发**（顶层行不带 data-orderable，压根拖不动），
+  //    留着是为将来若开放顶层重排时不至于漏掉——tree.roots 是 ExplorerTree 里
+  //    唯一顺序有语义的字段（摘树/挂树都按它走），DOM 改了它必须同步。
+  if (drag.parentUl.classList.contains("explorer-ul")) {
+    syncRootOrderFromDom(drag.parentUl)
+  }
+
+  // ③ 落表：从 DOM 反读整段（所见即所存）
+  writeOrderTable(withParentOrder(readOrderTable(), drag.parentKey, readChildKeys(drag.parentUl)))
+
+  cancelExplorerDrag()
+  refreshHeaderActionState()
+  // 行序变化不改总高度，但滚动器可能因自动滚动停在新位置，顺手对齐一次轨道几何
+  scheduleOverlayScrollbarSync()
+}
+
+function syncRootOrderFromDom(ul: HTMLElement) {
+  const order = Array.from(ul.children).filter(
+    (el): el is HTMLLIElement => el.tagName === "LI" && !el.classList.contains("overflow-end"),
+  )
+  for (const tree of explorerTrees) {
+    if (tree && tree.roots.some((li) => order.includes(li))) {
+      tree.roots = order
+    }
+  }
+}
+
+function onExplorerDragKey(ev: KeyboardEvent) {
+  if (ev.key === "Escape") {
+    cancelExplorerDrag()
+  }
+}
+
+function onExplorerDragAbort() {
+  cancelExplorerDrag()
+}
+
+function onExplorerDragVisibility() {
+  if (document.visibilityState === "hidden") {
+    cancelExplorerDrag()
+  }
+}
+
+/**
+ * 收尾：摘指示线与拖拽类、释放指针捕获、摘掉本次拖拽期的全部监听、停 rAF、
+ * 清全局禁选标记。**不动 DOM、不落盘**——落定路径自己先把这两件事做完再调它。
+ * Esc / pointercancel / 窗口失焦 / 标签页隐藏 / SPA 导航五路共用本函数。
+ */
+function cancelExplorerDrag() {
+  const drag = explorerDrag
+  if (!drag) {
+    return
+  }
+  explorerDrag = null
+  if (drag.rafId !== null) {
+    cancelAnimationFrame(drag.rafId)
+  }
+  clearDropMarker(drag)
+  drag.container.classList.remove("is-dragging")
+  delete document.documentElement.dataset.explorerDrag
+  try {
+    drag.handle.releasePointerCapture(drag.pointerId)
+  } catch {
+    // 从未捕获成功（合成事件）或指针已消失：无须处理
+  }
+  window.removeEventListener("pointermove", onExplorerDragMove)
+  window.removeEventListener("pointerup", onExplorerDragUp)
+  window.removeEventListener("pointercancel", onExplorerDragAbort)
+  window.removeEventListener("keydown", onExplorerDragKey)
+  window.removeEventListener("blur", onExplorerDragAbort)
+  document.removeEventListener("visibilitychange", onExplorerDragVisibility)
+}
+// ==== /patent-kb ====
+
 function createFileNode(
   currentSlug: FullSlug,
   node: FileTrieNode,
@@ -1013,6 +1506,12 @@ function createFolderNode(
   tree: ExplorerTree,
   root: string,
   siblings: FolderRecord[],
+  /**
+   * 父节点的折叠键（根级传 null）。阶段5.8 只用来判「本行是否开放同级重排」——
+   * 判据是 isOrderableParentKey(parentKey)，即父键的 `synthetic:` 前缀。
+   * **禁用深度魔数**：分组层一旦增删，深度就会整体漂移，前缀不会。
+   */
+  parentKey: string | null,
 ): HTMLLIElement {
   builtItems += 1
   builtFolders += 1
@@ -1028,6 +1527,14 @@ function createFolderNode(
   const synthetic = syntheticNodes.get(node)
   const folderPath = synthetic ? synthetic.key : node.slug
   folderContainer.dataset.folderpath = folderPath
+
+  // patent-kb（阶段5.8）：可重排行的标记。**一属性两职**——它的存在表示「本行可拖」
+  // （CSS 据此常驻手柄槽位），它的取值就是落表用的父键，拖拽落定时无需再回溯 DOM 找父。
+  // 手柄由 attachDragHandle 按需 clone（全库 1,395 个文件夹行里仅约 113 行可重排）。
+  if (isOrderableParentKey(parentKey)) {
+    folderContainer.dataset.orderable = parentKey as string
+    attachDragHandle(folderContainer)
+  }
 
   if (!synthetic) {
     pushActiveTarget(tree, folderPath, folderContainer)
@@ -1098,7 +1605,16 @@ function createFolderNode(
 
   for (const child of node.children) {
     const childNode = child.isFolder
-      ? createFolderNode(currentSlug, child, opts, depth + 1, tree, root, record.children)
+      ? createFolderNode(
+          currentSlug,
+          child,
+          opts,
+          depth + 1,
+          tree,
+          root,
+          record.children,
+          folderPath,
+        )
       : createFileNode(currentSlug, child, tree, root)
     ul.appendChild(childNode)
   }
@@ -1269,6 +1785,187 @@ function bindExplorerToggles(explorer: HTMLElement) {
   }
 }
 
+// ==== patent-kb: 头部动作组（阶段5.8）====
+
+/** 「恢复默认排序」两段式确认的回退时限 */
+const RESET_CONFIRM_TIMEOUT = 4000
+let resetConfirmTimer: number | undefined
+
+/**
+ * 两枚动作钮的监听绑定。**必须逐 nav 绑定并登记 addCleanup**——与手柄和折叠钮
+ * 相反：它们属 SSR 骨架，每次导航都可能被 micromorph 换成新节点，绑在旧节点上
+ * 的监听随之作废。复用路径与重建路径两处都要调，漏一处则该路径上的钮全哑。
+ *
+ * 回调一律用**具名模块函数**（不捕获局部上下文）：同一函数引用重复
+ * addEventListener 由浏览器天然去重，故「恢复默认」触发的就地重建即便在同一个
+ * nav 周期内二次绑定，也不会造成一次点击跑两遍。上下文改由 explorerContextOf
+ * 从被点的钮反查。
+ */
+function bindExplorerHeaderActions(explorer: HTMLElement) {
+  const collapseBtn = explorer.querySelector<HTMLButtonElement>(".explorer-action-collapse")
+  if (collapseBtn) {
+    // SSR 渲染成 disabled，此处放开——「脚本活着」是这两枚钮可用的前提
+    collapseBtn.disabled = false
+    collapseBtn.addEventListener("click", onCollapseAllClick)
+    window.addCleanup(() => collapseBtn.removeEventListener("click", onCollapseAllClick))
+  }
+  const resetBtn = explorer.querySelector<HTMLButtonElement>(".explorer-action-reset")
+  if (resetBtn) {
+    resetBtn.disabled = false
+    resetBtn.addEventListener("click", onResetOrderClick)
+    window.addCleanup(() => resetBtn.removeEventListener("click", onResetOrderClick))
+  }
+}
+
+function explorerContextOf(el: HTMLElement): ExplorerContext | undefined {
+  const explorer = el.closest<HTMLElement>("div.explorer")
+  if (!explorer) {
+    return undefined
+  }
+  for (const ctx of explorerContexts) {
+    if (ctx && ctx.explorer === explorer) {
+      return ctx
+    }
+  }
+  return undefined
+}
+
+function onCollapseAllClick(this: HTMLButtonElement, ev: MouseEvent) {
+  ev.stopPropagation()
+  const ctx = explorerContextOf(this)
+  if (!ctx) {
+    return
+  }
+  collapseAllFolders(ctx)
+}
+
+/**
+ * 一键收起。**绝不自动执行**——只有用户点这枚钮才会发生（图谱页首访仍按
+ * 「书下 3 层可见」铺开，冒烟步 29 的 open ≥1000 是这条纪律的常设护栏）。
+ *
+ * 做法是「全部置 collapsed=true，再用既有公式 refreshFolderOpenState 重算
+ * （shouldOpen = !collapsed || containsCurrent）」，净效果＝除当前页祖先链外
+ * 全部收起。刻意不选另两种：
+ *   · 回落 openLevels 默认态——图谱页的默认展开深度是 6，几乎等于什么都没收；
+ *   · 连祖先链一起强收——下次导航时祖先链会被重新强制展开，弹回来像个鬼影。
+ *
+ * 作用域是当前 activeStorageKey 对应的那棵状态（图谱页与文档站的双键隔离保持）。
+ */
+function collapseAllFolders(ctx: ExplorerContext) {
+  // ① 折叠态整表重造 + ② 索引重建（两者恒等价，见 explorerStateIndex 的说明）
+  currentExplorerState = ctx.tree.flatFolders.map((rec) => ({ path: rec.path, collapsed: true }))
+  explorerStateIndex = new Map(currentExplorerState.map((entry) => [entry.path, true] as const))
+  // ③ 逐根重算展开态。**在体执行**，故 .folder-outer 的 0.3s 过渡会正常播放，
+  //    动画落定后的精确几何由滚动器上既有的 transitionend 监听补齐
+  for (const rec of ctx.tree.rootFolders) {
+    refreshFolderOpenState(rec, ctx.currentSlug, ctx.opts)
+  }
+  // ④ 落盘（键取 activeStorageKey：图谱页落 fileTree-graph，其余落 fileTree-v2）
+  try {
+    localStorage.setItem(activeStorageKey, JSON.stringify(currentExplorerState))
+  } catch {
+    // 折叠态丢失无妨，绝不因此抛出打断后续
+  }
+  scheduleOverlayScrollbarSync()
+  refreshHeaderActionState()
+}
+
+/**
+ * 「恢复默认排序」的两段式内联确认：首点进入确认态（显出「确认恢复？」），
+ * 4s 内再点才真的执行，超时自动回退。全仓零 window.confirm，也不引模态。
+ */
+function onResetOrderClick(this: HTMLButtonElement, ev: MouseEvent) {
+  ev.stopPropagation()
+  const button = this
+  if (resetConfirmTimer !== undefined) {
+    window.clearTimeout(resetConfirmTimer)
+    resetConfirmTimer = undefined
+  }
+  if (button.dataset.confirm !== "on") {
+    button.dataset.confirm = "on"
+    resetConfirmTimer = window.setTimeout(() => {
+      delete button.dataset.confirm
+      resetConfirmTimer = undefined
+    }, RESET_CONFIRM_TIMEOUT)
+    return
+  }
+  delete button.dataset.confirm
+  const ctx = explorerContextOf(button)
+  if (!ctx) {
+    return
+  }
+  void rebuildExplorerInPlace(ctx)
+}
+
+/**
+ * 就地重建目录树（「恢复默认排序」的执行体）。选重建而非「按默认序就地反排」：
+ * 默认序的四个输入（contentIndex / 排序 / 过滤 / 再父化）全是静态纯函数，
+ * 重建必然逐位复现默认形态，不存在任何影子副本漂移；代价约 124ms 的同步段，
+ * 一次性操作可接受。
+ *
+ * 步骤次序是铁律：
+ *   ① 先 removeItem——即便后续任一步抛错，下次导航也必然回到默认序；
+ *   ② 再作废内存缓存；
+ *   ③ **先摘旧树再清 explorerTrees**：setupExplorer 的 insertBefore 不会清理
+ *      ul 里已有的子节点，少摘一步就是新旧两棵树叠在同一个列表里；
+ *   ④ 最后还原滚动位置（重建路径内部的 restoreExplorerScroll 会先按会话记录定位）。
+ *
+ * **只删顺序表，折叠习惯毫发无损**：fileTree-v2 / fileTree-graph 一个字都不动。
+ */
+async function rebuildExplorerInPlace(ctx: ExplorerContext) {
+  cancelExplorerDrag()
+  const scrollTop = ctx.ul.scrollTop
+  try {
+    localStorage.removeItem(EXPLORER_ORDER_STORAGE_KEY)
+  } catch {
+    // 隐私模式等：内存缓存置空同样能让本次重建回到默认序
+  }
+  orderTableCache = null
+  detachExplorerTrees()
+  explorerTrees = []
+  explorerContexts = []
+  await setupExplorer(ctx.currentSlug)
+  const ul = ctx.explorer.querySelector<HTMLElement>(".explorer-ul")
+  if (ul) {
+    ul.scrollTop = scrollTop
+  }
+}
+
+/**
+ * 两枚动作钮的状态刷新。凡是可能改变「是否全部折叠」或「是否存在自定义序」的
+ * 动作之后都要调一次：重建路径末、复用路径末、toggleFolder 末、一键收起末、
+ * 拖拽落定后、恢复默认后。
+ *
+ * 不接受上下文参数：toggleFolder 是模块级事件回调，拿不到 setupExplorer 的局部量；
+ * 而「全部折叠」的判据本就取模块级的 currentExplorerState，与作用域无关。
+ * 钮缺席（SSR 骨架尚未换上或旧版本页面）时整体空转。
+ */
+function refreshHeaderActionState() {
+  const state = currentExplorerState ?? []
+  const allCollapsed = state.length > 0 && state.every((entry) => entry.collapsed)
+  const custom = hasCustomOrder(readOrderTable())
+  for (const explorer of document.querySelectorAll<HTMLElement>("div.explorer")) {
+    const collapseBtn = explorer.querySelector<HTMLButtonElement>(".explorer-action-collapse")
+    if (collapseBtn) {
+      collapseBtn.disabled = allCollapsed
+      collapseBtn.setAttribute("aria-disabled", String(allCollapsed))
+    }
+    const resetBtn = explorer.querySelector<HTMLButtonElement>(".explorer-action-reset")
+    if (resetBtn) {
+      resetBtn.disabled = !custom
+      resetBtn.setAttribute("aria-disabled", String(!custom))
+      // 显隐由 CSS 的 [data-has-custom-order] 承担（display 控制）。刻意不用 hidden
+      // 属性：目录树里的 hidden 是法域过滤的专用信号，冒烟按它做不变式断言。
+      resetBtn.toggleAttribute("data-has-custom-order", custom)
+      if (!custom) {
+        // 表已空（刚恢复过默认）：两段确认的中间态一并复位，免得下次点开就是「确认」
+        delete resetBtn.dataset.confirm
+      }
+    }
+  }
+}
+// ==== /patent-kb ====
+
 async function setupExplorer(currentSlug: FullSlug) {
   const perfStart = performance.now()
   let perfSyncStart = perfStart
@@ -1393,8 +2090,16 @@ async function setupExplorer(currentSlug: FullSlug) {
       mode = "reuse"
       items = cached.items
       folders = cached.folders
+      explorerContexts[explorerIndex - 1] = {
+        explorer,
+        ul: explorerUl as HTMLElement,
+        tree: cached,
+        currentSlug,
+        opts,
+      }
       restoreExplorerScroll(explorerUl as HTMLElement)
       bindExplorerToggles(explorer)
+      bindExplorerHeaderActions(explorer)
       bindGraphLinkage(explorer)
       continue
     }
@@ -1431,6 +2136,12 @@ async function setupExplorer(currentSlug: FullSlug) {
       regroupByTaxonomy(trie, taxonomy, currentSlug)
     }
 
+    // patent-kb（阶段5.8）：施加用户自定义的同级次序。**位置铁律**——必须在
+    // regroupByTaxonomy 之后（此前没有合成层，无处可施加）、collectFolderStates
+    // 之前（折叠态表与建树共用同一次前序遍历的次序，见 createFolderNode 里
+    // 「push 顺序＝渲染树前序遍历」的不变式）。无表或无合成层时整体空转。
+    applyCustomOrder(trie, readOrderTable())
+
     // Get folder paths for state management
     // 初始态优先级（F5）：有保存态用保存态；无保存态按 openLevels 规则
     // patent-kb（C-3）：路径与深度均取自渲染树（含合成节点的 synthetic: 稳定键）
@@ -1466,7 +2177,7 @@ async function setupExplorer(currentSlug: FullSlug) {
     const fragment = document.createDocumentFragment()
     for (const child of trie.children) {
       const node = child.isFolder
-        ? createFolderNode(currentSlug, child, opts, 1, tree, root, tree.rootFolders)
+        ? createFolderNode(currentSlug, child, opts, 1, tree, root, tree.rootFolders, null)
         : createFileNode(currentSlug, child, tree, root)
 
       tree.roots.push(node)
@@ -1480,9 +2191,19 @@ async function setupExplorer(currentSlug: FullSlug) {
     // 只在分组表就位时缓存：taxonomy 取不到时目录树回落平铺，此时缓存会把这个降级形态
     // 冻结整个 SPA 生命周期，与 fetchTaxonomy「失败留待下次 nav 重试」的既有语义相悖。
     explorerTrees[explorerIndex - 1] = taxonomy ? tree : undefined
+    // patent-kb（阶段5.8）：上下文按本次真实生效的树登记——taxonomy 缺席使上一行
+    // 刻意不缓存该树，但它此刻确实挂在 DOM 上，一键收起必须仍能作用于它
+    explorerContexts[explorerIndex - 1] = {
+      explorer,
+      ul: explorerUl as HTMLElement,
+      tree,
+      currentSlug,
+      opts,
+    }
 
     restoreExplorerScroll(explorerUl as HTMLElement)
     bindExplorerToggles(explorer)
+    bindExplorerHeaderActions(explorer)
 
     // Set up folder click handlers
     // patent-kb（C-3）：原本仅在 "collapse" 行为下绑定。"link" 行为下真实目录的标题
@@ -1512,6 +2233,10 @@ async function setupExplorer(currentSlug: FullSlug) {
     bindGraphLinkage(explorer)
   }
 
+  // patent-kb（阶段5.8）：两条路径共用的收尾刷新点——「一键收起」置灰随折叠态、
+  // 「恢复默认排序」显隐随顺序表。放在循环之外，复用路径的 continue 也覆盖得到。
+  refreshHeaderActionState()
+
   const perfEnd = performance.now()
   recordExplorerPerf({
     slug: currentSlug,
@@ -1527,6 +2252,11 @@ async function setupExplorer(currentSlug: FullSlug) {
 }
 
 document.addEventListener("prenav", async () => {
+  // patent-kb（阶段5.8）：拖拽途中发生导航一律**取消**（不落定、不写表），
+  // 且必须排在 detachExplorerTrees 之前——树一旦离体，被拖行连同同级都脱离文档，
+  // 此时再做 insertBefore 只会把次序写进一棵没人看的离体树。
+  // 刻意不做「拖拽中禁止导航」：导航来自用户的其他操作，不该被侧栏交互卡住。
+  cancelExplorerDrag()
   // save explorer scrollTop position
   const explorer = document.querySelector(".explorer-ul")
   if (explorer) {
