@@ -603,6 +603,12 @@ export interface GraphController {
   getTransform(): SavedTransform | null
   /** 恢复快照的缩放平移（按新画布尺寸保持视野中心），并停用本实例的自动 zoomToFit */
   applyTransform(saved: SavedTransform): void
+  /**
+   * 按容器现尺寸就地 resize 渲染器（阶段5.10 波A-R2）：不重建实例、不动布局，
+   * 相机按左上锚定补偿使画面零位移。返回本次是否真的改了尺寸（未变/不可量测为 false）。
+   * 容器显隐右栏、法域标签折行等一切改尺寸的场景一律走它，不再重建。
+   */
+  syncSize(): boolean
   /** 回到 zoomToFit 全景视图并清除 focus 高亮，不销毁实例 */
   resetView(): void
   /** 销毁渲染实例（停帧、停力导、销毁 PixiJS Application） */
@@ -635,6 +641,8 @@ type GraphInstance = {
   isInSelectedSet(nodeId: SimpleSlug): boolean
   getTransform(): SavedTransform | null
   applyTransform(saved: SavedTransform): void
+  /** 容器尺寸就地同步（阶段5.10 波A-R2）：不重建实例，返回是否真的改了尺寸 */
+  syncSize(): boolean
   resetView(): void
   destroy(): void
 }
@@ -1268,12 +1276,24 @@ async function createGraphInstance(
     return Math.min(base + boost, MAX_NODE_RADIUS)
   }
 
+  /**
+   * 画布量测的**唯一口径**（阶段5.10 波A-R2）：构造期初值与 syncSize 的现测同源。
+   *
+   * 单点持有是硬纪律：两侧一旦各写一份（哪怕只是一侧改用 clientWidth），就会出现
+   * 「这边量到变了、那边算出来没变」的错位——.ge-canvas 带 1px 边框，client* 与
+   * offset* 恒差 2px，足以让同步逻辑永远判定为已变化或永远判定为未变化。
+   * 编排层（graphexplorer.inline.ts 的 ResizeObserver）同受此纪律约束：它只负责
+   * 「容器变了」这一事件，不得自持第二份量测。
+   */
+  function measureCanvasSize(): { w: number; h: number } {
+    return { w: graph.offsetWidth, h: Math.max(graph.offsetHeight, 250) }
+  }
+
   // 画布尺寸（阶段5.10 波A-R2）：由 const 改 let——容器尺寸变化改走 syncSize 的
   // renderer 就地 resize，本对变量随之改写，下游 15 处读取里除两处快照语义外
   //（见下方 radial 半径与 seedScale 的注释）全是**每次现读**，故自动跟随新尺寸，
   // 无须逐处改动。改造前这里是一次性快照 + 整实例重建，重建即残影跳变。
-  let width = graph.offsetWidth
-  let height = Math.max(graph.offsetHeight, 250)
+  let { w: width, h: height } = measureCanvasSize()
 
   // we virtualize the simulation and use pixi to actually render it
   const simulation: Simulation<NodeData, LinkData> = forceSimulation<NodeData>(graphData.nodes)
@@ -2359,6 +2379,45 @@ async function createGraphInstance(
     select<HTMLCanvasElement, NodeData>(app.canvas).call(zoomBehavior)
   }
 
+  // ---------- 容器尺寸就地同步（阶段5.10 波A-R2）----------
+
+  /**
+   * 按容器现尺寸就地 resize 渲染器，**不重建实例**；返回本次是否真的改了尺寸。
+   *
+   * 这是「残影跳闪」的根治通路：改造前容器一变尺寸就整实例重建（RO → 400ms 防抖 →
+   * crossfade），而新旧实例的世界原点都是 +width/2，重建后整图平移 ΔW·(1+k)/2
+   *（约 165–250px）——右栏一显隐就是一次肉眼可见的跳变加双重曝光残影。改成就地
+   * resize 后，节点坐标、力导、纹理、选中态全部原地不动，只有渲染目标的尺寸变了。
+   *
+   * 两道短路的语义：
+   *   · w===0：容器尚未布局或不可见（挂载瞬间、display:none 的祖先），此刻 resize
+   *     会把渲染目标打成 0 宽、相机补偿也无意义，直接不动；
+   *   · dw===0 && dh===0：与「本函数没被调用」逐字等价——不 resize、不动相机、
+   *     不 markDirty，使 RO 的空转回调在画面与开销上都为零。
+   */
+  function syncSize(): boolean {
+    const { w, h } = measureCanvasSize()
+    if (w === 0) return false
+    const dw = w - width
+    const dh = h - height
+    if (dw === 0 && dh === 0) return false
+    const oldMin = Math.min(width, height)
+    width = w
+    height = h
+    // pixi 8 的 autoDensity 下，resize 同步改写 canvas 的 style 尺寸与帧缓冲尺寸；
+    // 事件命中区经 mapPositionToPoint 每次现取 getBoundingClientRect，自动跟随
+    app.renderer.resize(w, h)
+    // radial 半径属布局参数（快照语义，见构造期注释）：仅当 min(w,h) 真的变了才按
+    // 同一公式重装同名力。右栏显隐只改宽度、min 恒为高度，故该分支恒不进——
+    // 「开右栏完全不触碰 simulation」由此获得结构性保证，全量图力参数逐字不动。
+    const newMin = Math.min(w, h)
+    if (enableRadial && newMin !== oldMin) {
+      simulation.force("radial", forceRadial((newMin / 2) * 0.8).strength(0.2))
+    }
+    markDirty()
+    return true
+  }
+
   // ---------- zoomToFit（V4-B1）----------
 
   /**
@@ -3145,6 +3204,7 @@ async function createGraphInstance(
     isInSelectedSet: (nodeId: SimpleSlug) => selectedNodeId !== null && selectedSet.has(nodeId),
     getTransform,
     applyTransform,
+    syncSize,
     resetView,
     destroy: destroyInstance,
   }
@@ -3271,6 +3331,9 @@ async function renderGraph(
     applyTransform: (saved: SavedTransform) => {
       if (!destroyed) instance.applyTransform(saved)
     },
+    // 已销毁即返回 false：调用方（RO 回调、setPanelVisible）据此当作「什么也没发生」，
+    // 与尺寸未变短路同一语义，无须再各自守 destroyed
+    syncSize: () => (destroyed ? false : instance.syncSize()),
     resetView: () => {
       if (!destroyed) instance.resetView()
     },
