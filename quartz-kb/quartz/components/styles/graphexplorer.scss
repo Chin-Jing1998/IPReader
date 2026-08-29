@@ -463,6 +463,12 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
     flex-direction: column;
     gap: 0.75rem;
     min-height: 0; // flex 子项允许收缩，保证画布/侧栏各自内滚
+    // 目录抽屉（波B）的定位祖先。抽屉必须脱流浮在画布上：既不能进 .ge-canvas
+    //（图谱重建会 removeAllChildren 清掉它），又不能参与 flex 分宽（否则画布被挤窄，
+    // 还会触发波A 装在 .ge-canvas 上的 ResizeObserver 白付一次全量重建）。
+    // 本行是抽屉唯一需要的布局改动，对既有两个子项零影响——两者都是 static 定位，
+    // 不消费 containing block；抽屉的 z-index:5 在本层叠上下文内高于画布与右栏。
+    position: relative;
 
     @media all and ($desktop) {
       flex-direction: row;
@@ -479,6 +485,272 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
 
       canvas {
         display: block;
+      }
+    }
+
+    // ---------- 目录导航抽屉（阶段5.7 波B-B3） ----------
+    // 画布左上角的浮动抽屉：收起时只是一枚「目录」悬浮钮，展开后是
+    // 「法域 → 书 → 章 → 节」三层树。外壳复用 .ge-panel 的玻璃配方
+    //（--glass-* 一律带回退值），悬浮钮取 .graph-truncation-note 的形制
+    //（半透明静态色 + blur + 发丝描边 + 6px 圆角），暗色主题另设覆盖块。
+    // 刻意不引 --graph-section-* 域色：目录是导航层，不承担域配色语义
+    //（与法域标签行同一条纪律）。
+    .ge-toc {
+      position: absolute;
+      left: 0.6rem;
+      top: 0.6rem;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.35rem;
+      // ⚠️ 容器自身必须放行指针事件：它是绝对定位的矩形，收起态下虽只画出一枚小钮，
+      // 盒子却可能覆盖画布左上角一片区域，不放行会吞掉该区域的节点点击与画布拖拽。
+      // 子元素逐个恢复 auto，抽屉本体照常可点。
+      pointer-events: none;
+
+      > * {
+        pointer-events: auto;
+      }
+
+      // 悬浮开合钮：形制同 graph.scss 的 .graph-truncation-note
+      .ge-toc-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.2rem 0.55rem;
+        font-family: inherit;
+        font-size: 0.72rem;
+        line-height: 1.5;
+        color: var(--darkgray);
+        // 浅色 --light（#faf8f8）78% 透明的等效静态色（F12：不用颜色混合函数）
+        background-color: rgba(250, 248, 248, 0.78);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        border: 1px solid var(--lightgray);
+        border-radius: 6px;
+        cursor: pointer;
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+
+        &:hover {
+          color: var(--dark);
+          background-color: rgba(250, 248, 248, 0.95);
+        }
+
+        // 展开态：与抽屉同色调，视觉上连成一体
+        &[aria-expanded="true"] {
+          color: var(--secondary);
+          border-color: var(--secondary);
+        }
+
+        // 折叠三角：展开态旋转 90°，与树内 caret 同一视觉语言
+        .ge-toc-toggle-icon {
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0.28rem 0 0.28rem 0.4rem;
+          border-color: transparent transparent transparent currentColor;
+          transition: transform 0.2s ease;
+        }
+
+        &[aria-expanded="true"] .ge-toc-toggle-icon {
+          transform: rotate(90deg);
+        }
+      }
+
+      // 抽屉本体：玻璃面板 + 内滚
+      .ge-toc-drawer {
+        box-sizing: border-box;
+        width: min(320px, 42vw);
+        max-height: min(58vh, 32rem);
+        overflow-y: auto;
+        // 抽屉滚到头后不把滚动链传给画布/页面（图谱页 body 已锁滚动，
+        // 但画布的 zoom 手势仍会被滚动事件带偏）
+        overscroll-behavior: contain;
+        padding: 0.4rem 0.5rem 0.5rem;
+        border-radius: 10px;
+        background: var(--glass-bg, rgba(250, 248, 248, 0.78));
+        border: 1px solid var(--glass-border, var(--lightgray));
+        box-shadow: var(--glass-shadow, 0 6px 20px rgba(0, 0, 0, 0.08));
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+
+        &[hidden] {
+          display: none;
+        }
+      }
+
+      // 抽屉头：标题 + 钉住 + 收起，随内容滚动时吸顶
+      .ge-toc-head {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        margin: -0.4rem -0.5rem 0.35rem;
+        padding: 0.35rem 0.5rem 0.3rem;
+        background: var(--glass-bg, rgba(250, 248, 248, 0.92));
+        border-bottom: 1px solid var(--lightgray);
+
+        .ge-toc-heading {
+          flex: 1;
+          font-size: 0.75rem;
+          font-weight: $boldWeight;
+          color: var(--secondary);
+          letter-spacing: 0.05em;
+        }
+
+        .ge-toc-pin,
+        .ge-toc-close {
+          padding: 0.1rem 0.4rem;
+          font-family: inherit;
+          font-size: 0.68rem;
+          line-height: 1.5;
+          color: var(--gray);
+          background: transparent;
+          border: 1px solid var(--lightgray);
+          border-radius: 5px;
+          cursor: pointer;
+          transition:
+            color 0.2s ease,
+            background-color 0.2s ease,
+            border-color 0.2s ease;
+
+          &:hover {
+            color: var(--dark);
+            background: var(--lightgray);
+          }
+        }
+
+        // 钉住态：与图例项选中态同一表达（次要色描边 + 次要色文字）
+        .ge-toc-pin[aria-pressed="true"] {
+          color: var(--secondary);
+          border-color: var(--secondary);
+        }
+      }
+
+      // 树体：三层缩进由 data-level 给，行本身一律 flex 单行
+      .ge-toc-tree {
+        font-size: 0.74rem;
+        line-height: 1.5;
+
+        .ge-toc-loading {
+          padding: 0.6rem 0.2rem;
+          color: var(--gray);
+          text-align: center;
+        }
+
+        .ge-toc-row {
+          display: flex;
+          align-items: center;
+          gap: 0.2rem;
+          border-radius: 5px;
+
+          &:hover {
+            background: var(--lightgray);
+          }
+
+          &[data-level="0"] {
+            padding-left: 0;
+          }
+
+          &[data-level="1"] {
+            padding-left: 0.75rem;
+          }
+
+          &[data-level="2"] {
+            padding-left: 1.5rem;
+          }
+
+          // 第四层（节）：仅 3-专利审查指南与 80-商标审查审理指南两部有
+          &[data-level="3"] {
+            padding-left: 2.25rem;
+          }
+
+          // 法域行：稍重的字重，与其下的书行拉开层级
+          &--field > .ge-toc-link {
+            font-weight: $boldWeight;
+            color: var(--dark);
+          }
+
+          // 目标域组被图例/法域标签隐藏：置灰但**仍可点**——点击照走 selectNode，
+          // 由其既有拒绝分支在状态条给出「该文档域已隐藏…」的可操作提示。
+          // 不置 disabled 正是为此：置灰是预告，不是封路。
+          &--dimmed > .ge-toc-link {
+            color: var(--gray);
+            opacity: 0.55;
+            text-decoration: line-through;
+          }
+        }
+
+        // 折叠 caret：无子节点的行留同宽占位，保证各层文字左缘对齐
+        .ge-toc-caret {
+          flex: none;
+          width: 0.9rem;
+          height: 1.1rem;
+          padding: 0;
+          font-family: inherit;
+          font-size: 0.6rem;
+          line-height: 1;
+          color: var(--gray);
+          background: transparent;
+          border: none;
+          cursor: pointer;
+
+          &::before {
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0.24rem 0 0.24rem 0.34rem;
+            border-color: transparent transparent transparent currentColor;
+            transition: transform 0.15s ease;
+          }
+
+          &[aria-expanded="true"]::before {
+            transform: rotate(90deg);
+          }
+        }
+
+        .ge-toc-caret--leaf {
+          cursor: default;
+          visibility: hidden;
+        }
+
+        // 目录行本体：单行省略，全称由 title 属性承担（书名普遍二三十字）
+        .ge-toc-link {
+          flex: 1;
+          min-width: 0;
+          padding: 0.12rem 0.2rem;
+          font-family: inherit;
+          font-size: inherit;
+          line-height: 1.5;
+          text-align: left;
+          color: var(--darkgray);
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+          &:hover {
+            color: var(--secondary);
+          }
+        }
+
+        // 法域行右侧的只读计数徽标「N 部」——法域行仅折叠展开，不兼做过滤，
+        // 故此处刻意是 span 而非可点元素（过滤入口唯一：顶部法域标签行）
+        .ge-toc-count {
+          flex: none;
+          padding-right: 0.15rem;
+          font-size: 0.66rem;
+          color: var(--gray);
+        }
       }
     }
 
@@ -745,7 +1017,24 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
         max-height: 45vh;
         border-radius: 10px 10px 0 0;
       }
+
+      // 窄屏画布只有 55vh，抽屉限高随之收到 44vh，避免展开后盖满整张画布
+      .ge-toc .ge-toc-drawer {
+        max-height: 44vh;
+      }
     }
+  }
+}
+
+// 目录抽屉悬浮钮的深色对应静态色（波B-B3）。抽屉本体与抽屉头走 --glass-*
+// 主题变量，随明暗自动切换、无须覆盖；唯独悬浮钮为与图内截断徽标
+// （graph.scss 的 .graph-truncation-note）保持同一形制，用的是等效静态色，
+// 故与那里同样补一块深色覆盖（--light 在深色主题下为 #161618）。
+:root[saved-theme="dark"] .graph-explorer .ge-toc .ge-toc-toggle {
+  background-color: rgba(22, 22, 24, 0.78);
+
+  &:hover {
+    background-color: rgba(22, 22, 24, 0.95);
   }
 }
 

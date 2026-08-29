@@ -30,6 +30,11 @@
 //    「发 kb:graphfield（图谱 ⇒ 目录）」过滤联动保留——applyField() 收尾与
 //    「重置视图」各派发一次，载荷即当前标签（含哨兵 FIELD_ALL），由目录侧
 //    把非本法域的 field 分支整支隐去；
+// 5f) 目录导航抽屉（阶段5.7 波B）：画布左上角浮动抽屉，「法域 → 书 → 章 → 节」三层，
+//    数据由 util/graphToc.ts 从 window.__graphIndex 折出（惰性：首次点开才建树与建 DOM），
+//    点目录行 = selectNode(该目录 index 页)，与图内定位、搜索定位同一条语义；
+//    域组被隐藏的行置灰但仍可点（走 selectNode 既有拒绝分支提示恢复方式），
+//    置灰同步挂在 syncAll() 尾部（tocDirty 门控），钉住态存 localStorage；
 // 6) SPA 生命周期：document "nav" 挂载、window.addCleanup 清理；themechange/resize
 //    重渲染（V5-B：重建保持术语层模式；resize 与 themechange 均快照并恢复缩放平移，
 //    themechange 另走交叉淡入——新画布叠加淡入完成后才销毁旧实例）。
@@ -61,6 +66,8 @@ import {
   NON_TERM_GROUP_IDS,
   SECTION_GROUPS,
 } from "../../util/graphSections"
+// 目录抽屉数据层（波B-B1）：同为零运行期依赖的纯逻辑模块，与 graphSections 同规约
+import { buildGraphToc, type TocEntry, type TocFieldNode } from "../../util/graphToc"
 
 // ---------- 内容卡片数据结构（与 site 生成器产出的 /static/content/{id}.json 对齐，按需取用） ----------
 
@@ -473,13 +480,16 @@ document.addEventListener("nav", async () => {
   }
 
   /**
-   * 全部 UI 状态的唯一同步入口：图例项 + 扩展段控 + 标签行。
-   * 任何改动 hiddenSections 的路径收尾都必须调它（且只调它），三处状态由此同源。
+   * 全部 UI 状态的唯一同步入口：图例项 + 扩展段控 + 标签行 + 目录抽屉置灰。
+   * 任何改动 hiddenSections 的路径收尾都必须调它（且只调它），四处状态由此同源。
+   * 波B 追加的 syncTocDimmed 是目录置灰的**唯一**同步接口（内含 tocDirty 门控：
+   * 抽屉关着只置脏、打开时补做），故目录不必再去订阅任何事件。
    */
   function syncAll() {
     syncLegendButtons()
     syncGroupCtl()
     syncFieldTabs()
+    syncTocDimmed()
   }
 
   /**
@@ -558,6 +568,313 @@ document.addEventListener("nav", async () => {
     btn.addEventListener("click", onFieldClick)
     window.addCleanup?.(() => btn.removeEventListener("click", onFieldClick))
   }
+
+  // ---------- 目录导航抽屉（阶段5.7 波B-B4） ----------
+  // 画布左上角的浮动抽屉，「法域 → 书 → 章 → 节」三层，点目录行等同 selectNode 定位。
+  // 数据层在 util/graphToc.ts（纯逻辑、可单测），本节只管 DOM 与状态。
+  //
+  // 本节整体置于首次 syncAll() **之前**，是刻意的时序安排而非随手插入：syncAll 尾部
+  // 已追加 syncTocDimmed()，而后者读 tocTree / tocOpen 两个闭包变量。若本节挪到
+  // syncAll() 首调之后，那两个 let 尚在暂时性死区，首调即抛 ReferenceError——
+  // 阶段5.3 批 B3 的 controller TDZ 缺陷正是同一形状（详见 smoke.cjs 步 29 的注释）。
+  //
+  // 惰性三级，抽屉不点则一分不付：
+  //   ① 数据树在首次点开时才 buildGraphToc（实测约 3–6ms，输入是页面已解析完的
+  //      window.__graphIndex，零额外网络）；
+  //   ② DOM 首建只物化 6 法域行 + 83 书行 = 89 行（定案④：法域全展、书行全折）；
+  //   ③ 章（1124）与节（82）的 DOM 在父行首次展开时才物化，展开态不持久化。
+  // 三者合起来使「不用目录的用户」在首开路径上与波B 之前逐字等价。
+  const TOC_PINNED_KEY = "graph-toc-pinned"
+
+  /**
+   * 钉住态读写一律 try/catch 兜底（先例见 graph.inline.ts 的 getVisited/addToVisited）：
+   * localStorage 在隐私模式、配额写满或被扩展改写时会抛，而钉住只是一个体验偏好，
+   * 读写失败退化为「本次不钉住」即可，不该让整个抽屉——乃至挂载回调后续的代码——挂掉。
+   */
+  function readTocPinned(): boolean {
+    try {
+      return localStorage.getItem(TOC_PINNED_KEY) === "true"
+    } catch {
+      return false
+    }
+  }
+
+  function writeTocPinned(pinned: boolean) {
+    try {
+      if (pinned) localStorage.setItem(TOC_PINNED_KEY, "true")
+      else localStorage.removeItem(TOC_PINNED_KEY)
+    } catch {
+      /* 偏好写入失败不影响本次会话内的钉住行为 */
+    }
+  }
+
+  const tocToggle = explorer.querySelector<HTMLButtonElement>(".ge-toc-toggle")
+  const tocDrawer = explorer.querySelector<HTMLElement>(".ge-toc-drawer")
+  const tocPinBtn = explorer.querySelector<HTMLButtonElement>(".ge-toc-pin")
+  const tocCloseBtn = explorer.querySelector<HTMLButtonElement>(".ge-toc-close")
+  const tocTreeBox = explorer.querySelector<HTMLElement>(".ge-toc-tree")
+
+  // 全部目录状态放挂载闭包内（不放模块级）：模块级变量跨 SPA 导航存活，
+  // 会把上一次挂载的树与 DOM 引用带到新页面上——activeFieldFilter 那条注释
+  // 记的正是这类失配。钉住态是唯一需要跨导航保留的，走 localStorage 而非模块级变量。
+  let tocTree: TocFieldNode[] | null = null
+  let tocBuilding: Promise<void> | null = null
+  let tocOpen = false
+  // 置灰同步的脏位：抽屉关着时 syncAll 只置脏，打开时补做一次（关着的抽屉没有
+  // 可见性可言，为它遍历 89–1200 行 DOM 是白付；打开时补做即可保证所见即所得）
+  let tocDirty = false
+  let tocPinned = readTocPinned()
+  // 行/子容器 → 数据条目：折叠展开时据此惰性物化子层，不必把整棵树的 DOM 一次造完
+  const tocEntryOf = new WeakMap<HTMLElement, TocEntry>()
+
+  /** 造一行目录（书/章/节共用）。level 决定缩进：法域 0 / 书 1 / 章 2 / 节 3 */
+  function buildTocRow(entry: TocEntry, level: number): HTMLElement {
+    const row = el("div", "ge-toc-row")
+    row.dataset.level = String(level)
+    // ⚠️ data-group 必须取 buildGraphToc 里 groupOfSlug() 算出的组号，
+    // 不得用 slug 的字面数字前缀——`10-植物新品种纠纷解释` 实属组 11（品种布图），
+    // 字面前缀 10 是排序键、不是组号（教训见 util/graphSections.ts groupOfSlug 注释）。
+    // 置灰判据与冒烟步 33-e 的断言都压在这个属性上。
+    row.dataset.group = entry.group
+    row.dataset.label = entry.title
+    row.setAttribute("role", "treeitem")
+    const hasKids = entry.children.length > 0
+    const caret = el("button", hasKids ? "ge-toc-caret" : "ge-toc-caret ge-toc-caret--leaf")
+    caret.type = "button"
+    if (hasKids) {
+      caret.setAttribute("aria-expanded", "false")
+      caret.setAttribute("aria-label", `展开或折叠「${entry.title}」`)
+    } else {
+      // 叶行的 caret 只作等宽占位（visibility:hidden），不入 Tab 序、不报给读屏
+      caret.tabIndex = -1
+      caret.setAttribute("aria-hidden", "true")
+    }
+    const link = el("button", "ge-toc-link", entry.title)
+    link.type = "button"
+    link.dataset.slug = entry.slug
+    // 书名普遍二三十字，行内单行省略，全称由 title 承担（置灰时另附说明，见 applyTocDimmed）
+    link.title = entry.title
+    row.append(caret, link)
+    if (hasKids) row.setAttribute("aria-expanded", "false")
+    tocEntryOf.set(row, entry)
+    return row
+  }
+
+  /** 一个条目的「行 + 子层容器」。子层容器建而不填，首次展开时才物化 */
+  function buildTocBranch(entry: TocEntry, level: number): DocumentFragment {
+    const frag = document.createDocumentFragment()
+    frag.appendChild(buildTocRow(entry, level))
+    if (entry.children.length > 0) {
+      const kids = el("div", "ge-toc-children")
+      kids.setAttribute("role", "group")
+      kids.hidden = true
+      kids.dataset.built = "0"
+      kids.dataset.level = String(level + 1)
+      tocEntryOf.set(kids, entry)
+      frag.appendChild(kids)
+    }
+    return frag
+  }
+
+  /** 子层 DOM 物化（幂等）：把 entry.children 一次性铺进已有的空容器 */
+  function materializeBranch(kids: HTMLElement) {
+    if (kids.dataset.built === "1") return
+    const entry = tocEntryOf.get(kids)
+    if (entry === undefined) return
+    const level = Number(kids.dataset.level ?? "1")
+    const frag = document.createDocumentFragment()
+    for (const child of entry.children) frag.appendChild(buildTocBranch(child, level))
+    kids.appendChild(frag)
+    kids.dataset.built = "1"
+  }
+
+  /**
+   * 法域块：法域行 + 其下书行（书行随法域行一次性物化，定案④默认全展）。
+   * 定案①：法域行只管折叠展开，另挂一枚**只读**计数徽标「N 部」，
+   * 刻意不兼做过滤——过滤入口唯一是顶部法域标签行，给 hiddenSections 开第二条
+   * 写入路径就等于再造一个状态机（图例行与标签行同源那条纪律的延伸）。
+   * 法域行**不带 data-group**：一个法域可能横跨两组（商标 = 组 8 + 组 15），
+   * 挂单值属性必然失真，置灰也就只作用在书/章/节行上。
+   */
+  function buildTocFieldBlock(node: TocFieldNode): DocumentFragment {
+    const frag = document.createDocumentFragment()
+    const row = el("div", "ge-toc-row ge-toc-row--field")
+    row.dataset.level = "0"
+    row.dataset.field = node.field
+    row.setAttribute("role", "treeitem")
+    row.setAttribute("aria-expanded", "true")
+    const caret = el("button", "ge-toc-caret")
+    caret.type = "button"
+    caret.setAttribute("aria-expanded", "true")
+    caret.setAttribute("aria-label", `展开或折叠「${node.field}」法域`)
+    const label = el("span", "ge-toc-link", node.field)
+    label.title = `「${node.field}」法域共 ${node.books.length} 部文献`
+    const count = el("span", "ge-toc-count", `${node.books.length} 部`)
+    row.append(caret, label, count)
+    const kids = el("div", "ge-toc-children")
+    kids.setAttribute("role", "group")
+    kids.dataset.built = "1"
+    kids.dataset.level = "1"
+    for (const book of node.books) kids.appendChild(buildTocBranch(book, 1))
+    frag.append(row, kids)
+    return frag
+  }
+
+  /**
+   * 置灰回写（定案②）：判据 = hiddenSections.has(row.dataset.group)。
+   * 置灰行**不置 disabled、仍可点**——点击照常走 selectNode，由其既有拒绝分支
+   * 在状态条写「该文档域已隐藏，请先切换顶部标签或在图例中恢复显示」。
+   * 目录不自动反写过滤态：目录是导航，不是第二个过滤器。
+   */
+  function applyTocDimmed() {
+    if (tocTreeBox === null) return
+    tocDirty = false
+    const rows = tocTreeBox.querySelectorAll<HTMLElement>(".ge-toc-row[data-group]")
+    for (const row of Array.from(rows)) {
+      const group = row.dataset.group
+      if (group === undefined) continue
+      const dim = hiddenSections.has(group)
+      row.classList.toggle("ge-toc-row--dimmed", dim)
+      const link = row.querySelector<HTMLElement>(".ge-toc-link")
+      if (link === null) continue
+      const label = row.dataset.label ?? link.textContent ?? ""
+      link.title = dim ? `${label}（所属域组当前已隐藏，点击可查看恢复方式）` : label
+    }
+  }
+
+  /**
+   * 置灰同步的唯一对外接口，由 syncAll() 尾部调用。
+   * 刻意**不订阅 GRAPH_FIELD_EVENT**：那个事件由本模块自己派发，在同一闭包内
+   * 直连即可，订阅自发事件只是徒增一圈回路（还会与 applyField 的同步顺序纠缠）。
+   */
+  function syncTocDimmed() {
+    if (tocTree === null || !tocOpen) {
+      tocDirty = true
+      return
+    }
+    applyTocDimmed()
+  }
+
+  /** 首次点开才建树。返回同一个 Promise，重入不会建第二遍 */
+  async function ensureTocBuilt(): Promise<void> {
+    if (tocTreeBox === null || tocTree !== null) return
+    if (tocBuilding !== null) return tocBuilding
+    const box = tocTreeBox
+    // await 期间抽屉不该是一片空白（图谱页此刻 __graphIndex 通常已 resolve，
+    // 占位只会一闪而过；冷路径下它是唯一的「正在做事」信号）
+    box.replaceChildren(el("div", "ge-toc-loading", "目录加载中…"))
+    tocBuilding = (async () => {
+      try {
+        const index = await graphIndex()
+        if (disposed) return
+        const tree = buildGraphToc(index)
+        const frag = document.createDocumentFragment()
+        for (const node of tree) frag.appendChild(buildTocFieldBlock(node))
+        box.replaceChildren(frag)
+        tocTree = tree
+        applyTocDimmed()
+      } catch {
+        box.replaceChildren(el("div", "ge-toc-loading", "目录加载失败，可重新点开重试"))
+      } finally {
+        tocBuilding = null
+      }
+    })()
+    return tocBuilding
+  }
+
+  function syncTocPin() {
+    tocPinBtn?.setAttribute("aria-pressed", String(tocPinned))
+    if (tocPinBtn !== null) {
+      tocPinBtn.title = tocPinned
+        ? "已钉住：点击目录项后抽屉保持展开（下次进入本页仍展开）"
+        : "钉住抽屉：点击目录项后不自动收起（该选择会被记住）"
+    }
+  }
+
+  /** 开合（定案③：开合本身不持久化，挂载时 open = pinned） */
+  function setTocOpen(open: boolean) {
+    tocOpen = open
+    if (tocDrawer !== null) tocDrawer.hidden = !open
+    tocToggle?.setAttribute("aria-expanded", String(open))
+    if (tocToggle !== null) {
+      tocToggle.title = open
+        ? "收起目录导航"
+        : "打开目录导航：按「法域 → 书 → 章 → 节」定位到图内节点"
+    }
+    if (!open) return
+    // 不阻塞：抽屉立刻可见（首次是「加载中」占位），树建好后自行补上；
+    // 关抽屉期间累积的置灰变更也在此补做一次
+    void ensureTocBuilt().then(() => {
+      if (tocDirty) applyTocDimmed()
+    })
+  }
+
+  /** 折叠展开一行（法域行与书/章行共用）：子层未物化则先物化 */
+  function toggleTocBranch(row: HTMLElement) {
+    const kids = row.nextElementSibling as HTMLElement | null
+    if (kids === null || !kids.classList.contains("ge-toc-children")) return
+    const willOpen = kids.hidden
+    if (willOpen) materializeBranch(kids)
+    kids.hidden = !willOpen
+    row.setAttribute("aria-expanded", String(willOpen))
+    row.querySelector(".ge-toc-caret")?.setAttribute("aria-expanded", String(willOpen))
+    // 刚物化出来的章/节行要立刻带上当前的置灰态，否则会出现「父书灰、子章亮」的错位
+    if (willOpen) applyTocDimmed()
+  }
+
+  // 树内一切点击走单一委托：树的 DOM 是惰性增长的，逐行绑定既要在物化时补绑、
+  // 又要在清理时逐个解绑，委托一处即全覆盖。
+  const onTocTreeClick = (ev: Event) => {
+    const target = ev.target as HTMLElement | null
+    if (target === null) return
+    const link = target.closest<HTMLElement>(".ge-toc-link[data-slug]")
+    if (link !== null) {
+      const slug = link.dataset.slug
+      if (slug === undefined || slug.length === 0) return
+      // 图内定位语义完全复用 selectNode：相机 400ms 居中 + 选中高亮 + 右栏卡片；
+      // 目标域组被隐藏时走它既有的拒绝分支写状态条（置灰行仍可点即为此）。
+      void selectNode(slug as FullSlug)
+      if (!tocPinned) setTocOpen(false)
+      return
+    }
+    const caret = target.closest<HTMLElement>(".ge-toc-caret")
+    if (caret !== null && !caret.classList.contains("ge-toc-caret--leaf")) {
+      const row = caret.closest<HTMLElement>(".ge-toc-row")
+      if (row !== null) toggleTocBranch(row)
+      return
+    }
+    // 法域行整行可点即折叠展开（行内没有可定位的链接，点文字与点 caret 同义）
+    const fieldRow = target.closest<HTMLElement>(".ge-toc-row--field")
+    if (fieldRow !== null) toggleTocBranch(fieldRow)
+  }
+
+  const onTocToggleClick = () => setTocOpen(!tocOpen)
+  const onTocCloseClick = () => setTocOpen(false)
+  const onTocPinClick = () => {
+    tocPinned = !tocPinned
+    writeTocPinned(tocPinned)
+    syncTocPin()
+  }
+
+  tocToggle?.addEventListener("click", onTocToggleClick)
+  tocCloseBtn?.addEventListener("click", onTocCloseClick)
+  tocPinBtn?.addEventListener("click", onTocPinClick)
+  tocTreeBox?.addEventListener("click", onTocTreeClick)
+  window.addCleanup?.(() => {
+    tocToggle?.removeEventListener("click", onTocToggleClick)
+    tocCloseBtn?.removeEventListener("click", onTocCloseClick)
+    tocPinBtn?.removeEventListener("click", onTocPinClick)
+    tocTreeBox?.removeEventListener("click", onTocTreeClick)
+    // 数据树与未决的建树 Promise 一并置空：树体持有 1289 个条目对象，
+    // 挂载闭包若因任何一处引用被延寿，置空能让这部分立刻可回收
+    tocTree = null
+    tocBuilding = null
+  })
+
+  syncTocPin()
+  // 定案③：开合不持久化，挂载时 open = pinned——钉住的用户每次进本页即见展开的目录，
+  // 未钉住的用户回到「收起态 + 一枚悬浮钮」，两者都无需再点一次
+  if (tocPinned) setTocOpen(true)
 
   syncAll()
 
@@ -1126,17 +1443,62 @@ document.addEventListener("nav", async () => {
   document.addEventListener("themechange", onThemeChange)
 
   // 视口变化：按新尺寸重渲染（防抖）；
-  // 重建前快照术语层模式与缩放平移（BUG-1），重建后恢复——缩放不重置
+  // 重建前快照术语层模式与缩放平移（BUG-1），重建后恢复——缩放不重置。
+  //
+  // ---------- 双档防抖（阶段5.7 波A-A3）----------
+  // 两条触发源共用一个 timer 与唯一重建体 scheduleRebuild，参数各异：
+  //   · window resize：250ms / crossfade=false——与改造前逐字同参，行为零变更；
+  //   · .ge-canvas 的 ResizeObserver：400ms / crossfade=true。
+  // 共用 timer 是刻意的：窗口缩放常常同时改变容器尺寸，两条源各持一个定时器会
+  // 排出两轮全量重建；共用则后到者顺延覆盖，只重建一次。
+  //
+  // RO 这一档补的是「窗口没动、容器动了」这一整类尺寸失同步。渲染器的宽高是
+  // createGraphInstance 里的一次性 const 快照（graph.inline.ts:1256-1257），全仓
+  // 无 renderer.resize；而 .ge-canvas 会被同页内的布局变化改尺寸——点法域标签使
+  // 非本域图例项 hidden 撤出布局流、工具栏折行减少，画布随之变高；右栏 .ge-panel
+  // 显隐（±300–440px）则改画布宽度。canvas 停在旧尺寸，帧缓冲之外的节点被容器的
+  // overflow:hidden 硬切，表现为下边缘露底与右侧露白。
+  // 400ms＝applyFitView 的过渡时长，使重建排在法域过滤的重排动画之后串行发生；
+  // crossfade=true 走 graph.inline.ts 既有的先建后毁淡入路径（themechange 已验证
+  // 该机制），消除重建间隙的空白帧——renderCanvas 第四参已是现成入口，
+  // graph.inline.ts 一字不改。
   let resizeTimer: ReturnType<typeof setTimeout> | undefined
-  const onResize = () => {
+  const scheduleRebuild = (delayMs: number, crossfade: boolean) => {
     clearTimeout(resizeTimer)
     resizeTimer = setTimeout(() => {
       const termMode = controller?.getTermLayer()
       const transform = controller?.getTransform() ?? null
-      void renderCanvas(centerSlug, termMode, transform)
-    }, 250)
+      void renderCanvas(centerSlug, termMode, transform, crossfade)
+    }, delayMs)
   }
+  const onResize = () => scheduleRebuild(250, false)
   window.addEventListener("resize", onResize)
+
+  // 容器尺寸观察。量测口径与 graph.inline.ts 的尺寸快照逐字对齐（offsetWidth /
+  // Math.max(offsetHeight, 250)）——比的必须是「渲染器下次会取到的值」，用 client*
+  // 会因 .ge-canvas 的 1px 边框恒差 2px 而永远判定为已变化。
+  //
+  // 无回环之虞：容器尺寸由外部布局决定（$desktop 下 flex:1，窄屏 height:55vh）且
+  // overflow:hidden，与子内容无关——重建插入的新 canvas 撑不大它，故不存在
+  // 「重建→尺寸变→再重建」。阈值守卫（宽高任一变化 ≥1px 才排定）是第二道保险，
+  // 兼挡亚像素抖动；宽度为 0 的量测（安装瞬间的首次回调、尚未布局或不可见时）
+  // 只用来续写基线、不排定重建，否则页面刚挂载就会白付一次全量重建。
+  let lastCanvasW = 0
+  let lastCanvasH = 0
+  let canvasRO: ResizeObserver | undefined
+  if (typeof ResizeObserver !== "undefined") {
+    canvasRO = new ResizeObserver(() => {
+      const w = canvas.offsetWidth
+      const h = Math.max(canvas.offsetHeight, 250)
+      const seeded = lastCanvasW > 0
+      const changed = Math.abs(w - lastCanvasW) >= 1 || Math.abs(h - lastCanvasH) >= 1
+      lastCanvasW = w
+      lastCanvasH = h
+      if (!seeded || w === 0 || !changed) return
+      scheduleRebuild(400, true)
+    })
+    canvasRO.observe(canvas)
+  }
 
   // ---------- 初始渲染 ----------
   await renderCanvas(hostSlug)
@@ -1169,6 +1531,10 @@ document.addEventListener("nav", async () => {
     }
     document.removeEventListener("themechange", onThemeChange)
     window.removeEventListener("resize", onResize)
+    // 容器观察器随挂载闭包一同退场：不断开则旧观察器继续持有已被替换的 DOM 与
+    // 本闭包内的 renderCanvas，导航后仍会往死掉的容器上排重建（未决定时器已由
+    // 上方 clearTimeout(resizeTimer) 撤销，此处断的是继续产生新回调的源头）
+    canvasRO?.disconnect()
     controller?.destroy()
     controller = null
   })

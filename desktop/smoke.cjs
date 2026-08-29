@@ -35,6 +35,15 @@
 // 共 30 步，排在步 29 之后、离线报告之前。它守的是两项性能机制的**存活**而非指标：
 // firstFrameVisibleLabels=0（波1-1.2 标签门控）与 assemblyCacheHit/layoutSeeded
 // （波2-2.2 组装缓存与坐标播种）为硬失败结构断言，时间只设 1200ms 宽熔断抓塌方。
+// 阶段5.7 波A 新增：局部图截断上限 60→120（31）、图谱总览画布尺寸同步（32），共 32 步，
+// 排在步 30 之后、离线报告之前——两步都要 loadURL 换页（31 去文档页看局部图，32 回图谱
+// 总览点法域标签），放在中段会污染前面各步的图谱状态与截图基线。同批为步 30 追加
+// 「图谱索引悬空内链恒零」子断言（既有断言一字不动，只追加合取项）：判据与构建期
+// contentIndex.tsx 的过滤同源，取数复用页面已解析的 window.__graphIndex，不另发请求。
+// 阶段5.7 波B 新增：图谱总览目录导航抽屉（33），共 33 步，排在步 32 之后、离线报告之前
+// ——沿用步 32 已加载的图谱总览页与它遗留的「法域=全部 + 右栏已显现」状态，不再 loadURL：
+// 右栏若在本步中途首次显现会改画布宽度并触发波A 的 RO 重建，把 33-c 的「重建计数增量 0」
+// 污染成无意义的断言。九项分工见该步内注释；33-i 的 localStorage 复位是硬性收尾。
 // 阶段5.4 批 D3 随 D1/D2 目录行为反转全面改写步 29（总步数不变）：目录条目点击恢复
 // SPA 直达文档（kb:graphlocate 定位链路全站撤销）、图谱页书下 3 层默认展开且折叠态
 // 隔离进独立键 fileTree-graph、状态条提示 4s 自动消失。现断言为：初始展开规模 +
@@ -1877,17 +1886,54 @@ async function main() {
     spaMark.layoutSource === "cache" &&
     spaMark.labels1st === 0;
   const spaTimeOk = !!spaMark && spaMark.total < 1200;
+
+  // 阶段5.7 波A-A2 追加子断言：图谱索引悬空内链恒零。
+  // 取数复用页面上已解析完的 window.__graphIndex（图谱页此刻必已消费过它，是同一个
+  // 共享 Promise），不另发 fetch——本冒烟全程离线护栏之下，多打一次请求既无必要，
+  // 也会让「外部请求恒 0」之外的请求账变得难以对照。
+  // 判据与构建期 contentIndex.tsx 的过滤逐字同源：links 的每个目标都必须落在
+  // 「本批全部 slug 的 simplifySlug 全集」内。该值一旦非 0，说明过滤失效或被绕开，
+  // 产物里重新混进了指向不存在页面的边（当前语料实测应滤除 30 条，产物侧恒 0）。
+  const danglingProbe = await win.webContents.executeJavaScript(`
+    (async () => {
+      const idx = await window.__graphIndex;
+      // simplifySlug 的等价实现：去掉 index 后缀、只剥前缀斜杠
+      //（尾斜杠是容器页标记，必须保留，否则容器 slug 全部对不上）
+      const simplify = (fp) => {
+        let r = fp.endsWith("index") ? fp.slice(0, -5) : fp;
+        if (r.startsWith("/")) r = r.slice(1);
+        return r.length === 0 ? "/" : r;
+      };
+      const all = new Set(Object.keys(idx).map(simplify));
+      let dangling = 0;
+      let links = 0;
+      const samples = [];
+      for (const [slug, d] of Object.entries(idx)) {
+        for (const dest of d.links || []) {
+          links += 1;
+          if (!all.has(dest)) {
+            dangling += 1;
+            if (samples.length < 3) samples.push(simplify(slug) + " -> " + dest);
+          }
+        }
+      }
+      return { entries: Object.keys(idx).length, links, dangling, samples };
+    })()
+  `);
+  const danglingOk = !!danglingProbe && danglingProbe.dangling === 0;
+
   await shot(win, "图谱缓存命中与坐标播种");
 
   record(
-    "图谱首帧零标签光栅化＋首开命中构建期坐标＋SPA 往返命中组装缓存与坐标播种（结构断言硬失败：firstFrameVisibleLabels=0 / 首开 layoutSource=prebuilt / 二开 assemblyCacheHit+layoutSeeded+layoutSource=cache；时间宽熔断：二次打开 total<1200ms）",
+    "图谱首帧零标签光栅化＋首开命中构建期坐标＋SPA 往返命中组装缓存与坐标播种＋图谱索引悬空内链恒零（结构断言硬失败：firstFrameVisibleLabels=0 / 首开 layoutSource=prebuilt / 二开 assemblyCacheHit+layoutSeeded+layoutSource=cache / contentIndexGraph 悬空链=0；时间宽熔断：二次打开 total<1200ms）",
     graphReady30 &&
       hardLabelsOk &&
       hardPrebuiltOk &&
       leftGraph === "/1-专利法/1-总则/law-01-01" &&
       backPath === "/0-图谱总览/" &&
       spaStructOk &&
-      spaTimeOk,
+      spaTimeOk &&
+      danglingOk,
     `直开图谱：就绪=${graphReady30}, 首帧可见标签=${hardMark ? hardMark.labels1st : "无记录"}（须 0）, ` +
       `节点数=${hardMark ? hardMark.nodes : "-"}, 首开 cacheHit=${hardMark ? hardMark.cacheHit : "-"}（须 false，硬跳转无模块缓存）, ` +
       `首开 layoutSource=${hardMark ? hardMark.layoutSource : "-"}（须 prebuilt）, ` +
@@ -1897,7 +1943,447 @@ async function main() {
       `layoutSeeded=${spaMark ? spaMark.seeded : "-"}（须 true）, ` +
       `layoutSource=${spaMark ? spaMark.layoutSource : "-"}（须 cache）, ` +
       `首帧可见标签=${spaMark ? spaMark.labels1st : "-"}（须 0）, ` +
-      `total=${spaMark ? spaMark.total.toFixed(1) : "-"}ms（宽熔断 <1200ms）`,
+      `total=${spaMark ? spaMark.total.toFixed(1) : "-"}ms（宽熔断 <1200ms）; ` +
+      `图谱索引：条目=${danglingProbe ? danglingProbe.entries : "无记录"}, ` +
+      `links=${danglingProbe ? danglingProbe.links : "-"}, ` +
+      `悬空链=${danglingProbe ? danglingProbe.dangling : "-"}（须 0）` +
+      `${danglingProbe && danglingProbe.samples.length > 0 ? `, 样例=${danglingProbe.samples.join(" | ")}` : ""}`,
+  );
+
+  // ============ 阶段5.7 波A 新增两步（31、32）============
+
+  // 31. 局部图截断上限 60→120（波A-A1）
+  //     两侧同时守：上限确已抬到 120（31a），且没有被抬过头或改成不截断（31b 的下界）。
+  //     · 31a：term-0028 的一跳邻居实测 247（远超上限），故必截断——徽标文本须为
+  //       「已显示 120/247 个关联」，且埋点节点数须恰为 121（120 个邻居 + 中心节点）。
+  //     · 31b：law-01-18 的一跳邻居实测 95，落在旧上限 60 与新上限 120 之间——
+  //       它在改造前会被截断、改造后必须完整显示。故断言无徽标且节点数 ≥62：
+  //       「≥62」排除的是「上限仍为 60」（那样节点数恰 61），与 31a 的 121 一上一下
+  //       把上限锁死在 120；不写死 96 是为了不让语料的正常增删把本步变成脆断。
+  //     ⚠️ 目标页必须是普通文档页：容器页（如 1-专利法/）的产物 HTML 里没有
+  //       .graph-container，根本不渲染局部图，拿它做本步的载体会恒红。
+  const READ_LOCAL_MARK = `(() => {
+     const p = window.__graphPerf;
+     if (!p || !p.marks) return null;
+     // 文档页可能同时存在局部图（.graph-container，depth:1）与全局图弹窗（depth:-1）
+     // 两类记录，必须按 fullGraph 分流后取局部图的最后一条，否则读到的是另一张图。
+     const local = p.marks.filter((m) => !m.fullGraph);
+     const m = local[local.length - 1];
+     if (!m || m.firstFrame === null) return null;
+     return { nodes: m.nodeCount, links: m.linkCount, labels1st: m.firstFrameVisibleLabels };
+   })()`;
+  const READ_BADGE = `(() => {
+     const b = document.querySelector('.graph-truncation-note');
+     return b ? b.textContent : null;
+   })()`;
+  const openLocalGraph = async (url) => {
+    await win.loadURL(url);
+    let ready = false;
+    for (let i = 0; i < 40; i += 1) {
+      await sleep(300);
+      ready = await win.webContents.executeJavaScript(
+        `!!document.querySelector('.graph-container canvas')`,
+      );
+      if (ready) break;
+    }
+    let mark = null;
+    for (let i = 0; i < 40; i += 1) {
+      mark = await win.webContents.executeJavaScript(READ_LOCAL_MARK);
+      if (mark) break;
+      await sleep(300);
+    }
+    const badge = await win.webContents.executeJavaScript(READ_BADGE);
+    return { ready, mark, badge };
+  };
+
+  const a31 = await openLocalGraph(
+    `${base}/9-关键词索引/01-新颖性/term-0028`,
+  );
+  const a31Ok =
+    a31.ready &&
+    a31.badge === "已显示 120/247 个关联" &&
+    !!a31.mark &&
+    a31.mark.nodes === 121;
+  await shot(win, "局部图截断上限120-超限页");
+
+  const b31 = await openLocalGraph(`${base}/1-专利法/1-总则/law-01-18`);
+  const b31Ok = b31.ready && b31.badge === null && !!b31.mark && b31.mark.nodes >= 62;
+  await shot(win, "局部图截断上限120-未超限页");
+
+  record(
+    "局部图截断上限 60→120（超限页徽标 120/247 且节点数 121；旧上限下会被截断的 95 邻居页现无徽标且节点数 ≥62）",
+    a31Ok && b31Ok,
+    `term-0028（邻居 247，必截断）：就绪=${a31.ready}, 徽标=${a31.badge === null ? "无" : `「${a31.badge}」`}（须「已显示 120/247 个关联」）, ` +
+      `节点数=${a31.mark ? a31.mark.nodes : "无记录"}（须 121＝120 邻居+中心）, 边数=${a31.mark ? a31.mark.links : "-"}; ` +
+      `law-01-18（邻居 95，旧上限 60 下会截断）：就绪=${b31.ready}, 徽标=${b31.badge === null ? "无" : `「${b31.badge}」`}（须无）, ` +
+      `节点数=${b31.mark ? b31.mark.nodes : "无记录"}（须 ≥62，排除上限仍为 60 的 61）`,
+  );
+
+  // 32. 图谱总览画布尺寸同步（波A-A3）
+  //     渲染器的宽高是 createGraphInstance 里的一次性 const 快照，全仓无 renderer.resize；
+  //     .ge-canvas 却会被同页内的布局变化改尺寸——点法域标签使非本域图例项 hidden 撤出
+  //     布局流、工具栏折行减少而画布变高（下边缘露底），右栏 .ge-panel 显隐则改画布宽度
+  //     （右侧露白）。A3 给容器装了 ResizeObserver（400ms 防抖 + crossfade 淡入重建），
+  //     本步守的就是「容器变了、画布跟得上」。
+  //     ⚠️ 量测口径必须是容器 offsetWidth/Math.max(offsetHeight,250) 对画布的
+  //       getBoundingClientRect：前者与 graph.inline.ts 的尺寸快照逐字同源；若改用
+  //       clientWidth，会因 .ge-canvas 的 1px 边框（全局 border-box）恒差 2px 而永远误红。
+  //     ⚠️ 取画布须取容器内**最后一个** canvas：crossfade 期间旧画布留在容器里充当
+  //       淡入底图（position:absolute），取第一个会读到即将退场的旧尺寸。
+  //     b/c/d 三项只在视口宽 ≥1200px（$desktop 断点，画布与右栏并排）时断言——窄屏
+  //     是纵向堆叠，右栏显隐不改画布宽度，那几项本就不适用。
+  const MEASURE_CANVAS = `(() => {
+     const box = document.querySelector('.ge-canvas');
+     if (!box) return null;
+     const list = box.querySelectorAll('canvas');
+     const cv = list[list.length - 1];
+     if (!cv) return null;
+     const r = cv.getBoundingClientRect();
+     const panel = document.querySelector('.ge-panel');
+     return {
+       boxW: box.offsetWidth,
+       boxH: Math.max(box.offsetHeight, 250),
+       cvW: Math.round(r.width * 100) / 100,
+       cvH: Math.round(r.height * 100) / 100,
+       canvases: list.length,
+       panelHidden: panel ? panel.hidden : null,
+       viewportW: document.documentElement.clientWidth,
+     };
+   })()`;
+  const fitsBox = (m) =>
+    !!m && Math.abs(m.cvW - m.boxW) <= 1 && Math.abs(m.cvH - m.boxH) <= 1;
+  const fmtBox = (m) =>
+    m
+      ? `容器 ${m.boxW}×${m.boxH} / 画布 ${m.cvW}×${m.cvH}（Δ宽 ${(m.cvW - m.boxW).toFixed(2)}, Δ高 ${(m.cvH - m.boxH).toFixed(2)}）`
+      : "无量测";
+
+  await win.loadURL(`${base}/0-图谱总览/`);
+  let graphReady32 = false;
+  for (let i = 0; i < 40; i += 1) {
+    await sleep(500);
+    graphReady32 = await win.webContents.executeJavaScript(
+      `!!document.querySelector('.ge-fieldnav') &&
+       !!document.querySelector('.ge-canvas canvas')`,
+    );
+    if (graphReady32) break;
+  }
+  await sleep(1200); // 力导落定，与步 28/29 同款缓冲
+
+  // a. 基线：初始态画布与容器同尺寸
+  const m32a = await win.webContents.executeJavaScript(MEASURE_CANVAS);
+  const wide32 = !!m32a && m32a.viewportW >= 1200;
+  const a32Ok = fitsBox(m32a);
+
+  // b. 点「商标」法域标签 → 图例行收窄、工具栏折行减少 → 容器变高
+  //    等待 2s：400ms RO 防抖 + 约 230ms 重建 + 260ms 淡入，另留余量
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-field-tab[data-field="商标"]').click()`,
+  );
+  await sleep(2000);
+  const m32b = await win.webContents.executeJavaScript(MEASURE_CANVAS);
+  const b32Ok = !wide32 || fitsBox(m32b);
+  await shot(win, "画布尺寸同步-法域商标");
+
+  // c. 点回「全部」→ 容器变回原高，画布须再次跟上
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-field-tab[data-field="*"]').click()`,
+  );
+  await sleep(2000);
+  const m32c = await win.webContents.executeJavaScript(MEASURE_CANVAS);
+  const c32Ok = !wide32 || fitsBox(m32c);
+
+  // d. 右栏面板显现 → 画布变窄。直接向 .graph-explorer 派发 graphnodeselect
+  //    （panel 模式下图内点击本就是自 canvas 冒泡到这里的同一事件），dbl:true 走
+  //    「切换选中 + 展示右栏」分支，比模拟画布坐标点击稳定得多。
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.graph-explorer').dispatchEvent(
+       new CustomEvent('graphnodeselect', { detail: { slug: '1-专利法/', dbl: true } }),
+     )`,
+  );
+  await sleep(2000);
+  const m32d = await win.webContents.executeJavaScript(MEASURE_CANVAS);
+  const d32Ok = !wide32 || (fitsBox(m32d) && m32d.panelHidden === false);
+  await shot(win, "画布尺寸同步-右栏显现");
+
+  record(
+    "图谱总览画布尺寸同步（容器 ResizeObserver 重建：基线／法域标签收窄／回全部／右栏显现四态下画布与容器差 ≤1px）",
+    graphReady32 && a32Ok && b32Ok && c32Ok && d32Ok,
+    `视口宽=${m32a ? m32a.viewportW : "-"}px（${wide32 ? "≥1200，b/c/d 全断言" : "<1200，窄屏纵向堆叠，b/c/d 不适用已跳过"}）; ` +
+      `a 基线：${fmtBox(m32a)}; ` +
+      `b 点「商标」后：${fmtBox(m32b)}; ` +
+      `c 回「全部」后：${fmtBox(m32c)}; ` +
+      `d 右栏显现后：${fmtBox(m32d)}，panel.hidden=${m32d ? m32d.panelHidden : "-"}（须 false）`,
+  );
+
+  // ============ 阶段5.7 波B 新增一步（33）============
+
+  // 33. 图谱总览目录导航抽屉（波B）
+  //     沿用步 32 已加载的图谱总览页，不再 loadURL——本步与步 32 同处一个上下文，
+  //     且刻意依赖它遗留的两个状态：法域=「全部」、右栏已显现。后者尤其要紧：
+  //     右栏若在本步中途才首次显现，会改变 .ge-canvas 宽度并触发波A 的 RO 重建，
+  //     33-c 的「重建计数增量 0」就会被这条无关的重建污染，从而失去意义。
+  //     九项分工：
+  //       a 结构（SSR 骨架在场、初始收起、树为空壳——惰性未被写坏的凭据）
+  //       b 首次点开：树可见耗时 + 法域行 6 / 书行 83
+  //       c 点目录行 = selectNode：右栏标题真实转移 **且 __graphRender 计数增量 0**
+  //         （增量非 0 即说明走了重建兜底，那是 700ms 的全量重建，不是 focus 定位）
+  //       d 展开一本书：章行数与 __graphIndex 现算一致（不写死，随语料增删自适应）
+  //       e 置灰联动：点「商标」后，data-group 不属 {8,15} 的行全部 dimmed；回「全部」全亮
+  //       f 存活守门（R6）：两次法域切换各触发一次 RO 重建后，抽屉仍在、83 书行未被清
+  //         ——抽屉挂在 .ge-body 而非 .ge-canvas，正是为了躲开重建时的 removeAllChildren
+  //       g 尺寸中立：抽屉开→关→开，.ge-canvas 尺寸逐像素不动（脱流的凭据）
+  //       h 钉住持久化：reload 后抽屉仍展开
+  //       i 收尾复位 removeItem（硬性，同步骤 24 主题复位规约，防污染用户 localStorage）
+  const TOC_STATS = `(() => {
+     const root = document.querySelector('.ge-toc');
+     if (!root) return null;
+     const drawer = root.querySelector('.ge-toc-drawer');
+     const toggle = root.querySelector('.ge-toc-toggle');
+     const pin = root.querySelector('.ge-toc-pin');
+     const tree = root.querySelector('.ge-toc-tree');
+     const rows = tree ? Array.from(tree.querySelectorAll('.ge-toc-row')) : [];
+     const withGroup = rows.filter((r) => r.dataset.group !== undefined);
+     const dim = withGroup.filter((r) => r.classList.contains('ge-toc-row--dimmed'));
+     const lit = withGroup.filter((r) => !r.classList.contains('ge-toc-row--dimmed'));
+     const uniq = (list) => [...new Set(list.map((r) => r.dataset.group))].sort();
+     let stored = 'ERR';
+     try { stored = localStorage.getItem('graph-toc-pinned'); } catch (e) { stored = 'ERR'; }
+     return {
+       drawerHidden: drawer ? drawer.hidden : null,
+       expanded: toggle ? toggle.getAttribute('aria-expanded') : null,
+       pinned: pin ? pin.getAttribute('aria-pressed') : null,
+       stored: stored,
+       fields: rows.filter((r) => r.classList.contains('ge-toc-row--field')).length,
+       rows: rows.length,
+       books: withGroup.filter((r) => r.dataset.level === '1').length,
+       dimmed: dim.length,
+       dimmedGroups: uniq(dim),
+       litGroups: uniq(lit),
+     };
+   })()`;
+  const MEASURE_TOC_BOX = `(() => {
+     const b = document.querySelector('.ge-canvas');
+     return b ? { w: b.offsetWidth, h: b.offsetHeight } : null;
+   })()`;
+  const READ_RENDER_CALLS = `window.__smokeRenderCalls`;
+  const fmtToc = (s) =>
+    s
+      ? `法域行 ${s.fields} / 书行 ${s.books} / 总行 ${s.rows}，drawer.hidden=${s.drawerHidden}，置灰 ${s.dimmed}`
+      : "无量测";
+
+  // a. 结构：SSR 骨架在场、初始收起、树是空壳（惰性未被写坏）
+  const s33a = await win.webContents.executeJavaScript(TOC_STATS);
+  const a33Ok =
+    !!s33a && s33a.drawerHidden === true && s33a.expanded === "false" && s33a.rows === 0;
+
+  // b. 首次点开：页内自计时（点击 → 首行 DOM 出现），再读结构
+  //    轮询用 setTimeout(0) 而非 rAF：后者粒度 16ms，量不出 50ms 门槛内的差别
+  const openMs = await win.webContents.executeJavaScript(
+    `(async () => {
+       const t0 = performance.now();
+       document.querySelector('.ge-toc-toggle').click();
+       for (let i = 0; i < 400; i += 1) {
+         if (document.querySelector('.ge-toc-tree .ge-toc-row')) return performance.now() - t0;
+         await new Promise((r) => setTimeout(r, 0));
+       }
+       return -1;
+     })()`,
+  );
+  await sleep(400);
+  const s33b = await win.webContents.executeJavaScript(TOC_STATS);
+  const b33Ok =
+    !!s33b && s33b.fields === 6 && s33b.books === 83 && s33b.drawerHidden === false;
+  await shot(win, "图谱目录抽屉-展开态");
+
+  // c. 点目录行 = selectNode。哨兵在本上下文中重装（步 29 装的那份已随 loadURL 失效），
+  //    包装守卫沿用同一形状，避免二次包装叠加计数。
+  await win.webContents.executeJavaScript(
+    `(() => {
+       if (typeof window.__smokeOrigGraphRender === 'undefined') {
+         window.__smokeOrigGraphRender = window.__graphRender;
+       }
+       window.__smokeRenderCalls = 0;
+       window.__graphRender = function (...args) {
+         window.__smokeRenderCalls += 1;
+         return window.__smokeOrigGraphRender.apply(this, args);
+       };
+       return typeof window.__smokeOrigGraphRender === 'function';
+     })()`,
+  );
+  // 期望标题一律从索引现取，不写死书名（语料改标题不该让冒烟变脆）
+  const tocTitles = await win.webContents.executeJavaScript(
+    `(async () => {
+       const idx = await window.__graphIndex;
+       return {
+         guide: idx['3-专利审查指南/index'].title,
+         law: idx['1-专利法/index'].title,
+       };
+     })()`,
+  );
+  const READ_PANEL = `(() => {
+     const t = document.querySelector('.ge-panel-content .ge-title');
+     const drawer = document.querySelector('.ge-toc-drawer');
+     return {
+       title: t ? t.textContent : null,
+       drawerHidden: drawer ? drawer.hidden : null,
+       calls: window.__smokeRenderCalls,
+     };
+   })()`;
+  // c1：未钉住态点「3-专利审查指南」——标题须从步 32 遗留的「专利法」转移过来，
+  //     且抽屉按定案自动收起
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-toc-link[data-slug="3-专利审查指南/index"]').click()`,
+  );
+  await sleep(600);
+  const c33a = await win.webContents.executeJavaScript(READ_PANEL);
+  // c2：重开抽屉 → 钉住 → 点「1-专利法」：标题再次转移，抽屉因钉住而保持展开
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-toc-toggle').click()`,
+  );
+  await sleep(200);
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-toc-pin').click()`,
+  );
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-toc-link[data-slug="1-专利法/index"]').click()`,
+  );
+  await sleep(600);
+  const c33b = await win.webContents.executeJavaScript(READ_PANEL);
+  const c33Ok =
+    c33a.title === tocTitles.guide &&
+    c33a.drawerHidden === true &&
+    c33a.calls === 0 &&
+    c33b.title === tocTitles.law &&
+    c33b.drawerHidden === false &&
+    c33b.calls === 0;
+
+  // d. 展开「1-专利法」：章行数须与索引现算一致
+  const chapterExpected = await win.webContents.executeJavaScript(
+    `(async () => {
+       const idx = await window.__graphIndex;
+       return Object.keys(idx).filter(
+         (s) => s.startsWith('1-专利法/') && s.endsWith('/index') && s.split('/').length === 3,
+       ).length;
+     })()`,
+  );
+  await win.webContents.executeJavaScript(
+    `(() => {
+       const link = document.querySelector('.ge-toc-link[data-slug="1-专利法/index"]');
+       link.closest('.ge-toc-row').querySelector('.ge-toc-caret').click();
+       return true;
+     })()`,
+  );
+  await sleep(300);
+  const d33 = await win.webContents.executeJavaScript(
+    `(() => {
+       const link = document.querySelector('.ge-toc-link[data-slug="1-专利法/index"]');
+       const kids = link.closest('.ge-toc-row').nextElementSibling;
+       if (!kids || !kids.classList.contains('ge-toc-children')) return null;
+       return {
+         built: kids.dataset.built,
+         hidden: kids.hidden,
+         rows: kids.querySelectorAll(':scope > .ge-toc-row').length,
+       };
+     })()`,
+  );
+  const d33Ok =
+    !!d33 && d33.built === "1" && d33.hidden === false && d33.rows === chapterExpected;
+
+  // e. 置灰联动 + f 的两次 RO 重建：点「商标」→ 2s（400ms 防抖 + 约 230ms 重建 + 260ms 淡入）
+  const callsBeforeField = await win.webContents.executeJavaScript(READ_RENDER_CALLS);
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-field-tab[data-field="商标"]').click()`,
+  );
+  await sleep(2000);
+  const s33e1 = await win.webContents.executeJavaScript(TOC_STATS);
+  await shot(win, "图谱目录抽屉-置灰联动");
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-field-tab[data-field="*"]').click()`,
+  );
+  await sleep(2000);
+  const s33e2 = await win.webContents.executeJavaScript(TOC_STATS);
+  // 商标法域 = 组 8（商标）+ 组 15（商标审查指南）；其余组的行须全部置灰
+  const e33Ok =
+    !!s33e1 &&
+    s33e1.litGroups.join(",") === ["8", "15"].sort().join(",") &&
+    s33e1.dimmed > 0 &&
+    !!s33e2 &&
+    s33e2.dimmed === 0;
+
+  // f. 存活守门（R6）：两次法域切换后抽屉与 83 书行都还在，且确有重建发生过
+  const callsAfterField = await win.webContents.executeJavaScript(READ_RENDER_CALLS);
+  const rebuilds = callsAfterField - callsBeforeField;
+  const f33Ok =
+    !!s33e2 && s33e2.drawerHidden === false && s33e2.books === 83 && rebuilds >= 1;
+
+  // g. 尺寸中立：抽屉开→关→开，.ge-canvas 逐像素不动（绝对定位脱流的凭据）
+  const g33Open1 = await win.webContents.executeJavaScript(MEASURE_TOC_BOX);
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-toc-close').click()`,
+  );
+  await sleep(700);
+  const g33Closed = await win.webContents.executeJavaScript(MEASURE_TOC_BOX);
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-toc-toggle').click()`,
+  );
+  await sleep(700);
+  const g33Open2 = await win.webContents.executeJavaScript(MEASURE_TOC_BOX);
+  const g33Ok =
+    !!g33Open1 &&
+    !!g33Closed &&
+    !!g33Open2 &&
+    g33Open1.w === g33Closed.w &&
+    g33Open1.h === g33Closed.h &&
+    g33Open1.w === g33Open2.w &&
+    g33Open1.h === g33Open2.h;
+
+  // h. 钉住持久化：整页重载后抽屉仍展开（挂载时 open = pinned）
+  await win.webContents.reload();
+  let ready33 = false;
+  for (let i = 0; i < 40; i += 1) {
+    await sleep(500);
+    ready33 = await win.webContents.executeJavaScript(
+      `!!document.querySelector('.ge-canvas canvas') &&
+       document.querySelectorAll('.ge-toc-tree .ge-toc-row').length > 0`,
+    );
+    if (ready33) break;
+  }
+  const s33h = await win.webContents.executeJavaScript(TOC_STATS);
+  const h33Ok =
+    ready33 &&
+    !!s33h &&
+    s33h.drawerHidden === false &&
+    s33h.pinned === "true" &&
+    s33h.stored === "true" &&
+    s33h.books === 83;
+  await shot(win, "图谱目录抽屉-钉住后reload仍展开");
+
+  // i. 收尾复位（硬性）：取消钉住 + removeItem，绝不把偏好留在用户的 localStorage 里
+  const s33i = await win.webContents.executeJavaScript(
+    `(() => {
+       const pin = document.querySelector('.ge-toc-pin');
+       if (pin && pin.getAttribute('aria-pressed') === 'true') pin.click();
+       try { localStorage.removeItem('graph-toc-pinned'); } catch (e) {}
+       let stored = 'ERR';
+       try { stored = localStorage.getItem('graph-toc-pinned'); } catch (e) { stored = 'ERR'; }
+       return { stored: stored, pinned: pin ? pin.getAttribute('aria-pressed') : null };
+     })()`,
+  );
+  const i33Ok = !!s33i && s33i.stored === null && s33i.pinned === "false";
+
+  record(
+    "图谱总览目录导航抽屉（惰性首建 6 法域+83 书行／点行即 selectNode 且零重建／章行数与索引一致／置灰联动／RO 重建后存活／尺寸中立／钉住持久化／收尾复位）",
+    a33Ok && b33Ok && c33Ok && d33Ok && e33Ok && f33Ok && g33Ok && h33Ok && i33Ok,
+    `a 结构：drawer.hidden=${s33a ? s33a.drawerHidden : "无"}（须 true）, aria-expanded=${s33a ? s33a.expanded : "-"}, 树内行数=${s33a ? s33a.rows : "-"}（须 0，惰性）; ` +
+      `b 首开：点开→树可见 ${typeof openMs === "number" ? openMs.toFixed(1) : openMs}ms（目标 ≤50ms）, ${fmtToc(s33b)}（须 6 法域 / 83 书）; ` +
+      `c 点行定位：c1「${c33a.title}」（期望「${tocTitles.guide}」）未钉住→drawer.hidden=${c33a.drawerHidden}（须 true）, 重建计数=${c33a.calls}（须 0）; ` +
+      `c2「${c33b.title}」（期望「${tocTitles.law}」）钉住→drawer.hidden=${c33b.drawerHidden}（须 false）, 重建计数=${c33b.calls}（须 0）; ` +
+      `d 展开 1-专利法：built=${d33 ? d33.built : "-"}, 章行=${d33 ? d33.rows : "-"}（索引现算=${chapterExpected}）; ` +
+      `e 置灰：点「商标」后未置灰组=${s33e1 ? JSON.stringify(s33e1.litGroups) : "-"}（须 ["15","8"]）、置灰行=${s33e1 ? s33e1.dimmed : "-"}；回「全部」后置灰行=${s33e2 ? s33e2.dimmed : "-"}（须 0）; ` +
+      `f 存活：两次法域切换触发重建 ${rebuilds} 次（须 ≥1），drawer.hidden=${s33e2 ? s33e2.drawerHidden : "-"}, 书行=${s33e2 ? s33e2.books : "-"}（须 83）; ` +
+      `g 尺寸中立：开 ${g33Open1 ? g33Open1.w + "×" + g33Open1.h : "-"} → 关 ${g33Closed ? g33Closed.w + "×" + g33Closed.h : "-"} → 开 ${g33Open2 ? g33Open2.w + "×" + g33Open2.h : "-"}（须逐像素等）; ` +
+      `h 钉住 reload：就绪=${ready33}, drawer.hidden=${s33h ? s33h.drawerHidden : "-"}（须 false）, pin=${s33h ? s33h.pinned : "-"}, localStorage=${s33h ? s33h.stored : "-"}, 书行=${s33h ? s33h.books : "-"}; ` +
+      `i 收尾：取消钉住后 pin=${s33i ? s33i.pinned : "-"}, localStorage=${s33i ? JSON.stringify(s33i.stored) : "-"}（须 null）`,
   );
 
   // —— 离线报告 ——
@@ -1948,7 +2434,11 @@ app.whenReady().then(() =>
 // loadURL，累计新增等待约 12s，现有预算仍有充裕留白）
 // （阶段5.6 波2 由 360s 上调至 420s：新增步 30 要一次 loadURL 直开图谱页 + 两次 SPA
 // 软导航往返 + 两轮埋点轮询，累计新增等待约 25s，360s 的留白已不足以吸收机器慢档）
+// （阶段5.7 波A 由 420s 上调至 600s：新增步 31 两次 loadURL 开局部图页、步 32 一次
+// loadURL 开图谱页 + 三次交互各等 2s（400ms RO 防抖 + 约 230ms 重建 + 260ms 淡入 +
+// 余量）。本机实测 32 步全程 77s、新增三步合计约 10s，420s 本就有约 5 倍余量；
+// 上调是给慢档机器留统一空间——整体放大 5 倍即 (77+10)×5≈435s 已越过 420s。）
 setTimeout(() => {
   console.error("冒烟超时，强制退出");
   app.exit(1);
-}, 420000);
+}, 600000);

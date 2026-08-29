@@ -2,6 +2,7 @@
 // 挂 sharedPageComponents.afterBody（全站注入，非目标页返回 null、零开销），
 // 布局：顶部玻璃工具条（搜索定位 + 域图例 + 重置视图）
 //      左侧全量图画布（renderGraph 复用，nodeClickMode:"panel"，点击不跳转）
+//      画布左上角浮动目录抽屉（阶段5.7 波B：法域→书→章→节三层，点行即 selectNode 定位）
 //      右侧玻璃侧栏阅读面板（标题面包屑/简介/详解/原文/相关知识点，交互见 graphexplorer.inline.ts）
 // @ts-ignore
 import script from "./scripts/graphexplorer.inline"
@@ -207,9 +208,48 @@ const GraphExplorer: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
           重置视图
         </button>
       </div>
-      {/* 主体：左画布（renderGraph 渲染入此 div）+ 右玻璃侧栏 */}
+      {/* 主体：左画布（renderGraph 渲染入此 div）+ 目录抽屉 + 右玻璃侧栏 */}
       <div class="ge-body">
         <div class="ge-canvas" data-cfg={JSON.stringify(explorerGraphConfig)}></div>
+        {/* 目录导航抽屉（阶段5.7 波B-B2）：画布左上角的浮动抽屉，
+            「法域 → 书 → 章 → 节」三层，点目录行等同图内 selectNode 定位。
+            DOM 位置刻意挂在 `.ge-body` 内、`.ge-canvas` **之后**、`.ge-panel` 之前：
+            放进 .ge-canvas 会被 createGraphInstance 的 removeAllChildren 与 crossfade
+            的 stale 快照静默删除（图谱每次重建都清空该容器）；挂在这里则由
+            graphexplorer.scss 的绝对定位脱流覆盖到画布上，既不参与 flex 分宽、
+            也不触发 .ge-canvas 的 ResizeObserver（波A-A3 装的那只）。
+            树体是空壳，由 graphexplorer.inline.ts 在首次点开时惰性填充——
+            89 行（6 法域 + 83 书）DOM 只在用户真的要用目录时才产生，
+            不点则图谱首开成本一分不付。 */}
+        <div class="ge-toc">
+          <button
+            class="ge-toc-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="ge-toc-drawer"
+            title="打开目录导航：按「法域 → 书 → 章 → 节」定位到图内节点"
+          >
+            <i class="ge-toc-toggle-icon" aria-hidden="true"></i>
+            目录
+          </button>
+          <div class="ge-toc-drawer" id="ge-toc-drawer" hidden>
+            <div class="ge-toc-head">
+              <span class="ge-toc-heading">目录导航</span>
+              <button
+                class="ge-toc-pin"
+                type="button"
+                aria-pressed="false"
+                title="钉住抽屉：点击目录项后不自动收起（该选择会被记住）"
+              >
+                钉住
+              </button>
+              <button class="ge-toc-close" type="button" title="收起目录">
+                收起
+              </button>
+            </div>
+            <div class="ge-toc-tree" role="tree" aria-label="法规目录导航"></div>
+          </div>
+        </div>
         <aside class="ge-panel">
           {/* 初始空态：提示点击节点；选中节点后由 inline 脚本填充 ge-panel-content */}
           <div class="ge-panel-empty">

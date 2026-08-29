@@ -196,8 +196,19 @@ function withBookName(id: string, text: string): string {
   return book === undefined ? text : `${book} · ${text}`
 }
 
-// 局部图（depth>=1）节点数上限：一跳邻居 p99=73，超限按确定性排序截断
-const MAX_LOCAL_NODES = 60
+/**
+ * 局部图（depth>=1）节点数上限：超限按确定性排序截断（排序规则见下方 isLocalDepth 分支）。
+ *
+ * 60→120（阶段5.7 波A-A1）。全库一跳邻居实测口径（2026-08-29，7,396 个准入页）：
+ * p50=7 / p90=24 / p95=38 / p99=115 / max=1390；超过 60 的有 190 页（2.57%），
+ * 超过 120 的仅剩 64 页（0.87%）——本次把其间 126 页从截断态解放为完整显示。
+ * 原注释所记「p99=73」是更早语料下的统计，随语料扩充已失效，一并订正。
+ *
+ * 不取更大值的理由：局部图容器高固定 250px，节点越多包围盒越大、入框缩放越小，
+ * 120 是「密度仍可辨认」与「覆盖 p99」之间的取舍点；仍超限的 64 页由既有
+ * 「已显示 N/M 个关联」徽标兜底，点击即跳图谱总览看全貌。
+ */
+const MAX_LOCAL_NODES = 120
 // 术语层 dimmed 模式下节点/边的透明度
 const DIMMED_ALPHA = 0.15
 
@@ -1046,7 +1057,8 @@ async function createGraphInstance(
       if (showTags) tags.forEach((tag) => neighbourhood.add(tag))
     }
 
-    // 局部图 top-60 截断（V4-B1）：depth>=1 且邻居数超上限时按确定性排序保留前 60 个。
+    // 局部图 top-120 截断（V4-B1；上限 60→120 见阶段5.7 波A-A1，MAX_LOCAL_NODES 注释）：
+    // depth>=1 且邻居数超上限时按确定性排序保留前 120 个。
     // 排序权重：同书（顶层目录前缀与当前页一致）> 非术语（非 9- 前缀）> 全局度数升序，
     // 末位以 slug 字典序兜底保证确定性。
     if (isLocalDepth) {

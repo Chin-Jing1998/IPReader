@@ -73,7 +73,8 @@
   }
 }
 
-// 局部图 top-60 截断提示 badge（V4-B1）：由 graph.inline.ts 在截断发生时挂到图容器内，
+// 局部图 top-120 截断提示 badge（V4-B1；上限 60→120 见阶段5.7 波A-A1）：
+// 由 graph.inline.ts 在截断发生时挂到图容器内，
 // 玻璃小片贴右下角（图例位于左下，互不遮挡），点击 SPA 跳转图谱总览
 .graph-truncation-note {
   position: absolute;

@@ -183,16 +183,48 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
       // 的同一批对象（description/date），本块若排在其前，读到的字段集合取决于两段的
       // 书写顺序——四字段投影虽不含这两项、结果一样，但那是巧合而非保证。
       const graphFp = joinSegments("static", "contentIndexGraph") as FullSlug
+
+      // ---------- 悬空内链护栏（阶段5.7 波A-A2）----------
+      // 只作用于图谱专用投影：links 中指向「本批不存在的页面」的目标一律滤除
+      //（判据＝目标在本批全部 slug 的 simplifySlug 全集内；两侧同用 simplifySlug
+      //  归一，links 本身即以 SimpleSlug 形态由 transformLinks 写入）。
+      //
+      // ⚠️ 定性：本过滤对图谱渲染是**恒等变换**，是护栏与告警，不是缺陷修复。
+      // 运行期 graph.inline.ts 建边时已有 `validLinks.has(dest)` 门控、构建期
+      // graphLayout.tsx 同样先算 validLinks 再建边，悬空目标在两侧本就进不了边集；
+      // 因此节点集、边集、坐标产物与其 key 指纹、模块级组装缓存键全部逐位不变。
+      // 本项的价值只有两条：
+      //   ① 索引自洽——产物里不再留「查无此页」的边，任何新增消费方拿到即为干净
+      //      数据，无须各自再写一遍同样的过滤，也就无从写漏；
+      //   ② 构建期告警——语料再引入新的悬空链时构建当场报数并给样例，不必等到
+      //      有人察觉图上少了一条边才回头追查。
+      // 全量 contentIndex.json 的 links 明确**不动**：其消费方（fileTrie 只看类型、
+      // explorer 的 tree.links 是 DOM 锚点、Backlinks 走构建期 allFiles）与图谱边集
+      // 无关，改它属于扩大改动面。
+      const graphSlugs = new Set<SimpleSlug>(
+        Array.from(linkIndex.keys()).map((slug) => simplifySlug(slug)),
+      )
+      const danglingSamples: string[] = []
+      let danglingCount = 0
       const graphIndex: Record<FullSlug, GraphContentDetails> = Object.fromEntries(
-        Array.from(linkIndex).map(([slug, content]) => [
-          slug,
-          {
-            slug: content.slug,
-            title: content.title,
-            links: content.links,
-            tags: content.tags,
-          } satisfies GraphContentDetails,
-        ]),
+        Array.from(linkIndex).map(([slug, content]) => {
+          const source = simplifySlug(slug)
+          const keptLinks = content.links.filter((dest) => {
+            if (graphSlugs.has(dest)) return true
+            danglingCount += 1
+            if (danglingSamples.length < 10) danglingSamples.push(`${source} -> ${dest}`)
+            return false
+          })
+          return [
+            slug,
+            {
+              slug: content.slug,
+              title: content.title,
+              links: keptLinks,
+              tags: content.tags,
+            } satisfies GraphContentDetails,
+          ]
+        }),
       )
 
       yield write({
@@ -201,6 +233,16 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
         slug: graphFp,
         ext: ".json",
       })
+
+      if (danglingCount > 0) {
+        console.warn(
+          `[ContentIndex] 检测到 ${danglingCount} 条悬空内链，已从 contentIndexGraph.json 滤除。\n` +
+            `  滤除只作用于图谱索引产物：页面正文中的对应链接仍指向不存在的路径，` +
+            `点击即 404，须在语料侧修正。\n` +
+            `  前 ${danglingSamples.length} 条样例（源页 -> 失效目标）：\n` +
+            danglingSamples.map((s) => `    ${s}`).join("\n"),
+        )
+      }
     },
     externalResources: (ctx) => {
       if (opts?.enableRSS) {
