@@ -2416,6 +2416,33 @@ async function createGraphInstance(
       [0, 0],
       [w, h],
     ])
+    // ---- 相机左上锚定补偿（本函数的画面零位移之所在）----
+    // 节点的渲染坐标 = 力导坐标 + 画布半宽/半高（世界原点固定在画布中心），因此画布
+    // 一变宽，全部节点的渲染坐标就整体平移 ΔW/2、屏幕上再乘 k——这正是改造前重建后
+    // 「整图跳 165–250px」的算式来源。此处让相机反向吃掉这份漂移：平移减去 k·Δ/2，
+    // 于是任一节点的屏幕坐标 k·(x+W/2)+tx 在 resize 前后逐位相等，画面纹丝不动，
+    // 观感等价于「右栏从右侧盖上来，图本身没动」。Δ=0 时是逐位等价而非近似。
+    //
+    // ⚠️ 与 applyTransform 的口径**不同、不可互换**：那条是重建路径用的「视野中心守恒」
+    //（旧画布中心对应的世界点在新画布上仍居中，宽度变化必然导致画面横移半个 Δ）；
+    // 此处不重建、也不追求居中，只求零位移，故取左上角锚定。
+    //
+    // ⚠️ 三条纪律：
+    //   ① 必须经 zoomBehavior.transform 应用（先例：applyFitView/focusNode/applyTransform）。
+    //      直写 currentTransform 只改本模块的镜像，d3 内部的 canvas.__zoom 仍是旧值，
+    //      下一次滚轮/拖拽会以旧值为起点，画面瞬间跳回补偿前。
+    //   ② 本调用的 sourceEvent 为 undefined，会让 zoom 处理器置 zoomFreezeLabels=true；
+    //      d3-zoom 的非过渡 transform 是同步的 start→zoom→end（zoom.js 已核对），
+    //      end 同步触发 releaseZoomFreeze，故冻结在本函数返回前即自解，无须另行处理。
+    //   ③ zoomBehavior===null（enableZoom 关闭的局部图/弹窗）直接跳过：那些实例没有
+    //      相机可动，renderer 尺寸跟上即可。
+    if (zoomBehavior !== null) {
+      const k = currentTransform.k
+      const t = zoomIdentity
+        .translate(currentTransform.x - (k * dw) / 2, currentTransform.y - (k * dh) / 2)
+        .scale(k)
+      select<HTMLCanvasElement, NodeData>(app.canvas).call(zoomBehavior.transform, t)
+    }
     // radial 半径属布局参数（快照语义，见构造期注释）：仅当 min(w,h) 真的变了才按
     // 同一公式重装同名力。右栏显隐只改宽度、min 恒为高度，故该分支恒不进——
     // 「开右栏完全不触碰 simulation」由此获得结构性保证，全量图力参数逐字不动。
