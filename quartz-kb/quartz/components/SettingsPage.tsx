@@ -534,7 +534,7 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
               <h3>术语与引用</h3>
               <ul>
                 <li>
-                  关键词索引收录 1035 个术语词条，按 24
+                  关键词索引收录 1743 个术语词条，按 28
                   个主题分组；词条页含释义、出处、相关法条与相关术语。
                 </li>
                 <li>正文中的术语与法条引用（如「专利法第22条」）自动成链，点击即可跳转原文。</li>

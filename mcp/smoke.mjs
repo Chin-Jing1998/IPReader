@@ -102,9 +102,12 @@ async function main() {
   //     文档 5375 → 6247，术语 1035 不变，6410 → 7282；书目仍恒 88 部
   //     （本行由批次 W9 同步更新，其余数据相关断言——如法条正文 2521 条、各具体检索/术语结果——
   //     未在 grep「5375/6410/公布与施行」范围内，是否需要同步由后续统一验证批次核实）。
+  //   2026-08-30 阶段5.9 波4（施工批次：阶段5.11 波G）：术语索引扩充批全量重建——商标审查审理指南
+  //     全量重提取（109 → 895 片）＋著作权/竞争法/品种布图/综合程序四法域 8 部法律法规首次纳入
+  //     （384 片），术语 1035 → 1743；文档 6247 不变（本批不改语料切分），7282 → 7990；书目仍恒 88 部。
   ok('八十八部书目全开', books.books.length === 88, books.books.map((b) => b.short).join('、'));
-  ok('节点总数 7282', books.totalNodes === 7282, String(books.totalNodes));
-  ok('术语 1035 条', books.termCount === 1035, String(books.termCount));
+  ok('节点总数 7990', books.totalNodes === 7990, String(books.totalNodes));
+  ok('术语 1743 条', books.termCount === 1743, String(books.termCount));
   // 2026-08-22 阶段3批②「lawName 登记」：69 部规范授 lawName 后 lawArticles 从 231 键增至 2496 键
   //   （设计方案 PatentReader-2026-设计方案-阶段3法条键跨法域改造 §四「全链路影响预判」）。
   //   2026-08-23 阶段5波A：cppl 缺陷修复后补授 lawName（第 70 域），2496 → 2521 键。
