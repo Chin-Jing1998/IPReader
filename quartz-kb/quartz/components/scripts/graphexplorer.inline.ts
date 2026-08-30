@@ -333,9 +333,28 @@ document.addEventListener("nav", async () => {
   // B2：模块级的法域过滤态跨 SPA 导航存活，每次挂载显式复位，
   // 与本次新建的空 hiddenSections（即「全部」态）对齐
   activeFieldFilter = FIELD_ALL
-  // 选中态（v14）：graphexplorer 侧持有，重建（theme/resize/术语层）后恢复
-  let selectedSlug: SimpleSlug | null = null
+  // 选中态（v14）：graphexplorer 侧持有，重建（theme/resize/术语层）后恢复。
+  // 阶段5.10 波C-b：单值 selectedSlug 升为**锚点集合**，供目录复选框多选。
+  // 一切增删必经 commitSelection（本文件的唯一写入口），散着写 add/delete 必然
+  // 漏掉「目录勾选态回写 / 清空钮计数 / 右栏形态」三件配套事项之一。
+  const selectedAnchors = new Set<SimpleSlug>()
   let selectedHops: 1 | 2 = 1
+  /**
+   * 锚点数上限。取 12 的依据：
+   * ① 高亮成本——每个锚点带一跳邻域，12 个锚点的并集在全量图上约占 4–6% 节点，
+   *    再多则「常亮」与「变暗」的对比消失，多选反而看不清；
+   * ② canRasterizeLabel 对锚点破例放行标签光栅化，破例数须有界（graph.inline.ts
+   *    同名常量是渲染层兜底，两处字面量同值）；
+   * ③ 右栏 chips 一屏放得下 12 枚，不必再加滚动。
+   */
+  const MAX_SELECTED_ANCHORS = 12
+  /**
+   * 「锚点集合变过、但 UI 尚未回写」的脏位。批量路径（法域标签一次切 15 组）
+   * 每组都可能剔掉几个锚点，逐次回写右栏会排出十几次异步面板渲染、还可能后发先至；
+   * 故批量路径一律 commitSelection(..., { ui: "defer" }) 只改集合与渲染器，
+   * 由收尾的 syncAll() → flushSelectionUi() 统一补一次。
+   */
+  let selectionDirty = false
 
   /**
    * 图例项状态回写，两个正交维度同处一函数：
@@ -385,17 +404,19 @@ document.addEventListener("nav", async () => {
       hiddenSections.delete(groupId)
     }
     controller?.setSectionHidden(groupId, hidden)
-    // v14/v17：选中节点所在**域组**被图例隐藏 → 清除选中态（节点不可见，闪烁无意义）。
+    // v14/v17：选中节点所在**域组**被图例隐藏 → 清除该锚点（节点不可见，闪烁无意义）。
     // C-4：标签切换走的也是本函数，故「切标签把选中节点所在组切没了」自动等价处理。
-    // ⚠️ 不得写 selectedSlug.startsWith(groupId + "-")：组号是分组标识、不是 slug 的
+    // 波C-b：由「整批清空」改为**按谓词剔除子集**——多选下另外几个锚点可能落在
+    // 仍然可见的域组里，把它们一并清掉等于让一次组隐藏吞掉用户其余的勾选。
+    // ⚠️ 不得写 slug.startsWith(groupId + "-")：组号是分组标识、不是 slug 的
     // 字面前缀，组号 "10"（专利扩展）会误吞 slug "10-植物新品种纠纷解释/…"
     //（该目录前缀实属组号 "11" 品种布图），产生静默错判。必须经 groupOfSlug 归一后比对，
     // 该函数内的 /^(\d+)-/ 锚定到首个「-」，天然精确到目录号边界。
     // 回归断言见 quartz/util/graphSections.test.ts。
-    if (hidden && selectedSlug !== null && groupOfSlug(selectedSlug) === groupId) {
-      controller?.setSelected(null)
-      selectedSlug = null
-      showEmptyState()
+    if (hidden && selectedAnchors.size > 0) {
+      const kept = Array.from(selectedAnchors).filter((s) => groupOfSlug(s) !== groupId)
+      // UI 回写延后：批量路径（法域标签一次切 15 组）收尾由 syncAll() 统一补做
+      if (kept.length !== selectedAnchors.size) commitSelection(kept, { ui: "defer" })
     }
   }
 
@@ -499,6 +520,9 @@ document.addEventListener("nav", async () => {
     syncGroupCtl()
     syncFieldTabs()
     syncTocDimmed()
+    // 波C-b：批量剔除锚点后的目录勾选态、清空钮计数与右栏形态在此统一补做
+    //（脏位门控：集合没变过就一动不动，点图例钮不会把没受影响的右栏收掉）
+    flushSelectionUi()
   }
 
   /**
@@ -543,15 +567,18 @@ document.addEventListener("nav", async () => {
       controller?.setTermFieldFilter(field)
       controller?.relayoutVisible()
     }
-    // 选中节点被本次过滤隐掉时一并清除选中与右栏：非术语节点的情形已由
-    // setSectionHiddenRaw 内的组比对处理，此处补的是**术语被法域过滤隐掉**的情形
-    //（术语组永不进 hiddenSections，那条路径覆盖不到），否则会留下「满屏变暗、
-    // 却找不到高亮节点」的悬空选中态。
-    if (selectedSlug !== null && controller !== null && !controller.isNodeVisible(selectedSlug)) {
-      controller.setSelected(null)
-      selectedSlug = null
-      showEmptyState()
+    // 锚点被本次过滤隐掉时逐个剔除：非术语节点的情形已由 setSectionHiddenRaw
+    // 内的组比对处理，此处补的是**术语被法域过滤隐掉**的情形（术语组永不进
+    // hiddenSections，那条路径覆盖不到），否则会留下「满屏变暗、却找不到高亮节点」
+    // 的悬空选中态。波C-b：同样只剔不可见的那几个，可见的锚点原样保留。
+    if (selectedAnchors.size > 0 && controller !== null) {
+      const ctl = controller
+      const kept = Array.from(selectedAnchors).filter((s) => ctl.isNodeVisible(s))
+      if (kept.length !== selectedAnchors.size) commitSelection(kept, { ui: "defer" })
     }
+    // 上面两段（组隐藏剔除在 setSectionHiddenRaw 内、法域过滤剔除在此）都只改集合，
+    // UI 一次性在此补做——syncAll() 已在前面调过，故这里显式再冲一次脏位
+    flushSelectionUi()
     notifyEmptyTermField(field)
     // B4：收尾广播给左栏目录树，使其只显示该法域的分支（FIELD_ALL 即恢复全显）。
     // 置于函数最末——图内状态（组显隐 / 术语过滤 / 布局 / 选中）全部落定后才对外
@@ -621,6 +648,7 @@ document.addEventListener("nav", async () => {
   const tocDrawer = explorer.querySelector<HTMLElement>(".ge-toc-drawer")
   const tocPinBtn = explorer.querySelector<HTMLButtonElement>(".ge-toc-pin")
   const tocCloseBtn = explorer.querySelector<HTMLButtonElement>(".ge-toc-close")
+  const tocClearBtn = explorer.querySelector<HTMLButtonElement>(".ge-toc-clear")
   const tocTreeBox = explorer.querySelector<HTMLElement>(".ge-toc-tree")
 
   // 全部目录状态放挂载闭包内（不放模块级）：模块级变量跨 SPA 导航存活，
@@ -658,12 +686,23 @@ document.addEventListener("nav", async () => {
       caret.tabIndex = -1
       caret.setAttribute("aria-hidden", "true")
     }
+    // 多选复选框（波C-b）：紧随 caret、排在标题之前，形制与 caret 同宽等高，
+    // 使三层缩进下的「三角 → 方框 → 文字」左缘始终对齐。
+    // 只有书/章/节行有它——法域行（buildTocFieldBlock）不带 data-group、
+    // 一个法域可横跨两组（商标＝组 8＋组 15），勾一个法域等于替用户批量决策，
+    // 与「法域行只管折叠展开、不兼做过滤」是同一条纪律。
+    const check = el("button", "ge-toc-check")
+    check.type = "button"
+    check.dataset.slug = entry.slug
+    check.setAttribute("aria-pressed", "false")
+    check.setAttribute("aria-label", `多选「${entry.title}」`)
+    check.title = "加入多选高亮（Cmd/Ctrl 点标题同效；最多 12 个）"
     const link = el("button", "ge-toc-link", entry.title)
     link.type = "button"
     link.dataset.slug = entry.slug
     // 书名普遍二三十字，行内单行省略，全称由 title 承担（置灰时另附说明，见 applyTocDimmed）
     link.title = entry.title
-    row.append(caret, link)
+    row.append(caret, check, link)
     if (hasKids) row.setAttribute("aria-expanded", "false")
     tocEntryOf.set(row, entry)
     return row
@@ -695,6 +734,10 @@ document.addEventListener("nav", async () => {
     for (const child of entry.children) frag.appendChild(buildTocBranch(child, level))
     kids.appendChild(frag)
     kids.dataset.built = "1"
+    // 刚落地的行还带着 buildTocRow 写下的初始态（未灰、未勾），须立刻回写现状——
+    // 调用方 toggleTocBranch 收尾也会补一次，此处仍不省：materializeBranch 是
+    // 「物化」这件事的唯一出口，把补做钉在出口上，将来多一个调用方也不会漏。
+    applyTocRowState()
   }
 
   /**
@@ -752,6 +795,34 @@ document.addEventListener("nav", async () => {
   }
 
   /**
+   * 勾选态回写（波C-b）：判据 = selectedAnchors.has(该行 slug 归一后的 SimpleSlug)。
+   * 复选框的 data-slug 存的是 FullSlug（与同行 .ge-toc-link 同源，便于点击时
+   * 直接交给 selectNode），而锚点集合按 SimpleSlug 记账（图内节点 id 的口径），
+   * 故此处逐行归一后比对，不在两侧各存一份 slug。
+   */
+  function applyTocSelected() {
+    if (tocTreeBox === null) return
+    const checks = tocTreeBox.querySelectorAll<HTMLElement>(".ge-toc-check[data-slug]")
+    for (const check of Array.from(checks)) {
+      const slug = check.dataset.slug
+      if (slug === undefined || slug.length === 0) continue
+      const on = selectedAnchors.has(simplifySlug(slug as FullSlug))
+      check.setAttribute("aria-pressed", String(on))
+      check.closest<HTMLElement>(".ge-toc-row")?.classList.toggle("ge-toc-row--selected", on)
+    }
+  }
+
+  /**
+   * 行级状态的两项回写成对执行：置灰（域显隐）与勾选（多选锚点）都只作用于
+   * **DOM 里现存的行**，而树是惰性增长的——任何一次物化/展开之后两者都得补做，
+   * 漏掉其一就会出现「灰了却没勾」或「勾了却没灰」的错位。
+   */
+  function applyTocRowState() {
+    applyTocDimmed()
+    applyTocSelected()
+  }
+
+  /**
    * 置灰同步的唯一对外接口，由 syncAll() 尾部调用。
    * 刻意**不订阅 GRAPH_FIELD_EVENT**：那个事件由本模块自己派发，在同一闭包内
    * 直连即可，订阅自发事件只是徒增一圈回路（还会与 applyField 的同步顺序纠缠）。
@@ -761,7 +832,15 @@ document.addEventListener("nav", async () => {
       tocDirty = true
       return
     }
-    applyTocDimmed()
+    applyTocRowState()
+  }
+
+  /** 抽屉头「清空(N)」钮：无选中时整枚撤下，有选中时显示当前锚点数 */
+  function syncTocClear() {
+    if (tocClearBtn === null) return
+    const n = selectedAnchors.size
+    tocClearBtn.hidden = n === 0
+    tocClearBtn.textContent = `清空(${n})`
   }
 
   /** 首次点开才建树。返回同一个 Promise，重入不会建第二遍 */
@@ -781,7 +860,7 @@ document.addEventListener("nav", async () => {
         for (const node of tree) frag.appendChild(buildTocFieldBlock(node))
         box.replaceChildren(frag)
         tocTree = tree
-        applyTocDimmed()
+        applyTocRowState()
       } catch {
         box.replaceChildren(el("div", "ge-toc-loading", "目录加载失败，可重新点开重试"))
       } finally {
@@ -791,12 +870,15 @@ document.addEventListener("nav", async () => {
     return tocBuilding
   }
 
+  // 钮上的文案与 GraphExplorer.tsx 的 SSR 初值同源（两处都是「常开」）：
+  // 波C-c 把这枚钮的语义由「点目录项后不收起」扩为**常开锁**（鼠标移出也不收起），
+  // 「钉住」已描述不了它，故文案随语义一并改。localStorage 键不动。
   function syncTocPin() {
     tocPinBtn?.setAttribute("aria-pressed", String(tocPinned))
     if (tocPinBtn !== null) {
       tocPinBtn.title = tocPinned
-        ? "已钉住：点击目录项后抽屉保持展开（下次进入本页仍展开）"
-        : "钉住抽屉：点击目录项后不自动收起（该选择会被记住）"
+        ? "常开中：抽屉保持展开，点目录项与移开鼠标都不收起（下次进入本页仍展开）"
+        : "常开：抽屉保持展开，鼠标移出也不自动收起（该选择会被记住）"
     }
   }
 
@@ -812,9 +894,9 @@ document.addEventListener("nav", async () => {
     }
     if (!open) return
     // 不阻塞：抽屉立刻可见（首次是「加载中」占位），树建好后自行补上；
-    // 关抽屉期间累积的置灰变更也在此补做一次
+    // 关抽屉期间累积的置灰/勾选变更也在此补做一次
     void ensureTocBuilt().then(() => {
-      if (tocDirty) applyTocDimmed()
+      if (tocDirty) applyTocRowState()
     })
   }
 
@@ -827,8 +909,9 @@ document.addEventListener("nav", async () => {
     kids.hidden = !willOpen
     row.setAttribute("aria-expanded", String(willOpen))
     row.querySelector(".ge-toc-caret")?.setAttribute("aria-expanded", String(willOpen))
-    // 刚物化出来的章/节行要立刻带上当前的置灰态，否则会出现「父书灰、子章亮」的错位
-    if (willOpen) applyTocDimmed()
+    // 刚物化出来的章/节行要立刻带上当前的置灰与勾选态，否则会出现
+    //「父书灰、子章亮」或「集合里有它、复选框却没勾」的错位
+    if (willOpen) applyTocRowState()
   }
 
   // 树内一切点击走单一委托：树的 DOM 是惰性增长的，逐行绑定既要在物化时补绑、
@@ -836,10 +919,27 @@ document.addEventListener("nav", async () => {
   const onTocTreeClick = (ev: Event) => {
     const target = ev.target as HTMLElement | null
     if (target === null) return
+    // 复选框分流排在**首位**：它嵌在行内，若让 link 分支先跑，点方框会被
+    // closest('.ge-toc-link') 漏判成点标题（两者互不包含，但顺序仍以最具体者优先为准）
+    const check = target.closest<HTMLElement>(".ge-toc-check[data-slug]")
+    if (check !== null) {
+      const slug = check.dataset.slug
+      if (slug === undefined || slug.length === 0) return
+      // 勾选只改高亮集合：不定位相机、不收起抽屉——用户正在连勾好几个
+      toggleAnchor(simplifySlug(slug as FullSlug))
+      return
+    }
     const link = target.closest<HTMLElement>(".ge-toc-link[data-slug]")
     if (link !== null) {
       const slug = link.dataset.slug
       if (slug === undefined || slug.length === 0) return
+      // Cmd/Ctrl + 点标题 ＝ 复选框的第二入口（用户拍板的双入口之一）：
+      // 与勾选完全同义，同样不定位、不收起
+      const mouse = ev as MouseEvent
+      if (mouse.metaKey === true || mouse.ctrlKey === true) {
+        toggleAnchor(simplifySlug(slug as FullSlug))
+        return
+      }
       // 图内定位语义完全复用 selectNode：相机 400ms 居中 + 选中高亮 + 右栏卡片；
       // 目标域组被隐藏时走它既有的拒绝分支写状态条（置灰行仍可点即为此）。
       void selectNode(slug as FullSlug)
@@ -864,15 +964,19 @@ document.addEventListener("nav", async () => {
     writeTocPinned(tocPinned)
     syncTocPin()
   }
+  /** 「清空(N)」：一次清掉全部锚点（与点画布空白同义，只是不必先找到空白处） */
+  const onTocClearClick = () => commitSelection([])
 
   tocToggle?.addEventListener("click", onTocToggleClick)
   tocCloseBtn?.addEventListener("click", onTocCloseClick)
   tocPinBtn?.addEventListener("click", onTocPinClick)
+  tocClearBtn?.addEventListener("click", onTocClearClick)
   tocTreeBox?.addEventListener("click", onTocTreeClick)
   window.addCleanup?.(() => {
     tocToggle?.removeEventListener("click", onTocToggleClick)
     tocCloseBtn?.removeEventListener("click", onTocCloseClick)
     tocPinBtn?.removeEventListener("click", onTocPinClick)
+    tocClearBtn?.removeEventListener("click", onTocClearClick)
     tocTreeBox?.removeEventListener("click", onTocTreeClick)
     // 数据树与未决的建树 Promise 一并置空：树体持有 1289 个条目对象，
     // 挂载闭包若因任何一处引用被延寿，置空能让这部分立刻可回收
@@ -881,6 +985,9 @@ document.addEventListener("nav", async () => {
   })
 
   syncTocPin()
+  // 波C-b：锚点集合每次挂载新建为空（多选刻意不跨 SPA 导航存活——它是「本页这一次
+  // 浏览」的临时视角，带过页去只会让人对着一屏高亮想不起为什么），故清空钮初始撤下
+  syncTocClear()
   // 定案③：开合不持久化，挂载时 open = pinned——钉住的用户每次进本页即见展开的目录，
   // 未钉住的用户回到「收起态 + 一枚悬浮钮」，两者都无需再点一次
   if (tocPinned) setTocOpen(true)
@@ -1018,8 +1125,13 @@ document.addEventListener("nav", async () => {
     if (restoreTransform) controller.applyTransform(restoreTransform)
     // 重建后恢复域隐藏状态（v12：themechange/resize 重建路径不丢图例状态）
     for (const s of hiddenSections) controller.setSectionHidden(s, true)
-    // 重建后恢复选中态（v14）
-    if (selectedSlug !== null) controller.setSelected(selectedSlug, selectedHops)
+    // 重建后恢复选中态（v14；波C-b 起重放**整个锚点集合**）。
+    // ⚠️ 漏改成单值重放即静默吞集：重建后只剩一个锚点亮着，而目录里 12 个复选框
+    // 仍勾着——集合本体在本闭包里没变，看不出任何报错。
+    // 只灌渲染器、不碰 UI：目录勾选态与右栏形态在重建前后本就没变过。
+    if (selectedAnchors.size > 0) {
+      controller.setSelectedMany(Array.from(selectedAnchors), selectedHops)
+    }
     // B3：重建后重放法域过滤（术语层过滤 + 可见子集重布局）。
     // 须排在域隐藏与选中态恢复之后——可见子集是「组显隐 × 术语法域过滤」的合取，
     // 组显隐没落定就重布局，收敛出的是错的子集形状。
@@ -1367,20 +1479,156 @@ document.addEventListener("nav", async () => {
     }
   }
 
+  // ---------- 多选锚点集合（阶段5.10 波C-b） ----------
+
+  /**
+   * 锚点集合的**唯一写入口**。一切增删——目录勾选、Cmd 点标题、清空钮、chip 移除、
+   * 图内单双击、空白清除、组隐藏/法域过滤剔除、重置——统统经此，不得散着写
+   * selectedAnchors.add/delete：那三件配套事项（渲染器同步、目录勾选回写、
+   * 清空钮计数与右栏形态）漏掉任何一件都是静默失配。
+   *
+   * @param next  新的锚点全集（替换语义，不是增量）
+   * @param opts.panel "keep" 表示右栏由调用方自己负责（单选路径本就紧跟着
+   *        showPanel(卡片)，交给这里再渲染一次等于同一张卡片画两遍）；
+   *        默认 "auto" 按集合规模自行决定空态/卡片/多选摘要。
+   * @param opts.ui "defer" 只同步渲染器、置脏位，UI 回写留给收尾的 syncAll()——
+   *        批量剔除路径（法域标签一次切 15 组）专用。
+   */
+  function commitSelection(
+    next: readonly SimpleSlug[],
+    opts: { panel?: "auto" | "keep"; ui?: "full" | "defer" } = {},
+  ) {
+    selectedAnchors.clear()
+    for (const slug of next) {
+      if (selectedAnchors.size >= MAX_SELECTED_ANCHORS) break
+      selectedAnchors.add(slug)
+    }
+    // 渲染器侧同样是整批替换（空数组即清除，与 setSelected(null) 等价）
+    controller?.setSelectedMany(Array.from(selectedAnchors), selectedHops)
+    if (opts.ui === "defer") {
+      selectionDirty = true
+      return
+    }
+    selectionDirty = false
+    applyTocSelected()
+    syncTocClear()
+    if (opts.panel !== "keep") refreshSelectionPanel()
+  }
+
+  /** 延后的 UI 回写补做（脏位门控，见 selectionDirty） */
+  function flushSelectionUi() {
+    if (!selectionDirty) return
+    selectionDirty = false
+    applyTocSelected()
+    syncTocClear()
+    refreshSelectionPanel()
+  }
+
+  /**
+   * 勾选/取消一个锚点（复选框与 Cmd 点标题共用）。
+   * 上限拒绝走状态条而非 alert/静默：静默会让用户以为点击没生效而反复点，
+   * 状态条 4s 自动消失且不打断当前操作。
+   */
+  function toggleAnchor(slug: SimpleSlug) {
+    const next = Array.from(selectedAnchors)
+    const at = next.indexOf(slug)
+    if (at >= 0) {
+      next.splice(at, 1)
+    } else {
+      if (next.length >= MAX_SELECTED_ANCHORS) {
+        setStatus(`最多同时选中 ${MAX_SELECTED_ANCHORS} 个节点，请先取消部分勾选`)
+        return
+      }
+      next.push(slug)
+    }
+    commitSelection(next)
+  }
+
+  /** 单选替换：整集换成这一个锚点（图内单双击、目录点行、搜索定位共用） */
+  function replaceSelection(slug: SimpleSlug, panel: "auto" | "keep" = "keep") {
+    selectedHops = 1
+    commitSelection([slug], { panel })
+  }
+
+  /**
+   * 右栏形态随锚点数分三档：
+   *   0   空态（与波C 之前的「清除选中」逐字一致）
+   *   1   该节点的内容卡片（与波C 之前的单选逐字一致，零变化）
+   *   ≥2  多选摘要（已选 N 个 + chips）
+   */
+  function refreshSelectionPanel() {
+    const anchors = Array.from(selectedAnchors)
+    if (anchors.length === 0) {
+      showEmptyState()
+      return
+    }
+    if (anchors.length === 1) {
+      void showPanel(anchors[0])
+      return
+    }
+    void showSelectionPanel(anchors)
+  }
+
+  /**
+   * 多选摘要面板（≥2 个锚点）：一句话说明 + 锚点 chips。
+   * chip 本体点击＝看该节点的卡片（**不改集合**，看完再勾选/取消即回到摘要）；
+   * chip 上的 × ＝把它移出集合。两者共处一枚 chip，故 × 必须 stopPropagation，
+   * 否则一次点击会同时触发「看卡片」与「移除」，用户看到的是「点 × 弹出了卡片」。
+   */
+  async function showSelectionPanel(anchors: SimpleSlug[]) {
+    const data = await graphIndex()
+    if (disposed) return
+    const nodes: HTMLElement[] = []
+    nodes.push(el("h3", "ge-title", `已选 ${anchors.length} 个节点`))
+    nodes.push(
+      el(
+        "p",
+        "ge-hint",
+        "勾选的节点与其直接相关节点在图中常亮。点击下方条目查看该节点卡片，点 × 将其移出；点画布空白处或抽屉里的「清空」可一次清除全部。",
+      ),
+    )
+    const box = el("div", "ge-chips")
+    for (const slug of anchors) {
+      const details = data[toFullSlug(slug)] as GraphContentDetails | undefined
+      const label = details?.title ?? decodeURIComponent(slug)
+      box.appendChild(buildAnchorChip(label, slug))
+    }
+    nodes.push(box)
+    showPanelDom(nodes)
+  }
+
+  /** 多选摘要里的锚点 chip：本体看卡片、× 移除 */
+  function buildAnchorChip(label: string, slug: SimpleSlug): HTMLElement {
+    const chip = el("button", "ge-chip ge-chip--anchor")
+    chip.type = "button"
+    chip.title = `${label}（点击查看卡片）`
+    chip.appendChild(el("span", "ge-chip-label", label))
+    const remove = el("span", "ge-chip-remove", "×")
+    remove.setAttribute("role", "button")
+    remove.setAttribute("aria-label", `将「${label}」移出选中集`)
+    remove.title = "从选中集移除"
+    remove.addEventListener("click", (ev) => {
+      // 必须拦住冒泡：外层 chip 的 click 是「看卡片」，不拦即一次点击做两件事
+      ev.stopPropagation()
+      commitSelection(Array.from(selectedAnchors).filter((s) => s !== slug))
+    })
+    chip.appendChild(remove)
+    chip.addEventListener("click", () => void showPanel(slug))
+    return chip
+  }
+
   /** 右侧栏节点按钮与图内单击共享同一选择规则。 */
   function handleSingleNodeSelection(simple: SimpleSlug) {
     const action = resolveSingleClickAction(
-      selectedSlug !== null,
-      selectedSlug !== null && controller?.isInSelectedSet(simple) === true,
+      selectedAnchors.size > 0,
+      selectedAnchors.size > 0 && controller?.isInSelectedSet(simple) === true,
     )
     if (action === "ignore") return
     if (action === "select") {
       // R4：与 selectNode 同理——右栏即将显现，先把新宽度灌进渲染器再改选中态，
       // 否则这一刻之后的一切相机计算用的都是旧宽度
       setPanelVisible(true)
-      controller?.setSelected(simple, 1)
-      selectedSlug = simple
-      selectedHops = 1
+      replaceSelection(simple)
     }
     void showPanel(simple)
   }
@@ -1403,10 +1651,10 @@ document.addEventListener("nav", async () => {
     setPanelVisible(true)
     if (controller !== null) {
       if (controller.focus(simple)) {
-        // v14：定位成功 → 图内选中该节点（相关节点亮起闪烁）
-        controller.setSelected(simple, 1)
-        selectedSlug = simple
-        selectedHops = 1
+        // v14：定位成功 → 图内选中该节点（相关节点亮起闪烁）。
+        // 波C-b：点行＝**替换整集**为这一个锚点（与图内双击同义），右栏由上面的
+        // showPanel 负责，故传 keep 不让 commitSelection 再画一遍同一张卡片
+        replaceSelection(simple)
         return
       }
       if (simple.startsWith("9-")) {
@@ -1414,9 +1662,7 @@ document.addEventListener("nav", async () => {
         syncTermButtons()
         setStatus("已临时显示术语层")
         if (controller.focus(simple)) {
-          controller.setSelected(simple, 1)
-          selectedSlug = simple
-          selectedHops = 1
+          replaceSelection(simple)
           return
         }
       }
@@ -1446,9 +1692,10 @@ document.addEventListener("nav", async () => {
         return
       }
     }
-    // 重建兜底：以目标为中心重渲染，重建后由 renderCanvas 恢复选中态
-    selectedSlug = simple
-    selectedHops = 1
+    // 重建兜底：以目标为中心重渲染，重建后由 runRender 的恢复段重放锚点集合。
+    // 此刻 controller 侧的 setSelectedMany 多半被过滤掉（节点正因不在数据集才走到这里），
+    // 集合本体仍记着它——这正是「重建后它就在数据集里了」所依赖的
+    replaceSelection(simple)
     void renderCanvas(target)
   }
 
@@ -1462,18 +1709,18 @@ document.addEventListener("nav", async () => {
     const detail = (ev as CustomEvent<{ slug?: unknown; dbl?: unknown }>).detail
     if (!detail) return
     if (detail.slug === null) {
-      controller?.setSelected(null)
-      selectedSlug = null
-      showEmptyState()
+      // 空白点击清**整批**（用户拍板：点空白＝一次退出多选视角），
+      // 右栏随之回到空态由 commitSelection 的 auto 分支承接
+      commitSelection([])
       return
     }
     if (typeof detail.slug !== "string") return
     const simple = simplifySlug(detail.slug as FullSlug)
     if (detail.dbl === true) {
-      // 双击：切换选中到该节点（相关节点常亮），右栏显示其信息
-      controller?.setSelected(simple, 1)
-      selectedSlug = simple
-      selectedHops = 1
+      // 双击：把整集替换为该节点（相关节点常亮），右栏显示其信息。
+      // 图内点击语义在波C 中一字未改——单击三态门控与双击替换整集都是既有行为，
+      // 多选的入口只在目录抽屉那一侧
+      replaceSelection(simple)
       void showPanel(simple)
       return
     }
@@ -1514,10 +1761,10 @@ document.addEventListener("nav", async () => {
     setStatus("")
     if (searchInput) searchInput.value = ""
     showEmptyState()
-    // v14：重置同时清除选中态（恢复默认全景）
-    controller?.setSelected(null)
-    selectedSlug = null
+    // v14：重置同时清除选中态（恢复默认全景）；波C-b 起清的是整个锚点集合。
+    // 右栏已由上一行 showEmptyState 收起，故传 keep 免得再走一遍同样的空态
     selectedHops = 1
+    commitSelection([], { panel: "keep" })
     // C-4：重置扩展为「回到全部标签态」——恢复全部非术语组显示，图例项与扩展段控
     // 随 syncAll 一并回到全显。术语层不在此列：其模式由三态钮独管，重置不改动。
     for (const id of NON_TERM_GROUP_IDS) setSectionHiddenRaw(id, false)

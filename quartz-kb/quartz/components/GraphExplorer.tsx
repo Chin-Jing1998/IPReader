@@ -235,13 +235,26 @@ const GraphExplorer: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
           <div class="ge-toc-drawer" id="ge-toc-drawer" hidden>
             <div class="ge-toc-head">
               <span class="ge-toc-heading">目录导航</span>
+              {/* 清空(N)（阶段5.10 波C-b）：多选态下才现身，hidden 与文案里的 N
+                  由 graphexplorer.inline.ts 的 syncTocClear 维护。初始无选中故 hidden */}
+              <button
+                class="ge-toc-clear"
+                type="button"
+                hidden
+                title="清空当前多选的全部节点（与点击画布空白处同义）"
+              >
+                清空(0)
+              </button>
+              {/* 波C-c：语义由「点目录项后不自动收起」升为**常开锁**——
+                  开启后鼠标移出抽屉也不再自动收起，故文案改「常开」；
+                  localStorage 键 graph-toc-pinned 保持不变（老用户的偏好继续生效） */}
               <button
                 class="ge-toc-pin"
                 type="button"
                 aria-pressed="false"
-                title="钉住抽屉：点击目录项后不自动收起（该选择会被记住）"
+                title="常开：抽屉保持展开，鼠标移出也不自动收起（该选择会被记住）"
               >
-                钉住
+                常开
               </button>
               <button class="ge-toc-close" type="button" title="收起目录">
                 收起

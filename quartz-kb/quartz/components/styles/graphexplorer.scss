@@ -603,6 +603,7 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
           letter-spacing: 0.05em;
         }
 
+        .ge-toc-clear,
         .ge-toc-pin,
         .ge-toc-close {
           padding: 0.1rem 0.4rem;
@@ -625,10 +626,28 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
           }
         }
 
-        // 钉住态：与图例项选中态同一表达（次要色描边 + 次要色文字）
+        // 常开态：与图例项选中态同一表达（次要色描边 + 次要色文字）
         .ge-toc-pin[aria-pressed="true"] {
           color: var(--secondary);
           border-color: var(--secondary);
+        }
+
+        // 清空(N)（波C-b）：只在有选中时现身（hidden 属性由 syncTocClear 维护），
+        // 取次要色描边以区别于中性的「常开/收起」——它是会改状态的动作钮
+        .ge-toc-clear {
+          flex: none;
+          color: var(--secondary);
+          border-color: var(--secondary);
+
+          &[hidden] {
+            display: none;
+          }
+
+          &:hover {
+            color: var(--light);
+            background: var(--secondary);
+            border-color: var(--secondary);
+          }
         }
       }
 
@@ -683,6 +702,73 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
             color: var(--gray);
             opacity: 0.55;
             text-decoration: line-through;
+          }
+
+          // 已选中的行（波C-b）：整行浅色底 + 标题转次要色。底色取 --highlight
+          // （全站「选中/命中」的既有语义色），与 :hover 的 --lightgray 拉开层次；
+          // 两者叠加时选中态在后、故不会被 hover 盖掉。
+          &--selected {
+            background: var(--highlight);
+
+            > .ge-toc-link {
+              color: var(--secondary);
+              font-weight: $boldWeight;
+            }
+          }
+        }
+
+        // 多选复选框（波C-b）：形制对齐 caret——同宽同高、无边框背景，
+        // 内部画一个 0.62rem 的方框，勾选态填次要色并覆一个白色对勾。
+        // 不用原生 <input type=checkbox>：原生控件的尺寸与配色在六套主题下
+        // 不可控（各平台强制样式），而这里要的是与 caret 三角同一视觉语言。
+        .ge-toc-check {
+          flex: none;
+          // relative 是 ::after 那枚对勾的定位锚点
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 0.9rem;
+          height: 1.1rem;
+          padding: 0;
+          font-family: inherit;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+
+          &::before {
+            content: "";
+            display: inline-block;
+            box-sizing: border-box;
+            width: 0.62rem;
+            height: 0.62rem;
+            border: 1px solid var(--gray);
+            border-radius: 3px;
+            background: transparent;
+            transition:
+              background-color 0.15s ease,
+              border-color 0.15s ease;
+          }
+
+          &:hover::before {
+            border-color: var(--secondary);
+          }
+
+          // 勾选态：实心方块 + 对勾。对勾用 ::after 画两条边旋转 45°，
+          // 不引字体图标（本页零外链，且 emoji 在六套主题下颜色不可控）
+          &[aria-pressed="true"]::before {
+            background: var(--secondary);
+            border-color: var(--secondary);
+          }
+
+          &[aria-pressed="true"]::after {
+            content: "";
+            position: absolute;
+            width: 0.2rem;
+            height: 0.36rem;
+            border: solid var(--light);
+            border-width: 0 1.5px 1.5px 0;
+            transform: translateY(-0.05rem) rotate(45deg);
           }
         }
 
@@ -975,6 +1061,45 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
             color: var(--secondary);
           }
         }
+
+        // 多选摘要里的锚点 chip（波C-b）：比普通 chip 多一枚 × 移除区，
+        // 故改为 inline-flex 双区并把右内边距收窄给 × 让位
+        .ge-chip--anchor {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.3rem;
+          padding-right: 0.35rem;
+          color: var(--secondary);
+          border-color: var(--secondary);
+
+          .ge-chip-label {
+            max-width: 12rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .ge-chip-remove {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.05rem;
+            height: 1.05rem;
+            font-size: 0.85rem;
+            line-height: 1;
+            color: var(--gray);
+            border-radius: 999px;
+            cursor: pointer;
+            transition:
+              color 0.15s ease,
+              background-color 0.15s ease;
+
+            &:hover {
+              color: var(--light);
+              background: var(--secondary);
+            }
+          }
+        }
       }
 
       // 前往文档页
@@ -1036,6 +1161,23 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
   &:hover {
     background-color: rgba(22, 22, 24, 0.95);
   }
+}
+
+// 波C-b 深色覆盖：勾选行的底色与对勾颜色。
+// 选中行本体走 --highlight（深色主题下即为深色高亮），仅两处需要显式补：
+//   ① 对勾描边色 --light 在深色主题下是 #161618（近黑），画在 --secondary 实心块上
+//      对比足够，不必改；真正要补的是**选中行底色**——深色 --highlight 偏暗，
+//      叠在半透明玻璃抽屉上几乎看不出，故改用次要色的低透明覆盖；
+//   ② 清空钮 hover 的文字色同理。
+:root[saved-theme="dark"] .graph-explorer .ge-toc .ge-toc-tree .ge-toc-row--selected {
+  // --secondary 在六套主题下各不相同，故用 color-mix 之外的等效手法：
+  // 借 box-shadow 内阴影铺一层半透明次要色，避免引入颜色混合函数（F12 纪律）
+  background: transparent;
+  box-shadow: inset 0 0 0 999px rgba(125, 168, 255, 0.14);
+}
+
+:root[saved-theme="dark"] .graph-explorer .ge-toc .ge-toc-head .ge-toc-clear:hover {
+  color: var(--dark);
 }
 
 // （原有一条定向隐藏宿主页 .page-listing 的规则，已随 FolderPage 的
