@@ -14,6 +14,7 @@ import {
   FIELD_ALL,
   FIELD_TABS,
   SECTION_GROUPS,
+  type SectionGroup,
   buildLegendSections,
   groupsOfField,
 } from "../util/graphSections"
@@ -60,7 +61,7 @@ const explorerGraphConfig: D3Config = {
 // graph.inline.ts 的着色／显隐取键、graphexplorer.inline.ts 的切换逻辑同源——
 // 三处共用一张组表，杜绝「颜色按法域分组、图例点击按单部文献生效」的错位。
 //
-// 图例点不再内联写死色值（D2）：色值真源是主题变量 --graph-section-1..14
+// 图例点不再内联写死色值（D2）：色值真源是主题变量 --graph-section-1..30
 // （custom.scss 六主题 × light/dark 覆盖块），图例点仅带 data-section（值为**组号**），
 // 由 graphexplorer.scss 的 `.ge-legend-dot[data-section="N"]` 取变量上色——
 // 与节点着色同源，主题切换时图例随 CSS 即时变色。
@@ -70,7 +71,9 @@ const explorerGraphConfig: D3Config = {
 //           三态：全显/部分隐/全隐。波L 之前它叫「扩展」、贴在扩展段段首；文种归类后
 //           图例已无「扩展段」这一视觉分区，故移到行首独立成段并改名，钩子与集合未变。
 //   法域段 × 6  段标题 .ge-legend-field（专利/商标/…），其下按文种分子段：
-//           子段标题 .ge-legend-doctype（法律/法规/规章/司解/指引，2 字简称），
+//           子段标题 .ge-legend-doctype（法律/法规/规章/司解/指引，2 字简称）——
+//           **只在一格多组时渲染**，单组格改由钮文字直接给出文种简称（见
+//           legendTextOf 注释：标题与其唯一的钮语义重合，两者并列既冗余又占版面）。
 //           其后是该 (法域, 文种) 格内的组钮，各一项、可点切换。
 //   term 段 术语，由术语层三态钮单独控制，故为不可点击的 span——data-section 只落在
 //           其图例点上、不落在项本身，避免被 `.ge-legend-item[data-section]` 误绑。
@@ -95,6 +98,30 @@ const TERM_ITEM = SECTION_GROUPS.find((g) => g.tier === "term")!
 // 与「法域」一一对应（六法域被拆成 22 个法域×文种格），旧措辞会把 22 读成 22 个法域。
 const EXT_BOOK_COUNT = EXT_ITEMS.reduce((n, g) => n + g.prefixes.length, 0)
 const EXT_SCALE_TEXT = `${EXT_ITEMS.length} 个细分组（${EXT_BOOK_COUNT} 部文献）`
+
+/**
+ * 组钮的显示文字（波L 补丁：单组格「标题并入钮」）。
+ *
+ * 三种情形：
+ *   ① 一格多组 —— 该格渲染了文种子标题，钮照写自己的 label（专利·D2 的
+ *      「实施细则」「专利条例」、专利·D5 的主干五书与「专利指引」）；
+ *   ② 单组格 + 主干组 —— label 是书名简称而非文种近义词（组 1 的「专利法」），
+ *      去掉标题后它仍是唯一自明的名字，原样保留；
+ *   ③ 单组格 + 非主干组 —— label 形如「商标规章」「品图司解」，与被省掉的
+ *      文种标题语义重合，故收缩为 2 字文种简称。法域归属由左邻的法域段标题给出，
+ *      读作「商标 ●法律 ●法规 ●规章 ●司解 ●指引」，一行读完不重复。
+ *
+ * 组表的 label 字段**不动**：它要在图例之外（P9 校验的错误消息、hover title、
+ * 将来的诊断输出）单独可读，「组 19（商标法律）」比「组 19（法律）」有信息量。
+ * 收缩只发生在渲染这一层，且 hover title 仍给「法域 · 文种 · label」全称。
+ */
+function legendTextOf(
+  sub: { short: string; groups: readonly { id: string }[] },
+  item: SectionGroup,
+) {
+  if (sub.groups.length > 1 || item.tier === "main") return item.label
+  return sub.short
+}
 
 // 国家/标签层级导航行（C-4；阶段5.11 波J 多选化）：工具条首行，粗粒度导航，
 // 与其下的图例行分工——
@@ -215,9 +242,17 @@ const GraphExplorer: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
               </span>
               {section.docTypes.map((sub) => (
                 <>
-                  <span class="ge-legend-doctype" data-legend-doctype={sub.docType}>
-                    {sub.short}
-                  </span>
+                  {/* 文种子标题只在**一格多组**时渲染（波L 补丁，用户复核后定案）：
+                      单组格里标题与其唯一的钮必然语义重合（「规章 ●商标规章」），
+                      读者要看两遍才知道是一件事，且白占约一整行版面。故单组格改为
+                      「标题并入钮」——省掉前置标题、钮文字取 2 字文种简称（见下）。
+                      当前 23 个格子里只有专利·D2（实施细则 + 专利条例）与专利·D5
+                      （主干五书 + 专利指引）是多组格，其余 21 格均走并入分支。 */}
+                  {sub.groups.length > 1 && (
+                    <span class="ge-legend-doctype" data-legend-doctype={sub.docType}>
+                      {sub.short}
+                    </span>
+                  )}
                   {/* 组钮一律同一个类：波L 之前扩展项另带 .ge-legend-item--ext，
                       但全仓无任何样式或脚本消费它（唯一出现点就是那行 SSR），
                       且 main/ext 的视觉区分现已由文种子段承担，故随本次重构删去。 */}
@@ -230,7 +265,7 @@ const GraphExplorer: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
                       title={`点击隐藏/显示「${section.field} · ${sub.short} · ${item.label}」的节点与连接（${item.prefixes.length} 部文献）`}
                     >
                       <i class="ge-legend-dot" data-section={item.id}></i>
-                      {item.label}
+                      {legendTextOf(sub, item)}
                     </button>
                   ))}
                 </>

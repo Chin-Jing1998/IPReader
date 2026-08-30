@@ -138,7 +138,8 @@
 // 法域段内再按文种分子段。本文件受影响的全是**计数与组号常量**，交互路径一字未动——
 //   28  图例可点钮 14 → 29；商标法域 2 组 → 5 组（19/20/8/21/15）；并选组数 10 → 16、
 //       隐藏 4 → 13；段分隔线 2 条 → 7 条（切点改在法域边界，顺修旧结构把专利法域
-//       从中劈开的错位）；新增法域段标题（6 个）与文种子标题（23 个）的在场断言，
+//       从中劈开的错位）；新增法域段标题（6 个）与文种子标题（2 个——补丁后只有
+//       一格多组的专利·D2 与专利·D5 仍渲染标题，21 个单组格已把标题并入钮文字）的在场断言，
 //       用以验证「相邻可见性」判据——空段的标题与并排孤线都必须自动撤下；
 //   33-e 目录抽屉未置灰组的期望集合按新组表重算（商标 5 组、并选 16 组）。
 // 组号常量都写死在本文件而不从组表派生：smoke 是 CJS、不能 import .ts，两侧靠
@@ -1550,7 +1551,10 @@ async function main() {
     "19", "20", "8", "21", "15", // 商标 5 组
   ];
   const DUAL_SEP_HIDDEN = [false, false, true, true, true, true, false];
-  // 可见文种子标题数 = 专利 5（法律/法规/规章/司解/指引）+ 商标 5 = 10
+  // 文种子标题只在**一格多组**时渲染（波L 补丁：单组格的标题与其唯一的钮语义重合，
+  // 已并入钮文字）。当前 23 个 (法域, 文种) 格里只有专利·D2 与专利·D5 是多组格，
+  // 故全站恒 2 个子标题，且都在专利段内——专利段可见即 2，专利段撤空即 0。
+  const DOCTYPE_HEAD_TOTAL = 2;
   const dualOk =
     !!sDual &&
     sameSet(sDual.active, ["商标", "专利"]) &&
@@ -1562,8 +1566,8 @@ async function main() {
     sDual.sepHidden.join(",") === DUAL_SEP_HIDDEN.join(",") &&
     sDual.fieldHeads === 6 &&
     sameSet(sDual.fieldHeadsShown, ["专利", "商标"]) &&
-    sDual.docHeads === 23 &&
-    sDual.docHeadsShown === 10;
+    sDual.docHeads === DOCTYPE_HEAD_TOTAL &&
+    sDual.docHeadsShown === 2;
   await shot(win, "图谱标签行-并选专利商标");
 
   // J-②：再点商标 = toggle 取消，回落为单选专利（11 枚图例可见、隐 18 枚）
@@ -1574,12 +1578,12 @@ async function main() {
     sameSet(sToggle.pressed, ["专利"]) &&
     sameSet(sToggle.shown, ["1", "2", "16", "10", "17", "3", "4", "5", "6", "7", "18"]) &&
     sToggle.hiddenCount === 18 &&
-    // 只剩一个法域段：其标题在场，其余五个撤下；可见文种子标题 5 个
+    // 只剩一个法域段：其标题在场，其余五个撤下；两个子标题都在专利段内故仍全显
     sameSet(sToggle.fieldHeadsShown, ["专利"]) &&
-    sToggle.docHeadsShown === 5;
+    sToggle.docHeadsShown === 2;
 
   // J-③：再点专利 = 集合清空 → 回「全部」（29 枚全显、「全部」独亮、六枚落灰，
-  //       六个法域段标题与 23 个文种子标题全部回场、七条分隔线全显）
+  //       六个法域段标题与两个文种子标题全部回场、七条分隔线全显）
   const sEmpty = await clickTab("专利");
   const emptyOk =
     !!sEmpty &&
@@ -1588,7 +1592,7 @@ async function main() {
     sEmpty.shown.length === LEGEND_BTN_COUNT &&
     sEmpty.hiddenCount === 0 &&
     sEmpty.fieldHeadsShown.length === 6 &&
-    sEmpty.docHeadsShown === 23 &&
+    sEmpty.docHeadsShown === DOCTYPE_HEAD_TOTAL &&
     sEmpty.sepHidden.every((h) => h === false);
 
   // J-④：选满六枚自动塌缩为空集——依次点满六法域后，高亮回到「全部」、六枚落灰、
@@ -1634,12 +1638,12 @@ async function main() {
       `aria-pressed=${sDual ? JSON.stringify(sDual.pressed) : "-"}, 图例显 ${sDual ? sDual.shown.length : "-"} 枚` +
       `（须并集 16 枚）, 隐 ${sDual ? sDual.hiddenCount : "-"} 枚（须 13）, 骨架段控 hidden=${sDual ? sDual.ctlHidden : "-"}（须 false）, ` +
       `法域段标题在场=${sDual ? JSON.stringify(sDual.fieldHeadsShown) : "-"}（须只剩专利/商标，共 ${sDual ? sDual.fieldHeads : "-"} 个）, ` +
-      `文种子标题 ${sDual ? sDual.docHeadsShown : "-"}/${sDual ? sDual.docHeads : "-"} 在场（须 10/23）, ` +
+      `文种子标题 ${sDual ? sDual.docHeadsShown : "-"}/${sDual ? sDual.docHeads : "-"} 在场（须 2/${DOCTYPE_HEAD_TOTAL}——只有专利·D2 与专利·D5 是多组格）, ` +
       `段分隔线 hidden=${sDual ? JSON.stringify(sDual.sepHidden) : "-"}（须 ${JSON.stringify(DUAL_SEP_HIDDEN)}，即空段间不留并排孤线）→${dualOk}; ` +
       `J-② toggle 取消商标：高亮=${sToggle ? JSON.stringify(sToggle.active) : "-"}（须只剩专利）, 图例显 ${sToggle ? sToggle.shown.length : "-"} 枚（须 11）, ` +
-      `法域段标题=${sToggle ? JSON.stringify(sToggle.fieldHeadsShown) : "-"}, 文种子标题 ${sToggle ? sToggle.docHeadsShown : "-"} 个（须 5）→${toggleOk}; ` +
+      `法域段标题=${sToggle ? JSON.stringify(sToggle.fieldHeadsShown) : "-"}, 文种子标题 ${sToggle ? sToggle.docHeadsShown : "-"} 个（须 2）→${toggleOk}; ` +
       `J-③ 再取消专利=空集：高亮=${sEmpty ? JSON.stringify(sEmpty.active) : "-"}（须只剩「*」）, 图例显 ${sEmpty ? sEmpty.shown.length : "-"} 枚（须 ${LEGEND_BTN_COUNT}）, ` +
-      `法域段标题 ${sEmpty ? sEmpty.fieldHeadsShown.length : "-"}/6、文种子标题 ${sEmpty ? sEmpty.docHeadsShown : "-"}/23 全回场→${emptyOk}; ` +
+      `法域段标题 ${sEmpty ? sEmpty.fieldHeadsShown.length : "-"}/6、文种子标题 ${sEmpty ? sEmpty.docHeadsShown : "-"}/${DOCTYPE_HEAD_TOTAL} 全回场→${emptyOk}; ` +
       `J-④ 依次点满六枚后塌缩：高亮=${sFull ? JSON.stringify(sFull.active) : "-"}（须只剩「*」、六枚落灰）, 图例显 ${sFull ? sFull.shown.length : "-"} 枚（须 ${LEGEND_BTN_COUNT}）→${fullCollapseOk}`,
   );
   await shot(win, "图谱标签行");
