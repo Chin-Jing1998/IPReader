@@ -10,7 +10,13 @@ import styles from "./styles/graphexplorer.scss"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { D3Config } from "./Graph"
 import { GRAPH_EXCLUDE, GRAPH_SLUG, SETTINGS_EXCLUDE } from "../util/appPages"
-import { FIELD_ALL, FIELD_TABS, SECTION_GROUPS, groupsOfField } from "../util/graphSections"
+import {
+  FIELD_ALL,
+  FIELD_TABS,
+  SECTION_GROUPS,
+  buildLegendSections,
+  groupsOfField,
+} from "../util/graphSections"
 
 // 宿主页 slug 取 appPages.GRAPH_SLUG（阶段5.3 批 B4）：此处原为本地字面量
 // `const HOST_SLUG = "0-图谱总览/index"`，与 appPages 早已存在的同值常量、以及
@@ -59,23 +65,36 @@ const explorerGraphConfig: D3Config = {
 // 由 graphexplorer.scss 的 `.ge-legend-dot[data-section="N"]` 取变量上色——
 // 与节点着色同源，主题切换时图例随 CSS 即时变色。
 //
-// 分三段渲染：
-//   main 段  主干七书，各一项，可点切换（v12 行为不变）；
-//   ext  段  扩展入库 76 部按法域归的 7 组，各一项，可点切换；段首另有「扩展」总控
-//            （data-section-group="ext"），一次切换 7 组全体，三态：全显/部分隐/全隐；
-//   term 段  术语，由术语层三态钮单独控制，故为不可点击的 span——data-section 只落在
-//            其图例点上、不落在项本身，避免被 `.ge-legend-item[data-section]` 误绑。
-// 段间以 .ge-legend-sep 发丝线切分；容器 flex-wrap，窄屏折行（版面测算见设计方案 §3-2）。
-const MAIN_ITEMS = SECTION_GROUPS.filter((g) => g.tier === "main")
+// 分层渲染（阶段5.11 波L 重构；此前为「主干段 / 扩展段 / 术语段」三段平铺）：
+//   行首   「骨架」段控（data-section-group="ext"），一次切换主干七书之外的全部组，
+//           三态：全显/部分隐/全隐。波L 之前它叫「扩展」、贴在扩展段段首；文种归类后
+//           图例已无「扩展段」这一视觉分区，故移到行首独立成段并改名，钩子与集合未变。
+//   法域段 × 6  段标题 .ge-legend-field（专利/商标/…），其下按文种分子段：
+//           子段标题 .ge-legend-doctype（法律/法规/规章/司解/指引，2 字简称），
+//           其后是该 (法域, 文种) 格内的组钮，各一项、可点切换。
+//   term 段 术语，由术语层三态钮单独控制，故为不可点击的 span——data-section 只落在
+//           其图例点上、不落在项本身，避免被 `.ge-legend-item[data-section]` 误绑。
+// 段间以 .ge-legend-sep 发丝线切分，切点一律落在**法域边界**（波L 顺修：旧结构的
+// 「主干|扩展」分隔线落在专利法域内部，把一个法域劈成两半）。
+// 容器 flex-wrap，窄屏折行。
+//
+// ⚠️ DOM 刻意保持**扁平**（标题与组钮都是 .ge-legend 的直接子元素，不加分组容器）：
+//   ① 折行自然——包一层 flex 容器会让整段被当作一个不可分割的项换行，留下大片空白；
+//   ② graphexplorer.inline.ts 的 syncLegendButtons 以「相邻可见性」线性扫描决定
+//      标题与分隔线的去留，扁平序列正是该算法的输入形态；
+//   ③ 既有钩子 `.ge-legend-item[data-section]`、`.ge-legend > .ge-legend-sep` 不变。
+const LEGEND_SECTIONS = buildLegendSections()
 const EXT_ITEMS = SECTION_GROUPS.filter((g) => g.tier === "ext")
 const TERM_ITEM = SECTION_GROUPS.find((g) => g.tier === "term")!
 
-// 扩展段规模文案（阶段5.3 批 B2）：组数与部数一律构建期从组表算，不写死数字——
+// 骨架段控的规模文案（阶段5.3 批 B2）：组数与部数一律构建期从组表算，不写死数字——
 // 此处曾写死「7 个扩展法域（76 部文献）」，与 graphexplorer.inline.ts 内同样写死的
 // 「6 个扩展法域（80 部文献）」在两轮改组后各自滞后到不同的错值。改为两侧同源派生后，
 // SSR 初始 title 与脚本 syncGroupCtl 运行期回写的 title 恒等，改组表即两处同步更新。
+// 波L 文案由「N 个扩展法域」改为「N 个细分组」：拆组后 tier==="ext" 的 22 个组已不再
+// 与「法域」一一对应（六法域被拆成 22 个法域×文种格），旧措辞会把 22 读成 22 个法域。
 const EXT_BOOK_COUNT = EXT_ITEMS.reduce((n, g) => n + g.prefixes.length, 0)
-const EXT_SCALE_TEXT = `${EXT_ITEMS.length} 个扩展法域（${EXT_BOOK_COUNT} 部文献）`
+const EXT_SCALE_TEXT = `${EXT_ITEMS.length} 个细分组（${EXT_BOOK_COUNT} 部文献）`
 
 // 国家/标签层级导航行（C-4；阶段5.11 波J 多选化）：工具条首行，粗粒度导航，
 // 与其下的图例行分工——
@@ -179,39 +198,44 @@ const GraphExplorer: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
           </div>
         </div>
         <div class="ge-legend" aria-label="知识域图例">
-          {MAIN_ITEMS.map((item) => (
-            <button
-              class="ge-legend-item"
-              type="button"
-              data-section={item.id}
-              aria-pressed="false"
-              title={`点击隐藏/显示「${item.label}」的节点与连接`}
-            >
-              <i class="ge-legend-dot" data-section={item.id}></i>
-              {item.label}
-            </button>
-          ))}
-          <span class="ge-legend-sep" aria-hidden="true"></span>
           <button
             class="ge-legend-groupctl"
             type="button"
             data-section-group="ext"
             aria-pressed="true"
-            title={`一次隐藏全部 ${EXT_SCALE_TEXT}，只留主干七书骨架`}
+            title={`一次隐藏主干七书之外的 ${EXT_SCALE_TEXT}，只留主干七书骨架`}
           >
-            扩展
+            骨架
           </button>
-          {EXT_ITEMS.map((item) => (
-            <button
-              class="ge-legend-item ge-legend-item--ext"
-              type="button"
-              data-section={item.id}
-              aria-pressed="false"
-              title={`点击隐藏/显示「${item.label}」的节点与连接`}
-            >
-              <i class="ge-legend-dot" data-section={item.id}></i>
-              {item.label}
-            </button>
+          {LEGEND_SECTIONS.map((section) => (
+            <>
+              <span class="ge-legend-sep" aria-hidden="true"></span>
+              <span class="ge-legend-field" data-legend-field={section.field}>
+                {section.field}
+              </span>
+              {section.docTypes.map((sub) => (
+                <>
+                  <span class="ge-legend-doctype" data-legend-doctype={sub.docType}>
+                    {sub.short}
+                  </span>
+                  {/* 组钮一律同一个类：波L 之前扩展项另带 .ge-legend-item--ext，
+                      但全仓无任何样式或脚本消费它（唯一出现点就是那行 SSR），
+                      且 main/ext 的视觉区分现已由文种子段承担，故随本次重构删去。 */}
+                  {sub.groups.map((item) => (
+                    <button
+                      class="ge-legend-item"
+                      type="button"
+                      data-section={item.id}
+                      aria-pressed="false"
+                      title={`点击隐藏/显示「${section.field} · ${sub.short} · ${item.label}」的节点与连接（${item.prefixes.length} 部文献）`}
+                    >
+                      <i class="ge-legend-dot" data-section={item.id}></i>
+                      {item.label}
+                    </button>
+                  ))}
+                </>
+              ))}
+            </>
           ))}
           <span class="ge-legend-sep" aria-hidden="true"></span>
           <span class="ge-legend-item">
@@ -224,9 +248,11 @@ const GraphExplorer: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
               图例段末尾——控件与它所控的那一项相邻，读者不必在行首行尾之间来回找。
               原「术语层」前缀字样随之删除：左邻的图例项文字已经是「术语」，再写一遍
               是同义重复；无障碍语义由本容器的 role=group + aria-label 承担，未削弱。
-              ⚠️ 刻意**不**在此加 .ge-legend-sep：graphexplorer.inline.ts 的 legendSeps
-              以 `.ge-legend > .ge-legend-sep` 取数并按下标 [0]=主干|扩展、[1]=扩展|术语
-              消费，smoke 步 28 另有 `sepHidden.length === 2` 硬断言，多加一条即两处同时失配。 */}
+              ⚠️ 刻意**不**在此加 .ge-legend-sep：术语项左邻已有一条（法域段与术语段之间），
+              再加一条即成双线。波L 起 graphexplorer.inline.ts 不再按下标消费分隔线
+              （旧代码硬编码 [0]=主干|扩展、[1]=扩展|术语），改为「相邻可见性」通用判据，
+              故增删法域段不必再回头改脚本；smoke 步 28 的 sepHidden 断言同批改为按
+              法域段数派生（7 条：骨架段控之后 6 个法域段各一条，加术语段前一条）。 */}
           <div class="ge-termlayer" role="group" aria-label="术语层显示模式">
             <span class="ge-term-group">
               <button

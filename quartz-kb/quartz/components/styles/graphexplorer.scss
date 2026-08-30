@@ -269,10 +269,14 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
       }
     }
 
-    // 域图例（v17）：主干七书 + 扩展七法域组 + 术语，共 15 个色项与 1 个「扩展」段控
-    //（阶段5.2 Q-1《专利质量评价指南》入库后由 main5/ext7/term1 的 13 组扩为 main7/ext7/term1 的 15 组）。
-    // 容器 flex-wrap：色项 + 段控 + 2 条分隔线版面宽约 1030px（14 项时代实测值，15 项后未复测），
-    // 工具条高度约 44px → 66px（+22px，占 900px 视口画布高度 2.9%；同为 14 项时代实测值，未复测）。
+    // 域图例（v17；阶段5.11 波L 重构为三层）：结构由「主干段 / 扩展段 / 术语段」
+    // 改为「骨架段控 ▏法域段 × 6 ▏术语段」，每个法域段内再按文种分子段——
+    //   .ge-legend-field    法域段标题（专利/商标/…）
+    //   .ge-legend-doctype  文种子段标题（法律/法规/规章/司解/指引，2 字简称）
+    //   .ge-legend-item     组钮，共 30 枚（29 枚可点 + 术语 1 枚只读 span）
+    // 与左栏目录抽屉的「法域 → docType → 书」合成节点树同构，差别只在叶子（组 vs 书）。
+    // 容器 flex-wrap：元素总数由 18 增至 66（30 组钮 + 6 法域标题 + 23 文种标题 +
+    // 6 条段分隔线 + 骨架段控），图例区因此由 1 行增至数行，实测值见本波验收记录。
     // 刻意不折叠：颜色图例的价值在读图时随时可瞥，收进浮层等于取消该价值。
     //
     // 波K：本容器独占工具条第二行（也是最后一行），术语层三态钮已移入其内部、
@@ -287,7 +291,9 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
       min-width: 0;
       gap: 0.3rem 0.8rem;
 
-      // 段分隔发丝线（v17）：切分「主干段 / 扩展段 / 术语段」
+      // 段分隔发丝线（v17；波L 起切在**法域边界**）：骨架段控 ▏专利 ▏商标 ▏…▏术语，
+      // 共 6 条。波L 之前只有 2 条、且切在「主干|扩展」处——那道线落在专利法域内部
+      //（主干七书与专利扩展同属专利），视觉上把一个法域劈成两半，本波顺修。
       .ge-legend-sep {
         width: 1px;
         height: 0.9rem;
@@ -306,7 +312,8 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
         display: none;
       }
 
-      // 扩展段总控（v17）：一次切换全部 7 个扩展法域组的显隐。与图例项同形制但无色点，
+      // 骨架段控（v17 原「扩展段总控」，波L 改名并移到行首）：一次切换主干七书之外
+      // 全部 22 组的显隐。与图例项同形制但无色点，
       // 以细边框与之区分；三态由 graphexplorer.inline.ts 写 .hidden / .partial 类
       //（全显 = 无类，部分隐 = .partial 虚线框，全隐 = .hidden 置灰加删除线）。
       .ge-legend-groupctl {
@@ -393,55 +400,44 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
         border-radius: 50%;
         flex-shrink: 0;
 
-        &[data-section="1"] {
-          background-color: var(--graph-section-1);
+        // 组号 → 主题变量（阶段5.11 波L）：原为 1–15 逐条手写，波L 拆组后需 30 条，
+        // 改 @for 循环生成。上界必须 ≥ SECTION_GROUPS 的最大组号，否则新组的图例点
+        // 无背景色而渲染为透明（G-2 的组 15 就吃过这个亏，当时变量与规则双缺）。
+        // 变量本身在 custom.scss 六主题 × 明暗 12 块定义；此处只做「组号 → 变量」的接线。
+        @for $i from 1 through 30 {
+          &[data-section="#{$i}"] {
+            background-color: var(--graph-section-#{$i});
+          }
         }
-        &[data-section="2"] {
-          background-color: var(--graph-section-2);
-        }
-        &[data-section="3"] {
-          background-color: var(--graph-section-3);
-        }
-        &[data-section="4"] {
-          background-color: var(--graph-section-4);
-        }
-        &[data-section="5"] {
-          background-color: var(--graph-section-5);
-        }
-        &[data-section="6"] {
-          background-color: var(--graph-section-6);
-        }
-        &[data-section="7"] {
-          background-color: var(--graph-section-7);
-        }
-        &[data-section="8"] {
-          background-color: var(--graph-section-8);
-        }
-        &[data-section="9"] {
-          background-color: var(--graph-section-9);
-        }
-        // v17 扩展法域组：10 专利扩展 / 11 品种布图 / 12 竞争法 / 13 著作权 / 14 综合程序
-        //（8 商标复用既有预留位，其规则已在上方 [data-section="8"] 给出）
-        // 阶段5.1 批 G-2 追加 15 商标审查指南：SECTION_GROUPS 已在 G-1 建组，
-        // 但当时无对应变量与规则，图例点渲染为透明；本条与 --graph-section-15 同批补齐。
-        &[data-section="10"] {
-          background-color: var(--graph-section-10);
-        }
-        &[data-section="11"] {
-          background-color: var(--graph-section-11);
-        }
-        &[data-section="12"] {
-          background-color: var(--graph-section-12);
-        }
-        &[data-section="13"] {
-          background-color: var(--graph-section-13);
-        }
-        &[data-section="14"] {
-          background-color: var(--graph-section-14);
-        }
-        &[data-section="15"] {
-          background-color: var(--graph-section-15);
-        }
+      }
+
+      // 法域段标题（波L）：图例由「主干/扩展/术语」三段改为「法域 → 文种 → 组」
+      // 三层后，本元素是第一层的段名（专利/商标/著作权/竞争法/品种布图/综合程序）。
+      // 用字重而非底色区分层级：图例行已有 30 枚彩色圆点，再加底色块会让工具条噪乱。
+      .ge-legend-field {
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--dark);
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      // 文种子段标题（波L）：第二层，取 DOCTYPE_SHORT 的 2 字简称（法律/法规/规章/司解/指引）。
+      // 比组钮更淡更小，读起来是「标题 → 其后若干枚钮」的从属关系，而非又一枚可点项。
+      .ge-legend-doctype {
+        font-size: 0.72rem;
+        color: var(--gray);
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      // ⚠️ 两类新标题必须显式 display:none，理由与上方 .ge-legend-item[hidden] 同：
+      // UA 样式表的 [hidden]{display:none} 敌不过同文件作者源的 display 声明，
+      // 漏写则 syncLegendButtons 给标题设了 hidden 也照样显示（法域过滤后会留下
+      // 一串没有任何组钮的空标题）。本文件 242 行一带的同款陷阱已有前例。
+      .ge-legend-field[hidden],
+      .ge-legend-doctype[hidden] {
+        display: none;
       }
     }
 

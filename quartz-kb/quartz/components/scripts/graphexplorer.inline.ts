@@ -138,17 +138,19 @@ const STATUS_AUTO_CLEAR_MS = 4000
 // 设置页连点主题卡会连发 themechange，专页全量图重建代价高，只重建最后一次
 const THEME_CHANGE_DEBOUNCE_MS = 120
 
-// ---------- 扩展段规模文案（阶段5.3 批 B2：动态派生，根治滞后） ----------
-// 「N 个扩展法域（M 部文献）」一律从 SECTION_GROUPS 运行期派生：
+// ---------- 骨架段控的规模文案（阶段5.3 批 B2：动态派生，根治滞后） ----------
+// 「N 个细分组（M 部文献）」一律从 SECTION_GROUPS 运行期派生：
 // N = tier === "ext" 的组数，M = 这些组 prefixes 长度合计。
 // 此前两处写死「6 个扩展法域（80 部文献）」，在阶段5.1（摘组 + 新增组 15）与
 // 阶段5.2（召回 main 5/6、新增域 91）两轮改组后双双滞后；改为派生后组表怎么变、
 // 文案跟着变，不会有第三次。GraphExplorer.tsx 的段控 title 用同源派生（构建期算），
 // 与本处同值——两侧都以组表为唯一事实源，不再各写各的数字。
+// 波L 措辞由「扩展法域」改「细分组」：拆组后 22 个 ext 组不再与法域一一对应
+//（六法域被拆成 22 个法域×文种格），旧措辞会被读成 22 个法域。
 const EXT_TIER_GROUPS = SECTION_GROUPS.filter((g) => g.tier === "ext")
 const EXT_BOOK_COUNT = EXT_TIER_GROUPS.reduce((n, g) => n + g.prefixes.length, 0)
-const EXT_SCALE_TEXT = `${EXT_TIER_GROUPS.length} 个扩展法域（${EXT_BOOK_COUNT} 部文献）`
-/** 扩展段组号集合（tier === "ext" 派生），供图例过滤时区分主干段与扩展段 */
+const EXT_SCALE_TEXT = `${EXT_TIER_GROUPS.length} 个细分组（${EXT_BOOK_COUNT} 部文献）`
+/** 骨架段控所辖组号集合（tier === "ext" 派生），供段控自身去留判定用 */
 const EXT_GROUP_SET: ReadonlySet<string> = new Set(EXT_TIER_GROUPS.map((g) => g.id))
 
 // ---------- 法域过滤状态（阶段5.3 批 B2；阶段5.11 波J 由单值改集合） ----------
@@ -327,17 +329,21 @@ document.addEventListener("nav", async () => {
   // 域组图例按钮（data-section = util/graphSections.ts 的**组号**，非 slug 顶层
   // 数字前缀）：点击切换该组全部节点与连接关系的隐藏/显示；状态在重建
   //（themechange/resize/术语层 hidden）后经 renderCanvas 恢复。
-  // 图例共 15 项，与 SECTION_GROUPS 的 15 个组一一对应：主干七书各一项、
-  // 扩展法域 7 组各一项、术语 1 项。术语项是不可点的 span（由术语层三态钮控制，
-  // data-section 只落在其色点上、不落在项本身），故下面的选择器只命中 14 枚按钮。
+  // 图例共 30 项，与 SECTION_GROUPS 的 30 个组一一对应（阶段5.11 波L 按
+  //「法域 × 文种」拆组后由 15 增至 30）：主干七书各一项、其余 22 个细分组各一项、
+  // 术语 1 项。术语项是不可点的 span（由术语层三态钮控制，data-section 只落在其色点上、
+  // 不落在项本身），故下面的选择器只命中 29 枚按钮。
   const legendButtons = Array.from(
     explorer.querySelectorAll<HTMLButtonElement>(".ge-legend-item[data-section]"),
   )
-  // 段分隔发丝线，SSR 顺序固定（GraphExplorer.tsx）：[0] 切「主干|扩展」，
-  // [1] 切「扩展|术语」。B2 起随法域过滤结果一并决定去留，见 syncLegendButtons。
-  const legendSeps = Array.from(
-    explorer.querySelectorAll<HTMLElement>(".ge-legend > .ge-legend-sep"),
-  )
+  /**
+   * 图例行的**全部直接子元素**，按 SSR 顺序（波L）。
+   * 波L 之前这里只取两条 .ge-legend-sep 并按下标 [0]/[1] 硬编码消费；现在图例有
+   * 7 条分隔线、6 个法域段标题、23 个文种子标题，位置随组表变化，按下标写死必然
+   * 在下次改组时错位。改为持有整条子元素序列，由 syncLegendButtons 做一次
+   *「相邻可见性」线性扫描决定标题与分隔线的去留——组表怎么变都不必回头改本文件。
+   */
+  const legendNodes = Array.from(explorer.querySelectorAll<HTMLElement>(".ge-legend > *"))
   const hiddenSections = new Set<string>()
   // B2：模块级的法域过滤态跨 SPA 导航存活，每次挂载显式复位，
   // 与本次新建的空 hiddenSections（即「全部」态）对齐。
@@ -372,13 +378,13 @@ document.addEventListener("nav", async () => {
    *   ② 法域过滤（activeFieldSet，B2）→ `hidden` **属性**：钮整个撤出图例行。
    * 二者互不干涉：被 ① 置灰的组照样可被 ② 撤下，反之亦然；单个图例钮 toggle 组显隐
    * 的行为一字未改（被 ② 撤下的钮既不可见也不可点，无须另设守卫）。
-   * 顺带按过滤结果决定「扩展」段控与两条段分隔线的去留（理由见函数末注释）。
+   * 第三件事是按 ② 的结果收拾**版面骨架**——骨架段控、法域段标题、文种子标题、
+   * 段分隔线的去留，一律走下面的「相邻可见性」判据，见 syncLegendChrome。
    */
   function syncLegendButtons() {
     // 空集（含挂载初始态）→ null，即不过滤，与 B2 之前的行为逐字等价；
     // 非空则取各激活法域组集的**并集**，多选时两片法域的钮同时列在行内
     const inField = activeFieldSet.size === 0 ? null : groupsOfFields(activeFieldSet)
-    let mainShown = 0
     let extShown = 0
     for (const btn of legendButtons) {
       const groupId = btn.dataset.section!
@@ -387,19 +393,90 @@ document.addEventListener("nav", async () => {
       btn.setAttribute("aria-pressed", String(!hidden))
       const outOfField = inField !== null && !inField.has(groupId)
       btn.hidden = outOfField
-      if (outOfField) continue
-      if (EXT_GROUP_SET.has(groupId)) extShown++
-      else mainShown++
+      if (!outOfField && EXT_GROUP_SET.has(groupId)) extShown++
     }
-    // 「扩展」段控：当前法域下一个 ext 组都不剩时随之撤下（FIELD_ALL 恒显）。
+    // 骨架段控：当前法域下一个 ext 组都不剩时随之撤下（FIELD_ALL 恒显）。
     // 现有六法域各自都含至少一个 ext 组，故该条件当下恒为假；保留是为将来新增
     // 纯主干法域时不必回头补逻辑。段控的三态类与 title 仍由 syncGroupCtl 写。
     if (groupCtl) groupCtl.hidden = extShown === 0
-    // 段分隔发丝线：只在其两侧都还有可见项时保留，否则会在行首留下一条悬空竖线
-    //（切到「商标」「著作权」等不含主干组的法域时，主干段被整段撤空，正是此情形）。
-    // [1] 切「扩展|术语」，术语项恒显，故只看 ext 侧。
-    if (legendSeps[0]) legendSeps[0].hidden = mainShown === 0 || extShown === 0
-    if (legendSeps[1]) legendSeps[1].hidden = extShown === 0
+    syncLegendChrome()
+  }
+
+  /** 图例子元素的分类判定（波L）：三类骨架元素 + 「可见内容」 */
+  const isSep = (el: HTMLElement) => el.classList.contains("ge-legend-sep")
+  const isFieldHead = (el: HTMLElement) => el.classList.contains("ge-legend-field")
+  const isDocTypeHead = (el: HTMLElement) => el.classList.contains("ge-legend-doctype")
+  /**
+   * 「可见内容」= 此刻真的占着版面、且值得让标题与分隔线为它存在的元素。
+   * 取组钮（含术语项，它是不带 hidden 属性的 span）、骨架段控与术语层三态钮；
+   * 标题自身**不算**——否则「一个只剩标题、没有任何组钮的空段」会自己撑住自己。
+   */
+  const isVisibleContent = (el: HTMLElement) =>
+    !el.hidden &&
+    (el.classList.contains("ge-legend-item") ||
+      el.classList.contains("ge-legend-groupctl") ||
+      el.classList.contains("ge-termlayer"))
+
+  /**
+   * 版面骨架（法域段标题 / 文种子标题 / 段分隔线）的去留，两趟线性扫描（波L）。
+   *
+   * 判据是**相邻可见性**，与组表规模、法域数量、分隔线条数一概无关——
+   * 波L 之前这里是 `legendSeps[0] = mainShown === 0 || extShown === 0` 一类的
+   * 下标硬编码，只在「两条线、三段」的旧结构下成立，改一次组表就要重写一次。
+   *
+   * 第一趟（从后往前）定标题：一个标题只在它**辖区内**还有可见组钮时保留。
+   *   文种子标题的辖区 = 到下一个标题或分隔线为止；
+   *   法域段标题的辖区 = 到下一个法域段标题或分隔线为止（跨其名下全部文种子段）。
+   * 从后往前扫是因为「辖区」是向后延伸的：反向遍历时先遇到辖区内容、后遇到标题，
+   * 一个布尔标志即可，无需回看。
+   *
+   * 第二趟（从前往后）定分隔线：只在其两侧**紧邻**的可见内容之间保留一条。
+   *   pending 机制处理「中间整段被过滤掉」的情形——切到「商标」时专利段整段撤空，
+   *   骨架段控与商标段之间只会剩一条线，而不是两条并排的悬空竖线。
+   */
+  function syncLegendChrome() {
+    let itemSinceDocType = false
+    let itemSinceField = false
+    for (let i = legendNodes.length - 1; i >= 0; i--) {
+      const el = legendNodes[i]
+      if (isDocTypeHead(el)) {
+        el.hidden = !itemSinceDocType
+        itemSinceDocType = false
+      } else if (isFieldHead(el)) {
+        el.hidden = !itemSinceField
+        itemSinceField = false
+        itemSinceDocType = false
+      } else if (isSep(el)) {
+        itemSinceDocType = false
+        itemSinceField = false
+      } else if (isVisibleContent(el)) {
+        itemSinceDocType = true
+        itemSinceField = true
+      }
+    }
+
+    let sawVisible = false
+    let pending: HTMLElement | null = null
+    for (const el of legendNodes) {
+      if (isSep(el)) {
+        // 左侧还没有任何可见内容 → 行首悬空竖线，直接撤下
+        if (!sawVisible) {
+          el.hidden = true
+          continue
+        }
+        // 上一条线尚未被右侧内容「认领」→ 说明两条线之间整段为空，作废前一条
+        if (pending) pending.hidden = true
+        pending = el
+        el.hidden = true // 暂定撤下，遇到右侧可见内容再放出
+      } else if (isVisibleContent(el)) {
+        if (pending) {
+          pending.hidden = false
+          pending = null
+        }
+        sawVisible = true
+      }
+    }
+    // 循环结束仍挂着 pending：其右侧再无可见内容，保持撤下（行尾不留孤线）
   }
 
   /**
@@ -445,11 +522,13 @@ document.addEventListener("nav", async () => {
     window.addCleanup?.(() => btn.removeEventListener("click", toggle))
   }
 
-  // ---------- 扩展段总控（v17） ----------
-  // 一次切换全部扩展法域组的显隐（规模见 EXT_SCALE_TEXT，从组表派生、不写死）：
+  // ---------- 骨架段控（v17 原「扩展段总控」，波L 改名并移到图例行首） ----------
+  // 一次切换主干七书之外全部组的显隐（规模见 EXT_SCALE_TEXT，从组表派生、不写死）：
   // 非全隐 → 全隐 → 全显。
   // 三态（全显 / 部分隐 / 全隐）由 syncGroupCtl 从 hiddenSections 与 EXT_GROUP_IDS
-  // 的交集推导，单独点击某个扩展项后段控自动落到 partial，无需另存状态。
+  // 的交集推导，单独点击某个细分组后段控自动落到 partial，无需另存状态。
+  // ⚠️ 钩子 data-section-group="ext" 与集合定义（tier === "ext"）一字未改——波L 只动
+  // 了它的**文案与位置**，交互层与 smoke 的选择器因此零改动。
   const groupCtl = explorer.querySelector<HTMLButtonElement>(
     '.ge-legend-groupctl[data-section-group="ext"]',
   )
@@ -464,8 +543,8 @@ document.addEventListener("nav", async () => {
     // 文案中的组数与部数取 EXT_SCALE_TEXT（组表派生），与 SSR 的初始 title 同值；
     // 段控自身的 hidden 属性由 syncLegendButtons 按法域过滤结果写，此处不碰
     groupCtl.title = allHidden
-      ? `点击恢复全部 ${EXT_SCALE_TEXT}`
-      : `一次隐藏全部 ${EXT_SCALE_TEXT}，只留主干七书骨架`
+      ? `点击恢复主干七书之外的 ${EXT_SCALE_TEXT}`
+      : `一次隐藏主干七书之外的 ${EXT_SCALE_TEXT}，只留主干七书骨架`
   }
 
   if (groupCtl) {
