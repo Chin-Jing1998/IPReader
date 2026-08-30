@@ -17,15 +17,30 @@ export type SingleClickAction = "select" | "show" | "ignore"
 /**
  * 法域标签 → 目录分支过滤（方向：graphexplorer.inline.ts ⇒ document ⇒ explorer.inline.ts）。
  *
- * 派发时机：applyField() 收尾（含标签行点击与图例批量路径），以及「重置视图」
+ * 派发时机：applyFields() 收尾（含标签行点击与图例批量路径），以及「重置视图」
  * 回到全部态时。接收方对 field 层合成节点（`data-folderpath` 形如
  * `synthetic:CN/<field>`）的外层 `li` 切 `hidden` **属性**——只增删属性，
  * 不增删节点、不写折叠态存储。
  */
 export const GRAPH_FIELD_EVENT = "kb:graphfield"
 
-/** `kb:graphfield` 的 detail：当前法域标签，取 FIELD_TABS 之一或哨兵 FIELD_ALL（"*"）。 */
-export type GraphFieldDetail = { field: string }
+/**
+ * `kb:graphfield` 的 detail：当前**激活的法域标签集合**（阶段5.11 波J 由单值改多值）。
+ *
+ * 取值域是 FIELD_TABS 的子集，**空数组即「全部」**——多选化后哨兵 FIELD_ALL（"*"）
+ * 不再进入载荷，「全部」由空集合本身表达（`fields.size === 0` 与 `field === FIELD_ALL`
+ * 语义逐字等价，且省掉「空数组还是哨兵」的二义）。
+ *
+ * ⚠️ 用数组而非 Set：CustomEvent 的 detail 需跨 bundle 传递且可被结构化克隆，
+ * Set 虽也可克隆，但接收方（explorer.inline.ts）只做成员查询、自行 new Set 即可，
+ * 数组载荷同时便于 `Array.isArray` 一次性完成类型守卫。
+ *
+ * ⚠️ 改本类型即改跨 bundle 契约：派发方（graphexplorer.inline.ts 的 notifyFieldChange）
+ * 与订阅方（explorer.inline.ts 的 onFieldChange）分处两个独立打包闭包，
+ * 形状不一致是**静默失联**（detail 读出 undefined，既不报错也不过滤），
+ * 故两侧必须同批改动，回归断言见 graphInteraction.test.ts。
+ */
+export type GraphFieldDetail = { fields: readonly string[] }
 
 export type GraphLinkStroke = {
   width: number

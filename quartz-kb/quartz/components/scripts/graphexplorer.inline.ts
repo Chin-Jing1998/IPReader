@@ -11,25 +11,28 @@
 //    目标不在数据集才回落到以命中 slug 为中心的重建渲染；
 // 5) 术语层三态钮（隐藏/弱化/显示）→ controller.setTermLayer；重置视图 → controller.resetView
 //    （C-4 起重置一并回到「全部」标签态：恢复全部非术语组显示）；
-// 5b) 国家/标签导航行（C-4）：点击某法域标签 → 非术语组按「全集 − groupsOfField(标签)」
-//    批量 setSectionHidden；「全部」清空非术语组隐藏；标签高亮不另存状态，
-//    由 hiddenSections 反解（空集 → 全部；恰为某标签的补集 → 该标签；
-//    其余 → 自定义态，无标签高亮）；
-// 5c) 标签层级化（阶段5.3 批 B2）：点标签时图例行同步收窄为「只列该法域的组」——
-//    非本法域的图例钮以 hidden **属性**整体撤出行内（区别于组显隐的 .hidden 置灰**类**），
-//    该呈现态存于模块级 activeFieldFilter，不参与 hiddenSections 与标签高亮反解；
+// 5b) 国家/标签导航行（C-4；阶段5.11 波J 多选化）：点击法域标签 → 非术语组按
+//    「全集 − 已激活各标签的组并集」批量 setSectionHidden；「全部」清空非术语组隐藏；
+//    标签高亮不另存状态，由 hiddenSections 反解（空集 → 全部；某几个标签的组恰好
+//    整组整组地全可见、其余整组整组地全隐 → 那几枚同时高亮；有标签只显了一半的组
+//    → 自定义态，无标签高亮）。点击语义：全部态/自定义态点 X → 单选 {X}；
+//    非全部态点 Y → 加入或移出；集合清空回全部；选满六枚自动塌缩为空集（=「全部」）；
+// 5c) 标签层级化（阶段5.3 批 B2）：点标签时图例行同步收窄为「只列这些法域的组」——
+//    不属任何已激活法域的图例钮以 hidden **属性**整体撤出行内（区别于组显隐的
+//    .hidden 置灰**类**），该呈现态存于模块级 activeFieldSet，
+//    不参与 hiddenSections 与标签高亮反解；
 // 5d) 标签联动重布局与术语过滤（阶段5.3 批 B3）：点标签时另做两件事——
-//    controller.setTermFieldFilter(标签) 让术语层随法域收窄（术语的法域归属取自
-//    出处索引），controller.relayoutVisible() 把可见子集就地收敛并重新入框
+//    controller.setTermFieldFilter(标签集合) 让术语层随法域收窄（术语的法域归属取自
+//    出处索引，多选取并集），controller.relayoutVisible() 把可见子集就地收敛并重新入框
 //    （「全部」则 restoreBaseLayout 回首帧基线）；两者内部已含入框，故不再叠加
 //    resetView。单个图例钮 toggle 与扩展段控刻意**不动布局**（组级微调是增量操作，
 //    每点一次就抖一次全图不可用）；
 // 5e) 左栏目录联动（阶段5.3 批 B4 建立；阶段5.4 反转后仅剩单向）——
 //    阶段5.4 反转：图谱页目录点击＝直达文档（跳转不再被取消），本模块的
 //    「收 kb:graphlocate（目录 ⇒ 图谱定位）」监听随之撤销；搜索定位链路与
-//    「发 kb:graphfield（图谱 ⇒ 目录）」过滤联动保留——applyField() 收尾与
-//    「重置视图」各派发一次，载荷即当前标签（含哨兵 FIELD_ALL），由目录侧
-//    把非本法域的 field 分支整支隐去；
+//    「发 kb:graphfield（图谱 ⇒ 目录）」过滤联动保留——applyFields() 收尾与
+//    「重置视图」各派发一次，载荷即当前激活的标签集合（空数组即「全部」），
+//    由目录侧把不属任何激活法域的 field 分支整支隐去；
 // 5f) 目录导航抽屉（阶段5.7 波B）：画布左上角浮动抽屉，「法域 → 书 → 章 → 节」三层，
 //    数据由 util/graphToc.ts 从 window.__graphIndex 折出（惰性：首次点开才建树与建 DOM），
 //    点目录行 = selectNode(该目录 index 页)，与图内定位、搜索定位同一条语义；
@@ -60,6 +63,7 @@ import {
 import {
   groupOfSlug,
   groupsOfField,
+  groupsOfFields,
   EXT_GROUP_IDS,
   FIELD_ALL,
   FIELD_TABS,
@@ -147,20 +151,25 @@ const EXT_SCALE_TEXT = `${EXT_TIER_GROUPS.length} 个扩展法域（${EXT_BOOK_C
 /** 扩展段组号集合（tier === "ext" 派生），供图例过滤时区分主干段与扩展段 */
 const EXT_GROUP_SET: ReadonlySet<string> = new Set(EXT_TIER_GROUPS.map((g) => g.id))
 
-// ---------- 法域过滤状态（阶段5.3 批 B2） ----------
-// 当前生效的法域标签：FIELD_ALL 表示不过滤，其余取 FIELD_TABS 中的法域名。
+// ---------- 法域过滤状态（阶段5.3 批 B2；阶段5.11 波J 由单值改集合） ----------
+// 当前生效的法域标签**集合**：空集表示不过滤（即「全部」），其余取 FIELD_TABS 的子集。
+// 波J 起哨兵 FIELD_ALL 不再进入本状态——「全部」由空集本身表达，
+// `activeFieldSet.size === 0` 与波J 之前的 `activeFieldFilter === FIELD_ALL` 逐值等价。
 // 与 hiddenSections 的分工必须分清，二者正交、互不代偿：
-//   hiddenSections    组的**图内**显隐（谁的节点还画在图上），标签高亮由它反解；
-//   activeFieldFilter 图例行的**呈现**范围（谁的钮还列在图例里）＋（B3 起）术语层
-//                     法域过滤与子集重布局的驱动源；不参与 activeField() 反解，
-//                     故既有状态机语义一字未动。
+//   hiddenSections  组的**图内**显隐（谁的节点还画在图上），标签高亮由它反解；
+//   activeFieldSet  图例行的**呈现**范围（谁的钮还列在图例里）＋（B3 起）术语层
+//                   法域过滤与子集重布局的驱动源；不参与 activeFields() 反解，
+//                   故既有状态机语义一字未动。
 // B3 起它有了第二个消费点：renderCanvas 的重建恢复段据它重放
 // controller.setTermFieldFilter + relayoutVisible，selectNode 据它解释「术语不在
 // 当前法域」。置于模块级正是为此——这些消费点不都在同一个挂载闭包的书写顺序内。
 // ⚠️ 模块级变量跨 SPA 导航存活，而 hiddenSections 每次挂载新建为空集，
-// 故每次 nav 挂载必须显式复位为 FIELD_ALL（见挂载处），否则会出现
-// 「图例只剩商标一组、图上却全域可见」的失配。
-let activeFieldFilter: string = FIELD_ALL
+// 故每次 nav 挂载必须显式 .clear()（见挂载处），否则会出现
+// 「图例只剩商标一组、图上却全域可见」的失配。同理，「重置视图」也必须 .clear()——
+// 改集合后这两处从「赋值 FIELD_ALL」变成「就地清空」，漏掉任一处即状态残留。
+// ⚠️ 它是**活体** Set：传给 controller.setTermFieldFilter 时由接收方拷贝私有副本
+// （见 graph.inline.ts 同名函数的入口注释），本处可以放心就地增删。
+const activeFieldSet = new Set<string>()
 
 /**
  * 取图谱专用的四字段索引（阶段5.6 波2-2.1，产出见
@@ -331,8 +340,9 @@ document.addEventListener("nav", async () => {
   )
   const hiddenSections = new Set<string>()
   // B2：模块级的法域过滤态跨 SPA 导航存活，每次挂载显式复位，
-  // 与本次新建的空 hiddenSections（即「全部」态）对齐
-  activeFieldFilter = FIELD_ALL
+  // 与本次新建的空 hiddenSections（即「全部」态）对齐。
+  // 波J：由赋值 FIELD_ALL 改为就地清空——集合是 const，复位只能靠 .clear()
+  activeFieldSet.clear()
   // 选中态（v14）：graphexplorer 侧持有，重建（theme/resize/术语层）后恢复。
   // 阶段5.10 波C-b：单值 selectedSlug 升为**锚点集合**，供目录复选框多选。
   // 一切增删必经 commitSelection（本文件的唯一写入口），散着写 add/delete 必然
@@ -359,15 +369,15 @@ document.addEventListener("nav", async () => {
   /**
    * 图例项状态回写，两个正交维度同处一函数：
    *   ① 组显隐（hiddenSections）→ `.hidden` **类**：钮仍在行内，画成置灰删除线态；
-   *   ② 法域过滤（activeFieldFilter，B2）→ `hidden` **属性**：钮整个撤出图例行。
+   *   ② 法域过滤（activeFieldSet，B2）→ `hidden` **属性**：钮整个撤出图例行。
    * 二者互不干涉：被 ① 置灰的组照样可被 ② 撤下，反之亦然；单个图例钮 toggle 组显隐
    * 的行为一字未改（被 ② 撤下的钮既不可见也不可点，无须另设守卫）。
    * 顺带按过滤结果决定「扩展」段控与两条段分隔线的去留（理由见函数末注释）。
    */
   function syncLegendButtons() {
-    // FIELD_ALL（含挂载初始态）→ null，即不过滤，与 B2 之前的行为逐字等价
-    const inField =
-      activeFieldFilter === FIELD_ALL ? null : new Set(groupsOfField(activeFieldFilter))
+    // 空集（含挂载初始态）→ null，即不过滤，与 B2 之前的行为逐字等价；
+    // 非空则取各激活法域组集的**并集**，多选时两片法域的钮同时列在行内
+    const inField = activeFieldSet.size === 0 ? null : groupsOfFields(activeFieldSet)
     let mainShown = 0
     let extShown = 0
     for (const btn of legendButtons) {
@@ -482,28 +492,40 @@ document.addEventListener("nav", async () => {
   }
 
   /**
-   * 隐藏集 → 标签的反解，三态：
-   *   空集              → FIELD_ALL（「全部」高亮）
-   *   恰为某标签的补集  → 该标签高亮
-   *   其余（图例微调后）→ null（自定义态，七枚标签均不高亮）
+   * 隐藏集 → 该高亮哪些标签的反解（波J 由单值改集合），三态：
+   *   空隐藏集                        → { FIELD_ALL }（「全部」独亮）
+   *   若干标签整组全显、其余整组全隐  → 那几枚标签同亮（单选是其 size===1 的特例）
+   *   有标签只显了一部分组            → 空集（自定义态，七枚标签均不高亮）
+   *
+   * 判据之所以能简化成「逐标签检查其组是全显还是全隐」，是因为六标签构成
+   * NON_TERM_GROUP_IDS 的**无重叠划分**（该性质由 graphSections.test.ts 钉死）：
+   * 可见组集能被写成若干标签组集之并 ⇔ 每个标签的组要么全可见、要么全不可见。
+   * 故不必再像波J 之前那样先比隐藏组的**数量**再逐组核对。
+   *
+   * 全隐（一枚标签都不剩）落在「空集 = 自定义态」这一支，与波J 之前返回 null 同解。
    */
-  function activeField(): string | null {
-    const hiddenCount = hiddenNonTermCount()
-    if (hiddenCount === 0) return FIELD_ALL
+  function activeFields(): Set<string> {
+    if (hiddenNonTermCount() === 0) return new Set([FIELD_ALL])
+    const lit = new Set<string>()
     for (const field of FIELD_TABS) {
-      const shown = groupsOfField(field)
-      // 数量相等 + 该标签的组一个都没被隐藏 ⇒ 隐藏集恰等于该标签的补集
-      if (hiddenCount !== NON_TERM_GROUP_IDS.length - shown.length) continue
-      if (shown.every((id) => !hiddenSections.has(id))) return field
+      const groups = groupsOfField(field)
+      const shownCount = groups.filter((id) => !hiddenSections.has(id)).length
+      // 整组全隐：该标签未激活，继续看下一枚
+      if (shownCount === 0) continue
+      // 只显了一半：可见组集不是任何标签组合的并集 ⇒ 自定义态，整行落灰
+      if (shownCount !== groups.length) return new Set()
+      lit.add(field)
     }
-    return null
+    return lit
   }
 
   function syncFieldTabs() {
-    const active = activeField()
+    const active = activeFields()
     for (const btn of fieldTabs) {
-      // active 为 null（自定义态）时 dataset.field 不可能等于 null，天然全部落灰
-      const on = btn.dataset.field === active
+      // 自定义态下 active 为空集，七枚天然全部落灰；
+      // 多选态下多枚同时带 .active——scss 的 .ge-field-tab.active 无唯一性约束
+      const field = btn.dataset.field
+      const on = field !== undefined && active.has(field)
       btn.classList.toggle("active", on)
       btn.setAttribute("aria-pressed", String(on))
     }
@@ -533,38 +555,57 @@ document.addEventListener("nav", async () => {
    * 品种布图、综合程序四域恒会出现，属如实告知而非异常。
    * 术语层 hidden 时不提示：本就无术语可言，提示反而是噪音。
    * 走既有 .ge-search-status 通道，不新建提示通道——下次搜索/定位/重置自然覆盖。
+   *
+   * 波J 多选：判据是**并集**计数（跨域术语只计一次，见 graph.inline.ts 的
+   * getTermFieldCount），故只在所选各域**全都**没有术语时才提示——
+   * 选了「专利 + 著作权」时专利域有术语，不属空域，不提示。
    */
-  function notifyEmptyTermField(field: string) {
-    if (field === FIELD_ALL || controller === null) return
+  function notifyEmptyTermField(fields: ReadonlySet<string>) {
+    if (fields.size === 0 || controller === null) return
     if (controller.getTermLayer() === "hidden") return
-    if (controller.getTermFieldCount(field) > 0) return
-    setStatus(`「${field}」法域暂无术语（术语抽取现仅覆盖专利/商标两域）`)
+    if (controller.getTermFieldCount(fields) > 0) return
+    setStatus(`「${fieldListText(fields)}」法域暂无术语（术语抽取现仅覆盖专利/商标两域）`)
+  }
+
+  /** 法域集合的中文串联呈现（提示文案专用），按 FIELD_TABS 序而非插入序，读起来稳定 */
+  function fieldListText(fields: ReadonlySet<string>): string {
+    return FIELD_TABS.filter((f) => fields.has(f)).join("、")
   }
 
   /**
-   * 切到某标签：hiddenSections = 非术语全集 − groupsOfField(field)，逐组落地。
-   * field 传 FIELD_ALL 表示「全部」，等价于清空非术语组隐藏。
-   * B2 起同时置 activeFieldFilter，使图例行收窄为只列该法域的组。
+   * 切到某组标签（波J 多选化）：hiddenSections = 非术语全集 − 各标签组集的并集，逐组落地。
+   * fields 传**空集合**表示「全部」，等价于清空非术语组隐藏。
+   * B2 起同时置 activeFieldSet，使图例行收窄为只列这些法域的组。
    * B3 起另联动两件事（见文件头 5d）：术语层随法域过滤 + 可见子集重布局。
+   *
+   * 组表未登记的标签逐个剔除（groupsOfField 返回空数组者）：全部非法时按波J 之前的
+   * 守卫原样 return，不把整图切空；部分非法时只当那几枚不存在，合法的照常生效。
    */
-  function applyField(field: string) {
-    const shown = new Set(field === FIELD_ALL ? NON_TERM_GROUP_IDS : groupsOfField(field))
+  function applyFields(fields: ReadonlySet<string>) {
+    const all = fields.size === 0
+    const valid = new Set<string>()
+    const shown = groupsOfFields(fields)
+    for (const f of fields) {
+      if (groupsOfField(f).length > 0) valid.add(f)
+    }
+    if (all) for (const id of NON_TERM_GROUP_IDS) shown.add(id)
     // 非法标签（组表未登记）不得把整图切空，直接忽略
     if (shown.size === 0) return
     // B2：图例过滤态与组显隐同批落地。刻意置于上面的合法性守卫**之后**——
     // 非法标签若也写进过滤态，会把图例行清空却不改任何组显隐，凭空造出新的失配态。
-    activeFieldFilter = field
+    activeFieldSet.clear()
+    for (const f of valid) activeFieldSet.add(f)
     for (const id of NON_TERM_GROUP_IDS) setSectionHiddenRaw(id, !shown.has(id))
     syncAll()
     // B3：术语过滤先于重布局——可见子集含哪些术语，决定收敛出的子集形状。
     // 「全部」还原全景基线（基线已收敛时往返零漂移，见 graph.inline.ts
     // restoreBaseLayout 注释），其余收拢可见子集；两者内部都已整图入框，
     // 故不再叠加 resetView（叠加会打断入框过渡）。
-    if (field === FIELD_ALL) {
+    if (all) {
       controller?.setTermFieldFilter(null)
       controller?.restoreBaseLayout()
     } else {
-      controller?.setTermFieldFilter(field)
+      controller?.setTermFieldFilter(activeFieldSet)
       controller?.relayoutVisible()
     }
     // 锚点被本次过滤隐掉时逐个剔除：非术语节点的情形已由 setSectionHiddenRaw
@@ -579,27 +620,60 @@ document.addEventListener("nav", async () => {
     // 上面两段（组隐藏剔除在 setSectionHiddenRaw 内、法域过滤剔除在此）都只改集合，
     // UI 一次性在此补做——syncAll() 已在前面调过，故这里显式再冲一次脏位
     flushSelectionUi()
-    notifyEmptyTermField(field)
-    // B4：收尾广播给左栏目录树，使其只显示该法域的分支（FIELD_ALL 即恢复全显）。
+    notifyEmptyTermField(activeFieldSet)
+    // B4：收尾广播给左栏目录树，使其只显示这些法域的分支（空集即恢复全显）。
     // 置于函数最末——图内状态（组显隐 / 术语过滤 / 布局 / 选中）全部落定后才对外
     // 宣告，目录侧收到时看到的必是终态；非法标签在上面的守卫处已 return，不会派发。
-    notifyFieldChange(field)
+    notifyFieldChange(activeFieldSet)
   }
 
   /**
-   * 法域标签广播（B4）。唯一派发点收敛在此函数，applyField 与 onReset 都经它，
+   * 法域标签广播（B4）。唯一派发点收敛在此函数，applyFields 与 onReset 都经它，
    * 避免两处各写一遍 CustomEvent 构造。接收方与门控见 util/graphInteraction.ts。
+   * 载荷是数组**快照**：activeFieldSet 是活体 Set，直接塞进 detail 会让订阅方
+   * 读到一个之后还会变的引用。
    */
-  function notifyFieldChange(field: string) {
-    const detail: GraphFieldDetail = { field }
+  function notifyFieldChange(fields: ReadonlySet<string>) {
+    const detail: GraphFieldDetail = { fields: Array.from(fields) }
     document.dispatchEvent(new CustomEvent(GRAPH_FIELD_EVENT, { detail }))
+  }
+
+  /**
+   * 标签点击的状态机（波J）：由**当前反解出的高亮集**推出下一个激活集。
+   *
+   * 取反解视图而非 activeFieldSet 作输入，是为守住「hiddenSections 是唯一事实源」——
+   * 用户在图例行做过组级微调后两者会分叉，此时以用户眼见的高亮为准才不会出现
+   * 「明明没有一枚亮着，点它却把它关掉了」的错觉。
+   *
+   *   点「全部」                        → 空集（复位）
+   *   全部态 / 自定义态点 X             → { X }（首点即单选，与多选上线前逐字一致）
+   *   非全部态点 Y                      → 加入或移出
+   *   移出后集合为空                    → 回全部
+   *   选满六枚                          → 塌缩为空集
+   *
+   * 塌缩不是可有可无的化简：选满六枚与「全部」在组显隐上同解，但在**术语层**上不同——
+   * 六枚并选会走 setTermFieldFilter(六法域)，把无法域归属的术语一并滤掉；
+   * 「全部」走 setTermFieldFilter(null) 才是真全景。故必须在此显式归一。
+   */
+  function nextFieldSet(field: string): Set<string> {
+    if (field === FIELD_ALL) return new Set()
+    const lit = activeFields()
+    if (lit.size === 0 || lit.has(FIELD_ALL)) return new Set([field])
+    const next = new Set(lit)
+    if (next.has(field)) {
+      next.delete(field)
+    } else {
+      next.add(field)
+    }
+    if (next.size === 0 || next.size === FIELD_TABS.length) return new Set()
+    return next
   }
 
   for (const btn of fieldTabs) {
     const onFieldClick = () => {
       const field = btn.dataset.field
       if (field === undefined) return
-      applyField(field)
+      applyFields(nextFieldSet(field))
     }
     btn.addEventListener("click", onFieldClick)
     window.addCleanup?.(() => btn.removeEventListener("click", onFieldClick))
@@ -664,7 +738,7 @@ document.addEventListener("nav", async () => {
   const tocTreeBox = explorer.querySelector<HTMLElement>(".ge-toc-tree")
 
   // 全部目录状态放挂载闭包内（不放模块级）：模块级变量跨 SPA 导航存活，
-  // 会把上一次挂载的树与 DOM 引用带到新页面上——activeFieldFilter 那条注释
+  // 会把上一次挂载的树与 DOM 引用带到新页面上——activeFieldSet 那条注释
   // 记的正是这类失配。钉住态是唯一需要跨导航保留的，走 localStorage 而非模块级变量。
   let tocTree: TocFieldNode[] | null = null
   let tocBuilding: Promise<void> | null = null
@@ -1215,10 +1289,10 @@ document.addEventListener("nav", async () => {
     // 组显隐没落定就重布局，收敛出的是错的子集形状。
     // 取舍说明：relayoutVisible 内含整图入框，会盖掉上面 applyTransform 恢复的
     // 缩放平移。法域态下的重建以「子集重新入框」为准——布局既已按子集重算，
-    // 守着旧相机反而对不上新形状；未过滤（FIELD_ALL）时本段不执行，
+    // 守着旧相机反而对不上新形状；未过滤（空集＝全部）时本段不执行，
     // J1 的「缩放平移跨重建守恒」原样成立。
-    if (activeFieldFilter !== FIELD_ALL) {
-      controller.setTermFieldFilter(activeFieldFilter)
+    if (activeFieldSet.size > 0) {
+      controller.setTermFieldFilter(activeFieldSet)
       controller.relayoutVisible()
     }
     // 重建后按 controller 实际术语层模式同步三态钮（传 termOverride 时不回落）
@@ -1748,12 +1822,10 @@ document.addEventListener("nav", async () => {
       // 过滤器），故直接给可操作提示，不做无谓的全量重建（约 700ms）。
       // 判据可靠：术语层 hidden 的情形已在上一段临时降为 dimmed 并重试过 focus，
       // 走到这里仍不可见且过滤器有效，成因只可能是该术语的出处未触及当前法域。
-      if (
-        simple.startsWith("9-") &&
-        activeFieldFilter !== FIELD_ALL &&
-        !controller.isNodeVisible(simple)
-      ) {
-        setStatus(`「${activeFieldFilter}」法域视图内无此术语，请切回「全部」标签后再定位`)
+      if (simple.startsWith("9-") && activeFieldSet.size > 0 && !controller.isNodeVisible(simple)) {
+        setStatus(
+          `当前法域筛选（${fieldListText(activeFieldSet)}）内无此术语，请切回「全部」标签后再定位`,
+        )
         return
       }
       // v12：目标节点所在域组被隐藏——focus 必然未命中且重建后仍不可见
@@ -1846,14 +1918,15 @@ document.addEventListener("nav", async () => {
     // C-4：重置扩展为「回到全部标签态」——恢复全部非术语组显示，图例项与扩展段控
     // 随 syncAll 一并回到全显。术语层不在此列：其模式由三态钮独管，重置不改动。
     for (const id of NON_TERM_GROUP_IDS) setSectionHiddenRaw(id, false)
-    // B2：一并解除图例行的法域过滤，15 项重新列全（与「全部」标签态一致）
-    activeFieldFilter = FIELD_ALL
+    // B2：一并解除图例行的法域过滤，15 项重新列全（与「全部」标签态一致）。
+    // 波J：集合就地清空——漏掉这一句即「图上全域可见、图例行却仍只列上次那几片法域」
+    activeFieldSet.clear()
     syncAll()
     // B4：重置＝回到「全部」标签态，左栏目录树的分支过滤须同步解除，
     // 否则会留下「图上全域可见、目录却仍只剩一支」的失配
-    notifyFieldChange(FIELD_ALL)
+    notifyFieldChange(activeFieldSet)
     if (controller !== null) {
-      // B3：重置 = 回到「全部」标签态，故与 applyField(FIELD_ALL) 同一套动作——
+      // B3：重置 = 回到「全部」标签态，故与 applyFields(空集) 同一套动作——
       // 解除术语法域过滤 + 还原首帧全景基线（内含整图入框，等价于原 resetView 的
       // 「zoomToFit + 清 focus 高亮」，另补上布局本身的还原）
       controller.setTermFieldFilter(null)

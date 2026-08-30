@@ -316,3 +316,22 @@ export const NON_TERM_GROUP_IDS: readonly string[] = SECTION_GROUPS.filter(
 export function groupsOfField(field: string): string[] {
   return SECTION_GROUPS.filter((g) => g.field === field).map((g) => g.id)
 }
+
+/**
+ * 多个法域标签 → 组号**并集**（阶段5.11 波J 标签多选化）。
+ * 传空集合得空集合，由调用方分流为「全部」——本函数只做并集，不作任何哨兵解释。
+ *
+ * 返回 Set 而非数组：唯一消费点（graphexplorer.inline.ts 的图例过滤与显隐运算）
+ * 全是成员查询；返回数组会让调用方各自再 new 一次，且并集本就需要去重
+ *（现有组表下六标签互不重叠，但去重是并集语义的一部分，不该依赖该巧合）。
+ *
+ * 与 groupsOfField 同一条纪律：组归属只能经组表比对得出，
+ * 不得从 slug 或组号的字面前缀推断。
+ */
+export function groupsOfFields(fields: Iterable<string>): Set<string> {
+  const out = new Set<string>()
+  for (const field of fields) {
+    for (const id of groupsOfField(field)) out.add(id)
+  }
+  return out
+}

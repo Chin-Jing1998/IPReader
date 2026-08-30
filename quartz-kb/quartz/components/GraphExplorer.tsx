@@ -76,8 +76,10 @@ const TERM_ITEM = SECTION_GROUPS.find((g) => g.tier === "term")!
 const EXT_BOOK_COUNT = EXT_ITEMS.reduce((n, g) => n + g.prefixes.length, 0)
 const EXT_SCALE_TEXT = `${EXT_ITEMS.length} 个扩展法域（${EXT_BOOK_COUNT} 部文献）`
 
-// 国家/标签层级导航行（C-4）：工具条首行，粗粒度导航，与其下的图例行分工——
-//   本行  「中国 → 六法域标签」两级：一次点击把非术语组切成「只看该法域」，随后 resetView；
+// 国家/标签层级导航行（C-4；阶段5.11 波J 多选化）：工具条首行，粗粒度导航，
+// 与其下的图例行分工——
+//   本行  「中国 → 六法域标签」两级：点击把非术语组切成「只看已激活的这些法域」，
+//         多枚可同选（再点一次取消），点「全部」或取空即回全域；
 //   图例行 组级微调：单组显隐、扩展段控三态（沿用 v17 行为，一字未改）。
 // 国家层本期只有中国一枚静态徽标，但仍以 .ge-country-list 容器 + data-country
 // 承载，将来接入他国法域时只需往该容器追加同形制节点，不必再动布局。
@@ -90,7 +92,7 @@ const FIELD_TAB_ITEMS: ReadonlyArray<{ field: string; label: string; title: stri
   ...FIELD_TABS.map((field) => ({
     field,
     label: field,
-    title: `只看「${field}」法域：显示 ${groupsOfField(field).length} 个域组，其余暂时隐藏`,
+    title: `筛选「${field}」法域（${groupsOfField(field).length} 个域组）：可与其他法域同选，再点一次取消`,
   })),
 ]
 

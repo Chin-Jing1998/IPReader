@@ -10,6 +10,7 @@ import {
   SECTION_GROUPS,
   groupOfSlug,
   groupsOfField,
+  groupsOfFields,
   isSlugInGroup,
 } from "./graphSections"
 
@@ -115,25 +116,52 @@ test("组表与 CSS 变量命名对齐：每个组号都有对应的 --graph-sec
 // ============================================================
 
 /**
- * 标签高亮反解——graphexplorer.inline.ts 内 activeField() 的**同构镜像**。
+ * 标签高亮反解——graphexplorer.inline.ts 内 activeFields() 的**同构镜像**
+ *（阶段5.11 波J：随标签多选化由返回单值改为返回**高亮集合**）。
  * 镜像而非直接引入：该函数是挂载闭包内的局部函数，无法从模块外调用；
  * 两处逻辑必须逐行对齐，改动其一须同步改另一处。
+ *
+ * 三态：空隐藏集 → { FIELD_ALL }；若干标签整组全显、其余整组全隐 → 那几枚；
+ * 有标签只显了一部分组 → 空集（自定义态）。波J 之前的「返回 null」即现在的空集。
  */
-function activeField(hidden: ReadonlySet<string>): string | null {
+function activeFields(hidden: ReadonlySet<string>): Set<string> {
   const hiddenCount = NON_TERM_GROUP_IDS.filter((id) => hidden.has(id)).length
-  if (hiddenCount === 0) return FIELD_ALL
+  if (hiddenCount === 0) return new Set([FIELD_ALL])
+  const lit = new Set<string>()
   for (const field of FIELD_TABS) {
-    const shown = groupsOfField(field)
-    if (hiddenCount !== NON_TERM_GROUP_IDS.length - shown.length) continue
-    if (shown.every((id) => !hidden.has(id))) return field
+    const groups = groupsOfField(field)
+    const shownCount = groups.filter((id) => !hidden.has(id)).length
+    if (shownCount === 0) continue
+    if (shownCount !== groups.length) return new Set()
+    lit.add(field)
   }
-  return null
+  return lit
 }
 
-/** applyField 的隐藏集运算镜像：hidden = 非术语全集 − groupsOfField(field) */
-function hiddenSetOfField(field: string): Set<string> {
-  const shown = new Set(field === FIELD_ALL ? NON_TERM_GROUP_IDS : groupsOfField(field))
+/**
+ * 单选态的反解便捷式：高亮恰一枚时返回该枚，否则（全部/自定义/多选）返回 null。
+ * 供波J 之前那批逐值断言原样沿用——它们描述的正是「恰一枚」这一子集。
+ */
+function activeFieldOf(hidden: ReadonlySet<string>): string | null {
+  const lit = activeFields(hidden)
+  if (lit.size !== 1) return null
+  const [only] = lit
+  return only === FIELD_ALL ? null : only
+}
+
+/**
+ * applyFields 的隐藏集运算镜像（波J 集合版）：
+ * hidden = 非术语全集 − 各标签组集的并集；传空集合即「全部」，得空隐藏集。
+ */
+function hiddenSetOfFields(fields: Iterable<string>): Set<string> {
+  const list = [...fields]
+  const shown = new Set(list.length === 0 ? NON_TERM_GROUP_IDS : groupsOfFields(list))
   return new Set(NON_TERM_GROUP_IDS.filter((id) => !shown.has(id)))
+}
+
+/** 单标签便捷式：FIELD_ALL 归一为空集合（波J 前的 hiddenSetOfField 逐值等价） */
+function hiddenSetOfField(field: string): Set<string> {
+  return hiddenSetOfFields(field === FIELD_ALL ? [] : [field])
 }
 
 test("FIELD_TABS：六标签、顺序即显示顺序、不含术语", () => {
@@ -200,30 +228,99 @@ test("标签补集：hidden = 非术语全集 − 该标签组集，size 互补"
 
 test("高亮反解三态：精确匹配 / 全部 / 自定义", () => {
   // ① 空集 → 全部
-  assert.equal(activeField(new Set()), FIELD_ALL)
+  assert.deepEqual([...activeFields(new Set())], [FIELD_ALL])
   // ② 恰为某标签的补集 → 该标签（六标签逐一往返自洽）
   for (const f of FIELD_TABS) {
-    assert.equal(activeField(hiddenSetOfField(f)), f, `${f} 的补集应反解回 ${f}`)
+    assert.equal(activeFieldOf(hiddenSetOfField(f)), f, `${f} 的补集应反解回 ${f}`)
   }
-  // ③ 自定义态：图例手动微调后不属任何标签补集 → 无高亮
-  assert.equal(activeField(new Set(["8"])), null, "仅隐藏商标一组 = 自定义态")
-  assert.equal(activeField(new Set(["1"])), null, "仅隐藏专利法一组 = 自定义态")
+  // ③ 自定义态：图例手动微调后不属任何标签组合的补集 → 无高亮
+  assert.equal(activeFields(new Set(["8"])).size, 0, "仅隐藏商标一组 = 自定义态（15 仍显）")
+  assert.equal(activeFields(new Set(["1"])).size, 0, "仅隐藏专利法一组 = 自定义态")
   assert.equal(
-    activeField(new Set(["11", "12", "13", "14", "15"])),
-    null,
-    "比「专利」补集少隐一组（8 商标）= 自定义态",
+    activeFields(new Set(["11", "12", "13", "14", "15"])).size,
+    0,
+    "比「专利」补集少隐一组（8 商标）= 自定义态（商标只显了一半）",
   )
   assert.equal(
-    activeField(new Set([...NON_TERM_GROUP_IDS])),
-    null,
+    activeFields(new Set([...NON_TERM_GROUP_IDS])).size,
+    0,
     "非术语组全隐（无任何法域可见）= 自定义态，不得误判为某标签",
   )
-  // ④ 扩展段控全隐（EXT 七组全隐）恰等于「专利」标签补集的超集但非补集本身：
-  //    EXT 全隐 = {10,8,15,13,12,11,14}，其中 10 属专利 ⇒ 不匹配「专利」，落自定义态
-  assert.equal(activeField(new Set(EXT_GROUP_IDS)), null, "扩展段控全隐 = 自定义态（10 亦被隐）")
+  // ④ 扩展段控全隐（EXT 七组全隐）：其中 10 属专利、8/15 属商标，
+  //    专利只显了 7/8 组 ⇒ 落自定义态，不得被多选反解误判为「主干七书那几片法域」
+  assert.equal(
+    activeFields(new Set(EXT_GROUP_IDS)).size,
+    0,
+    "扩展段控全隐 = 自定义态（专利组 10 亦被隐，专利只显一半）",
+  )
   // ⑤ 术语组混入隐藏集不影响反解（术语层由三态钮独管）
-  assert.equal(activeField(new Set(["9"])), FIELD_ALL, "术语组不计入标签判定")
-  assert.equal(activeField(new Set([...hiddenSetOfField("商标"), "9"])), "商标")
+  assert.deepEqual([...activeFields(new Set(["9"]))], [FIELD_ALL], "术语组不计入标签判定")
+  assert.equal(activeFieldOf(new Set([...hiddenSetOfField("商标"), "9"])), "商标")
+})
+
+// ============================================================
+// 标签多选（阶段5.11 波J）：并集补集运算 + 多枚同亮的反解 + 选满塌缩
+// ============================================================
+
+test("groupsOfFields：并集去重，空集合得空集合，非法标签被忽略", () => {
+  assert.deepEqual([...groupsOfFields([])], [])
+  // 单枚与 groupsOfField 逐值同解（顺序无关，比排序后的数组）
+  for (const f of FIELD_TABS) {
+    assert.deepEqual([...groupsOfFields([f])].sort(), [...groupsOfField(f)].sort(), `${f} 单枚`)
+  }
+  // 专利（8 组）+ 商标（2 组）= 10 组，main 与 ext 都非空的组合
+  assert.deepEqual([...groupsOfFields(["专利", "商标"])].sort(), [
+    "1",
+    "10",
+    "15",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+  ])
+  // 重复传入不改结果（并集去重）
+  assert.deepEqual([...groupsOfFields(["商标", "商标"])].sort(), ["15", "8"])
+  // 非法标签在组表内没有任何组，不产生任何贡献，也不报错
+  assert.deepEqual([...groupsOfFields(["外观设计"])], [])
+  assert.deepEqual([...groupsOfFields(["商标", "外观设计"])].sort(), ["15", "8"])
+  // 六枚全选 = 非术语全集（正是「选满即塌缩为全部」在数据层的依据）
+  assert.equal(groupsOfFields(FIELD_TABS).size, NON_TERM_GROUP_IDS.length)
+})
+
+test("多选补集：hidden = 非术语全集 − 组并集，且反解回同一组标签", () => {
+  // 专利 + 商标：可见 10 组，隐藏 4 组（著作权 13 / 竞争法 12 / 品种布图 11 / 综合程序 14）
+  const dual = hiddenSetOfFields(["专利", "商标"])
+  assert.deepEqual([...dual].sort(), ["11", "12", "13", "14"])
+  assert.deepEqual([...activeFields(dual)].sort(), ["专利", "商标"])
+
+  // 三枚同选同样往返自洽
+  const triple = hiddenSetOfFields(["著作权", "竞争法", "品种布图"])
+  assert.deepEqual([...triple].sort(), ["1", "10", "14", "15", "2", "3", "4", "5", "6", "7", "8"])
+  assert.deepEqual([...activeFields(triple)].sort(), ["品种布图", "竞争法", "著作权"])
+
+  // 任意两枚组合逐对往返：size 互补 + 反解回原组合
+  for (const a of FIELD_TABS) {
+    for (const b of FIELD_TABS) {
+      if (a === b) continue
+      const hidden = hiddenSetOfFields([a, b])
+      assert.equal(hidden.size + groupsOfFields([a, b]).size, NON_TERM_GROUP_IDS.length)
+      assert.equal(hidden.has("9"), false, "任何标签组合都不得把术语组写进隐藏集")
+      assert.deepEqual([...activeFields(hidden)].sort(), [a, b].sort(), `${a}+${b} 往返`)
+    }
+  }
+})
+
+test("选满六枚塌缩：隐藏集为空 ⇒ 反解为「全部」而非六枚同亮", () => {
+  const full = hiddenSetOfFields(FIELD_TABS)
+  assert.equal(full.size, 0, "六枚并选的补集为空，与「全部」在组显隐上同解")
+  // 反解只认 hiddenSections，故六枚并选与「全部」不可区分——正因如此，
+  // 交互层必须在 nextFieldSet 里把「选满六枚」显式塌缩为空集：
+  // 二者在组显隐上同解，但在术语层上不同（六枚并选会滤掉无法域归属的术语）。
+  assert.deepEqual([...activeFields(full)], [FIELD_ALL])
+  assert.deepEqual([...activeFields(hiddenSetOfFields([]))], [FIELD_ALL])
 })
 
 // ============================================================

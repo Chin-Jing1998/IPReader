@@ -17,7 +17,6 @@ import {
 import { ContentDetails } from "../../plugins/emitters/contentIndex"
 import { computeThumbGeometry, hasScrollableContent } from "../../util/scrollInteraction"
 import { GRAPH_SLUG } from "../../util/appPages"
-import { FIELD_ALL } from "../../util/graphSections"
 import { GRAPH_FIELD_EVENT, type GraphFieldDetail } from "../../util/graphInteraction"
 import {
   EXPLORER_ORDER_STORAGE_KEY,
@@ -638,8 +637,8 @@ function applyCustomOrder(trie: FileTrieNode, table: ExplorerOrderTable) {
 //      反转后目录点击恢复 SPA 直达文档——folderClickBehavior:'link' 下书名/章名
 //      本就是 `<a data-for>`，spa.inline.ts 的 window 级 click 委托自然接管跳转，
 //      与文档站行为一致，无需任何额外导航代码。
-//   ② 过滤（保留）：收 kb:graphfield（detail.field 为法域名或哨兵 FIELD_ALL）
-//      → 只显示该法域的 field 层分支，其余分支整支 hidden。
+//   ② 过滤（保留）：收 kb:graphfield（detail.fields 为激活法域名数组，空数组即「全部」）
+//      → 只显示这些法域的 field 层分支，其余分支整支 hidden。
 // 过滤事件契约（payload/方向/门控）登记在 util/graphInteraction.ts。
 //
 // 门控铁律：Explorer 是全站共享组件，以下函数一律先过 onGraphOverviewPage()。
@@ -667,13 +666,14 @@ function fieldOfSyntheticKey(folderPath: string): string | null {
 
 /**
  * 按法域收窄目录树：只动 field 层分支外层 `li` 的 `hidden` 属性。
- * FIELD_ALL（"*"）恢复全显。刻意不碰折叠态（currentExplorerState 与
+ * 空集合恢复全显（波J 起「全部」即空集，不再有哨兵 "*"）。
+ * 刻意不碰折叠态（currentExplorerState 与
  * localStorage 当前页生效键均不写——图谱页即 fileTree-graph，见 activeStorageKey）
  * ——过滤是**呈现**范围，与用户手动折叠的意图正交，切回「全部」后每个分支仍保持
  * 用户原本的展开/折叠状态。未被分组收编的顶层条目（0-图谱总览、9-关键词索引）
  * 不属任何 field 分支，恒显。
  */
-function applyFieldBranchFilter(explorer: HTMLElement, field: string) {
+function applyFieldBranchFilter(explorer: HTMLElement, fields: ReadonlySet<string>) {
   const containers = explorer.querySelectorAll<HTMLElement>(
     '.folder-container[data-synthetic="true"]',
   )
@@ -686,7 +686,8 @@ function applyFieldBranchFilter(explorer: HTMLElement, field: string) {
     if (li === null) {
       continue
     }
-    li.hidden = !(field === FIELD_ALL || branchField === field)
+    // 空集＝「全部」恒放行；非空则该分支的法域须在集合内（多选取并集）
+    li.hidden = !(fields.size === 0 || fields.has(branchField))
   }
 }
 
@@ -708,11 +709,14 @@ function bindGraphLinkage(explorer: HTMLElement) {
     if (!onGraphOverviewPage()) {
       return
     }
-    const detail = (ev as CustomEvent<GraphFieldDetail>).detail
-    if (typeof detail?.field !== "string") {
+    // 载荷守卫（波J 多选化）：Array.isArray 一次性挡掉 undefined、非数组，
+    // 以及波J 之前的单值载荷 `{ field }`——形状不符一律不动目录树，
+    // 而不是当成空集去把六支全放出来（那会把「筛选失效」伪装成「切回了全部」）。
+    const raw = (ev as CustomEvent<GraphFieldDetail>).detail?.fields
+    if (!Array.isArray(raw)) {
       return
     }
-    applyFieldBranchFilter(explorer, detail.field)
+    applyFieldBranchFilter(explorer, new Set(raw.filter((f): f is string => typeof f === "string")))
   }
   document.addEventListener(GRAPH_FIELD_EVENT, onFieldChange)
   window.addCleanup(() => document.removeEventListener(GRAPH_FIELD_EVENT, onFieldChange))

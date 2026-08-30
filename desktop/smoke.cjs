@@ -105,6 +105,18 @@
 // 祖先链条数不写死：由 a.active 沿 DOM 上溯收集 .folder-outer 得出。
 // 步 29 的图谱页「初始展开 ≥1000」原样不动——「一键收起绝不自动执行」仍是纪律。
 // 总超时仍为 660s：新增两次 loadURL 与三段点击等待，本机实测步 35 由约 8s 增至约 25s。
+// 阶段5.11 波J（法域标签多选化）扩写步 28/29/32/33、步数仍为 35：标签行由单选改多选，
+// hiddenSections 仍是唯一事实源、标签行是其反解视图，故各步的既有单选断言逐值不动，
+// 只在其后追加多选路径——
+//   28  J-①并选（两枚同亮、图例显组=组并集 10 枚、扩展段控与两条段分隔线都在场）、
+//       J-②toggle 取消回单选、J-③再取消即空集回「全部」、J-④依次点满六枚自动塌缩为「全部」；
+//   29-g 并选后左栏目录树两支可见四支 hidden（kb:graphfield 载荷本批由单值 {field}
+//       改为集合 {fields:[…]}，派发方与订阅方不同批改动即静默失联，本项是其护栏）；
+//   32-g 并选/toggle/空集三段各自画布与容器差 ≤1px 且重建计数增量为 0
+//       （标签行是 flex-wrap 容器，激活枚数变化改折行高度，正是就地 syncSize 的靶场）；
+//   33-e 并选后抽屉未置灰组 = 两法域组集的并集去重（置灰纯读 hiddenSections，
+//       并集写错会退化成单法域），33-f 的 rebuilds===0 原样成立。
+// 总超时仍为 660s：新增的全是同一页内的点击与同步取数，本机实测净增约 10s。
 const {
   app,
   BrowserWindow,
@@ -1457,8 +1469,89 @@ async function main() {
   );
   const legendAllOk =
     legendAfterAll.length === 14 && legendAfterAll.every((it) => it.hidden === false);
+
+  // ---- 扩断言（阶段5.11 波J 标签多选化）：并选 / toggle 取消 / 空集回全部 / 选满塌缩 ----
+  // 上面各条单选断言一字不动，本段自「全部」态接着往下点（上一次点击正是「全部」）。
+  // 探针一次读齐「七枚标签的 active + aria-pressed」与「14 枚图例钮的 hidden」，
+  // 另读扩展段控与两条段分隔线——「专利 + 商标」是 main 与 ext 两段都非空的组合，
+  // 正是段分隔线推导（syncLegendButtons 末两行）唯一会被走到的分支。
+  const FIELD_TAB_STATE = `(() => {
+     const tabs = Array.from(document.querySelectorAll('.ge-field-tab[data-field]'));
+     const legend = Array.from(document.querySelectorAll('.ge-legend-item[data-section]'));
+     const ctl = document.querySelector('.ge-legend-groupctl[data-section-group="ext"]');
+     const seps = Array.from(document.querySelectorAll('.ge-legend > .ge-legend-sep'));
+     return {
+       active: tabs.filter((t) => t.classList.contains('active')).map((t) => t.dataset.field),
+       pressed: tabs.filter((t) => t.getAttribute('aria-pressed') === 'true')
+         .map((t) => t.dataset.field),
+       shown: legend.filter((el) => !el.hidden).map((el) => el.dataset.section).sort(),
+       hiddenCount: legend.filter((el) => el.hidden).length,
+       ctlHidden: ctl ? ctl.hidden : null,
+       sepHidden: seps.map((s) => s.hidden),
+     };
+   })()`;
+  const clickTab = async (field, ms = 700) => {
+    await win.webContents.executeJavaScript(
+      `document.querySelector('.ge-field-tab[data-field=${JSON.stringify(field)}]').click()`,
+    );
+    await sleep(ms);
+    return win.webContents.executeJavaScript(FIELD_TAB_STATE);
+  };
+  const sameSet = (got, want) =>
+    Array.isArray(got) && [...got].sort().join(",") === [...want].sort().join(",");
+
+  // J-①：从「全部」点商标 → 再点专利 = 并选。两枚同亮、「全部」落灰；
+  //       图例显组 = 组并集 {1,2,3,4,5,6,7,10} ∪ {8,15} 共 10 枚，隐 4 枚（11/12/13/14）
+  await clickTab("商标");
+  const sDual = await clickTab("专利");
+  const DUAL_GROUPS = ["1", "2", "3", "4", "5", "6", "7", "10", "8", "15"];
+  const dualOk =
+    !!sDual &&
+    sameSet(sDual.active, ["商标", "专利"]) &&
+    sameSet(sDual.pressed, ["商标", "专利"]) &&
+    sameSet(sDual.shown, DUAL_GROUPS) &&
+    sDual.hiddenCount === 4 &&
+    // main 段（7 枚）与 ext 段（3 枚）都非空 ⇒ 段控在场、两条分隔线都不撤
+    sDual.ctlHidden === false &&
+    sDual.sepHidden.length === 2 &&
+    sDual.sepHidden.every((h) => h === false);
+  await shot(win, "图谱标签行-并选专利商标");
+
+  // J-②：再点商标 = toggle 取消，回落为单选专利（8 枚图例可见）
+  const sToggle = await clickTab("商标");
+  const toggleOk =
+    !!sToggle &&
+    sameSet(sToggle.active, ["专利"]) &&
+    sameSet(sToggle.pressed, ["专利"]) &&
+    sameSet(sToggle.shown, ["1", "2", "3", "4", "5", "6", "7", "10"]) &&
+    sToggle.hiddenCount === 6;
+
+  // J-③：再点专利 = 集合清空 → 回「全部」（14 枚全显、「全部」独亮、六枚落灰）
+  const sEmpty = await clickTab("专利");
+  const emptyOk =
+    !!sEmpty &&
+    sameSet(sEmpty.active, ["*"]) &&
+    sameSet(sEmpty.pressed, ["*"]) &&
+    sEmpty.shown.length === 14 &&
+    sEmpty.hiddenCount === 0;
+
+  // J-④：选满六枚自动塌缩为空集——依次点满六法域后，高亮回到「全部」、六枚落灰、
+  //       14 枚图例全显。塌缩是刻意归一：六枚并选与「全部」在组显隐上同解，
+  //       但术语层不同（六枚并选会滤掉无法域归属的术语），故必须收敛到「全部」那条路径。
+  let sFull = null;
+  for (const f of ["专利", "商标", "著作权", "竞争法", "品种布图", "综合程序"]) {
+    sFull = await clickTab(f, 500);
+  }
+  const fullCollapseOk =
+    !!sFull &&
+    sameSet(sFull.active, ["*"]) &&
+    sameSet(sFull.pressed, ["*"]) &&
+    sFull.shown.length === 14 &&
+    sFull.hiddenCount === 0;
+  await shot(win, "图谱标签行-选满塌缩");
+
   record(
-    "图谱标签行（.ge-fieldnav + 七枚标签 + 初始「全部」/中国高亮 + 点「商标」后高亮转移 + 图例行随标签收窄）",
+    "图谱标签行（.ge-fieldnav + 七枚标签 + 初始「全部」/中国高亮 + 点「商标」后高亮转移 + 图例行随标签收窄 + 多选：并选/toggle/空集回全部/选满塌缩）",
     fieldNavReady &&
       fieldNavProbe.hasNav &&
       fieldNavProbe.tabCount === 7 &&
@@ -1469,13 +1562,24 @@ async function main() {
       fieldTabAfter.allActive === false &&
       fieldTabAfter.allPressed === "false" &&
       legendTmOk &&
-      legendAllOk,
+      legendAllOk &&
+      dualOk &&
+      toggleOk &&
+      emptyOk &&
+      fullCollapseOk,
     `标签行在场=${fieldNavProbe.hasNav}, 标签数=${fieldNavProbe.tabCount}（须 7：${fieldNavProbe.tabFields.join(" / ")}）, ` +
       `初始「全部」高亮=${fieldNavProbe.allActive}, 中国徽标高亮=${fieldNavProbe.cnActive}；` +
       `点「商标」后：商标高亮=${fieldTabAfter.tmActive}（aria-pressed=${fieldTabAfter.tmPressed}）, ` +
       `「全部」已落灰=${!fieldTabAfter.allActive}（aria-pressed=${fieldTabAfter.allPressed}）；` +
       `图例行分布：点「商标」后=${JSON.stringify(legendAfterTm)}（组8/15可见、其余隐→${legendTmOk}）, ` +
-      `点回「全部」后 14 枚全可见→${legendAllOk}`,
+      `点回「全部」后 14 枚全可见→${legendAllOk}; ` +
+      `J-① 并选商标+专利：高亮=${sDual ? JSON.stringify(sDual.active) : "-"}（须两枚同亮、无「*」）, ` +
+      `aria-pressed=${sDual ? JSON.stringify(sDual.pressed) : "-"}, 图例显组=${sDual ? JSON.stringify(sDual.shown) : "-"}` +
+      `（须并集 10 枚）, 隐 ${sDual ? sDual.hiddenCount : "-"} 枚（须 4）, 扩展段控 hidden=${sDual ? sDual.ctlHidden : "-"}（须 false）, ` +
+      `段分隔线 hidden=${sDual ? JSON.stringify(sDual.sepHidden) : "-"}（须 [false,false]）→${dualOk}; ` +
+      `J-② toggle 取消商标：高亮=${sToggle ? JSON.stringify(sToggle.active) : "-"}（须只剩专利）, 图例显 ${sToggle ? sToggle.shown.length : "-"} 枚（须 8）→${toggleOk}; ` +
+      `J-③ 再取消专利=空集：高亮=${sEmpty ? JSON.stringify(sEmpty.active) : "-"}（须只剩「*」）, 图例显 ${sEmpty ? sEmpty.shown.length : "-"} 枚（须 14）→${emptyOk}; ` +
+      `J-④ 依次点满六枚后塌缩：高亮=${sFull ? JSON.stringify(sFull.active) : "-"}（须只剩「*」、六枚落灰）, 图例显 ${sFull ? sFull.shown.length : "-"} 枚（须 14）→${fullCollapseOk}`,
   );
   await shot(win, "图谱标签行");
 
@@ -1758,6 +1862,39 @@ async function main() {
         b.hidden === wantHidden && (wantHidden ? b.display === "none" : b.display !== "none")
       );
     });
+  // 波J 多选：接着点「专利」= 并选 → 目录树两支可见、四支 hidden。
+  // 载荷本批由单值 `{field}` 改为集合 `{fields:[…]}`，订阅方的 Array.isArray 守卫
+  // 一旦与派发方不同批改动即静默失联（detail.fields 读出 undefined 直接 return，
+  // 目录树停在上一次的过滤结果上、既不报错也不变红），本项正是该契约的机器护栏。
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-field-tab[data-field="专利"]').click()`,
+  );
+  await sleep(800);
+  const branchAfterDual = await win.webContents.executeJavaScript(
+    `${JSON.stringify(FIELD_ROWS)}.map((f) => {
+       const c = document.querySelector(
+         '.folder-container[data-synthetic="true"][data-folderpath="synthetic:CN/' + f + '"]',
+       );
+       const li = c ? c.closest('li') : null;
+       return {
+         field: f,
+         found: !!li,
+         hidden: li ? li.hidden : null,
+         display: li ? getComputedStyle(li).display : null,
+       };
+     })`,
+  );
+  const DUAL_FIELDS = ["商标", "专利"];
+  const branchDualOk =
+    branchAfterDual.length === 6 &&
+    branchAfterDual.filter((b) => b.hidden === false).length === 2 &&
+    branchAfterDual.every((b) => {
+      if (!b.found) return false;
+      const wantHidden = !DUAL_FIELDS.includes(b.field);
+      return (
+        b.hidden === wantHidden && (wantHidden ? b.display === "none" : b.display !== "none")
+      );
+    });
   await win.webContents.executeJavaScript(`document.querySelector('.ge-reset').click()`);
   await sleep(800);
   const branchAfterReset = await win.webContents.executeJavaScript(
@@ -1843,6 +1980,7 @@ async function main() {
       graphReady2 &&
       statusAutoOk &&
       branchTmOk &&
+      branchDualOk &&
       branchResetOk &&
       homeOk &&
       reuseToggleOk,
@@ -1853,7 +1991,7 @@ async function main() {
       `e 术语钮：点「显示」后=${termShown}（须 shown，哨兵②）, 复原后=${termRestored}, 页内交互重建计数=${termRenderCalls}（恒 0）; ` +
       `f 隐藏书直达：落地 path=${afterBookNav.path}, title="${afterBookNav.title}", kb:graphlocate=${afterBookNav.locateCount} 次; ` +
       `状态条自动消失：回车后="${missStatus}" → 4.5s 后="${statusCleared}"（须空）; ` +
-      `g 过滤：点「商标」后=${JSON.stringify(branchAfterTm)}；重置后六支 hidden=${JSON.stringify(branchAfterReset.map((b) => b.hidden))}；` +
+      `g 过滤：点「商标」后=${JSON.stringify(branchAfterTm)}；并选「+专利」后可见支=${JSON.stringify(branchAfterDual.filter((b) => b.hidden === false).map((b) => b.field))}（须商标+专利两支）→${branchDualOk}；重置后六支 hidden=${JSON.stringify(branchAfterReset.map((b) => b.hidden))}；` +
       `h 首页抽查：跳转后 path=${homeAfter.path}, kb:graphlocate=${homeAfter.locateCount} 次, li[hidden]=${homeAfter.hiddenLi}; ` +
       `i SPA 落地后折叠钮：目标在场=${reuseToggle.found}, open ${reuseToggle.before}→${reuseToggle.mid}→${reuseToggle.after}（须翻转后复原）`,
   );
@@ -2278,6 +2416,42 @@ async function main() {
       dx32 !== null &&
       dx32 <= 0.5);
 
+  // g. 多选三段（阶段5.11 波J）：并选 → toggle 取消 → 空集回全部，三段各自
+  //    ① 画布与容器仍差 ≤1px、② 重建计数增量为 0。
+  //    标签行是 flex-wrap 容器，激活枚数变化会改图例行的收窄结果、进而改工具条折行数
+  //    与画布容器高度——这正是就地 syncSize 的靶场，多选把「一次变一档」变成
+  //    「连点连变」，故三段逐段量而非只量末态。
+  //    本段起止都停在「法域=全部 + 右栏显现」，与 f 段的前置一致，不改步间遗留状态。
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-field-tab[data-field="专利"]').click()`,
+  );
+  await sleep(600);
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-field-tab[data-field="商标"]').click()`,
+  );
+  await sleep(600);
+  const m32g1 = await win.webContents.executeJavaScript(MEASURE_CANVAS);
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-field-tab[data-field="商标"]').click()`,
+  );
+  await sleep(600);
+  const m32g2 = await win.webContents.executeJavaScript(MEASURE_CANVAS);
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-field-tab[data-field="专利"]').click()`,
+  );
+  await sleep(600);
+  const m32g3 = await win.webContents.executeJavaScript(MEASURE_CANVAS);
+  const g32Marks = [m32d, m32g1, m32g2, m32g3];
+  const g32Calls = g32Marks.map((m) => (m ? m.calls : null));
+  const g32Ok =
+    (!wide32 || [m32g1, m32g2, m32g3].every((m) => fitsBox(m))) &&
+    g32Calls.every((c) => typeof c === "number") &&
+    g32Calls[1] - g32Calls[0] === 0 &&
+    g32Calls[2] - g32Calls[1] === 0 &&
+    g32Calls[3] - g32Calls[2] === 0 &&
+    [m32g1, m32g2, m32g3].every((m) => !!m && m.canvases === 1);
+  await shot(win, "画布尺寸同步-法域多选");
+
   // f. 竞态存活（阶段5.10 波A A.2）：50ms 间隔连发「开右栏→点商标→点全部→关右栏」两轮，
   //    末尾补一次 themechange（既制造一轮真重建以让哨兵捕获 controller，又把外部重建
   //    与显隐/过滤操作叠在一起压并发互斥）。2s 后三条判据必须同时成立：
@@ -2332,7 +2506,7 @@ async function main() {
     fitsBox(m32f);
 
   record(
-    "图谱总览画布尺寸同步（就地 resize：四态画布与容器差 ≤1px ＋ 全程零重建 ＋ 画布恒 1 张 ＋ 右栏显现相机守恒 ＋ 连发操作后竞态存活）",
+    "图谱总览画布尺寸同步（就地 resize：四态画布与容器差 ≤1px ＋ 全程零重建 ＋ 画布恒 1 张 ＋ 右栏显现相机守恒 ＋ 法域多选三段同步 ＋ 连发操作后竞态存活）",
     graphReady32 &&
       a32Ok &&
       b32Ok &&
@@ -2341,6 +2515,7 @@ async function main() {
       zero32 &&
       single32 &&
       e32Ok &&
+      g32Ok &&
       f32Ok,
     `视口宽=${m32a ? m32a.viewportW : "-"}px（${wide32 ? "≥1200，b/c/d/e 全断言" : "<1200，窄屏纵向堆叠，b/c/d/e 不适用已跳过"}）; ` +
       `a 基线：${fmtBox(m32a)}; ` +
@@ -2350,6 +2525,8 @@ async function main() {
       `零重建：三段重建计数 ${calls32.join("→")}（增量须全 0）, 画布张数 ${[m32a, m32b, m32c, m32d].map((m) => (m ? m.canvases : "-")).join("/")}（须全 1）; ` +
       `e 相机守恒：ΔW=${dW32}, k ${m32c && m32c.zoom ? m32c.zoom.k : "-"}→${m32d && m32d.zoom ? m32d.zoom.k : "-"}（须逐位相等）, ` +
       `x ${m32c && m32c.zoom ? m32c.zoom.x.toFixed(4) : "-"}→${m32d && m32d.zoom ? m32d.zoom.x.toFixed(4) : "-"}，期望 ${expX32 === null ? "-" : expX32.toFixed(4)}，|Δ|=${dx32 === null ? "-" : dx32.toFixed(4)}px（须 ≤0.5）; ` +
+      `g 多选三段：并选后 ${fmtBox(m32g1)}；toggle 取消后 ${fmtBox(m32g2)}；空集回全部后 ${fmtBox(m32g3)}；` +
+      `重建计数 ${g32Calls.join("→")}（三段增量须全 0）→${g32Ok}; ` +
       `f 竞态存活：controller 非空=${s32f ? s32f.hasCtl : "-"}, 术语层=${s32f ? s32f.term : "-"}（须 hidden/dimmed/shown）, ` +
       `画布张数=${s32f ? s32f.canvases : "-"}（须 1）, 连发后 ${fmtBox(m32f)}, panel.hidden=${s32f ? s32f.panelHidden : "-"}`,
   );
@@ -2582,16 +2759,31 @@ async function main() {
   await sleep(2000);
   const s33e1 = await win.webContents.executeJavaScript(TOC_STATS);
   await shot(win, "图谱目录抽屉-置灰联动");
+  // 波J 多选：接着点「专利」= 并选 → 未置灰组应为两法域组集的**并集去重**。
+  // 置灰是 syncTocDimmed 纯读 hiddenSections 得出的，本项因此同时验证
+  // 「多选下 hiddenSections 仍是唯一事实源」——若并集写错（例如后点的法域覆盖前一个），
+  // litGroups 会退化成单法域的两三个组。
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-field-tab[data-field="专利"]').click()`,
+  );
+  await sleep(2000);
+  const s33e1b = await win.webContents.executeJavaScript(TOC_STATS);
+  await shot(win, "图谱目录抽屉-并选置灰");
   await win.webContents.executeJavaScript(
     `document.querySelector('.ge-field-tab[data-field="*"]').click()`,
   );
   await sleep(2000);
   const s33e2 = await win.webContents.executeJavaScript(TOC_STATS);
   // 商标法域 = 组 8（商标）+ 组 15（商标审查指南）；其余组的行须全部置灰
+  // 并选「商标 + 专利」= 上述两组 ∪ 专利八组（1–7 与 10），字典序即下方期望值
+  const DUAL_LIT_GROUPS = ["1", "10", "15", "2", "3", "4", "5", "6", "7", "8"];
   const e33Ok =
     !!s33e1 &&
     s33e1.litGroups.join(",") === ["8", "15"].sort().join(",") &&
     s33e1.dimmed > 0 &&
+    !!s33e1b &&
+    s33e1b.litGroups.join(",") === DUAL_LIT_GROUPS.join(",") &&
+    s33e1b.dimmed > 0 &&
     !!s33e2 &&
     s33e2.dimmed === 0;
 
@@ -2900,7 +3092,9 @@ async function main() {
       `c 点行定位：c1「${c33a.title}」（期望「${tocTitles.guide}」）→drawer.hidden=${c33a.drawerHidden}（须 false——波C-c 起悬停模式点行不收起）, 重建计数=${c33a.calls}（须 0）; ` +
       `c2「${c33b.title}」（期望「${tocTitles.law}」）常开锁开→drawer.hidden=${c33b.drawerHidden}（须 false）, 重建计数=${c33b.calls}（须 0）; ` +
       `d 展开 1-专利法：built=${d33 ? d33.built : "-"}, 章行=${d33 ? d33.rows : "-"}（索引现算=${chapterExpected}）; ` +
-      `e 置灰：点「商标」后未置灰组=${s33e1 ? JSON.stringify(s33e1.litGroups) : "-"}（须 ["15","8"]）、置灰行=${s33e1 ? s33e1.dimmed : "-"}；回「全部」后置灰行=${s33e2 ? s33e2.dimmed : "-"}（须 0）; ` +
+      `e 置灰：点「商标」后未置灰组=${s33e1 ? JSON.stringify(s33e1.litGroups) : "-"}（须 ["15","8"]）、置灰行=${s33e1 ? s33e1.dimmed : "-"}；` +
+      `并选「+专利」后未置灰组=${s33e1b ? JSON.stringify(s33e1b.litGroups) : "-"}（须并集去重 ${JSON.stringify(DUAL_LIT_GROUPS)}）、置灰行=${s33e1b ? s33e1b.dimmed : "-"}（须 >0）；` +
+      `回「全部」后置灰行=${s33e2 ? s33e2.dimmed : "-"}（须 0）; ` +
       `f 存活：两次法域切换触发重建 ${rebuilds} 次（须 0——就地 resize 零重建），drawer.hidden=${s33e2 ? s33e2.drawerHidden : "-"}, 书行=${s33e2 ? s33e2.books : "-"}（须 83）; ` +
       `g 尺寸中立：开 ${g33Open1 ? g33Open1.w + "×" + g33Open1.h : "-"} → 关 ${g33Closed ? g33Closed.w + "×" + g33Closed.h : "-"} → 开 ${g33Open2 ? g33Open2.w + "×" + g33Open2.h : "-"}（须逐像素等）; ` +
       `j 多选：勾 ${JSON.stringify(jSlugs)} → 锚点在集内=${j33Union ? JSON.stringify(j33Union.anchorsIn) : "-"}（须全 true）, ` +

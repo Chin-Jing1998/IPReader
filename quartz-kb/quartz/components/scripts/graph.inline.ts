@@ -54,7 +54,7 @@ import {
   shouldShowLabelDuringSelection,
 } from "../../util/graphInteraction"
 import { D3Config, TermLayerMode } from "../Graph"
-import { BOOK_COLORS, FIELD_ALL, SECTION_GROUPS, groupOfSlug } from "../../util/graphSections"
+import { BOOK_COLORS, SECTION_GROUPS, groupOfSlug } from "../../util/graphSections"
 
 type NodeData = {
   id: SimpleSlug
@@ -155,6 +155,23 @@ const SECTION_COLORS_FALLBACK: Record<string, string> = {
 /** 术语层节点判定：slug 顶层目录为「9-关键词索引」（以 9- 开头） */
 function isTermSlug(id: string): boolean {
   return id.startsWith("9-")
+}
+
+/**
+ * 两个法域过滤器是否**等值**（阶段5.11 波J）：null 只与 null 相等，
+ * 非 null 则比 size 再逐成员——顺序无关，因两侧都是 Set。
+ *
+ * 提出成独立函数而非内联，是要让「按值比对」这条纪律有个能被搜到的落点：
+ * setTermFieldFilter 的早退判据一旦退回 `===`，Set 的引用语义会让它在
+ * 「恒假（每次全量扫描）」与「恒真（过滤失效）」之间二选一，两者都不报错。
+ */
+function sameFieldFilter(a: ReadonlySet<string> | null, b: ReadonlySet<string> | null): boolean {
+  if (a === null || b === null) return a === b
+  if (a.size !== b.size) return false
+  for (const f of a) {
+    if (!b.has(f)) return false
+  }
+  return true
 }
 
 /**
@@ -646,13 +663,17 @@ export interface GraphController {
   /** 当前隐藏的域组号集合副本 */
   getHiddenSections(): Set<string>
   /**
-   * 术语层法域过滤（需求6）：只保留出处落在该法域的术语节点，其余术语就地隐藏。
-   * 传 null 或 FIELD_ALL 即取消过滤。就地切换 Sprite 可见性，**不重建实例**；
+   * 术语层法域过滤（需求6；阶段5.11 波J 由单值改**集合**）：只保留出处触及
+   * 集合内**任一**法域的术语节点（并集语义），其余术语就地隐藏。
+   * 传 null 或空集合即取消过滤。就地切换 Sprite 可见性，**不重建实例**；
    * 与 setSectionHidden 正交（术语组永不进 hiddenSections）。
    */
-  setTermFieldFilter(field: string | null): void
-  /** 该法域下的术语节点数（供编排层判空域提示）；术语层 hidden 时数据集无术语，恒 0 */
-  getTermFieldCount(field: string): number
+  setTermFieldFilter(fields: ReadonlySet<string> | null): void
+  /**
+   * 这些法域下的术语节点数（供编排层判空域提示），跨域术语按**并集去重**只计一次；
+   * 传 null 或空集合得「有法域归属的术语」总数。术语层 hidden 时数据集无术语，恒 0。
+   */
+  getTermFieldCount(fields: ReadonlySet<string> | null): number
   /** 节点当前是否可见（在本实例数据集内 且 未被域隐藏/术语法域过滤掉） */
   isNodeVisible(nodeId: SimpleSlug): boolean
   /** 可见子集就地重布局（需求4）：子集内力导收敛后整图入框；子集=全集或空集时等价 restoreBaseLayout */
@@ -702,10 +723,10 @@ type GraphInstance = {
   getTermMode(): TermLayerMode
   /** 就地切换某域组节点与相关边可见性（不重建、不改变力导布局） */
   setSectionHidden(groupId: string, hidden: boolean): void
-  /** 术语层法域过滤（需求6）：null / FIELD_ALL 取消过滤；就地切换，不重建 */
-  setTermFieldFilter(field: string | null): void
-  /** 该法域下的术语节点数（数据集内） */
-  getTermFieldCount(field: string): number
+  /** 术语层法域过滤（需求6）：null / 空集合取消过滤；集合内取并集；就地切换，不重建 */
+  setTermFieldFilter(fields: ReadonlySet<string> | null): void
+  /** 这些法域下的术语节点数（数据集内，跨域术语按并集去重只计一次） */
+  getTermFieldCount(fields: ReadonlySet<string> | null): number
   /** 节点当前是否可见（在数据集内 且 未被域隐藏/术语法域过滤掉） */
   isNodeVisible(nodeId: SimpleSlug): boolean
   /** 可见子集就地重布局（需求4） */
@@ -1592,12 +1613,31 @@ async function createGraphInstance(
   // ---------- 术语层法域过滤（阶段5.3 需求6）----------
   // 表本身（termFields）在上方组装分支内构建，本区块只留过滤器状态与两个谓词。
 
-  /** 当前法域过滤器：null = 不过滤（FIELD_ALL 在入口即归一为 null） */
-  let termFieldFilter: string | null = null
+  /**
+   * 当前法域过滤器：null = 不过滤（null 与空集合在入口即归一为 null）。
+   * 波J 起是**集合**（多选），且恒为入口处拷贝的私有副本——绝不持有调用方的
+   * 活体 Set，理由见 setTermFieldFilter 的早退注释。
+   */
+  let termFieldFilter: ReadonlySet<string> | null = null
 
-  /** 术语节点因法域过滤而隐藏：过滤器有效 且 是术语 且 出处未触及该法域 */
-  const isTermFieldHidden = (id: string): boolean =>
-    termFieldFilter !== null && isTermSlug(id) && !termFields.get(id)?.has(termFieldFilter)
+  /**
+   * 术语节点因法域过滤而隐藏：过滤器有效 且 是术语 且 出处**一个都没触及**
+   * 过滤集合内的法域（并集语义——命中任一法域即放行）。
+   * 无出处记录（termFields 无键）者恒隐，与波J 之前的 `?.has()` 返回 undefined 逐值同解。
+   *
+   * 遍历术语自身的法域集而非过滤集：前者实测 1–2 个元素，后者最多 6 个，
+   * 且两侧都是 Set，命中即短路。
+   */
+  const isTermFieldHidden = (id: string): boolean => {
+    const filter = termFieldFilter
+    if (filter === null || !isTermSlug(id)) return false
+    const owned = termFields.get(id)
+    if (owned === undefined) return true
+    for (const f of owned) {
+      if (filter.has(f)) return false
+    }
+    return true
+  }
 
   /**
    * 统一可见性谓词（需求4/6）：域组显隐与术语法域过滤两层的合取。
@@ -1782,9 +1822,16 @@ async function createGraphInstance(
    * 切换术语法域过滤（就地，不重建实例——重建代价约 700ms，法域切换绝不走这条路）。
    * dimmed / shown 两态下生效；hidden 态数据集本就无术语节点，谓词自然空转。
    */
-  function setTermFieldFilter(field: string | null) {
-    const next = field === null || field === FIELD_ALL ? null : field
-    if (next === termFieldFilter) return
+  function setTermFieldFilter(fields: ReadonlySet<string> | null) {
+    // 入口拷贝一份私有副本：调用方（graphexplorer.inline.ts 的 activeFieldSet）
+    // 持有的是**跨 SPA 存活的活体 Set**，直接存引用则它下次 clear/add 会绕过本函数
+    // 静默改掉过滤器，且下一次真正的 setTermFieldFilter 会被下面的早退当成「没变」吞掉。
+    const next = fields === null || fields.size === 0 ? null : new Set(fields)
+    // 早退必须**按值比对**，不得写 `next === termFieldFilter`：
+    // ① 每次都新建 Set，引用比较恒假 ⇒ 早退形同虚设，法域没变也要全量扫一遍节点；
+    // ② 若上游改为复用同一个 Set 引用，引用比较又恒真 ⇒ 内容变了也不刷新，过滤失效。
+    // 两个方向都是静默缺陷（不报错、不变红），故判据只认内容。
+    if (sameFieldFilter(next, termFieldFilter)) return
     termFieldFilter = next
     for (const n of nodeRenderData) {
       if (!isTermSlug(n.simulationData.id)) continue
@@ -1801,12 +1848,25 @@ async function createGraphInstance(
     markDirty()
   }
 
-  /** 该法域下的术语节点数（本实例数据集内）；传 FIELD_ALL 得「有法域归属的术语」总数 */
-  function getTermFieldCount(field: string): number {
-    if (field === FIELD_ALL) return termFields.size
+  /**
+   * 这些法域下的术语节点数（本实例数据集内）；传 null 或空集合得
+   * 「有法域归属的术语」总数。
+   *
+   * ⚠️ 并集**去重**，不得逐 field 相加：termFields 的值是 Set，同一条术语的出处
+   * 可以同时落在两个法域，逐 field 相加会把它们各计一次，使「该法域组合下有多少
+   * 术语」虚高，进而让空域提示的判据失真。本轮实测（术语层 shown、全量图）：
+   * 专利 891、商标 694，两者并集 1525 而非 1585——差的 60 正是跨两域的术语。
+   */
+  function getTermFieldCount(fields: ReadonlySet<string> | null): number {
+    if (fields === null || fields.size === 0) return termFields.size
     let n = 0
-    for (const fields of termFields.values()) {
-      if (fields.has(field)) n++
+    for (const owned of termFields.values()) {
+      for (const f of owned) {
+        if (fields.has(f)) {
+          n++
+          break
+        }
+      }
     }
     return n
   }
@@ -3483,11 +3543,15 @@ async function renderGraph(
   // 术语法域过滤态（阶段5.3 需求6）：controller 级持有，术语层 hidden↔其它的重建
   // 后重放。重放必须**排在** hiddenSections 与选中态恢复之后——可见子集由两层过滤
   // 合取而成，域显隐没落定就 relayout，收敛出的是错的子集形状。
-  // null = 不过滤（FIELD_ALL 在入口归一）
-  const fieldBox: { field: string | null } = { field: null }
+  // null = 不过滤（null 与空集合在入口归一）
+  // ⚠️ 阶段5.11 波J：承载体由单值 field 改为**法域集合** fields，且存的是入口拷贝的
+  // 私有副本。这里正是术语层 hidden↔其它那条**内部重建**路径的法域过滤承载体——
+  // 漏改即「多选后切一次术语层，法域筛选塌回单域」的静默降级，与上方 selectedBox
+  // 同一形状的坑：重建在 controller 内部完成，编排层的重放代码一行都跑不到。
+  const fieldBox: { fields: ReadonlySet<string> | null } = { fields: null }
   const applyFieldTo = (inst: GraphInstance) => {
-    if (fieldBox.field === null) return
-    inst.setTermFieldFilter(fieldBox.field)
+    if (fieldBox.fields === null) return
+    inst.setTermFieldFilter(fieldBox.fields)
     // 重建后节点回到新实例的首帧全景布局，须重跑一次子集收拢才与重建前同形
     inst.relayoutVisible()
   }
@@ -3513,12 +3577,16 @@ async function renderGraph(
       instance.setSectionHidden(groupId, hidden)
     },
     getHiddenSections: () => new Set(hiddenSections),
-    setTermFieldFilter: (field: string | null) => {
+    setTermFieldFilter: (fields: ReadonlySet<string> | null) => {
       if (destroyed) return
-      fieldBox.field = field === null || field === FIELD_ALL ? null : field
-      instance.setTermFieldFilter(field)
+      // 归一 + 拷贝一次，承载体与实例拿到的是同一份私有副本：调用方持有的
+      // activeFieldSet 跨 SPA 存活且会被就地 clear/add，存引用即埋下静默漂移
+      const next = fields === null || fields.size === 0 ? null : new Set(fields)
+      fieldBox.fields = next
+      instance.setTermFieldFilter(next)
     },
-    getTermFieldCount: (field: string) => (destroyed ? 0 : instance.getTermFieldCount(field)),
+    getTermFieldCount: (fields: ReadonlySet<string> | null) =>
+      destroyed ? 0 : instance.getTermFieldCount(fields),
     isNodeVisible: (nodeId: SimpleSlug) => !destroyed && instance.isNodeVisible(nodeId),
     relayoutVisible: () => {
       if (!destroyed) instance.relayoutVisible()

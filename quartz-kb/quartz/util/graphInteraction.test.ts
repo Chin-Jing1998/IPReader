@@ -2,6 +2,7 @@ import assert from "node:assert/strict"
 import test from "node:test"
 import type { SimpleSlug } from "./path"
 import {
+  GRAPH_FIELD_EVENT,
   dragAlphaTarget,
   dragVelocityDecay,
   isGraphBackgroundClick,
@@ -10,6 +11,7 @@ import {
   selectedLinkStroke,
   shouldSettleOnDragEnd,
   shouldShowLabelDuringSelection,
+  type GraphFieldDetail,
 } from "./graphInteraction"
 
 const slug = (value: string) => value as SimpleSlug
@@ -144,4 +146,39 @@ test("松手停机阈值含 1.5 倍余量：略高于 alphaMin 仍判为已收�
   assert.equal(shouldSettleOnDragEnd(false, 2 * alphaMin, alphaMin), false)
   // 余量放宽只作用于局部图，全量图恒不提前停机（红线不受本次加固影响）
   assert.equal(shouldSettleOnDragEnd(true, 1.2 * alphaMin, alphaMin), false)
+})
+
+// ============================================================
+// kb:graphfield 载荷形状（阶段5.11 波J 多选化）
+// ============================================================
+// 该事件的 detail 是**跨 bundle 契约**：派发方在 graphexplorer.inline.ts、
+// 订阅方在 explorer.inline.ts，两个独立打包闭包之间只靠本模块的类型对齐。
+// 形状一旦漂移（例如仍按单值 `{ field }` 派发、按多值 `{ fields }` 订阅）是
+// 静默失联——detail.fields 读出 undefined，目录侧直接 return，既不报错也不过滤。
+// 故此处把「事件名 + 载荷形状 + 空数组即全部」三项钉成机器可核的断言。
+test("kb:graphfield 载荷：{ fields: string[] }，空数组即「全部」", () => {
+  assert.equal(GRAPH_FIELD_EVENT, "kb:graphfield")
+
+  // 「全部」态：空数组。订阅方的判据是 fields.size === 0，不再有哨兵 "*"
+  const all: GraphFieldDetail = { fields: [] }
+  assert.equal(Array.isArray(all.fields), true)
+  assert.equal(all.fields.length, 0)
+
+  // 单选与多选是同一种形状，长度不同而已（单选不再退化为字符串）
+  const single: GraphFieldDetail = { fields: ["商标"] }
+  const multi: GraphFieldDetail = { fields: ["商标", "专利"] }
+  assert.deepEqual([...single.fields], ["商标"])
+  assert.deepEqual([...multi.fields].sort(), ["专利", "商标"])
+
+  // 订阅方的类型守卫形状：Array.isArray 一次性挡掉 undefined 与旧单值载荷
+  const guard = (detail: unknown): string[] | null => {
+    const fields = (detail as GraphFieldDetail | undefined)?.fields
+    return Array.isArray(fields) ? fields.filter((f): f is string => typeof f === "string") : null
+  }
+  assert.deepEqual(guard(multi), ["商标", "专利"])
+  assert.deepEqual(guard(all), [])
+  assert.equal(guard(undefined), null)
+  assert.equal(guard({}), null)
+  // 旧单值载荷（波J 之前的 `{ field: "商标" }`）必须被守卫挡下而非静默半生效
+  assert.equal(guard({ field: "商标" }), null)
 })
