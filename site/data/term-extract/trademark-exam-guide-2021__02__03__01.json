@@ -5,7 +5,8 @@
     { "name": "商标图形要素分类", "aliases": [], "role": "defined",
       "confidence": "high", "evidence": "商标图形要素分类是为方便图形商标的事先查询和审查而做的一项基础性工作" },
     { "name": "商标图形要素国际分类", "aliases": ["维也纳分类"], "role": "used",
-      "confidence": "high", "evidence": "《商标图形要素国际分类》（维也纳分类）为基础" }
+      "confidence": "high", "evidence": "《商标图形要素国际分类》（维也纳分类）为基础" },
+    { "name": "维也纳分类", "aliases": ["商标图形要素国际分类"], "role": "defined", "confidence": "high", "evidence": "是以《商标图形要素国际分类》（维也纳分类）为基础", "rescue": "5.9-救回", "rescueFrom": "term-extract-legacy-tmeg/trademark-exam-guide-2021__03-03__001.json" }
   ],
   "laws": [],
   "extractedAt": "2026-08-29T00:00:00+08:00",

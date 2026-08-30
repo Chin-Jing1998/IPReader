@@ -4,6 +4,9 @@
 //     - data/term-extract/*.json（可用第一个位置参数改目录）：wf-extract-terms 逐片产物
 //     - data/terms-seed.json（D1 产出 424 种子词）
 //     - data/term-merges.json / data/term-blacklist.json（若存在；由 apply-term-audit.mjs 固化）
+//     - data/term-whitelist.json（若存在）：入图白名单，扁平数组，格式对标 term-blacklist.json。
+//       名单内的新词无条件放行入图（不受「df≥2 或 跨≥2 域 或 defined+high」门槛约束）。
+//       黑名单优先级更高：同时出现在两张表时按剔除处理。
 //     - data/term-topic-decisions.json（若存在）：主题归类的人工决策，[{termKey,canonical,topicKey,note}]，
 //       优先级高于算法；topicKey 为空/"misc" 表示强制留 99-综合
 //   处理：
@@ -257,6 +260,11 @@ function readJsonIf(p, fallback) {
 }
 const mergesRaw = readJsonIf(join(DATA_DIR, 'term-merges.json'), {});
 const blacklist = new Set(readJsonIf(join(DATA_DIR, 'term-blacklist.json'), []).map(norm));
+// 入图白名单（2026-08-30 阶段5.11 波F）：商标指南全量重提取后，5 个原 1035 词表中的现网词条
+//   因新一轮提取只在单片单域出现且非 defined+high，被入图门槛挡进候选池而从终表消失
+//   （共同申请／国际申请撤回／声音要素编码／集体商标使用管理规则／马德里商标领土延伸申请）。
+//   经用户裁决全部救回。门槛本身不放宽——放宽会连带放行 779 个候选词，故设定点白名单。
+const whitelist = new Set(readJsonIf(join(DATA_DIR, 'term-whitelist.json'), []).map(norm));
 
 // 归并链解析（含环保护）：a→b→c 时 a 直接并入 c
 function resolveMergeTarget(fromKey) {
@@ -324,10 +332,19 @@ for (const e of entries) {
     kept.push(e);
     continue;
   }
-  const pass = df >= 2 || e.extractDomains.size >= 2 || e.definedHigh;
+  // 白名单无条件放行（黑名单已在上一步整条剔除，两表冲突时黑名单胜出）
+  const pass = df >= 2 || e.extractDomains.size >= 2 || e.definedHigh || whitelist.has(e.key);
   e.df = df;
   e.tier = e.definedHigh ? 'high' : 'mid';
   (pass ? kept : candidates).push(e);
+}
+
+// 白名单落实核对：逐条报是否真的靠白名单入图，名单里却查无此词的一律告警（防写错词面静默失效）
+if (whitelist.size) {
+  const keptKeys = new Set(kept.map((e) => e.key));
+  const missing = [...whitelist].filter((k) => !keptKeys.has(k));
+  console.log(`入图白名单: ${whitelist.size} 词，入图 ${whitelist.size - missing.length}`);
+  if (missing.length) console.warn(`⚠ 白名单词未入图（提取产物中查无此词或已被剔除）：${missing.join('、')}`);
 }
 
 // ============ 主题归类（三级算法 + 人工决策覆盖）============

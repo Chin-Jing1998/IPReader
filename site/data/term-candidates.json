@@ -6911,27 +6911,6 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
-    "termKey": "共同申请",
-    "canonical": "共同申请",
-    "aliases": [],
-    "matchers": [],
-    "sources": {
-      "trademark-exam-guide-2021": [
-        "tmeg-01-02-03-01-03"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "mid",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "trademark-exam-guide-2021/01/02/03/01/03",
-        "text": "两个以上申请人共同申请注册同一商标"
-      }
-    ],
-    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
-  },
-  {
     "termKey": "共同申请人",
     "canonical": "共同申请人",
     "aliases": [],
@@ -7728,27 +7707,6 @@
       {
         "chunk": "trademark-exam-guide-2021/04/03/02/06",
         "text": "同时向异议人或商标代理机构发送《国际商标异议申请受理通知书》"
-      }
-    ],
-    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
-  },
-  {
-    "termKey": "国际申请撤回",
-    "canonical": "国际申请撤回",
-    "aliases": [],
-    "matchers": [],
-    "sources": {
-      "trademark-exam-guide-2021": [
-        "tmeg-04-02-14"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "mid",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "trademark-exam-guide-2021/04/02/14",
-        "text": "第四部分第十三章6“国际申请撤回”"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -9493,27 +9451,6 @@
       {
         "chunk": "trademark-exam-guide-2021/03/01/01/02/02/03",
         "text": "申请变更集体商标集体成员名单的，提交变更后的集体商标集体成员名单"
-      }
-    ],
-    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
-  },
-  {
-    "termKey": "集体商标使用管理规则",
-    "canonical": "集体商标使用管理规则",
-    "aliases": [],
-    "matchers": [],
-    "sources": {
-      "trademark-exam-guide-2021": [
-        "tmeg-03-02-01-02-03-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "mid",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "trademark-exam-guide-2021/03/02/01/02/03/01",
-        "text": "加盖受让人公章转让后的集体商标使用管理规则"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -12674,27 +12611,6 @@
       {
         "chunk": "trademark-exam-guide-2021/04/02/05/01",
         "text": "马德里商标国际注册转让申请书"
-      }
-    ],
-    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
-  },
-  {
-    "termKey": "马德里商标领土延伸申请",
-    "canonical": "马德里商标领土延伸申请",
-    "aliases": [],
-    "matchers": [],
-    "sources": {
-      "trademark-exam-guide-2021": [
-        "tmeg-04-04-02-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "mid",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "trademark-exam-guide-2021/04/04/02/01",
-        "text": "马德里商标领土延伸申请"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
@@ -16049,29 +15965,6 @@
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
   },
   {
-    "termKey": "商标图形要素国际分类",
-    "canonical": "商标图形要素国际分类",
-    "aliases": [
-      "维也纳分类"
-    ],
-    "matchers": [],
-    "sources": {
-      "trademark-exam-guide-2021": [
-        "tmeg-02-03-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "mid",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "trademark-exam-guide-2021/02/03/01",
-        "text": "《商标图形要素国际分类》（维也纳分类）为基础"
-      }
-    ],
-    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
-  },
-  {
     "termKey": "商标网上缴费平台",
     "canonical": "商标网上缴费平台",
     "aliases": [],
@@ -17782,27 +17675,6 @@
       {
         "chunk": "patent-law/01/009",
         "text": "申请人声明放弃该实用新型专利权的"
-      }
-    ],
-    "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"
-  },
-  {
-    "termKey": "声音要素编码",
-    "canonical": "声音要素编码",
-    "aliases": [],
-    "matchers": [],
-    "sources": {
-      "trademark-exam-guide-2021": [
-        "tmeg-02-04-01"
-      ]
-    },
-    "lawKeys": [],
-    "tier": "mid",
-    "df": 1,
-    "evidence": [
-      {
-        "chunk": "trademark-exam-guide-2021/02/04/01",
-        "text": "声音商标单独设立声音要素编码"
       }
     ],
     "reason": "入图门槛未达（df<2 且未跨域 且非 defined+high）"

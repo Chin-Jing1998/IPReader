@@ -15,7 +15,8 @@
       "role": "used",
       "confidence": "mid",
       "evidence": "商标显著特征"
-    }
+    },
+    { "name": "商品通用名称", "aliases": [], "role": "defined", "confidence": "high", "evidence": "注册商标成为其核定使用商品的通用名称，是指原本具有商标显著特征的注册商标，在市场实际使用过程中，退化为其核定使用商品的通用名称", "rescue": "5.9-救回", "rescueFrom": "term-extract-legacy-tmeg/trademark-exam-guide-2021__07-17__005.json" }
   ],
   "laws": [],
   "extractedAt": "2026-08-30T00:00:00+08:00",

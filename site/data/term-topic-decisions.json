@@ -3220,5 +3220,2621 @@
   "canonical": "形式审查",
   "topicKey": "procReception",
   "note": "审查程序拆分（2026-08-12）→ 受理与初步审查｜规则归类：出处章节投票 {\"A\":2,\"B\":0,\"C\":0,\"D\":0}"
+ },
+ {
+  "termKey": "mm18表格",
+  "canonical": "MM18表格",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（3 票 / tmMadrid:3）"
+ },
+ {
+  "termKey": "mm4表格",
+  "canonical": "MM4表格",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（2 票 / tmMadrid:2）"
+ },
+ {
+  "termKey": "notificationofceasingofeffect",
+  "canonical": "Notification of Ceasing of Effect",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "一个或者两个普通表现形式的字母",
+  "canonical": "一个或者两个普通表现形式的字母",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "一品种一权",
+  "canonical": "一品种一权",
+  "topicKey": "pvRightTermination",
+  "note": "5.9 章节投票（1 票 / pvRightTermination:1）"
+ },
+ {
+  "termKey": "一次性告知原则",
+  "canonical": "一次性告知原则",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（2 票 / tmFormalProc:2）"
+ },
+ {
+  "termKey": "三年时间期限",
+  "canonical": "三年时间期限",
+  "topicKey": "tmUseRevocation",
+  "note": "5.9 章节投票（1 票 / tmUseRevocation:1）"
+ },
+ {
+  "termKey": "三维形状",
+  "canonical": "三维形状",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（3 票 / tmDistinctiveness:3）"
+ },
+ {
+  "termKey": "不予受理决定",
+  "canonical": "不予受理决定",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（1 票 / tmFormalProc:1）"
+ },
+ {
+  "termKey": "不予变更情形",
+  "canonical": "不予变更情形",
+  "topicKey": "tmOppositionReview",
+  "note": "5.9 章节投票（1 票 / tmOppositionReview:1）"
+ },
+ {
+  "termKey": "不予备案",
+  "canonical": "不予备案",
+  "topicKey": "prcCustoms",
+  "note": "5.9 章节投票（1 票 / prcCustoms:1）"
+ },
+ {
+  "termKey": "不予核准",
+  "canonical": "不予核准",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（7 票 / tmChangeAssign:7，tmMadrid:1，tmFeeArchive:2，tmMisc:1）"
+ },
+ {
+  "termKey": "不予登记",
+  "canonical": "不予登记",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（1 票 / tmChangeAssign:1）"
+ },
+ {
+  "termKey": "不侵权说明",
+  "canonical": "不侵权说明",
+  "topicKey": "prcCustoms",
+  "note": "5.9 章节投票（1 票 / prcCustoms:1）"
+ },
+ {
+  "termKey": "不得超出原申请文件所载的事项范围",
+  "canonical": "不得超出原申请文件所载的事项范围",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（1 票 / tmFormalProc:1）"
+ },
+ {
+  "termKey": "专利许可使用费",
+  "canonical": "专利许可使用费",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（2 票 / icLayoutDesign:1，prcEvidence:1，tmBadFaith:2）"
+ },
+ {
+  "termKey": "专用容器",
+  "canonical": "专用容器",
+  "topicKey": "tmClassification",
+  "note": "5.9 章节投票（1 票 / tmClassification:1）"
+ },
+ {
+  "termKey": "专门性问题",
+  "canonical": "专门性问题",
+  "topicKey": "prcEvidence",
+  "note": "5.9 章节投票（1 票 / prcEvidence:1）"
+ },
+ {
+  "termKey": "业务往来关系",
+  "canonical": "业务往来关系",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（2 票 / tmBadFaith:2）"
+ },
+ {
+  "termKey": "两个以上行政区划地名简称组成的商标",
+  "canonical": "两个以上行政区划地名简称组成的商标",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "个别字母不同",
+  "canonical": "个别字母不同",
+  "topicKey": "tmSimilarity",
+  "note": "5.9 章节投票（1 票 / tmSimilarity:1）"
+ },
+ {
+  "termKey": "个案审查原则",
+  "canonical": "个案审查原则",
+  "topicKey": "tmMisc",
+  "note": "5.9 章节投票（1 票 / tmMisc:1）"
+ },
+ {
+  "termKey": "个案认定原则",
+  "canonical": "个案认定原则",
+  "topicKey": "tmWellKnown",
+  "note": "5.9 章节投票（1 票 / tmWellKnown:1）"
+ },
+ {
+  "termKey": "中止审查",
+  "canonical": "中止审查",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（4 票 / tmChangeAssign:4）"
+ },
+ {
+  "termKey": "中止调查",
+  "canonical": "中止调查",
+  "topicKey": "cmpEnforcement",
+  "note": "5.9 章节投票（1 票 / cmpEnforcement:1）"
+ },
+ {
+  "termKey": "串通合谋",
+  "canonical": "串通合谋",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（2 票 / tmBadFaith:2）"
+ },
+ {
+  "termKey": "临时保护期",
+  "canonical": "临时保护期",
+  "topicKey": "pvApplicationExam",
+  "note": "5.9 章节投票（1 票 / pvApplicationExam:1）"
+ },
+ {
+  "termKey": "为获得技术效果而需有的商品三维形状",
+  "canonical": "为获得技术效果而需有的商品三维形状",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "主体资格",
+  "canonical": "主体资格",
+  "topicKey": "tmOppositionReview",
+  "note": "5.9 章节投票（2 票 / tmOppositionReview:2，tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "主体资格证明文件",
+  "canonical": "主体资格证明文件",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（8 票 / tmFormalProc:8，tmOppositionReview:3，tmChangeAssign:5，tmMadrid:4，tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "主债权",
+  "canonical": "主债权",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（2 票 / tmChangeAssign:2）"
+ },
+ {
+  "termKey": "主合同",
+  "canonical": "主合同",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（3 票 / tmChangeAssign:3）"
+ },
+ {
+  "termKey": "主要由人文因素决定",
+  "canonical": "主要由人文因素决定",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（1 票 / tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "主要由当地的自然条件决定",
+  "canonical": "主要由当地的自然条件决定",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（1 票 / tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "主送",
+  "canonical": "主送",
+  "topicKey": "tmUseRevocation",
+  "note": "5.9 章节投票（1 票 / tmUseRevocation:1）"
+ },
+ {
+  "termKey": "主送当事人",
+  "canonical": "主送当事人",
+  "topicKey": "tmUseRevocation",
+  "note": "5.9 章节投票（1 票 / tmUseRevocation:1）"
+ },
+ {
+  "termKey": "书面形式",
+  "canonical": "书面形式",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "争议商标",
+  "canonical": "争议商标",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（6 票 / tmBadFaith:6）"
+ },
+ {
+  "termKey": "事后反悔",
+  "canonical": "事后反悔",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（1 票 / tmBadFaith:1）"
+ },
+ {
+  "termKey": "事后追认",
+  "canonical": "事后追认",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（1 票 / tmBadFaith:1）"
+ },
+ {
+  "termKey": "互惠原则",
+  "canonical": "互惠原则",
+  "topicKey": "pvApplicationExam",
+  "note": "5.9 章节投票（1 票 / pvApplicationExam:1）"
+ },
+ {
+  "termKey": "五年时间限制",
+  "canonical": "五年时间限制",
+  "topicKey": "tmWellKnown",
+  "note": "5.9 章节投票（1 票 / tmWellKnown:1）"
+ },
+ {
+  "termKey": "产地误认",
+  "canonical": "产地误认",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（5 票 / tmAbsoluteGrounds:5）"
+ },
+ {
+  "termKey": "人文因素",
+  "canonical": "人文因素",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（2 票 / tmCollectiveGI:2）"
+ },
+ {
+  "termKey": "介绍信",
+  "canonical": "介绍信",
+  "topicKey": "tmFeeArchive",
+  "note": "5.9 章节投票（2 票 / tmFeeArchive:2）"
+ },
+ {
+  "termKey": "代理人",
+  "canonical": "代理人",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（2 票 / tmBadFaith:2）"
+ },
+ {
+  "termKey": "代理人名称或地址变更",
+  "canonical": "代理人名称或地址变更",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（2 票 / tmMadrid:2）"
+ },
+ {
+  "termKey": "代理关系",
+  "canonical": "代理关系",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（1 票 / tmBadFaith:1）"
+ },
+ {
+  "termKey": "代理权限",
+  "canonical": "代理权限",
+  "topicKey": "tmOppositionReview",
+  "note": "5.9 章节投票（3 票 / tmFormalProc:1，tmOppositionReview:3）"
+ },
+ {
+  "termKey": "代表关系",
+  "canonical": "代表关系",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（1 票 / tmBadFaith:1）"
+ },
+ {
+  "termKey": "以欺骗手段取得商标注册",
+  "canonical": "以欺骗手段取得商标注册",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（1 票 / tmBadFaith:1）"
+ },
+ {
+  "termKey": "以注册为主、以使用为补充的原则",
+  "canonical": "以注册为主、以使用为补充的原则",
+  "topicKey": "tmMisc",
+  "note": "5.9 章节投票（1 票 / tmMisc:1）"
+ },
+ {
+  "termKey": "企业组织形式",
+  "canonical": "企业组织形式",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "企事业单位简称",
+  "canonical": "企事业单位简称",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "优势地位",
+  "canonical": "优势地位",
+  "topicKey": "cmpUnfairActs",
+  "note": "5.9 章节投票（1 票 / cmpUnfairActs:1）"
+ },
+ {
+  "termKey": "作者",
+  "canonical": "作者",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（2 票 / cprWorks:2）"
+ },
+ {
+  "termKey": "使用的证据材料",
+  "canonical": "使用的证据材料",
+  "topicKey": "tmUseRevocation",
+  "note": "5.9 章节投票（1 票 / tmUseRevocation:1）"
+ },
+ {
+  "termKey": "依职权宣告无效",
+  "canonical": "依职权宣告无效",
+  "topicKey": "tmMisc",
+  "note": "5.9 章节投票（1 票 / tmMisc:1）"
+ },
+ {
+  "termKey": "侵权复制品",
+  "canonical": "侵权复制品",
+  "topicKey": "cprProtection",
+  "note": "5.9 章节投票（2 票 / cprProtection:2）"
+ },
+ {
+  "termKey": "侵犯知识产权货物",
+  "canonical": "侵犯知识产权货物",
+  "topicKey": "prcCustoms",
+  "note": "5.9 章节投票（2 票 / prcCustoms:2）"
+ },
+ {
+  "termKey": "保全标的物",
+  "canonical": "保全标的物",
+  "topicKey": "prcPreservation",
+  "note": "5.9 章节投票（2 票 / prcPreservation:2）"
+ },
+ {
+  "termKey": "保密义务",
+  "canonical": "保密义务",
+  "topicKey": "cmpEnforcement",
+  "note": "5.9 章节投票（2 票 / cmpEnforcement:2，cmpTradeSecret:1）"
+ },
+ {
+  "termKey": "保护期限",
+  "canonical": "保护期限",
+  "topicKey": "pvRightTermination",
+  "note": "5.9 章节投票（1 票 / pvRightTermination:1）"
+ },
+ {
+  "termKey": "保护表演形象权",
+  "canonical": "保护表演形象权",
+  "topicKey": "cprNeighboring",
+  "note": "5.9 章节投票（2 票 / cprNeighboring:2）"
+ },
+ {
+  "termKey": "假冒授权品种",
+  "canonical": "假冒授权品种",
+  "topicKey": "pvRightTermination",
+  "note": "5.9 章节投票（2 票 / pvRightTermination:2）"
+ },
+ {
+  "termKey": "停止侵权行为",
+  "canonical": "停止侵权行为",
+  "topicKey": "icLayoutDesign",
+  "note": "5.9 章节投票（2 票 / icLayoutDesign:2）"
+ },
+ {
+  "termKey": "党政机关",
+  "canonical": "党政机关",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "党派",
+  "canonical": "党派",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "全部注销申请",
+  "canonical": "全部注销申请",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "全部转让",
+  "canonical": "全部转让",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "公众人物姓名",
+  "canonical": "公众人物姓名",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（2 票 / tmAbsoluteGrounds:2）"
+ },
+ {
+  "termKey": "公共事业名称",
+  "canonical": "公共事业名称",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "公共资源",
+  "canonical": "公共资源",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（4 票 / tmBadFaith:4）"
+ },
+ {
+  "termKey": "公告方式送达",
+  "canonical": "公告方式送达",
+  "topicKey": "tmOppositionReview",
+  "note": "5.9 章节投票（1 票 / tmOppositionReview:1）"
+ },
+ {
+  "termKey": "公序良俗",
+  "canonical": "公序良俗",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（2 票 / tmChangeAssign:1，tmBadFaith:2）"
+ },
+ {
+  "termKey": "公证",
+  "canonical": "公证",
+  "topicKey": "prcEvidence",
+  "note": "5.9 章节投票（2 票 / prcEvidence:2）"
+ },
+ {
+  "termKey": "共同申请",
+  "canonical": "共同申请",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（1 票 / tmFormalProc:1）"
+ },
+ {
+  "termKey": "共有人",
+  "canonical": "共有人",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（3 票 / tmChangeAssign:3）"
+ },
+ {
+  "termKey": "共有商标",
+  "canonical": "共有商标",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（4 票 / tmChangeAssign:4，tmMadrid:2，tmFeeArchive:1）"
+ },
+ {
+  "termKey": "共有权利",
+  "canonical": "共有权利",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（2 票 / tmFormalProc:2）"
+ },
+ {
+  "termKey": "其他关系",
+  "canonical": "其他关系",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（1 票 / tmBadFaith:1）"
+ },
+ {
+  "termKey": "其他含义或者特定的表现形式",
+  "canonical": "其他含义或者特定的表现形式",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（3 票 / tmAbsoluteGrounds:3）"
+ },
+ {
+  "termKey": "军旗",
+  "canonical": "军旗",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "军旗、军徽、军歌相同或者近似",
+  "canonical": "军旗、军徽、军歌相同或者近似",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "军衔",
+  "canonical": "军衔",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "农民专业合作社",
+  "canonical": "农民专业合作社",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（1 票 / tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "出版",
+  "canonical": "出版",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（1 票 / cprWorks:1）"
+ },
+ {
+  "termKey": "出租服务",
+  "canonical": "出租服务",
+  "topicKey": "tmClassification",
+  "note": "5.9 章节投票（1 票 / tmClassification:1）"
+ },
+ {
+  "termKey": "创作",
+  "canonical": "创作",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（1 票 / cprWorks:1）"
+ },
+ {
+  "termKey": "创作者",
+  "canonical": "创作者",
+  "topicKey": "icLayoutDesign",
+  "note": "5.9 章节投票（1 票 / icLayoutDesign:1）"
+ },
+ {
+  "termKey": "删减不予核准",
+  "canonical": "删减不予核准",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "删减无效",
+  "canonical": "删减无效",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "删减终局",
+  "canonical": "删减终局",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "利害关系人",
+  "canonical": "利害关系人",
+  "topicKey": "tmOppositionReview",
+  "note": "5.9 章节投票（4 票 / cmpEnforcement:3，icLayoutDesign:1，prcPreservation:1，tmFormalProc:3，tmOppositionReview:4，tmChangeAssign:2，tmMadrid:1，tmMisc:1，tmWellKnown:2）"
+ },
+ {
+  "termKey": "功能性",
+  "canonical": "功能性",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（3 票 / tmMisc:2，tmDistinctiveness:3）"
+ },
+ {
+  "termKey": "勋章相同或者近似",
+  "canonical": "勋章相同或者近似",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "区分措施",
+  "canonical": "区分措施",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（1 票 / tmChangeAssign:1）"
+ },
+ {
+  "termKey": "协助执行通知书",
+  "canonical": "协助执行通知书",
+  "topicKey": "prcCustoms",
+  "note": "5.9 章节投票（2 票 / tmChangeAssign:1，prcCustoms:2）"
+ },
+ {
+  "termKey": "单纯事实消息",
+  "canonical": "单纯事实消息",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（1 票 / cprWorks:1）"
+ },
+ {
+  "termKey": "受理通知书",
+  "canonical": "受理通知书",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（2 票 / tmMadrid:2）"
+ },
+ {
+  "termKey": "受让人",
+  "canonical": "受让人",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（8 票 / tmChangeAssign:8，tmMadrid:4，tmFeeArchive:1，tmBadFaith:1）"
+ },
+ {
+  "termKey": "受让人主体资格",
+  "canonical": "受让人主体资格",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（2 票 / tmMadrid:2）"
+ },
+ {
+  "termKey": "受让人资格",
+  "canonical": "受让人资格",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "变更代理机构",
+  "canonical": "变更代理机构",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（2 票 / tmOppositionReview:1，tmUseRevocation:1，tmChangeAssign:2）"
+ },
+ {
+  "termKey": "变更证明",
+  "canonical": "变更证明",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（2 票 / tmChangeAssign:2）"
+ },
+ {
+  "termKey": "变更证明文件",
+  "canonical": "变更证明文件",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "口述作品",
+  "canonical": "口述作品",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（2 票 / cprWorks:2）"
+ },
+ {
+  "termKey": "可作为商标注册的标志",
+  "canonical": "可作为商标注册的标志",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "合作作者",
+  "canonical": "合作作者",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（3 票 / cprWorks:3，cprProtection:1）"
+ },
+ {
+  "termKey": "合作创作",
+  "canonical": "合作创作",
+  "topicKey": "icLayoutDesign",
+  "note": "5.9 章节投票（1 票 / icLayoutDesign:1）"
+ },
+ {
+  "termKey": "合理注意义务",
+  "canonical": "合理注意义务",
+  "topicKey": "prcEvidence",
+  "note": "5.9 章节投票（1 票 / prcEvidence:1）"
+ },
+ {
+  "termKey": "后续业务申请",
+  "canonical": "后续业务申请",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（3 票 / tmMadrid:3）"
+ },
+ {
+  "termKey": "听觉感知",
+  "canonical": "听觉感知",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "呼叫",
+  "canonical": "呼叫",
+  "topicKey": "tmSimilarity",
+  "note": "5.9 章节投票（2 票 / tmSimilarity:2）"
+ },
+ {
+  "termKey": "品质标准",
+  "canonical": "品质标准",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（1 票 / tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "唯一对应关系",
+  "canonical": "唯一对应关系",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（2 票 / tmAbsoluteGrounds:2）"
+ },
+ {
+  "termKey": "商业利用",
+  "canonical": "商业利用",
+  "topicKey": "icLayoutDesign",
+  "note": "5.9 章节投票（8 票 / icLayoutDesign:8）"
+ },
+ {
+  "termKey": "商品与服务类似",
+  "canonical": "商品与服务类似",
+  "topicKey": "tmMisc",
+  "note": "5.9 章节投票（1 票 / tmMisc:1）"
+ },
+ {
+  "termKey": "商品包装或容器的三维形状",
+  "canonical": "商品包装或容器的三维形状",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "商品或者服务项目名称",
+  "canonical": "商品或者服务项目名称",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（1 票 / tmFormalProc:1）"
+ },
+ {
+  "termKey": "商品的外包装",
+  "canonical": "商品的外包装",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "商品自身性质产生的三维形状",
+  "canonical": "商品自身性质产生的三维形状",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "商品自身的三维形状",
+  "canonical": "商品自身的三维形状",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "商标专用权",
+  "canonical": "商标专用权",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（5 票 / tmFormalProc:3，tmClassification:1，tmChangeAssign:4，tmFeeArchive:3，tmMisc:3，tmBadFaith:5，tmDistinctiveness:1，tmCollectiveGI:1，tmUseRevocation:2）"
+ },
+ {
+  "termKey": "商标代理从业人员",
+  "canonical": "商标代理从业人员",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（2 票 / tmFormalProc:2）"
+ },
+ {
+  "termKey": "商标代理委托书",
+  "canonical": "商标代理委托书",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（7 票 / tmFormalProc:7，tmOppositionReview:4，tmUseRevocation:1，tmMadrid:3）"
+ },
+ {
+  "termKey": "商标名称",
+  "canonical": "商标名称",
+  "topicKey": "tmClassification",
+  "note": "5.9 章节投票（2 票 / tmClassification:2）"
+ },
+ {
+  "termKey": "商标名称的修改",
+  "canonical": "商标名称的修改",
+  "topicKey": "tmClassification",
+  "note": "5.9 章节投票（1 票 / tmClassification:1）"
+ },
+ {
+  "termKey": "商标国际异议",
+  "canonical": "商标国际异议",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（9 票 / tmMadrid:9）"
+ },
+ {
+  "termKey": "商标失效",
+  "canonical": "商标失效",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（3 票 / tmMadrid:3）"
+ },
+ {
+  "termKey": "商标审查审理指南",
+  "canonical": "商标审查审理指南",
+  "topicKey": "tmMisc",
+  "note": "5.9 章节投票（1 票 / tmMisc:1）"
+ },
+ {
+  "termKey": "商标整体构成有别于地名",
+  "canonical": "商标整体构成有别于地名",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "商标文件送达",
+  "canonical": "商标文件送达",
+  "topicKey": "tmFeeArchive",
+  "note": "5.9 章节投票（1 票 / tmFeeArchive:1）"
+ },
+ {
+  "termKey": "商标注册人",
+  "canonical": "商标注册人",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（4 票 / tmChangeAssign:4，tmFormalProc:1）"
+ },
+ {
+  "termKey": "商标注册大厅",
+  "canonical": "商标注册大厅",
+  "topicKey": "tmFeeArchive",
+  "note": "5.9 章节投票（2 票 / tmFeeArchive:2）"
+ },
+ {
+  "termKey": "商标注册实质审查",
+  "canonical": "商标注册实质审查",
+  "topicKey": "tmMisc",
+  "note": "5.9 章节投票（1 票 / tmMisc:1）"
+ },
+ {
+  "termKey": "商标注册授权",
+  "canonical": "商标注册授权",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（1 票 / tmBadFaith:1）"
+ },
+ {
+  "termKey": "商标注册标记",
+  "canonical": "商标注册标记",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（2 票 / tmFormalProc:2）"
+ },
+ {
+  "termKey": "商标注册证明",
+  "canonical": "商标注册证明",
+  "topicKey": "tmFeeArchive",
+  "note": "5.9 章节投票（3 票 / tmFeeArchive:3）"
+ },
+ {
+  "termKey": "商标注册部门",
+  "canonical": "商标注册部门",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（2 票 / tmMadrid:2，tmFeeArchive:1）"
+ },
+ {
+  "termKey": "商标申请书",
+  "canonical": "商标申请书",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（1 票 / tmFormalProc:1）"
+ },
+ {
+  "termKey": "商标申请号",
+  "canonical": "商标申请号",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（1 票 / tmFormalProc:1）"
+ },
+ {
+  "termKey": "商标申请声明",
+  "canonical": "商标申请声明",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（1 票 / tmFormalProc:1）"
+ },
+ {
+  "termKey": "商标申请文件接收",
+  "canonical": "商标申请文件接收",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（1 票 / tmFormalProc:1）"
+ },
+ {
+  "termKey": "商标的使用",
+  "canonical": "商标的使用",
+  "topicKey": "tmMisc",
+  "note": "5.9 章节投票（1 票 / tmMisc:1）"
+ },
+ {
+  "termKey": "商誉",
+  "canonical": "商誉",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（3 票 / tmMisc:1，tmBadFaith:3）"
+ },
+ {
+  "termKey": "国+商标指定商品名称",
+  "canonical": "国+商标指定商品名称",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "国内异议",
+  "canonical": "国内异议",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（2 票 / tmMadrid:2）"
+ },
+ {
+  "termKey": "国务院反垄断委员会",
+  "canonical": "国务院反垄断委员会",
+  "topicKey": "cmpMonopolyConduct",
+  "note": "5.9 章节投票（1 票 / cmpMonopolyConduct:1）"
+ },
+ {
+  "termKey": "国家名称",
+  "canonical": "国家名称",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（3 票 / tmAbsoluteGrounds:3）"
+ },
+ {
+  "termKey": "国家名称相同",
+  "canonical": "国家名称相同",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "国家名称近似",
+  "canonical": "国家名称近似",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "国家安全",
+  "canonical": "国家安全",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "国家安全审查",
+  "canonical": "国家安全审查",
+  "topicKey": "cmpConcentration",
+  "note": "5.9 章节投票（1 票 / cmpConcentration:1）"
+ },
+ {
+  "termKey": "国徽",
+  "canonical": "国徽",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "国旗",
+  "canonical": "国旗",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "国旗、国徽、国歌相同或者近似",
+  "canonical": "国旗、国徽、国歌相同或者近似",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "国际合并",
+  "canonical": "国际合并",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（2 票 / tmMadrid:2）"
+ },
+ {
+  "termKey": "国际条约",
+  "canonical": "国际条约",
+  "topicKey": "cprNeighboring",
+  "note": "5.9 章节投票（3 票 / cprNeighboring:3）"
+ },
+ {
+  "termKey": "国际注册代替国内注册加注申请",
+  "canonical": "国际注册代替国内注册加注申请",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（2 票 / tmMadrid:2）"
+ },
+ {
+  "termKey": "国际注册商标",
+  "canonical": "国际注册商标",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（5 票 / tmMadrid:5，tmFeeArchive:1）"
+ },
+ {
+  "termKey": "国际注册转国内申请",
+  "canonical": "国际注册转国内申请",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（3 票 / tmMadrid:3）"
+ },
+ {
+  "termKey": "国际组织的名称",
+  "canonical": "国际组织的名称",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "图书脱销",
+  "canonical": "图书脱销",
+  "topicKey": "cprNeighboring",
+  "note": "5.9 章节投票（1 票 / cprNeighboring:1）"
+ },
+ {
+  "termKey": "图形作品",
+  "canonical": "图形作品",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（2 票 / cprWorks:2）"
+ },
+ {
+  "termKey": "图形商标",
+  "canonical": "图形商标",
+  "topicKey": "tmClassification",
+  "note": "5.9 章节投票（2 票 / tmClassification:2，tmSimilarity:1）"
+ },
+ {
+  "termKey": "图形商标相同",
+  "canonical": "图形商标相同",
+  "topicKey": "tmSimilarity",
+  "note": "5.9 章节投票（1 票 / tmSimilarity:1）"
+ },
+ {
+  "termKey": "图形轮廓",
+  "canonical": "图形轮廓",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（1 票 / tmFormalProc:1）"
+ },
+ {
+  "termKey": "在先使用",
+  "canonical": "在先使用",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（3 票 / tmBadFaith:3）"
+ },
+ {
+  "termKey": "在先使用人",
+  "canonical": "在先使用人",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（3 票 / tmBadFaith:3）"
+ },
+ {
+  "termKey": "在先商标",
+  "canonical": "在先商标",
+  "topicKey": "tmSimilarity",
+  "note": "5.9 章节投票（3 票 / tmSimilarity:3，tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "在先权益",
+  "canonical": "在先权益",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（1 票 / tmBadFaith:1）"
+ },
+ {
+  "termKey": "在先被许可人",
+  "canonical": "在先被许可人",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（1 票 / tmChangeAssign:1）"
+ },
+ {
+  "termKey": "在原属国受法律保护的证明",
+  "canonical": "在原属国受法律保护的证明",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（1 票 / tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "地名仅起真实表示申请人所在地作用",
+  "canonical": "地名仅起真实表示申请人所在地作用",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "地域范围证明文件",
+  "canonical": "地域范围证明文件",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（1 票 / tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "基本无差别",
+  "canonical": "基本无差别",
+  "topicKey": "tmMisc",
+  "note": "5.9 章节投票（1 票 / tmMisc:1）"
+ },
+ {
+  "termKey": "声音要素划分原则",
+  "canonical": "声音要素划分原则",
+  "topicKey": "tmClassification",
+  "note": "5.9 章节投票（1 票 / tmClassification:1）"
+ },
+ {
+  "termKey": "声音要素编码",
+  "canonical": "声音要素编码",
+  "topicKey": "tmClassification",
+  "note": "5.9 章节投票（1 票 / tmClassification:1）"
+ },
+ {
+  "termKey": "备案变更",
+  "canonical": "备案变更",
+  "topicKey": "prcCustoms",
+  "note": "5.9 章节投票（1 票 / prcCustoms:1）"
+ },
+ {
+  "termKey": "备案失效",
+  "canonical": "备案失效",
+  "topicKey": "prcCustoms",
+  "note": "5.9 章节投票（1 票 / prcCustoms:1）"
+ },
+ {
+  "termKey": "备案撤销",
+  "canonical": "备案撤销",
+  "topicKey": "prcCustoms",
+  "note": "5.9 章节投票（2 票 / prcCustoms:2）"
+ },
+ {
+  "termKey": "备案注销",
+  "canonical": "备案注销",
+  "topicKey": "prcCustoms",
+  "note": "5.9 章节投票（1 票 / prcCustoms:1）"
+ },
+ {
+  "termKey": "备案知识产权",
+  "canonical": "备案知识产权",
+  "topicKey": "prcCustoms",
+  "note": "5.9 章节投票（2 票 / prcCustoms:2）"
+ },
+ {
+  "termKey": "复制件或者图样",
+  "canonical": "复制件或者图样",
+  "topicKey": "icLayoutDesign",
+  "note": "5.9 章节投票（1 票 / icLayoutDesign:1）"
+ },
+ {
+  "termKey": "外国的国家名称",
+  "canonical": "外国的国家名称",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（2 票 / tmAbsoluteGrounds:2）"
+ },
+ {
+  "termKey": "外文证据",
+  "canonical": "外文证据",
+  "topicKey": "tmOppositionReview",
+  "note": "5.9 章节投票（1 票 / tmOppositionReview:1）"
+ },
+ {
+  "termKey": "多缴",
+  "canonical": "多缴",
+  "topicKey": "tmFeeArchive",
+  "note": "5.9 章节投票（3 票 / tmFeeArchive:3）"
+ },
+ {
+  "termKey": "多音字",
+  "canonical": "多音字",
+  "topicKey": "tmClassification",
+  "note": "5.9 章节投票（1 票 / tmClassification:1）"
+ },
+ {
+  "termKey": "大小地名套用",
+  "canonical": "大小地名套用",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（1 票 / tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "姓名",
+  "canonical": "姓名",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（1 票 / tmBadFaith:1）"
+ },
+ {
+  "termKey": "委托人",
+  "canonical": "委托人",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "委托人章戳(签字)",
+  "canonical": "委托人章戳（签字）",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（1 票 / tmFormalProc:1）"
+ },
+ {
+  "termKey": "委托创作",
+  "canonical": "委托创作",
+  "topicKey": "icLayoutDesign",
+  "note": "5.9 章节投票（1 票 / icLayoutDesign:1）"
+ },
+ {
+  "termKey": "宗教",
+  "canonical": "宗教",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "宗教活动场所",
+  "canonical": "宗教活动场所",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "官方标志、检验印记",
+  "canonical": "官方标志、检验印记",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（2 票 / tmAbsoluteGrounds:2）"
+ },
+ {
+  "termKey": "官方正式译文",
+  "canonical": "官方正式译文",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（1 票 / cprWorks:1）"
+ },
+ {
+  "termKey": "实施控制",
+  "canonical": "实施控制",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "实质审查标准",
+  "canonical": "实质审查标准",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "实质性价值",
+  "canonical": "实质性价值",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "实质性内容",
+  "canonical": "实质性内容",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（1 票 / tmChangeAssign:1）"
+ },
+ {
+  "termKey": "实质性差异",
+  "canonical": "实质性差异",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "实际收到日",
+  "canonical": "实际收到日",
+  "topicKey": "tmOppositionReview",
+  "note": "5.9 章节投票（2 票 / tmOppositionReview:2）"
+ },
+ {
+  "termKey": "审查期限",
+  "canonical": "审查期限",
+  "topicKey": "cmpConcentration",
+  "note": "5.9 章节投票（2 票 / cmpConcentration:2）"
+ },
+ {
+  "termKey": "审查结论",
+  "canonical": "审查结论",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（6 票 / tmChangeAssign:4，tmMadrid:6）"
+ },
+ {
+  "termKey": "审查费",
+  "canonical": "审查费",
+  "topicKey": "pvApplicationExam",
+  "note": "5.9 章节投票（2 票 / pvApplicationExam:2）"
+ },
+ {
+  "termKey": "客观存在及声誉证明材料",
+  "canonical": "客观存在及声誉证明材料",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（1 票 / tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "寄出日",
+  "canonical": "寄出日",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（1 票 / tmFormalProc:1）"
+ },
+ {
+  "termKey": "少数民族文字",
+  "canonical": "少数民族文字",
+  "topicKey": "tmClassification",
+  "note": "5.9 章节投票（2 票 / tmClassification:2）"
+ },
+ {
+  "termKey": "工作任务",
+  "canonical": "工作任务",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（1 票 / cprWorks:1）"
+ },
+ {
+  "termKey": "工商营业场所",
+  "canonical": "工商营业场所",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（2 票 / tmMadrid:2）"
+ },
+ {
+  "termKey": "市场竞争秩序",
+  "canonical": "市场竞争秩序",
+  "topicKey": "cmpUnfairActs",
+  "note": "5.9 章节投票（4 票 / cmpMonopolyConduct:1，cmpUnfairActs:4，cmpEnforcement:1）"
+ },
+ {
+  "termKey": "常用标志符号",
+  "canonical": "常用标志符号",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "常用祝颂语",
+  "canonical": "常用祝颂语",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "平台经营者",
+  "canonical": "平台经营者",
+  "topicKey": "cmpEnforcement",
+  "note": "5.9 章节投票（2 票 / cmpUnfairActs:1，cmpEnforcement:2）"
+ },
+ {
+  "termKey": "平面商标",
+  "canonical": "平面商标",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（3 票 / tmDistinctiveness:3）"
+ },
+ {
+  "termKey": "广播电台、电视台",
+  "canonical": "广播电台、电视台",
+  "topicKey": "cprNeighboring",
+  "note": "5.9 章节投票（2 票 / cprNeighboring:2）"
+ },
+ {
+  "termKey": "建筑作品",
+  "canonical": "建筑作品",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（2 票 / cprWorks:2）"
+ },
+ {
+  "termKey": "强制执行",
+  "canonical": "强制执行",
+  "topicKey": "icLayoutDesign",
+  "note": "5.9 章节投票（1 票 / icLayoutDesign:1）"
+ },
+ {
+  "termKey": "形式审查合格",
+  "canonical": "形式审查合格",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（2 票 / tmFormalProc:2）"
+ },
+ {
+  "termKey": "形式审查的一般性要求",
+  "canonical": "形式审查的一般性要求",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（6 票 / tmUseRevocation:2，tmChangeAssign:3，tmMadrid:6）"
+ },
+ {
+  "termKey": "待证事实",
+  "canonical": "待证事实",
+  "topicKey": "prcEvidence",
+  "note": "5.9 章节投票（2 票 / prcEvidence:2）"
+ },
+ {
+  "termKey": "快递方式提交",
+  "canonical": "快递方式提交",
+  "topicKey": "tmOppositionReview",
+  "note": "5.9 章节投票（1 票 / tmOppositionReview:1）"
+ },
+ {
+  "termKey": "恢复调查",
+  "canonical": "恢复调查",
+  "topicKey": "cmpEnforcement",
+  "note": "5.9 章节投票（1 票 / cmpEnforcement:1）"
+ },
+ {
+  "termKey": "恶意抢先注册",
+  "canonical": "恶意抢先注册",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（2 票 / tmBadFaith:2）"
+ },
+ {
+  "termKey": "惯常呼叫习惯",
+  "canonical": "惯常呼叫习惯",
+  "topicKey": "tmClassification",
+  "note": "5.9 章节投票（1 票 / tmClassification:1）"
+ },
+ {
+  "termKey": "惯常拼读方式",
+  "canonical": "惯常拼读方式",
+  "topicKey": "tmClassification",
+  "note": "5.9 章节投票（1 票 / tmClassification:1）"
+ },
+ {
+  "termKey": "惯常读音",
+  "canonical": "惯常读音",
+  "topicKey": "tmClassification",
+  "note": "5.9 章节投票（1 票 / tmClassification:1）"
+ },
+ {
+  "termKey": "戏剧作品",
+  "canonical": "戏剧作品",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（1 票 / cprWorks:1）"
+ },
+ {
+  "termKey": "扣留申请书",
+  "canonical": "扣留申请书",
+  "topicKey": "prcCustoms",
+  "note": "5.9 章节投票（1 票 / prcCustoms:1）"
+ },
+ {
+  "termKey": "批准文件",
+  "canonical": "批准文件",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（1 票 / tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "技术方案",
+  "canonical": "技术方案",
+  "topicKey": "prcPreservation",
+  "note": "5.9 章节投票（1 票 / prcPreservation:1）"
+ },
+ {
+  "termKey": "抄送当事人",
+  "canonical": "抄送当事人",
+  "topicKey": "tmUseRevocation",
+  "note": "5.9 章节投票（1 票 / tmUseRevocation:1）"
+ },
+ {
+  "termKey": "担保放行",
+  "canonical": "担保放行",
+  "topicKey": "prcCustoms",
+  "note": "5.9 章节投票（1 票 / prcCustoms:1）"
+ },
+ {
+  "termKey": "指定代理人",
+  "canonical": "指定代理人",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（2 票 / tmMadrid:2）"
+ },
+ {
+  "termKey": "指定商品的容器或者装饰性图案",
+  "canonical": "指定商品的容器或者装饰性图案",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "指定商品相同或包含关系",
+  "canonical": "指定商品相同或包含关系",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（1 票 / tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "指定国家",
+  "canonical": "指定国家",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（2 票 / tmMadrid:2）"
+ },
+ {
+  "termKey": "指定美国使用意图声明",
+  "canonical": "指定美国使用意图声明",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "指定读音",
+  "canonical": "指定读音",
+  "topicKey": "tmClassification",
+  "note": "5.9 章节投票（1 票 / tmClassification:1）"
+ },
+ {
+  "termKey": "损害社会公共利益",
+  "canonical": "损害社会公共利益",
+  "topicKey": "cprProtection",
+  "note": "5.9 章节投票（2 票 / cprProtection:2）"
+ },
+ {
+  "termKey": "授权公告",
+  "canonical": "授权公告",
+  "topicKey": "pvApplicationExam",
+  "note": "5.9 章节投票（1 票 / pvApplicationExam:1）"
+ },
+ {
+  "termKey": "提交日",
+  "canonical": "提交日",
+  "topicKey": "tmOppositionReview",
+  "note": "5.9 章节投票（1 票 / tmOppositionReview:1）"
+ },
+ {
+  "termKey": "摄影作品",
+  "canonical": "摄影作品",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（3 票 / cprWorks:3）"
+ },
+ {
+  "termKey": "摘编",
+  "canonical": "摘编",
+  "topicKey": "cprNeighboring",
+  "note": "5.9 章节投票（1 票 / cprNeighboring:1）"
+ },
+ {
+  "termKey": "撤回变更申请",
+  "canonical": "撤回变更申请",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（1 票 / tmChangeAssign:1）"
+ },
+ {
+  "termKey": "撤回申请",
+  "canonical": "撤回申请",
+  "topicKey": "tmUseRevocation",
+  "note": "5.9 章节投票（3 票 / tmUseRevocation:3，tmChangeAssign:1，tmMadrid:1）"
+ },
+ {
+  "termKey": "撤销无效注销后一年限制",
+  "canonical": "撤销无效注销后一年限制",
+  "topicKey": "tmUseRevocation",
+  "note": "5.9 章节投票（1 票 / tmUseRevocation:1）"
+ },
+ {
+  "termKey": "撤销理由",
+  "canonical": "撤销理由",
+  "topicKey": "tmUseRevocation",
+  "note": "5.9 章节投票（2 票 / tmUseRevocation:2）"
+ },
+ {
+  "termKey": "撤销登记",
+  "canonical": "撤销登记",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（1 票 / tmChangeAssign:1）"
+ },
+ {
+  "termKey": "擅自注册被代理人或者被代表人商标",
+  "canonical": "擅自注册被代理人或者被代表人商标",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（2 票 / tmBadFaith:2）"
+ },
+ {
+  "termKey": "放弃专用权说明",
+  "canonical": "放弃专用权说明",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "放行",
+  "canonical": "放行",
+  "topicKey": "prcCustoms",
+  "note": "5.9 章节投票（1 票 / prcCustoms:1）"
+ },
+ {
+  "termKey": "政府间国际组织",
+  "canonical": "政府间国际组织",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（2 票 / tmAbsoluteGrounds:2）"
+ },
+ {
+  "termKey": "数据电文方式",
+  "canonical": "数据电文方式",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（2 票 / tmFormalProc:2）"
+ },
+ {
+  "termKey": "数据电文方式提交",
+  "canonical": "数据电文方式提交",
+  "topicKey": "tmOppositionReview",
+  "note": "5.9 章节投票（1 票 / tmOppositionReview:1）"
+ },
+ {
+  "termKey": "整体保护",
+  "canonical": "整体保护",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "整体外观",
+  "canonical": "整体外观",
+  "topicKey": "tmSimilarity",
+  "note": "5.9 章节投票（2 票 / tmSimilarity:2）"
+ },
+ {
+  "termKey": "整体音乐形象",
+  "canonical": "整体音乐形象",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "文字作品",
+  "canonical": "文字作品",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（2 票 / cprWorks:2）"
+ },
+ {
+  "termKey": "新产品",
+  "canonical": "新产品",
+  "topicKey": "prcEvidence",
+  "note": "5.9 章节投票（1 票 / prcEvidence:1）"
+ },
+ {
+  "termKey": "日常用语",
+  "canonical": "日常用语",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "时事新闻",
+  "canonical": "时事新闻",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（1 票 / cprWorks:1）"
+ },
+ {
+  "termKey": "显著识别部分",
+  "canonical": "显著识别部分",
+  "topicKey": "tmSimilarity",
+  "note": "5.9 章节投票（8 票 / tmSimilarity:8）"
+ },
+ {
+  "termKey": "普通广告宣传用语",
+  "canonical": "普通广告宣传用语",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（2 票 / tmDistinctiveness:2）"
+ },
+ {
+  "termKey": "普通形式的阿拉伯数字",
+  "canonical": "普通形式的阿拉伯数字",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "普通许可",
+  "canonical": "普通许可",
+  "topicKey": "icLayoutDesign",
+  "note": "5.9 章节投票（1 票 / icLayoutDesign:1）"
+ },
+ {
+  "termKey": "曲艺作品",
+  "canonical": "曲艺作品",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（1 票 / cprWorks:1）"
+ },
+ {
+  "termKey": "更正撤回",
+  "canonical": "更正撤回",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（3 票 / tmMadrid:3）"
+ },
+ {
+  "termKey": "更正申请件",
+  "canonical": "更正申请件",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（2 票 / tmMadrid:2）"
+ },
+ {
+  "termKey": "有害于宗教信仰",
+  "canonical": "有害于宗教信仰",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "有效商标",
+  "canonical": "有效商标",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（10 票 / tmMadrid:10）"
+ },
+ {
+  "termKey": "期满未续展注销",
+  "canonical": "期满未续展注销",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（1 票 / tmChangeAssign:1）"
+ },
+ {
+  "termKey": "未注册商标",
+  "canonical": "未注册商标",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（3 票 / tmMisc:1，tmWellKnown:1，tmBadFaith:3）"
+ },
+ {
+  "termKey": "本商品",
+  "canonical": "本商品",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "杂技艺术作品",
+  "canonical": "杂技艺术作品",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（1 票 / cprWorks:1）"
+ },
+ {
+  "termKey": "权利待定的商标",
+  "canonical": "权利待定的商标",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（8 票 / tmMadrid:8）"
+ },
+ {
+  "termKey": "来源混淆",
+  "canonical": "来源混淆",
+  "topicKey": "tmSimilarity",
+  "note": "5.9 章节投票（3 票 / tmSimilarity:3）"
+ },
+ {
+  "termKey": "标准执行一致原则",
+  "canonical": "标准执行一致原则",
+  "topicKey": "tmMisc",
+  "note": "5.9 章节投票（1 票 / tmMisc:1）"
+ },
+ {
+  "termKey": "核准",
+  "canonical": "核准",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（3 票 / tmChangeAssign:3）"
+ },
+ {
+  "termKey": "核准变更",
+  "canonical": "核准变更",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（1 票 / tmChangeAssign:1）"
+ },
+ {
+  "termKey": "格言警句",
+  "canonical": "格言警句",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "检测能力",
+  "canonical": "检测能力",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（1 票 / tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "检验印记",
+  "canonical": "检验印记",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "模型作品",
+  "canonical": "模型作品",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（2 票 / cprWorks:2）"
+ },
+ {
+  "termKey": "欺骗手段",
+  "canonical": "欺骗手段",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（2 票 / tmBadFaith:2）"
+ },
+ {
+  "termKey": "歧视性措施",
+  "canonical": "歧视性措施",
+  "topicKey": "icLayoutDesign",
+  "note": "5.9 章节投票（1 票 / icLayoutDesign:1）"
+ },
+ {
+  "termKey": "民事公益诉讼",
+  "canonical": "民事公益诉讼",
+  "topicKey": "cmpEnforcement",
+  "note": "5.9 章节投票（1 票 / cmpEnforcement:1）"
+ },
+ {
+  "termKey": "民事责任优先承担",
+  "canonical": "民事责任优先承担",
+  "topicKey": "cmpEnforcement",
+  "note": "5.9 章节投票（1 票 / cmpEnforcement:1）"
+ },
+ {
+  "termKey": "民间信仰",
+  "canonical": "民间信仰",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "汉字逆序形式",
+  "canonical": "汉字逆序形式",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（1 票 / tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "法律实体",
+  "canonical": "法律实体",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（2 票 / tmMadrid:2）"
+ },
+ {
+  "termKey": "注册人",
+  "canonical": "注册人",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（2 票 / tmMadrid:2）"
+ },
+ {
+  "termKey": "注册代理人",
+  "canonical": "注册代理人",
+  "topicKey": "tmUseRevocation",
+  "note": "5.9 章节投票（2 票 / tmUseRevocation:2）"
+ },
+ {
+  "termKey": "注册商标争议",
+  "canonical": "注册商标争议",
+  "topicKey": "tmFeeArchive",
+  "note": "5.9 章节投票（2 票 / tmFeeArchive:2）"
+ },
+ {
+  "termKey": "注册满三年的计算",
+  "canonical": "注册满三年的计算",
+  "topicKey": "tmUseRevocation",
+  "note": "5.9 章节投票（1 票 / tmUseRevocation:1）"
+ },
+ {
+  "termKey": "注意程度",
+  "canonical": "注意程度",
+  "topicKey": "tmSimilarity",
+  "note": "5.9 章节投票（1 票 / tmSimilarity:1）"
+ },
+ {
+  "termKey": "海关扣留凭单",
+  "canonical": "海关扣留凭单",
+  "topicKey": "prcCustoms",
+  "note": "5.9 章节投票（2 票 / prcCustoms:2）"
+ },
+ {
+  "termKey": "混淆",
+  "canonical": "混淆",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（4 票 / tmChangeAssign:1，tmMisc:1，tmDistinctiveness:4，tmWellKnown:1，tmUseRevocation:1）"
+ },
+ {
+  "termKey": "混淆、误导可能性",
+  "canonical": "混淆、误导可能性",
+  "topicKey": "tmWellKnown",
+  "note": "5.9 章节投票（1 票 / tmWellKnown:1）"
+ },
+ {
+  "termKey": "滥用知识产权",
+  "canonical": "滥用知识产权",
+  "topicKey": "cmpEnforcement",
+  "note": "5.9 章节投票（1 票 / cmpEnforcement:1）"
+ },
+ {
+  "termKey": "烈士姓名",
+  "canonical": "烈士姓名",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "特定关系人",
+  "canonical": "特定关系人",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（1 票 / tmBadFaith:1）"
+ },
+ {
+  "termKey": "特定地点的名称或者标志性建筑物的名称",
+  "canonical": "特定地点的名称或者标志性建筑物的名称",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "状态标志",
+  "canonical": "状态标志",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（2 票 / tmMadrid:2）"
+ },
+ {
+  "termKey": "独占使用权",
+  "canonical": "独占使用权",
+  "topicKey": "icLayoutDesign",
+  "note": "5.9 章节投票（1 票 / icLayoutDesign:1）"
+ },
+ {
+  "termKey": "独占权",
+  "canonical": "独占权",
+  "topicKey": "pvRightTermination",
+  "note": "5.9 章节投票（1 票 / pvRightTermination:1）"
+ },
+ {
+  "termKey": "现场检查",
+  "canonical": "现场检查",
+  "topicKey": "cmpEnforcement",
+  "note": "5.9 章节投票（1 票 / cmpEnforcement:1）"
+ },
+ {
+  "termKey": "生产经营活动",
+  "canonical": "生产经营活动",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（1 票 / tmFormalProc:1）"
+ },
+ {
+  "termKey": "用尽原则",
+  "canonical": "用尽原则",
+  "topicKey": "icLayoutDesign",
+  "note": "5.9 章节投票（1 票 / icLayoutDesign:1）"
+ },
+ {
+  "termKey": "申请人主体资格",
+  "canonical": "申请人主体资格",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（3 票 / tmCollectiveGI:3）"
+ },
+ {
+  "termKey": "申请人名称全称",
+  "canonical": "申请人名称全称",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "申请人基本情况",
+  "canonical": "申请人基本情况",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（1 票 / tmBadFaith:1）"
+ },
+ {
+  "termKey": "申请人资格",
+  "canonical": "申请人资格",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（4 票 / tmMadrid:4）"
+ },
+ {
+  "termKey": "申请权",
+  "canonical": "申请权",
+  "topicKey": "pvRightTermination",
+  "note": "5.9 章节投票（2 票 / pvRightTermination:2）"
+ },
+ {
+  "termKey": "申请注册权利范围",
+  "canonical": "申请注册权利范围",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "电商名称",
+  "canonical": "电商名称",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（2 票 / tmBadFaith:2）"
+ },
+ {
+  "termKey": "电子发文",
+  "canonical": "电子发文",
+  "topicKey": "tmFeeArchive",
+  "note": "5.9 章节投票（2 票 / tmFeeArchive:2）"
+ },
+ {
+  "termKey": "电影作品和以类似摄制电影的方法创作的作品",
+  "canonical": "电影作品和以类似摄制电影的方法创作的作品",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（2 票 / cprWorks:2）"
+ },
+ {
+  "termKey": "登记日期",
+  "canonical": "登记日期",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（1 票 / tmChangeAssign:1）"
+ },
+ {
+  "termKey": "监督能力",
+  "canonical": "监督能力",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（2 票 / tmCollectiveGI:2）"
+ },
+ {
+  "termKey": "直接表示商品特点",
+  "canonical": "直接表示商品特点",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（1 票 / tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "直接递交",
+  "canonical": "直接递交",
+  "topicKey": "tmFeeArchive",
+  "note": "5.9 章节投票（1 票 / tmFeeArchive:1）"
+ },
+ {
+  "termKey": "相对理由",
+  "canonical": "相对理由",
+  "topicKey": "tmMisc",
+  "note": "5.9 章节投票（1 票 / tmMisc:1）"
+ },
+ {
+  "termKey": "省级行政区划地名",
+  "canonical": "省级行政区划地名",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（1 票 / tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "真实使用意图",
+  "canonical": "真实使用意图",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（3 票 / tmMisc:1，tmBadFaith:3）"
+ },
+ {
+  "termKey": "知名度",
+  "canonical": "知名度",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（7 票 / tmChangeAssign:1，tmMisc:1，tmBadFaith:7，tmSimilarity:3，tmCollectiveGI:2）"
+ },
+ {
+  "termKey": "知名机构名称、标志",
+  "canonical": "知名机构名称、标志",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "知晓程度",
+  "canonical": "知晓程度",
+  "topicKey": "tmWellKnown",
+  "note": "5.9 章节投票（2 票 / tmWellKnown:2）"
+ },
+ {
+  "termKey": "知识产权海关保护",
+  "canonical": "知识产权海关保护",
+  "topicKey": "prcCustoms",
+  "note": "5.9 章节投票（2 票 / prcCustoms:2）"
+ },
+ {
+  "termKey": "知识产权海关保护备案",
+  "canonical": "知识产权海关保护备案",
+  "topicKey": "prcCustoms",
+  "note": "5.9 章节投票（4 票 / prcCustoms:4）"
+ },
+ {
+  "termKey": "破坏证据",
+  "canonical": "破坏证据",
+  "topicKey": "prcPreservation",
+  "note": "5.9 章节投票（1 票 / prcPreservation:1）"
+ },
+ {
+  "termKey": "确保效率原则",
+  "canonical": "确保效率原则",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（1 票 / tmFormalProc:1）"
+ },
+ {
+  "termKey": "社会主义市场经济",
+  "canonical": "社会主义市场经济",
+  "topicKey": "cmpMonopolyConduct",
+  "note": "5.9 章节投票（2 票 / cmpMonopolyConduct:2）"
+ },
+ {
+  "termKey": "禁止权利滥用原则",
+  "canonical": "禁止权利滥用原则",
+  "topicKey": "tmMisc",
+  "note": "5.9 章节投票（1 票 / tmMisc:1）"
+ },
+ {
+  "termKey": "移转",
+  "canonical": "移转",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（2 票 / tmChangeAssign:2）"
+ },
+ {
+  "termKey": "突发事件",
+  "canonical": "突发事件",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "系列商标",
+  "canonical": "系列商标",
+  "topicKey": "tmSimilarity",
+  "note": "5.9 章节投票（2 票 / tmSimilarity:2）"
+ },
+ {
+  "termKey": "红十字",
+  "canonical": "红十字",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "红十字、红新月、红水晶",
+  "canonical": "红十字、红新月、红水晶",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "红新月",
+  "canonical": "红新月",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "组合商标相同",
+  "canonical": "组合商标相同",
+  "topicKey": "tmSimilarity",
+  "note": "5.9 章节投票（1 票 / tmSimilarity:1）"
+ },
+ {
+  "termKey": "细微差别",
+  "canonical": "细微差别",
+  "topicKey": "tmSimilarity",
+  "note": "5.9 章节投票（4 票 / tmSimilarity:4）"
+ },
+ {
+  "termKey": "统一社会信用代码",
+  "canonical": "统一社会信用代码",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（3 票 / tmFormalProc:3）"
+ },
+ {
+  "termKey": "续展",
+  "canonical": "续展",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（3 票 / tmFormalProc:3，tmUseRevocation:2，tmChangeAssign:1，tmMadrid:1）"
+ },
+ {
+  "termKey": "续展备案",
+  "canonical": "续展备案",
+  "topicKey": "prcCustoms",
+  "note": "5.9 章节投票（1 票 / prcCustoms:1）"
+ },
+ {
+  "termKey": "网络流行表情包",
+  "canonical": "网络流行表情包",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "网络流行词汇",
+  "canonical": "网络流行词汇",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "罚款",
+  "canonical": "罚款",
+  "topicKey": "cmpEnforcement",
+  "note": "5.9 章节投票（1 票 / cmpEnforcement:1）"
+ },
+ {
+  "termKey": "翻译",
+  "canonical": "翻译",
+  "topicKey": "tmWellKnown",
+  "note": "5.9 章节投票（1 票 / tmWellKnown:1）"
+ },
+ {
+  "termKey": "职务育种",
+  "canonical": "职务育种",
+  "topicKey": "pvRightTermination",
+  "note": "5.9 章节投票（1 票 / pvRightTermination:1）"
+ },
+ {
+  "termKey": "肖像照片",
+  "canonical": "肖像照片",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（1 票 / tmBadFaith:1）"
+ },
+ {
+  "termKey": "肖像画",
+  "canonical": "肖像画",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（1 票 / tmBadFaith:1）"
+ },
+ {
+  "termKey": "自始不存在",
+  "canonical": "自始不存在",
+  "topicKey": "pvRightTermination",
+  "note": "5.9 章节投票（1 票 / pvRightTermination:1）"
+ },
+ {
+  "termKey": "自然人",
+  "canonical": "自然人",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（2 票 / tmChangeAssign:1，tmMadrid:2）"
+ },
+ {
+  "termKey": "自然因素和人文因素均起主要决定作用",
+  "canonical": "自然因素和人文因素均起主要决定作用",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（1 票 / tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "自造字",
+  "canonical": "自造字",
+  "topicKey": "tmClassification",
+  "note": "5.9 章节投票（2 票 / tmClassification:2）"
+ },
+ {
+  "termKey": "舞蹈作品",
+  "canonical": "舞蹈作品",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（1 票 / cprWorks:1）"
+ },
+ {
+  "termKey": "节日名称",
+  "canonical": "节日名称",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "营利性主体",
+  "canonical": "营利性主体",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（1 票 / tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "虚假交易",
+  "canonical": "虚假交易",
+  "topicKey": "cmpUnfairActs",
+  "note": "5.9 章节投票（2 票 / cmpUnfairActs:2，cmpEnforcement:1）"
+ },
+ {
+  "termKey": "虚假评价",
+  "canonical": "虚假评价",
+  "topicKey": "cmpUnfairActs",
+  "note": "5.9 章节投票（2 票 / cmpUnfairActs:2，cmpEnforcement:1）"
+ },
+ {
+  "termKey": "行业关联性",
+  "canonical": "行业关联性",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "行业协会",
+  "canonical": "行业协会",
+  "topicKey": "cmpMonopolyConduct",
+  "note": "5.9 章节投票（2 票 / cmpMonopolyConduct:2，cmpEnforcement:1）"
+ },
+ {
+  "termKey": "行政处分",
+  "canonical": "行政处分",
+  "topicKey": "prcCustoms",
+  "note": "5.9 章节投票（1 票 / prcCustoms:1）"
+ },
+ {
+  "termKey": "行政裁决",
+  "canonical": "行政裁决",
+  "topicKey": "icLayoutDesign",
+  "note": "5.9 章节投票（2 票 / icLayoutDesign:2）"
+ },
+ {
+  "termKey": "补充材料",
+  "canonical": "补充材料",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（2 票 / tmMadrid:2）"
+ },
+ {
+  "termKey": "补充证据",
+  "canonical": "补充证据",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（2 票 / tmFormalProc:2）"
+ },
+ {
+  "termKey": "补充证据材料",
+  "canonical": "补充证据材料",
+  "topicKey": "tmOppositionReview",
+  "note": "5.9 章节投票（3 票 / tmOppositionReview:3）"
+ },
+ {
+  "termKey": "补发商标注册证",
+  "canonical": "补发商标注册证",
+  "topicKey": "tmFeeArchive",
+  "note": "5.9 章节投票（3 票 / tmFeeArchive:3）"
+ },
+ {
+  "termKey": "补正文件",
+  "canonical": "补正文件",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（2 票 / tmFormalProc:2）"
+ },
+ {
+  "termKey": "补正通知",
+  "canonical": "补正通知",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（3 票 / tmFormalProc:1，tmOppositionReview:1，tmChangeAssign:3）"
+ },
+ {
+  "termKey": "被代理人的商标",
+  "canonical": "被代理人的商标",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（1 票 / tmBadFaith:1）"
+ },
+ {
+  "termKey": "被代表人的商标",
+  "canonical": "被代表人的商标",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（1 票 / tmBadFaith:1）"
+ },
+ {
+  "termKey": "被许可人",
+  "canonical": "被许可人",
+  "topicKey": "cprNeighboring",
+  "note": "5.9 章节投票（2 票 / cprNeighboring:2，cprContract:1，prcEvidence:1，tmChangeAssign:1）"
+ },
+ {
+  "termKey": "规范使用",
+  "canonical": "规范使用",
+  "topicKey": "tmUseRevocation",
+  "note": "5.9 章节投票（1 票 / tmUseRevocation:1）"
+ },
+ {
+  "termKey": "解除代理关系",
+  "canonical": "解除代理关系",
+  "topicKey": "tmOppositionReview",
+  "note": "5.9 章节投票（1 票 / tmOppositionReview:1）"
+ },
+ {
+  "termKey": "警衔",
+  "canonical": "警衔",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "计算机软件",
+  "canonical": "计算机软件",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（2 票 / cprWorks:2，cprProtection:1）"
+ },
+ {
+  "termKey": "认证",
+  "canonical": "认证",
+  "topicKey": "prcEvidence",
+  "note": "5.9 章节投票（2 票 / prcEvidence:2）"
+ },
+ {
+  "termKey": "许可期限",
+  "canonical": "许可期限",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（1 票 / tmChangeAssign:1）"
+ },
+ {
+  "termKey": "许诺销售",
+  "canonical": "许诺销售",
+  "topicKey": "pvRightTermination",
+  "note": "5.9 章节投票（1 票 / pvRightTermination:1）"
+ },
+ {
+  "termKey": "证据持有人",
+  "canonical": "证据持有人",
+  "topicKey": "prcPreservation",
+  "note": "5.9 章节投票（2 票 / prcPreservation:2）"
+ },
+ {
+  "termKey": "证据材料",
+  "canonical": "证据材料",
+  "topicKey": "tmUseRevocation",
+  "note": "5.9 章节投票（2 票 / prcPreservation:1，tmUseRevocation:2）"
+ },
+ {
+  "termKey": "证据目录",
+  "canonical": "证据目录",
+  "topicKey": "tmOppositionReview",
+  "note": "5.9 章节投票（1 票 / tmOppositionReview:1）"
+ },
+ {
+  "termKey": "证据目录清单",
+  "canonical": "证据目录清单",
+  "topicKey": "tmOppositionReview",
+  "note": "5.9 章节投票（2 票 / tmOppositionReview:2）"
+ },
+ {
+  "termKey": "词形变化",
+  "canonical": "词形变化",
+  "topicKey": "tmSimilarity",
+  "note": "5.9 章节投票（1 票 / tmSimilarity:1）"
+ },
+ {
+  "termKey": "误认",
+  "canonical": "误认",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（2 票 / tmAbsoluteGrounds:2，tmSimilarity:1，tmCollectiveGI:1）"
+ },
+ {
+  "termKey": "责令改正",
+  "canonical": "责令改正",
+  "topicKey": "cmpEnforcement",
+  "note": "5.9 章节投票（1 票 / cmpEnforcement:1）"
+ },
+ {
+  "termKey": "质押",
+  "canonical": "质押",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（2 票 / tmUseRevocation:1，tmChangeAssign:2）"
+ },
+ {
+  "termKey": "质押合同",
+  "canonical": "质押合同",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（1 票 / tmChangeAssign:1）"
+ },
+ {
+  "termKey": "身份证明文件",
+  "canonical": "身份证明文件",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（15 票 / tmFormalProc:15，tmOppositionReview:3，tmChangeAssign:1，tmMadrid:3，tmFeeArchive:4，tmCollectiveGI:1，tmBadFaith:1）"
+ },
+ {
+  "termKey": "转售价格维持",
+  "canonical": "转售价格维持",
+  "topicKey": "cmpMonopolyConduct",
+  "note": "5.9 章节投票（1 票 / cmpMonopolyConduct:1）"
+ },
+ {
+  "termKey": "转让不予核准",
+  "canonical": "转让不予核准",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "转让人",
+  "canonical": "转让人",
+  "topicKey": "tmChangeAssign",
+  "note": "5.9 章节投票（5 票 / tmChangeAssign:5，tmMadrid:1）"
+ },
+ {
+  "termKey": "转让无效",
+  "canonical": "转让无效",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "转让申请人",
+  "canonical": "转让申请人",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "转让终局",
+  "canonical": "转让终局",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "转让补正",
+  "canonical": "转让补正",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "转载",
+  "canonical": "转载",
+  "topicKey": "cprNeighboring",
+  "note": "5.9 章节投票（1 票 / cprNeighboring:1）"
+ },
+ {
+  "termKey": "过于复杂的文字、图形、数字、字母或上述要素的组合",
+  "canonical": "过于复杂的文字、图形、数字、字母或上述要素的组合",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "过于简单的线条、普通几何图形",
+  "canonical": "过于简单的线条、普通几何图形",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "进一步审查",
+  "canonical": "进一步审查",
+  "topicKey": "cmpConcentration",
+  "note": "5.9 章节投票（2 票 / cmpConcentration:2）"
+ },
+ {
+  "termKey": "违法所得",
+  "canonical": "违法所得",
+  "topicKey": "cprProtection",
+  "note": "5.9 章节投票（3 票 / cprProtection:3）"
+ },
+ {
+  "termKey": "连续使用",
+  "canonical": "连续使用",
+  "topicKey": "tmUseRevocation",
+  "note": "5.9 章节投票（1 票 / tmUseRevocation:1）"
+ },
+ {
+  "termKey": "追偿权",
+  "canonical": "追偿权",
+  "topicKey": "pvApplicationExam",
+  "note": "5.9 章节投票（1 票 / pvApplicationExam:1）"
+ },
+ {
+  "termKey": "退件",
+  "canonical": "退件",
+  "topicKey": "tmFeeArchive",
+  "note": "5.9 章节投票（1 票 / tmFeeArchive:1）"
+ },
+ {
+  "termKey": "退款的效力",
+  "canonical": "退款的效力",
+  "topicKey": "tmFeeArchive",
+  "note": "5.9 章节投票（1 票 / tmFeeArchive:1）"
+ },
+ {
+  "termKey": "退款请求人",
+  "canonical": "退款请求人",
+  "topicKey": "tmFeeArchive",
+  "note": "5.9 章节投票（1 票 / tmFeeArchive:1）"
+ },
+ {
+  "termKey": "送达",
+  "canonical": "送达",
+  "topicKey": "tmUseRevocation",
+  "note": "5.9 章节投票（1 票 / tmUseRevocation:1）"
+ },
+ {
+  "termKey": "送达公告",
+  "canonical": "送达公告",
+  "topicKey": "tmFeeArchive",
+  "note": "5.9 章节投票（2 票 / tmUseRevocation:1，tmFeeArchive:2）"
+ },
+ {
+  "termKey": "适用的限制",
+  "canonical": "适用的限制",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（1 票 / tmBadFaith:1）"
+ },
+ {
+  "termKey": "通用或常用物品的三维形状",
+  "canonical": "通用或常用物品的三维形状",
+  "topicKey": "tmDistinctiveness",
+  "note": "5.9 章节投票（1 票 / tmDistinctiveness:1）"
+ },
+ {
+  "termKey": "通用数表",
+  "canonical": "通用数表",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（1 票 / cprWorks:1）"
+ },
+ {
+  "termKey": "通用表格",
+  "canonical": "通用表格",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（1 票 / cprWorks:1）"
+ },
+ {
+  "termKey": "通用规范汉字",
+  "canonical": "通用规范汉字",
+  "topicKey": "tmFormalProc",
+  "note": "5.9 章节投票（2 票 / tmFormalProc:2）"
+ },
+ {
+  "termKey": "邮寄方式提交",
+  "canonical": "邮寄方式提交",
+  "topicKey": "tmOppositionReview",
+  "note": "5.9 章节投票（1 票 / tmOppositionReview:1）"
+ },
+ {
+  "termKey": "邮寄方式送达",
+  "canonical": "邮寄方式送达",
+  "topicKey": "tmOppositionReview",
+  "note": "5.9 章节投票（1 票 / tmOppositionReview:1）"
+ },
+ {
+  "termKey": "部分转让不予核准",
+  "canonical": "部分转让不予核准",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "部分转让无效",
+  "canonical": "部分转让无效",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "部分转让终局决定",
+  "canonical": "部分转让终局决定",
+  "topicKey": "tmMadrid",
+  "note": "5.9 章节投票（1 票 / tmMadrid:1）"
+ },
+ {
+  "termKey": "重缴",
+  "canonical": "重缴",
+  "topicKey": "tmFeeArchive",
+  "note": "5.9 章节投票（3 票 / tmFeeArchive:3）"
+ },
+ {
+  "termKey": "重要地名以外的地名拼音商标",
+  "canonical": "重要地名以外的地名拼音商标",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "重要赛事、展会、考古发现名称",
+  "canonical": "重要赛事、展会、考古发现名称",
+  "topicKey": "tmAbsoluteGrounds",
+  "note": "5.9 章节投票（1 票 / tmAbsoluteGrounds:1）"
+ },
+ {
+  "termKey": "鉴定人",
+  "canonical": "鉴定人",
+  "topicKey": "prcEvidence",
+  "note": "5.9 章节投票（4 票 / prcEvidence:4）"
+ },
+ {
+  "termKey": "鉴定意见",
+  "canonical": "鉴定意见",
+  "topicKey": "prcEvidence",
+  "note": "5.9 章节投票（2 票 / prcEvidence:2）"
+ },
+ {
+  "termKey": "错缴",
+  "canonical": "错缴",
+  "topicKey": "tmFeeArchive",
+  "note": "5.9 章节投票（3 票 / tmFeeArchive:3）"
+ },
+ {
+  "termKey": "防御性注册",
+  "canonical": "防御性注册",
+  "topicKey": "tmBadFaith",
+  "note": "5.9 章节投票（1 票 / tmBadFaith:1）"
+ },
+ {
+  "termKey": "隔离期限",
+  "canonical": "隔离期限",
+  "topicKey": "tmUseRevocation",
+  "note": "5.9 章节投票（1 票 / tmUseRevocation:1）"
+ },
+ {
+  "termKey": "隔离比对",
+  "canonical": "隔离比对",
+  "topicKey": "tmMisc",
+  "note": "5.9 章节投票（1 票 / tmMisc:1）"
+ },
+ {
+  "termKey": "集体组织",
+  "canonical": "集体组织",
+  "topicKey": "tmCollectiveGI",
+  "note": "5.9 章节投票（2 票 / tmCollectiveGI:2）"
+ },
+ {
+  "termKey": "非商业性使用",
+  "canonical": "非商业性使用",
+  "topicKey": "icLayoutDesign",
+  "note": "5.9 章节投票（1 票 / icLayoutDesign:1）"
+ },
+ {
+  "termKey": "非职务育种",
+  "canonical": "非职务育种",
+  "topicKey": "pvRightTermination",
+  "note": "5.9 章节投票（1 票 / pvRightTermination:1）"
+ },
+ {
+  "termKey": "非自愿许可使用费",
+  "canonical": "非自愿许可使用费",
+  "topicKey": "icLayoutDesign",
+  "note": "5.9 章节投票（2 票 / icLayoutDesign:2）"
+ },
+ {
+  "termKey": "音乐作品",
+  "canonical": "音乐作品",
+  "topicKey": "cprWorks",
+  "note": "5.9 章节投票（1 票 / cprWorks:1）"
  }
 ]

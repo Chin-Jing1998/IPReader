@@ -15,7 +15,8 @@
     { "name": "不以使用为目的的恶意商标注册申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人并非基于生产经营活动的需要，而提交大量商标注册申请" },
     { "name": "不良影响", "aliases": [], "role": "used", "confidence": "high", "evidence": "具有其他不良影响" },
     { "name": "通用名称", "aliases": [], "role": "used", "confidence": "high", "evidence": "是否存在注册商标成为其核定使用商品的通用名称情形" },
-    { "name": "经使用取得显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "经使用取得显著特征的标志审理标准" }
+    { "name": "经使用取得显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "经使用取得显著特征的标志审理标准" },
+    { "name": "商标审查审理指南", "aliases": [], "role": "defined", "confidence": "high", "evidence": "制定了《商标审查审理指南》（以下简称《指南》）", "rescue": "5.9-救回", "rescueFrom": "term-extract-legacy-tmeg/trademark-exam-guide-2021__08__001.json" }
   ],
   "laws": ["商标法第4条", "商标法第8条", "商标法第10条", "商标法第11条", "商标法第13条", "商标法第15条", "商标法第32条", "商标法第44条", "商标法第50条", "商标法实施条例第13条", "商标法实施条例第43条", "商标法实施条例第84条"],
   "extractedAt": "2026-08-29T00:00:00+08:00",

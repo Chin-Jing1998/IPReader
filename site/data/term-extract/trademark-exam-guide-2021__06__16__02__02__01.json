@@ -3,7 +3,8 @@
   "anchorNode": "tmeg-06-16-02-02-01",
   "terms": [
     { "name": "欺骗手段", "aliases": [], "role": "defined", "confidence": "high", "evidence": "虚构或者隐瞒事实真相、提交伪造的申请书件或者其他证明文件等手段骗取商标注册" },
-    { "name": "身份证明文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "涂改申请人的身份证明文件的行为" }
+    { "name": "身份证明文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "涂改申请人的身份证明文件的行为" },
+    { "name": "以欺骗手段取得商标注册", "aliases": [], "role": "defined", "confidence": "high", "evidence": "此种行为是指系争商标注册人在申请注册商标时，采取向商标注册部门虚构或者隐瞒事实真相、提交伪造的申请书件或者其他证明文件等手段骗取商标注册", "rescue": "5.9-救回", "rescueFrom": "term-extract-legacy-tmeg/trademark-exam-guide-2021__07-16__001.json" }
   ],
   "laws": [],
   "extractedAt": "2026-08-30T00:00:00+08:00",

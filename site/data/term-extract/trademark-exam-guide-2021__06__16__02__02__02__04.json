@@ -2,7 +2,8 @@
   "chunk": "trademark-exam-guide-2021/06/16/02/02/02/04",
   "anchorNode": "tmeg-06-16-02-02-02-04",
   "terms": [
-    { "name": "恶意明显", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "恶意明显的例外" }
+    { "name": "恶意明显", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "恶意明显的例外" },
+    { "name": "适用的限制", "aliases": [], "role": "defined", "confidence": "high", "evidence": "根据在案证据能够适用商标法其他条款对系争商标不予注册或宣告无效的，不再适用《商标法》第四十四条第一款，恶意明显的例外", "rescue": "5.9-救回", "rescueFrom": "term-extract-legacy-tmeg/trademark-exam-guide-2021__07-16__002.json" }
   ],
   "laws": ["商标法第44条第1款"],
   "extractedAt": "2026-08-30T00:00:00+08:00",
