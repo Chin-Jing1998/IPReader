@@ -30,7 +30,7 @@ const clamp = (v, lo, hi, dflt) => {
 };
 
 // ============ 文献分类词表（阶段5 波C 新增） ============
-// 88 部书按国家（country）/ 六标签法域（field）/ D1–D6 文献类型（docType）分类，
+// 76 部书按国家（country）/ 六标签法域（field）/ D1–D6 文献类型（docType）分类，
 // 单一事实源为 site/scripts/lib/domains.mjs 的同名常量——此处存一份逐字同步的副本，
 // 与 site 侧同步维护，此文件内不 import 该文件：mcp/ 是独立离线分发包，不依赖 site/
 // 侧的构建期文件，沿用 BOOKS 常量「双档各自维护、由脚本校验一致性」的既有惯例
@@ -653,7 +653,7 @@ export function listBooks(ctx) {
     note: closed.length
       ? `${closed.length} 部书目已由 IPREADER_MCP_DOMAINS 关闭，其内容不参与检索也无法读取`
       : `全部 ${kb.books.length} 部书目均已开放`,
-    // 摘要分组：country→field→docType 三级聚合，供快速概览 88 部书目的分布，不必
+    // 摘要分组：country→field→docType 三级聚合，供快速概览 76 部书目的分布，不必
     // 自行遍历 books[] 重新分组。groups 字段本身恒存在（结构性新增，非条件性出现），
     // 但数据包未完成波C 重建时三字段皆缺，buildBookGroups 回落空数组，即向后兼容分支。
     groups: buildBookGroups(kb.books),

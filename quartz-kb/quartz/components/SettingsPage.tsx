@@ -205,7 +205,7 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
 
         {/*
           「MCP」面板：安装包内附一份打包好的 MCP 服务（Resources/mcp/server.mjs），
-          接上之后 Claude Code、Codex 等 agent 就能直接检索这 88 部法规与实务文献。
+          接上之后 Claude Code、Codex 等 agent 就能直接检索这 76 部法规与实务文献。
           命令里的两处路径由 settings.inline.ts 从主进程取真实值填入——打包与开发两种
           形态、mac 与 Windows 两种平台，路径各不相同，在静态页里写死必错其三。
 
@@ -218,7 +218,7 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
             <h2>接入 AI 助手</h2>
             <p class="kb-settings-desc">
               本应用内附一个 MCP 服务，接上之后，Claude Code、Codex 等支持 MCP 的 AI
-              工具就能直接在这 88
+              工具就能直接在这 76
               部法规与实务文献里检索、读原文、查术语、按条号溯源——不必再手动翻阅。
               复制下面对应的命令执行一次即可，无须另装 Node，也无须下载任何东西。
             </p>
@@ -288,7 +288,7 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
             <h2>接入 AI 助手</h2>
             <p class="kb-settings-desc">
               桌面端内附一个 MCP 服务，接上之后，Claude Code、Codex 等支持 MCP 的 AI
-              工具就能直接在这 88 部法规与实务文献里检索、读原文、查术语、按条号溯源。
+              工具就能直接在这 76 部法规与实务文献里检索、读原文、查术语、按条号溯源。
               接入命令会按你这台电脑的实际路径生成，届时一键复制即可。
             </p>
             <p class="kb-settings-desc">当前环境未检测到该服务，请在桌面端应用中打开本页。</p>
@@ -330,11 +330,11 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
                 </p>
                 <p class="kb-about-row">
                   <span class="kb-about-label">内容</span>
-                  <span>中国六大法域 88 部文献 · 6,247 个正文页</span>
+                  <span>中国六大法域 76 部文献 · 5,963 个正文页</span>
                 </p>
                 <p class="kb-about-row">
                   <span class="kb-about-label">索引</span>
-                  <span>1,035 个术语 · 7,282 个图谱节点</span>
+                  <span>1,743 个术语 · 7,706 个图谱节点</span>
                 </p>
                 <p class="kb-about-row">
                   <span class="kb-about-label">许可</span>
@@ -484,17 +484,17 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
           <section class="kb-settings-sec">
             <h2>专利库使用说明</h2>
             <p class="kb-settings-desc">
-              本库收录 88 部文献全文。主干七部为：专利法 82 条、实施细则 149 条、审查指南 6 部 38
+              本库收录 76 部文献全文。主干七部为：专利法 82 条、实施细则 149 条、审查指南 6 部 38
               章、侵权判定指南 153
               条、机械与化学案件撰写规范、审查意见答复指引；另有司法解释与最高人民法院知识产权法庭裁判要旨
-              26 部，法律、行政法规、部门规章与规范性文件 54 部。
+              26 部，法律、行政法规、部门规章与规范性文件 43 部。
             </p>
             <div class="kb-settings-guide">
               <h3>目录导航</h3>
               <ul>
                 <li>
-                  左栏知识库目录按「中国 → 权利类型 → 文件归类」三级分组呈现：88
-                  部文献先归入专利、商标、著作权、竞争法、品种布图、综合程序六类权利类型，各类之下再按法律、行政法规、部门规章与规范性文件、司法解释与裁判规则、审查与实务指引、政策文件与标准索引六类文件归类排列。
+                  左栏知识库目录按「中国 → 权利类型 → 文件归类」三级分组呈现：76
+                  部文献先归入专利、商标、著作权、竞争法、品种布图、综合程序六类权利类型，各类之下再按法律、行政法规、部门规章与规范性文件、司法解释与裁判规则、审查与实务指引五类文件归类排列（第六类「政策文件与标准索引」现无在库文献，该层不显示）。
                 </li>
                 <li>
                   分组层本身只承担展开与收起，不指向具体页面；点击最末一层的文献条目才进入正文。

@@ -1,7 +1,7 @@
 // server.mjs —— IPReader MCP 服务入口（stdio 传输）
 //
 // 让任意支持 MCP 的 agent（Claude Code / Codex / WorkBuddy 等）检索、精读并溯源
-// 88 部知识产权法规与实务文献。全程离线：本地文件 + 父子进程管道，不开端口、不发请求。
+// 76 部知识产权法规与实务文献。全程离线：本地文件 + 父子进程管道，不开端口、不发请求。
 //
 // 两条纪律：
 //   1. stdout 是 JSON-RPC 通道，任何日志一律走 stderr——往 stdout 写一个字节即破坏协议。
@@ -84,7 +84,7 @@ function registerTools(server) {
     {
       title: '全文检索',
       description:
-        '在 88 部知识产权法规与实务文献中做全文检索，返回命中页面的标题、所属书目、层级路径与命中片段。'
+        '在 76 部知识产权法规与实务文献中做全文检索，返回命中页面的标题、所属书目、层级路径与命中片段。'
         + '检索为本地索引，中文按字切分并叠加术语表精确匹配。适合「某个概念在哪里规定」这类问题。',
       inputSchema: z.object({
         query: z.string().min(1).describe('检索词，如「创造性判断」「等同侵权」「说明书充分公开」'),
@@ -145,7 +145,7 @@ function registerTools(server) {
     {
       title: '浏览目录',
       description:
-        '按层级浏览目录树。不传 root 时列出全部 88 部书的顶层结构；root 可给书目域键（如 examination-guideline）'
+        '按层级浏览目录树。不传 root 时列出全部 76 部书的顶层结构；root 可给书目域键（如 examination-guideline）'
         + '或任一节点 id，用于展开该节点之下的子结构。不传 root 时可另加 groupBy=taxonomy，'
         + '在原有 books 平铺之外附一份按国家／法域（field）／文献类型（docType，D1–D6）分层的 grouped 视图。',
       // depth 上限 8（阶段5.3 批次 W9 由 5 提至 8）：商标审查审理指南（tmeg）阶段5.3 后为
@@ -306,7 +306,7 @@ serveStdio(() => {
     {
       capabilities: { tools: {}, resources: {} },
       instructions:
-        'IPReader 知识产权知识库：专利、商标、著作权（含软著）、竞争法、植物新品种与集成电路布图设计六大法域 88 部法律法规、审查指南、司法解释与实务文献。'
+        'IPReader 知识产权知识库：专利、商标、著作权（含软著）、竞争法、植物新品种与集成电路布图设计六大法域 76 部法律法规、审查指南、司法解释与实务文献。'
         + '建议先用 search_kb 定位，再用 read_node 读原文；查条文用 find_law，查术语用 lookup_term。'
         + '所有内容均为本地离线数据，不联网。',
     },

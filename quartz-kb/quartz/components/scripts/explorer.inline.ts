@@ -65,7 +65,7 @@ type FolderState = {
  *
  * 深度口径为**渲染树深度**（根的直接子节点为 1），不再由 slug 段数反推（C-3）：
  * 合成分组层（中国 / 权利类型 / 文件归类）没有对应 slug，而其下的书目录 slug 仍只有
- * 一段——若沿用 slug 段数，88 部书会全部落在 openLevels: 1 的展开档内，一旦展开某个
+ * 一段——若沿用 slug 段数，76 部书会全部落在 openLevels: 1 的展开档内，一旦展开某个
  * 归类节点就会把整本书的章节铺开。未启用分组时渲染树与 slug 层级逐层一致，判定结果
  * 与旧实现完全相同。
  */
@@ -354,10 +354,12 @@ function clearExplorerSnapshot() {
 /** 权利类型（field）展示顺序；taxonomy 中出现的未知取值按首次出现顺序缀在其后。 */
 const FIELD_ORDER = ["专利", "商标", "著作权", "竞争法", "品种布图", "综合程序"]
 
-/** 文件归类（docType）展示顺序；标题取 taxonomy 的 docTypeName。 */
+/** 文件归类（docType）展示顺序；标题取 taxonomy 的 docTypeName。
+ *  顺序表恒列六档，实际建桶由 taxonomy 内的书目决定：某档无书即整层不出
+ *  （阶段5.11 波O 下线 11 部后 D6「政策文件与标准索引」已无在库文献，该层不显示）。 */
 const DOCTYPE_ORDER = ["D1", "D2", "D3", "D4", "D5", "D6"]
 
-/** 法域（country）展示顺序与显示名。当前 88 部书全为 CN，其余法域按首次出现顺序追加。 */
+/** 法域（country）展示顺序与显示名。当前 76 部书全为 CN，其余法域按首次出现顺序追加。 */
 const COUNTRY_ORDER = ["CN"]
 const COUNTRY_NAMES: Record<string, string> = { CN: "中国" }
 
