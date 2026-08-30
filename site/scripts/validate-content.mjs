@@ -1,7 +1,7 @@
 // 校验 content/*.json：可解析、字段齐全、结构合法。
 // public/content 下并存两套 schema，本脚本按类分流校验，不再以 doc schema 套 term 详情：
-//   · doc  详情（6247 个）：17 个顶层字段，narrative/infographics/examples/related 等正文结构；
-//   · term 详情（1035 个，term-NNNN.json）：9 个顶层字段，definition/occurrences/laws/relatedTerms。
+//   · doc  详情（5963 个）：17 个顶层字段，narrative/infographics/examples/related 等正文结构；
+//   · term 详情（1743 个，term-NNNN.json）：9 个顶层字段，definition/occurrences/laws/relatedTerms。
 // 两类均有「数据事实如此」的已知形态，按结构判据豁免并计数输出，不静默吞掉（见 EXEMPT_BASELINE）。
 //
 //   用法：node scripts/validate-content.mjs [id前缀] [选项]

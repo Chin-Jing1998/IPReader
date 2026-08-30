@@ -262,8 +262,8 @@ export default ((userOpts?: Partial<Options>) => {
         </template>
         {/*
           patent-kb（阶段5.8）：同级重排手柄。**刻意不并入 template-folder**——
-          全库 1,395 个文件夹行里只有约 119 行开放重排（合成分组层的三层子项），
-          其余 1,276 行若各带一枚手柄，等于凭空多出上千个节点与上千次事件绑定。
+          全库 496 个文件夹行里只有 105 行开放重排（合成分组层的三层子项），
+          其余 391 行若各带一枚手柄，等于凭空多出数百个节点与数百次事件绑定。
           由 explorer.inline.ts 的 attachDragHandle 对可重排行按需 clone。
           形态约束（对表冒烟既有断言）：必须是 button 而非 <a>（合成节点内 <a> 数
           恒为 0），不得带 .folder-title 类（标题取值按该类选择），且恒为

@@ -351,14 +351,14 @@ button.desktop-explorer {
 // ==== /patent-kb ====
 
 // ==== patent-kb: 同级重排手柄与拖拽指示（阶段5.8）====
-// 开放重排的只有合成分组层的三层子项（法域行 / docType 行 / 书目行，约 119 行），
+// 开放重排的只有合成分组层的三层子项（法域行 / docType 行 / 书目行，105 行），
 // 判据是 explorer.inline.ts 写在行上的 data-orderable（一属性两职：既是标记，
 // 取值又是落表用的父键）。顶层三巨头与章节层没有该属性，因而没有槽位也没有手柄。
 .folder-container[data-orderable] {
   // 指示线伪元素的包含块
   position: relative;
   // 槽位常驻：手柄绝对定位、平时只是 opacity:0，hover 时不改变任何几何，
-  // 整行零回流（若改用 display 切换，1,395 行的目录树会在每次悬停时抖一下）
+  // 整行零回流（若改用 display 切换，7,855 行的目录树会在每次悬停时抖一下）
   padding-right: 1.15rem;
 }
 

@@ -324,7 +324,7 @@ const GraphExplorer: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
             graphexplorer.scss 的绝对定位脱流覆盖到画布上，既不参与 flex 分宽、
             也不触发 .ge-canvas 的 ResizeObserver（波A-A3 装的那只）。
             树体是空壳，由 graphexplorer.inline.ts 在首次点开时惰性填充——
-            89 行（6 法域 + 83 书）DOM 只在用户真的要用目录时才产生，
+            82 行（6 法域 + 76 书）DOM 只在用户真的要用目录时才产生，
             不点则图谱首开成本一分不付。 */}
         <div class="ge-toc">
           <button

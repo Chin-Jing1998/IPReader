@@ -1,5 +1,24 @@
 // export-term-index.mjs —— 词表蒸馏导出器（知识库术语图谱 → skills 市场 term-index）
 //
+// ⚠️⚠️ 使用前必读：本脚本的定版常量与下方输入描述**整体停留在 2026-08-12 词表口径，
+//        与现网数据已大幅脱节，直接运行会硬失败或产出残缺结果。**（阶段5.11 波H/波O
+//        两次点名，波5.11 收尾批 2026-08-30 登记；本批只加警告、未修脚本。）
+//   实测对照（现网真值取自 site/data/ 与 site/public/content/，2026-08-30）：
+//     · EXPECTED_TERM_TOTAL = 851  → 现网 terms-merged.json 实有 **1743** 词条；
+//       该常量参与定版校验，不改则首道断言即拦下。
+//     · data/nodes.json  注为 5306 节点 → 现网 **7706**；
+//     · data/edges.json  注为 10446 边  → 现网 **19099**；
+//     · public/content/term-*.json 注为 851 份 → 现网 **1743** 份；
+//     · TERM_TOPIC_GROUPS 注为 22 组 → 现网 lib/topics.mjs 实有 **40 组**，
+//       故「25 个 markdown 文件」「01-novelty.md … 22-fee.md」「23 组总览表」
+//       三处输出规模文案同步失效（按 40 组应为 40 + README + 99-misc = 42 份）。
+//     · 下方 BOOKS 常量是外层仓书目清单的**副本**，仅登记 7 部（「七书切片树」年代），
+//       现网知识库已达 **76 部**；未登记的书其 nodeId 前缀落不到 BOOKS，
+//       会一路走 DEFAULT_BOOK 兜底、把指针错指到 examination-guideline。
+//   因此**使用前须先按现网重写**：定版常量、BOOKS 副本（与 build-quartz-md.mjs 的
+//   BOOKS 对齐）、分组与输出规模文案三者一并更新，并重新实证 slicePointer 的
+//   指针规则对新增各书切片树是否仍成立（该规则当年只对七书验过）。
+//
 // 定位：**只读消费者**。不写任何既有产物（data/、public/、quartz-kb/ 一律不碰），
 //   全部输出落 --out 指定目录下的 term-index/ 子目录，共 25 个 markdown 文件。
 //

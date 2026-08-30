@@ -139,7 +139,7 @@ function defaultCollapsed(depth: number, opts: ParsedOptions): boolean {
 
 // ==== patent-kb: 侧栏合成分组层「中国 → 权利类型 → 文件归类」（C-3）====
 // 物理路径、slug、页面 id 一律不动：分组只发生在 trie 建好并排序之后的渲染树上，
-// 把 87 个顶层书目录节点整体摘下、按 /static/taxonomy.json 的 country/field/docType
+// 把 76 个顶层书目录节点整体摘下、按 /static/taxonomy.json 的 country/field/docType
 // 三级再父化，挂到三层「合成节点」下。合成节点没有对应页面，因此不可点击导航，
 // 只能折叠/展开；taxonomy 取不到或键缺失时整层不建，目录树回落为现状平铺。
 
@@ -176,7 +176,7 @@ const GRAPH_FOLDER_STATE_STORAGE_KEY = "fileTree-graph"
 const GRAPH_EXPAND_TO_DEPTH = 6
 
 // ==== patent-kb: 常设性能埋点 window.__explorerPerf（阶段5.6 目录树 DOM 复用）====
-// 目录树是全站每次 SPA 导航的固定开销（约 7,400 个 li／1,395 个文件夹节点），
+// 目录树是全站每次 SPA 导航的固定开销（约 7,855 个 li／496 个文件夹节点），
 // 与页面渲染争同一条主线程。埋点常设而非临时插桩，理由同 graph.inline.ts 的
 // __graphPerf：每一次归因都要求同口径数字。默认零输出、零 I/O，开销为每次导航
 // 三次 performance.now()。localStorage 的 explorer-perf 置 "1" 时逐条 console.log。
@@ -1015,7 +1015,7 @@ let currentExplorerState: Array<FolderState>
  * currentExplorerState 的 path→collapsed 索引，与之在同一处同时构造、内容等价
  * （渲染树中折叠键唯一，故不存在「先到先得」与「后写覆盖」的分歧）。
  * 建树与增量更新都要按折叠键查取值，用它把原先的线性 find 降为 O(1)：
- * 1,383 个文件夹各查一遍原是 O(N²)。
+ * 496 个文件夹各查一遍原是 O(N²)。
  */
 let explorerStateIndex = new Map<string, boolean>()
 function toggleExplorer(this: HTMLElement) {
@@ -1694,7 +1694,7 @@ function createFolderNode(
 
   // patent-kb（阶段5.8）：可重排行的标记。**一属性两职**——它的存在表示「本行可拖」
   // （CSS 据此常驻手柄槽位），它的取值就是落表用的父键，拖拽落定时无需再回溯 DOM 找父。
-  // 手柄由 attachDragHandle 按需 clone（全库 1,395 个文件夹行里仅约 113 行可重排）。
+  // 手柄由 attachDragHandle 按需 clone（全库 496 个文件夹行里仅 105 行可重排）。
   if (isOrderableParentKey(parentKey)) {
     folderContainer.dataset.orderable = parentKey as string
     attachDragHandle(folderContainer)
@@ -1735,7 +1735,7 @@ function createFolderNode(
   }
 
   // 折叠判定优先级：localStorage 保存态（已并入 currentExplorerState）> openLevels 默认规则
-  // patent-kb（DOM 复用）：原为 currentExplorerState.find 线性查找，1,383 个文件夹各查一遍
+  // patent-kb（DOM 复用）：原为 currentExplorerState.find 线性查找，496 个文件夹各查一遍
   // 即 O(N²)；改查同源的 Map（explorerStateIndex 与 currentExplorerState 由同一处同时构造，
   // 键唯一故取值逐条相同）。命中不到时的回落分支与原写法一字未动。
   const isCollapsed = explorerStateIndex.get(folderPath) ?? defaultCollapsed(depth, opts)
