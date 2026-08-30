@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/06/03/06",
+  "anchorNode": "tmeg-04-06-03-06",
+  "terms": [
+    { "name": "转让补正", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "转让补正" },
+    { "name": "一并转让", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "一并转让" },
+    { "name": "补正通知书", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "补正通知书" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

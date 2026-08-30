@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/16/02/02/02/01",
+  "anchorNode": "tmeg-06-16-02-02-02-01",
+  "terms": [
+    { "name": "其他不正当手段", "aliases": [], "role": "defined", "confidence": "high", "evidence": "谋取不正当利益等其他不正当手段取得注册" },
+    { "name": "诚实信用原则", "aliases": [], "role": "used", "confidence": "high", "evidence": "其行为违反了诚实信用原则" },
+    { "name": "公共利益", "aliases": [], "role": "used", "confidence": "mid", "evidence": "损害了公共利益" },
+    { "name": "民事权益", "aliases": [], "role": "used", "confidence": "high", "evidence": "只损害特定民事权益的情形" },
+    { "name": "公共资源", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不正当占用公共资源" }
+  ],
+  "laws": ["商标法第45条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

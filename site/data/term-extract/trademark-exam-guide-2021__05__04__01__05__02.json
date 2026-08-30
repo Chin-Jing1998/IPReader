@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/04/01/05/02",
+  "anchorNode": "tmeg-05-04-01-05-02",
+  "terms": [
+    { "name": "优先权证明文件", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "发给申请人相应的优先权证明文件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

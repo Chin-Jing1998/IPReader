@@ -1,0 +1,10 @@
+{
+  "chunk": "plant-variety-regulations-2025/04/03",
+  "anchorNode": "pvpr-04-03",
+  "terms": [
+    { "name": "品种权", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请品种权的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

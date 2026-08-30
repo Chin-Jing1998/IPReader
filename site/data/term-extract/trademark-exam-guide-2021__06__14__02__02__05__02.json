@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/14/02/02/05/02",
+  "anchorNode": "tmeg-06-14-02-02-05-02",
+  "terms": [
+    { "name": "肖像权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "该在先肖像权的保护范围" },
+    { "name": "肖像照片", "aliases": [], "role": "defined", "confidence": "high", "evidence": "将他人的肖像照片作为商标申请注册的，不以他人具有公众知名度为保护前提" },
+    { "name": "肖像画", "aliases": [], "role": "defined", "confidence": "high", "evidence": "将他人的肖像画作为商标申请注册的" },
+    { "name": "举证责任", "aliases": [], "role": "used", "confidence": "high", "evidence": "应承担许可事实的举证责任" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

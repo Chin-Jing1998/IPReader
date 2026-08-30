@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/03/05",
+  "anchorNode": "tmeg-03-02-03-05",
+  "terms": [
+    { "name": "质权登记延期", "aliases": [], "role": "defined", "confidence": "high", "evidence": "提交质权登记延期申请" },
+    { "name": "主合同", "aliases": [], "role": "used", "confidence": "high", "evidence": "因被担保的主合同履行期限延长" },
+    { "name": "主债权", "aliases": [], "role": "used", "confidence": "high", "evidence": "主债权未能按期实现" },
+    { "name": "质权人", "aliases": [], "role": "used", "confidence": "high", "evidence": "质权人可以出具相关书面保证函" },
+    { "name": "出质人", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当通知出质人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

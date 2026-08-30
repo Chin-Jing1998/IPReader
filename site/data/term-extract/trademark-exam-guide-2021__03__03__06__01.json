@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/03/06/01",
+  "anchorNode": "tmeg-03-03-06-01",
+  "terms": [
+    { "name": "补正", "aliases": [], "role": "defined", "confidence": "high", "evidence": "需要通知申请人予以补正" },
+    { "name": "宽展期", "aliases": ["宽展期限"], "role": "used", "confidence": "high", "evidence": "续展申请收到日超出宽展期限" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

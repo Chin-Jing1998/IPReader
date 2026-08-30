@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/03/05/03",
+  "anchorNode": "tmeg-01-03-05-03",
+  "terms": [
+    { "name": "变更代理机构", "aliases": [], "role": "used", "confidence": "mid", "evidence": "解除与原代理机构委托关系并委托新的代理机构的声明和新的代理委托书" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

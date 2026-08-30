@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/04/02/01",
+  "anchorNode": "tmeg-06-09-07-04-02-01",
+  "terms": [
+    { "name": "地理标志", "aliases": [], "role": "defined", "confidence": "high", "evidence": "标示某商品来源于某地区，该商品的特定质量、信誉或者其他特征" },
+    { "name": "显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "整体上属于经过长期使用具有商标显著性的情形，不判定为缺乏显著特征" },
+    { "name": "地名+商品通用名称", "aliases": [], "role": "used", "confidence": "mid", "evidence": "表现形式一般由“地名+商品通用名称”构成" }
+  ],
+  "laws": ["商标法第11条第1款第1项"],
+  "extractedAt": "2026-08-30T01:53:23+08:00",
+  "model": "claude-sonnet-5"
+}

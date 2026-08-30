@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/04/03/02/01",
+  "anchorNode": "tmeg-01-04-03-02-01",
+  "terms": [
+    { "name": "送达日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "送达日是指原审程序文书送达的时间" },
+    { "name": "评审期限", "aliases": [], "role": "used", "confidence": "mid", "evidence": "确定送达日关系到评审期限的计算" },
+    { "name": "邮寄方式送达", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以邮寄方式送达的，申请人可以提交原审程序文书的邮政挂号信信封原件" },
+    { "name": "公告方式送达", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以公告方式送达的，自公告发布之日起满三十日视为送达" },
+    { "name": "数据电文方式送达", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以数据电文方式送达的，自文件发出之日起满十五日视为送达" },
+    { "name": "马德里国际注册商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "马德里国际注册商标的送达" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

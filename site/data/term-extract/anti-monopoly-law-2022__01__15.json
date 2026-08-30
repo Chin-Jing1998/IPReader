@@ -1,0 +1,10 @@
+{
+  "chunk": "anti-monopoly-law-2022/01/15",
+  "anchorNode": "aml-01-15",
+  "terms": [
+    { "name": "相关市场", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本法所称相关市场，是指经营者在一定时期内就特定商品或者服务" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:31:00+08:00",
+  "model": "claude-sonnet-5"
+}

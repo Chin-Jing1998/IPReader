@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/01/05",
+  "anchorNode": "tmeg-06-03-02-02-01-05",
+  "terms": [
+    { "name": "中央国家机关", "aliases": [], "role": "used", "confidence": "high", "evidence": "同中央国家机关的名称、标志、所在地特定地点的名称" },
+    { "name": "标志性建筑物", "aliases": [], "role": "used", "confidence": "high", "evidence": "所在地特定地点的名称或者标志性建筑物的名称、图形相同的" },
+    { "name": "禁用规定", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查审理时适用该项禁用规定" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

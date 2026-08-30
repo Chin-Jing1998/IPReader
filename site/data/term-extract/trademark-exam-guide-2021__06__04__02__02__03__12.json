@@ -1,0 +1,30 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/04/02/02/03/12",
+  "anchorNode": "tmeg-06-04-02-02-03-12",
+  "terms": [
+    {
+      "name": "常用祝颂语",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "常用祝颂语和日常用语是指在平时工作生活中或者节日中，经常使用的词汇或者短语"
+    },
+    {
+      "name": "日常用语",
+      "aliases": ["日常生活用语"],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "属于日常生活用语，已被公众广泛使用"
+    },
+    {
+      "name": "显著特征",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "不具备商标的显著特征"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

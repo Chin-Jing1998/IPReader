@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/04/04",
+  "anchorNode": "tmeg-02-04-04",
+  "terms": [
+    { "name": "声音要素划分原则", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "根据声音商标是否具有音乐性质确定声音要素编码" },
+    { "name": "文字检索要素", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "声音商标中的文字内容部分，另划分文字检索要素" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

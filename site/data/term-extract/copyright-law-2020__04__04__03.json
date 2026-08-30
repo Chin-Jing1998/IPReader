@@ -1,0 +1,13 @@
+{
+  "chunk": "copyright-law-2020/04/04/03",
+  "anchorNode": "cpl-04-04-03",
+  "terms": [
+    { "name": "广播组织的禁止权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "广播组织的禁止权" },
+    { "name": "广播电台、电视台", "aliases": [], "role": "used", "confidence": "high", "evidence": "广播电台、电视台有权禁止未经其许可的下列行为" },
+    { "name": "与著作权有关的权利", "aliases": [], "role": "used", "confidence": "high", "evidence": "或者与著作权有关的权利" },
+    { "name": "保护期", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "权利的保护期为五十年，截止于该广播、电视首次播放后第五十年的12月31日" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

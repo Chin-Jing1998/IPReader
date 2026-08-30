@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/05/05/07",
+  "anchorNode": "tmeg-06-02-05-05-07",
+  "terms": [
+    { "name": "不以使用为目的的恶意商标注册申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "不以使用为目的的恶意商标注册申请" },
+    { "name": "通用名称", "aliases": [], "role": "used", "confidence": "mid", "evidence": "指定商品或者服务上的通用名称" },
+    { "name": "行业术语", "aliases": [], "role": "used", "confidence": "high", "evidence": "商品或者服务上的行业术语" },
+    { "name": "缺乏显著性的标志", "aliases": [], "role": "used", "confidence": "mid", "evidence": "缺乏显著性的标志" },
+    { "name": "使用意图", "aliases": [], "role": "used", "confidence": "high", "evidence": "提交了使用意图说明及证据" }
+  ],
+  "laws": ["商标法第4条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

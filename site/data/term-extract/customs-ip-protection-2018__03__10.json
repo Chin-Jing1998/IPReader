@@ -1,0 +1,11 @@
+{
+  "chunk": "customs-ip-protection-2018/03/10",
+  "anchorNode": "cusr-03-10",
+  "terms": [
+    { "name": "侵权嫌疑货物", "aliases": [], "role": "used", "confidence": "high", "evidence": "被扣留的侵权嫌疑货物" },
+    { "name": "知识产权主管部门", "aliases": [], "role": "used", "confidence": "mid", "evidence": "知识产权主管部门" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

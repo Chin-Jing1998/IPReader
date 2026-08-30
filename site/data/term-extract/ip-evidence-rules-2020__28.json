@@ -1,0 +1,10 @@
+{
+  "chunk": "ip-evidence-rules-2020/28",
+  "anchorNode": "ipev-28",
+  "terms": [
+    { "name": "有专门知识的人", "aliases": [], "role": "used", "confidence": "high", "evidence": "当事人可以申请有专门知识的人出庭，就专业问题提出意见" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/01/01/06/01",
+  "anchorNode": "tmeg-03-01-01-06-01",
+  "terms": [
+    { "name": "补正", "aliases": [], "role": "defined", "confidence": "high", "evidence": "存在下列情形之一的，通知申请人予以补正" },
+    { "name": "续展宽展期", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标处于续展宽展期，通知申请人及时办理续展申请的" },
+    { "name": "质权登记", "aliases": [], "role": "used", "confidence": "high", "evidence": "变更申请商标已经办理了质权登记或已被查封的" },
+    { "name": "补正通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人在收到补正通知书后，在规定期限内按照通知书的要求予以改正" },
+    { "name": "审查结论", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人未能在规定期限内补正的，不影响商标注册部门作出审查结论" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

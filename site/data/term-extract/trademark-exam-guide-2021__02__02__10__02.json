@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/02/10/02",
+  "anchorNode": "tmeg-02-02-10-02",
+  "terms": [
+    { "name": "显著特征", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "由于有时可能无法判定文字是否具备显著特征" },
+    { "name": "检索分卡", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "原则上对具备显著特征的文字部分划分检索分卡" },
+    { "name": "放弃专用权", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "无论申请人是否声明放弃专用权" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

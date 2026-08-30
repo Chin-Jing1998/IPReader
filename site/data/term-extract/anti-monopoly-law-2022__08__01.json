@@ -1,0 +1,11 @@
+{
+  "chunk": "anti-monopoly-law-2022/08/01",
+  "anchorNode": "aml-08-01",
+  "terms": [
+    { "name": "滥用知识产权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "经营者滥用知识产权，排除、限制竞争的行为" },
+    { "name": "行使知识产权的行为", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "行使知识产权的行为，不适用本法" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

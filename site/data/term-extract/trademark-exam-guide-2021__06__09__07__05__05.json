@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/05/05",
+  "anchorNode": "tmeg-06-09-07-05-05",
+  "terms": [
+    { "name": "生产地域范围", "aliases": [], "role": "defined", "confidence": "high", "evidence": "地理标志所标示地区的生产地域范围可以是县志、农业志、产品志、年鉴、教科书" },
+    { "name": "地域范围证明文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "地理标志所标示地区的人民政府或行业主管部门出具的地域范围证明文件" },
+    { "name": "行政区划", "aliases": [], "role": "used", "confidence": "mid", "evidence": "该地域范围可以与所在地区的现行行政区划名称" },
+    { "name": "含糊表述", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "如“主要分布”“主要包括”等含糊表述则不符合要求" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

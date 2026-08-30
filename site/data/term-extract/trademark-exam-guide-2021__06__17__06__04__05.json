@@ -1,0 +1,30 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/17/06/04/05",
+  "anchorNode": "tmeg-06-17-06-04-05",
+  "terms": [
+    {
+      "name": "举证责任",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "举证责任由系争商标注册人承担"
+    },
+    {
+      "name": "使用人",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "系争商标的使用人"
+    },
+    {
+      "name": "许可使用关系",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "许可使用关系"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

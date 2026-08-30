@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/01/01/02",
+  "anchorNode": "tmeg-05-01-01-02",
+  "terms": [
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "依法设立的商标代理机构" },
+    { "name": "商标代理委托书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "《商标代理委托书》应当载明代理内容及权限" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

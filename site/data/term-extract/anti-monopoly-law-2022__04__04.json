@@ -1,0 +1,13 @@
+{
+  "chunk": "anti-monopoly-law-2022/04/04",
+  "anchorNode": "aml-04-04",
+  "terms": [
+    { "name": "申报书", "aliases": [], "role": "used", "confidence": "high", "evidence": "申报书应当载明参与集中的经营者的名称、住所、经营范围" },
+    { "name": "集中协议", "aliases": [], "role": "used", "confidence": "high", "evidence": "（三）集中协议" },
+    { "name": "相关市场", "aliases": [], "role": "used", "confidence": "high", "evidence": "集中对相关市场竞争状况影响的说明" },
+    { "name": "国务院反垄断执法机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "经营者向国务院反垄断执法机构申报集中" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

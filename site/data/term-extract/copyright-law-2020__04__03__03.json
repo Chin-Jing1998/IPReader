@@ -1,0 +1,14 @@
+{
+  "chunk": "copyright-law-2020/04/03/03",
+  "anchorNode": "cpl-04-03-03",
+  "terms": [
+    { "name": "录音录像制作者", "aliases": [], "role": "defined", "confidence": "high", "evidence": "录音录像制作者对其制作的录音录像制品，享有许可他人复制、发行" },
+    { "name": "录音录像制品", "aliases": [], "role": "used", "confidence": "high", "evidence": "被许可人出租录音录像制品，还应当取得表演者许可" },
+    { "name": "表演者", "aliases": [], "role": "used", "confidence": "high", "evidence": "还应当取得表演者许可，并支付报酬" },
+    { "name": "被许可人", "aliases": [], "role": "used", "confidence": "high", "evidence": "被许可人复制、发行、通过信息网络向公众传播录音录像制品" },
+    { "name": "保护期", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "权利的保护期为五十年，截止于该制品首次制作完成后第五十年的12月31日" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

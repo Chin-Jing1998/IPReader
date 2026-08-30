@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/05/05/08",
+  "anchorNode": "tmeg-06-02-05-05-08",
+  "terms": [
+    { "name": "不以使用为目的的恶意商标注册申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "不以使用为目的的恶意商标注册申请" },
+    { "name": "商标转让", "aliases": [], "role": "used", "confidence": "high", "evidence": "大量转让商标" },
+    { "name": "受让人较为分散", "aliases": [], "role": "used", "confidence": "mid", "evidence": "受让人较为分散" },
+    { "name": "真实使用意图", "aliases": [], "role": "used", "confidence": "high", "evidence": "明显缺乏真实使用意图" }
+  ],
+  "laws": ["商标法第4条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

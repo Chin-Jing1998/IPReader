@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/03/09",
+  "anchorNode": "tmeg-01-03-09",
+  "terms": [
+    { "name": "商标异议申请驳回", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标异议申请驳回" },
+    { "name": "受理条件", "aliases": [], "role": "used", "confidence": "high", "evidence": "不符合受理条件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

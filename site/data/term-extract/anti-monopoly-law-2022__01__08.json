@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-monopoly-law-2022/01/08",
+  "anchorNode": "aml-01-08",
+  "terms": [
+    { "name": "专营专卖", "aliases": ["专营专卖地位"], "role": "used", "confidence": "mid", "evidence": "依法实行专营专卖的行业" },
+    { "name": "国有经济", "aliases": [], "role": "used", "confidence": "mid", "evidence": "国有经济占控制地位" },
+    { "name": "国民经济命脉", "aliases": [], "role": "used", "confidence": "mid", "evidence": "关系国民经济命脉和国家安全的行业" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

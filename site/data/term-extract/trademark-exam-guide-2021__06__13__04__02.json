@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/13/04/02",
+  "anchorNode": "tmeg-06-13-04-02",
+  "terms": [
+    { "name": "类似商品和服务区分表", "aliases": [], "role": "used", "confidence": "high", "evidence": "《类似商品和服务区分表》" },
+    { "name": "类似群", "aliases": [], "role": "used", "confidence": "high", "evidence": "第四十五类4506类似群服务内容" },
+    { "name": "代理服务", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标代理机构的代理服务以《类似商品和服务区分表》" }
+  ],
+  "laws": ["商标法第19条第4款"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

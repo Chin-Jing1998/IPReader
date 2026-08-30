@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/01/03/03",
+  "anchorNode": "tmeg-03-01-03-03",
+  "terms": [
+    { "name": "初步审定", "aliases": [], "role": "used", "confidence": "high", "evidence": "已经初步审定尚未注册的或已经核准注册的" },
+    { "name": "核准注册", "aliases": [], "role": "used", "confidence": "high", "evidence": "已经初步审定尚未注册的或已经核准注册的" },
+    { "name": "文件接收人", "aliases": [], "role": "used", "confidence": "high", "evidence": "均可申请变更文件接收人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

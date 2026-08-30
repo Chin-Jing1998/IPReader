@@ -1,0 +1,14 @@
+{
+  "chunk": "ip-evidence-rules-2020/11",
+  "anchorNode": "ipev-11",
+  "terms": [
+    { "name": "证据保全", "aliases": [], "role": "defined", "confidence": "high", "evidence": "证据保全申请，应当结合下列因素进行审查" },
+    { "name": "利害关系人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "当事人或者利害关系人的证据保全申请" },
+    { "name": "初步证据", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人是否已就其主张提供初步证据" },
+    { "name": "证据持有人", "aliases": [], "role": "used", "confidence": "high", "evidence": "可能采取的保全措施对证据持有人的影响" },
+    { "name": "证据灭失", "aliases": [], "role": "used", "confidence": "mid", "evidence": "证据灭失或者以后难以取得的可能性" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

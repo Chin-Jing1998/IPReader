@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/01/01/05",
+  "anchorNode": "tmeg-06-01-01-05",
+  "terms": [
+    { "name": "禁止权利滥用原则", "aliases": ["防止权利滥用原则"], "role": "defined", "confidence": "high", "evidence": "禁止权利滥用原则指一切民事权利的行使，均不得超过其正当界限" },
+    { "name": "滥用商标权利", "aliases": [], "role": "used", "confidence": "high", "evidence": "不正当占用了商标资源且扰乱了商标注册秩序，属于滥用商标权利" },
+    { "name": "TRIPS协定", "aliases": ["与贸易有关的知识产权协定"], "role": "used", "confidence": "high", "evidence": "《与贸易有关的知识产权协定》（以下简称“TRIPS协定”）" },
+    { "name": "一般条款", "aliases": [], "role": "used", "confidence": "mid", "evidence": "但它仍然具备一般条款的属性" },
+    { "name": "真实使用意图", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当有真实使用意图，以满足商标使用需求为目的" }
+  ],
+  "laws": ["民法典第132条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

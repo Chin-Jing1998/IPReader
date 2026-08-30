@@ -1,0 +1,23 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/17/06/04/04",
+  "anchorNode": "tmeg-06-17-06-04-04",
+  "terms": [
+    {
+      "name": "商标使用在指定服务上的具体表现形式",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "商标使用在指定服务上的具体表现形式"
+    },
+    {
+      "name": "服务场所",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "服务场所"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

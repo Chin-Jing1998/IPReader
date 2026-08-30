@@ -1,0 +1,10 @@
+{
+  "chunk": "anti-monopoly-law-2022/06/07",
+  "anchorNode": "aml-06-07",
+  "terms": [
+    { "name": "垄断行为", "aliases": [], "role": "used", "confidence": "high", "evidence": "对涉嫌垄断行为调查核实后" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

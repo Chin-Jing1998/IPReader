@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-rules-2013/35",
+  "anchorNode": "cplr-35",
+  "terms": [
+    { "name": "广播电视节目", "aliases": ["广播、电视节目"], "role": "used", "confidence": "high", "evidence": "播放的广播、电视节目" },
+    { "name": "国际条约", "aliases": [], "role": "used", "confidence": "mid", "evidence": "根据中国参加的国际条约对其播放的广播、电视节目享有的权利" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

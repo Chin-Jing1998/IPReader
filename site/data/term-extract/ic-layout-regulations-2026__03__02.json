@@ -1,0 +1,10 @@
+{
+  "chunk": "ic-layout-regulations-2026/03/02",
+  "anchorNode": "icld-03-02",
+  "terms": [
+    { "name": "真实创作活动", "aliases": [], "role": "used", "confidence": "mid", "evidence": "真实创作活动为基础" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

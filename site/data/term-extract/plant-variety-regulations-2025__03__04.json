@@ -1,0 +1,11 @@
+{
+  "chunk": "plant-variety-regulations-2025/03/04",
+  "anchorNode": "pvpr-03-04",
+  "terms": [
+    { "name": "一致性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "一致性，是指一个植物品种的特性，除可预期的自然变异外" },
+    { "name": "自然变异", "aliases": [], "role": "used", "confidence": "mid", "evidence": "除可预期的自然变异外，群体内个体间相关的特征或者特性表现一致" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

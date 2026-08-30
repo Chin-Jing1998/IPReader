@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/04/03/02/02",
+  "anchorNode": "tmeg-01-04-03-02-02",
+  "terms": [
+    { "name": "提交日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "提交日是指评审申请提交的时间" },
+    { "name": "法定期限", "aliases": [], "role": "used", "confidence": "mid", "evidence": "判断该评审申请是否超出法定期限" },
+    { "name": "邮寄方式提交", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以邮寄方式提交的，以申请人寄出的邮戳日为准" },
+    { "name": "快递方式提交", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以快递方式提交的，以快递企业收寄日为准" },
+    { "name": "数据电文方式提交", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以数据电文方式提交的，以商标注册部门收到商标数据电文申请文件的时间为准" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

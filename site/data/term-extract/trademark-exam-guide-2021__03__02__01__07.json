@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/01/07",
+  "anchorNode": "tmeg-03-02-01-07",
+  "terms": [
+    { "name": "不良影响", "aliases": [], "role": "defined", "confidence": "high", "evidence": "上述混淆或不良影响是指转让行为本身所导致的" },
+    { "name": "公序良俗", "aliases": [], "role": "used", "confidence": "high", "evidence": "社会公共利益、公共秩序或公序良俗" },
+    { "name": "含有地名的商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "含有地名的商标申请转让给该地区以外的其他所有人时" },
+    { "name": "企业名称", "aliases": [], "role": "used", "confidence": "mid", "evidence": "含有企业名称全称、部分名称或简称的商标" },
+    { "name": "代理机构", "aliases": [], "role": "used", "confidence": "mid", "evidence": "代理机构违反《商标法实施条例》第八十七条规定作为受让人的" },
+    { "name": "使用意图", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不能提供相关商标使用证据或说明使用意图的" }
+  ],
+  "laws": ["商标法第42条第3款", "商标法实施条例第87条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

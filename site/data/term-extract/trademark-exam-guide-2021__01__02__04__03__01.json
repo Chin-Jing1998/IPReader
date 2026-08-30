@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/04/03/01",
+  "anchorNode": "tmeg-01-02-04-03-01",
+  "terms": [
+    { "name": "商标注册申请书", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标注册申请书式不规范" },
+    { "name": "身份证明文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "身份证明文件" },
+    { "name": "共同申请注册同一商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "共同申请注册同一商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/04/02/02/02/01",
+  "anchorNode": "tmeg-06-04-02-02-02-01",
+  "terms": [
+    { "name": "仅直接表示", "aliases": [], "role": "used", "confidence": "high", "evidence": "仅直接表示指定商品食用油的质量" },
+    { "name": "显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "但与有显著特征的“山谷”相结合" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

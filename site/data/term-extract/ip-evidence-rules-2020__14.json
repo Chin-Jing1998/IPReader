@@ -1,0 +1,13 @@
+{
+  "chunk": "ip-evidence-rules-2020/14",
+  "anchorNode": "ipev-14",
+  "terms": [
+    { "name": "破坏证据", "aliases": [], "role": "defined", "confidence": "high", "evidence": "实施其他破坏证据的行为，致使证据不能使用的" },
+    { "name": "证据实物", "aliases": [], "role": "used", "confidence": "mid", "evidence": "当事人擅自拆装证据实物、篡改证据材料" },
+    { "name": "证据材料", "aliases": [], "role": "used", "confidence": "mid", "evidence": "拆装证据实物、篡改证据材料或者实施其他破坏证据的行为" },
+    { "name": "不利后果", "aliases": [], "role": "used", "confidence": "mid", "evidence": "人民法院可以确定由其承担不利后果" }
+  ],
+  "laws": ["民事诉讼法第111条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

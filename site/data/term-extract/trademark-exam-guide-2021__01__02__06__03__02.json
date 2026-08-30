@@ -1,0 +1,30 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/06/03/02",
+  "anchorNode": "tmeg-01-02-06-03-02",
+  "terms": [
+    {
+      "name": "不予受理",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "该撤回申请不予受理"
+    },
+    {
+      "name": "核准注册",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "已核准注册"
+    },
+    {
+      "name": "驳回",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "已经驳回"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

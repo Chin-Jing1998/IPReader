@@ -1,0 +1,12 @@
+{
+  "chunk": "customs-ip-protection-2018/03/08",
+  "anchorNode": "cusr-03-08",
+  "terms": [
+    { "name": "担保金", "aliases": [], "role": "defined", "confidence": "high", "evidence": "货物等值的担保金" },
+    { "name": "担保放行", "aliases": [], "role": "defined", "confidence": "high", "evidence": "担保放行" },
+    { "name": "侵权嫌疑货物", "aliases": ["涉嫌侵犯专利权货物"], "role": "used", "confidence": "mid", "evidence": "涉嫌侵犯专利权货物" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

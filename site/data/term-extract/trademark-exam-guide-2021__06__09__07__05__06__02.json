@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/05/06/02",
+  "anchorNode": "tmeg-06-09-07-05-06-02",
+  "terms": [
+    { "name": "自然因素和人文因素均起主要决定作用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "自然因素和人文因素均起主要决定作用的" },
+    { "name": "特定品质", "aliases": [], "role": "used", "confidence": "high", "evidence": "绍兴黄酒的特定品质是由鉴湖水及独特的生产工艺所决定的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

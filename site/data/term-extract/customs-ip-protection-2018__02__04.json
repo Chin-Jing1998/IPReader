@@ -1,0 +1,12 @@
+{
+  "chunk": "customs-ip-protection-2018/02/04",
+  "anchorNode": "cusr-02-04",
+  "terms": [
+    { "name": "知识产权海关保护备案", "aliases": [], "role": "defined", "confidence": "high", "evidence": "知识产权海关保护备案自海关总署准予备案之日起生效，有效期为10年" },
+    { "name": "续展备案", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以在知识产权海关保护备案有效期届满前6个月内，向海关总署申请续展备案" },
+    { "name": "备案失效", "aliases": [], "role": "defined", "confidence": "high", "evidence": "知识产权不再受法律、行政法规保护的，知识产权海关保护备案随即失效" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,37 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/04/01",
+  "anchorNode": "tmeg-01-01-04-01",
+  "terms": [
+    {
+      "name": "通用规范汉字",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "使用国家公布的通用规范汉字填写，不应使用异体字、繁体字、非规范简化字"
+    },
+    {
+      "name": "中文译文",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "应当附送中文译文；未附送的，视为未提交该证件、证明文件或者证据材料"
+    },
+    {
+      "name": "共有权利",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "办理直接涉及共有权利的手续，应当由全体权利人盖章或者签字"
+    },
+    {
+      "name": "数据电文方式",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "以数据电文方式提出申请的，应当按照规定通过互联网提交"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

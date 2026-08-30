@@ -1,0 +1,14 @@
+{
+  "chunk": "ip-evidence-rules-2020/09",
+  "anchorNode": "ipev-09",
+  "terms": [
+    { "name": "域外证据", "aliases": [], "role": "used", "confidence": "high", "evidence": "中华人民共和国领域外形成的证据" },
+    { "name": "认证手续", "aliases": [], "role": "used", "confidence": "high", "evidence": "未办理认证手续" },
+    { "name": "证人证言", "aliases": [], "role": "used", "confidence": "high", "evidence": "提供证人证言" },
+    { "name": "伪证", "aliases": [], "role": "used", "confidence": "high", "evidence": "证人作伪证" },
+    { "name": "真实性", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对证据的真实性明确认可的" }
+  ],
+  "laws": ["民事诉讼法第111条"],
+  "extractedAt": "2026-08-30T14:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

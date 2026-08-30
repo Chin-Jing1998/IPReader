@@ -1,0 +1,30 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/03/01/04/02/02",
+  "anchorNode": "tmeg-01-02-03-01-04-02-02",
+  "terms": [
+    {
+      "name": "商标说明",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "申请人可以在商标说明中对三维标志商标的图样作文字描述"
+    },
+    {
+      "name": "使用方式",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "申请人应当在商标说明中说明三维标志商标在商品或服务上的使用方式"
+    },
+    {
+      "name": "专用权",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "声明放弃专用权"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "ic-layout-regulations-2026/05/04",
+  "anchorNode": "icld-05-04",
+  "terms": [
+    { "name": "商业利用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "而将其投入商业利用的，不视为侵权" },
+    { "name": "非法复制", "aliases": [], "role": "used", "confidence": "mid", "evidence": "其中含有非法复制的布图设计" },
+    { "name": "使用费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当向布图设计权利人支付合理的使用费" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:49:44+08:00",
+  "model": "claude-sonnet-5"
+}

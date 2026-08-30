@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/11/02/06/01",
+  "anchorNode": "tmeg-06-11-02-06-01",
+  "terms": [
+    { "name": "争议商标", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "争议商标的注册已构成2013年《商标法》第十五条第一款所指的代理人" },
+    { "name": "类似商品", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "在销售场所、销售渠道、消费对象等方面具有一定的关联性，属于类似商品" }
+  ],
+  "laws": ["2013年商标法第15条第1款"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,15 @@
+{
+  "chunk": "copyright-law-2020/01/08",
+  "anchorNode": "cpl-01-08",
+  "terms": [
+    { "name": "著作权集体管理组织", "aliases": [], "role": "defined", "confidence": "high", "evidence": "著作权集体管理组织是非营利法人" },
+    { "name": "邻接权人", "aliases": ["与著作权有关的权利人"], "role": "used", "confidence": "mid", "evidence": "与著作权有关的权利人" },
+    { "name": "邻接权", "aliases": ["与著作权有关的权利"], "role": "used", "confidence": "mid", "evidence": "与著作权有关的权利" },
+    { "name": "使用费", "aliases": [], "role": "used", "confidence": "high", "evidence": "使用费" },
+    { "name": "管理费", "aliases": [], "role": "used", "confidence": "high", "evidence": "管理费" },
+    { "name": "权利信息查询系统", "aliases": [], "role": "used", "confidence": "mid", "evidence": "权利信息查询系统" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:13:54+08:00",
+  "model": "claude-sonnet-5"
+}

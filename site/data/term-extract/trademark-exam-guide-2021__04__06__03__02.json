@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/06/03/02",
+  "anchorNode": "tmeg-04-06-03-02",
+  "terms": [
+    { "name": "受让人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "受让人需满足马德里国际注册商标所有人的相关要求" },
+    { "name": "马德里国际注册商标所有人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "满足马德里国际注册商标所有人的相关要求" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

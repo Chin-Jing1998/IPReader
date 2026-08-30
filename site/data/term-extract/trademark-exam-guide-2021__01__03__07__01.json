@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/03/07/01",
+  "anchorNode": "tmeg-01-03-07-01",
+  "terms": [
+    { "name": "撤回商标异议申请", "aliases": ["撤回异议申请"], "role": "defined", "confidence": "high", "evidence": "撤回商标异议申请应符合以下要求" },
+    { "name": "商标代理委托书", "aliases": ["委托书"], "role": "defined", "confidence": "high", "evidence": "应当附送商标代理委托书，委托书应当加盖委托人章戳" },
+    { "name": "被异议商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "被异议商标已核准转让给异议人的除外" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,14 @@
+{
+  "chunk": "ip-evidence-rules-2020/29",
+  "anchorNode": "ipev-29",
+  "terms": [
+    { "name": "技术调查官", "aliases": [], "role": "used", "confidence": "high", "evidence": "人民法院指派技术调查官参与庭前会议、开庭审理的" },
+    { "name": "庭前会议", "aliases": [], "role": "used", "confidence": "mid", "evidence": "参与庭前会议、开庭审理的" },
+    { "name": "诉讼代理人", "aliases": [], "role": "used", "confidence": "high", "evidence": "询问当事人、诉讼代理人、有专门知识的人" },
+    { "name": "鉴定人", "aliases": [], "role": "used", "confidence": "high", "evidence": "证人、鉴定人、勘验人等" },
+    { "name": "勘验人", "aliases": [], "role": "used", "confidence": "high", "evidence": "证人、鉴定人、勘验人等" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

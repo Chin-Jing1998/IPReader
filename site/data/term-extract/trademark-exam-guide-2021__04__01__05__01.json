@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/01/05/01",
+  "anchorNode": "tmeg-04-01-05-01",
+  "terms": [
+    { "name": "自然人", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人为自然人的，指明国家" },
+    { "name": "法律实体", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人为法律实体的，指明性质和国家" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

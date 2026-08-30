@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/04/07",
+  "anchorNode": "tmeg-01-04-07",
+  "terms": [
+    { "name": "撤回评审申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "请求撤回评审申请的" },
+    { "name": "撤回评审申请书", "aliases": [], "role": "used", "confidence": "high", "evidence": "撤回评审申请书" },
+    { "name": "主体资格证明材料", "aliases": [], "role": "used", "confidence": "high", "evidence": "主体资格证明材料" },
+    { "name": "代理委托书", "aliases": [], "role": "used", "confidence": "high", "evidence": "代理委托书" },
+    { "name": "代理权限", "aliases": [], "role": "used", "confidence": "high", "evidence": "代理权限注明撤回评审申请" },
+    { "name": "放弃评审申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "放弃评审申请" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

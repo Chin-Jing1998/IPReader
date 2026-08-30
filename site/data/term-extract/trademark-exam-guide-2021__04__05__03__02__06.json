@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/05/03/02/06",
+  "anchorNode": "tmeg-04-05-03-02-06",
+  "terms": [
+    { "name": "国际注册商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际更正涉及国际注册商标其他相关信息的" },
+    { "name": "基础注册", "aliases": [], "role": "used", "confidence": "mid", "evidence": "基础注册信息等" },
+    { "name": "驳文", "aliases": [], "role": "used", "confidence": "mid", "evidence": "需要修改驳文内容的" },
+    { "name": "国际更正", "aliases": [], "role": "used", "confidence": "high", "evidence": "原则上分拣为国际更正" },
+    { "name": "领土延伸新申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "则分拣为领土延伸新申请" },
+    { "name": "审查结论", "aliases": [], "role": "used", "confidence": "mid", "evidence": "需要改变审查结论或者" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:14:40+08:00",
+  "model": "claude-sonnet-5"
+}

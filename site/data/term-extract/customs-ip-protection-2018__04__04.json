@@ -1,0 +1,14 @@
+{
+  "chunk": "customs-ip-protection-2018/04/04",
+  "anchorNode": "cusr-04-04",
+  "terms": [
+    { "name": "玩忽职守", "aliases": [], "role": "used", "confidence": "mid", "evidence": "玩忽职守" },
+    { "name": "滥用职权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "滥用职权" },
+    { "name": "徇私舞弊", "aliases": [], "role": "used", "confidence": "mid", "evidence": "徇私舞弊" },
+    { "name": "刑事责任", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "构成犯罪的，依法追究刑事责任" },
+    { "name": "行政处分", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "尚不构成犯罪的，依法给予行政处分" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

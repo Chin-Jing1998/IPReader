@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/04/02/02/04/01",
+  "anchorNode": "tmeg-06-04-02-02-04-01",
+  "terms": [
+    { "name": "显著特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标由不具备显著特征的标志和其他要素构成" },
+    { "name": "放弃专用权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "要求申请人对缺乏显著特征文字部分放弃专用权" },
+    { "name": "审查意见书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以发出审查意见书" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

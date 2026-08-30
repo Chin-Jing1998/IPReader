@@ -1,0 +1,13 @@
+{
+  "chunk": "ip-evidence-rules-2020/06",
+  "anchorNode": "ipev-06",
+  "terms": [
+    { "name": "行政行为", "aliases": [], "role": "used", "confidence": "mid", "evidence": "行政行为所认定的基本事实" },
+    { "name": "基本事实", "aliases": [], "role": "used", "confidence": "mid", "evidence": "基本事实" },
+    { "name": "生效裁判", "aliases": [], "role": "used", "confidence": "mid", "evidence": "已为生效裁判所确认" },
+    { "name": "行政诉讼", "aliases": [], "role": "used", "confidence": "high", "evidence": "提起行政诉讼" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T14:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/07/02/08",
+  "anchorNode": "tmeg-06-03-02-02-07-02-08",
+  "terms": [
+    { "name": "重要赛事、展会、考古发现名称", "aliases": [], "role": "defined", "confidence": "high", "evidence": "重要赛事、重要展会、重大考古发现名称（含规范简称）、标志等相同或者近似的" },
+    { "name": "规范简称", "aliases": [], "role": "used", "confidence": "mid", "evidence": "重大考古发现名称（含规范简称）" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

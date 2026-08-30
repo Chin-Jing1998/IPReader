@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/04/02/02",
+  "anchorNode": "tmeg-04-04-02-02",
+  "terms": [
+    { "name": "商品和服务项目", "aliases": [], "role": "used", "confidence": "high", "evidence": "将指定的商品和服务项目翻译成中文" },
+    { "name": "实质审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "领土延伸申请实质审查前" },
+    { "name": "商标数据库", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在商标数据库中进行" },
+    { "name": "申请注册权利范围", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标的申请注册权利范围以国际局公告的外文原文为准" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

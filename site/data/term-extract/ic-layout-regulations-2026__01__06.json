@@ -1,0 +1,11 @@
+{
+  "chunk": "ic-layout-regulations-2026/01/06",
+  "anchorNode": "icld-01-06",
+  "terms": [
+    { "name": "独创性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "即该布图设计是创作者自己的智力劳动成果" },
+    { "name": "常规设计", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不是公认的常规设计" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

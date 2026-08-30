@@ -1,0 +1,12 @@
+{
+  "chunk": "customs-ip-protection-2018/03/04",
+  "anchorNode": "cusr-03-04",
+  "terms": [
+    { "name": "侵权嫌疑货物", "aliases": [], "role": "used", "confidence": "high", "evidence": "知识产权权利人申请扣留侵权嫌疑货物，符合本条例第十三条的规定" },
+    { "name": "海关扣留凭单", "aliases": [], "role": "used", "confidence": "high", "evidence": "并将海关扣留凭单送达收货人或者发货人" },
+    { "name": "驳回申请", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "本条例第十三条的规定，或者未依照本条例第十四条的规定提供担保的，海关应当驳回申请" }
+  ],
+  "laws": ["知识产权海关保护条例第13条", "知识产权海关保护条例第14条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

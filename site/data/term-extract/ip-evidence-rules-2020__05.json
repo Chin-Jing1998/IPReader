@@ -1,0 +1,13 @@
+{
+  "chunk": "ip-evidence-rules-2020/05",
+  "anchorNode": "ipev-05",
+  "terms": [
+    { "name": "确认不侵害知识产权之诉", "aliases": [], "role": "used", "confidence": "high", "evidence": "确认不侵害知识产权之诉" },
+    { "name": "侵权警告", "aliases": [], "role": "used", "confidence": "high", "evidence": "被告向原告发出侵权警告" },
+    { "name": "诉权行使催告", "aliases": [], "role": "used", "confidence": "high", "evidence": "诉权行使催告" },
+    { "name": "侵权投诉", "aliases": [], "role": "used", "confidence": "mid", "evidence": "侵权投诉" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T14:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

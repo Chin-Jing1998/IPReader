@@ -1,0 +1,25 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/03/02/03",
+  "anchorNode": "tmeg-04-03-02-03",
+  "terms": [
+    { "name": "商标国际异议", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请商标国际异议需提交以下申请材料" },
+    { "name": "马德里商标国际注册异议申请书", "aliases": [], "role": "used", "confidence": "high", "evidence": "马德里商标国际注册异议申请书" },
+    { "name": "异议理由书", "aliases": [], "role": "used", "confidence": "high", "evidence": "内容较多的，可以另附“异议理由书”" },
+    { "name": "在先权利人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "作为在先权利人和利害关系人的主体资格证明文件" },
+    { "name": "利害关系人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "作为在先权利人和利害关系人的主体资格证明文件" },
+    { "name": "国际商标公告", "aliases": [], "role": "used", "confidence": "high", "evidence": "《国际商标公告》复印件及中文译文" },
+    { "name": "商标代理委托书", "aliases": [], "role": "used", "confidence": "high", "evidence": "委托商标代理机构提出异议申请的，应提交商标代理委托书" },
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "mid", "evidence": "委托商标代理机构提出异议申请的，应提交商标代理委托书" }
+  ],
+  "laws": [
+    "商标法第13条第2款",
+    "商标法第13条第3款",
+    "商标法第15条",
+    "商标法第16条第1款",
+    "商标法第30条",
+    "商标法第31条",
+    "商标法第32条"
+  ],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

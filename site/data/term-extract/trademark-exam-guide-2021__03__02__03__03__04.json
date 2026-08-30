@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/03/03/04",
+  "anchorNode": "tmeg-03-02-03-03-04",
+  "terms": [
+    { "name": "撤销登记", "aliases": [], "role": "defined", "confidence": "high", "evidence": "有下列情形之一的，应当撤销登记" },
+    { "name": "质权合同", "aliases": [], "role": "used", "confidence": "high", "evidence": "质权合同无效或者被撤销的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

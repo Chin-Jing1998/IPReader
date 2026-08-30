@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/08/02/04",
+  "anchorNode": "tmeg-06-03-02-02-08-02-04",
+  "terms": [
+    { "name": "党的重要理论成就", "aliases": [], "role": "used", "confidence": "mid", "evidence": "与党的重要理论成就、科学论断" },
+    { "name": "政治论述", "aliases": [], "role": "used", "confidence": "mid", "evidence": "科学论断、政治论述等相同、近似" },
+    { "name": "国家战略", "aliases": [], "role": "used", "confidence": "mid", "evidence": "或与国家战略、国家政策" },
+    { "name": "国家政策", "aliases": [], "role": "used", "confidence": "mid", "evidence": "国家战略、国家政策、党和国家重要会议" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

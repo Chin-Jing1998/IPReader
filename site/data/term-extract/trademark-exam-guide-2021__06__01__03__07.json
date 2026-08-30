@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/01/03/07",
+  "anchorNode": "tmeg-06-01-03-07",
+  "terms": [
+    { "name": "不正当手段", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不正当手段是指商标申请人或者商标代理机构在申请商标注册或者办理其他商标事宜时" },
+    { "name": "恶意", "aliases": [], "role": "defined", "confidence": "high", "evidence": "恶意是指商标申请人或者商标代理机构在申请商标注册或者办理其他商标事宜时" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

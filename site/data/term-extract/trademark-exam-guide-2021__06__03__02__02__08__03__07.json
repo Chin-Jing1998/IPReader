@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/08/03/07",
+  "anchorNode": "tmeg-06-03-02-02-08-03-07",
+  "terms": [
+    { "name": "党政机关", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本条中的党政机关通常包括中国共产党机关、人大机关、民主党派机关" },
+    { "name": "职务、职级、职衔", "aliases": [], "role": "used", "confidence": "mid", "evidence": "与我国党政机关、军队、警察等职务、职级、职衔名称相同的" },
+    { "name": "军衔", "aliases": [], "role": "defined", "confidence": "high", "evidence": "军队的军衔包括将官三级即上将、中将、少将，校官四级即大校、上校、中校、少校" },
+    { "name": "警衔", "aliases": [], "role": "defined", "confidence": "high", "evidence": "警衔包括五等十三级，如总警监（副总警监）、警监、警督、警司、警员等" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

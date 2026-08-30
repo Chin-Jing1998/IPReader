@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/02/02/02",
+  "anchorNode": "tmeg-02-02-02-02",
+  "terms": [
+    { "name": "商标名称的修改", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标名称的修改" },
+    { "name": "商标名称", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标名称原则上不再修改，商标名称存在文字错误情形的除外" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/15/02/04",
+  "anchorNode": "tmeg-06-15-02-04",
+  "terms": [
+    { "name": "不正当手段", "aliases": [], "role": "defined", "confidence": "high", "evidence": "判定为采取了“不正当手段”" },
+    { "name": "在先使用人", "aliases": [], "role": "used", "confidence": "high", "evidence": "在先使用人曾有贸易往来" },
+    { "name": "显著性", "aliases": [], "role": "used", "confidence": "mid", "evidence": "他人商标具有较强显著性或较高知名度" },
+    { "name": "知名度", "aliases": [], "role": "used", "confidence": "mid", "evidence": "较高知名度" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

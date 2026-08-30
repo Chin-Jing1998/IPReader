@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/09/01/01",
+  "anchorNode": "tmeg-06-03-02-02-09-01-01",
+  "terms": [
+    { "name": "地名的其他含义强于地名含义", "aliases": [], "role": "defined", "confidence": "high", "evidence": "地名具有其他含义且该含义强于地名含义的" },
+    { "name": "地名含义明显", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "上述标志与“市、县、区”等组合在一起，地名含义明显的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

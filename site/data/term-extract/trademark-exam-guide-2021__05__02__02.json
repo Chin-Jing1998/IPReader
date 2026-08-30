@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/02/02",
+  "anchorNode": "tmeg-05-02-02",
+  "terms": [
+    { "name": "缴费期限", "aliases": [], "role": "defined", "confidence": "high", "evidence": "自收到缴费通知书之日起7日内，向商标注册部门缴纳费用" },
+    { "name": "缴费日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "直接在商标注册大厅缴纳费用的，以缴纳当日为缴费日" },
+    { "name": "缴费通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "缴费通知书" },
+    { "name": "商标网上服务系统", "aliases": [], "role": "used", "confidence": "mid", "evidence": "通过商标网上服务系统缴纳费用的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

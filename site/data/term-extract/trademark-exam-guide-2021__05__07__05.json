@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/07/05",
+  "anchorNode": "tmeg-05-07-05",
+  "terms": [
+    { "name": "电子商标注册证", "aliases": [], "role": "defined", "confidence": "high", "evidence": "电子商标注册证是商标注册部门依照《商标法》有关规定，颁发给商标注册人" },
+    { "name": "商标专用权", "aliases": [], "role": "used", "confidence": "high", "evidence": "证明其商标专用权范围的法律文书" },
+    { "name": "商标注册证明公示系统", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标注册证明公示系统送达当事人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,23 @@
+{
+  "chunk": "trademark-exam-guide-2021/07",
+  "anchorNode": "tmeg-07",
+  "terms": [
+    { "name": "在先权利", "aliases": [], "role": "used", "confidence": "high", "evidence": "损害他人在先权利的审查审理" },
+    { "name": "驰名商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "复制、摹仿或者翻译他人驰名商标" },
+    { "name": "地理标志", "aliases": [], "role": "used", "confidence": "high", "evidence": "增加“地理标志”作为独立的在先权利类型" },
+    { "name": "显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标显著特征的审查审理" },
+    { "name": "商标相同", "aliases": [], "role": "used", "confidence": "high", "evidence": "该章参照相关司法解释，对商标相同" },
+    { "name": "商标近似", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标相同、商标近似、同一种商品" },
+    { "name": "类似商品", "aliases": [], "role": "used", "confidence": "high", "evidence": "类似商品和类似服务这六个" },
+    { "name": "隔离观察", "aliases": [], "role": "used", "confidence": "mid", "evidence": "近似隔离观察判定方法" },
+    { "name": "按需认定原则", "aliases": [], "role": "used", "confidence": "high", "evidence": "按需认定原则" },
+    { "name": "诚实信用原则", "aliases": [], "role": "used", "confidence": "high", "evidence": "诚实信用原则" },
+    { "name": "不以使用为目的的恶意商标注册申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人并非基于生产经营活动的需要，而提交大量商标注册申请" },
+    { "name": "不良影响", "aliases": [], "role": "used", "confidence": "high", "evidence": "具有其他不良影响" },
+    { "name": "通用名称", "aliases": [], "role": "used", "confidence": "high", "evidence": "是否存在注册商标成为其核定使用商品的通用名称情形" },
+    { "name": "经使用取得显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "经使用取得显著特征的标志审理标准" }
+  ],
+  "laws": ["商标法第4条", "商标法第8条", "商标法第10条", "商标法第11条", "商标法第13条", "商标法第15条", "商标法第32条", "商标法第44条", "商标法第50条", "商标法实施条例第13条", "商标法实施条例第43条", "商标法实施条例第84条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

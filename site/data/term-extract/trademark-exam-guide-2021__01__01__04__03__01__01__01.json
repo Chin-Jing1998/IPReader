@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/04/03/01/01/01",
+  "anchorNode": "tmeg-01-01-04-03-01-01-01",
+  "terms": [
+    { "name": "商标转让受让人", "aliases": [], "role": "used", "confidence": "low", "evidence": "商标注册申请人、商标转让受让人填写的联系地址" },
+    { "name": "公告送达", "aliases": [], "role": "used", "confidence": "low", "evidence": "通过公告方式送达" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00"
+}

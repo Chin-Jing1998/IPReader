@@ -1,0 +1,11 @@
+{
+  "chunk": "plant-variety-regulations-2025/08/01",
+  "anchorNode": "pvpr-08-01",
+  "terms": [
+    { "name": "繁殖材料", "aliases": [], "role": "defined", "confidence": "high", "evidence": "繁殖材料是指可用于繁殖的植物整株或者部分" },
+    { "name": "收获材料", "aliases": [], "role": "defined", "confidence": "high", "evidence": "收获材料是指经过种植后获得的植物整株或者部分" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

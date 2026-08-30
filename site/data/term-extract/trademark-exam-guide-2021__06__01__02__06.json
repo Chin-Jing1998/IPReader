@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/01/02/06",
+  "anchorNode": "tmeg-06-01-02-06",
+  "terms": [
+    { "name": "注册商标转让", "aliases": [], "role": "defined", "confidence": "high", "evidence": "转让注册商标，商标注册人对其在同一种或者类似商品上注册的相同或者近似的商标" },
+    { "name": "视为放弃", "aliases": [], "role": "used", "confidence": "mid", "evidence": "视为放弃该转让注册商标的申请" },
+    { "name": "不予核准", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标注册部门不予核准" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

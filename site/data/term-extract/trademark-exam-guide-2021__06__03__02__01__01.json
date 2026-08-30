@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/01/01",
+  "anchorNode": "tmeg-06-03-02-01-01",
+  "terms": [
+    { "name": "国家名称", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“国家名称”包括全称、简称和缩写" },
+    { "name": "特定地点的名称或者标志性建筑物的名称", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“特定地点的名称或者标志性建筑物的名称”包括“全国人民代表大会”“国务院”" },
+    { "name": "国家尊严", "aliases": [], "role": "used", "confidence": "high", "evidence": "可能损害国家尊严的" },
+    { "name": "国家标志", "aliases": [], "role": "used", "confidence": "mid", "evidence": "我国国家名称、国旗、国徽等国家标志" }
+  ],
+  "laws": ["商标法第10条第1款第8项"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

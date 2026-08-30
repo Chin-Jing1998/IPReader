@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/08/02/01",
+  "anchorNode": "tmeg-06-03-02-02-08-02-01",
+  "terms": [
+    { "name": "党和国家领导人姓名", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以党和国家领导人姓名或名字作为商标申请注册" },
+    { "name": "公共利益", "aliases": [], "role": "used", "confidence": "high", "evidence": "对我国公共利益和公共秩序产生消极、负面影响的" },
+    { "name": "公共秩序", "aliases": [], "role": "used", "confidence": "high", "evidence": "对我国公共利益和公共秩序产生消极、负面影响的" }
+  ],
+  "laws": ["商标法第10条第1款第8项"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/01/02/01/02",
+  "anchorNode": "tmeg-06-01-02-01-02",
+  "terms": [
+    { "name": "相对理由", "aliases": [], "role": "defined", "confidence": "high", "evidence": "相对理由涉及损害他人的在先商标权利、他人现有的其他在先权利等" },
+    { "name": "地理标志", "aliases": [], "role": "used", "confidence": "high", "evidence": "第十六条第一款规定的他人的地理标志" },
+    { "name": "驰名商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "第十三条规定的他人的驰名商标" },
+    { "name": "在先权利", "aliases": [], "role": "used", "confidence": "high", "evidence": "第三十二条规定的他人现有的在先权利" },
+    { "name": "已经使用并有一定影响的商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "他人现有的在先权利和已经使用并有一定影响的商标" }
+  ],
+  "laws": ["商标法第13条", "商标法第15条", "商标法第16条第1款", "商标法第30条", "商标法第31条", "商标法第32条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

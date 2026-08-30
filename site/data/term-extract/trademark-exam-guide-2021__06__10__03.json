@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/10/03",
+  "anchorNode": "tmeg-06-10-03",
+  "terms": [
+    { "name": "驰名商标认定因素", "aliases": [], "role": "defined", "confidence": "high", "evidence": "认定驰名商标应当考虑下列因素" },
+    { "name": "「驰名商标」字样使用限制", "aliases": [], "role": "defined", "confidence": "high", "evidence": "生产、经营者不得将“驰名商标”字样用于商品、商品包装或者容器上" },
+    { "name": "知晓程度", "aliases": [], "role": "used", "confidence": "mid", "evidence": "相关公众对该商标的知晓程度" }
+  ],
+  "laws": ["商标法第14条", "商标法第13条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

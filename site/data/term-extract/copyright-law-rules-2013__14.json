@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-rules-2013/14",
+  "anchorNode": "cplr-14",
+  "terms": [
+    { "name": "合作作品", "aliases": [], "role": "used", "confidence": "high", "evidence": "其对合作作品享有的" },
+    { "name": "合作作者", "aliases": [], "role": "used", "confidence": "high", "evidence": "合作作者之一死亡后" }
+  ],
+  "laws": ["著作权法第10条第1款第5项至第17项"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

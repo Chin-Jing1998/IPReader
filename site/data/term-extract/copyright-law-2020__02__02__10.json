@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-2020/02/02/10",
+  "anchorNode": "cpl-02-02-10",
+  "terms": [
+    { "name": "展览权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "美术、摄影作品原件的展览权由原件所有人享有" },
+    { "name": "发表权", "aliases": [], "role": "used", "confidence": "high", "evidence": "不构成对作者发表权的侵犯" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

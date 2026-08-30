@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/05/03/03/01",
+  "anchorNode": "tmeg-04-05-03-03-01",
+  "terms": [
+    { "name": "后续业务", "aliases": [], "role": "used", "confidence": "high", "evidence": "增加某项后续业务涉及的国际注册商标的" },
+    { "name": "国际注册商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "涉及的国际注册商标的" },
+    { "name": "国际更正", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际更正的内容为增加某项后续业务" },
+    { "name": "更正申请件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "将更正申请件分拣为对应的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:14:40+08:00",
+  "model": "claude-sonnet-5"
+}

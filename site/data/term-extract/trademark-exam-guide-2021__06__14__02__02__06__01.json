@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/14/02/02/06/01",
+  "anchorNode": "tmeg-06-14-02-02-06-01",
+  "terms": [
+    { "name": "地理标志", "aliases": [], "role": "defined", "confidence": "high", "evidence": "标示某商品来源于某地区，该商品的特定质量、信誉或者其他特征" },
+    { "name": "误导公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "容易误导公众，致使在先地理标志" },
+    { "name": "系争商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "系争商标应当不予核准注册或者予以无效宣告" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

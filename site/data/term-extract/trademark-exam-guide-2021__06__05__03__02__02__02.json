@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/05/03/02/02/02",
+  "anchorNode": "tmeg-06-05-03-02-02-02",
+  "terms": [
+    { "name": "知名度", "aliases": [], "role": "defined", "confidence": "high", "evidence": "具有知名度的商标，经使用已与商品或者服务的来源产生了较密切的联系" },
+    { "name": "在后申请商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "当在后申请商标完整包含他人在先具有较高知名度的商标时" },
+    { "name": "在先商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "应考虑在先商标的知名度" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

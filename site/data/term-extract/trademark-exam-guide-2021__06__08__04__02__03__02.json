@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/08/04/02/03/02",
+  "anchorNode": "tmeg-06-08-04-02-03-02",
+  "terms": [
+    { "name": "可视性商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "与可视性商标中含有的文字或其他要素读音相同或者近似" },
+    { "name": "混淆误认", "aliases": [], "role": "used", "confidence": "high", "evidence": "易使相关公众对商品或者服务来源产生混淆误认" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

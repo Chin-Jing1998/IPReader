@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/04",
+  "anchorNode": "tmeg-06-03-02-02-04",
+  "terms": [
+    { "name": "官方标志", "aliases": [], "role": "defined", "confidence": "high", "evidence": "予以保证的官方标志、检验印记" },
+    { "name": "检验印记", "aliases": [], "role": "defined", "confidence": "high", "evidence": "予以保证的官方标志、检验印记" },
+    { "name": "官方机构授权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "经该官方机构授权的，可不适用本禁用规定" },
+    { "name": "其他含义或者特定的表现形式", "aliases": [], "role": "used", "confidence": "mid", "evidence": "具有明确的其他含义或者特定的表现形式" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

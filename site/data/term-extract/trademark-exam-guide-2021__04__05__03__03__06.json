@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/05/03/03/06",
+  "anchorNode": "tmeg-04-05-03-03-06",
+  "terms": [
+    { "name": "国际转让", "aliases": [], "role": "used", "confidence": "high", "evidence": "对国际转让的更正，包括转让人" },
+    { "name": "转让人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "包括转让人及受让人姓名" },
+    { "name": "受让人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "转让人及受让人姓名、地址" },
+    { "name": "商标代理人", "aliases": [], "role": "used", "confidence": "high", "evidence": "地址、商标代理人信息等" },
+    { "name": "审查结论", "aliases": [], "role": "used", "confidence": "mid", "evidence": "影响转让审查结论或发文的" },
+    { "name": "国际更正", "aliases": [], "role": "used", "confidence": "high", "evidence": "分拣为国际更正" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:14:40+08:00",
+  "model": "claude-sonnet-5"
+}

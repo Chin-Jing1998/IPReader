@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-rules-2013/33",
+  "anchorNode": "cplr-33",
+  "terms": [
+    { "name": "表演", "aliases": [], "role": "used", "confidence": "high", "evidence": "在中国境内的表演" },
+    { "name": "国际条约", "aliases": [], "role": "used", "confidence": "mid", "evidence": "根据中国参加的国际条约对其表演享有的权利" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

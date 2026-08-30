@@ -1,0 +1,14 @@
+{
+  "chunk": "plant-variety-regulations-2025/01/02",
+  "anchorNode": "pvpr-01-02",
+  "terms": [
+    { "name": "植物新品种", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本条例所称植物新品种，是指经过人工选育或者对发现的野生植物加以改良" },
+    { "name": "新颖性", "aliases": [], "role": "used", "confidence": "high", "evidence": "新颖性、特异性、一致性、稳定性和适当命名的植物品种" },
+    { "name": "特异性", "aliases": [], "role": "used", "confidence": "high", "evidence": "新颖性、特异性、一致性、稳定性和适当命名的植物品种" },
+    { "name": "一致性", "aliases": [], "role": "used", "confidence": "high", "evidence": "新颖性、特异性、一致性、稳定性和适当命名的植物品种" },
+    { "name": "稳定性", "aliases": [], "role": "used", "confidence": "high", "evidence": "新颖性、特异性、一致性、稳定性和适当命名的植物品种" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:32:49+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/01/07/03",
+  "anchorNode": "tmeg-04-01-07-03",
+  "terms": [
+    { "name": "基础商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "基础商标已在国际注册日起满五年内被宣布无效" },
+    { "name": "国际注册簿", "aliases": [], "role": "used", "confidence": "high", "evidence": "与国际注册簿一致商标信息" },
+    { "name": "部分无效", "aliases": [], "role": "used", "confidence": "mid", "evidence": "被宣布无效或部分无效" }
+  ],
+  "laws": [
+    "商标国际注册马德里协定有关议定书实施细则第22条(1)(a)",
+    "商标国际注册马德里协定有关议定书实施细则第22条(1)(c)"
+  ],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

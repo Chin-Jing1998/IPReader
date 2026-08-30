@@ -1,0 +1,10 @@
+{
+  "chunk": "copyright-law-rules-2013/30",
+  "anchorNode": "cplr-30",
+  "terms": [
+    { "name": "转载摘编声明", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "声明不得转载、摘编其作品的，应当在报纸、期刊刊登该作品时附带声明" }
+  ],
+  "laws": ["著作权法第33条第2款"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

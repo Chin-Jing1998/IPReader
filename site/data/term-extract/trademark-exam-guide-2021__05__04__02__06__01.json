@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/04/02/06/01",
+  "anchorNode": "tmeg-05-04-02-06-01",
+  "terms": [
+    { "name": "不予核准", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "经审查，出具商标注册证明申请存在下列情形之一的，不予核准" },
+    { "name": "商标专用权", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "已丧失商标专用权的" },
+    { "name": "商标注册证明", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "其他不应核准出具商标注册证明的情况" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

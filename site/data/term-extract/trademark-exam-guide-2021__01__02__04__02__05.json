@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/04/02/05",
+  "anchorNode": "tmeg-01-02-04-02-05",
+  "terms": [
+    { "name": "未成年人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人为未成年人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

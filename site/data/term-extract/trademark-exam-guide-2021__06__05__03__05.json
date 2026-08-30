@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/05/03/05",
+  "anchorNode": "tmeg-06-05-03-05",
+  "terms": [
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "集体商标、证明商标与普通商标在功能作用" },
+    { "name": "证明商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "证明商标与普通商标在功能作用、使用方式" },
+    { "name": "普通商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "在审查该普通商标时除引证在先文字完全相同的证明商标外" },
+    { "name": "类似商品", "aliases": [], "role": "used", "confidence": "high", "evidence": "在相同或者类似商品或者服务上注册两种不同类型的相同或者近似商标" },
+    { "name": "误认", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以易使消费者对指定商品的品质等特点产生误认为由予以驳回" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:52:01+08:00",
+  "model": "claude-sonnet-5"
+}

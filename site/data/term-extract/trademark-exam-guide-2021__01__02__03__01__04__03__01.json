@@ -1,0 +1,30 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/03/01/04/03/01",
+  "anchorNode": "tmeg-01-02-03-01-04-03-01",
+  "terms": [
+    {
+      "name": "颜色组合商标",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "以颜色组合申请商标注册的"
+    },
+    {
+      "name": "色块",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "商标图样应当是表示颜色组合方式的色块"
+    },
+    {
+      "name": "图形轮廓",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "该图形轮廓不是商标构成要素，必须以虚线表示，不得以实线表示"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

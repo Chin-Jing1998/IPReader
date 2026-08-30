@@ -1,0 +1,11 @@
+{
+  "chunk": "ip-evidence-rules-2020/13",
+  "anchorNode": "ipev-13",
+  "terms": [
+    { "name": "妨害证据保全", "aliases": [], "role": "defined", "confidence": "high", "evidence": "或者妨害证据保全，致使无法保全证据的" },
+    { "name": "不利后果", "aliases": [], "role": "used", "confidence": "mid", "evidence": "人民法院可以确定由其承担不利后果" }
+  ],
+  "laws": ["民事诉讼法第111条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/04/03/02/03",
+  "anchorNode": "tmeg-01-04-03-02-03",
+  "terms": [
+    { "name": "期限届满日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以期限最后一月的相应日为期限届满日" },
+    { "name": "评审申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "评审申请的提交日应当在期限届满日之前" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-monopoly-law-2022/01/07",
+  "anchorNode": "aml-01-07",
+  "terms": [
+    { "name": "市场支配地位", "aliases": [], "role": "used", "confidence": "high", "evidence": "具有市场支配地位的经营者" },
+    { "name": "滥用市场支配地位", "aliases": [], "role": "used", "confidence": "high", "evidence": "不得滥用市场支配地位" },
+    { "name": "排除、限制竞争", "aliases": [], "role": "used", "confidence": "high", "evidence": "排除、限制竞争" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

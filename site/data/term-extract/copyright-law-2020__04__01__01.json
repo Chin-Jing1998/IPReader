@@ -1,0 +1,10 @@
+{
+  "chunk": "copyright-law-2020/04/01/01",
+  "anchorNode": "cpl-04-01-01",
+  "terms": [
+    { "name": "出版合同", "aliases": [], "role": "used", "confidence": "high", "evidence": "出版合同" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

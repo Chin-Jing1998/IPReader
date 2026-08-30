@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/10/04",
+  "anchorNode": "tmeg-06-10-04",
+  "terms": [
+    { "name": "在先权利人", "aliases": [], "role": "used", "confidence": "high", "evidence": "在先权利人或者利害关系人可以请求商标评审委员会宣告该注册商标无效" },
+    { "name": "利害关系人", "aliases": [], "role": "used", "confidence": "high", "evidence": "在先权利人或者利害关系人可以请求商标评审委员会宣告该注册商标无效" },
+    { "name": "无效宣告请求期限", "aliases": [], "role": "defined", "confidence": "high", "evidence": "自商标注册之日起五年内" },
+    { "name": "恶意注册", "aliases": [], "role": "used", "confidence": "high", "evidence": "对恶意注册的，驰名商标所有人不受五年的时间限制" }
+  ],
+  "laws": ["商标法第45条", "商标法第13条第2款", "商标法第13条第3款", "商标法第15条", "商标法第16条第1款", "商标法第30条", "商标法第31条", "商标法第32条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/05/03",
+  "anchorNode": "tmeg-06-09-07-05-03",
+  "terms": [
+    { "name": "批准文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "由该县、市人民政府或者行业主管部门出具批准文件" },
+    { "name": "生产地域范围", "aliases": [], "role": "used", "confidence": "high", "evidence": "生产地域范围：晋州市的马于镇、总十庄镇、东里庄镇境内" },
+    { "name": "地理标志所标示地区", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "该地理标志所标示地区为“晋州”" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

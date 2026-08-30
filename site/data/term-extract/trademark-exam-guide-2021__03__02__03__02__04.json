@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/03/02/04",
+  "anchorNode": "tmeg-03-02-03-02-04",
+  "terms": [
+    { "name": "出质商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "出质商标应当符合以下条件" },
+    { "name": "相同近似的商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "相同近似的商标必须一并出质" },
+    { "name": "质权登记期限", "aliases": [], "role": "defined", "confidence": "high", "evidence": "质权登记期限应以质押合同为依据" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

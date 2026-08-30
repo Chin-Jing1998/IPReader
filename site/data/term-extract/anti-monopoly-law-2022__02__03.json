@@ -1,0 +1,13 @@
+{
+  "chunk": "anti-monopoly-law-2022/02/03",
+  "anchorNode": "aml-02-03",
+  "terms": [
+    { "name": "纵向垄断协议", "aliases": [], "role": "defined", "confidence": "high", "evidence": "禁止经营者与交易相对人达成下列垄断协议" },
+    { "name": "转售价格维持", "aliases": [], "role": "defined", "confidence": "high", "evidence": "限定向第三人转售商品的最低价格" },
+    { "name": "安全港规则", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "经营者能够证明其在相关市场的市场份额低于国务院反垄断执法机构规定的标准" },
+    { "name": "排除、限制竞争效果", "aliases": [], "role": "used", "confidence": "mid", "evidence": "排除、限制竞争效果" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:31:00+08:00",
+  "model": "claude-sonnet-5"
+}

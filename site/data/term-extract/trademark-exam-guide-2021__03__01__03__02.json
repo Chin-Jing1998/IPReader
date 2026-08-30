@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/01/03/02",
+  "anchorNode": "tmeg-03-01-03-02",
+  "terms": [
+    { "name": "文件接收人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "自然人、法人或者其他组织可以请求变更其文件接收人" },
+    { "name": "送达信息", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人联系信息/送达信息" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

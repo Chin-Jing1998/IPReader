@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/09/02",
+  "anchorNode": "tmeg-06-03-02-02-09-02",
+  "terms": [
+    { "name": "公众知晓的外国地名", "aliases": [], "role": "defined", "confidence": "high", "evidence": "标志由公众知晓的外国地名构成，或者含有公众知晓的外国地名的，不得作为商标" },
+    { "name": "外国地名与其他文字组合的整体其他含义", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "商标由公众知晓的外国地名和其他文字构成，整体具有其他含义" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

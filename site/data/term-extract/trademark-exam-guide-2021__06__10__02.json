@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/10/02",
+  "anchorNode": "tmeg-06-10-02",
+  "terms": [
+    { "name": "驰名商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "为相关公众所熟知的商标，持有人认为其权利受到侵害时" },
+    { "name": "复制、摹仿或者翻译", "aliases": [], "role": "used", "confidence": "mid", "evidence": "是复制、摹仿或者翻译他人未在中国注册的驰名商标" },
+    { "name": "混淆", "aliases": [], "role": "used", "confidence": "mid", "evidence": "容易导致混淆的，不予注册并禁止使用" },
+    { "name": "误导公众", "aliases": [], "role": "used", "confidence": "mid", "evidence": "误导公众，致使该驰名商标注册人的利益可能受到损害的" }
+  ],
+  "laws": ["商标法第13条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,14 @@
+{
+  "chunk": "ip-evidence-rules-2020/32",
+  "anchorNode": "ipev-32",
+  "terms": [
+    { "name": "许可使用费", "aliases": [], "role": "defined", "confidence": "high", "evidence": "当事人主张参照知识产权许可使用费的合理倍数确定赔偿数额的" },
+    { "name": "合理倍数", "aliases": [], "role": "used", "confidence": "mid", "evidence": "参照知识产权许可使用费的合理倍数确定赔偿数额的" },
+    { "name": "许可使用合同", "aliases": [], "role": "used", "confidence": "mid", "evidence": "许可使用合同是否实际履行或者备案" },
+    { "name": "被许可人", "aliases": [], "role": "used", "confidence": "high", "evidence": "被许可人与许可人是否存在利害关系" },
+    { "name": "许可人", "aliases": [], "role": "used", "confidence": "high", "evidence": "被许可人与许可人是否存在利害关系" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,30 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/01/04",
+  "anchorNode": "tmeg-06-03-02-01-04",
+  "terms": [
+    {
+      "name": "实施控制",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "是指有关官方机构根据法律的规定，掌握和监督某些产品的质量、精度的行为"
+    },
+    {
+      "name": "予以保证",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "有关官方机构根据法律的规定，对质量、精度等方面达到一定要求的产品给予确认的行为"
+    },
+    {
+      "name": "官方标志、检验印记",
+      "aliases": ["官方标记、检验印记"],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "实施控制、予以保证或者进行检验的标志或印记"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

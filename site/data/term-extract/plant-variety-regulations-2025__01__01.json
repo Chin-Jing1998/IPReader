@@ -1,0 +1,11 @@
+{
+  "chunk": "plant-variety-regulations-2025/01/01",
+  "anchorNode": "pvpr-01-01",
+  "terms": [
+    { "name": "植物新品种权", "aliases": [], "role": "used", "confidence": "high", "evidence": "植物新品种权" },
+    { "name": "植物新品种", "aliases": [], "role": "used", "confidence": "high", "evidence": "植物新品种" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:32:49+08:00",
+  "model": "claude-sonnet-5"
+}

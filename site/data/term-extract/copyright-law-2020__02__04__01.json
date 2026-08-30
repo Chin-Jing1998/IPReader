@@ -1,0 +1,15 @@
+{
+  "chunk": "copyright-law-2020/02/04/01",
+  "anchorNode": "cpl-02-04-01",
+  "terms": [
+    { "name": "合理使用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "合理使用" },
+    { "name": "适当引用", "aliases": [], "role": "used", "confidence": "mid", "evidence": "适当引用" },
+    { "name": "时事性文章", "aliases": [], "role": "used", "confidence": "mid", "evidence": "时事性文章" },
+    { "name": "免费表演", "aliases": [], "role": "used", "confidence": "high", "evidence": "免费表演" },
+    { "name": "无障碍方式", "aliases": [], "role": "used", "confidence": "high", "evidence": "无障碍方式" },
+    { "name": "邻接权", "aliases": ["与著作权有关的权利"], "role": "used", "confidence": "high", "evidence": "与著作权有关的权利" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

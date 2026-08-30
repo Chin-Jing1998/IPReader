@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/12/02/05/01",
+  "anchorNode": "tmeg-06-12-02-05-01",
+  "terms": [
+    { "name": "争议商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "（以下称争议商标）" },
+    { "name": "无效宣告", "aliases": [], "role": "used", "confidence": "high", "evidence": "无效宣告案" },
+    { "name": "商标专用权", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标专用权" },
+    { "name": "商标侵权告知函", "aliases": [], "role": "used", "confidence": "mid", "evidence": "《商标侵权告知函》" },
+    { "name": "类似服务", "aliases": [], "role": "used", "confidence": "high", "evidence": "类似服务" }
+  ],
+  "laws": ["商标法第15条第2款"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/07/03",
+  "anchorNode": "tmeg-05-07-03",
+  "terms": [
+    { "name": "商标电子申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "用户提交商标电子申请后" },
+    { "name": "商标网上服务系统", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标网上服务系统未能正常接收的" },
+    { "name": "视为未提交", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "未能正常接收的，视为未提交" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/03/05/02",
+  "anchorNode": "tmeg-04-03-05-02",
+  "terms": [
+    { "name": "撤回商标国际异议", "aliases": [], "role": "used", "confidence": "high", "evidence": "撤回商标国际异议要件与国内异议标准相同" },
+    { "name": "撤回商标异议申请审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "撤回商标异议申请审查" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

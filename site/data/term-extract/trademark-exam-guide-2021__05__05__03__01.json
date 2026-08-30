@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/05/03/01",
+  "anchorNode": "tmeg-05-05-03-01",
+  "terms": [
+    { "name": "商标档案", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "查询商标档案的" },
+    { "name": "介绍信", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "公函或介绍信" },
+    { "name": "身份证明文件", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "身份证明文件原件及复印件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:24:30+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,17 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/01/05/09",
+  "anchorNode": "tmeg-04-01-05-09",
+  "terms": [
+    { "name": "商标代理机构", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "如委托商标代理机构办理马德里商标国际注册" },
+    { "name": "马德里商标国际注册代理委托书", "aliases": ["代理委托书"], "role": "defined",
+      "confidence": "high", "evidence": "代理人应使用马德里商标国际注册代理委托书" },
+    { "name": "委托人", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "并由委托人在“委托人章戳（签字）”栏盖章或签字" },
+    { "name": "主体资格证明文件", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "以及所附身份证明文件、主体资格证明文件一致" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

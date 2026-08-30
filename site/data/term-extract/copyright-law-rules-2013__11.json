@@ -1,0 +1,12 @@
+{
+  "chunk": "copyright-law-rules-2013/11",
+  "anchorNode": "cplr-11",
+  "terms": [
+    { "name": "职务作品", "aliases": [], "role": "used", "confidence": "high", "evidence": "职务作品" },
+    { "name": "工作任务", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指公民在该法人或者该组织中应当履行的职责" },
+    { "name": "物质技术条件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指该法人或者该组织为公民完成创作专门提供的资金、设备或者资料" }
+  ],
+  "laws": ["著作权法第16条第1款", "著作权法第16条第2款"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

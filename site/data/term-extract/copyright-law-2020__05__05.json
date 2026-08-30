@@ -1,0 +1,15 @@
+{
+  "chunk": "copyright-law-2020/05/05",
+  "anchorNode": "cpl-05-05",
+  "terms": [
+    { "name": "专有出版权", "aliases": [], "role": "used", "confidence": "high", "evidence": "享有专有出版权的图书" },
+    { "name": "违法所得", "aliases": [], "role": "used", "confidence": "mid", "evidence": "没收违法所得" },
+    { "name": "违法经营额", "aliases": [], "role": "used", "confidence": "mid", "evidence": "违法经营额五万元以上的" },
+    { "name": "技术措施", "aliases": [], "role": "used", "confidence": "high", "evidence": "故意避开或者破坏技术措施的" },
+    { "name": "权利管理信息", "aliases": [], "role": "used", "confidence": "high", "evidence": "权利管理信息" },
+    { "name": "假冒他人署名", "aliases": [], "role": "used", "confidence": "mid", "evidence": "假冒他人署名的作品" }
+  ],
+  "laws": ["著作权法第52条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

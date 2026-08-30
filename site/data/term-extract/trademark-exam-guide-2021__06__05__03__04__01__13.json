@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/05/03/04/01/13",
+  "anchorNode": "tmeg-06-05-03-04-01-13",
+  "terms": [
+    { "name": "近似商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "易使相关公众对商品或者服务的来源产生混淆的，判定为近似商标" },
+    { "name": "显著识别部分", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标仅由他人在先商标的显著识别部分" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "易使相关公众对商品或者服务的来源产生混淆" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

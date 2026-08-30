@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/16/02/02/02/03",
+  "anchorNode": "tmeg-06-16-02-02-02-03",
+  "terms": [
+    { "name": "以不正当手段取得商标注册", "aliases": [], "role": "used", "confidence": "high", "evidence": "以不正当手段取得商标注册" },
+    { "name": "使用意图", "aliases": [], "role": "used", "confidence": "high", "evidence": "具有使用意图" },
+    { "name": "串通合谋", "aliases": [], "role": "used", "confidence": "mid", "evidence": "串通合谋行为" },
+    { "name": "特定身份关系", "aliases": [], "role": "used", "confidence": "mid", "evidence": "具有特定身份关系" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

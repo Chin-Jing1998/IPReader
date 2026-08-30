@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/06/01",
+  "anchorNode": "tmeg-05-06-01",
+  "terms": [
+    { "name": "商标公告", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标注册部门发布《商标公告》，刊发商标注册及其他有关事项" },
+    { "name": "送达公告", "aliases": [], "role": "used", "confidence": "mid", "evidence": "除送达公告外" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

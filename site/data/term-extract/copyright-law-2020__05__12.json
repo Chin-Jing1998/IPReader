@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-2020/05/12",
+  "anchorNode": "cpl-05-12",
+  "terms": [
+    { "name": "著作权纠纷", "aliases": [], "role": "used", "confidence": "mid", "evidence": "著作权纠纷可以调解" },
+    { "name": "著作权合同", "aliases": [], "role": "used", "confidence": "mid", "evidence": "著作权合同中的仲裁条款" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

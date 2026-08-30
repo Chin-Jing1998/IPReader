@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/03/03/01",
+  "anchorNode": "tmeg-03-02-03-03-01",
+  "terms": [
+    { "name": "商标专用权质权登记证", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标专用权质权登记证" },
+    { "name": "登记日期", "aliases": ["质权登记日期"], "role": "defined", "confidence": "high", "evidence": "受理日期即为登记日期" },
+    { "name": "被担保的债权数额", "aliases": [], "role": "used", "confidence": "mid", "evidence": "被担保的债权数额" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

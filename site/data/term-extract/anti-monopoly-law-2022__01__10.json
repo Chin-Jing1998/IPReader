@@ -1,0 +1,10 @@
+{
+  "chunk": "anti-monopoly-law-2022/01/10",
+  "anchorNode": "aml-01-10",
+  "terms": [
+    { "name": "滥用行政权力排除、限制竞争", "aliases": [], "role": "used", "confidence": "high", "evidence": "滥用行政权力，排除、限制竞争" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-unfair-competition-2025/03/01",
+  "anchorNode": "aucl-03-01",
+  "terms": [
+    { "name": "监督检查部门", "aliases": [], "role": "used", "confidence": "high", "evidence": "监督检查部门调查涉嫌不正当竞争行为，可以采取下列措施" },
+    { "name": "不正当竞争行为", "aliases": [], "role": "used", "confidence": "high", "evidence": "监督检查部门调查涉嫌不正当竞争行为，可以采取下列措施" },
+    { "name": "利害关系人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "询问被调查的经营者、利害关系人及其他有关单位、个人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

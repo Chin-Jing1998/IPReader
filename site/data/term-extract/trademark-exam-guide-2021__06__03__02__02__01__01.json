@@ -1,0 +1,23 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/01/01",
+  "anchorNode": "tmeg-06-03-02-02-01-01",
+  "terms": [
+    {
+      "name": "国家名称相同",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "标志与我国国家名称相同的，判定为与我国国家名称相同"
+    },
+    {
+      "name": "国家名称近似",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "标志的含义、读音或者外观等与我国国家名称近似，容易使公众误认为我国国家名称的"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,25 @@
+{
+  "chunk": "copyright-law-2020/02/01/02",
+  "anchorNode": "cpl-02-01-02",
+  "terms": [
+    { "name": "发表权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "发表权，即决定作品是否公之于众的权利" },
+    { "name": "署名权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "署名权，即表明作者身份，在作品上署名的权利" },
+    { "name": "修改权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "修改权，即修改或者授权他人修改作品的权利" },
+    { "name": "保护作品完整权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "保护作品完整权，即保护作品不受歪曲、篡改的权利" },
+    { "name": "复制权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "复制权，即以印刷、复印、拓印、录音、录像、翻录、翻拍、数字化等方式" },
+    { "name": "发行权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "发行权，即以出售或者赠与方式向公众提供作品的原件或者复制件的权利" },
+    { "name": "出租权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "出租权，即有偿许可他人临时使用视听作品、计算机软件的原件或者复制件的权利" },
+    { "name": "展览权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "展览权，即公开陈列美术作品、摄影作品的原件或者复制件的权利" },
+    { "name": "表演权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "表演权，即公开表演作品，以及用各种手段公开播送作品的表演的权利" },
+    { "name": "放映权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "放映权，即通过放映机、幻灯机等技术设备公开再现美术、摄影、视听作品等的权利" },
+    { "name": "广播权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "广播权，即以有线或者无线方式公开传播或者转播作品" },
+    { "name": "信息网络传播权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "信息网络传播权，即以有线或者无线方式向公众提供" },
+    { "name": "摄制权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "摄制权，即以摄制视听作品的方法将作品固定在载体上的权利" },
+    { "name": "改编权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "改编权，即改变作品，创作出具有独创性的新作品的权利" },
+    { "name": "翻译权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "翻译权，即将作品从一种语言文字转换成另一种语言文字的权利" },
+    { "name": "汇编权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "汇编权，即将作品或者作品的片段通过选择或者编排，汇集成新作品的权利" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:13:54+08:00",
+  "model": "claude-sonnet-5"
+}

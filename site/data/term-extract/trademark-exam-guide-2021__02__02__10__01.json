@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/02/10/01",
+  "anchorNode": "tmeg-02-02-10-01",
+  "terms": [
+    { "name": "特殊字符", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "对于“·”“@”等标点符号和英文特殊字符，划分检索分卡时应去掉该部分" },
+    { "name": "检索分卡", "aliases": [], "role": "used", "confidence": "mid", "evidence": "划分商标名称和检索分卡时，去掉该部分" },
+    { "name": "英文分卡", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可增加一个用相近似的英文字母替代这些非英文字母的英文分卡" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

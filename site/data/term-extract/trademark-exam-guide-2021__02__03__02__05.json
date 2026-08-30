@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/03/02/05",
+  "anchorNode": "tmeg-02-03-02-05",
+  "terms": [
+    { "name": "颜色要素编码", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "按照颜色数量划分颜色要素编码" },
+    { "name": "图形要素分类", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "还应对图样本身进行图形要素分类" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

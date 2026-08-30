@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/02/03",
+  "anchorNode": "tmeg-02-02-03",
+  "terms": [
+    { "name": "检索分卡", "aliases": ["文字检索分卡"], "role": "defined", "confidence": "high", "evidence": "文字检索分卡分为汉字、拼音、英文、意译、字头、数字六种类型" },
+    { "name": "汉字分卡", "aliases": [], "role": "used", "confidence": "mid", "evidence": "汉字分卡：风韵飘；风韵；飘" },
+    { "name": "拼音分卡", "aliases": [], "role": "used", "confidence": "mid", "evidence": "拼音分卡：FENG YUN PIAO；FENGYUN；PIAO" },
+    { "name": "英文分卡", "aliases": [], "role": "used", "confidence": "mid", "evidence": "英文分卡：BLUEFOREST；BLUE；FOREST" },
+    { "name": "意译分卡", "aliases": [], "role": "used", "confidence": "mid", "evidence": "意译分卡：蓝色森林；蓝色；森林" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

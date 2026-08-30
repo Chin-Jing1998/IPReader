@@ -1,0 +1,11 @@
+{
+  "chunk": "customs-ip-protection-2018/01/02",
+  "anchorNode": "cusr-01-02",
+  "terms": [
+    { "name": "知识产权海关保护", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本条例所称知识产权海关保护，是指海关对与进出口货物有关并受中华人民共和国法律" },
+    { "name": "知识产权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专利权(以下统称知识产权)实施的保护" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

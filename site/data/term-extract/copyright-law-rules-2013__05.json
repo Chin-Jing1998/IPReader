@@ -1,0 +1,15 @@
+{
+  "chunk": "copyright-law-rules-2013/05",
+  "anchorNode": "cplr-05",
+  "terms": [
+    { "name": "时事新闻", "aliases": [], "role": "defined", "confidence": "high", "evidence": "时事新闻，是指通过报纸、期刊、广播电台、电视台等媒体报道的单纯事实消息" },
+    { "name": "录音制品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "录音制品，是指任何对表演的声音和其他声音的录制品" },
+    { "name": "录像制品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "录像制品，是指电影作品和以类似摄制电影的方法创作的作品以外的任何有伴音" },
+    { "name": "录音制作者", "aliases": [], "role": "defined", "confidence": "high", "evidence": "录音制作者，是指录音制品的首次制作人" },
+    { "name": "录像制作者", "aliases": [], "role": "defined", "confidence": "high", "evidence": "录像制作者，是指录像制品的首次制作人" },
+    { "name": "表演者", "aliases": [], "role": "defined", "confidence": "high", "evidence": "表演者，是指演员、演出单位或者其他表演文学、艺术作品的人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

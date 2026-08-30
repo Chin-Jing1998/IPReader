@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/01/09/04",
+  "anchorNode": "tmeg-03-02-01-09-04",
+  "terms": [
+    { "name": "核准转让", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标注册部门核准转让" },
+    { "name": "转让证明", "aliases": [], "role": "used", "confidence": "mid", "evidence": "发给受让人相应的转让证明" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

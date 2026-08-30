@@ -1,0 +1,13 @@
+{
+  "chunk": "copyright-law-2020/03/01",
+  "anchorNode": "cpl-03-01",
+  "terms": [
+    { "name": "许可使用合同", "aliases": [], "role": "defined", "confidence": "high", "evidence": "许可使用合同" },
+    { "name": "专有使用权", "aliases": [], "role": "used", "confidence": "high", "evidence": "专有使用权" },
+    { "name": "非专有使用权", "aliases": [], "role": "used", "confidence": "high", "evidence": "非专有使用权" },
+    { "name": "付酬标准", "aliases": [], "role": "used", "confidence": "high", "evidence": "付酬标准" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

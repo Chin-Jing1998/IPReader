@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/01/03/01",
+  "anchorNode": "tmeg-04-01-03-01",
+  "terms": [
+    { "name": "申请人资格", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人资格" },
+    { "name": "营业场所", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在中国设有真实有效的营业场所" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

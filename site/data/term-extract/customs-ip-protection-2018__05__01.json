@@ -1,0 +1,12 @@
+{
+  "chunk": "customs-ip-protection-2018/05/01",
+  "anchorNode": "cusr-05-01",
+  "terms": [
+    { "name": "进出境个人物品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "个人携带或者邮寄进出境的物品" },
+    { "name": "自用、合理数量", "aliases": [], "role": "used", "confidence": "mid", "evidence": "自用、合理数量" },
+    { "name": "侵权货物", "aliases": [], "role": "used", "confidence": "high", "evidence": "按照侵权货物处理" }
+  ],
+  "laws": ["知识产权海关保护条例第2条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

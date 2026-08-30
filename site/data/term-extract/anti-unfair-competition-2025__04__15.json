@@ -1,0 +1,11 @@
+{
+  "chunk": "anti-unfair-competition-2025/04/15",
+  "anchorNode": "aucl-04-15",
+  "terms": [
+    { "name": "行政复议", "aliases": [], "role": "used", "confidence": "high", "evidence": "行政复议" },
+    { "name": "行政诉讼", "aliases": [], "role": "used", "confidence": "high", "evidence": "行政诉讼" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

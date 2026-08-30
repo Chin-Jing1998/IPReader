@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/09/01/05",
+  "anchorNode": "tmeg-06-03-02-02-09-01-05",
+  "terms": [
+    { "name": "商标整体构成有别于地名", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标由组成地名的文字和其他文字构成，整体构成有别于地名，不易使消费者联想到地名" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

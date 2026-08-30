@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/01/06/02",
+  "anchorNode": "tmeg-04-01-06-02",
+  "terms": [
+    { "name": "基础注册号", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "基础注册号或申请号均须与提交申请时的填写保持一致" },
+    { "name": "撤回请求", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "撤回请求，申请人自行填写合理要求" },
+    { "name": "规费", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "提交撤回商标注册申请，不需要缴纳规费" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

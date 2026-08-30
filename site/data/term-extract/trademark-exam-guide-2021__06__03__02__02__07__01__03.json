@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/07/01/03",
+  "anchorNode": "tmeg-06-03-02-02-07-01-03",
+  "terms": [
+    { "name": "原料成分误认", "aliases": [], "role": "used", "confidence": "mid", "evidence": "容易使公众对商品的种类、主要原料、成分等特点产生误认的" },
+    { "name": "行业关联性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请注册的标识、文字等所指示的含义或物品与申请注册的商品无行业关联性的除外" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

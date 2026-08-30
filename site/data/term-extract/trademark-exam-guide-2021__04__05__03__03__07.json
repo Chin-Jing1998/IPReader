@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/05/03/03/07",
+  "anchorNode": "tmeg-04-05-03-03-07",
+  "terms": [
+    { "name": "国际部分转让", "aliases": [], "role": "used", "confidence": "high", "evidence": "对国际部分转让具体信息的更正" },
+    { "name": "国际注册号", "aliases": [], "role": "used", "confidence": "high", "evidence": "需将转让前的国际注册号对应的更正" },
+    { "name": "审查结论", "aliases": [], "role": "used", "confidence": "mid", "evidence": "影响部分转让审查结论或发文的" },
+    { "name": "国际更正", "aliases": [], "role": "used", "confidence": "high", "evidence": "更正分拣为国际更正" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:14:40+08:00",
+  "model": "claude-sonnet-5"
+}

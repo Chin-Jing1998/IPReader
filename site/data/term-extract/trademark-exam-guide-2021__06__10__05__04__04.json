@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/10/05/04/04",
+  "anchorNode": "tmeg-06-10-05-04-04",
+  "terms": [
+    { "name": "未注册商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "该商标为未注册商标的，应当提供证明其持续使用时间不少于五年的证据材料" },
+    { "name": "注册商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当提供证明其注册时间不少于三年或者持续使用时间不少于五年的材料" },
+    { "name": "域外证据", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "当事人提交的域外证据材料，应当能够据以证明该商标为中国相关公众所知晓" },
+    { "name": "系争商标申请日", "aliases": [], "role": "used", "confidence": "mid", "evidence": "上述证据原则上以系争商标申请日之前的证据为限" },
+    { "name": "驰名商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "驰名商标的认定，不以该商标在中国注册、申请注册" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

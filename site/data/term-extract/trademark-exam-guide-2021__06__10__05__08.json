@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/10/05/08",
+  "anchorNode": "tmeg-06-10-05-08",
+  "terms": [
+    { "name": "纯图形商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "均为纯图形商标" },
+    { "name": "攀附", "aliases": [], "role": "used", "confidence": "mid", "evidence": "具有攀附申请人高知名度商标的主观故意" }
+  ],
+  "laws": ["商标法第13条第3款", "2001年商标法第13条第1款", "商标法第45条第1款", "2001年商标法第13条第2款", "商标法第14条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

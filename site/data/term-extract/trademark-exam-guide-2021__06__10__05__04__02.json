@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/10/05/04/02",
+  "anchorNode": "tmeg-06-10-05-04-02",
+  "terms": [
+    { "name": "驰名商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "认定是否构成驰名商标" },
+    { "name": "知晓程度", "aliases": [], "role": "used", "confidence": "mid", "evidence": "相关公众对该商标的知晓程度" },
+    { "name": "驰名商标保护记录", "aliases": [], "role": "used", "confidence": "mid", "evidence": "该商标作为驰名商标受保护的记录" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

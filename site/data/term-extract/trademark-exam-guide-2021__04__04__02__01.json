@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/04/02/01",
+  "anchorNode": "tmeg-04-04-02-01",
+  "terms": [
+    { "name": "马德里商标领土延伸申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "马德里商标领土延伸申请" },
+    { "name": "国际局", "aliases": [], "role": "used", "confidence": "high", "evidence": "经国际局进行形式审查" },
+    { "name": "形式审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "进行形式审查后通知" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

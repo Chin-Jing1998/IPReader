@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/03",
+  "anchorNode": "tmeg-06-03-02-02-03",
+  "terms": [
+    { "name": "政府间国际组织", "aliases": [], "role": "defined", "confidence": "high", "evidence": "有关标志足以使公众将其与政府间国际组织的名称、旗帜、徽记等相联系的" },
+    { "name": "政府间国际组织同意", "aliases": [], "role": "used", "confidence": "mid", "evidence": "经该政府间国际组织同意的，可不适用本禁用规定" },
+    { "name": "其他含义或者特定的表现形式", "aliases": [], "role": "used", "confidence": "mid", "evidence": "具有明确的其他含义或者特定的表现形式" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

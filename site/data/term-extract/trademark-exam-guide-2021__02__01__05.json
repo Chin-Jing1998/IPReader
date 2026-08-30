@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/01/05",
+  "anchorNode": "tmeg-02-01-05",
+  "terms": [
+    { "name": "标准名称", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应首先考虑使用《类似商品和服务区分表》中已列出的标准名称" },
+    { "name": "类似群号", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不可填写类别号、类别标题、类别注释、类似群号、类似群名称、项目编号" },
+    { "name": "六位代码", "aliases": [], "role": "used", "confidence": "mid", "evidence": "《类似商品和服务区分表》中六位代码之前的具体名称" },
+    { "name": "可接受商品和服务项目名称", "aliases": [], "role": "used", "confidence": "high", "evidence": "《类似商品和服务区分表》以外可接受商品和服务项目名称" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

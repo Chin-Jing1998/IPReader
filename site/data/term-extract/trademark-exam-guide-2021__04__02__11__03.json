@@ -1,0 +1,18 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/02/11/03",
+  "anchorNode": "tmeg-04-02-11-03",
+  "terms": [
+    { "name": "形式审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "形式审查的一般性要求" },
+    { "name": "后期指定", "aliases": [], "role": "used", "confidence": "high", "evidence": "一份后期指定申请，仅可涉及一个国际注册号" },
+    { "name": "国际注册号", "aliases": [], "role": "used", "confidence": "high", "evidence": "仅可涉及一个国际注册号" },
+    { "name": "缔约方", "aliases": [], "role": "used", "confidence": "high", "evidence": "部分缔约方声明" },
+    { "name": "马德里议定书", "aliases": [], "role": "used", "confidence": "high", "evidence": "早于其加入马德里议定书的日期" },
+    { "name": "国际注册日期", "aliases": [], "role": "used", "confidence": "mid", "evidence": "如国际注册日期早于其加入马德里议定书的日期" },
+    { "name": "MM4表格", "aliases": [], "role": "used", "confidence": "high", "evidence": "此类缔约方名单详见MM4表格" },
+    { "name": "国际注册簿", "aliases": [], "role": "used", "confidence": "high", "evidence": "必须与国际注册簿保持一致" },
+    { "name": "注册人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "注册人名称及地址必须与国际注册簿保持一致" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

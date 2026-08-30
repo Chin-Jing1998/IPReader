@@ -1,0 +1,23 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/03/03",
+  "anchorNode": "tmeg-01-01-03-03",
+  "terms": [
+    {
+      "name": "不得超出原申请文件所载的事项范围",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "修改的内容不得超出原申请文件所载的事项范围"
+    },
+    {
+      "name": "陈述意见",
+      "aliases": [],
+      "role": "used",
+      "confidence": "low",
+      "evidence": "应当在指定的期限内补正或者陈述意见"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

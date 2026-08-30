@@ -1,0 +1,15 @@
+{
+  "chunk": "copyright-law-2020/05/06",
+  "anchorNode": "cpl-05-06",
+  "terms": [
+    { "name": "实际损失", "aliases": [], "role": "used", "confidence": "high", "evidence": "实际损失" },
+    { "name": "违法所得", "aliases": [], "role": "used", "confidence": "high", "evidence": "违法所得" },
+    { "name": "权利使用费", "aliases": [], "role": "used", "confidence": "high", "evidence": "权利使用费" },
+    { "name": "合理开支", "aliases": [], "role": "used", "confidence": "mid", "evidence": "合理开支" },
+    { "name": "举证责任", "aliases": [], "role": "used", "confidence": "mid", "evidence": "举证责任" },
+    { "name": "侵权复制品", "aliases": [], "role": "used", "confidence": "high", "evidence": "侵权复制品" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

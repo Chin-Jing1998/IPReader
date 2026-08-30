@@ -1,0 +1,11 @@
+{
+  "chunk": "anti-unfair-competition-2025/04/07",
+  "anchorNode": "aucl-04-07",
+  "terms": [
+    { "name": "商业信誉", "aliases": [], "role": "used", "confidence": "high", "evidence": "商业信誉" },
+    { "name": "商品声誉", "aliases": [], "role": "used", "confidence": "high", "evidence": "商品声誉" }
+  ],
+  "laws": ["反不正当竞争法第12条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

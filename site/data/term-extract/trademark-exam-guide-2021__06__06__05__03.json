@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/06/05/03",
+  "anchorNode": "tmeg-06-06-05-03",
+  "terms": [
+    { "name": "三维标志商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "三维标志商标实质审查程序中" },
+    { "name": "实质审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "三维标志商标实质审查程序中" },
+    { "name": "商标图样", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人提交的商标图样" },
+    { "name": "三维形状", "aliases": [], "role": "used", "confidence": "mid", "evidence": "确定唯一三维形状的" },
+    { "name": "不予注册", "aliases": [], "role": "used", "confidence": "high", "evidence": "的相关规定不予注册" }
+  ],
+  "laws": ["商标法第30条", "商标法实施条例第13条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

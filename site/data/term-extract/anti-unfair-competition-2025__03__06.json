@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-unfair-competition-2025/03/06",
+  "anchorNode": "aucl-03-06",
+  "terms": [
+    { "name": "平台经营者", "aliases": [], "role": "used", "confidence": "high", "evidence": "平台经营者应当在平台服务协议" },
+    { "name": "公平竞争规则", "aliases": [], "role": "used", "confidence": "mid", "evidence": "平台内公平竞争规则" },
+    { "name": "不正当竞争行为", "aliases": [], "role": "used", "confidence": "high", "evidence": "平台内经营者实施不正当竞争行为的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

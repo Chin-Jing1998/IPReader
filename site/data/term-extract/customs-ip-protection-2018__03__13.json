@@ -1,0 +1,14 @@
+{
+  "chunk": "customs-ip-protection-2018/03/13",
+  "anchorNode": "cusr-03-13",
+  "terms": [
+    { "name": "侵权嫌疑货物", "aliases": ["涉嫌侵犯专利权货物"], "role": "used", "confidence": "high", "evidence": "放行被扣留的侵权嫌疑货物" },
+    { "name": "扣留", "aliases": [], "role": "used", "confidence": "high", "evidence": "自扣留之日起20个工作日内" },
+    { "name": "担保金", "aliases": [], "role": "used", "confidence": "high", "evidence": "货物等值的担保金" },
+    { "name": "协助执行通知", "aliases": [], "role": "used", "confidence": "high", "evidence": "协助执行通知" },
+    { "name": "放行", "aliases": [], "role": "defined", "confidence": "high", "evidence": "海关应当放行被扣留的侵权嫌疑货物" }
+  ],
+  "laws": ["知识产权海关保护条例第15条", "知识产权海关保护条例第16条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

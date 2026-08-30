@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/02/04/03/01",
+  "anchorNode": "tmeg-05-02-04-03-01",
+  "terms": [
+    { "name": "退款请求人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "退款请求人应当是该款项的缴款人" },
+    { "name": "缴款人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "该款项的缴款人" },
+    { "name": "缴费码", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标申请号、缴费码、退款金额" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

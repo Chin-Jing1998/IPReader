@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/04/02/01",
+  "anchorNode": "tmeg-01-02-04-02-01",
+  "terms": [
+    { "name": "三维标志", "aliases": [], "role": "used", "confidence": "high", "evidence": "以三维标志、颜色组合、声音标志申请商标注册" },
+    { "name": "颜色组合", "aliases": [], "role": "used", "confidence": "high", "evidence": "以三维标志、颜色组合、声音标志申请商标注册" },
+    { "name": "声音标志", "aliases": [], "role": "used", "confidence": "high", "evidence": "以三维标志、颜色组合、声音标志申请商标注册" },
+    { "name": "国内接收人", "aliases": [], "role": "used", "confidence": "high", "evidence": "外国申请人的国内接收人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/03/02/01",
+  "anchorNode": "tmeg-04-03-02-01",
+  "terms": [
+    { "name": "商标国际异议", "aliases": [], "role": "used", "confidence": "high", "evidence": "3个月内可提交商标国际异议" },
+    { "name": "国际商标公告", "aliases": [], "role": "used", "confidence": "high", "evidence": "世界知识产权组织《国际商标公告》出版的次月1日起算" },
+    { "name": "异议期限", "aliases": ["法定异议期限"], "role": "defined", "confidence": "high", "evidence": "应当在法定异议期限内提出" },
+    { "name": "期限届满日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "期限届满日是节假日的，以节假日后的第一个工作日为期限届满日" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

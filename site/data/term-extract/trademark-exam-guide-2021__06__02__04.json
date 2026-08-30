@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/04",
+  "anchorNode": "tmeg-06-02-04",
+  "terms": [
+    { "name": "驳回不予公告", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "应当依法驳回，不予公告" }
+  ],
+  "laws": ["商标法第4条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

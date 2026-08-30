@@ -1,0 +1,17 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/01/05/05",
+  "anchorNode": "tmeg-04-01-05-05",
+  "terms": [
+    { "name": "马德里商标国际注册申请", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "马德里商标国际注册申请应至少指定一个缔约方" },
+    { "name": "缔约方", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "至少指定一个缔约方" },
+    { "name": "原属局", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "不能指定原属局缔约方中国" },
+    { "name": "MM18表格", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "美国要求同时提交MM18表格" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

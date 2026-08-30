@@ -1,0 +1,10 @@
+{
+  "chunk": "anti-unfair-competition-2025/04/10",
+  "anchorNode": "aucl-04-10",
+  "terms": [
+    { "name": "滥用优势地位", "aliases": [], "role": "used", "confidence": "high", "evidence": "滥用自身优势地位" }
+  ],
+  "laws": ["反不正当竞争法第15条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

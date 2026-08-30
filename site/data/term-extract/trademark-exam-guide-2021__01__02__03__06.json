@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/03/06",
+  "anchorNode": "tmeg-01-02-03-06",
+  "terms": [
+    { "name": "证明商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "证明商标是指由对某种商品或者服务具有监督能力的组织所控制" },
+    { "name": "地理标志", "aliases": [], "role": "used", "confidence": "high", "evidence": "以地理标志作为证明商标注册的" },
+    { "name": "使用管理规则", "aliases": [], "role": "used", "confidence": "mid", "evidence": "还应提交使用管理规则" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

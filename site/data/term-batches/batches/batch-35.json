@@ -1,86 +1,70 @@
 {
  "batchNo": 35,
- "domain": "trademark-exam-guide-2021",
+ "domain": "customs-ip-protection-2018",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/03/01.md",
-   "chunkId": "trademark-exam-guide-2021/04/03/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-03-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十五章 商标国际异议形式审查 ｜ 1法律依据",
-   "charLen": 141
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/customs-ip-protection-2018/_chunks/01/01.md",
+   "chunkId": "customs-ip-protection-2018/01/01",
+   "domain": "customs-ip-protection-2018",
+   "anchorNodeId": "cusr-01-01",
+   "breadcrumb": "《中华人民共和国知识产权海关保护条例（2004年施行）》 ｜ 第一章 总则 ｜ 第一条 · 立法目的与依据",
+   "charLen": 70
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/03/02/01.md",
-   "chunkId": "trademark-exam-guide-2021/04/03/02/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-03-02-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十五章 商标国际异议形式审查 ｜ 2商标国际异议申请材料的审查 ｜ 2.1提交期限",
-   "charLen": 120
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/customs-ip-protection-2018/_chunks/01/02.md",
+   "chunkId": "customs-ip-protection-2018/01/02",
+   "domain": "customs-ip-protection-2018",
+   "anchorNodeId": "cusr-01-02",
+   "breadcrumb": "《中华人民共和国知识产权海关保护条例（2004年施行）》 ｜ 第一章 总则 ｜ 第二条 · 知识产权海关保护的定义",
+   "charLen": 102
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/03/02/02.md",
-   "chunkId": "trademark-exam-guide-2021/04/03/02/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-03-02-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十五章 商标国际异议形式审查 ｜ 2商标国际异议申请材料的审查 ｜ 2.2异议主体",
-   "charLen": 52
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/customs-ip-protection-2018/_chunks/01/03.md",
+   "chunkId": "customs-ip-protection-2018/01/03",
+   "domain": "customs-ip-protection-2018",
+   "anchorNodeId": "cusr-01-03",
+   "breadcrumb": "《中华人民共和国知识产权海关保护条例（2004年施行）》 ｜ 第一章 总则 ｜ 第三条 · 禁止侵权货物进出口",
+   "charLen": 78
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/03/02/03.md",
-   "chunkId": "trademark-exam-guide-2021/04/03/02/03",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-03-02-03",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十五章 商标国际异议形式审查 ｜ 2商标国际异议申请材料的审查 ｜ 2.3书式要求",
-   "charLen": 246
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/03/02/04.md",
-   "chunkId": "trademark-exam-guide-2021/04/03/02/04",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-03-02-04",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十五章 商标国际异议形式审查 ｜ 2商标国际异议申请材料的审查 ｜ 2.4规费",
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/customs-ip-protection-2018/_chunks/01/04.md",
+   "chunkId": "customs-ip-protection-2018/01/04",
+   "domain": "customs-ip-protection-2018",
+   "anchorNodeId": "cusr-01-04",
+   "breadcrumb": "《中华人民共和国知识产权海关保护条例（2004年施行）》 ｜ 第一章 总则 ｜ 第四条 · 保护措施的申请",
    "charLen": 51
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/03/02/05/01.md",
-   "chunkId": "trademark-exam-guide-2021/04/03/02/05/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-03-02-05-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十五章 商标国际异议形式审查 ｜ 2商标国际异议申请材料的审查 ｜ 2.5书式形审 ｜ 2.5.1马德里商标国际注册异议申请书",
-   "charLen": 406
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/customs-ip-protection-2018/_chunks/01/05.md",
+   "chunkId": "customs-ip-protection-2018/01/05",
+   "domain": "customs-ip-protection-2018",
+   "anchorNodeId": "cusr-01-05",
+   "breadcrumb": "《中华人民共和国知识产权海关保护条例（2004年施行）》 ｜ 第一章 总则 ｜ 第五条 · 收发货人的知识产权申报",
+   "charLen": 88
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/03/02/05/02.md",
-   "chunkId": "trademark-exam-guide-2021/04/03/02/05/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-03-02-05-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十五章 商标国际异议形式审查 ｜ 2商标国际异议申请材料的审查 ｜ 2.5书式形审 ｜ 2.5.2 《国际商标公告》复印件及中文译文",
-   "charLen": 72
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/customs-ip-protection-2018/_chunks/01/06.md",
+   "chunkId": "customs-ip-protection-2018/01/06",
+   "domain": "customs-ip-protection-2018",
+   "anchorNodeId": "cusr-01-06",
+   "breadcrumb": "《中华人民共和国知识产权海关保护条例（2004年施行）》 ｜ 第一章 总则 ｜ 第六条 · 商业秘密的保守",
+   "charLen": 40
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/03/02/05/03.md",
-   "chunkId": "trademark-exam-guide-2021/04/03/02/05/03",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-03-02-05-03",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十五章 商标国际异议形式审查 ｜ 2商标国际异议申请材料的审查 ｜ 2.5书式形审 ｜ 2.5.3代理委托书",
-   "charLen": 245
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/customs-ip-protection-2018/_chunks/02/01.md",
+   "chunkId": "customs-ip-protection-2018/02/01",
+   "domain": "customs-ip-protection-2018",
+   "anchorNodeId": "cusr-02-01",
+   "breadcrumb": "《中华人民共和国知识产权海关保护条例（2004年施行）》 ｜ 第二章 知识产权的备案 ｜ 第七条 · 备案申请与申请书内容",
+   "charLen": 259
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/03/02/05/04.md",
-   "chunkId": "trademark-exam-guide-2021/04/03/02/05/04",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-03-02-05-04",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十五章 商标国际异议形式审查 ｜ 2商标国际异议申请材料的审查 ｜ 2.5书式形审 ｜ 2.5.4其他书式",
-   "charLen": 114
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/03/02/06.md",
-   "chunkId": "trademark-exam-guide-2021/04/03/02/06",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-03-02-06",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十五章 商标国际异议形式审查 ｜ 2商标国际异议申请材料的审查 ｜ 2.6审查结论",
-   "charLen": 207
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/customs-ip-protection-2018/_chunks/02/02.md",
+   "chunkId": "customs-ip-protection-2018/02/02",
+   "domain": "customs-ip-protection-2018",
+   "anchorNodeId": "cusr-02-02",
+   "breadcrumb": "《中华人民共和国知识产权海关保护条例（2004年施行）》 ｜ 第二章 知识产权的备案 ｜ 第八条 · 备案决定与不予备案情形",
+   "charLen": 148
   }
  ]
 }

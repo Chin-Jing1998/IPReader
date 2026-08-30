@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/07/04/02/02/02",
+  "anchorNode": "tmeg-06-07-04-02-02-02",
+  "terms": [
+    { "name": "颜色组合商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "可以注册为颜色组合商标" },
+    { "name": "经过使用取得显著特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "经过使用取得显著特征的" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "对相关公众注意力和认知情况的影响" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/05/09",
+  "anchorNode": "tmeg-06-09-07-05-09",
+  "terms": [
+    { "name": "在原属国受法律保护的证明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人应当提供该地理标志以其名义在原属国受法律保护的证明" }
+  ],
+  "laws": ["集体商标、证明商标注册和管理办法第6条第2款"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

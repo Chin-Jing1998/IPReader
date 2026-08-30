@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/15/02/03/02",
+  "anchorNode": "tmeg-06-15-02-03-02",
+  "terms": [
+    { "name": "未注册商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "未注册商标已经使用并有一定影响" },
+    { "name": "商誉", "aliases": [], "role": "used", "confidence": "mid", "evidence": "该商标的获奖等商誉资料" },
+    { "name": "商标使用", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标使用情况" },
+    { "name": "商标标识", "aliases": [], "role": "used", "confidence": "mid", "evidence": "所使用的商标标识" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

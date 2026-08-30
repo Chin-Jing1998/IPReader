@@ -1,0 +1,10 @@
+{
+  "chunk": "copyright-law-rules-2013/22",
+  "anchorNode": "cplr-22",
+  "terms": [
+    { "name": "付酬标准", "aliases": [], "role": "used", "confidence": "mid", "evidence": "使用作品的付酬标准" }
+  ],
+  "laws": ["著作权法第23条", "著作权法第33条第2款", "著作权法第40条第3款"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

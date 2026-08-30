@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/14/02/02/04/01",
+  "anchorNode": "tmeg-06-14-02-02-04-01",
+  "terms": [
+    { "name": "姓名权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "他人姓名权可能造成损害的" },
+    { "name": "姓名", "aliases": [], "role": "defined", "confidence": "high", "evidence": "他人的姓名包括本名、笔名、艺名、译名、别名等" },
+    { "name": "系争商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "系争商标应当不予核准注册或者予以无效宣告" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

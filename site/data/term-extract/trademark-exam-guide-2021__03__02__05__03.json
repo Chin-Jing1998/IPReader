@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/05/03",
+  "anchorNode": "tmeg-03-02-05-03",
+  "terms": [
+    { "name": "部分注销", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "办理部分注销时，申请注销的商品/服务应与商标注册部门档案记录" },
+    { "name": "核定使用商品/服务", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "核定使用商品/服务一致" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

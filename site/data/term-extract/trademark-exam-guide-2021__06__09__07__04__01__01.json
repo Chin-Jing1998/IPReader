@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/04/01/01",
+  "anchorNode": "tmeg-06-09-07-04-01-01",
+  "terms": [
+    { "name": "禁用条款", "aliases": [], "role": "used", "confidence": "high", "evidence": "不判定为违反禁用条款的规定" },
+    { "name": "个案判断", "aliases": [], "role": "used", "confidence": "mid", "evidence": "进行个案判断，不能机械地照搬条款" },
+    { "name": "公众误认", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不会引起公众误认或不良影响的，则作为例外情形" },
+    { "name": "特定品质与生产地域的联系", "aliases": [], "role": "used", "confidence": "mid", "evidence": "标示产品的特定品质与生产地域的自然环境之间已具有密切联系" },
+    { "name": "通用名称", "aliases": [], "role": "used", "confidence": "mid", "evidence": "是一种茶叶的通用名称" }
+  ],
+  "laws": ["商标法第10条第1款第7项"],
+  "extractedAt": "2026-08-30T01:53:23+08:00",
+  "model": "claude-sonnet-5"
+}

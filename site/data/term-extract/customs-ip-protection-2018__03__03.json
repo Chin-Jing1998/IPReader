@@ -1,0 +1,11 @@
+{
+  "chunk": "customs-ip-protection-2018/03/03",
+  "anchorNode": "cusr-03-03",
+  "terms": [
+    { "name": "担保金", "aliases": ["担保"], "role": "defined", "confidence": "high", "evidence": "向海关提供不超过货物等值的担保，用于赔偿可能因申请不当给收货人、发货人造成的损失" },
+    { "name": "侵权嫌疑货物", "aliases": [], "role": "used", "confidence": "high", "evidence": "知识产权权利人请求海关扣留侵权嫌疑货物的，应当向海关提供不超过货物等值的担保" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

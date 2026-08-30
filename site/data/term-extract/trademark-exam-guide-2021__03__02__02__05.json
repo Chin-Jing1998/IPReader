@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/02/05",
+  "anchorNode": "tmeg-03-02-02-05",
+  "terms": [
+    { "name": "许可期限", "aliases": [], "role": "defined", "confidence": "high", "evidence": "许可期限不得超出注册商标的有效期限" },
+    { "name": "许可商品/服务项目", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "许可商品/服务项目：备案表填写的许可使用的商品" },
+    { "name": "核定使用的商品/服务项目", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标注册证核定使用的商品/服务项目" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

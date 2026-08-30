@@ -1,0 +1,30 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/03/01/04/01",
+  "anchorNode": "tmeg-01-02-03-01-04-01",
+  "terms": [
+    {
+      "name": "商标图样",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "商标图样应当清晰"
+    },
+    {
+      "name": "着色图样",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "以着色图样申请商标注册的，应当提交着色图样"
+    },
+    {
+      "name": "黑白图样",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "不指定颜色的，应当提交黑白图样"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

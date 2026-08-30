@@ -1,0 +1,13 @@
+{
+  "chunk": "ip-evidence-rules-2020/07",
+  "anchorNode": "ipev-07",
+  "terms": [
+    { "name": "普通购买者", "aliases": [], "role": "used", "confidence": "high", "evidence": "以普通购买者的名义" },
+    { "name": "被诉侵权人", "aliases": [], "role": "used", "confidence": "high", "evidence": "被诉侵权人" },
+    { "name": "侵权物品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "购买侵权物品" },
+    { "name": "取证行为", "aliases": [], "role": "used", "confidence": "high", "evidence": "权利人的取证行为" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T14:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

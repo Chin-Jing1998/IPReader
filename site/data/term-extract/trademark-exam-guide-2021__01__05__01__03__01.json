@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/05/01/03/01",
+  "anchorNode": "tmeg-01-05-01-03-01",
+  "terms": [
+    {
+      "name": "商标注册公告日",
+      "aliases": ["商标注册公告之日"],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "三年起算点为商标注册公告之日"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

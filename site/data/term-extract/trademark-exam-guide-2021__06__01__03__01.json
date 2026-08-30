@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/01/03/01",
+  "anchorNode": "tmeg-06-01-03-01",
+  "terms": [
+    { "name": "注册商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "经核准注册的商标为注册商标" },
+    { "name": "商标专用权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标专用权以核定注册的商标和核定使用的商品或者服务为限" },
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "注册商标包括商品商标、服务商标和集体商标、证明商标" },
+    { "name": "证明商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "注册商标包括商品商标、服务商标和集体商标、证明商标" },
+    { "name": "显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "显著特征是商标的核心属性，不具备显著特征的标志起不到商标的作用" },
+    { "name": "三维标志", "aliases": [], "role": "used", "confidence": "mid", "evidence": "包括文字、图形、字母、数字、三维标志、颜色组合和声音等" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

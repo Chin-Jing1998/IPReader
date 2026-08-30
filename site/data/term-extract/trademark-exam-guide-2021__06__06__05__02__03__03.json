@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/06/05/02/03/03",
+  "anchorNode": "tmeg-06-06-05-02-03-03",
+  "terms": [
+    { "name": "功能性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "该三维标志具有功能性，不得注册" },
+    { "name": "实质性价值", "aliases": [], "role": "defined", "confidence": "high", "evidence": "三维标志仅由使商品具有实质性价值的三维形状组成" },
+    { "name": "美学价值", "aliases": [], "role": "used", "confidence": "mid", "evidence": "有一定的美学价值" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

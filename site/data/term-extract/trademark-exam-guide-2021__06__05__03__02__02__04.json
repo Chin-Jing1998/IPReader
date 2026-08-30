@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/05/03/02/02/04",
+  "anchorNode": "tmeg-06-05-03-02-02-04",
+  "terms": [
+    { "name": "主观意图", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "商标申请人的主观意图" },
+    { "name": "恶意", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标申请人有明显的恶意" },
+    { "name": "来源混淆", "aliases": [], "role": "used", "confidence": "high", "evidence": "是否易导致来源混淆" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "相关公众混淆" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

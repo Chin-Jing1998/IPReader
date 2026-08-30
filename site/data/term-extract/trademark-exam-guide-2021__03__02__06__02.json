@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/06/02",
+  "anchorNode": "tmeg-03-02-06-02",
+  "terms": [
+    { "name": "宽展期", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "六个月宽展期内按照规定办理续展注册的" },
+    { "name": "续展注册", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "未在期满前十二个月及六个月宽展期内按照规定办理续展注册的" },
+    { "name": "依职权注销", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "商标注册部门依职权注销该注册商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

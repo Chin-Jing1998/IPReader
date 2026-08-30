@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/03/02/05/01",
+  "anchorNode": "tmeg-04-03-02-05-01",
+  "terms": [
+    { "name": "马德里商标国际注册异议申请书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "马德里商标国际注册异议申请书应当采用国家知识产权局正式发布的规范书式" },
+    { "name": "商标国际异议", "aliases": [], "role": "used", "confidence": "high", "evidence": "办理商标国际异议事宜应当使用中文" },
+    { "name": "商业秘密", "aliases": [], "role": "used", "confidence": "high", "evidence": "异议人特别注明涉及商业秘密的材料除外" },
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "mid", "evidence": "马德里商标国际注册异议申请书应当由商标代理机构加盖公章，并由代理人签字" },
+    { "name": "一标多类商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "针对一标多类商标提出异议的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

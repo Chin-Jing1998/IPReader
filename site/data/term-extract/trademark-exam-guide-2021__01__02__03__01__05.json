@@ -1,0 +1,32 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/03/01/05",
+  "anchorNode": "tmeg-01-02-03-01-05",
+  "terms": [
+    {
+      "name": "商品和服务分类表",
+      "aliases": [
+        "类似商品和服务区分表"
+      ],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "商品和服务分类表见商标注册部门对外发布的《类似商品和服务区分表》"
+    },
+    {
+      "name": "商品或者服务项目名称",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "项目名称应表述清晰、准确，符合提交申请时施行的商品和服务分类表的分类原则"
+    },
+    {
+      "name": "类别号",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "应按类别对应填写类别号、商品或者服务项目名称"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

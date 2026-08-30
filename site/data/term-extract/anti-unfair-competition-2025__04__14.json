@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-unfair-competition-2025/04/14",
+  "anchorNode": "aucl-04-14",
+  "terms": [
+    { "name": "拒绝、阻碍调查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "拒绝、阻碍调查" },
+    { "name": "责令改正", "aliases": [], "role": "used", "confidence": "mid", "evidence": "责令改正" },
+    { "name": "罚款", "aliases": [], "role": "used", "confidence": "mid", "evidence": "罚款" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

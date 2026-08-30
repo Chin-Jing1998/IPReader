@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/05/01/02/01/01",
+  "anchorNode": "tmeg-01-01-05-01-02-01-01",
+  "model": "sonnet",
+  "terms": [
+    { "name": "法人或者其他组织", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人为内地（大陆）法人或者其他组织的" },
+    { "name": "代表处、办事处", "aliases": [], "role": "used", "confidence": "mid", "evidence": "代表处、办事处不能以自己的名义申请商标注册" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00"
+}

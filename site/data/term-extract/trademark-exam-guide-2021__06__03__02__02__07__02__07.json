@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/07/02/07",
+  "anchorNode": "tmeg-06-03-02-02-07-02-07",
+  "terms": [
+    { "name": "知名机构名称、标志", "aliases": [], "role": "defined", "confidence": "high", "evidence": "教育院校、体育组织、环保组织、慈善组织等机构的名称、标志" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

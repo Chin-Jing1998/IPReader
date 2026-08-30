@@ -1,0 +1,14 @@
+{
+  "chunk": "copyright-law-2020/06/05",
+  "anchorNode": "cpl-06-05",
+  "terms": [
+    { "name": "表演者", "aliases": [], "role": "used", "confidence": "high", "evidence": "表演者、录音录像制作者" },
+    { "name": "录音录像制作者", "aliases": [], "role": "used", "confidence": "high", "evidence": "表演者、录音录像制作者、广播电台" },
+    { "name": "广播电台", "aliases": [], "role": "used", "confidence": "mid", "evidence": "广播电台、电视台的权利" },
+    { "name": "电视台", "aliases": [], "role": "used", "confidence": "mid", "evidence": "广播电台、电视台的权利" },
+    { "name": "保护期", "aliases": [], "role": "used", "confidence": "high", "evidence": "尚未超过本法规定的保护期的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

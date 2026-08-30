@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/19/03",
+  "anchorNode": "tmeg-06-19-03",
+  "terms": [
+    { "name": "补正文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "需要补充证据或者补正文件的期间" },
+    { "name": "补充证据", "aliases": [], "role": "used", "confidence": "mid", "evidence": "当事人需要补充证据或者补正文件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

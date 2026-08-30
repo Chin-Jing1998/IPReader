@@ -1,0 +1,12 @@
+{
+  "chunk": "copyright-law-2020/05/02",
+  "anchorNode": "cpl-05-02",
+  "terms": [
+    { "name": "技术措施", "aliases": [], "role": "used", "confidence": "high", "evidence": "下列情形可以避开技术措施" },
+    { "name": "反向工程", "aliases": ["计算机软件反向工程研究"], "role": "used", "confidence": "mid", "evidence": "计算机软件反向工程研究" },
+    { "name": "无障碍方式", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以阅读障碍者能够感知的无障碍方式" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

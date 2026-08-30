@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/08/04/02/02/02",
+  "anchorNode": "tmeg-06-08-04-02-02-02",
+  "terms": [
+    { "name": "显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "其他缺乏显著特征的声音" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

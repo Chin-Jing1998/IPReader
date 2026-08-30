@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/05/02",
+  "anchorNode": "tmeg-06-05-02",
+  "terms": [
+    { "name": "类似商品", "aliases": [], "role": "used", "confidence": "high", "evidence": "同一种商品或者类似商品上" },
+    { "name": "初步审定", "aliases": [], "role": "used", "confidence": "mid", "evidence": "已经注册的或者初步审定的商标相同或者近似的" },
+    { "name": "不予公告", "aliases": [], "role": "used", "confidence": "mid", "evidence": "由商标局驳回申请，不予公告" }
+  ],
+  "laws": ["商标法第30条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

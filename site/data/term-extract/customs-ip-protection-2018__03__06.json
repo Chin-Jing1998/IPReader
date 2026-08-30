@@ -1,0 +1,10 @@
+{
+  "chunk": "customs-ip-protection-2018/03/06",
+  "anchorNode": "cusr-03-06",
+  "terms": [
+    { "name": "查看货物", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以查看有关货物" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

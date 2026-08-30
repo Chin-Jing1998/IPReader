@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/10/05/05/03",
+  "anchorNode": "tmeg-06-10-05-05-03",
+  "terms": [
+    { "name": "翻译", "aliases": [], "role": "defined", "confidence": "high", "evidence": "翻译是指系争商标将他人驰名商标以不同的语言文字予以表达" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "为相关公众所熟知或习惯使用" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

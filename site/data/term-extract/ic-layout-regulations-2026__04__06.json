@@ -1,0 +1,10 @@
+{
+  "chunk": "ic-layout-regulations-2026/04/06",
+  "anchorNode": "icld-04-06",
+  "terms": [
+    { "name": "非自愿许可", "aliases": [], "role": "defined", "confidence": "high", "evidence": "国务院知识产权行政部门可以给予使用其布图设计的非自愿许可" }
+  ],
+  "laws": ["集成电路布图设计保护条例第39条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

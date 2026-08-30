@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/03/02/02",
+  "anchorNode": "tmeg-04-03-02-02",
+  "terms": [
+    { "name": "商标国际异议", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标国际异议主体与国内异议标准相同" },
+    { "name": "国内异议", "aliases": [], "role": "used", "confidence": "mid", "evidence": "与国内异议标准相同" },
+    { "name": "异议主体", "aliases": [], "role": "used", "confidence": "mid", "evidence": "第一部分第三章3.2“异议主体”" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/05/01",
+  "anchorNode": "tmeg-01-02-05-01",
+  "terms": [
+    { "name": "优先权", "aliases": [], "role": "used", "confidence": "high", "evidence": "要求优先权的" },
+    { "name": "第一次申请的优先权", "aliases": [], "role": "used", "confidence": "high", "evidence": "基于第一次申请的优先权" },
+    { "name": "展会的优先权", "aliases": [], "role": "used", "confidence": "high", "evidence": "基于展会的优先权" },
+    { "name": "优先权证明文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "优先权证明文件" }
+  ],
+  "laws": ["商标法第25条", "商标法第26条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

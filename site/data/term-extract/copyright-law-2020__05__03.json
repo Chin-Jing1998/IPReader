@@ -1,0 +1,12 @@
+{
+  "chunk": "copyright-law-2020/05/03",
+  "anchorNode": "cpl-05-03",
+  "terms": [
+    { "name": "权利管理信息", "aliases": [], "role": "used", "confidence": "high", "evidence": "权利管理信息" },
+    { "name": "版式设计", "aliases": [], "role": "used", "confidence": "high", "evidence": "版式设计" },
+    { "name": "录音录像制品", "aliases": [], "role": "used", "confidence": "high", "evidence": "录音录像制品" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

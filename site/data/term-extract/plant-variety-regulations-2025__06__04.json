@@ -1,0 +1,11 @@
+{
+  "chunk": "plant-variety-regulations-2025/06/04",
+  "anchorNode": "pvpr-06-04",
+  "terms": [
+    { "name": "品种权无效", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对不符合本条例第十五条至第十八条规定的，宣告品种权无效" },
+    { "name": "更名", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "责令更名，拒不更名的，宣告品种权无效" }
+  ],
+  "laws": ["植物新品种保护条例第15条至第18条", "植物新品种保护条例第19条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

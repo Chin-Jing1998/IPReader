@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/05/03/02/01",
+  "anchorNode": "tmeg-06-05-03-02-01",
+  "terms": [
+    { "name": "隔离观察", "aliases": [], "role": "defined", "confidence": "high", "evidence": "隔离观察一般指的是进行商标近似判断时，应当在比对对象隔离的状态下分别进行。" },
+    { "name": "整体比对", "aliases": [], "role": "defined", "confidence": "high", "evidence": "整体比对是基础，但同时需考虑商标的主要部分或显著识别部分" },
+    { "name": "要部比对", "aliases": [], "role": "used", "confidence": "mid", "evidence": "隔离观察、整体比对和要部比对方法" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

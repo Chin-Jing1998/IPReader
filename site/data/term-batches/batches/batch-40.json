@@ -1,86 +1,70 @@
 {
  "batchNo": 40,
- "domain": "trademark-exam-guide-2021",
+ "domain": "ip-evidence-rules-2020",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/05/03/03/08.md",
-   "chunkId": "trademark-exam-guide-2021/04/05/03/03/08",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-05-03-03-08",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十七章 领土延伸至中国的 国际注册后续业务形式审查 ｜ 3国际更正分拣 ｜ 3.3对国际后续业务更正的分拣标准 ｜ 3.3.8对其他后续业务的更正",
-   "charLen": 44
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/10.md",
+   "chunkId": "ip-evidence-rules-2020/10",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-10",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第十条 · 授权委托书证明手续的沿用",
+   "charLen": 105
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/01/01.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/01/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-01-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 1国际变更（注册人名称/地址变更） ｜ 1.1法律依据",
-   "charLen": 64
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/11.md",
+   "chunkId": "ip-evidence-rules-2020/11",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-11",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第十一条 · 证据保全申请的审查因素",
+   "charLen": 146
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/01/02/01.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/01/02/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-01-02-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 1国际变更（注册人名称/地址变更） ｜ 1.2审查结论 ｜ 1.2.1核准",
-   "charLen": 55
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/12.md",
+   "chunkId": "ip-evidence-rules-2020/12",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-12",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第十二条 · 证据保全的限度与措施",
+   "charLen": 123
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/01/02/02.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/01/02/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-01-02-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 1国际变更（注册人名称/地址变更） ｜ 1.2审查结论 ｜ 1.2.2不予核准",
-   "charLen": 84
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/13.md",
+   "chunkId": "ip-evidence-rules-2020/13",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-13",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第十三条 · 妨害证据保全的后果",
+   "charLen": 92
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/02/01.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/02/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-02-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 2国际续展 ｜ 2.1法律依据",
-   "charLen": 71
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/14.md",
+   "chunkId": "ip-evidence-rules-2020/14",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-14",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第十四条 · 破坏已保全证据的后果",
+   "charLen": 122
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/02/02/01.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/02/02/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-02-02-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 2国际续展 ｜ 2.2审查结论 ｜ 2.2.1核准",
-   "charLen": 47
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/15.md",
+   "chunkId": "ip-evidence-rules-2020/15",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-15",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第十五条 · 证据保全的到场人员与案外人证据",
+   "charLen": 121
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/02/02/02.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/02/02/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-02-02-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 2国际续展 ｜ 2.2审查结论 ｜ 2.2.2不予核准",
-   "charLen": 71
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/16.md",
+   "chunkId": "ip-evidence-rules-2020/16",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-16",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第十六条 · 证据保全笔录与清单",
+   "charLen": 128
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/03/01.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/03/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-03-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 3国际转让 ｜ 3.1法律依据",
-   "charLen": 72
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/03/02.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/03/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-03-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 3国际转让 ｜ 3.2受让人资格",
-   "charLen": 80
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/03/03.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/03/03",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-03-03",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 3国际转让 ｜ 3.3一并转让",
-   "charLen": 76
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/17.md",
+   "chunkId": "ip-evidence-rules-2020/17",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-17",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第十七条 · 证据保全异议的处理",
+   "charLen": 79
   }
  ]
 }

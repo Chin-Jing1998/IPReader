@@ -1,0 +1,20 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/06/02",
+  "anchorNode": "tmeg-05-06-02",
+  "terms": [
+    { "name": "商标初步审定", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标初步审定公告" },
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "集体商标初步审定公告" },
+    { "name": "证明商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "证明商标初步审定公告" },
+    { "name": "商标转让", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标转让/移转公告" },
+    { "name": "商标质权登记", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标质权登记公告" },
+    { "name": "商标使用许可", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标使用许可备案公告" },
+    { "name": "注册商标续展", "aliases": [], "role": "used", "confidence": "high", "evidence": "注册商标续展公告" },
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "mid", "evidence": "变更商标代理机构公告" },
+    { "name": "商标注册证", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标注册证遗失声明公告" },
+    { "name": "送达公告", "aliases": [], "role": "used", "confidence": "mid", "evidence": "送达公告" },
+    { "name": "通用公告", "aliases": [], "role": "used", "confidence": "low", "evidence": "通用公告" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

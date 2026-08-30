@@ -1,0 +1,10 @@
+{
+  "chunk": "anti-unfair-competition-2025/04/03",
+  "anchorNode": "aucl-04-03",
+  "terms": [
+    { "name": "商业贿赂", "aliases": ["贿赂"], "role": "used", "confidence": "high", "evidence": "违反本法第八条规定贿赂他人或者收受贿赂的" }
+  ],
+  "laws": ["反不正当竞争法第8条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

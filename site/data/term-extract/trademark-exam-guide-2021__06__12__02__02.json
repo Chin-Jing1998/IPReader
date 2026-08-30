@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/12/02/02",
+  "anchorNode": "tmeg-06-12-02-02",
+  "terms": [
+    { "name": "特定关系人抢注他人在先使用商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "特定关系人抢注他人在先使用商标" },
+    { "name": "系争商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "系争商标" },
+    { "name": "在先使用人", "aliases": [], "role": "used", "confidence": "high", "evidence": "在先使用人" },
+    { "name": "特定关系", "aliases": [], "role": "used", "confidence": "mid", "evidence": "特定关系" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

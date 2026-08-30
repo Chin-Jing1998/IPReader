@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/11/02/04/01",
+  "anchorNode": "tmeg-06-11-02-04-01",
+  "terms": [
+    { "name": "被代理人的商标", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "在合同或者授权委托文件中载明的被代理人商标" },
+    { "name": "相关公众", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "已足以导致相关公众认为该商标是表示被代理人的商品或者服务与他人商品" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

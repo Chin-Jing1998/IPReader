@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/05/03/02/02/03",
+  "anchorNode": "tmeg-06-05-03-02-02-03",
+  "terms": [
+    { "name": "注意程度", "aliases": ["注意力"], "role": "defined", "confidence": "high", "evidence": "应考虑相关公众购买商品或者服务的注意程度" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "都会影响相关公众的注意力" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

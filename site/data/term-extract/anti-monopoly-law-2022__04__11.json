@@ -1,0 +1,11 @@
+{
+  "chunk": "anti-monopoly-law-2022/04/11",
+  "anchorNode": "aml-04-11",
+  "terms": [
+    { "name": "经营者集中", "aliases": [], "role": "used", "confidence": "high", "evidence": "对不予禁止的经营者集中" },
+    { "name": "限制性条件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "附加减少集中对竞争产生不利影响的限制性条件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

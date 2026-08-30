@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/04/02/02/03/02",
+  "anchorNode": "tmeg-06-04-02-02-03-02",
+  "terms": [
+    { "name": "一个或者两个普通表现形式的字母", "aliases": [], "role": "defined", "confidence": "high", "evidence": "一个或者两个普通表现形式的字母" },
+    { "name": "非普通字体或者与其他要素组合而整体具有显著特征", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "非普通字体或者与其他要素组合而整体具有显著特征的除外" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

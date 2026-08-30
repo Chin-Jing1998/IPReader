@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/05/02/02",
+  "anchorNode": "tmeg-05-05-02-02",
+  "terms": [
+    { "name": "纸质档案", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "商标注册纸质档案文件" },
+    { "name": "电子档案", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "商标注册电子档案归档工作" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:24:30+08:00",
+  "model": "claude-sonnet-5"
+}

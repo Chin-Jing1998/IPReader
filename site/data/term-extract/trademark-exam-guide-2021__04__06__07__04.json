@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/06/07/04",
+  "anchorNode": "tmeg-04-06-07-04",
+  "terms": [
+    { "name": "登记项目", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "国际部分注销的登记项目" },
+    { "name": "类似群组", "aliases": [], "role": "used", "confidence": "high", "evidence": "中文商品或者服务的类似群组" },
+    { "name": "状态标志", "aliases": [], "role": "used", "confidence": "low", "evidence": "商品或者服务项目的状态标志" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

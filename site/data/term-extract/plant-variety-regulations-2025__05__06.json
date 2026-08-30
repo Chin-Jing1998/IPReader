@@ -1,0 +1,12 @@
+{
+  "chunk": "plant-variety-regulations-2025/05/06",
+  "anchorNode": "pvpr-05-06",
+  "terms": [
+    { "name": "植物新品种复审委员会", "aliases": ["复审委员会"], "role": "defined", "confidence": "high", "evidence": "设立植物新品种复审委员会（以下称复审委员会）" },
+    { "name": "复审", "aliases": [], "role": "used", "confidence": "mid", "evidence": "向复审委员会请求复审" },
+    { "name": "复审请求", "aliases": [], "role": "used", "confidence": "mid", "evidence": "复审请求符合规定的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

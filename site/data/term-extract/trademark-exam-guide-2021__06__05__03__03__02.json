@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/05/03/03/02",
+  "anchorNode": "tmeg-06-05-03-03-02",
+  "terms": [
+    { "name": "图形商标相同", "aliases": [], "role": "defined", "confidence": "high", "evidence": "图形商标相同，是指商标图形在构图要素、表现形式等视觉上基本无差别" },
+    { "name": "图形商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "图形商标相同" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "相关公众对商品或者服务的来源产生混淆" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

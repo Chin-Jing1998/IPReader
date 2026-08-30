@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/04/04/02",
+  "anchorNode": "tmeg-01-01-04-04-02",
+  "model": "sonnet",
+  "terms": [
+    { "name": "共同申请人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "共同申请人为自然人的，应同时填写身份证件号码" },
+    { "name": "身份证明文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "并附送身份证明文件复印件、主体资格证明文件复印件" },
+    { "name": "主体资格证明文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "并附送身份证明文件复印件、主体资格证明文件复印件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00"
+}

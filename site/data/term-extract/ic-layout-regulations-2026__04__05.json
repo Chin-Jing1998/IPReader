@@ -1,0 +1,11 @@
+{
+  "chunk": "ic-layout-regulations-2026/04/05",
+  "anchorNode": "icld-04-05",
+  "terms": [
+    { "name": "商业利用", "aliases": [], "role": "used", "confidence": "high", "evidence": "他人再次商业利用的" },
+    { "name": "权利用尽", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "投放市场后的权利用尽" }
+  ],
+  "laws": ["集成电路布图设计保护条例第38条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

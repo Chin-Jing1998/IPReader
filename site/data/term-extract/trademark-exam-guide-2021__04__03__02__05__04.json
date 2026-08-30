@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/03/02/05/04",
+  "anchorNode": "tmeg-04-03-02-05-04",
+  "terms": [
+    { "name": "商标国际异议", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请商标国际异议还需提供异议人的身份证明文件" },
+    { "name": "国内异议", "aliases": [], "role": "used", "confidence": "mid", "evidence": "其要求与国内异议标准相同" },
+    { "name": "异议理由", "aliases": [], "role": "used", "confidence": "mid", "evidence": "明确的异议理由、事实和法律依据" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

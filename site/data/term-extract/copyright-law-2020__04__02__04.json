@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-2020/04/02/04",
+  "anchorNode": "cpl-04-02-04",
+  "terms": [
+    { "name": "表演者权", "aliases": [], "role": "used", "confidence": "high", "evidence": "表演者权的保护期" },
+    { "name": "保护期", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "权利的保护期不受限制" }
+  ],
+  "laws": ["著作权法第39条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

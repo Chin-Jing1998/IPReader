@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/05/03/02/03",
+  "anchorNode": "tmeg-04-05-03-02-03",
+  "terms": [
+    { "name": "权利日期", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际更正涉及权利日期的" },
+    { "name": "国际更正", "aliases": [], "role": "defined", "confidence": "high", "evidence": "将该更正申请分拣为国际更正" },
+    { "name": "领土延伸新申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "将更正申请件分拣为领土延伸新申请" },
+    { "name": "引证商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "驳文中的引证商标权利日期介于更正前后的权利日期之间" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

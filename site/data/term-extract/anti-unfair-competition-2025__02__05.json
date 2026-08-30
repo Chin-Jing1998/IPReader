@@ -1,0 +1,11 @@
+{
+  "chunk": "anti-unfair-competition-2025/02/05",
+  "anchorNode": "aucl-02-05",
+  "terms": [
+    { "name": "有奖销售", "aliases": [], "role": "defined", "confidence": "high", "evidence": "经营者进行有奖销售不得存在下列情形" },
+    { "name": "抽奖式有奖销售", "aliases": [], "role": "defined", "confidence": "high", "evidence": "抽奖式的有奖销售，最高奖的金额超过五万元" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

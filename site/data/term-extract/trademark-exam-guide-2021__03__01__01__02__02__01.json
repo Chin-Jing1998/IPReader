@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/01/01/02/02/01",
+  "anchorNode": "tmeg-03-01-01-02-02-01",
+  "terms": [
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "变更后的集体商标/证明商标使用管理规则" },
+    { "name": "证明商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "变更后的集体商标/证明商标使用管理规则" },
+    { "name": "使用管理规则", "aliases": [], "role": "used", "confidence": "high", "evidence": "变更后的集体商标/证明商标使用管理规则" },
+    { "name": "变更证明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "变更证明可以是登记机关变更核准文件复印件或登记机关官方网站下载打印的相关档案" },
+    { "name": "中文译名", "aliases": [], "role": "used", "confidence": "mid", "evidence": "外国企业或外国人仅需变更中文译名的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

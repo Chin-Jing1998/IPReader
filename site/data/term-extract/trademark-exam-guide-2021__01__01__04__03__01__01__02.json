@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/04/03/01/01/02",
+  "anchorNode": "tmeg-01-01-04-03-01-01-02",
+  "terms": [
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人委托商标代理机构办理的" },
+    { "name": "视为送达", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "送达商标代理机构视为送达当事人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00"
+}

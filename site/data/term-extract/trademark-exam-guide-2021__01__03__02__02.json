@@ -1,0 +1,45 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/03/02/02",
+  "anchorNode": "tmeg-01-03-02-02",
+  "terms": [
+    {
+      "name": "在先权利",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "异议人应提交作为在先权利人或利害关系人的主体资格证明文件"
+    },
+    {
+      "name": "利害关系人",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "在先权利人或利害关系人的主体资格证明文件"
+    },
+    {
+      "name": "异议理由书",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "可以另附“异议理由书”"
+    },
+    {
+      "name": "代理委托书",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "应提交代理委托书"
+    }
+  ],
+  "laws": [
+    "商标法第13条第2款",
+    "商标法第13条第3款",
+    "商标法第15条",
+    "商标法第16条第1款",
+    "商标法第30条",
+    "商标法第31条",
+    "商标法第32条"
+  ],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,13 @@
+{
+  "chunk": "customs-ip-protection-2018/02/01",
+  "anchorNode": "cusr-02-01",
+  "terms": [
+    { "name": "备案", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请备案的，应当提交申请书。申请书应当包括下列内容" },
+    { "name": "知识产权许可行使状况", "aliases": [], "role": "used", "confidence": "mid", "evidence": "(三)知识产权许可行使状况；" },
+    { "name": "侵犯知识产权货物", "aliases": [], "role": "used", "confidence": "mid", "evidence": "已知的侵犯知识产权货物的制造商、进出口商" },
+    { "name": "合法行使知识产权的货物", "aliases": [], "role": "used", "confidence": "mid", "evidence": "知识产权权利人合法行使知识产权的货物的名称、产地" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

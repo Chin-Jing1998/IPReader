@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/05/01/09/03",
+  "anchorNode": "tmeg-01-05-01-09-03",
+  "terms": [
+    { "name": "撤三申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "撤三申请" },
+    { "name": "撤回申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "撤回申请" },
+    { "name": "审查决定", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查决定" },
+    { "name": "不予受理", "aliases": [], "role": "used", "confidence": "high", "evidence": "不予受理" },
+    { "name": "予以受理", "aliases": [], "role": "used", "confidence": "high", "evidence": "予以受理" },
+    { "name": "审查终止", "aliases": [], "role": "used", "confidence": "mid", "evidence": "审查终止" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

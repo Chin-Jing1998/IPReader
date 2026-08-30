@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-rules-2013/09",
+  "anchorNode": "cplr-09",
+  "terms": [
+    { "name": "合作作品", "aliases": [], "role": "used", "confidence": "high", "evidence": "合作作品不可以分割使用的，其著作权由各合作作者共同享有" },
+    { "name": "合作作者", "aliases": [], "role": "used", "confidence": "high", "evidence": "由各合作作者共同享有，通过协商一致行使" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

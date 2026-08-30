@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/02/03/04",
+  "anchorNode": "tmeg-04-02-03-04",
+  "terms": [
+    { "name": "国际注册号", "aliases": [], "role": "used", "confidence": "high", "evidence": "一份续展申请只能包含一个国际注册号" },
+    { "name": "国际注册簿", "aliases": [], "role": "used", "confidence": "high", "evidence": "注册人名称必须与国际注册簿保持一致" },
+    { "name": "缔约方", "aliases": [], "role": "used", "confidence": "high", "evidence": "续展所涉及的缔约方不得超出国际注册簿中的缔约方范围" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

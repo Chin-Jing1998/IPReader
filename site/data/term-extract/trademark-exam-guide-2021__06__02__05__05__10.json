@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/05/05/10",
+  "anchorNode": "tmeg-06-02-05-05-10",
+  "terms": [
+    { "name": "不以使用为目的的恶意商标注册申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "不以使用为目的的恶意商标注册申请" },
+    { "name": "特定关系", "aliases": ["关联性"], "role": "defined", "confidence": "high", "evidence": "与被异议人存在特定关系的自然人、法人或者其他组织" },
+    { "name": "在先注册商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "异议人在先注册并有一定显著性的商标" },
+    { "name": "显著性", "aliases": [], "role": "used", "confidence": "high", "evidence": "具有一定显著性商标" }
+  ],
+  "laws": ["商标法第4条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

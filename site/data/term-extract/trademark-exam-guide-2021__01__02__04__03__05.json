@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/04/03/05",
+  "anchorNode": "tmeg-01-02-04-03-05",
+  "terms": [
+    { "name": "商标专用权", "aliases": [], "role": "used", "confidence": "high", "evidence": "取得商标专用权的" },
+    { "name": "生产经营活动", "aliases": [], "role": "defined", "confidence": "high", "evidence": "从事生产经营活动" },
+    { "name": "农村承包经营户", "aliases": [], "role": "used", "confidence": "high", "evidence": "农村承包经营户在其自营的农副产品" },
+    { "name": "类似群组", "aliases": [], "role": "used", "confidence": "high", "evidence": "类似群组" }
+  ],
+  "laws": ["商标法第4条", "商标法第8条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/04/05/02",
+  "anchorNode": "tmeg-01-04-05-02",
+  "terms": [
+    { "name": "补充证据材料", "aliases": [], "role": "defined", "confidence": "high", "evidence": "补充证据材料需要补正的" },
+    { "name": "视为未提交", "aliases": [], "role": "defined", "confidence": "high", "evidence": "视为未提交该补充证据材料" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

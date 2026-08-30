@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/04/04/05/02",
+  "anchorNode": "tmeg-05-04-04-05-02",
+  "terms": [
+    { "name": "补发注册证", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "补发注册证申请符合规定的" },
+    { "name": "商标注册证", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "发给注册人相应的商标注册证" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:24:30+08:00",
+  "model": "claude-sonnet-5"
+}

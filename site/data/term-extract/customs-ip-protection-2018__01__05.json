@@ -1,0 +1,10 @@
+{
+  "chunk": "customs-ip-protection-2018/01/05",
+  "anchorNode": "cusr-01-05",
+  "terms": [
+    { "name": "知识产权状况", "aliases": [], "role": "used", "confidence": "high", "evidence": "向海关如实申报与进出口货物有关的知识产权状况" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

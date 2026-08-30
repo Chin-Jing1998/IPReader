@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/01/01",
+  "anchorNode": "tmeg-03-02-01-01",
+  "terms": [
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "集体商标" },
+    { "name": "证明商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "证明商标" }
+  ],
+  "laws": ["商标法第42条", "商标法实施条例第17条", "商标法实施条例第31条", "商标法实施条例第32条", "商标法实施条例第87条", "集体商标、证明商标注册和管理办法第16条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

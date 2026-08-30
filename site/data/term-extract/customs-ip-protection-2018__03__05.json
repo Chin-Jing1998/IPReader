@@ -1,0 +1,13 @@
+{
+  "chunk": "customs-ip-protection-2018/03/05",
+  "anchorNode": "cusr-03-05",
+  "terms": [
+    { "name": "侵权嫌疑货物", "aliases": [], "role": "used", "confidence": "high", "evidence": "海关应当扣留侵权嫌疑货物，书面通知知识产权权利人" },
+    { "name": "备案知识产权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "海关发现进出口货物有侵犯备案知识产权嫌疑的，应当立即书面通知知识产权权利人" },
+    { "name": "海关扣留凭单", "aliases": [], "role": "used", "confidence": "high", "evidence": "并将海关扣留凭单送达收货人或者发货人" },
+    { "name": "依职权扣留", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "依职权通知与扣留" }
+  ],
+  "laws": ["知识产权海关保护条例第13条", "知识产权海关保护条例第14条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

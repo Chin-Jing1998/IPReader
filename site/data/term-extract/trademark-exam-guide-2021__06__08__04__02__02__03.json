@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/08/04/02/02/03",
+  "anchorNode": "tmeg-06-08-04-02-02-03",
+  "terms": [
+    { "name": "声音商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "其具有作为声音商标的显著特征" },
+    { "name": "文字呼叫类声音商标", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "对于文字呼叫类声音商标，注意分辨" },
+    { "name": "经过使用取得显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "声音商标经过使用取得显著特征的认定适用本编第四章" },
+    { "name": "识别作用", "aliases": [], "role": "used", "confidence": "mid", "evidence": "真正起识别作用的是呼叫的文字，还是声音本身" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

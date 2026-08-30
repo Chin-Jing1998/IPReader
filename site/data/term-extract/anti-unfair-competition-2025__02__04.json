@@ -1,0 +1,11 @@
+{
+  "chunk": "anti-unfair-competition-2025/02/04",
+  "anchorNode": "aucl-02-04",
+  "terms": [
+    { "name": "商业秘密", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本法所称的商业秘密，是指不为公众所知悉、具有商业价值并经权利人采取相应保密措施的" },
+    { "name": "保密义务", "aliases": [], "role": "used", "confidence": "mid", "evidence": "违反保密义务或者违反权利人有关保守商业秘密的要求" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

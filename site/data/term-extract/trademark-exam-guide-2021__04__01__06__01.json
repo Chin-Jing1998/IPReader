@@ -1,0 +1,19 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/01/06/01",
+  "anchorNode": "tmeg-04-01-06-01",
+  "terms": [
+    { "name": "马德里商标国际注册申请撤回申请书", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "《马德里商标国际注册申请撤回申请书》" },
+    { "name": "申请撤回", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "商标国际注册申请撤回的，应当提交" },
+    { "name": "身份证明文件", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "身份证明文件、主体资格证明文件" },
+    { "name": "主体资格证明文件", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "身份证明文件、主体资格证明文件" },
+    { "name": "马德里商标国际注册代理委托书", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "《马德里商标国际注册代理委托书》" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

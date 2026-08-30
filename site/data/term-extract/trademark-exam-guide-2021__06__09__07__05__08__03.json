@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/05/08/03",
+  "anchorNode": "tmeg-06-09-07-05-08-03",
+  "terms": [
+    { "name": "生产地域范围", "aliases": [], "role": "used", "confidence": "low", "evidence": "地理标志产品生产地域范围的表述" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

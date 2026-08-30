@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/03/02/03",
+  "anchorNode": "tmeg-06-09-07-03-02-03",
+  "terms": [
+    { "name": "品质标准", "aliases": [], "role": "defined", "confidence": "high", "evidence": "使用证明商标的商品或者服务的品质应当高于国家标准" },
+    { "name": "第三方市场评价机制", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "通过引入第三方市场评价机制来规范企业经营行为" },
+    { "name": "证明商标使用管理规则", "aliases": ["使用管理规则"], "role": "used", "confidence": "mid", "evidence": "申请人在使用管理规则中应当详细描述该证明商标证明的商品或者服务的" }
+  ],
+  "laws": ["集体商标、证明商标注册和管理办法第11条"],
+  "extractedAt": "2026-08-30T01:53:23+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/18/02/02",
+  "anchorNode": "tmeg-06-18-02-02",
+  "terms": [
+    { "name": "连续三年不使用", "aliases": [], "role": "used", "confidence": "high", "evidence": "因连续三年不使用而被撤销" },
+    { "name": "应诉期", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应诉期届满之日起" },
+    { "name": "撤销公告", "aliases": [], "role": "used", "confidence": "mid", "evidence": "自撤销公告之日起未满一年" },
+    { "name": "注册商标有效期", "aliases": [], "role": "used", "confidence": "mid", "evidence": "自注册商标有效期届满之日起" }
+  ],
+  "laws": ["商标法第50条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

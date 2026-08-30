@@ -1,0 +1,17 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/01/05",
+  "anchorNode": "tmeg-03-02-01-05",
+  "terms": [
+    { "name": "一并转让", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当一并转让" },
+    { "name": "同一种或者类似商品", "aliases": [], "role": "used", "confidence": "high", "evidence": "对其在同一种或者类似商品上注册的" },
+    { "name": "相同或者近似的商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "注册的相同或者近似的商标，应当一并转让" },
+    { "name": "马德里国际注册商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "领土延伸至中国受保护的马德里国际注册商标" },
+    { "name": "领土延伸", "aliases": [], "role": "used", "confidence": "mid", "evidence": "领土延伸至中国受保护" },
+    { "name": "初步审定", "aliases": [], "role": "used", "confidence": "mid", "evidence": "已初步审定" },
+    { "name": "驳回复审", "aliases": [], "role": "used", "confidence": "mid", "evidence": "处于驳回复审、异议程序中的商标" },
+    { "name": "异议程序", "aliases": [], "role": "used", "confidence": "mid", "evidence": "异议程序中的商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/04/02/02/03/05",
+  "anchorNode": "tmeg-06-04-02-02-03-05",
+  "terms": [
+    { "name": "商品的外包装", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商品的外包装" },
+    { "name": "区分商品或服务来源的商标标志", "aliases": [], "role": "used", "confidence": "mid", "evidence": "区分商品或者服务来源的商标标志" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

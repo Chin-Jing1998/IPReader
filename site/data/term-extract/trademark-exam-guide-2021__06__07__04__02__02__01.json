@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/07/04/02/02/01",
+  "anchorNode": "tmeg-06-07-04-02-02-01",
+  "terms": [
+    { "name": "显著特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不足以起到区别商品或者服务来源作用的，判定为缺乏显著特征" },
+    { "name": "常用颜色组合", "aliases": [], "role": "used", "confidence": "mid", "evidence": "颜色组合为指定商品的常用颜色组合" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

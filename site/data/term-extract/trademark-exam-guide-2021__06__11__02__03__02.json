@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/11/02/03/02",
+  "anchorNode": "tmeg-06-11-02-03-02",
+  "terms": [
+    { "name": "擅自注册被代理人或者被代表人商标", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "属于《商标法》第十五条第一款所指代理人、代表人的擅自注册行为" },
+    { "name": "串通合谋抢注", "aliases": [], "role": "defined",
+      "confidence": "mid", "evidence": "对于串通合谋抢注行为，可以视情况根据商标注册申请人" }
+  ],
+  "laws": ["商标法第15条第1款"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

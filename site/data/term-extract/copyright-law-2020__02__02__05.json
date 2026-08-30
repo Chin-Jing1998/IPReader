@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-2020/02/02/05",
+  "anchorNode": "cpl-02-02-05",
+  "terms": [
+    { "name": "汇编作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对其内容的选择或者编排体现独创性的作品，为汇编作品" },
+    { "name": "独创性", "aliases": [], "role": "used", "confidence": "high", "evidence": "对其内容的选择或者编排体现独创性" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

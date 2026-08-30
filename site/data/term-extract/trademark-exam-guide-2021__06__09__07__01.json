@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/01",
+  "anchorNode": "tmeg-06-09-07-01",
+  "terms": [
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "集体商标、证明商标可以由《商标法》第八条规定的标志构成" },
+    { "name": "证明商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "作为证明商标申请注册的地理标志" },
+    { "name": "地理标志集体商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "作为集体商标申请注册的地理标志（以下称地理标志集体商标）" },
+    { "name": "地理标志证明商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "作为证明商标申请注册的地理标志（以下称地理标志证明商标）" },
+    { "name": "地理标志", "aliases": [], "role": "used", "confidence": "mid", "evidence": "作为集体商标申请注册的地理标志" },
+    { "name": "申请人主体资格", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人主体资格、使用管理规则等特有事项的审查" },
+    { "name": "使用管理规则", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人主体资格、使用管理规则等特有事项的审查" }
+  ],
+  "laws": ["商标法第8条", "商标法第10条第1款", "商标法第11条", "商标法第30条", "商标法第31条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

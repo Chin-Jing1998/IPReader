@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/03/01/02",
+  "anchorNode": "tmeg-05-03-01-02",
+  "terms": [
+    { "name": "收件人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标文件的收件人为当事人" },
+    { "name": "代表人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "收件人为代表人" },
+    { "name": "法定监护人", "aliases": [], "role": "used", "confidence": "high", "evidence": "法定监护人" },
+    { "name": "法定代理人", "aliases": [], "role": "used", "confidence": "high", "evidence": "法定代理人" },
+    { "name": "民事行为能力", "aliases": [], "role": "used", "confidence": "high", "evidence": "无民事行为能力" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

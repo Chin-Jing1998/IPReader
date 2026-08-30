@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/17/02",
+  "anchorNode": "tmeg-06-17-02",
+  "terms": [
+    { "name": "自行改变注册商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "自行改变注册商标" },
+    { "name": "通用名称", "aliases": [], "role": "used", "confidence": "high", "evidence": "通用名称" },
+    { "name": "连续三年不使用", "aliases": [], "role": "used", "confidence": "high", "evidence": "连续三年不使用" },
+    { "name": "注册人名义", "aliases": [], "role": "used", "confidence": "mid", "evidence": "注册人名义" },
+    { "name": "其他注册事项", "aliases": [], "role": "used", "confidence": "mid", "evidence": "其他注册事项" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

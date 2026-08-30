@@ -1,0 +1,32 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/03/03/01/01",
+  "anchorNode": "tmeg-01-03-03-01-01",
+  "terms": [
+    {
+      "name": "邮戳日",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "以异议人寄出的邮戳日为准"
+    },
+    {
+      "name": "实际收到日",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "以商标注册部门实际收到日为准"
+    },
+    {
+      "name": "实际递交日",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "加盖红色公章的实际递交日证明"
+    }
+  ],
+  "laws": [
+    "商标法实施条例第9条"
+  ],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

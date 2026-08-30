@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/06/05/02/04/01/01",
+  "anchorNode": "tmeg-06-06-05-02-04-01-01",
+  "terms": [
+    { "name": "整体视觉效果", "aliases": [], "role": "defined", "confidence": "high", "evidence": "整体视觉效果与他人在先的三维标志商标相同或者近似" },
+    { "name": "混淆", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对商品或者服务的来源产生混淆" },
+    { "name": "相同或者近似商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "判定为相同或者近似商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

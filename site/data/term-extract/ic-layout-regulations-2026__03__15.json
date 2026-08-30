@@ -1,0 +1,15 @@
+{
+  "chunk": "ic-layout-regulations-2026/03/15",
+  "anchorNode": "icld-03-15",
+  "terms": [
+    { "name": "权利恢复", "aliases": [], "role": "defined", "confidence": "high", "evidence": "请求恢复其权利" },
+    { "name": "不可抗拒的事由", "aliases": [], "role": "used", "confidence": "high", "evidence": "不可抗拒的事由" },
+    { "name": "复审请求期限", "aliases": [], "role": "used", "confidence": "mid", "evidence": "复审请求期限" }
+  ],
+  "laws": [
+    "集成电路布图设计保护条例第17条",
+    "集成电路布图设计保护条例第26条"
+  ],
+  "extractedAt": "2026-08-30T06:40:57+08:00",
+  "model": "claude-sonnet-5"
+}

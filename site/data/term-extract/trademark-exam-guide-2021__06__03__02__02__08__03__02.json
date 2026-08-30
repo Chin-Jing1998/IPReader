@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/08/03/02",
+  "anchorNode": "tmeg-06-03-02-02-08-03-02",
+  "terms": [
+    { "name": "法定货币", "aliases": [], "role": "used", "confidence": "high", "evidence": "各国法定货币的图案、名称或者标记相同或者近似的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

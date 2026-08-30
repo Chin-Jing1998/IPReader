@@ -1,0 +1,37 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/05/01/02",
+  "anchorNode": "tmeg-01-05-01-02",
+  "terms": [
+    {
+      "name": "撤销连续三年不使用注册商标申请",
+      "aliases": ["撤三申请"],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "撤销连续三年不使用注册商标申请（以下简称撤三申请）"
+    },
+    {
+      "name": "连续三年不使用",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "被申请商标连续三年不使用的有关情况"
+    },
+    {
+      "name": "撤销理由",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "应列明具体撤销理由"
+    },
+    {
+      "name": "形式审查",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "形式审查主要是对申请文件进行书面审查"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

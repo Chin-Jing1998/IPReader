@@ -1,0 +1,12 @@
+{
+  "chunk": "copyright-law-2020/04/02/03",
+  "anchorNode": "cpl-04-02-03",
+  "terms": [
+    { "name": "职务表演", "aliases": [], "role": "defined", "confidence": "high", "evidence": "演员为完成本演出单位的演出任务进行的表演为职务表演" },
+    { "name": "表明表演者身份权", "aliases": ["表明身份"], "role": "used", "confidence": "mid", "evidence": "表明身份" },
+    { "name": "保护表演形象权", "aliases": ["保护表演形象不受歪曲"], "role": "used", "confidence": "mid", "evidence": "保护表演形象不受歪曲" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

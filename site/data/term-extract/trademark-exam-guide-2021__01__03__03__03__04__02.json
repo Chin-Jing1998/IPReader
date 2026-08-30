@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/03/03/03/04/02",
+  "anchorNode": "tmeg-01-03-03-03-04-02",
+  "terms": [
+    { "name": "被异议商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "被异议商标" },
+    { "name": "在先权利人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在先权利人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

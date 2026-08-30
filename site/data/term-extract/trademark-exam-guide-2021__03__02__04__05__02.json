@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/04/05/02",
+  "anchorNode": "tmeg-03-02-04-05-02",
+  "terms": [
+    { "name": "核准删减", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "核准删减商品或者服务项目" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

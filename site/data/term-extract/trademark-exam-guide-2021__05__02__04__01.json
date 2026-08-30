@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/02/04/01",
+  "anchorNode": "tmeg-05-02-04-01",
+  "terms": [
+    { "name": "退款", "aliases": [], "role": "defined", "confidence": "high", "evidence": "当事人可以自缴费之日起三年内，向商标注册部门提出退款请求" },
+    { "name": "多缴", "aliases": [], "role": "used", "confidence": "mid", "evidence": "多缴、重缴、错缴商标费用的" },
+    { "name": "重缴", "aliases": [], "role": "used", "confidence": "mid", "evidence": "多缴、重缴、错缴商标费用的" },
+    { "name": "错缴", "aliases": [], "role": "used", "confidence": "mid", "evidence": "多缴、重缴、错缴商标费用的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

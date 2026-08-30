@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/04/02",
+  "anchorNode": "tmeg-03-02-04-02",
+  "terms": [
+    { "name": "删减申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "删减申请由商标申请人提出" },
+    { "name": "共有商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "删减商品的商标为共有商标的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

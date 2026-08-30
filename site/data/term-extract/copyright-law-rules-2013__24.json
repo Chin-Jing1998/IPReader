@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-rules-2013/24",
+  "anchorNode": "cplr-24",
+  "terms": [
+    { "name": "专有使用权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "视为被许可人有权排除包括著作权人在内的任何人以同样的方式使用作品" },
+    { "name": "被许可人", "aliases": [], "role": "used", "confidence": "high", "evidence": "被许可人许可第三人行使同一权利，必须取得著作权人的许可" }
+  ],
+  "laws": ["著作权法第24条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

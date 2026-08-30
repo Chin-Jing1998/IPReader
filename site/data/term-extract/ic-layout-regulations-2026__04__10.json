@@ -1,0 +1,12 @@
+{
+  "chunk": "ic-layout-regulations-2026/04/10",
+  "anchorNode": "icld-04-10",
+  "terms": [
+    { "name": "非自愿许可", "aliases": [], "role": "used", "confidence": "high", "evidence": "使用布图设计非自愿许可的决定" },
+    { "name": "非自愿许可使用费", "aliases": [], "role": "used", "confidence": "high", "evidence": "非自愿许可使用费" },
+    { "name": "行政裁决", "aliases": [], "role": "used", "confidence": "high", "evidence": "非自愿许可使用费的行政裁决" }
+  ],
+  "laws": ["集成电路布图设计保护条例第43条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

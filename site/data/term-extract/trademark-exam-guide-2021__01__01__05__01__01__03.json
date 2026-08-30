@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/05/01/01/03",
+  "anchorNode": "tmeg-01-01-05-01-01-03",
+  "model": "sonnet",
+  "terms": [
+    { "name": "商标网上服务系统", "aliases": [], "role": "used", "confidence": "high", "evidence": "通过商标网上服务系统提交申请的" },
+    { "name": "视为未提交", "aliases": [], "role": "defined", "confidence": "high", "evidence": "未附送的，视为未提交该证明文件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00"
+}

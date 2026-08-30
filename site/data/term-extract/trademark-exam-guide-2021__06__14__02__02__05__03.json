@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/14/02/02/05/03",
+  "anchorNode": "tmeg-06-14-02-02-05-03",
+  "terms": [
+    { "name": "不良影响", "aliases": [], "role": "used", "confidence": "high", "evidence": "或者有其他不良影响的" },
+    { "name": "公序良俗", "aliases": [], "role": "used", "confidence": "high", "evidence": "妨害公序良俗" },
+    { "name": "争议商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "争议商标予以宣告无效" },
+    { "name": "知名度", "aliases": [], "role": "used", "confidence": "mid", "evidence": "已经在中国公众当中具有较高知名度" }
+  ],
+  "laws": ["商标法第10条第1款第7项", "商标法第10条第1款第8项"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

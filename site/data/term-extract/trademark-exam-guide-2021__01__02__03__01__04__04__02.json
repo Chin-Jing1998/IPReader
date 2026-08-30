@@ -1,0 +1,46 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/03/01/04/04/02",
+  "anchorNode": "tmeg-01-02-03-01-04-04-02",
+  "terms": [
+    {
+      "name": "声音商标",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "以声音标志申请商标注册的，应当在商标图样中对申请注册的声音商标进行描述"
+    },
+    {
+      "name": "声音商标描述",
+      "aliases": [
+        "商标描述"
+      ],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "描述应当准确、完整、客观并易于理解"
+    },
+    {
+      "name": "音乐性质声音商标",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "音乐性质声音商标应当用五线谱或简谱加以描述，并附加文字说明"
+    },
+    {
+      "name": "非音乐性质声音商标",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "非音乐性质声音商标应当用文字加以描述"
+    },
+    {
+      "name": "兼有音乐性质与非音乐性质的声音商标",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "兼有音乐性质与非音乐性质的声音商标"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

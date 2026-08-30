@@ -1,0 +1,12 @@
+{
+  "chunk": "ic-layout-regulations-2026/03/04",
+  "anchorNode": "icld-03-04",
+  "terms": [
+    { "name": "独创性声明", "aliases": [], "role": "used", "confidence": "high", "evidence": "布图设计的独创性声明" },
+    { "name": "商业利用", "aliases": [], "role": "used", "confidence": "high", "evidence": "布图设计已投入商业利用的" },
+    { "name": "集成电路样品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "含有该布图设计的集成电路样品" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

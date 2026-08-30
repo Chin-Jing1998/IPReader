@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/06/03/09",
+  "anchorNode": "tmeg-04-06-03-09",
+  "terms": [
+    { "name": "权利待定的商标", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "权利待定的商标" },
+    { "name": "有效商标", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "有效商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

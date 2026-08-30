@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/03/04",
+  "anchorNode": "tmeg-03-02-03-04",
+  "terms": [
+    { "name": "质权登记变更", "aliases": [], "role": "defined", "confidence": "high", "evidence": "并向商标注册部门提交质权登记变更申请" },
+    { "name": "质权人", "aliases": [], "role": "used", "confidence": "high", "evidence": "质权人或出质人的名称（姓名）更改" },
+    { "name": "出质人", "aliases": [], "role": "used", "confidence": "high", "evidence": "出质人名称（姓名）发生变更的" },
+    { "name": "主债权", "aliases": [], "role": "used", "confidence": "high", "evidence": "质权合同担保的主债权数额变更的" },
+    { "name": "形式审查的一般性要求", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请文件应满足形式审查的一般性要求" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

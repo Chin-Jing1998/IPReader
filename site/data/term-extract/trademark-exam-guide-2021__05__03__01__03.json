@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/03/01/03",
+  "anchorNode": "tmeg-05-03-01-03",
+  "terms": [
+    { "name": "送达日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "送达日" },
+    { "name": "邮戳日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以当事人收到的邮戳日为准" },
+    { "name": "视为送达", "aliases": [], "role": "defined", "confidence": "high", "evidence": "满15日视为送达当事人" },
+    { "name": "递交日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以递交日为准" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

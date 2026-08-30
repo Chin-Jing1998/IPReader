@@ -1,0 +1,10 @@
+{
+  "chunk": "copyright-law-rules-2013/16",
+  "anchorNode": "cplr-16",
+  "terms": [
+    { "name": "国家享有著作权的作品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "国家享有著作权的作品的使用" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

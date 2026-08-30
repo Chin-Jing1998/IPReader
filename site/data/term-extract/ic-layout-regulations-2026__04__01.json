@@ -1,0 +1,12 @@
+{
+  "chunk": "ic-layout-regulations-2026/04/01",
+  "anchorNode": "icld-04-01",
+  "terms": [
+    { "name": "受保护的布图设计", "aliases": [], "role": "defined", "confidence": "high", "evidence": "受保护的布图设计以登记的布图设计的复制件或者图样所显示的为准" },
+    { "name": "独创性", "aliases": [], "role": "used", "confidence": "high", "evidence": "布图设计的独创性" },
+    { "name": "独创性声明", "aliases": [], "role": "used", "confidence": "high", "evidence": "独创性声明" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:40:57+08:00",
+  "model": "claude-sonnet-5"
+}

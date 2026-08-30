@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-monopoly-law-2022/01/01",
+  "anchorNode": "aml-01-01",
+  "terms": [
+    { "name": "垄断行为", "aliases": [], "role": "used", "confidence": "high", "evidence": "预防和制止垄断行为" },
+    { "name": "社会主义市场经济", "aliases": [], "role": "used", "confidence": "mid", "evidence": "促进社会主义市场经济健康发展" },
+    { "name": "消费者利益", "aliases": [], "role": "used", "confidence": "mid", "evidence": "维护消费者利益和社会公共利益" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

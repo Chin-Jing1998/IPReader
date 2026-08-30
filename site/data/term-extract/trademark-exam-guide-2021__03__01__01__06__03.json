@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/01/01/06/03",
+  "anchorNode": "tmeg-03-01-01-06-03",
+  "terms": [
+    { "name": "视为放弃", "aliases": [], "role": "defined", "confidence": "high", "evidence": "视为放弃是针对已经发过要求一并变更的补正通知的变更申请" },
+    { "name": "补正通知", "aliases": [], "role": "used", "confidence": "high", "evidence": "经补正通知后，未办理其他需一并变更的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

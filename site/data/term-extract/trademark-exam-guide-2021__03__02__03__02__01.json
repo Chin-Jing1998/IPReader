@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/03/02/01",
+  "anchorNode": "tmeg-03-02-03-02-01",
+  "terms": [
+    { "name": "质权登记申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "质权登记申请应以纸质申请方式提交" },
+    { "name": "质权人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应由质权人和出质人共同办理" },
+    { "name": "出质人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应由质权人和出质人共同办理" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

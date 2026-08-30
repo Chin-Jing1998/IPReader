@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-rules-2013/18",
+  "anchorNode": "cplr-18",
+  "terms": [
+    { "name": "身份不明的作品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "身份不明的作品" },
+    { "name": "保护期", "aliases": [], "role": "defined", "confidence": "high", "evidence": "保护期截止于作品首次发表后第50年的12月31日" }
+  ],
+  "laws": ["著作权法第10条第1款第5项至第17项", "著作权法第21条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

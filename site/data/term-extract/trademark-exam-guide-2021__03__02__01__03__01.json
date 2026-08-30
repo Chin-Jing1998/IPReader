@@ -1,0 +1,19 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/01/03/01",
+  "anchorNode": "tmeg-03-02-01-03-01",
+  "terms": [
+    { "name": "转让人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "转让申请的转让人应为商标的注册人" },
+    { "name": "商标注册人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标注册人包括自然人、法人和非法人组织三种类型的民事主体" },
+    { "name": "自然人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "自然人的民事权利能力和民事行为能力，依照《民法典》的相关规定进行界定" },
+    { "name": "法人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "法人享有独立的民事权利能力和民事行为能力" },
+    { "name": "非法人组织", "aliases": [], "role": "used", "confidence": "mid", "evidence": "非法人组织可以参照法人情况办理" },
+    { "name": "民事权利能力", "aliases": [], "role": "used", "confidence": "low", "evidence": "自然人的民事权利能力和民事行为能力" },
+    { "name": "民事行为能力", "aliases": [], "role": "used", "confidence": "low", "evidence": "法人享有独立的民事权利能力和民事行为能力" },
+    { "name": "个体工商户", "aliases": [], "role": "used", "confidence": "mid", "evidence": "个体工商户应按照自然人办理，由个体工商户负责人提供身份证明文件和签署转让文件" },
+    { "name": "法定代表人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "法人行使其处分权时由其法定代表人或其委托的人代表" },
+    { "name": "商标档案", "aliases": [], "role": "used", "confidence": "mid", "evidence": "转让人应与商标档案记录的注册人相关情况一致" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

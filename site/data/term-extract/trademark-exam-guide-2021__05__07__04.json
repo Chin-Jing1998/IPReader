@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/07/04",
+  "anchorNode": "tmeg-05-07-04",
+  "terms": [
+    { "name": "电子发文", "aliases": [], "role": "defined", "confidence": "high", "evidence": "电子发文指商标注册部门通过商标网上服务系统以电子文件形式向用户送达商标文件" },
+    { "name": "电子送达", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "文件发出之日起满15日视为送达用户" },
+    { "name": "无法送达", "aliases": [], "role": "used", "confidence": "mid", "evidence": "《商标法实施条例》第十条规定的无法送达的情形" }
+  ],
+  "laws": ["商标法实施条例第10条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

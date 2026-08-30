@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/04/03/05/06",
+  "anchorNode": "tmeg-01-04-03-05-06",
+  "terms": [
+    { "name": "视为撤回", "aliases": [], "role": "defined", "confidence": "high", "evidence": "视为撤回评审申请" },
+    { "name": "补正通知", "aliases": [], "role": "used", "confidence": "mid", "evidence": "补正通知" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

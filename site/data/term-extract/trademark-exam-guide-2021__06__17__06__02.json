@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/17/06/02",
+  "anchorNode": "tmeg-06-17-06-02",
+  "terms": [
+    { "name": "自行改变注册商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "自行改变注册商标，是指商标注册人或者被许可使用人" },
+    { "name": "自行改变注册商标的注册人名义", "aliases": [], "role": "defined", "confidence": "high", "evidence": "自行改变注册商标的注册人名义，是指商标注册人名义" },
+    { "name": "自行改变注册商标的注册人地址", "aliases": [], "role": "defined", "confidence": "high", "evidence": "自行改变注册商标的注册人地址，是指商标注册人地址" },
+    { "name": "自行改变注册商标的其他注册事项", "aliases": [], "role": "defined", "confidence": "high", "evidence": "自行改变注册商标的其他注册事项，是指除注册商标" },
+    { "name": "被许可使用人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "或者被许可使用人" },
+    { "name": "同一性", "aliases": [], "role": "used", "confidence": "mid", "evidence": "易被认为不具有同一性" },
+    { "name": "商标注册簿", "aliases": [], "role": "used", "confidence": "mid", "evidence": "《商标注册簿》" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

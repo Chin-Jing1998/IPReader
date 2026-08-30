@@ -1,86 +1,78 @@
 {
  "batchNo": 39,
- "domain": "trademark-exam-guide-2021",
+ "domain": "ip-evidence-rules-2020",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/05/03/02/04.md",
-   "chunkId": "trademark-exam-guide-2021/04/05/03/02/04",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-05-03-02-04",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十七章 领土延伸至中国的 国际注册后续业务形式审查 ｜ 3国际更正分拣 ｜ 3.2对领土延伸和后期指定通知更正的分拣标准 ｜ 3.2.4对指定商品或者服务项目的更正",
-   "charLen": 77
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/01.md",
+   "chunkId": "ip-evidence-rules-2020/01",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-01",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第一条 · 诚信举证原则",
+   "charLen": 61
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/05/03/02/05.md",
-   "chunkId": "trademark-exam-guide-2021/04/05/03/02/05",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-05-03-02-05",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十七章 领土延伸至中国的 国际注册后续业务形式审查 ｜ 3国际更正分拣 ｜ 3.2对领土延伸和后期指定通知更正的分拣标准 ｜ 3.2.5对商标的更正",
-   "charLen": 56
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/02.md",
+   "chunkId": "ip-evidence-rules-2020/02",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-02",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第二条 · 举证责任与法院要求提供证据",
+   "charLen": 118
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/05/03/02/06.md",
-   "chunkId": "trademark-exam-guide-2021/04/05/03/02/06",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-05-03-02-06",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十七章 领土延伸至中国的 国际注册后续业务形式审查 ｜ 3国际更正分拣 ｜ 3.2对领土延伸和后期指定通知更正的分拣标准 ｜ 3.2.6对其他信息的更正",
-   "charLen": 111
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/03.md",
+   "chunkId": "ip-evidence-rules-2020/03",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-03",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第三条 · 非新产品制造方法的举证",
+   "charLen": 171
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/05/03/03/01.md",
-   "chunkId": "trademark-exam-guide-2021/04/05/03/03/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-05-03-03-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十七章 领土延伸至中国的 国际注册后续业务形式审查 ｜ 3国际更正分拣 ｜ 3.3对国际后续业务更正的分拣标准 ｜ 3.3.1新增某项后续业务",
-   "charLen": 64
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/04.md",
+   "chunkId": "ip-evidence-rules-2020/04",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-04",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第四条 · 合法来源抗辩的举证",
+   "charLen": 185
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/05/03/03/02.md",
-   "chunkId": "trademark-exam-guide-2021/04/05/03/03/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-05-03-03-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十七章 领土延伸至中国的 国际注册后续业务形式审查 ｜ 3国际更正分拣 ｜ 3.3对国际后续业务更正的分拣标准 ｜ 3.3.2撤回某项后续业务",
-   "charLen": 59
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/05.md",
+   "chunkId": "ip-evidence-rules-2020/05",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-05",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第五条 · 确认不侵权之诉的举证",
+   "charLen": 112
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/05/03/03/03.md",
-   "chunkId": "trademark-exam-guide-2021/04/05/03/03/03",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-05-03-03-03",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十七章 领土延伸至中国的 国际注册后续业务形式审查 ｜ 3国际更正分拣 ｜ 3.3对国际后续业务更正的分拣标准 ｜ 3.3.3国际转让更正为国际部分转让",
-   "charLen": 85
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/06.md",
+   "chunkId": "ip-evidence-rules-2020/06",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-06",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第六条 · 行政行为认定事实的免证",
+   "charLen": 104
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/05/03/03/04.md",
-   "chunkId": "trademark-exam-guide-2021/04/05/03/03/04",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-05-03-03-04",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十七章 领土延伸至中国的 国际注册后续业务形式审查 ｜ 3国际更正分拣 ｜ 3.3对国际后续业务更正的分拣标准 ｜ 3.3.4国际部分转让更正为国际转让",
-   "charLen": 78
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/07.md",
+   "chunkId": "ip-evidence-rules-2020/07",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-07",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第七条 · 取证行为所得证据的效力",
+   "charLen": 168
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/05/03/03/05.md",
-   "chunkId": "trademark-exam-guide-2021/04/05/03/03/05",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-05-03-03-05",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十七章 领土延伸至中国的 国际注册后续业务形式审查 ｜ 3国际更正分拣 ｜ 3.3对国际后续业务更正的分拣标准 ｜ 3.3.5对国际删减的更正",
-   "charLen": 70
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/08.md",
+   "chunkId": "ip-evidence-rules-2020/08",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-08",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第八条 · 域外证据的公证认证异议",
+   "charLen": 159
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/05/03/03/06.md",
-   "chunkId": "trademark-exam-guide-2021/04/05/03/03/06",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-05-03-03-06",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十七章 领土延伸至中国的 国际注册后续业务形式审查 ｜ 3国际更正分拣 ｜ 3.3对国际后续业务更正的分拣标准 ｜ 3.3.6国际转让具体信息的更正",
-   "charLen": 97
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/05/03/03/07.md",
-   "chunkId": "trademark-exam-guide-2021/04/05/03/03/07",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-05-03-03-07",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十七章 领土延伸至中国的 国际注册后续业务形式审查 ｜ 3国际更正分拣 ｜ 3.3对国际后续业务更正的分拣标准 ｜ 3.3.7国际部分转让具体信息的更正",
-   "charLen": 140
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/09.md",
+   "chunkId": "ip-evidence-rules-2020/09",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-09",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第九条 · 域外证据的认证手续异议",
+   "charLen": 185
   }
  ]
 }

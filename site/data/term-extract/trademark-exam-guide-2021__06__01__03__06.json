@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/01/03/06",
+  "anchorNode": "tmeg-06-01-03-06",
+  "terms": [
+    { "name": "商标的使用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标的使用，是指将商标用于商品、商品包装或者容器以及商品交易文书上" },
+    { "name": "商标专用权", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标的使用是商标专用权得以维持和保护的必要条件" },
+    { "name": "商誉", "aliases": [], "role": "used", "confidence": "mid", "evidence": "其所承载的商誉是通过商标的使用而获得的" },
+    { "name": "识别来源功能", "aliases": [], "role": "used", "confidence": "mid", "evidence": "只有发挥商标的识别来源功能，才能构成商标的使用" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

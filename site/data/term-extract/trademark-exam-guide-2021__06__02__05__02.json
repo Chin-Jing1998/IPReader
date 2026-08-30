@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/05/02",
+  "anchorNode": "tmeg-06-02-05-02",
+  "terms": [
+    { "name": "不以使用为目的", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“不以使用为目的”申请商标注册的行为是指申请人在申请注册商标的时候" },
+    { "name": "防御目的申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人基于防御目的申请与其注册商标标识相同或者近似的商标" },
+    { "name": "商标囤积", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标囤积等恶意申请行为" }
+  ],
+  "laws": ["商标法第4条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

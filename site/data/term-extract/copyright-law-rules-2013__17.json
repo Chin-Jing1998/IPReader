@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-rules-2013/17",
+  "anchorNode": "cplr-17",
+  "terms": [
+    { "name": "发表权", "aliases": [], "role": "used", "confidence": "high", "evidence": "其发表权可由继承人或者受遗赠人行使" },
+    { "name": "未发表的作品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "作者生前未发表的作品" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

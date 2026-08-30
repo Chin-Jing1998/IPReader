@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/08/02",
+  "anchorNode": "tmeg-06-08-02",
+  "terms": [
+    { "name": "可作为商标注册的标志", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可作为商标注册的标志" },
+    { "name": "三维标志", "aliases": [], "role": "used", "confidence": "high", "evidence": "三维标志" },
+    { "name": "颜色组合", "aliases": [], "role": "used", "confidence": "mid", "evidence": "颜色组合" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/06/06/03/02",
+  "anchorNode": "tmeg-04-06-06-03-02",
+  "terms": [
+    { "name": "后期指定", "aliases": [], "role": "used", "confidence": "high", "evidence": "早于后期指定日" },
+    { "name": "国际注销", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请国际注销的商标已经失效" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

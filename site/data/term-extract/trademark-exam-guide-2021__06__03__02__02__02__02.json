@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/02/02",
+  "anchorNode": "tmeg-06-03-02-02-02-02",
+  "terms": [
+    { "name": "外国国旗、国徽、军旗", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "外国国旗、国徽、军旗的名称或者图案相同或者近似" },
+    { "name": "政府同意", "aliases": [], "role": "defined", "confidence": "high", "evidence": "经该国政府同意的，一般不适用该禁用规定" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

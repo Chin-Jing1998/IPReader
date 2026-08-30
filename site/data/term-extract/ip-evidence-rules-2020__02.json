@@ -1,0 +1,12 @@
+{
+  "chunk": "ip-evidence-rules-2020/02",
+  "anchorNode": "ipev-02",
+  "terms": [
+    { "name": "待证事实", "aliases": [], "role": "used", "confidence": "high", "evidence": "当事人的主张及待证事实" },
+    { "name": "举证能力", "aliases": [], "role": "used", "confidence": "mid", "evidence": "举证能力" },
+    { "name": "证据持有情况", "aliases": [], "role": "used", "confidence": "mid", "evidence": "当事人的证据持有情况" }
+  ],
+  "laws": ["民事诉讼法第65条"],
+  "extractedAt": "2026-08-30T14:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

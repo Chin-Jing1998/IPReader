@@ -1,86 +1,70 @@
 {
  "batchNo": 41,
- "domain": "trademark-exam-guide-2021",
+ "domain": "ip-evidence-rules-2020",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/03/04.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/03/04",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-03-04",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 3国际转让 ｜ 3.4混淆或者其他不良影响",
-   "charLen": 75
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/18.md",
+   "chunkId": "ip-evidence-rules-2020/18",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-18",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第十八条 · 放弃使用被保全证据的审查",
+   "charLen": 77
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/03/05.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/03/05",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-03-05",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 3国际转让 ｜ 3.5集体、证明商标",
-   "charLen": 103
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/19.md",
+   "chunkId": "ip-evidence-rules-2020/19",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-19",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第十九条 · 可委托鉴定的专门性问题",
+   "charLen": 279
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/03/06.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/03/06",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-03-06",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 3国际转让 ｜ 3.6转让补正",
-   "charLen": 74
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/20.md",
+   "chunkId": "ip-evidence-rules-2020/20",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-20",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第二十条 · 鉴定事项的再委托检测",
+   "charLen": 86
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/03/07.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/03/07",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-03-07",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 3国际转让 ｜ 3.7转让无效",
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/21.md",
+   "chunkId": "ip-evidence-rules-2020/21",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-21",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第二十一条 · 鉴定人的选任",
    "charLen": 108
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/03/08.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/03/08",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-03-08",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 3国际转让 ｜ 3.8转让终局",
-   "charLen": 74
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/22.md",
+   "chunkId": "ip-evidence-rules-2020/22",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-22",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第二十二条 · 鉴定范围的确定与变更",
+   "charLen": 90
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/03/09.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/03/09",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-03-09",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 3国际转让 ｜ 3.9核准",
-   "charLen": 52
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/23.md",
+   "chunkId": "ip-evidence-rules-2020/23",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-23",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第二十三条 · 鉴定意见的审查因素",
+   "charLen": 199
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/03/10.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/03/10",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-03-10",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 3国际转让 ｜ 3.10不予核准",
-   "charLen": 69
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/04/01.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/04/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-04-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 4国际部分转让 ｜ 4.1法律依据",
-   "charLen": 72
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/04/02.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/04/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-04-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 4国际部分转让 ｜ 4.2受让人资格",
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/24.md",
+   "chunkId": "ip-evidence-rules-2020/24",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-24",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第二十四条 · 责令对方当事人提交证据",
    "charLen": 78
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/06/04/03.md",
-   "chunkId": "trademark-exam-guide-2021/04/06/04/03",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-06-04-03",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十八章 领土延伸至中国的 国际注册后续业务实质审查 ｜ 4国际部分转让 ｜ 4.3一并转让",
-   "charLen": 109
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ip-evidence-rules-2020/_chunks/25.md",
+   "chunkId": "ip-evidence-rules-2020/25",
+   "domain": "ip-evidence-rules-2020",
+   "anchorNodeId": "ipev-25",
+   "breadcrumb": "《最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行）》 ｜ 第二十五条 · 拒不提交证据的推定",
+   "charLen": 144
   }
  ]
 }

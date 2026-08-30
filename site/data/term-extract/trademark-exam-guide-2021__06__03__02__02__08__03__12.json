@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/08/03/12",
+  "anchorNode": "tmeg-06-03-02-02-08-03-12",
+  "terms": [
+    { "name": "不良影响", "aliases": [], "role": "used", "confidence": "high", "evidence": "除上述类型外，其他可能造成不良影响的标志适用本项禁用规定" },
+    { "name": "商标一家独占有失公允", "aliases": [], "role": "used", "confidence": "low", "evidence": "该标志为一家独占有失公允，易对社会公共利益产生损害" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

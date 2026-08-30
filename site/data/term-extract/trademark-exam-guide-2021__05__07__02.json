@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/07/02",
+  "anchorNode": "tmeg-05-07-02",
+  "terms": [
+    { "name": "商标数字证书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "视为承认该“商标数字证书”电子签名的法律效力" },
+    { "name": "电子签名", "aliases": [], "role": "used", "confidence": "mid", "evidence": "电子签名的法律效力" },
+    { "name": "数字证书持有人", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "数字证书持有人应当妥善保管数字证书载体" },
+    { "name": "数字证书载体", "aliases": [], "role": "used", "confidence": "low", "evidence": "妥善保管数字证书载体" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

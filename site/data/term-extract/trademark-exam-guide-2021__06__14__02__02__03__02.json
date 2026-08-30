@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/14/02/02/03/02",
+  "anchorNode": "tmeg-06-14-02-02-03-02",
+  "terms": [
+    { "name": "外观设计专利权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "已在先享有外观设计专利权" },
+    { "name": "混淆可能性", "aliases": [], "role": "used", "confidence": "high", "evidence": "在判断混淆可能性时" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "容易导致相关公众产生混淆" },
+    { "name": "举证责任", "aliases": [], "role": "used", "confidence": "high", "evidence": "应承担许可事实的举证责任" },
+    { "name": "专利登记簿", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专利登记簿副本等证据材料证明" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

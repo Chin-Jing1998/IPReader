@@ -1,0 +1,13 @@
+{
+  "chunk": "anti-monopoly-law-2022/07/01",
+  "anchorNode": "aml-07-01",
+  "terms": [
+    { "name": "垄断协议", "aliases": [], "role": "used", "confidence": "high", "evidence": "达成并实施垄断协议的" },
+    { "name": "个人责任", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "对达成垄断协议负有个人责任的，可以处一百万元以下的罚款" },
+    { "name": "行业协会", "aliases": [], "role": "used", "confidence": "mid", "evidence": "行业协会违反本法规定，组织本行业的经营者达成垄断协议的" },
+    { "name": "宽大制度", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "报告达成垄断协议的有关情况并提供重要证据的，反垄断执法机构可以酌情减轻或者免除" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

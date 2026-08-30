@@ -1,0 +1,17 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/02/05/01",
+  "anchorNode": "tmeg-04-02-05-01",
+  "terms": [
+    { "name": "马德里商标国际注册转让申请书", "aliases": [], "role": "used", "confidence": "high", "evidence": "马德里商标国际注册转让申请书" },
+    { "name": "MM5表格", "aliases": [], "role": "used", "confidence": "high", "evidence": "外文申请书 MM5表格" },
+    { "name": "主体资格证明文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "转让人及受让人主体资格证明文件" },
+    { "name": "转让协议公证书", "aliases": [], "role": "used", "confidence": "high", "evidence": "应提交转让协议公证书或转让声明公证书" },
+    { "name": "转让声明公证书", "aliases": [], "role": "used", "confidence": "high", "evidence": "应提交转让协议公证书或转让声明公证书" },
+    { "name": "马德里商标国际注册代理委托书", "aliases": [], "role": "used", "confidence": "high", "evidence": "《马德里商标国际注册代理委托书》" },
+    { "name": "商标网上服务系统", "aliases": [], "role": "used", "confidence": "high", "evidence": "通过商标网上服务系统提交的电子申请" },
+    { "name": "同意转让声明文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "双方共同签署的同意转让声明文件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

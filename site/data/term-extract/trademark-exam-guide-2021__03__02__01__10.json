@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/01/10",
+  "anchorNode": "tmeg-03-02-01-10",
+  "terms": [
+    { "name": "撤回申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "撤回转让申请" },
+    { "name": "中止审查", "aliases": [], "role": "used", "confidence": "low", "evidence": "转让申请的撤回和中止审查" },
+    { "name": "变更申请", "aliases": [], "role": "used", "confidence": "low", "evidence": "变更申请的撤回和中止审查" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

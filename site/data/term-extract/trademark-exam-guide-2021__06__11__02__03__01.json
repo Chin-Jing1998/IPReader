@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/11/02/03/01",
+  "anchorNode": "tmeg-06-11-02-03-01",
+  "terms": [
+    { "name": "代理人", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "代理人不仅包括《民法典》中规定的代理人" },
+    { "name": "代表人", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "代表人系指具有从属于被代表人的特定身份、因执行职务行为而可能知悉被代表人商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

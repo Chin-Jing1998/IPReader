@@ -1,86 +1,86 @@
 {
  "batchNo": 3,
- "domain": "trademark-exam-guide-2021",
+ "domain": "copyright-law-2020",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/04/04/02.md",
-   "chunkId": "trademark-exam-guide-2021/01/01/04/04/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-01-04-04-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 4申请文件审查 ｜ 4.4共同申请 ｜ 4.4.2其他共同申请人",
-   "charLen": 135
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/02/02/11.md",
+   "chunkId": "copyright-law-2020/02/02/11",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-02-02-11",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第二章 著作权 ｜ 第二节 著作权归属 ｜ 第二十一条 · 著作权的依法转移",
+   "charLen": 193
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/04/05/01.md",
-   "chunkId": "trademark-exam-guide-2021/01/01/04/05/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-01-04-05-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 4申请文件审查 ｜ 4.5代理信息 ｜ 4.5.1代理机构名称、章戳",
-   "charLen": 98
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/02/03/01.md",
+   "chunkId": "copyright-law-2020/02/03/01",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-02-03-01",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第二章 著作权 ｜ 第三节 权利的保护期 ｜ 第二十二条 · 人身权保护期不受限制",
+   "charLen": 46
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/04/05/02.md",
-   "chunkId": "trademark-exam-guide-2021/01/01/04/05/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-01-04-05-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 4申请文件审查 ｜ 4.5代理信息 ｜ 4.5.2代理人签字",
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/02/03/02.md",
+   "chunkId": "copyright-law-2020/02/03/02",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-02-03-02",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第二章 著作权 ｜ 第三节 权利的保护期 ｜ 第二十三条 · 发表权与财产权保护期",
+   "charLen": 397
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/02/04/01.md",
+   "chunkId": "copyright-law-2020/02/04/01",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-02-04-01",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第二章 著作权 ｜ 第四节 权利的限制 ｜ 第二十四条 · 合理使用的情形",
+   "charLen": 706
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/02/04/02.md",
+   "chunkId": "copyright-law-2020/02/04/02",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-02-04-02",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第二章 著作权 ｜ 第四节 权利的限制 ｜ 第二十五条 · 教科书法定许可",
+   "charLen": 176
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/03/01.md",
+   "chunkId": "copyright-law-2020/03/01",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-03-01",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第三章 著作权许可使用和转让合同 ｜ 第二十六条 · 许可使用合同的内容",
+   "charLen": 158
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/03/02.md",
+   "chunkId": "copyright-law-2020/03/02",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-03-02",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第三章 著作权许可使用和转让合同 ｜ 第二十七条 · 权利转让合同的内容",
+   "charLen": 143
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/03/03.md",
+   "chunkId": "copyright-law-2020/03/03",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-03-03",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第三章 著作权许可使用和转让合同 ｜ 第二十八条 · 著作权出质登记",
+   "charLen": 45
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/03/04.md",
+   "chunkId": "copyright-law-2020/03/04",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-03-04",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第三章 著作权许可使用和转让合同 ｜ 第二十九条 · 未明确权利不得行使",
    "charLen": 65
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/04/06.md",
-   "chunkId": "trademark-exam-guide-2021/01/01/04/06",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-01-04-06",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 4申请文件审查 ｜ 4.6申请人章戳（签字）",
-   "charLen": 113
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/05/01/01/01.md",
-   "chunkId": "trademark-exam-guide-2021/01/01/05/01/01/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-01-05-01-01-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 5其他申请文件审查 ｜ 5.1身份证明文件、主体资格证明文件 ｜ 5.1.1基本要求 ｜ 5.1.1.1身份证明文件",
-   "charLen": 356
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/05/01/01/02.md",
-   "chunkId": "trademark-exam-guide-2021/01/01/05/01/01/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-01-05-01-01-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 5其他申请文件审查 ｜ 5.1身份证明文件、主体资格证明文件 ｜ 5.1.1基本要求 ｜ 5.1.1.2主体资格证明文件",
-   "charLen": 435
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/05/01/01/03.md",
-   "chunkId": "trademark-exam-guide-2021/01/01/05/01/01/03",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-01-05-01-01-03",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 5其他申请文件审查 ｜ 5.1身份证明文件、主体资格证明文件 ｜ 5.1.1基本要求 ｜ 5.1.1.3其他",
-   "charLen": 157
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/05/01/02/01/01.md",
-   "chunkId": "trademark-exam-guide-2021/01/01/05/01/02/01/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-01-05-01-02-01-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 5其他申请文件审查 ｜ 5.1身份证明文件、主体资格证明文件 ｜ 5.1.2国内申请人 ｜ 5.1.2.1内地（大陆）申请人 ｜ 5.1.2.1.1法人或者其他组织",
-   "charLen": 192
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/05/01/02/01/02.md",
-   "chunkId": "trademark-exam-guide-2021/01/01/05/01/02/01/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-01-05-01-02-01-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 5其他申请文件审查 ｜ 5.1身份证明文件、主体资格证明文件 ｜ 5.1.2国内申请人 ｜ 5.1.2.1内地（大陆）申请人 ｜ 5.1.2.1.2自然人",
-   "charLen": 146
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/01/05/01/02/02/01.md",
-   "chunkId": "trademark-exam-guide-2021/01/01/05/01/02/02/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-01-05-01-02-02-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第一章 形式审查的一般性要求 ｜ 5其他申请文件审查 ｜ 5.1身份证明文件、主体资格证明文件 ｜ 5.1.2国内申请人 ｜ 5.1.2.2香港特别行政区、澳门特别行政区及台湾地区申请人 ｜ 5.1.2.2.1法人或者其他组织",
-   "charLen": 107
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/03/05.md",
+   "chunkId": "copyright-law-2020/03/05",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-03-05",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第三章 著作权许可使用和转让合同 ｜ 第三十条 · 使用作品的付酬标准",
+   "charLen": 105
   }
  ]
 }

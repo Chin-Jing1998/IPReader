@@ -1,0 +1,22 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/04/02/02/02/05",
+  "anchorNode": "tmeg-06-04-02-02-02-05",
+  "terms": [
+    { "name": "仅直接表示商品或服务的其他特点", "aliases": [], "role": "defined", "confidence": "high", "evidence": "仅直接表示指定商品或者服务的其他特点的" },
+    { "name": "仅直接表示商品或服务特定消费、使用对象或提供者", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "仅直接表示指定商品或者服务特定消费/使用对象或提供者的" },
+    { "name": "仅直接表示商品或服务的价格", "aliases": [], "role": "defined", "confidence": "high", "evidence": "仅直接表示指定商品或者服务的价格的" },
+    { "name": "仅直接表示商品或服务的内容", "aliases": [], "role": "defined", "confidence": "high", "evidence": "仅直接表示指定商品或者服务内容的" },
+    { "name": "仅直接表示商品或服务的风格或风味", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "仅直接表示指定商品或者服务风格或者风味的" },
+    { "name": "仅直接表示商品或服务的使用方式、方法", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "仅直接表示指定商品或者服务的使用方式、方法的" },
+    { "name": "仅直接表示商品或服务的生产工艺", "aliases": [], "role": "defined", "confidence": "high", "evidence": "仅直接表示指定商品或者服务的生产工艺的" },
+    { "name": "仅直接表示商品或服务的生产地点、时间、年份等特点", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "仅直接表示指定商品或者服务生产地点、时间、年份等特点的" },
+    { "name": "仅直接表示商品的形态", "aliases": [], "role": "defined", "confidence": "high", "evidence": "仅直接表示指定商品的形态的" },
+    { "name": "仅直接表示商品或服务的有效期限、保质期或服务时间", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "仅直接表示指定商品或者服务的有效期限、保质期或者服务时间的" },
+    { "name": "仅直接表示商品或服务的经营场所、销售场所或地域范围", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "仅直接表示商品或者服务经营场所、商品销售场所或者地域范围的" },
+    { "name": "仅直接表示商品或服务的技术特点、商业模式", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "仅直接表示商品或者服务的技术特点、商业模式的" },
+    { "name": "商品或服务特点误认", "aliases": [], "role": "used", "confidence": "mid", "evidence": "也可能使公众对上述特点产生误认的" }
+  ],
+  "laws": ["商标法第10条第1款第7项"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

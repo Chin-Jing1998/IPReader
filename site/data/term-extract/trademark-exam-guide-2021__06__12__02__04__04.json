@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/12/02/04/04",
+  "anchorNode": "tmeg-06-12-02-04-04",
+  "terms": [
+    { "name": "特定关系人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "虽非以特定关系人名义申请注册，但有证据证明" },
+    { "name": "串通合谋", "aliases": [], "role": "used", "confidence": "high", "evidence": "具有串通合谋行为的" },
+    { "name": "抢注行为", "aliases": [], "role": "used", "confidence": "high", "evidence": "抢注行为" }
+  ],
+  "laws": ["商标法第15条第2款"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

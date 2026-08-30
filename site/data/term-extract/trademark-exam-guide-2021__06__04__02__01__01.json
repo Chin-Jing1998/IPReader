@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/04/02/01/01",
+  "anchorNode": "tmeg-06-04-02-01-01",
+  "terms": [
+    { "name": "通用名称、图形、型号", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“通用名称、图形、型号”是指国家标准、行业标准规定的" },
+    { "name": "本商品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“本商品”是指商标注册申请指定的具体商品或者服务" },
+    { "name": "显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "不具备显著特征" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "相关公众的认知中是否已约定俗成或已普遍使用" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/04/03/01/02",
+  "anchorNode": "tmeg-01-01-04-03-01-02",
+  "terms": [
+    { "name": "文件接收人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当在申请书中指定位于内地（大陆）的文件接收人负责接收后继商标业务的法律文件" },
+    { "name": "商标转让受让人", "aliases": [], "role": "used", "confidence": "low", "evidence": "商标注册申请人或者商标转让受让人为我国香港特别行政区" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00"
+}

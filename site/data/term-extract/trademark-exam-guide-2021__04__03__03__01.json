@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/03/03/01",
+  "anchorNode": "tmeg-04-03-03-01",
+  "terms": [
+    { "name": "世界知识产权组织", "aliases": [], "role": "used", "confidence": "high", "evidence": "世界知识产权组织收到国家知识产权局发送的" },
+    { "name": "基于异议的临时驳回通知", "aliases": [], "role": "used", "confidence": "high", "evidence": "基于异议的临时驳回通知" },
+    { "name": "被异议人", "aliases": [], "role": "used", "confidence": "high", "evidence": "通知被异议人，被异议人可在收到" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

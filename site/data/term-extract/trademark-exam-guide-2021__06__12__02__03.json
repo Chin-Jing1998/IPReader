@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/12/02/03",
+  "anchorNode": "tmeg-06-12-02-03",
+  "terms": [
+    { "name": "在先使用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在先使用既包括在实际销售的商品、提供的服务上使用商标" },
+    { "name": "实际准备活动", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "实际准备活动" },
+    { "name": "一定影响", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标通过使用具有了一定影响" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

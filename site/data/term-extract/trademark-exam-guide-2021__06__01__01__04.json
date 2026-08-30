@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/01/01/04",
+  "anchorNode": "tmeg-06-01-01-04",
+  "terms": [
+    { "name": "标准执行一致原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "标准执行一致原则指的是在商标注册申请、异议、驳回复审、宣告无效等各类商标案件的" },
+    { "name": "个案审查原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "个案审查原则是指由于不同的商标案件之间" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标审查的基准点即相关公众的认知" },
+    { "name": "商标显著性", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标显著性和知名度" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

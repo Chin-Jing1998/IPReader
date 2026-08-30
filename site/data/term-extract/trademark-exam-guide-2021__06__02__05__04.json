@@ -1,0 +1,58 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/05/04",
+  "anchorNode": "tmeg-06-02-05-04",
+  "terms": [
+    {
+      "name": "不以使用为目的的恶意商标注册申请",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "下列情形属于《商标法》第四条所指的“不以使用为目的的恶意商标注册申请”行为"
+    },
+    {
+      "name": "扰乱商标注册秩序",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "扰乱商标注册秩序的"
+    },
+    {
+      "name": "商标转让",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "商标转让不影响对商标申请人违反《商标法》第四条情形的认定"
+    },
+    {
+      "name": "受让人",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "并大量转让商标，且受让人较为分散"
+    },
+    {
+      "name": "在先使用人",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "向商标在先使用人或者他人强迫商业合作"
+    },
+    {
+      "name": "公共文化资源",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "他人知名并已产生识别性的美术作品等公共文化资源"
+    },
+    {
+      "name": "缺乏显著性",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "重量、数量等缺乏显著性的标志的"
+    }
+  ],
+  "laws": ["商标法第4条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

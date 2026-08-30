@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/05/04",
+  "anchorNode": "tmeg-06-09-07-05-04",
+  "terms": [
+    { "name": "监督检测能力", "aliases": [], "role": "defined", "confidence": "high", "evidence": "认定其具有监督检测该地理标志产品特定品质的能力" },
+    { "name": "检测资质证明", "aliases": [], "role": "used", "confidence": "mid", "evidence": "提交其检测资质证明、检测设备清单和检测人员名单" },
+    { "name": "委托合同", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对地理标志产品特定品质检测的委托合同" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

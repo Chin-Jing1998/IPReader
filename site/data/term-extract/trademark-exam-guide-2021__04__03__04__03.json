@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/03/04/03",
+  "anchorNode": "tmeg-04-03-04-03",
+  "terms": [
+    { "name": "补充材料", "aliases": [], "role": "used", "confidence": "high", "evidence": "补充材料需要补正的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

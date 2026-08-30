@@ -1,0 +1,10 @@
+{
+  "chunk": "plant-variety-regulations-2025/03/01",
+  "anchorNode": "pvpr-03-01",
+  "terms": [
+    { "name": "植物品种保护名录", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "申请品种权的植物新品种应当属于国家植物品种保护名录中列举的植物的属或者种" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

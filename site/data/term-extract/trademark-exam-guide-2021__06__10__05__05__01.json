@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/10/05/05/01",
+  "anchorNode": "tmeg-06-10-05-05-01",
+  "terms": [
+    { "name": "复制", "aliases": [], "role": "defined", "confidence": "high", "evidence": "复制是指系争商标与他人驰名商标相同" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

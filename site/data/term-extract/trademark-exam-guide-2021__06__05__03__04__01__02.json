@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/05/03/04/01/02",
+  "anchorNode": "tmeg-06-05-03-04-01-02",
+  "terms": [
+    { "name": "近似商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "易使相关公众对商品或者服务的来源产生混淆的，判定为近似商标" },
+    { "name": "显著识别部分", "aliases": [], "role": "used", "confidence": "high", "evidence": "中文商标的显著识别部分汉字构成相同" },
+    { "name": "呼叫", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标含义或呼叫区别明显" },
+    { "name": "商标含义", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标含义或呼叫区别明显" },
+    { "name": "指定商品", "aliases": [], "role": "used", "confidence": "high", "evidence": "指定商品：文具" },
+    { "name": "指定服务", "aliases": [], "role": "used", "confidence": "high", "evidence": "指定服务：教育，培训" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

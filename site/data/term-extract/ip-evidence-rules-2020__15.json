@@ -1,0 +1,13 @@
+{
+  "chunk": "ip-evidence-rules-2020/15",
+  "anchorNode": "ipev-15",
+  "terms": [
+    { "name": "技术调查官", "aliases": [], "role": "used", "confidence": "high", "evidence": "也可以指派技术调查官参与证据保全" },
+    { "name": "诉讼代理人", "aliases": [], "role": "used", "confidence": "high", "evidence": "可以要求当事人或者诉讼代理人到场" },
+    { "name": "有专门知识的人", "aliases": [], "role": "used", "confidence": "high", "evidence": "可以根据当事人的申请通知有专门知识的人到场" },
+    { "name": "案外人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "证据为案外人持有的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

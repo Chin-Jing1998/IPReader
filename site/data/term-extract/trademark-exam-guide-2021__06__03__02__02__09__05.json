@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/09/05",
+  "anchorNode": "tmeg-06-03-02-02-09-05",
+  "terms": [
+    { "name": "“地市级以上行政区划地名+公共事业名称”标志", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "“地市级以上行政区划地名 + 公共事业名称”标志" },
+    { "name": "初步审定", "aliases": [], "role": "used", "confidence": "high", "evidence": "可予以初步审定" },
+    { "name": "关系国计民生的公共事业", "aliases": [], "role": "used", "confidence": "mid", "evidence": "关系国计民生的公共事业" },
+    { "name": "唯一对应关系", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在相关公众中形成了唯一对应关系" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/04/02/02/04/02",
+  "anchorNode": "tmeg-06-04-02-02-04-02",
+  "terms": [
+    { "name": "显著特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "其中不具备显著特征的标志如果与其指定商品或者服务的特点相一致" },
+    { "name": "禁用条款", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不适用相关禁用条款，只需对显著部分予以审查" },
+    { "name": "显著部分", "aliases": [], "role": "used", "confidence": "mid", "evidence": "只需对显著部分予以审查" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

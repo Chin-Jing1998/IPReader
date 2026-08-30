@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/14/02/02/08/02",
+  "anchorNode": "tmeg-06-14-02-02-08-02",
+  "terms": [
+    { "name": "在先权益", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在先权益归属明确，合法存续" },
+    { "name": "在先标志", "aliases": [], "role": "used", "confidence": "high", "evidence": "请求保护的在先标志具有较高知名度" },
+    { "name": "恶意", "aliases": [], "role": "used", "confidence": "high", "evidence": "系争商标注册申请人主观上存在恶意" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

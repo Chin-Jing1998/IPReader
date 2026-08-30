@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-monopoly-law-2022/04/07",
+  "anchorNode": "aml-04-07",
+  "terms": [
+    { "name": "经营者集中", "aliases": [], "role": "used", "confidence": "high", "evidence": "作出是否禁止经营者集中的决定" },
+    { "name": "审查期限", "aliases": [], "role": "used", "confidence": "high", "evidence": "延长前款规定的审查期限" },
+    { "name": "进一步审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "决定实施进一步审查的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

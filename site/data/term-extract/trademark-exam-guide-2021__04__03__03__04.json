@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/03/03/04",
+  "anchorNode": "tmeg-04-03-03-04",
+  "terms": [
+    { "name": "答辩人", "aliases": [], "role": "used", "confidence": "high", "evidence": "答辩人在规定期限内作出答辩且材料符合规定的" },
+    { "name": "答辩材料", "aliases": [], "role": "used", "confidence": "mid", "evidence": "答辩材料需要补正的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

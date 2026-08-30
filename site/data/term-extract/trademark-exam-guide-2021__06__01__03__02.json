@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/01/03/02",
+  "anchorNode": "tmeg-06-01-03-02",
+  "terms": [
+    { "name": "显著特征", "aliases": ["显著性"], "role": "defined", "confidence": "high", "evidence": "商标的显著性是指商标应当具备的足以使相关公众区分商品或者服务来源的特征" },
+    { "name": "固有显著性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "固有显著性是商标本身具有的" },
+    { "name": "使用获得显著性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "使用获得显著性则是商标通过不断地实际使用获得的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

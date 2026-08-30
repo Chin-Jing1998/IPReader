@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/05/04",
+  "anchorNode": "tmeg-03-02-05-04",
+  "terms": [
+    { "name": "审查结论", "aliases": [], "role": "defined",
+      "confidence": "mid", "evidence": "注销申请经审查，可能作出的审查结论有补正、核准、不予核准三种" },
+    { "name": "注册商标专用权", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "该注册商标专用权或者该注册商标专用权在该部分指定商品/服务上的效力" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

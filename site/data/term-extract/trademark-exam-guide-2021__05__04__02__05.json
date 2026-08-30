@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/04/02/05",
+  "anchorNode": "tmeg-05-04-02-05",
+  "terms": [
+    { "name": "国际注册驳回期限", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "马德里国际商标注册人可在国际注册驳回期限届满后" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

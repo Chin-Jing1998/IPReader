@@ -1,0 +1,13 @@
+{
+  "chunk": "copyright-law-2020/03/06",
+  "anchorNode": "cpl-03-06",
+  "terms": [
+    { "name": "署名权", "aliases": [], "role": "used", "confidence": "high", "evidence": "署名权" },
+    { "name": "修改权", "aliases": [], "role": "used", "confidence": "high", "evidence": "修改权" },
+    { "name": "保护作品完整权", "aliases": [], "role": "used", "confidence": "high", "evidence": "保护作品完整权" },
+    { "name": "获得报酬权", "aliases": ["获得报酬的权利"], "role": "used", "confidence": "mid", "evidence": "获得报酬的权利" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

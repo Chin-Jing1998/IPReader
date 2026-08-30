@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/06/05/02/02/02",
+  "anchorNode": "tmeg-06-06-05-02-02-02",
+  "terms": [
+    { "name": "商品包装或容器的三维形状", "aliases": [], "role": "defined", "confidence": "high", "evidence": "仅以商品包装或容器的三维形状申请注册三维标志商标的" },
+    { "name": "显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "不具有作为商标的显著特征" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "相关公众不易将其识别为指示商品来源的标志" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

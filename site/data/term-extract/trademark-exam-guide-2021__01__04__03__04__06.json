@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/04/03/04/06",
+  "anchorNode": "tmeg-01-04-03-04-06",
+  "terms": [
+    { "name": "主体资格证明文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "主体资格证明文件的具体要求参见第一部分第一章5.1" },
+    { "name": "在先权利人", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人应提交在先权利人或者利害关系人的主体资格证明" },
+    { "name": "利害关系人", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人应提交在先权利人或者利害关系人的主体资格证明" },
+    { "name": "名义变更核准通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "需提交名义变更核准通知书等相关证明文件" },
+    { "name": "复审类案件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "复审类案件：申请人提交的身份证明文件即能表明其申请资格" },
+    { "name": "申请资格", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人提交的身份证明文件即能表明其申请资格" }
+  ],
+  "laws": ["商标法第45条第1款", "商标法第44条第1款"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

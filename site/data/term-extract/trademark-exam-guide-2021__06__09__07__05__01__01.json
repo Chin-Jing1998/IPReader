@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/05/01/01",
+  "anchorNode": "tmeg-06-09-07-05-01-01",
+  "terms": [
+    { "name": "地理标志集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "地理标志集体商标和地理标志证明商标" },
+    { "name": "地理标志证明商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "地理标志证明商标核定使用的商品是" },
+    { "name": "类似商品和服务区分表", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查以《类似商品和服务区分表》为基本依据" },
+    { "name": "地理标志", "aliases": [], "role": "used", "confidence": "mid", "evidence": "地理标志强调的是商品的特定品质及其与生产地域自然因素" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

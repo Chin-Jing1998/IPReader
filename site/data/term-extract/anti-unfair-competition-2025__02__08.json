@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-unfair-competition-2025/02/08",
+  "anchorNode": "aucl-02-08",
+  "terms": [
+    { "name": "平台经营者", "aliases": [], "role": "used", "confidence": "high", "evidence": "平台经营者不得强制或者变相强制平台内经营者按照其定价规则" },
+    { "name": "平台内经营者", "aliases": [], "role": "used", "confidence": "high", "evidence": "平台经营者不得强制或者变相强制平台内经营者按照其定价规则" },
+    { "name": "低于成本的价格销售", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以低于成本的价格销售商品，扰乱市场竞争秩序" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

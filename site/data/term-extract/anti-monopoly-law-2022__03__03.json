@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-monopoly-law-2022/03/03",
+  "anchorNode": "aml-03-03",
+  "terms": [
+    { "name": "市场支配地位", "aliases": [], "role": "defined", "confidence": "high", "evidence": "有下列情形之一的，可以推定经营者具有市场支配地位" },
+    { "name": "相关市场", "aliases": [], "role": "used", "confidence": "high", "evidence": "一个经营者在相关市场的市场份额达到二分之一的" },
+    { "name": "市场份额", "aliases": [], "role": "used", "confidence": "high", "evidence": "两个经营者在相关市场的市场份额合计达到三分之二的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

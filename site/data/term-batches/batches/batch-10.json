@@ -1,86 +1,78 @@
 {
  "batchNo": 10,
- "domain": "trademark-exam-guide-2021",
+ "domain": "copyright-law-rules-2013",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/03/04/02.md",
-   "chunkId": "trademark-exam-guide-2021/01/03/03/04/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-03-03-04-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 3形式审查 ｜ 3.4审查结论 ｜ 3.4.2不予受理",
-   "charLen": 574
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/03/04/03.md",
-   "chunkId": "trademark-exam-guide-2021/01/03/03/04/03",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-03-03-04-03",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 3形式审查 ｜ 3.4审查结论 ｜ 3.4.3补正",
-   "charLen": 492
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/04/01.md",
-   "chunkId": "trademark-exam-guide-2021/01/03/04/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-03-04-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 4答辩材料的审查 ｜ 4.1答辩材料的要求",
-   "charLen": 419
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/04/02.md",
-   "chunkId": "trademark-exam-guide-2021/01/03/04/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-03-04-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 4答辩材料的审查 ｜ 4.2审查结论",
-   "charLen": 126
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/05/01.md",
-   "chunkId": "trademark-exam-guide-2021/01/03/05/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-03-05-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 5补充证据材料的审查 ｜ 5.1补充证据材料的要求",
-   "charLen": 224
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/05/02.md",
-   "chunkId": "trademark-exam-guide-2021/01/03/05/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-03-05-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 5补充证据材料的审查 ｜ 5.2审查结论",
-   "charLen": 140
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/05/03.md",
-   "chunkId": "trademark-exam-guide-2021/01/03/05/03",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-03-05-03",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 5补充证据材料的审查 ｜ 5.3异议当事人申请变更代理机构",
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-rules-2013/_chunks/21.md",
+   "chunkId": "copyright-law-rules-2013/21",
+   "domain": "copyright-law-rules-2013",
+   "anchorNodeId": "cplr-21",
+   "breadcrumb": "《中华人民共和国著作权法实施条例（2013年施行）》 ｜ 第二十一条 · 不经许可使用的限制",
    "charLen": 81
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/06/01.md",
-   "chunkId": "trademark-exam-guide-2021/01/03/06/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-03-06-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 6异议人变更 ｜ 6.1相关解释",
-   "charLen": 184
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-rules-2013/_chunks/22.md",
+   "chunkId": "copyright-law-rules-2013/22",
+   "domain": "copyright-law-rules-2013",
+   "anchorNodeId": "cplr-22",
+   "breadcrumb": "《中华人民共和国著作权法实施条例（2013年施行）》 ｜ 第二十二条 · 法定付酬标准的制定",
+   "charLen": 87
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/06/02/01.md",
-   "chunkId": "trademark-exam-guide-2021/01/03/06/02/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-03-06-02-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 6异议人变更 ｜ 6.2异议人变更的审查 ｜ 6.2.1申请材料",
-   "charLen": 216
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-rules-2013/_chunks/23.md",
+   "chunkId": "copyright-law-rules-2013/23",
+   "domain": "copyright-law-rules-2013",
+   "anchorNodeId": "cplr-23",
+   "breadcrumb": "《中华人民共和国著作权法实施条例（2013年施行）》 ｜ 第二十三条 · 许可使用合同与形式",
+   "charLen": 77
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/03/06/02/02.md",
-   "chunkId": "trademark-exam-guide-2021/01/03/06/02/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-03-06-02-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第三章 异议形式审查 ｜ 6异议人变更 ｜ 6.2异议人变更的审查 ｜ 6.2.2相关要求",
-   "charLen": 301
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-rules-2013/_chunks/24.md",
+   "chunkId": "copyright-law-rules-2013/24",
+   "domain": "copyright-law-rules-2013",
+   "anchorNodeId": "cplr-24",
+   "breadcrumb": "《中华人民共和国著作权法实施条例（2013年施行）》 ｜ 第二十四条 · 专有使用权的内容",
+   "charLen": 125
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-rules-2013/_chunks/25.md",
+   "chunkId": "copyright-law-rules-2013/25",
+   "domain": "copyright-law-rules-2013",
+   "anchorNodeId": "cplr-25",
+   "breadcrumb": "《中华人民共和国著作权法实施条例（2013年施行）》 ｜ 第二十五条 · 专有许可与转让合同备案",
+   "charLen": 55
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-rules-2013/_chunks/26.md",
+   "chunkId": "copyright-law-rules-2013/26",
+   "domain": "copyright-law-rules-2013",
+   "anchorNodeId": "cplr-26",
+   "breadcrumb": "《中华人民共和国著作权法实施条例（2013年施行）》 ｜ 第二十六条 · 与著作权有关权益范围",
+   "charLen": 126
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-rules-2013/_chunks/27.md",
+   "chunkId": "copyright-law-rules-2013/27",
+   "domain": "copyright-law-rules-2013",
+   "anchorNodeId": "cplr-27",
+   "breadcrumb": "《中华人民共和国著作权法实施条例（2013年施行）》 ｜ 第二十七条 · 行使权利不得损害著作权",
+   "charLen": 68
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-rules-2013/_chunks/28.md",
+   "chunkId": "copyright-law-rules-2013/28",
+   "domain": "copyright-law-rules-2013",
+   "anchorNodeId": "cplr-28",
+   "breadcrumb": "《中华人民共和国著作权法实施条例（2013年施行）》 ｜ 第二十八条 · 专有出版权的内容",
+   "charLen": 99
+  },
+  {
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-rules-2013/_chunks/29.md",
+   "chunkId": "copyright-law-rules-2013/29",
+   "domain": "copyright-law-rules-2013",
+   "anchorNodeId": "cplr-29",
+   "breadcrumb": "《中华人民共和国著作权法实施条例（2013年施行）》 ｜ 第二十九条 · 图书脱销的认定",
+   "charLen": 60
   }
  ]
 }

@@ -1,0 +1,10 @@
+{
+  "chunk": "anti-monopoly-law-2022/02/04",
+  "anchorNode": "aml-02-04",
+  "terms": [
+    { "name": "组织、帮助达成垄断协议", "aliases": [], "role": "defined", "confidence": "high", "evidence": "经营者不得组织其他经营者达成垄断协议或者为其他经营者达成垄断协议提供实质性帮助" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:31:00+08:00",
+  "model": "claude-sonnet-5"
+}

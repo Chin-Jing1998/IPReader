@@ -1,0 +1,10 @@
+{
+  "chunk": "customs-ip-protection-2018/01/06",
+  "anchorNode": "cusr-01-06",
+  "terms": [
+    { "name": "商业秘密", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当保守有关当事人的商业秘密" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

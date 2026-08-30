@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/10/05/01",
+  "anchorNode": "tmeg-06-10-05-01",
+  "terms": [
+    { "name": "驰名商标保护", "aliases": [], "role": "defined", "confidence": "high", "evidence": "从保护驰名商标持有人利益和维护公平竞争及消费者权益出发" },
+    { "name": "驰名商标持有人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "驰名商标持有人利益" },
+    { "name": "市场混淆或者公众误认", "aliases": [], "role": "used", "confidence": "mid", "evidence": "市场混淆或者公众误认" },
+    { "name": "普通商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "为驰名商标提供相对于普通商标更为有力的法律保护" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

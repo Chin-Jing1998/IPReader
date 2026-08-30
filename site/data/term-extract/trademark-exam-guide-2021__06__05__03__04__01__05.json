@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/05/03/04/01/05",
+  "anchorNode": "tmeg-06-05-03-04-01-05",
+  "terms": [
+    { "name": "近似商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "使商标的整体外观近似，判定为近似商标" },
+    { "name": "整体外观", "aliases": [], "role": "used", "confidence": "mid", "evidence": "使商标的整体外观近似" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

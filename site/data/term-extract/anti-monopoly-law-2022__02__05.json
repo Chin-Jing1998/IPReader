@@ -1,0 +1,13 @@
+{
+  "chunk": "anti-monopoly-law-2022/02/05",
+  "anchorNode": "aml-02-05",
+  "terms": [
+    { "name": "垄断协议的适用除外情形", "aliases": [], "role": "defined", "confidence": "high", "evidence": "经营者能够证明所达成的协议属于下列情形之一的" },
+    { "name": "中小经营者", "aliases": [], "role": "used", "confidence": "mid", "evidence": "中小经营者" },
+    { "name": "专业化分工", "aliases": [], "role": "used", "confidence": "mid", "evidence": "专业化分工" },
+    { "name": "消费者利益分享", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "使消费者分享由此产生的利益" }
+  ],
+  "laws": ["反垄断法第17条", "反垄断法第18条第1款", "反垄断法第19条"],
+  "extractedAt": "2026-08-30T06:31:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "ic-layout-regulations-2026/01/04",
+  "anchorNode": "icld-01-04",
+  "terms": [
+    { "name": "布图设计专有权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "依照本条例享有布图设计专有权" },
+    { "name": "商业利用", "aliases": [], "role": "used", "confidence": "high", "evidence": "在中国境内投入商业利用" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

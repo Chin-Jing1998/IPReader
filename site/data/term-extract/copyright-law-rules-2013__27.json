@@ -1,0 +1,10 @@
+{
+  "chunk": "copyright-law-rules-2013/27",
+  "anchorNode": "cplr-27",
+  "terms": [
+    { "name": "原作品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "原作品著作权人的权利" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

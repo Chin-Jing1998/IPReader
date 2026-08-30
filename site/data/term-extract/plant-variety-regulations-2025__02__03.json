@@ -1,0 +1,15 @@
+{
+  "chunk": "plant-variety-regulations-2025/02/03",
+  "anchorNode": "pvpr-02-03",
+  "terms": [
+    { "name": "职务育种", "aliases": [], "role": "defined", "confidence": "high", "evidence": "执行本单位的任务或者主要是利用本单位的物质技术条件所完成的职务育种" },
+    { "name": "非职务育种", "aliases": [], "role": "defined", "confidence": "high", "evidence": "非职务育种，品种权的申请权属于完成育种的个人" },
+    { "name": "品种权申请权", "aliases": [], "role": "used", "confidence": "high", "evidence": "品种权申请权的归属" },
+    { "name": "委托育种", "aliases": [], "role": "used", "confidence": "high", "evidence": "委托育种或者合作育种，当事人可以在合同中约定品种权的申请权归属" },
+    { "name": "合作育种", "aliases": [], "role": "used", "confidence": "high", "evidence": "委托育种或者合作育种，当事人可以在合同中约定品种权的申请权归属" },
+    { "name": "物质技术条件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "利用本单位的物质技术条件所完成的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:32:49+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/03/06/02/01",
+  "anchorNode": "tmeg-01-03-06-02-01",
+  "terms": [
+    { "name": "在先权利转移证明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在先权利转移证明应当包含在先权利转移的双方主体、转移时间、权利范围和法律效力" },
+    { "name": "明确意思表示", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当有第三人承继异议人主体地位、参加后续异议程序并承担相应后果的明确意思表示" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

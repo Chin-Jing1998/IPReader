@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/04/03/04/05",
+  "anchorNode": "tmeg-01-04-03-04-05",
+  "terms": [
+    { "name": "身份证明文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标评审申请人应当提交身份证明文件" },
+    { "name": "主体资格证明文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "身份证明文件、主体资格证明文件" },
+    { "name": "申请人名义", "aliases": [], "role": "used", "confidence": "mid", "evidence": "身份证明文件与评审申请书首页载明的申请人名义应当一致" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

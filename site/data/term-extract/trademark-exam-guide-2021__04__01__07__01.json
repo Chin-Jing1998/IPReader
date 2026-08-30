@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/01/07/01",
+  "anchorNode": "tmeg-04-01-07-01",
+  "terms": [
+    { "name": "马德里商标国际注册", "aliases": [], "role": "used", "confidence": "high", "evidence": "马德里商标国际注册" },
+    { "name": "基础申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "基础申请" },
+    { "name": "基础注册", "aliases": [], "role": "used", "confidence": "high", "evidence": "基础注册" },
+    { "name": "终局决定", "aliases": [], "role": "used", "confidence": "mid", "evidence": "导致驳回、撤销或宣布无效的终局决定" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

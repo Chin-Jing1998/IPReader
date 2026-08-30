@@ -1,0 +1,17 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/03/03",
+  "anchorNode": "tmeg-03-03-03",
+  "terms": [
+    { "name": "商标注册人", "aliases": [], "role": "used", "confidence": "high", "evidence": "续展申请由商标注册人办理" },
+    { "name": "商标变更", "aliases": [], "role": "used", "confidence": "mid", "evidence": "办理了商标变更申请手续的" },
+    { "name": "商标权利人", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人非商标权利人" },
+    { "name": "受让人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "为商标的受让人" },
+    { "name": "商标转让", "aliases": [], "role": "used", "confidence": "high", "evidence": "已办理商标转让申请手续的" },
+    { "name": "利害关系人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "属于该商标的利害关系人，如质权人、债权人" },
+    { "name": "质权人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "如质权人、债权人（法院执行案件）、共有人等" },
+    { "name": "共有人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "共有人等" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

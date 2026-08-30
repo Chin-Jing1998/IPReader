@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/01/02/02",
+  "anchorNode": "tmeg-03-01-02-02",
+  "terms": [
+    { "name": "变更代理机构", "aliases": [], "role": "used", "confidence": "mid", "evidence": "变更代理机构的申请人应当是商标注册人" },
+    { "name": "商标注册人", "aliases": [], "role": "used", "confidence": "high", "evidence": "变更代理机构的申请人应当是商标注册人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

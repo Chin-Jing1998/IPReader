@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/10/05/02/01",
+  "anchorNode": "tmeg-06-10-05-02-01",
+  "terms": [
+    { "name": "个案认定原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "驰名商标的认定结果只对本案有效" },
+    { "name": "系争商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "认为系争商标构成对其已为相关公众所熟知商标的复制、摹仿、翻译" },
+    { "name": "驰名商标受保护的记录", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在本案中可以作为驰名商标受保护的记录予以考虑" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

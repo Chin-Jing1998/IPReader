@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/02/02/01",
+  "anchorNode": "tmeg-02-02-02-01",
+  "terms": [
+    { "name": "商标名称", "aliases": [], "role": "defined", "confidence": "high", "evidence": "其他类型商标的商标名称按以下原则确定" },
+    { "name": "三维标志商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "三维标志商标的商标名称为" },
+    { "name": "颜色组合商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "颜色组合商标的商标名称为" },
+    { "name": "声音商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "声音商标的商标名称为" },
+    { "name": "少数民族文字", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "少数民族文字（蒙文、满文、藏文等）、非英文文字按图形处理" },
+    { "name": "自造字", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "自造字、非规范汉字，按图形处理" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

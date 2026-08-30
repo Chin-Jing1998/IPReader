@@ -1,0 +1,23 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/05/01/01/02",
+  "anchorNode": "tmeg-01-01-05-01-01-02",
+  "model": "sonnet",
+  "terms": [
+    { "name": "主体资格证明文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "主体资格证明文件是证明申请人具备申请资格的文件" },
+    { "name": "在先权利人", "aliases": [], "role": "used", "confidence": "high", "evidence": "在先权利人或利害关系人的主体资格证明" },
+    { "name": "利害关系人", "aliases": [], "role": "used", "confidence": "high", "evidence": "在先权利人或利害关系人的主体资格证明" },
+    { "name": "异议", "aliases": [], "role": "used", "confidence": "high", "evidence": "提出异议申请的，异议人应提交" },
+    { "name": "无效宣告", "aliases": [], "role": "used", "confidence": "high", "evidence": "对注册商标提出无效宣告申请的" }
+  ],
+  "laws": [
+    "商标法第4条",
+    "商标法第13条第2款、第3款",
+    "商标法第15条",
+    "商标法第16条第1款",
+    "商标法第30条",
+    "商标法第31条",
+    "商标法第32条",
+    "商标法第45条第1款"
+  ],
+  "extractedAt": "2026-08-29T00:00:00+08:00"
+}

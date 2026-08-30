@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/11/02/01",
+  "anchorNode": "tmeg-06-11-02-01",
+  "terms": [
+    { "name": "恶意抢先注册", "aliases": [], "role": "defined", "confidence": "high", "evidence": "恶意抢先注册行为的禁止性规定" },
+    { "name": "被代理人或者被代表人商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "被代理人或者被代表人商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

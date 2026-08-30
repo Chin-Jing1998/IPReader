@@ -1,0 +1,30 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/05/05/03",
+  "anchorNode": "tmeg-06-02-05-05-03",
+  "terms": [
+    {
+      "name": "引证商标",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "未形成明显区别于引证商标的新含义"
+    },
+    {
+      "name": "无效宣告",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "在自然人A申请注册的“马石油”商标无效宣告案件中"
+    },
+    {
+      "name": "真实意图",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "既未提供证据证明其有使用商标的真实意图"
+    }
+  ],
+  "laws": ["商标法第4条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

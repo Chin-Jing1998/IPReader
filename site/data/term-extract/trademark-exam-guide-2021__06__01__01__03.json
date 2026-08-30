@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/01/01/03",
+  "anchorNode": "tmeg-06-01-01-03",
+  "terms": [
+    { "name": "合法在先权利", "aliases": [], "role": "defined", "confidence": "high", "evidence": "合法在先权利是指申请注册商标的申请日之前他人已经依法取得或者依法享有并受法律保护" },
+    { "name": "商标权", "aliases": [], "role": "used", "confidence": "high", "evidence": "在先注册取得的商标权" },
+    { "name": "著作权", "aliases": [], "role": "used", "confidence": "high", "evidence": "应予保护的合法权益，如著作权" },
+    { "name": "外观设计专利权", "aliases": [], "role": "used", "confidence": "high", "evidence": "如著作权、外观设计专利权、姓名权、肖像权" },
+    { "name": "企业字号", "aliases": [], "role": "used", "confidence": "high", "evidence": "已登记使用并有一定影响的企业字号" },
+    { "name": "阻却事由", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以成为商标注册的阻却事由" },
+    { "name": "无效事由", "aliases": [], "role": "used", "confidence": "mid", "evidence": "也可以成为已注册商标的无效事由" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

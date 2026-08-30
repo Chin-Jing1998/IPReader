@@ -1,0 +1,15 @@
+{
+  "chunk": "anti-monopoly-law-2022/05/03",
+  "anchorNode": "aml-05-03",
+  "terms": [
+    { "name": "滥用行政权力", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不得滥用行政权力，实施下列行为" },
+    { "name": "妨碍商品自由流通", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "妨碍商品在地区之间的自由流通" },
+    { "name": "歧视性收费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "歧视性收费标准" },
+    { "name": "歧视性价格", "aliases": [], "role": "used", "confidence": "mid", "evidence": "歧视性价格" },
+    { "name": "歧视性技术措施", "aliases": [], "role": "used", "confidence": "mid", "evidence": "歧视性技术措施" },
+    { "name": "行政许可", "aliases": [], "role": "used", "confidence": "high", "evidence": "行政许可" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

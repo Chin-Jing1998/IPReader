@@ -1,0 +1,12 @@
+{
+  "chunk": "plant-variety-regulations-2025/02/05",
+  "anchorNode": "pvpr-02-05",
+  "terms": [
+    { "name": "品种权", "aliases": [], "role": "used", "confidence": "high", "evidence": "品种权的申请权和品种权可以依法转让" },
+    { "name": "申请权", "aliases": [], "role": "used", "confidence": "high", "evidence": "转让申请权或者品种权的，当事人应当订立书面合同" },
+    { "name": "出质", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以品种权出质的，由出质人和质权人共同" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

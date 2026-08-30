@@ -1,0 +1,11 @@
+{
+  "chunk": "plant-variety-regulations-2025/03/03",
+  "anchorNode": "pvpr-03-03",
+  "terms": [
+    { "name": "特异性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "特异性，是指一个植物品种有一个以上性状明显区别于已知品种" },
+    { "name": "已知品种", "aliases": [], "role": "used", "confidence": "mid", "evidence": "一个以上性状明显区别于已知品种" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

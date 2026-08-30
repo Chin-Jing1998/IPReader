@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/03/06/02/02",
+  "anchorNode": "tmeg-01-03-06-02-02",
+  "terms": [
+    { "name": "异议决定书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "并在异议决定书中说明该变更情况，不再单独作出变更决定" },
+    { "name": "质证", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标注册部门将证据交被异议人并质证后可以采信" },
+    { "name": "采信", "aliases": [], "role": "used", "confidence": "mid", "evidence": "证据交被异议人并质证后可以采信" },
+    { "name": "视为自行办理", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "应当重新提交代理委托书；未提交的，视为自行办理" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

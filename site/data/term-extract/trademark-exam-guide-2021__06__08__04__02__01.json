@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/08/04/02/01",
+  "anchorNode": "tmeg-06-08-04-02-01",
+  "terms": [
+    { "name": "禁用条款", "aliases": [], "role": "defined", "confidence": "high", "evidence": "声音商标禁用条款审查" },
+    { "name": "不良影响", "aliases": [], "role": "used", "confidence": "high", "evidence": "具有不良影响的声音" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

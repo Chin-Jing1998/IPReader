@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/02/02",
+  "anchorNode": "tmeg-01-01-02-02",
+  "terms": [
+    {
+      "name": "一次性告知原则",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "尽可能在一次补正通知书中指出全部应补正的内容并说明理由"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

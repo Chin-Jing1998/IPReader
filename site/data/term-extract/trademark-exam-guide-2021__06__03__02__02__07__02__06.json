@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/07/02/06",
+  "anchorNode": "tmeg-06-03-02-02-07-02-06",
+  "terms": [
+    { "name": "公众人物姓名", "aliases": [], "role": "defined", "confidence": "high", "evidence": "姓名包括户籍登记中使用的姓名，也包括别名、笔名、艺名、雅号、绰号等" },
+    { "name": "肖像", "aliases": [], "role": "used", "confidence": "low", "evidence": "与公众人物姓名、肖像等相同或者近似" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

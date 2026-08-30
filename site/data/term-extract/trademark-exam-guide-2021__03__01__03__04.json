@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/01/03/04",
+  "anchorNode": "tmeg-03-01-03-04",
+  "terms": [
+    { "name": "文件接收人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "文件接收人" },
+    { "name": "补正", "aliases": [], "role": "used", "confidence": "mid", "evidence": "补正" },
+    { "name": "核准", "aliases": [], "role": "used", "confidence": "mid", "evidence": "核准" },
+    { "name": "不予核准", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不予核准" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

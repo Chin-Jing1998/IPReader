@@ -1,0 +1,11 @@
+{
+  "chunk": "ip-evidence-rules-2020/24",
+  "anchorNode": "ipev-24",
+  "terms": [
+    { "name": "举证责任", "aliases": [], "role": "used", "confidence": "high", "evidence": "举证责任" },
+    { "name": "控制证据", "aliases": [], "role": "used", "confidence": "mid", "evidence": "控制证据" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

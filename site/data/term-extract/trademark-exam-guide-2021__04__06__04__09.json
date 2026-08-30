@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/06/04/09",
+  "anchorNode": "tmeg-04-06-04-09",
+  "terms": [
+    { "name": "权利待定的商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "为有效商标或权利待定的商标" },
+    { "name": "有效商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请国际部分转让的商标为有效商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

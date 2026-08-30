@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/01/03/02",
+  "anchorNode": "tmeg-05-01-03-02",
+  "terms": [
+    { "name": "商标申请书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标申请书应当使用 A4纸打字或者印刷" },
+    { "name": "商标注册人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "由申请人（或商标注册人）、其他利害关系人" },
+    { "name": "利害关系人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "其他利害关系人或者其代表人" },
+    { "name": "共有权利", "aliases": [], "role": "used", "confidence": "mid", "evidence": "直接涉及共有权利的手续" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-rules-2013/34",
+  "anchorNode": "cplr-34",
+  "terms": [
+    { "name": "录音制品", "aliases": [], "role": "used", "confidence": "high", "evidence": "在中国境内制作、发行的录音制品" },
+    { "name": "国际条约", "aliases": [], "role": "used", "confidence": "mid", "evidence": "根据中国参加的国际条约对其制作、发行的录音制品享有的权利" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/05/03/03/03",
+  "anchorNode": "tmeg-06-05-03-03-03",
+  "terms": [
+    { "name": "组合商标相同", "aliases": [], "role": "defined", "confidence": "high", "evidence": "组合商标相同，是指商标的文字构成、图形外观及其排列组合方式基本相同" },
+    { "name": "组合商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "组合商标相同" },
+    { "name": "呼叫", "aliases": [], "role": "used", "confidence": "high", "evidence": "呼叫和整体视觉上基本无差别" },
+    { "name": "整体视觉", "aliases": [], "role": "used", "confidence": "mid", "evidence": "呼叫和整体视觉上基本无差别" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "相关公众对商品或者服务的来源产生混淆" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

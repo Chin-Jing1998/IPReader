@@ -1,0 +1,13 @@
+{
+  "chunk": "anti-unfair-competition-2025/04/18",
+  "anchorNode": "aucl-04-18",
+  "terms": [
+    { "name": "商业秘密", "aliases": [], "role": "used", "confidence": "high", "evidence": "商业秘密" },
+    { "name": "保密措施", "aliases": [], "role": "used", "confidence": "high", "evidence": "采取保密措施" },
+    { "name": "初步证据", "aliases": [], "role": "defined", "confidence": "high", "evidence": "提供初步证据" },
+    { "name": "举证责任", "aliases": [], "role": "defined", "confidence": "high", "evidence": "举证责任" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

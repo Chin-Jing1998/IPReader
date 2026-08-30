@@ -1,0 +1,11 @@
+{
+  "chunk": "anti-monopoly-law-2022/02/01",
+  "anchorNode": "aml-02-01",
+  "terms": [
+    { "name": "垄断协议", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本法所称垄断协议，是指排除、限制竞争的协议、决定或者其他协同行为" },
+    { "name": "协同行为", "aliases": [], "role": "used", "confidence": "mid", "evidence": "协同行为" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:31:00+08:00",
+  "model": "claude-sonnet-5"
+}

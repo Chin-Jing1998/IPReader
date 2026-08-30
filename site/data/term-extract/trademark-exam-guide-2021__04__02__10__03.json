@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/02/10/03",
+  "anchorNode": "tmeg-04-02-10-03",
+  "terms": [
+    { "name": "形式审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "形式审查的一般性要求" },
+    { "name": "放弃申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "一份放弃申请，可涉及多个国际注册号" },
+    { "name": "国际注册号", "aliases": [], "role": "used", "confidence": "high", "evidence": "可涉及多个国际注册号" },
+    { "name": "缔约方", "aliases": [], "role": "used", "confidence": "high", "evidence": "该国际注册商标原有的缔约方范围" },
+    { "name": "国际注册簿", "aliases": [], "role": "used", "confidence": "high", "evidence": "必须与国际注册簿保持一致" },
+    { "name": "注册人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "注册人名称必须与国际注册簿保持一致" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

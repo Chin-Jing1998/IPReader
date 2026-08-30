@@ -1,0 +1,23 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/17/06/03/01",
+  "anchorNode": "tmeg-06-17-06-03-01",
+  "terms": [
+    {
+      "name": "注册商标成为其核定使用商品的通用名称",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "注册商标成为其核定使用商品的通用名称"
+    },
+    {
+      "name": "商标显著特征",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "商标显著特征"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

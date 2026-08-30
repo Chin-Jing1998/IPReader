@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/11/02/05",
+  "anchorNode": "tmeg-06-11-02-05",
+  "terms": [
+    { "name": "商标注册授权", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "被代理人、被代表人所作出授权的内容应当包括代理人、代表人可以注册的商品或者服务" },
+    { "name": "事后追认", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "该申请注册行为进行了事后追认的，视为代理人、代表人取得了被代理人、被代表人的授权" },
+    { "name": "事后反悔", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "被代理人、被代表人事后反悔的，仍应认定代理人、代表人取得了被代理人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

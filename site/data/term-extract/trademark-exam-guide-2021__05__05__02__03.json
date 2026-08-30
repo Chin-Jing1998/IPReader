@@ -1,0 +1,17 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/05/02/03",
+  "anchorNode": "tmeg-05-05-02-03",
+  "terms": [
+    { "name": "纸质档案", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "商标注册纸质档案" },
+    { "name": "电子档案", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "商标注册电子档案" },
+    { "name": "立卷保管", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "分别立卷保管" },
+    { "name": "异地容灾", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "异地容灾" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:24:30+08:00",
+  "model": "claude-sonnet-5"
+}

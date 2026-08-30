@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/05/03/03/05",
+  "anchorNode": "tmeg-04-05-03-03-05",
+  "terms": [
+    { "name": "国际删减", "aliases": [], "role": "used", "confidence": "high", "evidence": "对国际删减的更正，影响删减审查结论" },
+    { "name": "审查结论", "aliases": [], "role": "used", "confidence": "mid", "evidence": "影响删减审查结论或发文的" },
+    { "name": "国际更正", "aliases": [], "role": "used", "confidence": "high", "evidence": "分拣为国际更正" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:14:40+08:00",
+  "model": "claude-sonnet-5"
+}

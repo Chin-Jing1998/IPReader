@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/03/07/02",
+  "anchorNode": "tmeg-01-03-07-02",
+  "terms": [
+    { "name": "撤回商标异议申请核准通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "《撤回商标异议申请核准通知书》" },
+    { "name": "异议结案通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "《异议结案通知书》" },
+    { "name": "异议申请不予受理通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "《异议申请不予受理通知书》" },
+    { "name": "撤回商标异议申请不予核准通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "《撤回商标异议申请不予核准通知书》" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-rules-2013/28",
+  "anchorNode": "cplr-28",
+  "terms": [
+    { "name": "图书出版合同", "aliases": [], "role": "used", "confidence": "high", "evidence": "图书出版合同中约定" },
+    { "name": "专有出版权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以同种文字的原版、修订版出版图书的专有权利" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

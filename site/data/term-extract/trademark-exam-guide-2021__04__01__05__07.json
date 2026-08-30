@@ -1,0 +1,17 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/01/05/07",
+  "anchorNode": "tmeg-04-01-05-07",
+  "terms": [
+    { "name": "指定美国使用意图声明", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "指定美国使用意图声明" },
+    { "name": "MM18", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "表格 MM18" },
+    { "name": "商标网上服务系统", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "在商标网上服务系统上传清晰的扫描件" },
+    { "name": "电子申请", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "电子申请的，应正确填写表格后" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

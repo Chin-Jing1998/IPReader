@@ -1,0 +1,10 @@
+{
+  "chunk": "ic-layout-regulations-2026/01/01",
+  "anchorNode": "icld-01-01",
+  "terms": [
+    { "name": "布图设计专有权", "aliases": ["集成电路布图设计专有权"], "role": "used", "confidence": "high", "evidence": "集成电路布图设计专有权" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

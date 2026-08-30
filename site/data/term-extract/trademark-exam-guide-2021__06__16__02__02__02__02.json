@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/16/02/02/02/02",
+  "anchorNode": "tmeg-06-16-02-02-02-02",
+  "terms": [
+    { "name": "其他不正当手段", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本条所指的“以其他不正当手段取得注册”" },
+    { "name": "知名度", "aliases": [], "role": "used", "confidence": "mid", "evidence": "他人具有一定知名度" },
+    { "name": "显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "较强显著特征的商标" },
+    { "name": "字号", "aliases": [], "role": "used", "confidence": "mid", "evidence": "与他人字号、企业名称" },
+    { "name": "企业名称", "aliases": [], "role": "used", "confidence": "high", "evidence": "企业名称、社会组织及其他机构名称" },
+    { "name": "商品名称", "aliases": [], "role": "used", "confidence": "mid", "evidence": "有一定影响的商品名称" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

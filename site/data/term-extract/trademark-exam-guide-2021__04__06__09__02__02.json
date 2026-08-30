@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/06/09/02/02",
+  "anchorNode": "tmeg-04-06-09-02-02",
+  "terms": [
+    { "name": "国际合并", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请国际合并的商标已经失效" },
+    { "name": "商标失效", "aliases": ["商标已经失效"], "role": "used", "confidence": "mid", "evidence": "商标已经失效" },
+    { "name": "更正撤回", "aliases": [], "role": "used", "confidence": "low", "evidence": "更正撤回或者有其他不符合法律规定的情形" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

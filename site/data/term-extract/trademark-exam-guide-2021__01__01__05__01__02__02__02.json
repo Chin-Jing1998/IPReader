@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/05/01/02/02/02",
+  "anchorNode": "tmeg-01-01-05-01-02-02-02",
+  "terms": [
+    { "name": "身份证明文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当提交身份证明文件复印件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

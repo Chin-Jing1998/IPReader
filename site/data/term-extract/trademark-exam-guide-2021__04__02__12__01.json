@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/02/12/01",
+  "anchorNode": "tmeg-04-02-12-01",
+  "terms": [
+    { "name": "补正", "aliases": [], "role": "defined", "confidence": "high", "evidence": "国家知识产权局会向申请人或代理人寄送补正通知书" },
+    { "name": "补正通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "寄送补正通知书" },
+    { "name": "商标网上服务系统", "aliases": [], "role": "used", "confidence": "high", "evidence": "通过商标网上服务系统或书面材料完成补正" },
+    { "name": "书面形式", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请以书面形式提交的" },
+    { "name": "后续业务申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "办理马德里商标国际注册各项后续业务申请时" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

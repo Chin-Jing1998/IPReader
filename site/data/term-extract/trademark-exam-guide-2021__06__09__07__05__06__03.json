@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/05/06/03",
+  "anchorNode": "tmeg-06-09-07-05-06-03",
+  "terms": [
+    { "name": "地理标志概念", "aliases": [], "role": "defined", "confidence": "high", "evidence": "仅由自然因素或者仅由人文因素决定的产品，不符合地理标志概念" },
+    { "name": "主要由人文因素决定", "aliases": [], "role": "defined", "confidence": "high", "evidence": "主要由人文因素决定的" },
+    { "name": "声誉", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "没有声誉，不符合地理标志商标注册的条件" },
+    { "name": "服务商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "故服务商标不符合地理标志概念" }
+  ],
+  "laws": ["商标法第16条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

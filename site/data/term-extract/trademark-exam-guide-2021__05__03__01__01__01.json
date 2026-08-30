@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/03/01/01/01",
+  "anchorNode": "tmeg-05-03-01-01-01",
+  "terms": [
+    { "name": "邮寄", "aliases": [], "role": "defined", "confidence": "high", "evidence": "邮政企业以挂号信方式将商标文件寄送当事人" },
+    { "name": "挂号信", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以挂号信方式将商标文件寄送当事人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

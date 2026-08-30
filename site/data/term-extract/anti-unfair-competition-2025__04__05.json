@@ -1,0 +1,10 @@
+{
+  "chunk": "anti-unfair-competition-2025/04/05",
+  "anchorNode": "aucl-04-05",
+  "terms": [
+    { "name": "商业秘密", "aliases": [], "role": "used", "confidence": "high", "evidence": "侵犯商业秘密" }
+  ],
+  "laws": ["反不正当竞争法第10条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

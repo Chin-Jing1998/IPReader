@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/02/05/03",
+  "anchorNode": "tmeg-04-02-05-03",
+  "terms": [
+    { "name": "主体资格证明文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "转让人、受让人主体资格证明文件是表明申请人具备转让资格的文件" },
+    { "name": "身份证明文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当提交身份证明文件的复印件" },
+    { "name": "住所地址证明", "aliases": [], "role": "used", "confidence": "mid", "evidence": "提交所属缔约方境内的住所地址证明" },
+    { "name": "登记证件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当提交其所属缔约方的登记证件复印件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

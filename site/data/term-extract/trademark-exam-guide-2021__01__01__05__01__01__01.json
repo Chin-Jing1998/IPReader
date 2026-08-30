@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/05/01/01/01",
+  "anchorNode": "tmeg-01-01-05-01-01-01",
+  "model": "sonnet",
+  "terms": [
+    { "name": "身份证明文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "身份证明文件是证明申请人身份的文件" },
+    { "name": "统一社会信用代码", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当使用标注统一社会信用代码的身份证明文件" },
+    { "name": "续展", "aliases": [], "role": "used", "confidence": "high", "evidence": "国内法人或者其他组织办理注册、异议、变更、转让、续展等商标事宜" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00"
+}

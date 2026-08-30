@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/03/02",
+  "anchorNode": "tmeg-01-01-03-02",
+  "terms": [
+    {
+      "name": "补正通知书",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "补正通知书应当指明商标申请存在的缺陷，说明理由，同时指定答复期限"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

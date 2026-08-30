@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/02/06/03",
+  "anchorNode": "tmeg-04-02-06-03",
+  "terms": [
+    { "name": "形式审查的一般性要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请文件除满足形式审查的一般性要求" },
+    { "name": "国际注册号", "aliases": [], "role": "used", "confidence": "high", "evidence": "可涉及多个国际注册号" },
+    { "name": "国际注册簿", "aliases": [], "role": "used", "confidence": "high", "evidence": "注册人名称必须与国际注册簿保持一致" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/02/04/02",
+  "anchorNode": "tmeg-02-02-04-02",
+  "terms": [
+    { "name": "非单一顺序排列", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "非单一顺序排列" },
+    { "name": "惯常呼叫习惯", "aliases": [], "role": "defined", "confidence": "high", "evidence": "原则上按照惯常呼叫习惯划分汉字分卡" },
+    { "name": "汉字分卡", "aliases": [], "role": "used", "confidence": "mid", "evidence": "汉字分卡：天工开物" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "ip-evidence-rules-2020/30",
+  "anchorNode": "ipev-30",
+  "terms": [
+    { "name": "公证文书", "aliases": [], "role": "used", "confidence": "high", "evidence": "当事人对公证文书提出异议，并提供相反证据足以推翻的" },
+    { "name": "相反证据", "aliases": [], "role": "used", "confidence": "mid", "evidence": "并提供相反证据足以推翻的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

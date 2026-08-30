@@ -1,0 +1,10 @@
+{
+  "chunk": "anti-unfair-competition-2025/04/06",
+  "anchorNode": "aucl-04-06",
+  "terms": [
+    { "name": "有奖销售", "aliases": [], "role": "used", "confidence": "high", "evidence": "进行有奖销售" }
+  ],
+  "laws": ["反不正当竞争法第11条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

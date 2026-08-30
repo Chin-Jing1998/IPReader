@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/17/06/01",
+  "anchorNode": "tmeg-06-17-06-01",
+  "terms": [
+    { "name": "规范使用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "规范使用和连续使用注册商标" },
+    { "name": "连续使用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "连续使用注册商标" },
+    { "name": "注册商标显著性", "aliases": [], "role": "used", "confidence": "mid", "evidence": "注册商标显著性" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

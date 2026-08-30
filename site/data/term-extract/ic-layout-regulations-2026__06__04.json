@@ -1,0 +1,10 @@
+{
+  "chunk": "ic-layout-regulations-2026/06/04",
+  "anchorNode": "icld-06-04",
+  "terms": [
+    { "name": "歧视性措施", "aliases": [], "role": "defined", "confidence": "high", "evidence": "歧视性的禁止、限制或者其他类似措施" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:49:44+08:00",
+  "model": "claude-sonnet-5"
+}

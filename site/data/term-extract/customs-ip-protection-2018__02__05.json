@@ -1,0 +1,12 @@
+{
+  "chunk": "customs-ip-protection-2018/02/05",
+  "anchorNode": "cusr-02-05",
+  "terms": [
+    { "name": "备案变更", "aliases": [], "role": "defined", "confidence": "high", "evidence": "自发生改变之日起30个工作日内，向海关总署办理备案变更或者注销手续" },
+    { "name": "备案注销", "aliases": [], "role": "defined", "confidence": "high", "evidence": "自发生改变之日起30个工作日内，向海关总署办理备案变更或者注销手续" },
+    { "name": "备案撤销", "aliases": [], "role": "defined", "confidence": "high", "evidence": "依法履行监管职责造成严重影响的，海关总署可以根据有关利害关系人的申请撤销有关备案" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/14/02/02/01/02",
+  "anchorNode": "tmeg-06-14-02-02-01-02",
+  "terms": [
+    { "name": "字号权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对在先字号权的保护原则上应当以与字号权人实际经营的商品或者服务相同" },
+    { "name": "字号", "aliases": [], "role": "used", "confidence": "high", "evidence": "该字号在中国相关公众中已具有一定的知名度" },
+    { "name": "知名度", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在先字号的独创性、知名度" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-unfair-competition-2025/01/02",
+  "anchorNode": "aucl-01-02",
+  "terms": [
+    { "name": "不正当竞争行为", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本法所称的不正当竞争行为，是指经营者在生产经营活动中" },
+    { "name": "商业道德", "aliases": [], "role": "used", "confidence": "high", "evidence": "遵守法律和商业道德" },
+    { "name": "市场竞争秩序", "aliases": [], "role": "used", "confidence": "mid", "evidence": "扰乱市场竞争秩序" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

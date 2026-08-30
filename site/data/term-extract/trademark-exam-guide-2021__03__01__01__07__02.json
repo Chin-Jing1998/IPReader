@@ -1,0 +1,17 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/01/01/07/02",
+  "anchorNode": "tmeg-03-01-01-07-02",
+  "terms": [
+    { "name": "中止审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在审查过程中出现以下情形的，可以中止审查" },
+    { "name": "利害关系人", "aliases": [], "role": "used", "confidence": "high", "evidence": "利害关系人对变更申请向商标注册部门书面提出异议" },
+    { "name": "异议", "aliases": [], "role": "used", "confidence": "mid", "evidence": "因异议或评审事宜确需中止审查" },
+    { "name": "评审", "aliases": [], "role": "used", "confidence": "mid", "evidence": "因异议或评审事宜确需中止审查" },
+    { "name": "质押", "aliases": [], "role": "used", "confidence": "mid", "evidence": "因质押或财产保全不能核准变更" },
+    { "name": "财产保全", "aliases": [], "role": "used", "confidence": "mid", "evidence": "因质押或财产保全不能核准变更" },
+    { "name": "宽展期", "aliases": [], "role": "used", "confidence": "high", "evidence": "变更商标的权利处于待定状态，如处于宽展期、等待驳回复审、等待诉讼等" },
+    { "name": "驳回复审", "aliases": [], "role": "used", "confidence": "high", "evidence": "变更商标的权利处于待定状态，如处于宽展期、等待驳回复审、等待诉讼等" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/05/03/02/02/05",
+  "anchorNode": "tmeg-06-05-03-02-02-05",
+  "terms": [
+    { "name": "引证商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "引证商标权利人" },
+    { "name": "来源混淆", "aliases": [], "role": "used", "confidence": "high", "evidence": "仍存在其他可能导致来源混淆的情况" },
+    { "name": "商标使用方式", "aliases": [], "role": "used", "confidence": "low", "evidence": "商标的使用方式" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

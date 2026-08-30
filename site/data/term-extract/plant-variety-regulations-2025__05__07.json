@@ -1,0 +1,11 @@
+{
+  "chunk": "plant-variety-regulations-2025/05/07",
+  "anchorNode": "pvpr-05-07",
+  "terms": [
+    { "name": "临时保护期", "aliases": [], "role": "defined", "confidence": "high", "evidence": "临时保护期的追偿权" },
+    { "name": "追偿权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "临时保护期的追偿权" }
+  ],
+  "laws": ["植物新品种保护条例第7条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

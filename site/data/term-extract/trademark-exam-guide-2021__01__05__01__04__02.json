@@ -1,0 +1,58 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/05/01/04/02",
+  "anchorNode": "tmeg-01-05-01-04-02",
+  "terms": [
+    {
+      "name": "抄送",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "可选择将《提供使用证据通知》抄送以下相关当事人"
+    },
+    {
+      "name": "提供使用证据通知",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "《提供使用证据通知》"
+    },
+    {
+      "name": "转让",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "对于正在办理转让的商标"
+    },
+    {
+      "name": "质押",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "对于正处于冻结或质押状态的商标"
+    },
+    {
+      "name": "冻结",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "对于正处于冻结或质押状态的商标"
+    },
+    {
+      "name": "续展",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "已完成转让、变更、续展、许可备案等业务的商标"
+    },
+    {
+      "name": "许可备案",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "变更、续展、许可备案等业务"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

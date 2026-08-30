@@ -1,0 +1,14 @@
+{
+  "chunk": "plant-variety-regulations-2025/02/02",
+  "anchorNode": "pvpr-02-02",
+  "terms": [
+    { "name": "实质性派生品种", "aliases": [], "role": "defined", "confidence": "high", "evidence": "实质性派生品种主要依据分子检测、表型测试结果判定" },
+    { "name": "实质性派生品种制度", "aliases": [], "role": "defined", "confidence": "high", "evidence": "国家分步实施实质性派生品种制度" },
+    { "name": "分子检测", "aliases": [], "role": "used", "confidence": "mid", "evidence": "依据分子检测、表型测试结果判定" },
+    { "name": "表型测试", "aliases": [], "role": "used", "confidence": "mid", "evidence": "依据分子检测、表型测试结果判定" },
+    { "name": "专家库", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "组建由育种、检测、测试、管理及法律等方面专家组成的专家库" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:32:49+08:00",
+  "model": "claude-sonnet-5"
+}

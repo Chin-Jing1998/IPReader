@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/05/03/02/04",
+  "anchorNode": "tmeg-04-05-03-02-04",
+  "terms": [
+    { "name": "国际更正", "aliases": [], "role": "used", "confidence": "high", "evidence": "更正不影响审查结论及发文的，可分拣为国际更正" },
+    { "name": "领土延伸新申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "原则上分拣为领土延伸新申请" },
+    { "name": "审查结论", "aliases": [], "role": "used", "confidence": "mid", "evidence": "更正不影响审查结论及发文的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:14:40+08:00",
+  "model": "claude-sonnet-5"
+}

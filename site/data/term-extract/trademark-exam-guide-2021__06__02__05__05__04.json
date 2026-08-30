@@ -1,0 +1,44 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/05/05/04",
+  "anchorNode": "tmeg-06-02-05-05-04",
+  "terms": [
+    {
+      "name": "电商名称",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "大量申请注册与他人电商名称相同或者近似标志"
+    },
+    {
+      "name": "企业字号",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "数十件商标与他人企业字号相同或者近似"
+    },
+    {
+      "name": "被异议人",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "被异议人先后在20多个商品或者服务类别上申请注册了100余件商标"
+    },
+    {
+      "name": "异议人",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "本案被异议商标与异议人在先电商旗舰店名称相同"
+    },
+    {
+      "name": "被异议商标",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "被异议商标与异议人在先具有一定显著性的企业字号完全相同"
+    }
+  ],
+  "laws": ["商标法第4条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

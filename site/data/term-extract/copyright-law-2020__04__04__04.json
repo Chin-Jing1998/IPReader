@@ -1,0 +1,12 @@
+{
+  "chunk": "copyright-law-2020/04/04/04",
+  "anchorNode": "cpl-04-04-04",
+  "terms": [
+    { "name": "视听作品", "aliases": [], "role": "used", "confidence": "high", "evidence": "电视台播放他人的视听作品、录像制品" },
+    { "name": "录像制品", "aliases": [], "role": "used", "confidence": "high", "evidence": "播放他人的录像制品，还应当取得著作权人许可" },
+    { "name": "录像制作者", "aliases": [], "role": "used", "confidence": "high", "evidence": "视听作品著作权人或者录像制作者许可" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

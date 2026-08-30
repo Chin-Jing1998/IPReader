@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/04/03/02",
+  "anchorNode": "tmeg-06-09-07-04-03-02",
+  "terms": [
+    { "name": "大小地名套用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "由具有包含关系的两级地名即“大地名+小地名+商品通用名称”构成" },
+    { "name": "类似商品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在类似商品上两者应判定近似" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:53:23+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/06/03",
+  "anchorNode": "tmeg-03-02-06-03",
+  "terms": [
+    { "name": "宽展期", "aliases": [], "role": "used", "confidence": "high", "evidence": "超过宽展期后仍未办理续展注册的" },
+    { "name": "续展注册", "aliases": [], "role": "used", "confidence": "mid", "evidence": "仍未办理续展注册的" },
+    { "name": "期满未续展注销公告", "aliases": [], "role": "used", "confidence": "high", "evidence": "刊发期满未续展注销公告" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,23 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/01/07",
+  "anchorNode": "tmeg-06-03-02-01-07",
+  "terms": [
+    {
+      "name": "带有欺骗性",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "标志对其指定商品或者服务的质量等特点或者来源作了超过其固有程度或与事实不符"
+    },
+    {
+      "name": "误认",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "易使消费者对商品的品质、质量、培育方式等特点产生误认"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

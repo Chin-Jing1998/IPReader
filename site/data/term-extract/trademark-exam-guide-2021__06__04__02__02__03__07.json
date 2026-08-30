@@ -1,0 +1,23 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/04/02/02/03/07",
+  "anchorNode": "tmeg-06-04-02-02-03-07",
+  "terms": [
+    {
+      "name": "显著特征",
+      "aliases": ["显著性"],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "缺乏商标应有的显著特征"
+    },
+    {
+      "name": "普通广告宣传用语",
+      "aliases": ["广告用语"],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "或是普通广告宣传用语看待"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-monopoly-law-2022/06/05",
+  "anchorNode": "aml-06-05",
+  "terms": [
+    { "name": "反垄断执法机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当配合反垄断执法机构依法履行职责" },
+    { "name": "配合调查义务", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "应当配合反垄断执法机构依法履行职责，不得拒绝、阻碍反垄断执法机构的调查" },
+    { "name": "利害关系人", "aliases": [], "role": "used", "confidence": "high", "evidence": "利害关系人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

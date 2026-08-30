@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/02/02",
+  "anchorNode": "tmeg-06-09-07-02-02",
+  "terms": [
+    { "name": "显著性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "显著性是商标发挥识别不同商品或者服务功能的基础" },
+    { "name": "显著特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不仅要考虑商标标志本身的含义、呼叫和外观构成" },
+    { "name": "质量特点", "aliases": ["内容特点"], "role": "used", "confidence": "mid", "evidence": "仅直接表示了商品的质量特点，违反《商标法》第十一条第一款第（二）项的规定" },
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "集体商标、证明商标作为商标的一种类型，应当具有显著特征" },
+    { "name": "证明商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "集体商标、证明商标作为商标的一种类型，应当具有显著特征" }
+  ],
+  "laws": ["商标法第11条", "商标法第11条第1款第2项"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

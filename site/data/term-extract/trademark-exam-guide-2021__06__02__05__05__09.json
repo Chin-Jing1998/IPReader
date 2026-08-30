@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/05/05/09",
+  "anchorNode": "tmeg-06-02-05-05-09",
+  "terms": [
+    { "name": "不以使用为目的的恶意商标注册申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "不以使用为目的的恶意商标注册申请" },
+    { "name": "商标在先使用人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标在先使用人" },
+    { "name": "高额转让费", "aliases": [], "role": "used", "confidence": "high", "evidence": "索取高额转让费的行为" },
+    { "name": "许可使用费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "许可使用费" },
+    { "name": "侵权赔偿金", "aliases": [], "role": "used", "confidence": "mid", "evidence": "侵权赔偿金" }
+  ],
+  "laws": ["商标法第4条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

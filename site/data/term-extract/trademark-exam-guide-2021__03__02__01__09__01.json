@@ -1,0 +1,18 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/01/09/01",
+  "anchorNode": "tmeg-03-02-01-09-01",
+  "terms": [
+    { "name": "补正", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标注册部门可通知申请人予以补正" },
+    { "name": "补正通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人在收到补正通知书后" },
+    { "name": "宽展期", "aliases": ["续展宽展期"], "role": "used", "confidence": "mid", "evidence": "进入续展宽展期" },
+    { "name": "质权登记", "aliases": [], "role": "used", "confidence": "high", "evidence": "已经办理了质权登记" },
+    { "name": "类似商品/服务", "aliases": [], "role": "used", "confidence": "mid", "evidence": "同一种或者类似商品/服务上注册" },
+    { "name": "近似商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "相同或者近似的商标" },
+    { "name": "部分注销", "aliases": [], "role": "used", "confidence": "mid", "evidence": "办理注销（部分注销）" },
+    { "name": "删减商品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "删减商品等方式消除转让障碍" },
+    { "name": "个体工商户", "aliases": [], "role": "used", "confidence": "low", "evidence": "转让人为自然人或者个体工商户的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

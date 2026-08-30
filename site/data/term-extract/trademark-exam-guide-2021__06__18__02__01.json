@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/18/02/01",
+  "anchorNode": "tmeg-06-18-02-01",
+  "terms": [
+    { "name": "隔离期限", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以设置一定时间的隔离期限" },
+    { "name": "商标专用权", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标注册人的商标专用权不再存在" },
+    { "name": "宣告无效", "aliases": [], "role": "used", "confidence": "mid", "evidence": "被宣告无效或者被注销的注册商标" },
+    { "name": "续展", "aliases": [], "role": "used", "confidence": "high", "evidence": "期满不再续展的" },
+    { "name": "混淆", "aliases": [], "role": "used", "confidence": "high", "evidence": "使消费者对商品或者服务的来源产生混淆" }
+  ],
+  "laws": ["商标法第50条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

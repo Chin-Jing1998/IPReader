@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/06/05/02/02/04/01",
+  "anchorNode": "tmeg-06-06-05-02-02-04-01",
+  "terms": [
+    { "name": "平面要素", "aliases": [], "role": "used", "confidence": "high", "evidence": "具有显著特征的平面要素组合而成" },
+    { "name": "显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "该三维标志商标在整体上具有显著特征" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

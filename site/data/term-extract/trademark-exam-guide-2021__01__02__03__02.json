@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/03/02",
+  "anchorNode": "tmeg-01-02-03-02",
+  "terms": [
+    { "name": "身份证明文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "身份证明文件" },
+    { "name": "主体资格证明文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "主体资格证明文件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

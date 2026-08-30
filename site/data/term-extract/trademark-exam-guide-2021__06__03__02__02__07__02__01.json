@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/07/02/01",
+  "anchorNode": "tmeg-06-03-02-02-07-02-01",
+  "terms": [
+    { "name": "产地误认", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人并非来自该地，使用在指定商品上，容易使公众发生产地误认的" }
+  ],
+  "laws": ["商标法第10条第2款"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

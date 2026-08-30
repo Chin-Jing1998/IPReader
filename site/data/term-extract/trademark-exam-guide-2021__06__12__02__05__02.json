@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/12/02/05/02",
+  "anchorNode": "tmeg-06-12-02-05-02",
+  "terms": [
+    { "name": "贴牌加工商", "aliases": [], "role": "used", "confidence": "high", "evidence": "贴牌加工商" },
+    { "name": "认牌购物", "aliases": [], "role": "used", "confidence": "mid", "evidence": "促使相关公众认牌购物" },
+    { "name": "识别商品来源的功能", "aliases": [], "role": "used", "confidence": "high", "evidence": "识别商品来源的功能" }
+  ],
+  "laws": ["商标法第15条第2款"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

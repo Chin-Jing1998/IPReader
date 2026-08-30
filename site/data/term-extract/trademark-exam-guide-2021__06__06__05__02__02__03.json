@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/06/05/02/02/03",
+  "anchorNode": "tmeg-06-06-05-02-02-03",
+  "terms": [
+    { "name": "显著特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不能起到区分商品来源作用的，缺乏显著特征" },
+    { "name": "通用或常用物品的三维形状", "aliases": [], "role": "defined", "confidence": "high", "evidence": "服务行业为了提供服务使用的通用或常用物品的三维形状" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

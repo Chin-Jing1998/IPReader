@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/07/01/02",
+  "anchorNode": "tmeg-06-03-02-02-07-01-02",
+  "terms": [
+    { "name": "功能误认", "aliases": [], "role": "used", "confidence": "mid", "evidence": "容易使公众对商品的功能、用途等特点产生误认的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/01/02/07",
+  "anchorNode": "tmeg-06-01-02-07",
+  "terms": [
+    { "name": "依职权宣告无效", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标注册部门依职权宣告注册商标无效" },
+    { "name": "无效宣告决定", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对已生效的无效宣告决定，予以公告" },
+    { "name": "民事权益", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对于损害特定主体民事权益的情形" }
+  ],
+  "laws": ["商标法第4条", "商标法第10条", "商标法第11条", "商标法第12条", "商标法第19条第4款", "商标法第44条", "商标法第45条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

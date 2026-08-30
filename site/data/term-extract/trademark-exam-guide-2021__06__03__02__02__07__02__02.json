@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/07/02/02",
+  "anchorNode": "tmeg-06-03-02-02-07-02-02",
+  "terms": [
+    { "name": "产地误认", "aliases": [], "role": "defined", "confidence": "high", "evidence": "字形、读音近似足以使公众误认为该地名，从而发生商品产地误认的" },
+    { "name": "地名近似", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "字形、读音近似足以使公众误认为该地名" },
+    { "name": "县级以上行政区划的地名", "aliases": [], "role": "used", "confidence": "high", "evidence": "我国县级以上行政区划的地名" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

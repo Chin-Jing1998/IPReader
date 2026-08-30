@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/05/02",
+  "anchorNode": "tmeg-06-09-07-05-02",
+  "terms": [
+    { "name": "主体资格", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人主体资格的审查" },
+    { "name": "民事主体", "aliases": [], "role": "defined", "confidence": "high", "evidence": "地理标志集体商标和地理标志证明商标的申请人首先应为民事主体" },
+    { "name": "监督检测能力", "aliases": [], "role": "used", "confidence": "high", "evidence": "对该地理标志产品特定品质具备监督检测能力" },
+    { "name": "营利性主体", "aliases": [], "role": "defined", "confidence": "high", "evidence": "公司和农民专业合作社等因是营利性主体" },
+    { "name": "主体资格证明文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "主体资格证明文件包括事业单位法人证书、社会团体法人登记证书等" }
+  ],
+  "laws": ["民法典第123条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

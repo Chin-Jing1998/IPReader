@@ -1,0 +1,13 @@
+{
+  "chunk": "plant-variety-regulations-2025/05/05",
+  "anchorNode": "pvpr-05-05",
+  "terms": [
+    { "name": "品种权", "aliases": [], "role": "used", "confidence": "high", "evidence": "品种权自授权公告之日起生效" },
+    { "name": "品种权证书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "颁发品种权证书" },
+    { "name": "授权公告", "aliases": [], "role": "used", "confidence": "mid", "evidence": "授权公告之日起生效" },
+    { "name": "实质审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "经实质审查不符合本条例规定的品种权申请" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

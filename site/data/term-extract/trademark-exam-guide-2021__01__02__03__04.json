@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/03/04",
+  "anchorNode": "tmeg-01-02-03-04",
+  "terms": [
+    { "name": "统一社会信用代码", "aliases": [], "role": "used", "confidence": "high", "evidence": "统一社会信用代码" },
+    { "name": "个体工商户营业执照", "aliases": [], "role": "used", "confidence": "high", "evidence": "个体工商户营业执照" },
+    { "name": "农村土地承包经营合同", "aliases": [], "role": "used", "confidence": "high", "evidence": "农村土地承包经营合同" },
+    { "name": "主体资格证明文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "主体资格证明文件" },
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标代理机构" }
+  ],
+  "laws": ["商标法第4条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

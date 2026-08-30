@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/03/02/02",
+  "anchorNode": "tmeg-02-03-02-02",
+  "terms": [
+    { "name": "图形要素分类", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "规范的汉字不需要进行图形要素分类" },
+    { "name": "图形要素编码", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "根据图形特征标注相应的图形要素编码" },
+    { "name": "显著图形特征", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "已经具有显著图形特征的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

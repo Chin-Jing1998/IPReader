@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/08/03/06",
+  "anchorNode": "tmeg-06-03-02-02-08-03-06",
+  "terms": [
+    { "name": "党派", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本条中的党派包括中国共产党和被统称为民主党派的八个政党" },
+    { "name": "社会团体", "aliases": [], "role": "used", "confidence": "mid", "evidence": "与我国各党派、政府机构、社会团体等单位或者组织的名称、标志相同或者近似的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

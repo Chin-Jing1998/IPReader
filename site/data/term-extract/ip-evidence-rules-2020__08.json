@@ -1,0 +1,15 @@
+{
+  "chunk": "ip-evidence-rules-2020/08",
+  "anchorNode": "ipev-08",
+  "terms": [
+    { "name": "域外证据", "aliases": [], "role": "used", "confidence": "high", "evidence": "中华人民共和国领域外形成的下列证据" },
+    { "name": "公证", "aliases": [], "role": "used", "confidence": "mid", "evidence": "该证据未办理公证、认证等证明手续" },
+    { "name": "认证", "aliases": [], "role": "used", "confidence": "mid", "evidence": "该证据未办理公证、认证等证明手续" },
+    { "name": "生效裁决", "aliases": [], "role": "used", "confidence": "mid", "evidence": "已为仲裁机构生效裁决所确认的" },
+    { "name": "专利文献", "aliases": [], "role": "used", "confidence": "high", "evidence": "公开出版物、专利文献等" },
+    { "name": "公开出版物", "aliases": [], "role": "used", "confidence": "mid", "evidence": "公开出版物、专利文献等" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T14:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

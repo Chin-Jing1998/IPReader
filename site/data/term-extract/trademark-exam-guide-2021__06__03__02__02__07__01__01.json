@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/07/01/01",
+  "anchorNode": "tmeg-06-03-02-02-07-01-01",
+  "terms": [
+    { "name": "欺骗性", "aliases": [], "role": "used", "confidence": "high", "evidence": "带有欺骗性，容易使公众对商品的质量等特点产生误认" },
+    { "name": "国+商标指定商品名称", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“国 + 商标指定商品名称”作为商标申请" },
+    { "name": "公平竞争的市场秩序", "aliases": [], "role": "used", "confidence": "high", "evidence": "有损公平竞争的市场秩序，容易产生不良影响的" },
+    { "name": "不良影响", "aliases": [], "role": "used", "confidence": "high", "evidence": "容易产生不良影响的" },
+    { "name": "显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "或缺乏显著特征的" }
+  ],
+  "laws": ["商标法第10条第1款第8项", "商标法第11条第1款第3项"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

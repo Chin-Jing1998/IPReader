@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-monopoly-law-2022/07/06",
+  "anchorNode": "aml-07-06",
+  "terms": [
+    { "name": "滥用行政权力", "aliases": [], "role": "used", "confidence": "high", "evidence": "组织滥用行政权力，实施排除、限制竞争行为的" },
+    { "name": "排除、限制竞争行为", "aliases": [], "role": "used", "confidence": "high", "evidence": "排除、限制竞争行为" },
+    { "name": "反垄断执法机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "反垄断执法机构" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

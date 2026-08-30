@@ -1,0 +1,12 @@
+{
+  "chunk": "plant-variety-regulations-2025/05/04",
+  "anchorNode": "pvpr-05-04",
+  "terms": [
+    { "name": "实质审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请文件和其他有关书面材料进行实质审查" },
+    { "name": "测试机构", "aliases": [], "role": "used", "confidence": "mid", "evidence": "委托指定的测试机构进行测试" },
+    { "name": "繁殖材料", "aliases": [], "role": "used", "confidence": "high", "evidence": "该植物新品种的繁殖材料" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

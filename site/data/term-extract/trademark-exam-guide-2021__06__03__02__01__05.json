@@ -1,0 +1,30 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/01/05",
+  "anchorNode": "tmeg-06-03-02-01-05",
+  "terms": [
+    {
+      "name": "红十字",
+      "aliases": ["红十字标志"],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "是国际人道主义保护标志，是武装力量医疗机构的特定标志，是红十字会的专用标志"
+    },
+    {
+      "name": "红新月",
+      "aliases": ["红新月标志"],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "是阿拉伯国家和部分伊斯兰国家红新月会专用的，性质和功能与红十字标志相同的标志"
+    },
+    {
+      "name": "红水晶",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "系国际人道主义保护公约战场救护的第三个特殊的标志"
+    }
+  ],
+  "laws": ["红十字会法", "日内瓦公约及其附加议定书"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,15 @@
+{
+  "chunk": "ic-layout-regulations-2026/05/03",
+  "anchorNode": "icld-05-03",
+  "terms": [
+    { "name": "布图设计专有权", "aliases": [], "role": "used", "confidence": "high", "evidence": "侵犯布图设计专有权的赔偿数额" },
+    { "name": "赔偿数额", "aliases": [], "role": "defined", "confidence": "high", "evidence": "侵犯布图设计专有权的赔偿数额按照权利人因被侵权所受到的实际损失" },
+    { "name": "实际损失", "aliases": [], "role": "used", "confidence": "mid", "evidence": "权利人因被侵权所受到的实际损失" },
+    { "name": "侵权获利", "aliases": [], "role": "used", "confidence": "mid", "evidence": "侵权人因侵权所获得的利益" },
+    { "name": "许可使用费", "aliases": [], "role": "used", "confidence": "high", "evidence": "参照该布图设计许可使用费的倍数合理确定" },
+    { "name": "合理开支", "aliases": [], "role": "defined", "confidence": "high", "evidence": "权利人为制止侵权行为所支付的合理开支" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:49:44+08:00",
+  "model": "claude-sonnet-5"
+}

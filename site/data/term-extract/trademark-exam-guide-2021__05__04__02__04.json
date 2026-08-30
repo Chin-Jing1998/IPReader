@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/04/02/04",
+  "anchorNode": "tmeg-05-04-02-04",
+  "terms": [
+    { "name": "领土延伸", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "申请出具商标注册证明的商标应为领土延伸至中国受保护的马德里国际注册商标" },
+    { "name": "一标多类", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "对于一标多类的注册商标" },
+    { "name": "商标注册证明", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "允许申请人申请出具其中的部分类别的商标注册证明" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

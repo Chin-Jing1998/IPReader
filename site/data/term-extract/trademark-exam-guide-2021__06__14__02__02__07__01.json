@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/14/02/02/07/01",
+  "anchorNode": "tmeg-06-14-02-02-07-01",
+  "terms": [
+    { "name": "有一定影响的商品或者服务名称、包装、装潢", "aliases": [], "role": "defined", "confidence": "high", "evidence": "有一定影响的商品或者服务名称、包装、装潢是指，并非仅由功能性形状构成" },
+    { "name": "系争商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "系争商标应当不予核准注册或者予以无效宣告" },
+    { "name": "无效宣告", "aliases": [], "role": "used", "confidence": "high", "evidence": "不予核准注册或者予以无效宣告" },
+    { "name": "功能性形状", "aliases": [], "role": "used", "confidence": "mid", "evidence": "并非仅由功能性形状构成" },
+    { "name": "显著性", "aliases": [], "role": "used", "confidence": "high", "evidence": "并非仅由功能性形状构成，具有显著性" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

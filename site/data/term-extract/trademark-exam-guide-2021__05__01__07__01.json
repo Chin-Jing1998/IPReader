@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/01/07/01",
+  "anchorNode": "tmeg-05-01-07-01",
+  "terms": [
+    { "name": "商标代理机构", "aliases": [], "role": "defined", "confidence": "high", "evidence": "《商标法》所称商标代理机构，包括经市场监督管理部门登记从事商标代理业务的服务机构" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:17:09+08:00",
+  "model": "claude-sonnet-5"
+}

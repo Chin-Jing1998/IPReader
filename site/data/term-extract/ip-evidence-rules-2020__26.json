@@ -1,0 +1,13 @@
+{
+  "chunk": "ip-evidence-rules-2020/26",
+  "anchorNode": "ipev-26",
+  "terms": [
+    { "name": "商业秘密", "aliases": [], "role": "used", "confidence": "high", "evidence": "证据涉及商业秘密或者其他需要保密的商业信息的" },
+    { "name": "保密协议", "aliases": [], "role": "used", "confidence": "mid", "evidence": "要求其签订保密协议、作出保密承诺" },
+    { "name": "保密承诺", "aliases": [], "role": "used", "confidence": "mid", "evidence": "要求其签订保密协议、作出保密承诺" },
+    { "name": "秘密信息", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在诉讼程序中接触到的秘密信息" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

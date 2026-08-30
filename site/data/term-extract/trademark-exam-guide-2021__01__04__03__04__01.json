@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/04/03/04/01",
+  "anchorNode": "tmeg-01-04-03-04-01",
+  "terms": [
+    { "name": "系争商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "首页内容包括：申请商标/系争商标、注册号、类别" },
+    { "name": "申请商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "首页内容包括：申请商标/系争商标、注册号、类别" },
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "是否委托商标代理机构，在委托商标代理机构的情况下" },
+    { "name": "数据电文", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以数据电文方式提交申请的" },
+    { "name": "商标网上服务系统", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以商标网上服务系统实时生成的经用户预览确认的首页信息为准" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

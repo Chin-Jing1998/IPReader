@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/04/02/01/02",
+  "anchorNode": "tmeg-06-04-02-01-02",
+  "terms": [
+    { "name": "仅直接表示", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“仅直接表示”是指申请商标仅由对指定商品或者服务的质量" },
+    { "name": "质量", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "“质量”是指商品或者服务的优劣程度" },
+    { "name": "主要原料", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "“主要原料”是指商品的主要成分或主要的经加工、半加工的材料" },
+    { "name": "其他特点", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "“其他特点”是指对商品或者服务的价格、尺码" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

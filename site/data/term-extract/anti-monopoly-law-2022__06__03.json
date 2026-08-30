@@ -1,0 +1,13 @@
+{
+  "chunk": "anti-monopoly-law-2022/06/03",
+  "anchorNode": "aml-06-03",
+  "terms": [
+    { "name": "反垄断执法机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "反垄断执法机构调查涉嫌垄断行为" },
+    { "name": "执法人员", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "执法人员不得少于二人，并应当出示执法证件" },
+    { "name": "执法证件", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当出示执法证件" },
+    { "name": "笔录", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "应当制作笔录，并由被询问人或者被调查人签字" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

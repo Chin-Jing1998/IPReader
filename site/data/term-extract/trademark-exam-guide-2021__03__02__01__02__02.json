@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/01/02/02",
+  "anchorNode": "tmeg-03-02-01-02-02",
+  "terms": [
+    { "name": "移转", "aliases": [], "role": "used", "confidence": "high", "evidence": "办理移转手续时" },
+    { "name": "转让人", "aliases": ["转让方"], "role": "used", "confidence": "mid", "evidence": "转让人章戳处盖章" },
+    { "name": "受让人", "aliases": ["受让方"], "role": "used", "confidence": "mid", "evidence": "转让人、受让人、转让商标应当一致" },
+    { "name": "主体资格证明文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "个体工商户营业执照等主体资格证明文件" },
+    { "name": "协助执行通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "协助执行通知书" },
+    { "name": "继承公证", "aliases": [], "role": "used", "confidence": "low", "evidence": "继承公证" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

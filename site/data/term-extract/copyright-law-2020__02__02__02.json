@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-2020/02/02/02",
+  "anchorNode": "cpl-02-02-02",
+  "terms": [
+    { "name": "署名推定", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在作品上署名的自然人、法人或者非法人组织为作者" },
+    { "name": "作品登记", "aliases": [], "role": "used", "confidence": "mid", "evidence": "办理作品登记" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

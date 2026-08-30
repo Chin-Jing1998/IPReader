@@ -1,0 +1,20 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/02/02",
+  "anchorNode": "tmeg-04-02-02",
+  "terms": [
+    { "name": "马德里商标国际注册后续业务", "aliases": [], "role": "defined", "confidence": "high", "evidence": "国内申请人马德里商标国际注册后续业务共九项" },
+    { "name": "国际续展", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际续展" },
+    { "name": "注册人名称或地址变更", "aliases": [], "role": "used", "confidence": "high", "evidence": "注册人名称或地址变更" },
+    { "name": "国际转让", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际转让" },
+    { "name": "国际删减", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际删减" },
+    { "name": "国际注销", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际注销" },
+    { "name": "代理人名称或地址变更", "aliases": [], "role": "used", "confidence": "high", "evidence": "代理人名称或地址变更" },
+    { "name": "指定代理人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "指定代理人" },
+    { "name": "国际放弃", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际放弃" },
+    { "name": "后期指定", "aliases": [], "role": "used", "confidence": "high", "evidence": "后期指定" },
+    { "name": "商标网上服务系统", "aliases": [], "role": "used", "confidence": "mid", "evidence": "通过商标网上服务系统以数据电文方式提交" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

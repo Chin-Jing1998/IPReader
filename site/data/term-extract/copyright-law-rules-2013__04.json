@@ -1,0 +1,22 @@
+{
+  "chunk": "copyright-law-rules-2013/04",
+  "anchorNode": "cplr-04",
+  "terms": [
+    { "name": "文字作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "文字作品，是指小说、诗词、散文、论文等以文字形式表现的作品" },
+    { "name": "口述作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "口述作品，是指即兴的演说、授课、法庭辩论等以口头语言形式表现的作品" },
+    { "name": "音乐作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "音乐作品，是指歌曲、交响乐等能够演唱或者演奏的带词或者不带词的作品" },
+    { "name": "戏剧作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "戏剧作品，是指话剧、歌剧、地方戏等供舞台演出的作品" },
+    { "name": "曲艺作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "曲艺作品，是指相声、快书、大鼓、评书等以说唱为主要形式表演的作品" },
+    { "name": "舞蹈作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "舞蹈作品，是指通过连续的动作、姿势、表情等表现思想情感的作品" },
+    { "name": "杂技艺术作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "杂技艺术作品，是指杂技、魔术、马戏等通过形体动作和技巧表现的作品" },
+    { "name": "美术作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "美术作品，是指绘画、书法、雕塑等以线条、色彩或者其他方式构成的" },
+    { "name": "建筑作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "建筑作品，是指以建筑物或者构筑物形式表现的有审美意义的作品" },
+    { "name": "摄影作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "摄影作品，是指借助器械在感光材料或者其他介质上记录客观物体形象的艺术作品" },
+    { "name": "电影作品和以类似摄制电影的方法创作的作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "电影作品和以类似摄制电影的方法创作的作品，是指摄制在一定介质上" },
+    { "name": "图形作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "图形作品，是指为施工、生产绘制的工程设计图、产品设计图，以及反映地理现象" },
+    { "name": "模型作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "模型作品，是指为展示、试验或者观测等用途，根据物体的形状和结构" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

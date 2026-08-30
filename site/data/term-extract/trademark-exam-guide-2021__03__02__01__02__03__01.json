@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/01/02/03/01",
+  "anchorNode": "tmeg-03-02-01-02-03-01",
+  "terms": [
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "集体商标特有事项的审查" },
+    { "name": "转让人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "加盖转让人公章的转让人身份证明文件复印件" },
+    { "name": "受让人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "加盖受让人公章的受让人主体资格证明文件复印件" },
+    { "name": "主体资格证明文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "受让人主体资格证明文件复印件" },
+    { "name": "集体商标使用管理规则", "aliases": [], "role": "used", "confidence": "high", "evidence": "加盖受让人公章转让后的集体商标使用管理规则" },
+    { "name": "商标转让合同", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标转让合同" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/05/02/04",
+  "anchorNode": "tmeg-04-05-02-04",
+  "terms": [
+    { "name": "国际注册代替国内注册加注申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "核准国际注册代替国内注册加注申请" },
+    { "name": "国际注册商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "涉及的国际注册商标和国内商标均为有效商标" },
+    { "name": "国内商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "涉及的国际注册商标和国内商标均为有效商标" },
+    { "name": "国际注册日", "aliases": [], "role": "used", "confidence": "high", "evidence": "国内注册的生效日期早于国际注册日" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

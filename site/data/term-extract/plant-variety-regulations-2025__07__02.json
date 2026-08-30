@@ -1,0 +1,11 @@
+{
+  "chunk": "plant-variety-regulations-2025/07/02",
+  "anchorNode": "pvpr-07-02",
+  "terms": [
+    { "name": "假冒授权品种", "aliases": [], "role": "used", "confidence": "high", "evidence": "假冒授权品种的" },
+    { "name": "繁殖材料", "aliases": [], "role": "used", "confidence": "high", "evidence": "植物品种繁殖材料" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

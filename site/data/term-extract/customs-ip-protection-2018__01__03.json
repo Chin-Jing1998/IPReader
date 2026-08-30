@@ -1,0 +1,11 @@
+{
+  "chunk": "customs-ip-protection-2018/01/03",
+  "anchorNode": "cusr-01-03",
+  "terms": [
+    { "name": "侵犯知识产权的货物", "aliases": [], "role": "used", "confidence": "mid", "evidence": "国家禁止侵犯知识产权的货物进出口" },
+    { "name": "知识产权保护", "aliases": [], "role": "used", "confidence": "mid", "evidence": "海关依照有关法律和本条例的规定实施知识产权保护" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/06/04/06",
+  "anchorNode": "tmeg-04-06-04-06",
+  "terms": [
+    { "name": "类似商品", "aliases": [], "role": "used", "confidence": "high", "evidence": "相同或类似商品或者服务" },
+    { "name": "近似商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "相同或者近似商标一并转让" },
+    { "name": "一并转让", "aliases": [], "role": "used", "confidence": "mid", "evidence": "近似商标一并转让的" },
+    { "name": "补正通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应自补正通知书发出之日起三个月内" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

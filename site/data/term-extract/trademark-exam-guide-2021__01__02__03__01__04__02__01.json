@@ -1,0 +1,55 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/03/01/04/02/01",
+  "anchorNode": "tmeg-01-02-03-01-04-02-01",
+  "terms": [
+    {
+      "name": "三维标志商标",
+      "aliases": [
+        "三维标志"
+      ],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "提交的商标图样能够体现三维效果且能够识别、确定三维形状的，视为三维标志商标"
+    },
+    {
+      "name": "三面视图",
+      "aliases": [
+        "多面视图"
+      ],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "应当至少包含三面视图（如正视图、侧视图、仰视图、俯视图等）"
+    },
+    {
+      "name": "商标说明",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "申请人可在商标说明中对三维标志商标的图样作文字描述"
+    },
+    {
+      "name": "专用权",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "申请人不要求专用权保护"
+    },
+    {
+      "name": "显著特征",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "一般视为无特殊设计或无显著特征"
+    },
+    {
+      "name": "形式要件",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "不符合三维标志商标申请的形式要件要求"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

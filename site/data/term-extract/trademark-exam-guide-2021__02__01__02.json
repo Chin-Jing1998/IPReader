@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/01/02",
+  "anchorNode": "tmeg-02-01-02",
+  "terms": [
+    { "name": "尼斯分类", "aliases": [], "role": "defined", "confidence": "high", "evidence": "现行尼斯分类将商品和服务分成45个大类" },
+    { "name": "类别标题", "aliases": [], "role": "defined", "confidence": "high", "evidence": "类别标题指出了归入本类的商品或者服务项目范围" },
+    { "name": "类别注释", "aliases": [], "role": "defined", "confidence": "high", "evidence": "类别注释对本类主要包括及不包括哪些商品或者服务项目作了说明" },
+    { "name": "标准名称", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商品和服务项目名称为标准名称" },
+    { "name": "类似商品和服务区分表", "aliases": [], "role": "used", "confidence": "high", "evidence": "《类似商品和服务区分表》依据尼斯分类制定" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

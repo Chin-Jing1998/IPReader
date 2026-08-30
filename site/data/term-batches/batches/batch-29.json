@@ -1,86 +1,78 @@
 {
  "batchNo": 29,
- "domain": "trademark-exam-guide-2021",
+ "domain": "ic-layout-regulations-2026",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/03/03/07.md",
-   "chunkId": "trademark-exam-guide-2021/03/03/07",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-03-03-07",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第三部分 其他商标业务审查* ｜ 第十二章 注册商标的续展 ｜ 7续展申请的撤回和中止审查",
-   "charLen": 46
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ic-layout-regulations-2026/_chunks/01/01.md",
+   "chunkId": "ic-layout-regulations-2026/01/01",
+   "domain": "ic-layout-regulations-2026",
+   "anchorNodeId": "icld-01-01",
+   "breadcrumb": "《集成电路布图设计保护条例（2026年施行）》 ｜ 第一章 总 则 ｜ 第一条 · 立法目的",
+   "charLen": 52
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/01.md",
-   "chunkId": "trademark-exam-guide-2021/04/01/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-01-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 1法律依据",
-   "charLen": 151
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ic-layout-regulations-2026/_chunks/01/02.md",
+   "chunkId": "ic-layout-regulations-2026/01/02",
+   "domain": "ic-layout-regulations-2026",
+   "anchorNodeId": "icld-01-02",
+   "breadcrumb": "《集成电路布图设计保护条例（2026年施行）》 ｜ 第一章 总 则 ｜ 第二条 · 布图设计保护工作要求",
+   "charLen": 74
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/02.md",
-   "chunkId": "trademark-exam-guide-2021/04/01/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-01-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 2引言",
-   "charLen": 205
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ic-layout-regulations-2026/_chunks/01/03.md",
+   "chunkId": "ic-layout-regulations-2026/01/03",
+   "domain": "ic-layout-regulations-2026",
+   "anchorNodeId": "icld-01-03",
+   "breadcrumb": "《集成电路布图设计保护条例（2026年施行）》 ｜ 第一章 总 则 ｜ 第三条 · 本条例用语的含义",
+   "charLen": 376
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/03/01.md",
-   "chunkId": "trademark-exam-guide-2021/04/01/03/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-01-03-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 3申请人资格与申请条件 ｜ 3.1申请人资格",
-   "charLen": 79
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ic-layout-regulations-2026/_chunks/01/04.md",
+   "chunkId": "ic-layout-regulations-2026/01/04",
+   "domain": "ic-layout-regulations-2026",
+   "anchorNodeId": "icld-01-04",
+   "breadcrumb": "《集成电路布图设计保护条例（2026年施行）》 ｜ 第一章 总 则 ｜ 第四条 · 享有专有权的主体范围",
+   "charLen": 191
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/03/02.md",
-   "chunkId": "trademark-exam-guide-2021/04/01/03/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-01-03-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 3申请人资格与申请条件 ｜ 3.2申请条件",
-   "charLen": 116
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ic-layout-regulations-2026/_chunks/01/05.md",
+   "chunkId": "ic-layout-regulations-2026/01/05",
+   "domain": "ic-layout-regulations-2026",
+   "anchorNodeId": "icld-01-05",
+   "breadcrumb": "《集成电路布图设计保护条例（2026年施行）》 ｜ 第一章 总 则 ｜ 第五条 · 代理机构的委托与保密",
+   "charLen": 208
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/04.md",
-   "chunkId": "trademark-exam-guide-2021/04/01/04",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-01-04",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 4书式要求",
-   "charLen": 225
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ic-layout-regulations-2026/_chunks/01/06.md",
+   "chunkId": "ic-layout-regulations-2026/01/06",
+   "domain": "ic-layout-regulations-2026",
+   "anchorNodeId": "icld-01-06",
+   "breadcrumb": "《集成电路布图设计保护条例（2026年施行）》 ｜ 第一章 总 则 ｜ 第六条 · 受保护布图设计的独创性",
+   "charLen": 128
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/05/01.md",
-   "chunkId": "trademark-exam-guide-2021/04/01/05/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-01-05-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 5马德里商标国际注册申请审查标准 ｜ 5.1申请人信息",
-   "charLen": 275
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ic-layout-regulations-2026/_chunks/01/07.md",
+   "chunkId": "ic-layout-regulations-2026/01/07",
+   "domain": "ic-layout-regulations-2026",
+   "anchorNodeId": "icld-01-07",
+   "breadcrumb": "《集成电路布图设计保护条例（2026年施行）》 ｜ 第一章 总 则 ｜ 第七条 · 保护不延及思想与方法",
+   "charLen": 51
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/05/02.md",
-   "chunkId": "trademark-exam-guide-2021/04/01/05/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-01-05-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 5马德里商标国际注册申请审查标准 ｜ 5.2代理人信息",
-   "charLen": 86
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ic-layout-regulations-2026/_chunks/01/08.md",
+   "chunkId": "ic-layout-regulations-2026/01/08",
+   "domain": "ic-layout-regulations-2026",
+   "anchorNodeId": "icld-01-08",
+   "breadcrumb": "《集成电路布图设计保护条例（2026年施行）》 ｜ 第一章 总 则 ｜ 第八条 · 主管部门的职责",
+   "charLen": 43
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/05/03.md",
-   "chunkId": "trademark-exam-guide-2021/04/01/05/03",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-01-05-03",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 5马德里商标国际注册申请审查标准 ｜ 5.3商标信息",
-   "charLen": 555
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/04/01/05/04.md",
-   "chunkId": "trademark-exam-guide-2021/04/01/05/04",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-04-01-05-04",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第四部分 马德里商标国际注册审查 ｜ 第十三章 马德里商标国际注册申请审查 ｜ 5马德里商标国际注册申请审查标准 ｜ 5.4商品/服务信息",
-   "charLen": 171
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/ic-layout-regulations-2026/_chunks/01/09.md",
+   "chunkId": "ic-layout-regulations-2026/01/09",
+   "domain": "ic-layout-regulations-2026",
+   "anchorNodeId": "icld-01-09",
+   "breadcrumb": "《集成电路布图设计保护条例（2026年施行）》 ｜ 第一章 总 则 ｜ 第九条 · 诚实信用与禁止权利滥用",
+   "charLen": 124
   }
  ]
 }

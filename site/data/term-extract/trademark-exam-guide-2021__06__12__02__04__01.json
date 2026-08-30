@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/12/02/04/01",
+  "anchorNode": "tmeg-06-12-02-04-01",
+  "terms": [
+    { "name": "业务往来关系", "aliases": [], "role": "defined", "confidence": "high", "evidence": "合同、业务往来关系是指双方存在代表、代理关系以外的其他商业合作、贸易往来关系" },
+    { "name": "其他关系", "aliases": [], "role": "defined", "confidence": "high", "evidence": "其他关系是指双方商业往来之外的其他关系" },
+    { "name": "诚实信用原则", "aliases": [], "role": "used", "confidence": "high", "evidence": "维护诚实信用原则立法宗旨" },
+    { "name": "在先权利", "aliases": [], "role": "used", "confidence": "high", "evidence": "在先权利" },
+    { "name": "不公平竞争", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不公平竞争" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

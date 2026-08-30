@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/01/01/07/01",
+  "anchorNode": "tmeg-03-01-01-07-01",
+  "terms": [
+    { "name": "撤回变更申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人撤回变更申请的，应书面向商标注册部门提出申请" },
+    { "name": "补正通知", "aliases": [], "role": "used", "confidence": "high", "evidence": "应对原变更申请发出补正通知" },
+    { "name": "终止审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "并对该变更申请终止审查" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

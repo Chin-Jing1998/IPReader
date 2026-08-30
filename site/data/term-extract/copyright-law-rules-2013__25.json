@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-rules-2013/25",
+  "anchorNode": "cplr-25",
+  "terms": [
+    { "name": "专有许可使用合同", "aliases": [], "role": "used", "confidence": "high", "evidence": "专有许可使用合同" },
+    { "name": "转让合同", "aliases": [], "role": "used", "confidence": "mid", "evidence": "转让合同" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

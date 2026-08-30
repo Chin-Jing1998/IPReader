@@ -1,0 +1,12 @@
+{
+  "chunk": "copyright-law-2020/05/01",
+  "anchorNode": "cpl-05-01",
+  "terms": [
+    { "name": "技术措施", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本法所称的技术措施，是指用于防止、限制未经权利人许可浏览、欣赏作品" },
+    { "name": "与著作权有关的权利", "aliases": [], "role": "used", "confidence": "high", "evidence": "为保护著作权和与著作权有关的权利" },
+    { "name": "录音录像制品", "aliases": [], "role": "used", "confidence": "high", "evidence": "浏览、欣赏作品、表演、录音录像制品或者通过信息网络向公众提供" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

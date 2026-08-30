@@ -1,0 +1,11 @@
+{
+  "chunk": "anti-unfair-competition-2025/01/01",
+  "anchorNode": "aucl-01-01",
+  "terms": [
+    { "name": "公平竞争", "aliases": [], "role": "used", "confidence": "mid", "evidence": "鼓励和保护公平竞争" },
+    { "name": "不正当竞争行为", "aliases": [], "role": "used", "confidence": "high", "evidence": "预防和制止不正当竞争行为" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

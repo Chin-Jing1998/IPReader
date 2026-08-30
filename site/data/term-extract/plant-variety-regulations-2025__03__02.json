@@ -1,0 +1,13 @@
+{
+  "chunk": "plant-variety-regulations-2025/03/02",
+  "anchorNode": "pvpr-03-02",
+  "terms": [
+    { "name": "新颖性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "新颖性，是指申请品种权的植物新品种在申请日前该品种繁殖材料、收获材料未被销售" },
+    { "name": "繁殖材料", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请日前在中国境内销售、推广该品种繁殖材料、收获材料未超过4年的，具备新颖性" },
+    { "name": "收获材料", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请日前在中国境内销售、推广该品种繁殖材料、收获材料未超过4年的，具备新颖性" },
+    { "name": "事实扩散", "aliases": [], "role": "used", "confidence": "mid", "evidence": "依据播种面积确认已经形成事实扩散的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

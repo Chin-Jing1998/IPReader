@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/06/05/02/04/01/02",
+  "anchorNode": "tmeg-06-06-05-02-04-01-02",
+  "terms": [
+    { "name": "三维标志商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "三维标志商标" },
+    { "name": "显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "具有显著特征的三维形状" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "相关公众" },
+    { "name": "混淆", "aliases": [], "role": "used", "confidence": "mid", "evidence": "产生混淆的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/11/02/06/02",
+  "anchorNode": "tmeg-06-11-02-06-02",
+  "terms": [
+    { "name": "争议商标", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "争议商标核定使用的啤酒、水（饮料）、矿泉水配料等商品与申请人" },
+    { "name": "法定代表人", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "被申请人作为申请人的法定代表人" },
+    { "name": "同一种或类似商品", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "在消费对象、功能用途、消费渠道等方面存在交叉或重合之处，属于同一种或类似商品" }
+  ],
+  "laws": ["2013年商标法第15条第1款"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

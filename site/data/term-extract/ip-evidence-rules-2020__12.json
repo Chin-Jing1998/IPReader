@@ -1,0 +1,14 @@
+{
+  "chunk": "ip-evidence-rules-2020/12",
+  "anchorNode": "ipev-12",
+  "terms": [
+    { "name": "证据保全", "aliases": [], "role": "used", "confidence": "high", "evidence": "人民法院进行证据保全，应当以有效固定证据为限" },
+    { "name": "保全标的物", "aliases": [], "role": "used", "confidence": "mid", "evidence": "尽量减少对保全标的物价值的损害" },
+    { "name": "证据持有人", "aliases": [], "role": "used", "confidence": "high", "evidence": "对证据持有人正常生产经营的影响" },
+    { "name": "现场勘验笔录", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以采取制作现场勘验笔录、绘图、拍照" },
+    { "name": "技术方案", "aliases": [], "role": "used", "confidence": "mid", "evidence": "证据保全涉及技术方案的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

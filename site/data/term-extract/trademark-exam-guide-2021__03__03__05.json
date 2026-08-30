@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/03/05",
+  "anchorNode": "tmeg-03-03-05",
+  "terms": [
+    { "name": "宽展期", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以给予六个月的宽展期" },
+    { "name": "邮戳日", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以寄出的邮戳日为准" },
+    { "name": "期限届满日", "aliases": [], "role": "used", "confidence": "mid", "evidence": "续展申请在期限届满日递交的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

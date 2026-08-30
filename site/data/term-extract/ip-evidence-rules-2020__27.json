@@ -1,0 +1,12 @@
+{
+  "chunk": "ip-evidence-rules-2020/27",
+  "anchorNode": "ipev-27",
+  "terms": [
+    { "name": "出庭作证", "aliases": [], "role": "used", "confidence": "high", "evidence": "证人应当出庭作证，接受审判人员及当事人的询问" },
+    { "name": "证人证言", "aliases": [], "role": "used", "confidence": "high", "evidence": "人民法院应当组织当事人对该证人证言进行质证" },
+    { "name": "质证", "aliases": [], "role": "used", "confidence": "high", "evidence": "对该证人证言进行质证" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

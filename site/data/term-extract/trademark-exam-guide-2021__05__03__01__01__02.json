@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/03/01/01/02",
+  "anchorNode": "tmeg-05-03-01-01-02",
+  "terms": [
+    { "name": "商标注册部门", "aliases": [], "role": "used", "confidence": "high", "evidence": "经商标注册部门同意" },
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标代理机构" },
+    { "name": "直接递交", "aliases": [], "role": "defined", "confidence": "high", "evidence": "直接递交" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,14 @@
+{
+  "chunk": "anti-monopoly-law-2022/06/04",
+  "anchorNode": "aml-06-04",
+  "terms": [
+    { "name": "反垄断执法机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "反垄断执法机构及其工作人员" },
+    { "name": "保密义务", "aliases": [], "role": "defined", "confidence": "high", "evidence": "依法负有保密义务" },
+    { "name": "商业秘密", "aliases": [], "role": "used", "confidence": "high", "evidence": "知悉的商业秘密" },
+    { "name": "个人隐私", "aliases": [], "role": "used", "confidence": "high", "evidence": "个人隐私" },
+    { "name": "个人信息", "aliases": [], "role": "used", "confidence": "high", "evidence": "个人信息" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

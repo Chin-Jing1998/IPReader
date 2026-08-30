@@ -1,0 +1,23 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/03/01/04/04/01",
+  "anchorNode": "tmeg-01-02-03-01-04-04-01",
+  "terms": [
+    {
+      "name": "声音标志",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "以声音标志申请商标注册的"
+    },
+    {
+      "name": "声音样本",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "声音样本应当存放在一个音频文件中"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

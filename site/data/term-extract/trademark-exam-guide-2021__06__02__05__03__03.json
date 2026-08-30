@@ -1,0 +1,44 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/05/03/03",
+  "anchorNode": "tmeg-06-02-05-03-03",
+  "terms": [
+    {
+      "name": "知名度",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "有一定知名度或显著性较强的商标"
+    },
+    {
+      "name": "显著性",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "显著性较强的商标"
+    },
+    {
+      "name": "企业字号",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "知名人物姓名、企业字号、电商名称"
+    },
+    {
+      "name": "电商名称",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "企业字号、电商名称"
+    },
+    {
+      "name": "公共资源",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "景点名称、行业术语等公共资源"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

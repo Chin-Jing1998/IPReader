@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/06/03",
+  "anchorNode": "tmeg-05-06-03",
+  "terms": [
+    { "name": "马德里国际注册公告", "aliases": [], "role": "used", "confidence": "mid", "evidence": "马德里国际注册公告" },
+    { "name": "国际注册商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "国际注册商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

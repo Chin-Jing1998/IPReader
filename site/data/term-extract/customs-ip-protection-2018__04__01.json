@@ -1,0 +1,15 @@
+{
+  "chunk": "customs-ip-protection-2018/04/01",
+  "anchorNode": "cusr-04-01",
+  "terms": [
+    { "name": "侵权嫌疑货物", "aliases": [], "role": "used", "confidence": "high", "evidence": "被扣留的侵权嫌疑货物" },
+    { "name": "没收", "aliases": [], "role": "used", "confidence": "high", "evidence": "由海关予以没收" },
+    { "name": "假冒商标货物", "aliases": [], "role": "used", "confidence": "high", "evidence": "进口假冒商标货物" },
+    { "name": "侵权特征", "aliases": [], "role": "used", "confidence": "mid", "evidence": "消除侵权特征" },
+    { "name": "有偿转让", "aliases": [], "role": "used", "confidence": "mid", "evidence": "海关可以有偿转让给知识产权权利人" },
+    { "name": "销毁", "aliases": [], "role": "used", "confidence": "mid", "evidence": "海关应当予以销毁" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

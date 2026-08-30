@@ -1,0 +1,44 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/05/03/06",
+  "anchorNode": "tmeg-06-02-05-03-06",
+  "terms": [
+    {
+      "name": "注册商标专用权",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "侵犯他人注册商标专用权行为的情况"
+    },
+    {
+      "name": "商标恶意注册行为",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "曾从事商标恶意注册行为"
+    },
+    {
+      "name": "严重违法失信名单",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "国家企业信用信息公示系统列入严重违法失信名单"
+    },
+    {
+      "name": "特定关系",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "与申请人存在特定关系的自然人、法人或者其他组织"
+    },
+    {
+      "name": "要约邀请",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "商标实际交易、要约、要约邀请情况"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

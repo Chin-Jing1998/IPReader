@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/02/02",
+  "anchorNode": "tmeg-03-02-02-02",
+  "terms": [
+    { "name": "商标使用许可备案", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标使用许可备案材料应提交" },
+    { "name": "形式审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "满足形式审查的一般性要求" },
+    { "name": "身份证明文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "被许可人的身份证明文件复印件" },
+    { "name": "商标使用许可合同", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标使用许可合同" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

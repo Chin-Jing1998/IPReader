@@ -1,0 +1,44 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/03/01/04/03/02",
+  "anchorNode": "tmeg-01-02-03-01-04-03-02",
+  "terms": [
+    {
+      "name": "颜色组合商标",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "申请人应当提交两种或两种以上的颜色组合作为商标图样，不得对单一颜色进行申请注册"
+    },
+    {
+      "name": "单一颜色",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "不得对单一颜色进行申请注册"
+    },
+    {
+      "name": "商标说明",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "申请人应当在商标说明中说明颜色组合商标在商品或者服务上的使用方式"
+    },
+    {
+      "name": "色号",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "应当在商标说明中列明颜色名称和色号"
+    },
+    {
+      "name": "商标构成要素",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "车辆轮廓和外形不是商标构成要素"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

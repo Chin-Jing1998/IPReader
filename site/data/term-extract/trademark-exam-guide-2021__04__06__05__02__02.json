@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/06/05/02/02",
+  "anchorNode": "tmeg-04-06-05-02-02",
+  "terms": [
+    { "name": "删减不予核准", "aliases": [], "role": "defined", "confidence": "high", "evidence": "有下列情形之一的，删减不予核准" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

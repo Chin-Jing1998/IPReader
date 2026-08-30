@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/04/03/01",
+  "anchorNode": "tmeg-01-04-03-01",
+  "terms": [
+    { "name": "商标评审申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "提交商标评审申请" },
+    { "name": "评审主体资格", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "受让人可承继评审主体资格" },
+    { "name": "无效宣告申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "对注册商标提出无效宣告申请" },
+    { "name": "在先权利人", "aliases": [], "role": "used", "confidence": "high", "evidence": "在先权利人、利害关系人" },
+    { "name": "利害关系人", "aliases": [], "role": "used", "confidence": "high", "evidence": "在先权利人、利害关系人" },
+    { "name": "异议主体", "aliases": [], "role": "used", "confidence": "mid", "evidence": "异议主体" }
+  ],
+  "laws": ["商标法第44条第1款", "商标法第45条第1款"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

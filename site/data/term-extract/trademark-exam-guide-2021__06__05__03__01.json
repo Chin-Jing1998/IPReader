@@ -1,0 +1,18 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/05/03/01",
+  "anchorNode": "tmeg-06-05-03-01",
+  "terms": [
+    { "name": "商标相同", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标相同是指两商标在视觉效果上或者声音商标在听觉感知上完全相同或者基本无差别。" },
+    { "name": "商标近似", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标近似是指文字、图形、字母、数字、三维标志、颜色组合和声音等商标的构成要素" },
+    { "name": "类似商品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "类似商品是指在功能、用途、主要原料、生产部门、销售渠道、消费对象等方面基本相同" },
+    { "name": "类似服务", "aliases": [], "role": "defined", "confidence": "high", "evidence": "类似服务是指在服务的目的、内容、方式、对象、场所等方面基本相同或者有密切联系的" },
+    { "name": "同一种商品", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "同一种商品是指名称相同的商品，或者名称不同但在功能、用途、主要原料、生产部门" },
+    { "name": "同一种服务", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "同一种服务是指名称相同的服务，或者名称不同但在服务的目的、内容、方式、对象、场所" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "相关公众一般认为是同一事物的商品" },
+    { "name": "商标注册用商品和服务国际分类", "aliases": [], "role": "used", "confidence": "mid", "evidence": "《商标注册用商品和服务国际分类》" },
+    { "name": "类似商品和服务区分表", "aliases": [], "role": "used", "confidence": "high", "evidence": "《类似商品和服务区分表》未涵盖的商品" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,10 @@
+{
+  "chunk": "anti-monopoly-law-2022/01/02",
+  "anchorNode": "aml-01-02",
+  "terms": [
+    { "name": "垄断行为", "aliases": [], "role": "used", "confidence": "high", "evidence": "中华人民共和国境内经济活动中的垄断行为" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/14/02/02/05/01",
+  "anchorNode": "tmeg-06-14-02-02-05-01",
+  "terms": [
+    { "name": "肖像权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "他人肖像权可能造成损害的" },
+    { "name": "肖像", "aliases": [], "role": "defined", "confidence": "high", "evidence": "通过影像、雕塑、绘画等方式在一定载体上所反映的特定自然人可以被识别的外部形象" },
+    { "name": "系争商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "系争商标应当不予核准注册或者予以无效宣告" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

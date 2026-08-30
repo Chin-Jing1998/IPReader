@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/05/01/09/01",
+  "anchorNode": "tmeg-01-05-01-09-01",
+  "terms": [
+    { "name": "撤回撤三申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "撤回撤三申请" },
+    { "name": "代理机构", "aliases": [], "role": "used", "confidence": "mid", "evidence": "委托的代理机构" },
+    { "name": "变更代理机构", "aliases": [], "role": "used", "confidence": "mid", "evidence": "变更代理机构" },
+    { "name": "形式审查的一般性要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "形式审查的一般性要求" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

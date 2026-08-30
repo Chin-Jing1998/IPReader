@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/01/05/11",
+  "anchorNode": "tmeg-04-01-05-11",
+  "terms": [
+    { "name": "规费", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "马德里商标国际注册申请规费由国家知识产权局代收，向国际局转交" },
+    { "name": "国际局", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "向国际局转交" },
+    { "name": "国际规费标准", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "国际规费标准按人民币计价代收" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

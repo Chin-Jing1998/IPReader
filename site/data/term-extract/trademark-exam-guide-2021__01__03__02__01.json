@@ -1,0 +1,32 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/03/02/01",
+  "anchorNode": "tmeg-01-03-02-01",
+  "terms": [
+    {
+      "name": "异议期限",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "在法律规定的异议期限内提出"
+    },
+    {
+      "name": "主体资格",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "异议人应符合《商标法》第三十三条规定的主体资格要求"
+    },
+    {
+      "name": "异议人",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "异议人应符合"
+    }
+  ],
+  "laws": [
+    "商标法第33条"
+  ],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,13 @@
+{
+  "chunk": "plant-variety-regulations-2025/03/06",
+  "anchorNode": "pvpr-03-06",
+  "terms": [
+    { "name": "通用名称", "aliases": [], "role": "defined", "confidence": "high", "evidence": "该名称经授权后即为该植物新品种的通用名称" },
+    { "name": "品种命名", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "下列名称不得用于品种命名" },
+    { "name": "保护期", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不论授权品种的保护期是否届满" },
+    { "name": "在先权利", "aliases": [], "role": "used", "confidence": "mid", "evidence": "（四）损害他人在先权利的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

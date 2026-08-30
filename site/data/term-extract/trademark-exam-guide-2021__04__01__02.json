@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/01/02",
+  "anchorNode": "tmeg-04-01-02",
+  "terms": [
+    { "name": "马德里商标国际注册申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "马德里商标国际注册申请是以国家知识产权局为原属局，指定领土延伸至" },
+    { "name": "缔约方", "aliases": [], "role": "defined", "confidence": "high", "evidence": "《商标国际注册马德里协定有关议定书》缔约方（以下简称缔约方）" },
+    { "name": "国际局", "aliases": [], "role": "defined", "confidence": "high", "evidence": "世界知识产权组织国际局（以下简称国际局）" },
+    { "name": "原属局", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以国家知识产权局为原属局" },
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "mid", "evidence": "委托依法设立的商标代理机构办理" },
+    { "name": "商标网上服务系统", "aliases": [], "role": "used", "confidence": "mid", "evidence": "通过商标网上服务系统以数据电文方式提交" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

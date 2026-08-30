@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/10/05/04/05",
+  "anchorNode": "tmeg-06-10-05-04-05",
+  "terms": [
+    { "name": "驰名商标持有人再次请求驰名商标保护", "aliases": [], "role": "defined", "confidence": "high", "evidence": "驰名商标持有人再次请求驰名商标保护" },
+    { "name": "驰名商标保护记录", "aliases": [], "role": "used", "confidence": "high", "evidence": "曾被作为驰名商标受保护记录" },
+    { "name": "驰名状态", "aliases": [], "role": "used", "confidence": "mid", "evidence": "该商标作为驰名商标予以保护时的驰名状态延及本案的证据" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

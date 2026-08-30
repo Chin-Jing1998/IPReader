@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-monopoly-law-2022/02/02",
+  "anchorNode": "aml-02-02",
+  "terms": [
+    { "name": "横向垄断协议", "aliases": [], "role": "defined", "confidence": "high", "evidence": "禁止具有竞争关系的经营者达成下列垄断协议" },
+    { "name": "联合抵制交易", "aliases": [], "role": "used", "confidence": "mid", "evidence": "联合抵制交易" },
+    { "name": "市场分割", "aliases": [], "role": "used", "confidence": "mid", "evidence": "分割销售市场或者原材料采购市场" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:31:00+08:00",
+  "model": "claude-sonnet-5"
+}

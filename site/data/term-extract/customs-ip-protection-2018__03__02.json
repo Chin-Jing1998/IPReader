@@ -1,0 +1,12 @@
+{
+  "chunk": "customs-ip-protection-2018/03/02",
+  "anchorNode": "cusr-03-02",
+  "terms": [
+    { "name": "侵权嫌疑货物", "aliases": [], "role": "used", "confidence": "high", "evidence": "知识产权权利人请求海关扣留侵权嫌疑货物的，应当提交申请书及相关证明文件" },
+    { "name": "扣留申请书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请书应当包括下列主要内容" },
+    { "name": "备案知识产权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "侵权嫌疑货物涉嫌侵犯备案知识产权的，申请书还应当包括海关备案号" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

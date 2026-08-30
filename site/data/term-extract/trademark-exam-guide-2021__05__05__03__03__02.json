@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/05/03/03/02",
+  "anchorNode": "tmeg-05-05-03-03-02",
+  "terms": [
+    { "name": "个体工商户", "aliases": [], "role": "used", "confidence": "mid", "evidence": "注册人为个体工商户的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

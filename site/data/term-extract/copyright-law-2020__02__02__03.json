@@ -1,0 +1,10 @@
+{
+  "chunk": "copyright-law-2020/02/02/03",
+  "anchorNode": "cpl-02-02-03",
+  "terms": [
+    { "name": "演绎作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "改编、翻译、注释、整理已有作品而产生的作品" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

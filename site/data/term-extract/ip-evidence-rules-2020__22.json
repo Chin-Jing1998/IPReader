@@ -1,0 +1,10 @@
+{
+  "chunk": "ip-evidence-rules-2020/22",
+  "anchorNode": "ipev-22",
+  "terms": [
+    { "name": "鉴定范围", "aliases": [], "role": "used", "confidence": "high", "evidence": "鉴定范围" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

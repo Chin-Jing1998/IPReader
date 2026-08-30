@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/05/01/02/01/02",
+  "anchorNode": "tmeg-01-01-05-01-02-01-02",
+  "model": "sonnet",
+  "terms": [
+    { "name": "从事生产经营活动", "aliases": [], "role": "used", "confidence": "high", "evidence": "提供证明其从事生产经营活动的主体资格证明文件" },
+    { "name": "个体工商户", "aliases": [], "role": "used", "confidence": "high", "evidence": "如个体工商户营业执照、农村土地承包经营合同等" }
+  ],
+  "laws": [
+    "商标法第4条"
+  ],
+  "extractedAt": "2026-08-29T00:00:00+08:00"
+}

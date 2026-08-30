@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/06/04/05",
+  "anchorNode": "tmeg-04-06-04-05",
+  "terms": [
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "对于马德里国际注册集体商标或证明商标的部分转让申请" },
+    { "name": "证明商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "需要按照集体商标、证明商标的审查标准" },
+    { "name": "商标使用管理规则", "aliases": [], "role": "used", "confidence": "high", "evidence": "受让人主体资格和商标使用管理规则的审查。" },
+    { "name": "受让人主体资格", "aliases": [], "role": "used", "confidence": "mid", "evidence": "进行受让人主体资格和商标使用管理规则的审查。" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

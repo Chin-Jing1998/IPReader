@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/07/01",
+  "anchorNode": "tmeg-05-07-01",
+  "terms": [
+    { "name": "商标电子申请用户", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标电子申请用户是指将商标申请文件以符合规定的电子文件形式" },
+    { "name": "商标网上服务系统", "aliases": [], "role": "used", "confidence": "high", "evidence": "通过商标网上服务系统向商标注册部门提出的商标申请" },
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "mid", "evidence": "其委托的依法设立的商标代理机构" },
+    { "name": "电子送达", "aliases": [], "role": "used", "confidence": "mid", "evidence": "接受商标文件电子送达的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

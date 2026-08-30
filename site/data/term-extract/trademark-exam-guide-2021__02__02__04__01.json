@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/02/04/01",
+  "anchorNode": "tmeg-02-02-04-01",
+  "terms": [
+    { "name": "多音字", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标中包含多音字的，拼音分卡一般应为惯常读音的组合" },
+    { "name": "惯常读音", "aliases": [], "role": "defined", "confidence": "high", "evidence": "拼音分卡一般应为惯常读音的组合" },
+    { "name": "指定读音", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标图样中已标明读音的，按指定读音划分" },
+    { "name": "商标图样", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标图样中所标明读音与惯常读音不符的" },
+    { "name": "拼音分卡", "aliases": [], "role": "used", "confidence": "mid", "evidence": "拼音分卡：HE PING" },
+    { "name": "汉字分卡", "aliases": [], "role": "used", "confidence": "mid", "evidence": "汉字分卡：和平" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

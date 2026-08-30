@@ -1,0 +1,10 @@
+{
+  "chunk": "anti-monopoly-law-2022/07/02",
+  "anchorNode": "aml-07-02",
+  "terms": [
+    { "name": "市场支配地位", "aliases": [], "role": "used", "confidence": "high", "evidence": "滥用市场支配地位的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

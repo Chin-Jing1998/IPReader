@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/02/01",
+  "anchorNode": "tmeg-02-02-01",
+  "terms": [
+    { "name": "商标文字检索要素分类", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标文字检索要素分类是为方便文字商标的事先查询和审查而做的一项基础性工作" },
+    { "name": "文字商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "为方便文字商标的事先查询和审查" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

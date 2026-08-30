@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/06/05/02/02/04/03",
+  "anchorNode": "tmeg-06-06-05-02-02-04-03",
+  "terms": [
+    { "name": "平面要素", "aliases": [], "role": "used", "confidence": "high", "evidence": "具有显著特征的平面要素组合而成" },
+    { "name": "整体保护", "aliases": [], "role": "defined", "confidence": "high", "evidence": "从整体上对其进行保护" },
+    { "name": "放弃专用权说明", "aliases": ["放弃专用权"], "role": "defined", "confidence": "high", "evidence": "放弃专用权说明需在商标公告和商标注册证上予以加注" },
+    { "name": "包装装潢", "aliases": [], "role": "used", "confidence": "mid", "evidence": "易被识别为包装装潢或者商品的装饰" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "以相关公众的一般注意力" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

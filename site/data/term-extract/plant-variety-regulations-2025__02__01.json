@@ -1,0 +1,16 @@
+{
+  "chunk": "plant-variety-regulations-2025/02/01",
+  "anchorNode": "pvpr-02-01",
+  "terms": [
+    { "name": "品种权人", "aliases": ["品种权所有人"], "role": "defined", "confidence": "high", "evidence": "品种权所有人（以下称品种权人）" },
+    { "name": "独占权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "对其授权品种，享有排他的独占权" },
+    { "name": "授权品种", "aliases": [], "role": "used", "confidence": "high", "evidence": "不得对该授权品种的繁殖材料，实施下列行为" },
+    { "name": "繁殖材料", "aliases": [], "role": "used", "confidence": "high", "evidence": "不得对该授权品种的繁殖材料" },
+    { "name": "收获材料", "aliases": [], "role": "used", "confidence": "high", "evidence": "由未经许可使用授权品种的繁殖材料而获得的收获材料" },
+    { "name": "实质性派生品种", "aliases": [], "role": "used", "confidence": "high", "evidence": "授权品种的实质性派生品种，但该授权品种本身不是实质性派生品种" },
+    { "name": "明显区别", "aliases": [], "role": "used", "confidence": "high", "evidence": "不具备本条例第十六条规定的明显区别的品种" }
+  ],
+  "laws": ["植物新品种保护条例第16条"],
+  "extractedAt": "2026-08-30T06:32:49+08:00",
+  "model": "claude-sonnet-5"
+}

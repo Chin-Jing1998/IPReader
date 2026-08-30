@@ -1,0 +1,14 @@
+{
+  "chunk": "plant-variety-regulations-2025/04/06",
+  "anchorNode": "pvpr-04-06",
+  "terms": [
+    { "name": "品种权", "aliases": [], "role": "used", "confidence": "high", "evidence": "品种权申请" },
+    { "name": "申请日", "aliases": [], "role": "used", "confidence": "high", "evidence": "明确申请日" },
+    { "name": "申请号", "aliases": [], "role": "used", "confidence": "mid", "evidence": "给予申请号" },
+    { "name": "申请费", "aliases": [], "role": "used", "confidence": "high", "evidence": "缴纳申请费" },
+    { "name": "不予受理", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不予受理" }
+  ],
+  "laws": ["植物新品种保护条例第22条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

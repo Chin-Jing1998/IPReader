@@ -1,0 +1,10 @@
+{
+  "chunk": "customs-ip-protection-2018/03/07",
+  "anchorNode": "cusr-03-07",
+  "terms": [
+    { "name": "不侵权说明", "aliases": ["书面说明"], "role": "defined", "confidence": "high", "evidence": "应当向海关提出书面说明并附送相关证据" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

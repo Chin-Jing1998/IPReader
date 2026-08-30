@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/11/02/03/03",
+  "anchorNode": "tmeg-06-11-02-03-03",
+  "terms": [
+    { "name": "代理关系", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "下列证据可以证明代理关系的存在" },
+    { "name": "代表关系", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "下列证据可以证明代表关系的存在" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,30 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/02/01",
+  "anchorNode": "tmeg-01-01-02-01",
+  "terms": [
+    {
+      "name": "书面审查原则",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "审查员应当以申请人提交的书面文件为基础进行审查"
+    },
+    {
+      "name": "商标代理机构",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "申请人及其商标代理机构提交虚假材料的，应当承担相应法律后果"
+    },
+    {
+      "name": "补正通知",
+      "aliases": [],
+      "role": "used",
+      "confidence": "low",
+      "evidence": "补正通知等审查结果以书面形式通知申请人"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

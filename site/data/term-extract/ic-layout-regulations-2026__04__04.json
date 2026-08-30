@@ -1,0 +1,12 @@
+{
+  "chunk": "ic-layout-regulations-2026/04/04",
+  "anchorNode": "icld-04-04",
+  "terms": [
+    { "name": "独创性", "aliases": [], "role": "used", "confidence": "high", "evidence": "创作出具有独创性的布图设计的" },
+    { "name": "商业利用", "aliases": [], "role": "used", "confidence": "high", "evidence": "将其投入商业利用的" },
+    { "name": "独立创作", "aliases": [], "role": "used", "confidence": "mid", "evidence": "自己独立创作的与他人相同的布图设计" }
+  ],
+  "laws": ["集成电路布图设计保护条例第37条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

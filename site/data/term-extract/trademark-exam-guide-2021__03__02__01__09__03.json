@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/01/09/03",
+  "anchorNode": "tmeg-03-02-01-09-03",
+  "terms": [
+    { "name": "视为放弃", "aliases": [], "role": "defined", "confidence": "high", "evidence": "该转让申请视为放弃" },
+    { "name": "类似商品/服务", "aliases": [], "role": "used", "confidence": "mid", "evidence": "同一种或者类似商品/服务上注册" },
+    { "name": "近似商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "相同或者近似的商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

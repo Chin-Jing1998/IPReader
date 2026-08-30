@@ -1,0 +1,13 @@
+{
+  "chunk": "anti-unfair-competition-2025/02/09",
+  "anchorNode": "aucl-02-09",
+  "terms": [
+    { "name": "优势地位", "aliases": [], "role": "defined", "confidence": "high", "evidence": "滥用自身资金、技术、交易渠道、行业影响力等方面的优势地位" },
+    { "name": "中小企业", "aliases": [], "role": "used", "confidence": "high", "evidence": "要求中小企业接受明显不合理的付款期限" },
+    { "name": "交易条件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "付款期限、方式、条件和违约责任等交易条件" },
+    { "name": "拖欠账款", "aliases": [], "role": "used", "confidence": "mid", "evidence": "拖欠中小企业的货物、工程、服务等账款" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

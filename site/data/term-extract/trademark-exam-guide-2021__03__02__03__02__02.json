@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/03/02/02",
+  "anchorNode": "tmeg-03-02-03-02-02",
+  "terms": [
+    { "name": "形式审查的一般性要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "形式审查的一般性要求" },
+    { "name": "注册商标专用权质权合同", "aliases": [], "role": "used", "confidence": "high", "evidence": "主合同和注册商标专用权质权合同" },
+    { "name": "主合同", "aliases": [], "role": "used", "confidence": "mid", "evidence": "主合同和注册商标专用权质权合同" },
+    { "name": "办理商标专用权质权登记承诺书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "办理商标专用权质权登记承诺书" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

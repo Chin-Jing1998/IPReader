@@ -1,0 +1,13 @@
+{
+  "chunk": "ic-layout-regulations-2026/06/01",
+  "anchorNode": "icld-06-01",
+  "terms": [
+    { "name": "布图设计登记", "aliases": [], "role": "used", "confidence": "high", "evidence": "布图设计登记公告后" },
+    { "name": "布图设计登记簿", "aliases": [], "role": "used", "confidence": "high", "evidence": "公众可以请求查阅该布图设计登记簿" },
+    { "name": "复制件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "请求查阅该布图设计的复制件或者图样的纸件" },
+    { "name": "图样", "aliases": [], "role": "used", "confidence": "mid", "evidence": "复制布图设计的复制件或者图样的电子版本" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:49:44+08:00",
+  "model": "claude-sonnet-5"
+}

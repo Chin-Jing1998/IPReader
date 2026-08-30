@@ -1,0 +1,17 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/01/03/04",
+  "anchorNode": "tmeg-06-01-03-04",
+  "terms": [
+    { "name": "同一种商品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "同一种商品是指名称相同的商品，或者名称不同但在功能、用途、主要原料、生产部门" },
+    { "name": "同一种服务", "aliases": [], "role": "defined", "confidence": "high", "evidence": "同一种服务是指名称相同的服务，或者名称不同但在服务的目的、内容、方式、对象" },
+    { "name": "类似商品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "类似商品是指在功能、用途、生产部门、销售渠道、消费对象等方面相同或有密切联系的" },
+    { "name": "类似服务", "aliases": [], "role": "defined", "confidence": "high", "evidence": "类似服务是指在服务的目的、内容、方式、对象等方面相同或有密切联系的服务" },
+    { "name": "商品与服务类似", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商品与服务类似，是指商品和服务之间具有较大关联性" },
+    { "name": "类似商品和服务区分表", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是我国商标注册部门以世界知识产权组织提供的《商标注册用商品和服务国际分类》为基础" },
+    { "name": "商标注册用商品和服务国际分类", "aliases": [], "role": "used", "confidence": "mid", "evidence": "世界知识产权组织提供的《商标注册用商品和服务国际分类》为基础" },
+    { "name": "混淆可能性", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在混淆可能性判定中进行处理" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

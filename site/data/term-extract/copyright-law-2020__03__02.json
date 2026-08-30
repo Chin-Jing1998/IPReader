@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-2020/03/02",
+  "anchorNode": "cpl-03-02",
+  "terms": [
+    { "name": "权利转让合同", "aliases": [], "role": "defined", "confidence": "high", "evidence": "权利转让合同" },
+    { "name": "转让价金", "aliases": [], "role": "used", "confidence": "high", "evidence": "转让价金" }
+  ],
+  "laws": ["著作权法第10条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

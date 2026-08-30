@@ -1,0 +1,30 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/17/06/03/03",
+  "anchorNode": "tmeg-06-17-06-03-03",
+  "terms": [
+    {
+      "name": "注册商标成为其核定使用商品的通用名称",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "注册商标在其获准注册之时尚未成为其核定使用商品的通用名称"
+    },
+    {
+      "name": "通用图形",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "通用图形"
+    },
+    {
+      "name": "识别商品来源的功能",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "识别商品来源的功能"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

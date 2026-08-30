@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/10/05/07",
+  "anchorNode": "tmeg-06-10-05-07",
+  "terms": [
+    { "name": "恶意注册", "aliases": [], "role": "defined", "confidence": "high", "evidence": "但对属于恶意注册的" },
+    { "name": "五年时间限制", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不受五年的时间限制" },
+    { "name": "利害关系人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "驰名商标所有人或者利害关系人可请求宣告该系争商标无效" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

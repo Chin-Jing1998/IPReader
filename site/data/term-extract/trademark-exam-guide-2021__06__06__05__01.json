@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/06/05/01",
+  "anchorNode": "tmeg-06-06-05-01",
+  "terms": [
+    { "name": "三维标志商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "三维标志商标是指仅由三维标志或者由含有其他要素的三维标志构成的商标" },
+    { "name": "三维标志", "aliases": [], "role": "used", "confidence": "high", "evidence": "可以表现为商品自身的三维形状、商品包装或容器的三维形状或者其他三维标志" },
+    { "name": "禁用条款", "aliases": [], "role": "used", "confidence": "high", "evidence": "包括禁用条款的审查、显著特征的审查、功能性审查和相同、近似的审查" },
+    { "name": "显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "由缺乏显著特征的三维形状和具有显著特征的平面要素组合而成" },
+    { "name": "功能性审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "包括禁用条款的审查、显著特征的审查、功能性审查和相同、近似的审查" },
+    { "name": "商标专用权", "aliases": [], "role": "used", "confidence": "high", "evidence": "本身获得了商标专用权保护" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "需考虑商标本身构成、指定商品或者服务的类别、相关公众的认知习惯等一般因素" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:52:01+08:00",
+  "model": "claude-sonnet-5"
+}

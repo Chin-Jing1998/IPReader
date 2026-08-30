@@ -1,0 +1,11 @@
+{
+  "chunk": "customs-ip-protection-2018/02/03",
+  "anchorNode": "cusr-02-03",
+  "terms": [
+    { "name": "知识产权海关保护备案", "aliases": ["知识产权备案"], "role": "used", "confidence": "high", "evidence": "知识产权权利人申请知识产权备案未如实提供有关情况或者文件的" },
+    { "name": "备案撤销", "aliases": [], "role": "defined", "confidence": "high", "evidence": "未如实提供有关情况或者文件的，海关总署可以撤销其备案" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

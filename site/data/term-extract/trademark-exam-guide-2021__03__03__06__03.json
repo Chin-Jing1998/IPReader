@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/03/06/03",
+  "anchorNode": "tmeg-03-03-06-03",
+  "terms": [
+    { "name": "商标专用权", "aliases": [], "role": "used", "confidence": "high", "evidence": "注册商标已丧失商标专用权的" },
+    { "name": "不予核准", "aliases": [], "role": "defined", "confidence": "high", "evidence": "续展申请存在下列情形之一的，不予核准" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,58 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/05/01/03/02",
+  "anchorNode": "tmeg-01-05-01-03-02",
+  "terms": [
+    {
+      "name": "马德里国际注册商标",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "马德里国际注册商标"
+    },
+    {
+      "name": "驳回期限",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "驳回期限届满之日"
+    },
+    {
+      "name": "领土延伸",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "领土延伸程序中部分驳回"
+    },
+    {
+      "name": "驳回复审",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "仍处在驳回复审或者异议相关程序的"
+    },
+    {
+      "name": "准予注册决定",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "自准予注册决定生效之日起算"
+    },
+    {
+      "name": "商标国际注册马德里协定",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "商标国际注册马德里协定"
+    },
+    {
+      "name": "商标国际注册马德里协定有关议定书",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "商标国际注册马德里协定有关议定书"
+    }
+  ],
+  "laws": ["商标国际注册马德里协定有关议定书第9条之6"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

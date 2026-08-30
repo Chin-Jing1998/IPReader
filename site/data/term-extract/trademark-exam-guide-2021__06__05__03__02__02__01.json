@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/05/03/02/02/01",
+  "anchorNode": "tmeg-06-05-03-02-02-01",
+  "terms": [
+    { "name": "在先商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "应考虑在先商标的显著性" },
+    { "name": "来源混淆", "aliases": [], "role": "used", "confidence": "mid", "evidence": "判断是否易导致来源混淆" },
+    { "name": "显著特征", "aliases": ["显著性"], "role": "defined", "confidence": "high", "evidence": "商标显著性的强弱与相关公众是否产生混淆有着密切的联系" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

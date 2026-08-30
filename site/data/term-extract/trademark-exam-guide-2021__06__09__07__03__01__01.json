@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/03/01/01",
+  "anchorNode": "tmeg-06-09-07-03-01-01",
+  "terms": [
+    { "name": "集体商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "集体商标的基本功能在于赋予作为其成员的生产经营者的商品或者服务以某种共性" },
+    { "name": "集体组织", "aliases": ["集体性的组织"], "role": "defined", "confidence": "high", "evidence": "其申请注册主体应当是集体组织" },
+    { "name": "农民专业合作社", "aliases": [], "role": "defined", "confidence": "high", "evidence": "农民专业合作社是在农村家庭承包经营基础上，农产品的生产运营者" },
+    { "name": "其他组织", "aliases": [], "role": "used", "confidence": "mid", "evidence": "属于《商标法》第三条第二款所指的“其他组织”，可以作为集体商标申请注册主体" },
+    { "name": "申请人主体资格", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "申请人主体资格的审查" }
+  ],
+  "laws": ["商标法第3条第2款"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,10 @@
+{
+  "chunk": "anti-monopoly-law-2022/04/05",
+  "anchorNode": "aml-04-05",
+  "terms": [
+    { "name": "国务院反垄断执法机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当在国务院反垄断执法机构规定的期限内补交文件、资料" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

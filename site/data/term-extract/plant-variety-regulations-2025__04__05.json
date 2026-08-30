@@ -1,0 +1,11 @@
+{
+  "chunk": "plant-variety-regulations-2025/04/05",
+  "anchorNode": "pvpr-04-05",
+  "terms": [
+    { "name": "优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可以享有优先权" },
+    { "name": "品种权", "aliases": [], "role": "used", "confidence": "high", "evidence": "提出品种权申请" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

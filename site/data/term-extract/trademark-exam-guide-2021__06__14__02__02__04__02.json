@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/14/02/02/04/02",
+  "anchorNode": "tmeg-06-14-02-02-04-02",
+  "terms": [
+    { "name": "姓名权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "该在先姓名权的保护范围" },
+    { "name": "知名度", "aliases": [], "role": "used", "confidence": "mid", "evidence": "姓名具有一定的知名度" },
+    { "name": "举证责任", "aliases": [], "role": "used", "confidence": "high", "evidence": "应承担许可事实的举证责任" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

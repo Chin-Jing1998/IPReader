@@ -1,0 +1,20 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/02/12/03",
+  "anchorNode": "tmeg-04-02-12-03",
+  "terms": [
+    { "name": "不予受理", "aliases": [], "role": "defined", "confidence": "high", "evidence": "逾期未补正或者不按照要求进行补正的，该申请不予受理" },
+    { "name": "补正", "aliases": [], "role": "used", "confidence": "high", "evidence": "逾期未补正或者不按照要求进行补正的" },
+    { "name": "法定期限", "aliases": [], "role": "used", "confidence": "high", "evidence": "超出法定期限提交的国际续展申请不予受理" },
+    { "name": "国际续展", "aliases": [], "role": "used", "confidence": "high", "evidence": "提交的国际续展申请不予受理" },
+    { "name": "宽展期", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请人未在宽展期内缴纳宽展费" },
+    { "name": "宽展费", "aliases": [], "role": "used", "confidence": "high", "evidence": "未在宽展期内缴纳宽展费，该国际续展申请" },
+    { "name": "受理条件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人资格不符合受理条件，该申请不予受理" },
+    { "name": "受让人", "aliases": [], "role": "used", "confidence": "high", "evidence": "受让人资格不符合受理条件" },
+    { "name": "国际转让", "aliases": [], "role": "used", "confidence": "high", "evidence": "该国际转让申请不予受理" },
+    { "name": "申请人资格", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人资格不符合受理条件" },
+    { "name": "后续业务申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "已办理了相同内容的后续业务申请" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

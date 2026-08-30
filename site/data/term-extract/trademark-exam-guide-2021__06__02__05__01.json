@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/05/01",
+  "anchorNode": "tmeg-06-02-05-01",
+  "terms": [
+    { "name": "不以使用为目的的恶意商标注册申请", "aliases": ["不以使用为目的的恶意"], "role": "defined", "confidence": "high", "evidence": "是指申请人并非基于生产经营活动的需要，而提交大量商标注册申请，缺乏真实使用意图" },
+    { "name": "囤积商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "坚决打击囤积商标的注册申请行为" },
+    { "name": "真实使用意图", "aliases": [], "role": "used", "confidence": "mid", "evidence": "缺乏真实使用意图" },
+    { "name": "公共利益", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不涉及损害公共利益的，不属于该条规定情形" },
+    { "name": "商标资源", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不正当占用商标资源" }
+  ],
+  "laws": ["商标法第4条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

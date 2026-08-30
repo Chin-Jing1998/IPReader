@@ -1,0 +1,17 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/01/02/02",
+  "anchorNode": "tmeg-06-01-02-02",
+  "terms": [
+    { "name": "商标注册实质审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标注册实质审查工作负责审查商标注册申请是否存在法律禁止使用的情形" },
+    { "name": "显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "是否具备商标的显著特征" },
+    { "name": "功能性", "aliases": [], "role": "used", "confidence": "mid", "evidence": "三维标志商标是否具备功能性" },
+    { "name": "在先权利", "aliases": [], "role": "used", "confidence": "high", "evidence": "他人现有在先权利的保护" },
+    { "name": "恶意商标注册申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "不以使用为目的的恶意商标注册申请" },
+    { "name": "驰名商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "加大对驰名商标、在先使用未注册商标" },
+    { "name": "在先使用未注册商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在先使用未注册商标以及他人现有在先权利的保护" },
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标代理机构超出代理服务范围的商标注册申请" }
+  ],
+  "laws": ["商标法第4条", "商标法第10条", "商标法第11条", "商标法第12条", "商标法第16条第1款", "商标法第19条第4款", "商标法第30条", "商标法第31条", "商标法第50条", "商标法第13条", "商标法第15条", "商标法第32条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

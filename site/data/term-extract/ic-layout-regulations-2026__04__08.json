@@ -1,0 +1,11 @@
+{
+  "chunk": "ic-layout-regulations-2026/04/08",
+  "anchorNode": "icld-04-08",
+  "terms": [
+    { "name": "非自愿许可", "aliases": [], "role": "used", "confidence": "high", "evidence": "取得使用布图设计非自愿许可的自然人" },
+    { "name": "独占使用权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不享有独占的使用权" }
+  ],
+  "laws": ["集成电路布图设计保护条例第41条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

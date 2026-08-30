@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/01/03/01",
+  "anchorNode": "tmeg-05-01-03-01",
+  "terms": [
+    { "name": "中文", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“中文”一词是指汉字。" },
+    { "name": "中文译文", "aliases": [], "role": "defined", "confidence": "high", "evidence": "未附送中文译文的，视为未提交该证件" },
+    { "name": "通用规范汉字", "aliases": [], "role": "used", "confidence": "mid", "evidence": "国家公布的通用规范汉字" },
+    { "name": "优先权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "优先权证明文本" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

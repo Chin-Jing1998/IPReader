@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-2020/04/01/04",
+  "anchorNode": "cpl-04-01-04",
+  "terms": [
+    { "name": "转载", "aliases": [], "role": "defined", "confidence": "high", "evidence": "声明不得转载、摘编的外，其他报刊可以转载或者作为文摘、资料刊登" },
+    { "name": "摘编", "aliases": [], "role": "defined", "confidence": "high", "evidence": "声明不得转载、摘编的外，其他报刊可以转载或者作为文摘、资料刊登" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

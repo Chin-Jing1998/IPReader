@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-rules-2013/13",
+  "anchorNode": "cplr-13",
+  "terms": [
+    { "name": "身份不明的作品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "身份不明的作品" },
+    { "name": "署名权", "aliases": [], "role": "used", "confidence": "high", "evidence": "除署名权以外的著作权" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

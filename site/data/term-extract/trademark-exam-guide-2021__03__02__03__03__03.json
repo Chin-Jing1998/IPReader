@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/03/03/03",
+  "anchorNode": "tmeg-03-02-03-03-03",
+  "terms": [
+    { "name": "不予登记", "aliases": [], "role": "defined", "confidence": "high", "evidence": "有下列情形之一的，不予登记" },
+    { "name": "出质人", "aliases": [], "role": "used", "confidence": "high", "evidence": "出质人名称与商标注册部门档案所记载的名称不一致" },
+    { "name": "注册商标权利人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "证实其为注册商标权利人的" },
+    { "name": "商标专用权", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标专用权已经被撤销、被注销或者有效期满未续展的" },
+    { "name": "续展", "aliases": [], "role": "used", "confidence": "mid", "evidence": "有效期满未续展的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

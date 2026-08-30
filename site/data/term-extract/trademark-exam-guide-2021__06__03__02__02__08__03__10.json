@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/08/03/10",
+  "anchorNode": "tmeg-06-03-02-02-08-03-10",
+  "terms": [
+    { "name": "烈士姓名", "aliases": [], "role": "defined", "confidence": "high", "evidence": "与烈士姓名相同或者含有烈士姓名的标志，且容易使公众将其与烈士姓名产生联想的" },
+    { "name": "不良影响", "aliases": [], "role": "used", "confidence": "mid", "evidence": "一般应认定为具有不良影响" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

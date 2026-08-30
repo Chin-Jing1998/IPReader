@@ -1,0 +1,18 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/08/02/03",
+  "anchorNode": "tmeg-06-03-02-02-08-02-03",
+  "terms": [
+    { "name": "国家名称", "aliases": [], "role": "defined", "confidence": "high", "evidence": "标志中含有与我国国家名称相同或者近似的文字" },
+    { "name": "国家安全", "aliases": [], "role": "used", "confidence": "high", "evidence": "都有维护国家安全的责任和义务" },
+    { "name": "国家主权", "aliases": [], "role": "used", "confidence": "high", "evidence": "维护国家主权、统一和领土完整" },
+    { "name": "领土完整", "aliases": [], "role": "used", "confidence": "mid", "evidence": "中国的主权和领土完整不容侵犯和分割" },
+    { "name": "企事业单位简称", "aliases": [], "role": "defined", "confidence": "high", "evidence": "但其整体是企事业单位简称" },
+    { "name": "显著部分", "aliases": [], "role": "used", "confidence": "mid", "evidence": "国名与其他显著部分相互独立" },
+    { "name": "来源国", "aliases": [], "role": "used", "confidence": "mid", "evidence": "仅起到真实表示商品或者服务来源国的作用" },
+    { "name": "唯一对应关系", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在相关公众的认知中，与申请人形成了唯一对应关系" },
+    { "name": "长期广泛使用", "aliases": [], "role": "used", "confidence": "mid", "evidence": "该标志经过申请人在实际中长期广泛使用" }
+  ],
+  "laws": ["国家安全法"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

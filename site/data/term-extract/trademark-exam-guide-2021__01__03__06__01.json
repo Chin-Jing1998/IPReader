@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/03/06/01",
+  "anchorNode": "tmeg-01-03-06-01",
+  "terms": [
+    { "name": "异议人变更", "aliases": [], "role": "defined", "confidence": "high", "evidence": "由第三人承继异议人主体地位、参加后续异议程序并承担相应后果" },
+    { "name": "在先权利", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在先权利的转移包括异议人和第三人之间自愿的转让" },
+    { "name": "法定移转", "aliases": [], "role": "used", "confidence": "mid", "evidence": "也包括因合并、继承、诉讼等事由导致的法定移转" },
+    { "name": "主体资格", "aliases": [], "role": "used", "confidence": "mid", "evidence": "致使异议人失去适格的主体资格、第三人获得适格的主体资格" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

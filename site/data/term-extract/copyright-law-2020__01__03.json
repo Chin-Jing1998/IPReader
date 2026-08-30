@@ -1,0 +1,18 @@
+{
+  "chunk": "copyright-law-2020/01/03",
+  "anchorNode": "cpl-01-03",
+  "terms": [
+    { "name": "独创性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "具有独创性并能以一定形式表现的智力成果" },
+    { "name": "文字作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "文字作品" },
+    { "name": "口述作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "口述作品" },
+    { "name": "建筑作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "建筑作品" },
+    { "name": "摄影作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "摄影作品" },
+    { "name": "视听作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "视听作品" },
+    { "name": "图形作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "图形作品" },
+    { "name": "模型作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "模型作品" },
+    { "name": "计算机软件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "计算机软件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:13:54+08:00",
+  "model": "claude-sonnet-5"
+}

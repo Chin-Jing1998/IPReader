@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-2020/05/08",
+  "anchorNode": "cpl-05-08",
+  "terms": [
+    { "name": "财产保全", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请采取财产保全" },
+    { "name": "与著作权有关的权利人", "aliases": [], "role": "used", "confidence": "high", "evidence": "与著作权有关的权利人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

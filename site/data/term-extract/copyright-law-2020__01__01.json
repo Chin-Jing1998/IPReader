@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-2020/01/01",
+  "anchorNode": "cpl-01-01",
+  "terms": [
+    { "name": "著作权", "aliases": [], "role": "used", "confidence": "high", "evidence": "著作权" },
+    { "name": "邻接权", "aliases": ["与著作权有关的权益"], "role": "used", "confidence": "mid", "evidence": "与著作权有关的权益" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:13:54+08:00",
+  "model": "claude-sonnet-5"
+}

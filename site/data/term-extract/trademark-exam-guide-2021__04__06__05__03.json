@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/06/05/03",
+  "anchorNode": "tmeg-04-06-05-03",
+  "terms": [
+    { "name": "删减终局", "aliases": [], "role": "defined", "confidence": "high", "evidence": "删减终局决定" },
+    { "name": "国际局", "aliases": [], "role": "used", "confidence": "mid", "evidence": "决定通知国际局" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

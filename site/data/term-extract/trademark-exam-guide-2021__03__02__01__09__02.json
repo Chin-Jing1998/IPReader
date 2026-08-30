@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/01/09/02",
+  "anchorNode": "tmeg-03-02-01-09-02",
+  "terms": [
+    { "name": "不予核准", "aliases": [], "role": "defined", "confidence": "high", "evidence": "转让申请存在下列情形之一的，不予核准" },
+    { "name": "质权人", "aliases": [], "role": "used", "confidence": "high", "evidence": "未取得法院或质权人书面同意的" },
+    { "name": "移转", "aliases": [], "role": "used", "confidence": "high", "evidence": "办理移转申请的" },
+    { "name": "不良影响", "aliases": [], "role": "used", "confidence": "mid", "evidence": "容易导致混淆或者有其他不良影响的转让" },
+    { "name": "混淆", "aliases": [], "role": "used", "confidence": "high", "evidence": "容易导致混淆" },
+    { "name": "质权登记", "aliases": [], "role": "used", "confidence": "high", "evidence": "在先办理了质权登记" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

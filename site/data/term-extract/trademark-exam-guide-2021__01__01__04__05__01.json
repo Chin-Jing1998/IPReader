@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/04/05/01",
+  "anchorNode": "tmeg-01-01-04-05-01",
+  "model": "sonnet",
+  "terms": [
+    { "name": "商标代理委托书", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标代理委托书中代理机构名称应当一致" },
+    { "name": "代理机构章戳", "aliases": [], "role": "used", "confidence": "mid", "evidence": "“代理机构章戳”应为该代理机构公章" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00"
+}

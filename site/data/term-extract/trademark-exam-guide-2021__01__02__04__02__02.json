@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/04/02/02",
+  "anchorNode": "tmeg-01-02-04-02-02",
+  "terms": [
+    { "name": "商标图样", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请书中的商标图样不清晰" },
+    { "name": "商标注册标记", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标图样中含有商标注册标记的" },
+    { "name": "声音样本", "aliases": [], "role": "used", "confidence": "high", "evidence": "未附送声音样本的" },
+    { "name": "商标使用方式", "aliases": [], "role": "used", "confidence": "mid", "evidence": "报送商标使用方式的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/01/02",
+  "anchorNode": "tmeg-06-03-02-01-02",
+  "terms": [
+    { "name": "外国的国家名称", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“外国的国家名称”包括中文和外文的全称、简称和缩写" },
+    { "name": "国旗", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“国旗”是由国家正式规定的代表本国的旗帜" },
+    { "name": "国徽", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“国徽”是由国家正式规定的代表本国的徽记" },
+    { "name": "军旗", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“军旗”是国家正式规定的代表本国军队的旗帜" },
+    { "name": "和平共处五项原则", "aliases": [], "role": "used", "confidence": "high", "evidence": "“和平共处五项原则”" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "ic-layout-regulations-2026/02/07",
+  "anchorNode": "icld-02-07",
+  "terms": [
+    { "name": "布图设计专有权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "布图设计专有权的保护期为10年" },
+    { "name": "保护期", "aliases": [], "role": "defined", "confidence": "high", "evidence": "布图设计自创作完成之日起15年后，不再受本条例保护" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

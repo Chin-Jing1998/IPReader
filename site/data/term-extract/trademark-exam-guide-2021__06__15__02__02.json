@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/15/02/02",
+  "anchorNode": "tmeg-06-15-02-02",
+  "terms": [
+    { "name": "不正当手段", "aliases": [], "role": "used", "confidence": "high", "evidence": "系争商标申请人采取了不正当手段" },
+    { "name": "在先使用", "aliases": [], "role": "used", "confidence": "high", "evidence": "已经在先使用并有一定影响" },
+    { "name": "系争商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "他人商标在系争商标申请日之前" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

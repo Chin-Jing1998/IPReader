@@ -1,0 +1,10 @@
+{
+  "chunk": "copyright-law-rules-2013/37",
+  "anchorNode": "cplr-37",
+  "terms": [
+    { "name": "损害社会公共利益", "aliases": [], "role": "used", "confidence": "mid", "evidence": "同时损害社会公共利益的" }
+  ],
+  "laws": ["著作权法第48条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,14 @@
+{
+  "chunk": "plant-variety-regulations-2025/07/05",
+  "anchorNode": "pvpr-07-05",
+  "terms": [
+    { "name": "品种权", "aliases": [], "role": "used", "confidence": "high", "evidence": "品种权" },
+    { "name": "繁殖材料", "aliases": [], "role": "used", "confidence": "high", "evidence": "繁殖材料" },
+    { "name": "收获材料", "aliases": [], "role": "used", "confidence": "high", "evidence": "收获材料" },
+    { "name": "合法来源", "aliases": [], "role": "defined", "confidence": "high", "evidence": "能够证明有合法来源的，不承担赔偿责任" },
+    { "name": "许诺销售", "aliases": [], "role": "used", "confidence": "high", "evidence": "许诺销售、销售" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

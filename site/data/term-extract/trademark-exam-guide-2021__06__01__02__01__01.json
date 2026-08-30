@@ -1,0 +1,17 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/01/02/01/01",
+  "anchorNode": "tmeg-06-01-02-01-01",
+  "terms": [
+    { "name": "绝对理由", "aliases": [], "role": "defined", "confidence": "high", "evidence": "绝对理由涉及违反商标法上的显著性、非功能性以及公共利益，不考虑对特定权利人的影响" },
+    { "name": "显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "缺乏显著特征不得作为商标注册的标志" },
+    { "name": "功能性", "aliases": ["非功能性"], "role": "used", "confidence": "high", "evidence": "具有功能性不得注册的三维标志" },
+    { "name": "三维标志", "aliases": [], "role": "used", "confidence": "high", "evidence": "不得注册的三维标志" },
+    { "name": "恶意商标注册申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "不以使用为目的的恶意商标注册申请" },
+    { "name": "不得作为商标使用的标志", "aliases": [], "role": "used", "confidence": "mid", "evidence": "第十条规定的不得作为商标使用的标志" },
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标代理机构不得申请注册其代理服务以外的商标" },
+    { "name": "其他不正当手段", "aliases": [], "role": "used", "confidence": "high", "evidence": "以欺骗手段或者其他不正当手段取得注册的商标" }
+  ],
+  "laws": ["商标法第4条", "商标法第10条", "商标法第11条", "商标法第12条", "商标法第19条第4款", "商标法第44条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

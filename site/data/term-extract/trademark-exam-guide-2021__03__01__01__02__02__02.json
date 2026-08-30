@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/01/01/02/02/02",
+  "anchorNode": "tmeg-03-01-01-02-02-02",
+  "terms": [
+    { "name": "地理标志", "aliases": [], "role": "used", "confidence": "high", "evidence": "如果涉及地理标志区域范围变化的，需提交界定地理标志产品地域范围的历史资料" },
+    { "name": "地域范围变更证明文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "地理标志所在地县级以上人民政府或行业主管部门出具的地域范围变更证明文件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

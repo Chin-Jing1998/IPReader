@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/03/04/01",
+  "anchorNode": "tmeg-01-03-04-01",
+  "terms": [
+    { "name": "异议答辩", "aliases": [], "role": "defined", "confidence": "high", "evidence": "被异议人应当在收到《商标异议答辩通知书》之日起30日内提交异议答辩材料" },
+    { "name": "商标异议答辩通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "并交回《商标异议答辩通知书》" },
+    { "name": "答辩人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "答辩人应与被异议商标注册申请人名义一致" },
+    { "name": "商标代理委托书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应附送商标代理委托书" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

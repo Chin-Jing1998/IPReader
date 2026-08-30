@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/05/03/02/01",
+  "anchorNode": "tmeg-04-05-03-02-01",
+  "terms": [
+    { "name": "国际更正", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际更正的内容为在指定国家列表中添加中国的" },
+    { "name": "领土延伸", "aliases": [], "role": "used", "confidence": "high", "evidence": "3.2.1增加在中国的领土延伸和后期指定" },
+    { "name": "领土延伸新申请", "aliases": ["更正转新申请"], "role": "defined", "confidence": "high", "evidence": "更正分拣为领土延伸新申请（更正转新申请）" },
+    { "name": "指定国家", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在指定国家列表中添加中国的" },
+    { "name": "后期指定", "aliases": [], "role": "used", "confidence": "high", "evidence": "3.2.1增加在中国的领土延伸和后期指定" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

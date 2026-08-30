@@ -1,0 +1,17 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/05/03/02/01",
+  "anchorNode": "tmeg-05-05-03-02-01",
+  "terms": [
+    { "name": "商标代理机构", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "律师事务所或商标代理机构" },
+    { "name": "委托书", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "当事人出具的委托书，委托书需说明查询事由和查询内容。" },
+    { "name": "身份证明文件", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "当事人身份证明文件复印件并加盖公章" },
+    { "name": "个体工商户", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "个体工商户营业执照复印件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:24:30+08:00",
+  "model": "claude-sonnet-5"
+}

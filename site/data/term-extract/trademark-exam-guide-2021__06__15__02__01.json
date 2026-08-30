@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/15/02/01",
+  "anchorNode": "tmeg-06-15-02-01",
+  "terms": [
+    { "name": "未注册商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "未注册商标包括在系争商标申请日前未提出商标注册申请" },
+    { "name": "诚实信用原则", "aliases": [], "role": "used", "confidence": "high", "evidence": "上述规定是基于诚实信用原则" },
+    { "name": "不正当手段", "aliases": [], "role": "used", "confidence": "high", "evidence": "制止以不正当手段抢注的行为" },
+    { "name": "注册原则", "aliases": [], "role": "used", "confidence": "mid", "evidence": "弥补严格实行注册原则的不足" },
+    { "name": "商标专用权", "aliases": [], "role": "used", "confidence": "high", "evidence": "注册期满未续展丧失商标专用权" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

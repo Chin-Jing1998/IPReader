@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/05/02/03",
+  "anchorNode": "tmeg-04-05-02-03",
+  "terms": [
+    { "name": "国际注册代替国内注册加注申请书", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际注册代替国内注册加注申请书" },
+    { "name": "国内商标注册证", "aliases": [], "role": "used", "confidence": "high", "evidence": "国内商标注册证复印件" },
+    { "name": "代理委托书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "代理委托书" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

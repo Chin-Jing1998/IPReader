@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/01/05/02",
+  "anchorNode": "tmeg-05-01-05-02",
+  "terms": [
+    { "name": "递交日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "直接递交的，以递交日为准" },
+    { "name": "邮戳日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "邮寄的，以寄出的邮戳日为准" },
+    { "name": "收寄日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以快递企业收寄日为准" },
+    { "name": "数据电文", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以数据电文方式提交的，以进入商标注册部门电子系统的日期为准" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:17:09+08:00",
+  "model": "claude-sonnet-5"
+}

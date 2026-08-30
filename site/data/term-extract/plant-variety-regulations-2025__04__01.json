@@ -1,0 +1,12 @@
+{
+  "chunk": "plant-variety-regulations-2025/04/01",
+  "anchorNode": "pvpr-04-01",
+  "terms": [
+    { "name": "代理机构", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可以直接或者委托代理机构向国务院农业农村、林业草原主管部门提出申请" },
+    { "name": "保密", "aliases": [], "role": "used", "confidence": "mid", "evidence": "涉及国家安全或者重大利益需要保密的，应当按照国家有关规定办理" },
+    { "name": "品种权", "aliases": [], "role": "used", "confidence": "high", "evidence": "中国的单位或者个人申请品种权的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

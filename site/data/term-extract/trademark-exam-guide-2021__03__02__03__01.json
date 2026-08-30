@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/03/01",
+  "anchorNode": "tmeg-03-02-03-01",
+  "terms": [
+    { "name": "注册商标专用权质押登记", "aliases": [], "role": "used", "confidence": "high", "evidence": "注册商标专用权质押登记程序规定" }
+  ],
+  "laws": ["商标法实施条例第70条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

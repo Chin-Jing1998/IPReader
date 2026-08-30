@@ -1,0 +1,11 @@
+{
+  "chunk": "anti-monopoly-law-2022/02/06",
+  "anchorNode": "aml-02-06",
+  "terms": [
+    { "name": "行业协会", "aliases": [], "role": "used", "confidence": "high", "evidence": "行业协会不得组织本行业的经营者从事本章禁止的垄断行为" },
+    { "name": "垄断行为", "aliases": [], "role": "used", "confidence": "mid", "evidence": "从事本章禁止的垄断行为" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

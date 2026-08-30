@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/03/06",
+  "anchorNode": "tmeg-03-02-03-06",
+  "terms": [
+    { "name": "质权登记注销", "aliases": [], "role": "defined", "confidence": "high", "evidence": "提交质权登记注销申请" },
+    { "name": "出质人", "aliases": [], "role": "used", "confidence": "high", "evidence": "出质人与质权人应当向商标注册部门" },
+    { "name": "质权人", "aliases": [], "role": "used", "confidence": "high", "evidence": "与质权人应当向商标注册部门" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

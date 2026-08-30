@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/03/02/04",
+  "anchorNode": "tmeg-06-09-07-03-02-04",
+  "terms": [
+    { "name": "检测能力", "aliases": [], "role": "defined", "confidence": "high", "evidence": "证明商标申请人自身具备检测能力的，提交其自有检测资质证书、检测人员名单和检测设备" },
+    { "name": "监督能力", "aliases": [], "role": "defined", "confidence": "high", "evidence": "证明商标的注册人必须是对其所申请的商品或者服务具有监督能力的组织" },
+    { "name": "检测资质证书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "提交其自有检测资质证书、检测人员名单和检测设备清单" },
+    { "name": "委托检测", "aliases": [], "role": "used", "confidence": "mid", "evidence": "自身不具备检测能力而委托他人检测的，提交委托检测协议" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:53:23+08:00",
+  "model": "claude-sonnet-5"
+}

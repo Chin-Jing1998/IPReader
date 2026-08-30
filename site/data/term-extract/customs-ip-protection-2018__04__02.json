@@ -1,0 +1,15 @@
+{
+  "chunk": "customs-ip-protection-2018/04/02",
+  "anchorNode": "cusr-04-02",
+  "terms": [
+    { "name": "知识产权海关保护备案", "aliases": ["知识产权保护备案"], "role": "used", "confidence": "high", "evidence": "海关接受知识产权保护备案和采取知识产权保护措施的申请后" },
+    { "name": "知识产权保护措施", "aliases": [], "role": "used", "confidence": "high", "evidence": "采取知识产权保护措施的申请后" },
+    { "name": "侵权嫌疑货物", "aliases": [], "role": "used", "confidence": "high", "evidence": "知识产权权利人请求海关扣留侵权嫌疑货物后" },
+    { "name": "扣留", "aliases": [], "role": "used", "confidence": "high", "evidence": "知识产权权利人请求海关扣留侵权嫌疑货物后" },
+    { "name": "自行承担责任", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "由知识产权权利人自行承担责任" },
+    { "name": "赔偿责任", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "知识产权权利人应当依法承担赔偿责任" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

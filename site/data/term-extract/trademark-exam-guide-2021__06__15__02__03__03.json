@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/15/02/03/03",
+  "anchorNode": "tmeg-06-15-02-03-03",
+  "terms": [
+    { "name": "系争商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "系争商标申请日" },
+    { "name": "在先使用", "aliases": [], "role": "used", "confidence": "high", "evidence": "已经在先使用并具有一定影响" },
+    { "name": "持续使用", "aliases": [], "role": "used", "confidence": "mid", "evidence": "未持续使用" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

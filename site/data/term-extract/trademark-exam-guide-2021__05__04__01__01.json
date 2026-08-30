@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/04/01/01",
+  "anchorNode": "tmeg-05-04-01-01",
+  "terms": [
+    { "name": "优先权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "并要求优先权的" },
+    { "name": "优先权证明文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请出具优先权证明文件" },
+    { "name": "相同商品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "就相同商品以同一商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

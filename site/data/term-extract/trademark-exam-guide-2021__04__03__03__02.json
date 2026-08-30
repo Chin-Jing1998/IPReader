@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/03/03/02",
+  "anchorNode": "tmeg-04-03-03-02",
+  "terms": [
+    { "name": "商标国际异议答辩回文", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标国际异议答辩回文需提交以下答辩材料" },
+    { "name": "基于异议的临时驳回通知", "aliases": [], "role": "used", "confidence": "high", "evidence": "基于异议的临时驳回通知" },
+    { "name": "答辩人", "aliases": [], "role": "used", "confidence": "high", "evidence": "答辩人身份证明文件及中文译文" },
+    { "name": "代理委托书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "代理委托书" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

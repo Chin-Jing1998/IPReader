@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/02/14",
+  "anchorNode": "tmeg-04-02-14",
+  "terms": [
+    { "name": "撤回申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "撤回申请应在国家知识产权局完成马德里商标国际注册后续业务形式审查之前提交" },
+    { "name": "国际申请撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "第四部分第十三章6“国际申请撤回”" },
+    { "name": "形式审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "后续业务形式审查之前提交" },
+    { "name": "后续业务", "aliases": [], "role": "used", "confidence": "mid", "evidence": "完成马德里商标国际注册后续业务形式审查之前" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

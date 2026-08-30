@@ -1,0 +1,11 @@
+{
+  "chunk": "customs-ip-protection-2018/01/04",
+  "anchorNode": "cusr-01-04",
+  "terms": [
+    { "name": "知识产权权利人", "aliases": [], "role": "used", "confidence": "high", "evidence": "知识产权权利人请求海关实施知识产权保护的" },
+    { "name": "保护措施", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当向海关提出采取保护措施的申请" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

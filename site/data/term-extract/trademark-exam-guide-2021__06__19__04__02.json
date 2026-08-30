@@ -1,0 +1,19 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/19/04/02",
+  "anchorNode": "tmeg-06-19-04-02",
+  "terms": [
+    { "name": "但书", "aliases": [], "role": "used", "confidence": "high", "evidence": "第二款但书规定情形的" },
+    { "name": "显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "缺乏显著特征的标识" },
+    { "name": "引证商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "与引证商标的所有人同为我国公民" },
+    { "name": "声音商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "声音商标、颜色组合商标等具有符合" },
+    { "name": "颜色组合商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "颜色组合商标等具有符合" },
+    { "name": "三维标志商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "三维标志商标中的三维形状部分" },
+    { "name": "不以使用为目的的恶意商标注册申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "不以使用为目的的恶意商标注册申请" },
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "集体商标、证明商标注册申请内容" },
+    { "name": "证明商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "证明商标注册申请内容" },
+    { "name": "暂缓审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "请求暂缓审查的书面申请" }
+  ],
+  "laws": ["商标法第10条", "商标法第11条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

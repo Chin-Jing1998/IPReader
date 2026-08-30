@@ -1,0 +1,10 @@
+{
+  "chunk": "anti-monopoly-law-2022/08/02",
+  "anchorNode": "aml-08-02",
+  "terms": [
+    { "name": "协同行为", "aliases": [], "role": "used", "confidence": "mid", "evidence": "联合或者协同行为，不适用本法" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/05/03/04/03/02",
+  "anchorNode": "tmeg-06-05-03-04-03-02",
+  "terms": [
+    { "name": "近似商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "易使相关公众对商品或者服务的来源产生混淆的，判定为近似商标" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "易使相关公众对商品或者服务的来源产生混淆" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

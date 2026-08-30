@@ -1,0 +1,10 @@
+{
+  "chunk": "copyright-law-2020/04/02/01",
+  "anchorNode": "cpl-04-02-01",
+  "terms": [
+    { "name": "演出组织者", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "演出组织者组织演出，由该组织者取得著作权人许可，并支付报酬" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

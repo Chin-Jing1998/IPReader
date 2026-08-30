@@ -1,0 +1,11 @@
+{
+  "chunk": "ip-evidence-rules-2020/31",
+  "anchorNode": "ipev-31",
+  "terms": [
+    { "name": "侵害知识产权赔偿数额", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "证明当事人主张的侵害知识产权赔偿数额" },
+    { "name": "知识产权许可使用合同", "aliases": [], "role": "used", "confidence": "high", "evidence": "评估报告，知识产权许可使用合同以及市场监管" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

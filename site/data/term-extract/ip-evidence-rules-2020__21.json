@@ -1,0 +1,12 @@
+{
+  "chunk": "ip-evidence-rules-2020/21",
+  "anchorNode": "ipev-21",
+  "terms": [
+    { "name": "鉴定人", "aliases": [], "role": "used", "confidence": "high", "evidence": "鉴定人" },
+    { "name": "鉴定机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "鉴定机构" },
+    { "name": "鉴定人选任程序", "aliases": [], "role": "used", "confidence": "mid", "evidence": "鉴定人选任程序" }
+  ],
+  "laws": ["民事诉讼证据规定第32条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

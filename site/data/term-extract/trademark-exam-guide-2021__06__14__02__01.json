@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/14/02/01",
+  "anchorNode": "tmeg-06-14-02-01",
+  "terms": [
+    { "name": "在先权利", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本条规定的在先权利是指在系争商标申请注册日之前已经取得的，除商标权以外的其他权利" },
+    { "name": "系争商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "系争商标申请注册日之前" },
+    { "name": "字号权", "aliases": [], "role": "used", "confidence": "high", "evidence": "包括字号权、著作权" },
+    { "name": "地理标志", "aliases": [], "role": "used", "confidence": "high", "evidence": "姓名权、肖像权、地理标志" },
+    { "name": "著作权", "aliases": [], "role": "used", "confidence": "high", "evidence": "字号权、著作权、外观设计专利权" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

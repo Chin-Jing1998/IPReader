@@ -1,0 +1,23 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/02/03",
+  "anchorNode": "tmeg-01-01-02-03",
+  "terms": [
+    {
+      "name": "确保效率原则",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "审查员应在符合规定的情况下尽可能缩短形式审查周期"
+    },
+    {
+      "name": "实质审查员",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "由实质审查员视情况发出审查意见书或者驳回商标注册申请"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

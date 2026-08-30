@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/03/01/03",
+  "anchorNode": "tmeg-01-02-03-01-03",
+  "terms": [
+    { "name": "商标申请声明", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当在“商标申请声明”栏声明" },
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请注册集体商标、证明商标的" },
+    { "name": "证明商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "证明商标" },
+    { "name": "三维标志", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以三维标志、颜色组合、声音标志申请商标注册" },
+    { "name": "颜色组合", "aliases": [], "role": "used", "confidence": "mid", "evidence": "颜色组合" },
+    { "name": "声音标志", "aliases": [], "role": "used", "confidence": "mid", "evidence": "声音标志" },
+    { "name": "共同申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "两个以上申请人共同申请注册同一商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

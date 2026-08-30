@@ -1,0 +1,18 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/05/04/01/02",
+  "anchorNode": "tmeg-05-05-04-01-02",
+  "terms": [
+    { "name": "商标异议", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标异议案件证据材料" },
+    { "name": "连续三年不使用", "aliases": [], "role": "used", "confidence": "high", "evidence": "连续三年不使用" },
+    { "name": "通用名称", "aliases": [], "role": "used", "confidence": "mid", "evidence": "通用名称" },
+    { "name": "驳回商标注册申请复审", "aliases": [], "role": "used", "confidence": "mid", "evidence": "驳回商标注册申请复审" },
+    { "name": "不予注册复审", "aliases": [], "role": "used", "confidence": "high", "evidence": "不予注册复审" },
+    { "name": "注册商标无效宣告", "aliases": [], "role": "used", "confidence": "high", "evidence": "注册商标无效宣告证据材料" },
+    { "name": "注册商标争议", "aliases": [], "role": "used", "confidence": "low", "evidence": "注册商标争议证据材料" },
+    { "name": "商标专用权质权登记", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标专用权质权登记" },
+    { "name": "商标使用许可备案", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标使用许可备案" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

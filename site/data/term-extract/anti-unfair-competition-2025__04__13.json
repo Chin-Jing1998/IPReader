@@ -1,0 +1,13 @@
+{
+  "chunk": "anti-unfair-competition-2025/04/13",
+  "anchorNode": "aucl-04-13",
+  "terms": [
+    { "name": "民事责任优先承担", "aliases": [], "role": "defined", "confidence": "high", "evidence": "民事责任优先承担" },
+    { "name": "民事责任", "aliases": [], "role": "used", "confidence": "mid", "evidence": "民事责任" },
+    { "name": "行政责任", "aliases": [], "role": "used", "confidence": "mid", "evidence": "行政责任" },
+    { "name": "刑事责任", "aliases": [], "role": "used", "confidence": "mid", "evidence": "刑事责任" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

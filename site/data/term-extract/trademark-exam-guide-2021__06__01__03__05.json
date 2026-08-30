@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/01/03/05",
+  "anchorNode": "tmeg-06-01-03-05",
+  "terms": [
+    { "name": "混淆", "aliases": [], "role": "defined", "confidence": "high", "evidence": "混淆通常是指使用在同一种或类似商品或者服务上的商标" },
+    { "name": "混淆可能性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "混淆可能性的判定以商标标志相同与近似和同一种商品与类似商品为基础。" },
+    { "name": "商标识别功能", "aliases": ["商标的识别功能"], "role": "defined", "confidence": "mid", "evidence": "商标的识别功能是体现商标核心价值的本质属性" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "使相关公众对商品或者服务的来源产生误认" },
+    { "name": "近似商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "同一种商品或者服务上的近似商标" },
+    { "name": "显著性", "aliases": [], "role": "used", "confidence": "high", "evidence": "应考虑在先商标的显著性和知名度等因素" },
+    { "name": "知名度", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应考虑在先商标的显著性和知名度等因素" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

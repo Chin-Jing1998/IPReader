@@ -1,0 +1,19 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/04/03/05/03",
+  "anchorNode": "tmeg-01-04-03-05-03",
+  "terms": [
+    { "name": "补正", "aliases": [], "role": "defined", "confidence": "high", "evidence": "评审申请需要补正的情形包括" },
+    { "name": "无效宣告申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "提出无效宣告申请时" },
+    { "name": "引证商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "未列明引证商标" },
+    { "name": "代理委托书", "aliases": [], "role": "used", "confidence": "high", "evidence": "代理委托书" },
+    { "name": "主体资格证明文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "主体资格证明文件不清晰" },
+    { "name": "身份证明文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "身份证明文件" },
+    { "name": "证据目录清单", "aliases": [], "role": "used", "confidence": "mid", "evidence": "证据目录清单" },
+    { "name": "视为撤回", "aliases": [], "role": "used", "confidence": "high", "evidence": "视为撤回申请" },
+    { "name": "不予受理", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不予受理" },
+    { "name": "复审", "aliases": [], "role": "used", "confidence": "mid", "evidence": "复审类案件未提交原审程序决定" }
+  ],
+  "laws": ["商标法第30条", "商标法第31条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

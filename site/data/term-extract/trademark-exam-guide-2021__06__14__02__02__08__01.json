@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/14/02/02/08/01",
+  "anchorNode": "tmeg-06-14-02-02-08-01",
+  "terms": [
+    { "name": "字号权", "aliases": [], "role": "used", "confidence": "high", "evidence": "除字号权、姓名权、肖像权、著作权" },
+    { "name": "姓名权", "aliases": [], "role": "used", "confidence": "high", "evidence": "字号权、姓名权、肖像权、著作权" },
+    { "name": "肖像权", "aliases": [], "role": "used", "confidence": "high", "evidence": "姓名权、肖像权、著作权、外观设计专利权" },
+    { "name": "著作权", "aliases": [], "role": "used", "confidence": "high", "evidence": "肖像权、著作权、外观设计专利权" },
+    { "name": "外观设计专利权", "aliases": [], "role": "used", "confidence": "high", "evidence": "著作权、外观设计专利权、有一定影响的商品" },
+    { "name": "作品名称权益", "aliases": [], "role": "used", "confidence": "high", "evidence": "如作品名称权益、作品中的角色名称权益等" },
+    { "name": "作品中的角色名称权益", "aliases": [], "role": "used", "confidence": "high", "evidence": "作品名称权益、作品中的角色名称权益等" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

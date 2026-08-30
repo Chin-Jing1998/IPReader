@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/05/01/02/02/01",
+  "anchorNode": "tmeg-01-01-05-01-02-02-01",
+  "model": "sonnet",
+  "terms": [
+    { "name": "所属地区登记证件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当提交所属地区登记证件复印件作为身份证明文件" },
+    { "name": "中文翻译件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "身份证明文件为英文的，应当提交对应的中文翻译件" },
+    { "name": "身份证明文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "身份证明文件为英文的，应当提交对应的中文翻译件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00"
+}

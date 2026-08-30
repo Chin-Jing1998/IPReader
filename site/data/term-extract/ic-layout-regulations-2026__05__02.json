@@ -1,0 +1,13 @@
+{
+  "chunk": "ic-layout-regulations-2026/05/02",
+  "anchorNode": "icld-05-02",
+  "terms": [
+    { "name": "布图设计专有权", "aliases": [], "role": "used", "confidence": "high", "evidence": "侵犯其布图设计专有权" },
+    { "name": "停止侵权行为", "aliases": [], "role": "used", "confidence": "high", "evidence": "责令侵权人立即停止侵权行为" },
+    { "name": "强制执行", "aliases": [], "role": "used", "confidence": "mid", "evidence": "请求人民法院强制执行" },
+    { "name": "利害关系人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "布图设计权利人或者利害关系人" }
+  ],
+  "laws": ["集成电路布图设计保护条例第45条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

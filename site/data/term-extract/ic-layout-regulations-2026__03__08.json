@@ -1,0 +1,10 @@
+{
+  "chunk": "ic-layout-regulations-2026/03/08",
+  "anchorNode": "icld-03-08",
+  "terms": [
+    { "name": "商业利用", "aliases": ["首次商业利用"], "role": "used", "confidence": "high", "evidence": "首次商业利用之日起" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

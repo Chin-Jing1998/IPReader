@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/03/05/01",
+  "anchorNode": "tmeg-01-03-05-01",
+  "terms": [
+    { "name": "补充证据材料", "aliases": [], "role": "defined", "confidence": "high", "evidence": "异议补充证据材料分为异议申请补充证据材料和异议答辩补充证据材料" },
+    { "name": "异议申请书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "补充证据材料应当自提交异议申请书或答辩书之日起3个月内递交" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

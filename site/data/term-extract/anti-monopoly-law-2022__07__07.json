@@ -1,0 +1,11 @@
+{
+  "chunk": "anti-monopoly-law-2022/07/07",
+  "anchorNode": "aml-07-07",
+  "terms": [
+    { "name": "反垄断执法机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "反垄断执法机构" },
+    { "name": "拒绝、阻碍调查行为", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "或者有其他拒绝、阻碍调查行为的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

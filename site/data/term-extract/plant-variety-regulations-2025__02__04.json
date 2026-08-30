@@ -1,0 +1,13 @@
+{
+  "chunk": "plant-variety-regulations-2025/02/04",
+  "anchorNode": "pvpr-02-04",
+  "terms": [
+    { "name": "一品种一权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "一品种一权与先申请原则" },
+    { "name": "先申请原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "一品种一权与先申请原则" },
+    { "name": "品种权", "aliases": [], "role": "used", "confidence": "high", "evidence": "一个植物新品种只能授予一项品种权" },
+    { "name": "植物新品种", "aliases": [], "role": "used", "confidence": "high", "evidence": "一个植物新品种只能授予一项品种权" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:32:49+08:00",
+  "model": "claude-sonnet-5"
+}

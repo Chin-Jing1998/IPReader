@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-unfair-competition-2025/04/09",
+  "anchorNode": "aucl-04-09",
+  "terms": [
+    { "name": "平台经营者", "aliases": [], "role": "used", "confidence": "high", "evidence": "平台经营者" },
+    { "name": "平台内经营者", "aliases": [], "role": "used", "confidence": "high", "evidence": "平台内经营者" },
+    { "name": "强制低价销售", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以低于成本的价格销售商品" }
+  ],
+  "laws": ["反不正当竞争法第14条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

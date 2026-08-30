@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/01/08",
+  "anchorNode": "tmeg-03-02-01-08",
+  "terms": [
+    { "name": "被许可人", "aliases": [], "role": "used", "confidence": "high", "evidence": "被许可人特别是独占和排他被许可人" },
+    { "name": "受让人", "aliases": ["受让方"], "role": "used", "confidence": "high", "evidence": "申请转让的另一方受让人" },
+    { "name": "在先权利", "aliases": [], "role": "used", "confidence": "high", "evidence": "他人合法在先权利" },
+    { "name": "商标权属", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对商标权属的争议方" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

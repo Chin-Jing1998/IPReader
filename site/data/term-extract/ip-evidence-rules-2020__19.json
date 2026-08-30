@@ -1,0 +1,13 @@
+{
+  "chunk": "ip-evidence-rules-2020/19",
+  "anchorNode": "ipev-19",
+  "terms": [
+    { "name": "专门性问题", "aliases": [], "role": "defined", "confidence": "high", "evidence": "专门性问题" },
+    { "name": "委托鉴定", "aliases": [], "role": "used", "confidence": "high", "evidence": "委托鉴定" },
+    { "name": "待证事实", "aliases": [], "role": "used", "confidence": "mid", "evidence": "待证事实" },
+    { "name": "电子数据", "aliases": [], "role": "used", "confidence": "high", "evidence": "电子数据" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

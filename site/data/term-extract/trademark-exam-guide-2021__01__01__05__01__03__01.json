@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/05/01/03/01",
+  "anchorNode": "tmeg-01-01-05-01-03-01",
+  "terms": [
+    { "name": "登记证件", "aliases": ["登记证"], "role": "used", "confidence": "mid", "evidence": "所属地区或国家的登记证件复印件" },
+    { "name": "身份证明文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "登记证不能作为身份证明文件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

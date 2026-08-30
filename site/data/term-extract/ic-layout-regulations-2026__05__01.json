@@ -1,0 +1,13 @@
+{
+  "chunk": "ic-layout-regulations-2026/05/01",
+  "anchorNode": "icld-05-01",
+  "terms": [
+    { "name": "独创性", "aliases": [], "role": "used", "confidence": "high", "evidence": "具有独创性的部分" },
+    { "name": "停止侵权行为", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当立即停止侵权行为" },
+    { "name": "赔偿责任", "aliases": [], "role": "used", "confidence": "mid", "evidence": "并承担赔偿责任" },
+    { "name": "商业目的", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "为商业目的进口、销售" }
+  ],
+  "laws": ["集成电路布图设计保护条例第44条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/01/04/05",
+  "anchorNode": "tmeg-03-01-04-05",
+  "terms": [
+    { "name": "商标更正申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标更正申请的范围应为商标申请文件或者注册文件的明显错误" },
+    { "name": "明显错误", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "明显错误" },
+    { "name": "实质性内容", "aliases": [], "role": "defined", "confidence": "high", "evidence": "更换商标权利主体、改变权利内容或权利保护范围的，均属于涉及实质性内容" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

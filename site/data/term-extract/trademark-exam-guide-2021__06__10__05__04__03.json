@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/10/05/04/03",
+  "anchorNode": "tmeg-06-10-05-04-03",
+  "terms": [
+    { "name": "市场占有率", "aliases": [], "role": "used", "confidence": "mid", "evidence": "及市场占有率、广告额统计" },
+    { "name": "驰名商标保护记录", "aliases": [], "role": "used", "confidence": "high", "evidence": "该商标被认定为驰名商标并给予保护的相关法律文件" },
+    { "name": "最早使用时间", "aliases": [], "role": "used", "confidence": "mid", "evidence": "该商标的最早使用时间和持续使用情况的相关材料" },
+    { "name": "持续使用情况", "aliases": [], "role": "used", "confidence": "mid", "evidence": "最早使用时间和持续使用情况" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

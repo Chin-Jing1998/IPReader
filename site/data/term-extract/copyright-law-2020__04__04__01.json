@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-2020/04/04/01",
+  "anchorNode": "cpl-04-04-01",
+  "terms": [
+    { "name": "录音制品", "aliases": [], "role": "used", "confidence": "high", "evidence": "将录音制品用于有线或者无线公开传播" },
+    { "name": "录音制作者", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当向录音制作者支付报酬" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/05/01/02",
+  "anchorNode": "tmeg-06-09-07-05-01-02",
+  "terms": [
+    { "name": "类似群组", "aliases": [], "role": "used", "confidence": "high", "evidence": "“西瓜”与“苹果”同属3105类似群组" },
+    { "name": "在先商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "地理标志集体商标和地理标志证明商标与在先商标相同、近似的判定" },
+    { "name": "指定商品相同或包含关系", "aliases": [], "role": "defined", "confidence": "high", "evidence": "仅以其指定商品相同或包含关系为基础" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

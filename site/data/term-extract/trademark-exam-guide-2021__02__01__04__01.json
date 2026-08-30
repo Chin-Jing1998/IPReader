@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/01/04/01",
+  "anchorNode": "tmeg-02-01-04-01",
+  "terms": [
+    { "name": "商品分类原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商品分类原则" },
+    { "name": "组合制成品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商品为多功能的组合制成品" },
+    { "name": "专用容器", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指专门用于，即该专门容器为盛放该商品进行了专门的设计，具有特殊的形状和样式" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

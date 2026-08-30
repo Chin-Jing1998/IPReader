@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/03/05",
+  "anchorNode": "tmeg-01-02-03-05",
+  "terms": [
+    { "name": "集体商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "集体商标是指以团体、协会或者其他组织名义注册，供该组织成员在商事活动中使用" },
+    { "name": "地理标志", "aliases": [], "role": "used", "confidence": "high", "evidence": "以地理标志作为集体商标注册的" },
+    { "name": "使用管理规则", "aliases": [], "role": "used", "confidence": "mid", "evidence": "还应提交使用管理规则" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

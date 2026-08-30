@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/01/01/02/01",
+  "anchorNode": "tmeg-03-01-01-02-01",
+  "terms": [
+    { "name": "共有商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "属于共有商标的，申请人应当在申请书" },
+    { "name": "代表人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "共有商标变更申请人或注册人名义、地址，需由代表人提出申请" },
+    { "name": "形式审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "该部分涉及商标业务申请文件均应满足形式审查一般要求" }
+  ],
+  "laws": ["商标法实施条例第5条", "商标法实施条例第6条", "商标法实施条例第9条", "商标法实施条例第10条", "商标法实施条例第12条", "商标法实施条例第14条", "商标法实施条例第15条", "商标法实施条例第16条", "商标法实施条例第18条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

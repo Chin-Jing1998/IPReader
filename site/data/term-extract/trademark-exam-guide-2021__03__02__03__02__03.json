@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/03/02/03",
+  "anchorNode": "tmeg-03-02-03-02-03",
+  "terms": [
+    { "name": "主合同", "aliases": [], "role": "defined", "confidence": "high", "evidence": "主合同一般为借款合同、担保合同、授信合同" },
+    { "name": "质押合同", "aliases": [], "role": "defined", "confidence": "high", "evidence": "质押合同可以是单独的合同，也可以是主合同中的质押条款" },
+    { "name": "流质", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不能包含流质的规定" },
+    { "name": "被担保债权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "被担保债权的种类和数额" },
+    { "name": "质押物清单", "aliases": [], "role": "used", "confidence": "mid", "evidence": "质押物清单作为合同附件" },
+    { "name": "质押财产", "aliases": [], "role": "used", "confidence": "mid", "evidence": "质押财产交付的时间" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

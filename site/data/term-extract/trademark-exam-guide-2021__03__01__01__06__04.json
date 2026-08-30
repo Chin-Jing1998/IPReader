@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/01/01/06/04",
+  "anchorNode": "tmeg-03-01-01-06-04",
+  "terms": [
+    { "name": "核准变更", "aliases": [], "role": "defined", "confidence": "high", "evidence": "变更申请完全符合规定的，商标注册部门核准变更" },
+    { "name": "变更证明", "aliases": [], "role": "used", "confidence": "mid", "evidence": "发给注册人相应的变更证明" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

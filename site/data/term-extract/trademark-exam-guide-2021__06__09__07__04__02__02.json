@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/04/02/02",
+  "anchorNode": "tmeg-06-09-07-04-02-02",
+  "terms": [
+    { "name": "人文因素", "aliases": [], "role": "used", "confidence": "mid", "evidence": "野生蜈蚣特定品质的形成与产地人文因素无必然联系" },
+    { "name": "商品种类名称", "aliases": [], "role": "used", "confidence": "mid", "evidence": "包含商品种类名称的" },
+    { "name": "地理标志构成要素", "aliases": [], "role": "used", "confidence": "mid", "evidence": "包含非地理标志构成要素的" }
+  ],
+  "laws": ["商标法第11条", "商标法第16条第2款"],
+  "extractedAt": "2026-08-30T01:53:23+08:00",
+  "model": "claude-sonnet-5"
+}

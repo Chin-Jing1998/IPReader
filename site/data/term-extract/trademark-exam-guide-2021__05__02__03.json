@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/02/03",
+  "anchorNode": "tmeg-05-02-03",
+  "terms": [
+    { "name": "电子发文", "aliases": [], "role": "used", "confidence": "high", "evidence": "接受电子发文的商标业务" },
+    { "name": "缴费码", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当在银行汇款附言中写明正确的缴费码" },
+    { "name": "商标网上缴费平台", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在商标网上缴费平台补充缴费信息" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,13 @@
+{
+  "chunk": "copyright-law-2020/01/05",
+  "anchorNode": "cpl-01-05",
+  "terms": [
+    { "name": "官方正式译文", "aliases": [], "role": "defined", "confidence": "high", "evidence": "官方正式译文" },
+    { "name": "单纯事实消息", "aliases": [], "role": "defined", "confidence": "high", "evidence": "单纯事实消息" },
+    { "name": "通用数表", "aliases": [], "role": "defined", "confidence": "high", "evidence": "通用数表" },
+    { "name": "通用表格", "aliases": [], "role": "defined", "confidence": "high", "evidence": "通用表格" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:13:54+08:00",
+  "model": "claude-sonnet-5"
+}

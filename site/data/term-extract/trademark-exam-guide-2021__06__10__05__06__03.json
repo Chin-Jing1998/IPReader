@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/10/05/06/03",
+  "anchorNode": "tmeg-06-10-05-06-03",
+  "terms": [
+    { "name": "独创性", "aliases": [], "role": "used", "confidence": "high", "evidence": "他人驰名商标的独创性" },
+    { "name": "近似程度", "aliases": [], "role": "used", "confidence": "mid", "evidence": "系争商标与他人驰名商标的近似程度" },
+    { "name": "知名程度", "aliases": [], "role": "used", "confidence": "mid", "evidence": "他人驰名商标的知名程度" },
+    { "name": "关联程度", "aliases": [], "role": "used", "confidence": "mid", "evidence": "系争商标与他人驰名商标各自使用的商品或者服务的关联程度" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

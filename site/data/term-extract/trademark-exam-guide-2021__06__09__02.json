@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/02",
+  "anchorNode": "tmeg-06-09-02",
+  "terms": [
+    { "name": "注册商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "经商标局核准注册的商标为注册商标" },
+    { "name": "商品商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "包括商品商标、服务商标和集体商标、证明商标" },
+    { "name": "服务商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "包括商品商标、服务商标和集体商标、证明商标" },
+    { "name": "集体商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本法所称集体商标，是指以团体、协会或者其他组织名义注册" },
+    { "name": "证明商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本法所称证明商标，是指由对某种商品或者服务具有监督能力的组织所控制" },
+    { "name": "商标专用权", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标注册人享有商标专用权，受法律保护" }
+  ],
+  "laws": ["商标法第3条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

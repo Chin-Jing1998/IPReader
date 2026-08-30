@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/08/03/04",
+  "anchorNode": "tmeg-06-03-02-02-08-03-04",
+  "terms": [
+    { "name": "民族、种族尊严或者感情", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "有害于民族、种族尊严或者感情的判定应综合考虑该标志的构成及其指定商品或者服务" },
+    { "name": "民族团结", "aliases": [], "role": "used", "confidence": "high", "evidence": "有害于民族团结、民族平等的" }
+  ],
+  "laws": ["宪法第4条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

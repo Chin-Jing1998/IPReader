@@ -1,0 +1,10 @@
+{
+  "chunk": "copyright-law-rules-2013/06",
+  "anchorNode": "cplr-06",
+  "terms": [
+    { "name": "著作权", "aliases": [], "role": "used", "confidence": "high", "evidence": "著作权自作品创作完成之日起产生。" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

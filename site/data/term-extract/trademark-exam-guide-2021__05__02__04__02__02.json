@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/02/04/02/02",
+  "anchorNode": "tmeg-05-02-04-02-02",
+  "terms": [
+    { "name": "不予退款", "aliases": [], "role": "defined", "confidence": "high", "evidence": "当事人自缴费之日起超过三年才提出退款请求的" },
+    { "name": "多缴", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对多缴、重缴、错缴的费用" },
+    { "name": "重缴", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对多缴、重缴、错缴的费用" },
+    { "name": "错缴", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对多缴、重缴、错缴的费用" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

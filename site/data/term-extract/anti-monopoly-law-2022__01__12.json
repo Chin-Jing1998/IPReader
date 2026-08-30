@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-monopoly-law-2022/01/12",
+  "anchorNode": "aml-01-12",
+  "terms": [
+    { "name": "国务院反垄断委员会", "aliases": ["反垄断委员会"], "role": "defined", "confidence": "high", "evidence": "国务院设立反垄断委员会，负责组织、协调、指导反垄断工作，履行下列职责" },
+    { "name": "竞争政策", "aliases": [], "role": "used", "confidence": "mid", "evidence": "研究拟订有关竞争政策" },
+    { "name": "反垄断指南", "aliases": [], "role": "used", "confidence": "mid", "evidence": "制定、发布反垄断指南" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:31:00+08:00",
+  "model": "claude-sonnet-5"
+}

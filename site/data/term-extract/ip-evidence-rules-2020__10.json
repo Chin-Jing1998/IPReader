@@ -1,0 +1,12 @@
+{
+  "chunk": "ip-evidence-rules-2020/10",
+  "anchorNode": "ipev-10",
+  "terms": [
+    { "name": "授权委托书", "aliases": [], "role": "used", "confidence": "high", "evidence": "授权委托书公证、认证或者其他证明手续" },
+    { "name": "公证", "aliases": [], "role": "used", "confidence": "high", "evidence": "授权委托书公证" },
+    { "name": "认证", "aliases": [], "role": "used", "confidence": "mid", "evidence": "公证、认证或者其他证明手续" }
+  ],
+  "laws": ["民事诉讼法第59条", "民事诉讼法第264条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

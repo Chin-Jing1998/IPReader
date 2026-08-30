@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/19/04/01",
+  "anchorNode": "tmeg-06-19-04-01",
+  "terms": [
+    { "name": "审查意见书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "审查意见书是商标注册部门依据《商标法》及其实施条例的有关规定" },
+    { "name": "补正文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "补充证据或补正文件的法定程序" },
+    { "name": "补充证据", "aliases": [], "role": "used", "confidence": "mid", "evidence": "提供补充证据或补正文件" },
+    { "name": "恶意注册", "aliases": [], "role": "used", "confidence": "high", "evidence": "涉嫌恶意注册等相同事由" },
+    { "name": "法定期限", "aliases": [], "role": "used", "confidence": "mid", "evidence": "法定期限届满" },
+    { "name": "不计入商标审查期限", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不计入商标审查期限" }
+  ],
+  "laws": ["商标法第28条", "商标法实施条例第11条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

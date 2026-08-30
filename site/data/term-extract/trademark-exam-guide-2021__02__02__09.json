@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/02/09",
+  "anchorNode": "tmeg-02-02-09",
+  "terms": [
+    { "name": "意译分卡", "aliases": [], "role": "defined", "confidence": "high", "evidence": "意译分卡仅用于档案显示，审查中按与之相对应的汉字分卡、拼音分卡进行检索" },
+    { "name": "商标实质审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "直接影响商标实质审查的检索结果和审查结论" },
+    { "name": "少数民族文字", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标包含少数民族文字或除英文外的其他外文的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

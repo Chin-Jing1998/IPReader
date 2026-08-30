@@ -1,0 +1,10 @@
+{
+  "chunk": "anti-monopoly-law-2022/01/05",
+  "anchorNode": "aml-01-05",
+  "terms": [
+    { "name": "公平竞争审查制度", "aliases": ["公平竞争审查"], "role": "defined", "confidence": "high", "evidence": "国家建立健全公平竞争审查制度" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

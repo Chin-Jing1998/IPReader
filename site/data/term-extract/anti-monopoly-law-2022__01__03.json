@@ -1,0 +1,14 @@
+{
+  "chunk": "anti-monopoly-law-2022/01/03",
+  "anchorNode": "aml-01-03",
+  "terms": [
+    { "name": "垄断行为", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本法规定的垄断行为包括" },
+    { "name": "垄断协议", "aliases": [], "role": "used", "confidence": "high", "evidence": "经营者达成垄断协议" },
+    { "name": "市场支配地位", "aliases": [], "role": "used", "confidence": "high", "evidence": "经营者滥用市场支配地位" },
+    { "name": "经营者集中", "aliases": [], "role": "used", "confidence": "high", "evidence": "具有或者可能具有排除、限制竞争效果的经营者集中" },
+    { "name": "排除、限制竞争效果", "aliases": [], "role": "used", "confidence": "mid", "evidence": "排除、限制竞争效果" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

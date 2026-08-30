@@ -1,0 +1,13 @@
+{
+  "chunk": "anti-monopoly-law-2022/05/02",
+  "anchorNode": "aml-05-02",
+  "terms": [
+    { "name": "滥用行政权力", "aliases": [], "role": "used", "confidence": "high", "evidence": "不得滥用行政权力" },
+    { "name": "排除、限制竞争", "aliases": [], "role": "used", "confidence": "high", "evidence": "实行不平等待遇，排除、限制竞争" },
+    { "name": "妨碍市场进入", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "妨碍其他经营者进入相关市场" },
+    { "name": "相关市场", "aliases": [], "role": "used", "confidence": "high", "evidence": "其他经营者进入相关市场" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

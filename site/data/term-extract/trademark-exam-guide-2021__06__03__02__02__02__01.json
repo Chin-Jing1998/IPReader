@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/02/01",
+  "anchorNode": "tmeg-06-03-02-02-02-01",
+  "terms": [
+    { "name": "外国的国家名称", "aliases": [], "role": "defined", "confidence": "high", "evidence": "有关标志与外国的国家名称相同的，判定为与外国的国家名称相同" },
+    { "name": "政府同意", "aliases": [], "role": "defined", "confidence": "high", "evidence": "经该国政府同意的，一般不适用该禁用规定" },
+    { "name": "商品产地误认", "aliases": [], "role": "used", "confidence": "high", "evidence": "在特定商品上容易使公众发生商品产地误认的" },
+    { "name": "显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "有关标志所含国名与其他具备显著特征的标志相互独立" },
+    { "name": "国名的旧称", "aliases": [], "role": "used", "confidence": "mid", "evidence": "有关标志同外国国名的旧称相同或者近似的" },
+    { "name": "中文国名简称", "aliases": [], "role": "used", "confidence": "mid", "evidence": "两个或者两个以上中文国名简称组合而成" }
+  ],
+  "laws": ["商标法第10条第1款第7项"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

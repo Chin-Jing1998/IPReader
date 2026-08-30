@@ -1,0 +1,10 @@
+{
+  "chunk": "ic-layout-regulations-2026/03/11",
+  "anchorNode": "icld-03-11",
+  "terms": [
+    { "name": "复审", "aliases": [], "role": "used", "confidence": "high", "evidence": "请求复审" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:40:57+08:00",
+  "model": "claude-sonnet-5"
+}

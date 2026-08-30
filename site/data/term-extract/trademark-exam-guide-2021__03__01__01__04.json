@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/01/01/04",
+  "anchorNode": "tmeg-03-01-01-04",
+  "terms": [
+    { "name": "有效注册商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请变更的商标包括有效注册商标和在注册申请中的商标" },
+    { "name": "无效状态", "aliases": [], "role": "used", "confidence": "low", "evidence": "对于确认处于无效状态的商标，不予核准其变更申请" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

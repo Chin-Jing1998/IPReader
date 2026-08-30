@@ -1,0 +1,23 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/04/02/02/03/16",
+  "anchorNode": "tmeg-06-04-02-02-03-16",
+  "terms": [
+    {
+      "name": "格言警句",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "格言警句，是指名人名言，或者前人总结的为人处事、修身齐家等的短语或成语或句子等"
+    },
+    {
+      "name": "显著特征",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "不具备商标的显著特征"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

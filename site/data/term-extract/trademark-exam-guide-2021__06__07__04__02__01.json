@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/07/04/02/01",
+  "anchorNode": "tmeg-06-07-04-02-01",
+  "terms": [
+    { "name": "颜色组合商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "颜色组合商标禁用条款审查" },
+    { "name": "禁用条款", "aliases": [], "role": "used", "confidence": "high", "evidence": "是否违反禁用条款" },
+    { "name": "整体视觉效果", "aliases": [], "role": "used", "confidence": "high", "evidence": "呈现出的整体视觉效果" },
+    { "name": "商标说明", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标说明：本商标由绿、白、红三种颜色组成" },
+    { "name": "使用方式", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以申请人说明的使用方式使用" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

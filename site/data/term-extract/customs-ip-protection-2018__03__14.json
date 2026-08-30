@@ -1,0 +1,14 @@
+{
+  "chunk": "customs-ip-protection-2018/03/14",
+  "anchorNode": "cusr-03-14",
+  "terms": [
+    { "name": "侵权嫌疑货物", "aliases": [], "role": "used", "confidence": "high", "evidence": "海关依照本条例的规定扣留侵权嫌疑货物" },
+    { "name": "扣留", "aliases": [], "role": "used", "confidence": "high", "evidence": "海关依照本条例的规定扣留侵权嫌疑货物" },
+    { "name": "担保金", "aliases": [], "role": "used", "confidence": "high", "evidence": "海关可以从其向海关提供的担保金中予以扣除" },
+    { "name": "担保人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "或者要求担保人履行有关担保责任" },
+    { "name": "合理开支", "aliases": [], "role": "used", "confidence": "mid", "evidence": "为制止侵权行为所支付的合理开支" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

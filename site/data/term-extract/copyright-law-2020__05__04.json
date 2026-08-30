@@ -1,0 +1,16 @@
+{
+  "chunk": "copyright-law-2020/05/04",
+  "anchorNode": "cpl-05-04",
+  "terms": [
+    { "name": "侵权行为", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "有下列侵权行为的" },
+    { "name": "民事责任", "aliases": [], "role": "used", "confidence": "mid", "evidence": "民事责任" },
+    { "name": "合作作者", "aliases": [], "role": "used", "confidence": "mid", "evidence": "未经合作作者许可" },
+    { "name": "剽窃", "aliases": [], "role": "used", "confidence": "mid", "evidence": "剽窃他人作品的" },
+    { "name": "表演者", "aliases": [], "role": "used", "confidence": "high", "evidence": "未经表演者许可" },
+    { "name": "版式设计", "aliases": [], "role": "used", "confidence": "high", "evidence": "版式设计的" },
+    { "name": "录音录像制作者", "aliases": [], "role": "used", "confidence": "high", "evidence": "录音录像制作者许可" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

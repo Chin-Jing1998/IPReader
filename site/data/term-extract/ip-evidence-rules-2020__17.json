@@ -1,0 +1,12 @@
+{
+  "chunk": "ip-evidence-rules-2020/17",
+  "anchorNode": "ipev-17",
+  "terms": [
+    { "name": "被申请人", "aliases": [], "role": "used", "confidence": "high", "evidence": "被申请人对证据保全的范围、措施、必要性等提出异议" },
+    { "name": "证据保全", "aliases": [], "role": "used", "confidence": "high", "evidence": "可以变更、终止、解除证据保全" },
+    { "name": "异议理由", "aliases": [], "role": "used", "confidence": "mid", "evidence": "人民法院经审查认为异议理由成立的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

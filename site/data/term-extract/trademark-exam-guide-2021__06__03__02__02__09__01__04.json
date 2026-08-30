@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/09/01/04",
+  "anchorNode": "tmeg-06-03-02-02-09-01-04",
+  "terms": [
+    { "name": "重要地名以外的地名拼音商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "省、自治区、直辖市、特别行政区，省会城市、计划单列市、著名的旅游城市以外的地名" },
+    { "name": "计划单列市", "aliases": [], "role": "used", "confidence": "high", "evidence": "计划单列市" },
+    { "name": "著名的旅游城市", "aliases": [], "role": "used", "confidence": "mid", "evidence": "著名的旅游城市" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

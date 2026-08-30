@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/05/08/01",
+  "anchorNode": "tmeg-06-09-07-05-08-01",
+  "terms": [
+    { "name": "特定品质", "aliases": [], "role": "defined", "confidence": "high", "evidence": "地理标志商品特定品质包括该商品的感官特征、理化指标或其特殊的制作方法" },
+    { "name": "感官特征", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "感官特征包括形状、尺寸、颜色、纹理等视觉特征和嗅觉、味觉感知等" },
+    { "name": "理化指标", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "理化指标包括所属族、种等生物特征，重量、密度、酸碱度等物理特征" },
+    { "name": "制作方法", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "制作方法包括对加工技术的描述以及最终产品的质量标准" }
+  ],
+  "laws": ["商标法第16条第2款", "商标法第16条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

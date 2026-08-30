@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/07/04/01",
+  "anchorNode": "tmeg-06-07-04-01",
+  "terms": [
+    { "name": "颜色组合商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "颜色组合商标是指由两种或两种以上颜色按照特定方式进行组合构成的商标" },
+    { "name": "单一颜色", "aliases": [], "role": "used", "confidence": "high", "evidence": "单一颜色" },
+    { "name": "商标图样", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标图样中呈现的形状" },
+    { "name": "指定颜色商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "指定颜色商标不属于颜色组合商标" },
+    { "name": "固有显著性", "aliases": [], "role": "used", "confidence": "high", "evidence": "颜色组合商标缺乏固有显著性" },
+    { "name": "显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "才能取得显著特征" },
+    { "name": "禁用条款", "aliases": [], "role": "used", "confidence": "high", "evidence": "包括禁用条款的审查" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

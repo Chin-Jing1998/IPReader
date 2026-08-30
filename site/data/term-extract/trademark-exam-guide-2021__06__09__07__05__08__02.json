@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/05/08/02",
+  "anchorNode": "tmeg-06-09-07-05-08-02",
+  "terms": [
+    { "name": "特定品质", "aliases": [], "role": "used", "confidence": "mid", "evidence": "地理标志产品的特定品质与生产地域特定的自然地理环境之间关系" },
+    { "name": "自然因素", "aliases": ["自然条件", "自然地理环境"], "role": "defined", "confidence": "mid", "evidence": "产地的气温、光照、降水、土壤、河流等自然条件" },
+    { "name": "人文因素", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "同时将产地的人文因素一并表述的，应包括种植区域（如山前山后、朝向）" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

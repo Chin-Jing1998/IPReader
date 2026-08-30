@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/05/03/04/01/09",
+  "anchorNode": "tmeg-06-05-03-04-01-09",
+  "terms": [
+    { "name": "近似商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "易使相关公众对商品或者服务的来源产生混淆的，判定为近似商标" },
+    { "name": "个别字母不同", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“个别字母不同”包括变字母、增加或减少字母、邻近字母变换顺序等" },
+    { "name": "综合判断", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "情况综合判断是否近似" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

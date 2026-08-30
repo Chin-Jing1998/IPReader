@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/02",
+  "anchorNode": "tmeg-06-02-02",
+  "terms": [
+    { "name": "不以使用为目的的恶意商标注册申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "不以使用为目的的恶意商标注册申请，应当予以驳回" },
+    { "name": "商标专用权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对其商品或者服务需要取得商标专用权的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

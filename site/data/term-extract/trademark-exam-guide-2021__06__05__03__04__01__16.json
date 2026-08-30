@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/05/03/04/01/16",
+  "anchorNode": "tmeg-06-05-03-04-01-16",
+  "terms": [
+    { "name": "近似商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "易使相关公众认为属于系列商标而对商品或者服务的来源产生混淆的，判定为近似商标" },
+    { "name": "知名度", "aliases": [], "role": "used", "confidence": "high", "evidence": "他人在先具有较高知名度或者显著性较强的文字商标" },
+    { "name": "显著性", "aliases": [], "role": "used", "confidence": "high", "evidence": "显著性较强的文字商标" },
+    { "name": "系列商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "易使相关公众认为属于系列商标而对商品或者服务的来源产生混淆" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "易使相关公众认为属于系列商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

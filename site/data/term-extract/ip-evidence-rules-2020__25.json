@@ -1,0 +1,11 @@
+{
+  "chunk": "ip-evidence-rules-2020/25",
+  "anchorNode": "ipev-25",
+  "terms": [
+    { "name": "提交虚假证据", "aliases": [], "role": "used", "confidence": "mid", "evidence": "提交虚假证据" },
+    { "name": "毁灭证据", "aliases": [], "role": "used", "confidence": "mid", "evidence": "毁灭证据" }
+  ],
+  "laws": ["民事诉讼法第111条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

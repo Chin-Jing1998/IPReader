@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-rules-2013/36",
+  "anchorNode": "cplr-36",
+  "terms": [
+    { "name": "非法经营额", "aliases": [], "role": "used", "confidence": "high", "evidence": "非法经营额5万元以上的" },
+    { "name": "损害社会公共利益", "aliases": [], "role": "used", "confidence": "mid", "evidence": "同时损害社会公共利益" }
+  ],
+  "laws": ["著作权法第48条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

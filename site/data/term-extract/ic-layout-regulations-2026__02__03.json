@@ -1,0 +1,11 @@
+{
+  "chunk": "ic-layout-regulations-2026/02/03",
+  "anchorNode": "icld-02-03",
+  "terms": [
+    { "name": "布图设计专有权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "布图设计专有权属于布图设计创作者" },
+    { "name": "创作者", "aliases": [], "role": "defined", "confidence": "high", "evidence": "由自然人创作的布图设计，该自然人是创作者" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/14/02/02/06/02",
+  "anchorNode": "tmeg-06-14-02-02-06-02",
+  "terms": [
+    { "name": "地理标志", "aliases": [], "role": "defined", "confidence": "high", "evidence": "地理标志已经客观存在" },
+    { "name": "显著性", "aliases": [], "role": "used", "confidence": "high", "evidence": "地理标志客观存在情况及其知名度、显著性" },
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "已经作为集体商标或者证明商标申请注册的" },
+    { "name": "证明商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "集体商标或者证明商标申请注册的" },
+    { "name": "善意取得", "aliases": [], "role": "used", "confidence": "high", "evidence": "该商标已经善意取得注册" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

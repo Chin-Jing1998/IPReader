@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/02/06",
+  "anchorNode": "tmeg-02-02-06",
+  "terms": [
+    { "name": "英文分卡", "aliases": [], "role": "defined", "confidence": "high", "evidence": "英文分卡中只能出现大写英文字母、空格和“&”。" },
+    { "name": "意译分卡", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应划分意译分卡及与之相对应的汉字分卡、拼音分卡" },
+    { "name": "字头分卡", "aliases": [], "role": "used", "confidence": "mid", "evidence": "除划分字头分卡外，整体还应划分英文分卡" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

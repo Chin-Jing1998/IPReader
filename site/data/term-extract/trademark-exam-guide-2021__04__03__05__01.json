@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/03/05/01",
+  "anchorNode": "tmeg-04-03-05-01",
+  "terms": [
+    { "name": "异议人", "aliases": [], "role": "used", "confidence": "high", "evidence": "异议人在国家知识产权局作出决定之前" },
+    { "name": "撤回商标国际异议申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "要求撤回商标国际异议申请并说明理由" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

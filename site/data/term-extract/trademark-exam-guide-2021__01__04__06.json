@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/04/06",
+  "anchorNode": "tmeg-01-04-06",
+  "terms": [
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "当事人委托商标代理机构办理商标评审事宜" },
+    { "name": "代理权限", "aliases": [], "role": "used", "confidence": "high", "evidence": "代理权限发生变更" },
+    { "name": "代理委托书", "aliases": ["商标代理委托书"], "role": "used", "confidence": "high", "evidence": "新的代理委托书" },
+    { "name": "解除代理关系", "aliases": ["解除委托关系"], "role": "defined", "confidence": "high", "evidence": "予以变更或解除代理关系" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

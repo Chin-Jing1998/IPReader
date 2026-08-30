@@ -1,0 +1,15 @@
+{
+  "chunk": "anti-unfair-competition-2025/02/07",
+  "anchorNode": "aucl-02-07",
+  "terms": [
+    { "name": "网络不正当竞争行为", "aliases": [], "role": "defined", "confidence": "high", "evidence": "网络不正当竞争行为" },
+    { "name": "平台规则", "aliases": [], "role": "used", "confidence": "mid", "evidence": "经营者不得滥用平台规则，直接或者指使他人对其他经营者实施虚假交易" },
+    { "name": "虚假交易", "aliases": [], "role": "used", "confidence": "high", "evidence": "对其他经营者实施虚假交易、虚假评价或者恶意退货等行为" },
+    { "name": "虚假评价", "aliases": [], "role": "used", "confidence": "high", "evidence": "对其他经营者实施虚假交易、虚假评价或者恶意退货等行为" },
+    { "name": "恶意退货", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对其他经营者实施虚假交易、虚假评价或者恶意退货等行为" },
+    { "name": "技术管理措施", "aliases": [], "role": "used", "confidence": "mid", "evidence": "避开或者破坏技术管理措施等不正当方式" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

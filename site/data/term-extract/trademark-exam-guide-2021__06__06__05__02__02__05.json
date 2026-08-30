@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/06/05/02/02/05",
+  "anchorNode": "tmeg-06-06-05-02-02-05",
+  "terms": [
+    { "name": "固有显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "不具备固有显著特征的三维标志商标" },
+    { "name": "取得显著特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "经过长期或广泛使用起到了区分商品来源作用的，可以取得显著特征" },
+    { "name": "使用证据", "aliases": [], "role": "used", "confidence": "mid", "evidence": "要求申请人提交使用证据" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

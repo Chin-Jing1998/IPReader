@@ -1,0 +1,12 @@
+{
+  "chunk": "plant-variety-regulations-2025/07/07",
+  "anchorNode": "pvpr-07-07",
+  "terms": [
+    { "name": "品种权", "aliases": [], "role": "used", "confidence": "high", "evidence": "品种权申请过程中" },
+    { "name": "不诚信行为", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "存在欺骗、隐瞒、伪造等不诚信行为的" },
+    { "name": "信用记录", "aliases": [], "role": "used", "confidence": "mid", "evidence": "记入相关主体信用记录" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

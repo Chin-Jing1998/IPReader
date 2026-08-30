@@ -1,0 +1,13 @@
+{
+  "chunk": "copyright-law-2020/04/03/01",
+  "anchorNode": "cpl-04-03-01",
+  "terms": [
+    { "name": "录音录像制作者", "aliases": [], "role": "used", "confidence": "high", "evidence": "录音录像制作者使用他人作品制作录音录像制品" },
+    { "name": "录音录像制品", "aliases": [], "role": "used", "confidence": "high", "evidence": "制作录音录像制品，应当取得著作权人许可" },
+    { "name": "录音制作者", "aliases": [], "role": "used", "confidence": "high", "evidence": "录音制作者使用他人已经合法录制为录音制品" },
+    { "name": "录音制品", "aliases": [], "role": "used", "confidence": "high", "evidence": "已经合法录制为录音制品的音乐作品" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

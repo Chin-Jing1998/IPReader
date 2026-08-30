@@ -1,0 +1,15 @@
+{
+  "chunk": "copyright-law-2020/02/03/02",
+  "anchorNode": "cpl-02-03-02",
+  "terms": [
+    { "name": "发表权", "aliases": [], "role": "used", "confidence": "high", "evidence": "发表权" },
+    { "name": "财产权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "财产权" },
+    { "name": "保护期", "aliases": [], "role": "used", "confidence": "high", "evidence": "保护期" },
+    { "name": "合作作品", "aliases": [], "role": "used", "confidence": "high", "evidence": "合作作品" },
+    { "name": "职务作品", "aliases": [], "role": "used", "confidence": "high", "evidence": "职务作品" },
+    { "name": "视听作品", "aliases": [], "role": "used", "confidence": "high", "evidence": "视听作品" }
+  ],
+  "laws": ["著作权法第10条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

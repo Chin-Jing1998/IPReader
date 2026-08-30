@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/14/02/02/02/01",
+  "anchorNode": "tmeg-06-14-02-02-02-01",
+  "terms": [
+    { "name": "在先著作权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在先著作权是指系争商标申请注册日之前，作品已经创作完成" },
+    { "name": "著作权", "aliases": [], "role": "used", "confidence": "high", "evidence": "将他人享有著作权的作品申请注册商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

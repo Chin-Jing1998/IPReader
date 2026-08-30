@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/02/04/03",
+  "anchorNode": "tmeg-04-02-04-03",
+  "terms": [
+    { "name": "形式审查的一般性要求", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请文件除满足形式审查的一般性要求" },
+    { "name": "国际注册号", "aliases": [], "role": "used", "confidence": "high", "evidence": "一份变更申请可涉及多个国际注册号" },
+    { "name": "国际注册簿", "aliases": [], "role": "used", "confidence": "high", "evidence": "注册人名称必须与国际注册簿保持一致" },
+    { "name": "变更证明文件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "变更证明文件可以为登记机关核准变更文件的复印件" },
+    { "name": "基础商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "但若基础商标已经变更的，则无须提交变更证明文件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

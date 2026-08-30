@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/04/03/04/04",
+  "anchorNode": "tmeg-01-04-03-04-04",
+  "terms": [
+    { "name": "代理委托书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当提交代理委托书。代理委托书应当注明委托事项和代理权限" },
+    { "name": "代理权限", "aliases": [], "role": "used", "confidence": "mid", "evidence": "代理委托书应当注明委托事项和代理权限" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

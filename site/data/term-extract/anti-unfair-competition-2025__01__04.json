@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-unfair-competition-2025/01/04",
+  "anchorNode": "aucl-01-04",
+  "terms": [
+    { "name": "不正当竞争行为", "aliases": [], "role": "used", "confidence": "high", "evidence": "预防和制止不正当竞争行为" },
+    { "name": "反不正当竞争工作协调机制", "aliases": [], "role": "used", "confidence": "high", "evidence": "建立健全反不正当竞争工作协调机制" },
+    { "name": "市场竞争秩序", "aliases": [], "role": "used", "confidence": "mid", "evidence": "维护市场竞争秩序的重大问题" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

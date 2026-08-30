@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/05/05/06",
+  "anchorNode": "tmeg-06-02-05-05-06",
+  "terms": [
+    { "name": "不以使用为目的的恶意商标注册申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "不以使用为目的的恶意商标注册申请" },
+    { "name": "公共资源", "aliases": [], "role": "used", "confidence": "high", "evidence": "地名和景点名称为公共资源" },
+    { "name": "囤积公共资源", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不正当囤积公共资源的意图" },
+    { "name": "地名商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标大部分为地名商标" },
+    { "name": "商标注册和管理秩序", "aliases": [], "role": "used", "confidence": "mid", "evidence": "扰乱了正常的商标注册和管理秩序" }
+  ],
+  "laws": ["商标法第4条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "plant-variety-regulations-2025/06/06",
+  "anchorNode": "pvpr-06-06",
+  "terms": [
+    { "name": "权利恢复", "aliases": [], "role": "defined", "confidence": "high", "evidence": "权利恢复与期限延长" },
+    { "name": "期限延长", "aliases": [], "role": "defined", "confidence": "high", "evidence": "权利恢复与期限延长" }
+  ],
+  "laws": ["植物新品种保护条例第15条", "植物新品种保护条例第24条", "植物新品种保护条例第35条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

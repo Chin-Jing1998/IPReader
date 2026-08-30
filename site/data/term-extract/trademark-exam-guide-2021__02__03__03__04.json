@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/03/03/04",
+  "anchorNode": "tmeg-02-03-03-04",
+  "terms": [
+    { "name": "图形编码", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "图形的表现形式介于两个图形编码之间的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

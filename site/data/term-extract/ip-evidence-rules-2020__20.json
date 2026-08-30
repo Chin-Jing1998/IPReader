@@ -1,0 +1,12 @@
+{
+  "chunk": "ip-evidence-rules-2020/20",
+  "anchorNode": "ipev-20",
+  "terms": [
+    { "name": "鉴定人", "aliases": [], "role": "used", "confidence": "high", "evidence": "鉴定人" },
+    { "name": "鉴定意见", "aliases": [], "role": "used", "confidence": "high", "evidence": "鉴定意见" },
+    { "name": "检测机构", "aliases": [], "role": "used", "confidence": "mid", "evidence": "检测机构" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

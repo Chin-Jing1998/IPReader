@@ -1,0 +1,11 @@
+{
+  "chunk": "ic-layout-regulations-2026/04/02",
+  "anchorNode": "icld-04-02",
+  "terms": [
+    { "name": "布图设计专有权", "aliases": [], "role": "used", "confidence": "high", "evidence": "布图设计专有权" },
+    { "name": "出质登记", "aliases": [], "role": "used", "confidence": "mid", "evidence": "出质登记" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:40:57+08:00",
+  "model": "claude-sonnet-5"
+}

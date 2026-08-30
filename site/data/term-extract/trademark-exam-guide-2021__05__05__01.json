@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/05/01",
+  "anchorNode": "tmeg-05-05-01",
+  "terms": [
+    { "name": "商标注册档案", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "商标注册档案，是指在商标注册申请、异议、撤销、复审、无效等过程中形成的" },
+    { "name": "纸质档案", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "纸质档案" },
+    { "name": "电子档案", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "电子档案" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:24:30+08:00",
+  "model": "claude-sonnet-5"
+}

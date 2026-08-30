@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/01/02/03",
+  "anchorNode": "tmeg-03-01-02-03",
+  "terms": [
+    { "name": "商标注册申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标注册申请，即处于申请流程中的商标" },
+    { "name": "驳回复审", "aliases": [], "role": "used", "confidence": "high", "evidence": "含驳回复审中、异议中、不予注册复审中的商标" },
+    { "name": "异议", "aliases": [], "role": "used", "confidence": "mid", "evidence": "含驳回复审中、异议中、不予注册复审中的商标" },
+    { "name": "不予注册复审", "aliases": [], "role": "used", "confidence": "high", "evidence": "含驳回复审中、异议中、不予注册复审中的商标" },
+    { "name": "连续三年不使用撤销", "aliases": [], "role": "used", "confidence": "high", "evidence": "变更连续三年不使用撤销、无效宣告等案件中的代理机构的" },
+    { "name": "无效宣告", "aliases": [], "role": "used", "confidence": "high", "evidence": "变更连续三年不使用撤销、无效宣告等案件中的代理机构的" },
+    { "name": "变更代理机构", "aliases": ["变更商标代理机构"], "role": "used", "confidence": "mid", "evidence": "申请人无须再办理变更代理机构的手续" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

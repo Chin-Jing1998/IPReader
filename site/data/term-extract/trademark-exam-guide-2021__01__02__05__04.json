@@ -1,0 +1,23 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/05/04",
+  "anchorNode": "tmeg-01-02-05-04",
+  "terms": [
+    {
+      "name": "优先权",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "要求基于第一次申请的优先权"
+    },
+    {
+      "name": "优先权证明文件",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "优先权证明文件（包括原件和中文译文）"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,14 @@
+{
+  "chunk": "copyright-law-2020/05/11",
+  "anchorNode": "cpl-05-11",
+  "terms": [
+    { "name": "视听作品", "aliases": [], "role": "used", "confidence": "high", "evidence": "视听作品、计算机软件、录音录像制品" },
+    { "name": "计算机软件", "aliases": [], "role": "used", "confidence": "high", "evidence": "计算机软件" },
+    { "name": "录音录像制品", "aliases": [], "role": "used", "confidence": "high", "evidence": "录音录像制品" },
+    { "name": "复制品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "复制品的出版者、制作者" },
+    { "name": "合法来源", "aliases": [], "role": "used", "confidence": "mid", "evidence": "合法来源" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

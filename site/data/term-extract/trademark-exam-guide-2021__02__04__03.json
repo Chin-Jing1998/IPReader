@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/04/03",
+  "anchorNode": "tmeg-02-04-03",
+  "terms": [
+    { "name": "非音乐性质的声音商标", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "非音乐性质的声音商标，声音要素编码为 S2" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,23 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/04/03/03",
+  "anchorNode": "tmeg-01-04-03-03",
+  "terms": [
+    { "name": "驳回复审", "aliases": ["驳回复审案件"], "role": "defined", "confidence": "high", "evidence": "对商标注册部门作出的驳回商标注册申请的决定不服提起复审，属于驳回复审案件" },
+    { "name": "不予注册复审", "aliases": ["不予注册复审案件"], "role": "defined", "confidence": "high", "evidence": "对初步审定的商标不予注册的决定不服提起复审，属于不予注册复审案件" },
+    { "name": "撤销复审", "aliases": ["撤销复审案件"], "role": "defined", "confidence": "high", "evidence": "对注册商标撤销或不予撤销的决定不服提起复审，属于撤销复审案件" },
+    { "name": "无效宣告复审", "aliases": ["无效宣告复审案件"], "role": "defined", "confidence": "high", "evidence": "对注册商标宣告无效的决定不服提起复审，属于无效宣告复审案件" },
+    { "name": "无效宣告", "aliases": ["无效宣告案件"], "role": "defined", "confidence": "high", "evidence": "对已经注册的商标请求予以无效宣告的，属于无效宣告案件" },
+    { "name": "评审范围", "aliases": [], "role": "defined", "confidence": "high", "evidence": "属于驳回复审案件的评审范围" },
+    { "name": "商标注册申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "申请人不得以评审申请的形式提交商标注册申请" },
+    { "name": "分割申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标注册申请、分割申请、商标变更申请" },
+    { "name": "商标变更申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "分割申请、商标变更申请、商标续展申请" },
+    { "name": "商标续展申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标变更申请、商标续展申请、商标转让申请" },
+    { "name": "商标转让申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标续展申请、商标转让申请、商标异议申请" },
+    { "name": "商标异议申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标转让申请、商标异议申请、商标撤销申请" },
+    { "name": "商标撤销申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标异议申请、商标撤销申请、行政复议申请" },
+    { "name": "行政复议申请", "aliases": [], "role": "used", "confidence": "low", "evidence": "商标撤销申请、行政复议申请、信访等不属于评审范围" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

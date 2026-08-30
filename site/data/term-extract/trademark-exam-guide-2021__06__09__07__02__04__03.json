@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/02/04/03",
+  "anchorNode": "tmeg-06-09-07-02-04-03",
+  "terms": [
+    { "name": "省级行政区划地名", "aliases": [], "role": "defined", "confidence": "high", "evidence": "上述3.4.1、3.4.2中地名为省级行政区划的，除分别满足上述条件外" },
+    { "name": "支柱产业", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "申请指定商品或者服务为当地支柱产业，对当地经济发展贡献巨大" },
+    { "name": "经过使用取得显著特征", "aliases": [], "role": "used", "confidence": "high", "evidence": "经过使用取得显著特征的" },
+    { "name": "知名度", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "申请商标已在全国范围内具有高知名度" },
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标类型：集体商标" }
+  ],
+  "laws": ["商标法第10条第2款"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

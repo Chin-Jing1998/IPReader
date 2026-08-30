@@ -1,0 +1,44 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/05/05/02",
+  "anchorNode": "tmeg-06-02-05-05-02",
+  "terms": [
+    {
+      "name": "复制、摹仿、抄袭",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "大量复制、摹仿、抄袭多个主体在先具有一定知名度"
+    },
+    {
+      "name": "商誉",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "不正当利用他人商誉，扰乱了正常商标注册秩序"
+    },
+    {
+      "name": "非类似商品",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "该申请人在非类似商品或者服务上大量申请注册"
+    },
+    {
+      "name": "知名度",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "在先具有一定知名度或者较强显著性的商标"
+    },
+    {
+      "name": "显著性",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "较强显著性的商标"
+    }
+  ],
+  "laws": ["商标法第4条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

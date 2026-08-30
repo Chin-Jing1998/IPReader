@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/14/02/02/07/02",
+  "anchorNode": "tmeg-06-14-02-02-07-02",
+  "terms": [
+    { "name": "有一定影响的商品或者服务名称、包装、装潢", "aliases": [], "role": "defined", "confidence": "high", "evidence": "他人有一定影响的商品或者服务名称、包装、装潢未申请注册为商标" },
+    { "name": "在先权利", "aliases": [], "role": "used", "confidence": "high", "evidence": "损害他人现有的在先权利" },
+    { "name": "混淆误认", "aliases": [], "role": "used", "confidence": "high", "evidence": "容易导致相关公众产生混淆或误认" }
+  ],
+  "laws": ["商标法第32条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

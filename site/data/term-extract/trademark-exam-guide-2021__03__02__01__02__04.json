@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/01/02/04",
+  "anchorNode": "tmeg-03-02-01-02-04",
+  "terms": [
+    { "name": "书面审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "通过书面审查发现申请材料明显不合常理" },
+    { "name": "补正通知", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标注册部门可补正通知转让双方提供补充说明和证据" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

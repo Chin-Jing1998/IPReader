@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/05/06/01",
+  "anchorNode": "tmeg-06-09-07-05-06-01",
+  "terms": [
+    { "name": "主要由当地的自然条件决定", "aliases": [], "role": "defined", "confidence": "high", "evidence": "主要由当地的自然条件决定的" },
+    { "name": "自然条件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "独特的水土、光热等自然条件决定了" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

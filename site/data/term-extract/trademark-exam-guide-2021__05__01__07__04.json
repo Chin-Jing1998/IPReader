@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/01/07/04",
+  "anchorNode": "tmeg-05-01-07-04",
+  "terms": [
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标代理机构除对其代理服务申请商标注册外，不得申请注册其他商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:17:09+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/03/02/02",
+  "anchorNode": "tmeg-06-09-07-03-02-02",
+  "terms": [
+    { "name": "证明商标使用管理规则", "aliases": ["使用管理规则"], "role": "defined", "confidence": "high", "evidence": "证明商标使用管理规则应当包括以下主要内容" },
+    { "name": "检验监督制度", "aliases": [], "role": "used", "confidence": "mid", "evidence": "注册人对使用该证明商标商品的检验监督制度" },
+    { "name": "使用人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "使用人违反使用管理规则应当承担的责任" },
+    { "name": "证明商标注册人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "便于证明商标注册人进行管理" }
+  ],
+  "laws": ["集体商标、证明商标注册和管理办法第11条"],
+  "extractedAt": "2026-08-30T01:53:23+08:00",
+  "model": "claude-sonnet-5"
+}

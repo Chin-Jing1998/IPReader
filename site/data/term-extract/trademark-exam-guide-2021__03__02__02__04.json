@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/02/04",
+  "anchorNode": "tmeg-03-02-02-04",
+  "terms": [
+    { "name": "受让人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "使用许可行为未告知和取得受让人同意的" },
+    { "name": "注册商标专用权", "aliases": [], "role": "used", "confidence": "high", "evidence": "许可人的注册商标专用权上应不存在限制" },
+    { "name": "质押", "aliases": [], "role": "used", "confidence": "mid", "evidence": "如在先办理了质押、转让" },
+    { "name": "同意函", "aliases": [], "role": "used", "confidence": "mid", "evidence": "出具同意函方可予以备案" },
+    { "name": "书面同意文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "出具书面同意文件" },
+    { "name": "在先被许可人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "有证据表明许可行为损害在先被许可人利益的" },
+    { "name": "权属争议", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对许可商标存在权属争议的第三方" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

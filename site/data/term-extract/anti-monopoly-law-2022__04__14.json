@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-monopoly-law-2022/04/14",
+  "anchorNode": "aml-04-14",
+  "terms": [
+    { "name": "经营者集中", "aliases": [], "role": "used", "confidence": "high", "evidence": "以其他方式参与经营者集中" },
+    { "name": "外资并购", "aliases": [], "role": "used", "confidence": "high", "evidence": "对外资并购境内企业" },
+    { "name": "国家安全审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "还应当按照国家有关规定进行国家安全审查" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

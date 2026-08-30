@@ -1,0 +1,10 @@
+{
+  "chunk": "copyright-law-rules-2013/29",
+  "anchorNode": "cplr-29",
+  "terms": [
+    { "name": "图书脱销", "aliases": [], "role": "defined", "confidence": "high", "evidence": "视为著作权法第三十二条所称图书脱销" }
+  ],
+  "laws": ["著作权法第32条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

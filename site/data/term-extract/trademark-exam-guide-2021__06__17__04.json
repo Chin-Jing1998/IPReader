@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/17/04",
+  "anchorNode": "tmeg-06-17-04",
+  "terms": [
+    { "name": "通用名称", "aliases": [], "role": "used", "confidence": "high", "evidence": "商品通用名称" },
+    { "name": "答辩", "aliases": [], "role": "used", "confidence": "mid", "evidence": "2个月内答辩" }
+  ],
+  "laws": ["商标法第49条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

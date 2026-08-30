@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/09/01/02",
+  "anchorNode": "tmeg-06-03-02-02-09-01-02",
+  "terms": [
+    { "name": "地名与其他文字组合的整体含义", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "商标由地名和其他文字构成而在整体上具有强于地名含义的其他含义" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

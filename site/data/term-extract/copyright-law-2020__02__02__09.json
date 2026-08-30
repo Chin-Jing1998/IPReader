@@ -1,0 +1,10 @@
+{
+  "chunk": "copyright-law-2020/02/02/09",
+  "anchorNode": "cpl-02-02-09",
+  "terms": [
+    { "name": "委托作品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "受委托创作的作品，著作权的归属由委托人和受托人通过合同约定" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

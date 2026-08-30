@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/02/11/02",
+  "anchorNode": "tmeg-04-02-11-02",
+  "terms": [
+    { "name": "原属局", "aliases": [], "role": "used", "confidence": "high", "evidence": "以国家知识产权局为原属局的" },
+    { "name": "马德里国际注册商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "马德里国际注册商标注册人" },
+    { "name": "申请人资格", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人必须是以国家知识产权局为原属局的马德里国际注册商标注册人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

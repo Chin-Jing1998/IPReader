@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/08/03/08",
+  "anchorNode": "tmeg-06-03-02-02-08-03-08",
+  "terms": [
+    { "name": "突发事件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "突发事件是指突然发生，造成或者可能造成严重社会危害" },
+    { "name": "公共卫生事件", "aliases": [], "role": "used", "confidence": "high", "evidence": "标志及其组成部分与重大疫情等公共卫生事件相关的特有词汇相同或者近似" },
+    { "name": "事故灾难", "aliases": [], "role": "used", "confidence": "mid", "evidence": "标志及其组成部分与重大自然灾害、重大事故灾难相关的特有词汇相同或者近似" },
+    { "name": "社会安全事件", "aliases": [], "role": "used", "confidence": "high", "evidence": "标志及其组成部分与社会安全事件相关的特有词汇相同或者近似" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

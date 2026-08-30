@@ -1,0 +1,13 @@
+{
+  "chunk": "anti-monopoly-law-2022/04/01",
+  "anchorNode": "aml-04-01",
+  "terms": [
+    { "name": "经营者集中", "aliases": [], "role": "defined", "confidence": "high", "evidence": "经营者集中是指下列情形" },
+    { "name": "控制权", "aliases": [], "role": "used", "confidence": "high", "evidence": "取得对其他经营者的控制权" },
+    { "name": "决定性影响", "aliases": [], "role": "used", "confidence": "high", "evidence": "能够对其他经营者施加决定性影响" },
+    { "name": "经营者合并", "aliases": [], "role": "used", "confidence": "mid", "evidence": "经营者合并" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

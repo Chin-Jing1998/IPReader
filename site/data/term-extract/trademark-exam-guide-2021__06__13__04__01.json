@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/13/04/01",
+  "anchorNode": "tmeg-06-13-04-01",
+  "terms": [
+    { "name": "商标代理机构", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标代理机构是指经备案的从事商标代理业务的服务机构和从事商标代理业务的律师事务所" },
+    { "name": "商标代理服务", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标代理服务是指商标代理机构接受委托人的委托，以委托人的名义办理商标注册申请" },
+    { "name": "恶意抢注", "aliases": [], "role": "used", "confidence": "high", "evidence": "恶意抢注他人商标牟利" },
+    { "name": "商标实际使用人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标实际使用人的利益" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

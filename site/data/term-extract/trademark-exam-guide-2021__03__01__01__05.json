@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/01/01/05",
+  "anchorNode": "tmeg-03-01-01-05",
+  "terms": [
+    { "name": "一并变更", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标注册人对其注册的全部商标，应当一并变更" }
+  ],
+  "laws": ["商标法实施条例第30条第2款"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

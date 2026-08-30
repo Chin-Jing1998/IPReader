@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/01/07/03",
+  "anchorNode": "tmeg-05-01-07-03",
+  "terms": [
+    { "name": "备案", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标代理机构从事商标代理业务的，应当按照下列规定向商标注册部门备案" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:17:09+08:00",
+  "model": "claude-sonnet-5"
+}

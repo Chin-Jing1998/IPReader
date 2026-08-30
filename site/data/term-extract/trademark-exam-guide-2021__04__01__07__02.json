@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/01/07/02",
+  "anchorNode": "tmeg-04-01-07-02",
+  "terms": [
+    { "name": "Notification of Ceasing of Effect", "aliases": [], "role": "defined", "confidence": "high", "evidence": "通知书式为 Notification of Ceasing of Effect" }
+  ],
+  "laws": [
+    "商标国际注册马德里协定有关议定书实施细则第22条(1)(a)",
+    "商标国际注册马德里协定有关议定书实施细则第22条(1)(c)"
+  ],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

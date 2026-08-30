@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/02/04/01",
+  "anchorNode": "tmeg-06-09-07-02-04-01",
+  "terms": [
+    { "name": "县级以上行政区划地名", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请商标由无其他含义的县级以上行政区划地名和其他显著性文字要素组成" },
+    { "name": "长期使用取得显著性", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "申请商标经过长期使用已取得显著性" },
+    { "name": "知名度", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "申请商标在相关行业中具有较高知名度或在相关消费群体中广为知晓" },
+    { "name": "国家政策明确支持的产业", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "申请指定商品或者服务属国家政策明确支持的产业" },
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标类型：集体商标" }
+  ],
+  "laws": ["商标法第10条第2款"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

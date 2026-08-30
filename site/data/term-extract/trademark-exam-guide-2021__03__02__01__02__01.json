@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/01/02/01",
+  "anchorNode": "tmeg-03-02-01-02-01",
+  "terms": [
+    { "name": "转让申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "转让申请文件以纸质方式提交的" },
+    { "name": "同意转让声明", "aliases": [], "role": "used", "confidence": "mid", "evidence": "同意转让声明文件" },
+    { "name": "受让人", "aliases": [], "role": "used", "confidence": "high", "evidence": "受让人应提供证明其从事经营活动的主体资格证明文件" },
+    { "name": "主体资格证明文件", "aliases": [], "role": "used", "confidence": "high", "evidence": "主体资格证明文件" },
+    { "name": "商标移转", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标移转申请" },
+    { "name": "审查参考文件", "aliases": [], "role": "used", "confidence": "low", "evidence": "作为审查参考文件" }
+  ],
+  "laws": ["商标法第4条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

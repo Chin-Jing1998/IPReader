@@ -1,0 +1,11 @@
+{
+  "chunk": "ic-layout-regulations-2026/03/05",
+  "anchorNode": "icld-03-05",
+  "terms": [
+    { "name": "独创性", "aliases": [], "role": "used", "confidence": "high", "evidence": "具有独创性的部分" },
+    { "name": "复制件或者图样", "aliases": [], "role": "defined", "confidence": "high", "evidence": "提交的复制件或者图样应当包含布图设计的必要信息" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

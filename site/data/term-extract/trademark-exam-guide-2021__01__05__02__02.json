@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/05/02/02",
+  "anchorNode": "tmeg-01-05-02-02",
+  "terms": [
+    { "name": "通用名称", "aliases": [], "role": "used", "confidence": "high", "evidence": "通用名称" },
+    { "name": "撤销理由", "aliases": [], "role": "used", "confidence": "high", "evidence": "撤销理由" },
+    { "name": "商标注册信息", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标注册信息" },
+    { "name": "证据材料", "aliases": [], "role": "used", "confidence": "mid", "evidence": "证据材料" },
+    { "name": "委托书", "aliases": [], "role": "used", "confidence": "high", "evidence": "委托书" },
+    { "name": "有效注册商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "有效注册商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

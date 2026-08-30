@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/03/03/04/02",
+  "anchorNode": "tmeg-01-03-03-04-02",
+  "terms": [
+    { "name": "商标异议", "aliases": ["异议申请"], "role": "used", "confidence": "mid", "evidence": "商标注册部门收到商标异议申请后" },
+    { "name": "不予受理", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不符合受理条件的，不予受理" },
+    { "name": "初步审定公告", "aliases": [], "role": "used", "confidence": "mid", "evidence": "涉案商标尚未刊登初步审定公告" },
+    { "name": "异议期限", "aliases": [], "role": "used", "confidence": "mid", "evidence": "异议申请日期超过法律规定的异议期限" },
+    { "name": "异议人主体资格", "aliases": [], "role": "used", "confidence": "mid", "evidence": "异议人主体资格、异议理由不符合《商标法》第三十三条规定" }
+  ],
+  "laws": ["商标法第33条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

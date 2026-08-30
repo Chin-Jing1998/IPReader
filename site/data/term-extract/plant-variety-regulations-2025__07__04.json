@@ -1,0 +1,12 @@
+{
+  "chunk": "plant-variety-regulations-2025/07/04",
+  "anchorNode": "pvpr-07-04",
+  "terms": [
+    { "name": "品种权", "aliases": [], "role": "used", "confidence": "high", "evidence": "品种权" },
+    { "name": "申请权", "aliases": [], "role": "used", "confidence": "high", "evidence": "品种权的申请权" },
+    { "name": "权属争议", "aliases": [], "role": "used", "confidence": "mid", "evidence": "品种权的权属发生争议" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

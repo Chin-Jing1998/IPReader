@@ -1,0 +1,13 @@
+{
+  "chunk": "anti-unfair-competition-2025/04/01",
+  "anchorNode": "aucl-04-01",
+  "terms": [
+    { "name": "不正当竞争行为", "aliases": [], "role": "used", "confidence": "high", "evidence": "合法权益受到不正当竞争行为损害的" },
+    { "name": "商业秘密", "aliases": [], "role": "used", "confidence": "high", "evidence": "经营者故意实施侵犯商业秘密行为" },
+    { "name": "合理开支", "aliases": [], "role": "used", "confidence": "high", "evidence": "经营者为制止侵权行为所支付的合理开支" },
+    { "name": "实际损失", "aliases": [], "role": "used", "confidence": "mid", "evidence": "因被侵权所受到的实际损失" }
+  ],
+  "laws": ["反不正当竞争法第7条", "反不正当竞争法第10条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

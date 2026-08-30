@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/01/04/02",
+  "anchorNode": "tmeg-02-01-04-02",
+  "terms": [
+    { "name": "服务分类原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "服务分类原则" },
+    { "name": "出租服务", "aliases": [], "role": "defined", "confidence": "high", "evidence": "出租服务，原则上与通过出租物所实现的服务分在同一类别" },
+    { "name": "咨询服务", "aliases": [], "role": "used", "confidence": "mid", "evidence": "出租服务、咨询服务、特许经营服务可依据以下原则分类" },
+    { "name": "特许经营服务", "aliases": [], "role": "used", "confidence": "mid", "evidence": "出租服务、咨询服务、特许经营服务可依据以下原则分类" },
+    { "name": "融资租赁", "aliases": [], "role": "used", "confidence": "mid", "evidence": "但融资租赁是金融服务，属于第36类" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

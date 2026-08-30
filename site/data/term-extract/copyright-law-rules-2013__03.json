@@ -1,0 +1,10 @@
+{
+  "chunk": "copyright-law-rules-2013/03",
+  "anchorNode": "cplr-03",
+  "terms": [
+    { "name": "创作", "aliases": [], "role": "defined", "confidence": "high", "evidence": "著作权法所称创作，是指直接产生文学、艺术和科学作品的智力活动。" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

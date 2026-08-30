@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/03/01/02",
+  "anchorNode": "tmeg-06-09-07-03-01-02",
+  "terms": [
+    { "name": "使用管理规则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "集体商标使用管理规则应当包括以下主要内容" },
+    { "name": "集体成员", "aliases": [], "role": "used", "confidence": "mid", "evidence": "便于申请使用该集体商标的集体成员进行商品生产经营" },
+    { "name": "检验监督制度", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "注册人对使用该集体商标商品的检验监督制度" },
+    { "name": "集体组织", "aliases": [], "role": "used", "confidence": "high", "evidence": "也便于集体组织的管理和其他集体成员的监督" },
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "集体商标使用管理规则应当包括以下主要内容" }
+  ],
+  "laws": ["集体商标、证明商标注册和管理办法第10条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

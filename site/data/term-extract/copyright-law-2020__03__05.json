@@ -1,0 +1,10 @@
+{
+  "chunk": "copyright-law-2020/03/05",
+  "anchorNode": "cpl-03-05",
+  "terms": [
+    { "name": "付酬标准", "aliases": [], "role": "defined", "confidence": "high", "evidence": "付酬标准" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

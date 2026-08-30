@@ -1,0 +1,12 @@
+{
+  "chunk": "copyright-law-2020/04/03/02",
+  "anchorNode": "cpl-04-03-02",
+  "terms": [
+    { "name": "录音录像制作者", "aliases": [], "role": "used", "confidence": "high", "evidence": "录音录像制作者制作录音录像制品" },
+    { "name": "录音录像制品", "aliases": [], "role": "used", "confidence": "high", "evidence": "制作录音录像制品，应当同表演者订立合同" },
+    { "name": "表演者", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当同表演者订立合同" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

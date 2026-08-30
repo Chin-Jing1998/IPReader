@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/04/05/01",
+  "anchorNode": "tmeg-03-02-04-05-01",
+  "terms": [
+    { "name": "不予核准", "aliases": [], "role": "defined",
+      "confidence": "high", "evidence": "经审查，删减申请存在下列情形之一的，不予核准" },
+    { "name": "商标档案", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "商标档案中登记的注册人名称" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

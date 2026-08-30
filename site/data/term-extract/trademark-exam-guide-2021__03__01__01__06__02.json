@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/01/01/06/02",
+  "anchorNode": "tmeg-03-01-01-06-02",
+  "terms": [
+    { "name": "不予核准", "aliases": [], "role": "defined", "confidence": "high", "evidence": "存在下列情形之一的，不予核准" },
+    { "name": "转让", "aliases": [], "role": "used", "confidence": "mid", "evidence": "如变更申请书填写了错误的注册号码的、商标已经转让给他人的" },
+    { "name": "质权人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标被法院查封、在先办理了质权登记，且未取得法院或质权人书面同意的" },
+    { "name": "企业改制", "aliases": [], "role": "used", "confidence": "low", "evidence": "申请人与申请书填写的变更前当事人为不同民事主体，不应办理变更申请的（如企业改制）" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

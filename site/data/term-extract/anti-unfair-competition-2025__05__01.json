@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-unfair-competition-2025/05/01",
+  "anchorNode": "aucl-05-01",
+  "terms": [
+    { "name": "不正当竞争行为", "aliases": [], "role": "used", "confidence": "high", "evidence": "不正当竞争行为" },
+    { "name": "域外不正当竞争行为", "aliases": [], "role": "defined", "confidence": "high", "evidence": "域外不正当竞争行为" },
+    { "name": "市场竞争秩序", "aliases": [], "role": "used", "confidence": "high", "evidence": "市场竞争秩序" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

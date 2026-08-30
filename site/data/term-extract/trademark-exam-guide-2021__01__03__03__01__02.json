@@ -1,0 +1,23 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/03/03/01/02",
+  "anchorNode": "tmeg-01-03-03-01-02",
+  "terms": [
+    {
+      "name": "收寄日",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "以快递企业收寄日为准"
+    },
+    {
+      "name": "实际收到日",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "以商标注册部门实际收到日为准"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

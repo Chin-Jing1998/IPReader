@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-monopoly-law-2022/06/01",
+  "anchorNode": "aml-06-01",
+  "terms": [
+    { "name": "反垄断执法机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "反垄断执法机构依法对涉嫌垄断行为进行调查" },
+    { "name": "涉嫌垄断行为", "aliases": [], "role": "used", "confidence": "high", "evidence": "对涉嫌垄断行为进行调查" },
+    { "name": "举报", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "举报采用书面形式并提供相关事实和证据的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

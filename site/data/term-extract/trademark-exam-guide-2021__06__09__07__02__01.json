@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/02/01",
+  "anchorNode": "tmeg-06-09-07-02-01",
+  "terms": [
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "集体商标和证明商标禁用条款的审查" },
+    { "name": "证明商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "集体商标和证明商标禁用条款的审查" },
+    { "name": "禁用条款", "aliases": [], "role": "used", "confidence": "mid", "evidence": "集体商标和证明商标禁用条款的审查" },
+    { "name": "不良影响", "aliases": [], "role": "used", "confidence": "high", "evidence": "用作商标易产生不良影响，违反《商标法》第十条第一款第（八）项的规定" },
+    { "name": "误认", "aliases": [], "role": "used", "confidence": "mid", "evidence": "易使消费者对产品的品质产生误认" }
+  ],
+  "laws": ["商标法第10条第1款", "商标法第10条第1款第7项", "商标法第10条第1款第8项"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

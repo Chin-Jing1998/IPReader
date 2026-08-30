@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/14/02/02/02/02",
+  "anchorNode": "tmeg-06-14-02-02-02-02",
+  "terms": [
+    { "name": "在先著作权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在系争商标申请注册之前他人已在先享有著作权，且该著作权在保护期限内" },
+    { "name": "实质性相似", "aliases": [], "role": "used", "confidence": "high", "evidence": "系争商标与他人在先享有著作权的作品相同或者实质性相似" },
+    { "name": "独创性", "aliases": [], "role": "used", "confidence": "high", "evidence": "具有较强的独创性，属于著作权法保护的美术作品" },
+    { "name": "美术作品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "属于著作权法保护的美术作品" },
+    { "name": "伯尔尼公约", "aliases": [], "role": "used", "confidence": "high", "evidence": "中国与美国均为《伯尔尼公约》成员国" },
+    { "name": "著作权登记证书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "著作权登记证书" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

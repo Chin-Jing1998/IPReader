@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/05/01/02",
+  "anchorNode": "tmeg-04-05-01-02",
+  "terms": [
+    { "name": "国际注册转国内申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "国际注册转国内申请的，应符合下列条件" },
+    { "name": "基础商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "因基础商标全部或部分失效导致" },
+    { "name": "有效商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应为有效商标或权利待定的商标" },
+    { "name": "权利待定的商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "或权利待定的商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

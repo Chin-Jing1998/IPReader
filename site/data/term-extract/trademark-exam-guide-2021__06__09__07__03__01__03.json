@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/03/01/03",
+  "anchorNode": "tmeg-06-09-07-03-01-03",
+  "terms": [
+    { "name": "品质", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "集体商标所指定商品或者服务的品质应当有现行有效、具体明确" },
+    { "name": "使用管理规则", "aliases": [], "role": "used", "confidence": "high", "evidence": "集体商标的使用管理规则应当包括使用该集体商标所指定商品的品质" },
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "集体商标的使用管理规则应当包括使用该集体商标所指定商品的品质" }
+  ],
+  "laws": ["集体商标、证明商标注册和管理办法第10条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

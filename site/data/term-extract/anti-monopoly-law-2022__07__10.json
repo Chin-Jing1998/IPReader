@@ -1,0 +1,10 @@
+{
+  "chunk": "anti-monopoly-law-2022/07/10",
+  "anchorNode": "aml-07-10",
+  "terms": [
+    { "name": "反垄断执法机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "反垄断执法机构" }
+  ],
+  "laws": ["反垄断法第34条", "反垄断法第35条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,13 @@
+{
+  "chunk": "ic-layout-regulations-2026/01/03",
+  "anchorNode": "icld-01-03",
+  "terms": [
+    { "name": "集成电路", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指以半导体材料为基片，将至少有一个是有源元件的两个以上元件" },
+    { "name": "布图设计权利人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指依照本条例的规定，对布图设计享有专有权的自然人、法人或者非法人组织" },
+    { "name": "复制", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指重复制作布图设计或者含有该布图设计的集成电路的行为" },
+    { "name": "商业利用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "是指为商业目的进口、销售或者以其他方式提供受保护的布图设计" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,13 @@
+{
+  "chunk": "anti-unfair-competition-2025/02/06",
+  "anchorNode": "aucl-02-06",
+  "terms": [
+    { "name": "商业信誉", "aliases": [], "role": "used", "confidence": "high", "evidence": "损害其他经营者的商业信誉、商品声誉" },
+    { "name": "商品声誉", "aliases": [], "role": "used", "confidence": "high", "evidence": "损害其他经营者的商业信誉、商品声誉" },
+    { "name": "虚假信息", "aliases": [], "role": "used", "confidence": "mid", "evidence": "编造、传播或者指使他人编造、传播虚假信息或者误导性信息" },
+    { "name": "误导性信息", "aliases": [], "role": "used", "confidence": "mid", "evidence": "编造、传播或者指使他人编造、传播虚假信息或者误导性信息" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

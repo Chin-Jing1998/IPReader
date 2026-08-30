@@ -1,0 +1,10 @@
+{
+  "chunk": "anti-monopoly-law-2022/06/10",
+  "anchorNode": "aml-06-10",
+  "terms": [
+    { "name": "约谈", "aliases": [], "role": "used", "confidence": "mid", "evidence": "反垄断执法机构可以对其法定代表人或者负责人进行约谈" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

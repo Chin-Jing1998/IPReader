@@ -1,0 +1,17 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/01/01/02",
+  "anchorNode": "tmeg-06-01-01-02",
+  "terms": [
+    { "name": "以注册为主、以使用为补充的原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "始终贯彻以注册为主、以使用为补充的原则" },
+    { "name": "恶意商标注册申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不以使用为目的的恶意商标注册申请" },
+    { "name": "未注册商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "在先使用的未注册商标依法予以一定程度的保护" },
+    { "name": "驰名商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "他人未在中国注册的驰名商标" },
+    { "name": "已经使用并有一定影响的商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "已经使用并有一定影响的商标" },
+    { "name": "申请在先原则", "aliases": [], "role": "used", "confidence": "high", "evidence": "实行申请在先原则，并以使用为补充" },
+    { "name": "连续三年不使用", "aliases": [], "role": "used", "confidence": "high", "evidence": "无正当理由连续三年不使用的注册商标" },
+    { "name": "抢注", "aliases": [], "role": "used", "confidence": "high", "evidence": "以不正当手段抢注他人已经使用并有一定影响的商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

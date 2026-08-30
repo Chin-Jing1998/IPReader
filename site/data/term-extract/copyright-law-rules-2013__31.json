@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-rules-2013/31",
+  "anchorNode": "cplr-31",
+  "terms": [
+    { "name": "录音制品制作声明", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "声明不得对其作品制作录音制品的，应当在该作品合法录制为录音制品时声明" },
+    { "name": "录音制品", "aliases": [], "role": "used", "confidence": "high", "evidence": "声明不得对其作品制作录音制品的" }
+  ],
+  "laws": ["著作权法第40条第3款"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

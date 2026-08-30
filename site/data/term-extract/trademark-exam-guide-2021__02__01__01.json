@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/01/01",
+  "anchorNode": "tmeg-02-01-01",
+  "terms": [
+    { "name": "商标专用权", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标专用权" },
+    { "name": "商品商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "指定使用在商品上的商标为商品商标" },
+    { "name": "服务商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "指定使用在服务上的商标为服务商标" },
+    { "name": "商标注册用商品和服务分类表", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标注册用商品和服务分类表，由商标注册部门制定并公布" },
+    { "name": "尼斯分类", "aliases": ["商标注册用商品和服务国际分类"], "role": "defined", "confidence": "high", "evidence": "《商标注册用商品和服务国际分类》（尼斯分类）" },
+    { "name": "类似商品和服务区分表", "aliases": [], "role": "used", "confidence": "high", "evidence": "制定《类似商品和服务区分表》" },
+    { "name": "类似群", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标注册部门将尼斯分类的商品和服务项目划分类似群" }
+  ],
+  "laws": ["商标法第4条", "商标法第22条", "商标法实施条例第13条", "商标法实施条例第15条", "商标法实施条例第93条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

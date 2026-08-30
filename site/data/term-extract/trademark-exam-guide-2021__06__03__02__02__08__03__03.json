@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/08/03/03",
+  "anchorNode": "tmeg-06-03-02-02-08-03-03",
+  "terms": [
+    { "name": "不规范汉字", "aliases": [], "role": "defined", "confidence": "high", "evidence": "易使公众特别是未成年人对其书写产生错误认知的，一般应视为不规范汉字" },
+    { "name": "规范汉字", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标中使用的汉字，原则上要求是规范汉字" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

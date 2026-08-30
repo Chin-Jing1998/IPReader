@@ -1,0 +1,10 @@
+{
+  "chunk": "copyright-law-rules-2013/12",
+  "anchorNode": "cplr-12",
+  "terms": [
+    { "name": "职务作品", "aliases": [], "role": "used", "confidence": "high", "evidence": "职务作品完成两年内" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

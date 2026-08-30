@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/04/02",
+  "anchorNode": "tmeg-01-04-02",
+  "terms": [
+    { "name": "商标评审", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标评审是指商标注册部门依据《商标法》的相关规定审理有关商标争议事宜" },
+    { "name": "驳回复审", "aliases": [], "role": "used", "confidence": "high", "evidence": "驳回复审" },
+    { "name": "不予注册复审", "aliases": [], "role": "used", "confidence": "high", "evidence": "不予注册复审" },
+    { "name": "无效宣告复审", "aliases": [], "role": "used", "confidence": "high", "evidence": "无效宣告复审" },
+    { "name": "撤销复审", "aliases": [], "role": "used", "confidence": "high", "evidence": "撤销复审" },
+    { "name": "无效宣告", "aliases": [], "role": "used", "confidence": "high", "evidence": "无效宣告" },
+    { "name": "复审类案件", "aliases": [], "role": "defined", "confidence": "high", "evidence": "驳回复审、不予注册复审、无效宣告复审、撤销复审案件为复审类案件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/04/02/03",
+  "anchorNode": "tmeg-01-02-04-02-03",
+  "terms": [
+    { "name": "商品服务项目", "aliases": [], "role": "used", "confidence": "high", "evidence": "商品或者服务项目" },
+    { "name": "地理标志商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "地理标志商标" },
+    { "name": "申请类别", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不属于申请类别的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

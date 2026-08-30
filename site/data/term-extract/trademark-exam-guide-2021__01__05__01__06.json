@@ -1,0 +1,30 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/05/01/06",
+  "anchorNode": "tmeg-01-05-01-06",
+  "terms": [
+    {
+      "name": "使用证据",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "在规定期限内提交使用证据"
+    },
+    {
+      "name": "提供使用证据通知",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "《提供使用证据通知》"
+    },
+    {
+      "name": "在案使用证据",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "该部分证据可以作为在案使用证据参考采纳"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

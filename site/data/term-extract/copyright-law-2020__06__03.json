@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-2020/06/03",
+  "anchorNode": "cpl-06-03",
+  "terms": [
+    { "name": "计算机软件", "aliases": [], "role": "used", "confidence": "high", "evidence": "计算机软件、信息网络传播权的保护办法" },
+    { "name": "信息网络传播权", "aliases": [], "role": "used", "confidence": "high", "evidence": "信息网络传播权的保护办法" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

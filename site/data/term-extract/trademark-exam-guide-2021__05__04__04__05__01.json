@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/04/04/05/01",
+  "anchorNode": "tmeg-05-04-04-05-01",
+  "terms": [
+    { "name": "补发注册证", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "补发注册证申请存在下列情形之一的" },
+    { "name": "商标专用权", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "已丧失商标专用权的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:24:30+08:00",
+  "model": "claude-sonnet-5"
+}

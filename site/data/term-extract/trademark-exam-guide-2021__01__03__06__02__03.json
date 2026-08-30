@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/03/06/02/03",
+  "anchorNode": "tmeg-01-03-06-02-03",
+  "terms": [
+    { "name": "异议人变更", "aliases": [], "role": "used", "confidence": "high", "evidence": "异议人变更存在下列情形之一的，应不予变更" },
+    { "name": "不予变更情形", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不予变更情形" },
+    { "name": "在先权利", "aliases": [], "role": "used", "confidence": "high", "evidence": "在先权利转移前，异议申请依法应当不予受理的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

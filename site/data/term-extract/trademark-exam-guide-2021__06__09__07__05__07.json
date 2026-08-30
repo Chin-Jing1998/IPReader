@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/05/07",
+  "anchorNode": "tmeg-06-09-07-05-07",
+  "terms": [
+    { "name": "客观存在及声誉证明材料", "aliases": [], "role": "defined", "confidence": "high", "evidence": "地理标志客观存在及其声誉证明材料可以是原件" },
+    { "name": "地理标志确权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "地理标志客观存在及声誉情况的证明材料是地理标志确权的重要依据" },
+    { "name": "声誉", "aliases": [], "role": "used", "confidence": "mid", "evidence": "地理标志的名称及其声誉等有清晰明确的记载" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

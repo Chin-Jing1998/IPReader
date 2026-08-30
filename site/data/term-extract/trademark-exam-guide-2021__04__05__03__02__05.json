@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/05/03/02/05",
+  "anchorNode": "tmeg-04-05-03-02-05",
+  "terms": [
+    { "name": "商标图样", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际更正涉及商标图样、商标类型等" },
+    { "name": "商标类型", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标图样、商标类型等直接影响审查结论" },
+    { "name": "领土延伸新申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "原则上分拣为领土延伸新申请" },
+    { "name": "审查结论", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标类型等直接影响审查结论的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:14:40+08:00",
+  "model": "claude-sonnet-5"
+}

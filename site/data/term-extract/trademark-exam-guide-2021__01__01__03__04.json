@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/03/04",
+  "anchorNode": "tmeg-01-01-03-04",
+  "terms": [
+    {
+      "name": "不予受理决定",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "或者经补正后仍不符合有关规定的，审查员可以作出不予受理决定"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

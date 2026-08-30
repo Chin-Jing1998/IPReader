@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/04/03",
+  "anchorNode": "tmeg-03-02-04-03",
+  "terms": [
+    { "name": "初步审定公告", "aliases": [], "role": "used", "confidence": "high", "evidence": "已刊登初步审定公告而尚未核准注册的商标" },
+    { "name": "核准注册", "aliases": [], "role": "used", "confidence": "high", "evidence": "而尚未核准注册的商标" },
+    { "name": "异议", "aliases": [], "role": "used", "confidence": "high", "evidence": "处于异议、不予注册复审及诉讼过程中的商标" },
+    { "name": "不予注册复审", "aliases": [], "role": "used", "confidence": "high", "evidence": "不予注册复审及诉讼过程中的商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

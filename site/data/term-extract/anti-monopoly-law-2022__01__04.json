@@ -1,0 +1,11 @@
+{
+  "chunk": "anti-monopoly-law-2022/01/04",
+  "anchorNode": "aml-01-04",
+  "terms": [
+    { "name": "竞争政策基础地位", "aliases": [], "role": "used", "confidence": "mid", "evidence": "强化竞争政策基础地位" },
+    { "name": "社会主义市场经济", "aliases": [], "role": "used", "confidence": "mid", "evidence": "社会主义市场经济" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

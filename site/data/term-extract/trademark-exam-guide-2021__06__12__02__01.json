@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/12/02/01",
+  "anchorNode": "tmeg-06-12-02-01",
+  "terms": [
+    { "name": "恶意抢先注册", "aliases": [], "role": "used", "confidence": "high", "evidence": "恶意抢先注册行为" },
+    { "name": "业务往来关系", "aliases": [], "role": "used", "confidence": "mid", "evidence": "合同、业务往来关系" },
+    { "name": "类似商品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "同一种或类似商品" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

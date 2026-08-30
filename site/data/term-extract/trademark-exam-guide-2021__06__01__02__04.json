@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/01/02/04",
+  "anchorNode": "tmeg-06-01-02-04",
+  "terms": [
+    { "name": "商标评审", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标评审是指依照《商标法》第三十四条、第三十五条、第四十四条" },
+    { "name": "驳回复审", "aliases": [], "role": "defined", "confidence": "high", "evidence": "驳回复审案件针对驳回决定和申请人申请复审的事实、理由、请求及评审时的事实状态" },
+    { "name": "不予注册复审", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不予注册复审案件，针对不予注册决定和申请人申请复审的事实、理由、请求及原异议人" },
+    { "name": "请求无效宣告", "aliases": [], "role": "defined", "confidence": "high", "evidence": "请求无效宣告案件，应当针对当事人申请和答辩的事实、理由及请求进行审理" },
+    { "name": "依职权宣告无效复审", "aliases": [], "role": "defined", "confidence": "high", "evidence": "依职权宣告无效复审案件，应当针对宣告无效决定和申请人申请复审的事实、理由及请求" },
+    { "name": "撤销注册商标复审", "aliases": [], "role": "defined", "confidence": "high", "evidence": "撤销注册商标复审案件，应当针对撤销或者维持注册商标决定和当事人申请复审时" }
+  ],
+  "laws": ["商标法第34条", "商标法第35条", "商标法第44条", "商标法第45条", "商标法第54条", "商标法第4条", "商标法第10条", "商标法第11条", "商标法第12条", "商标法第13条第2款和第3款", "商标法第15条", "商标法第16条第1款", "商标法第19条第4款", "商标法第22条", "商标法第30条", "商标法第31条", "商标法第32条", "商标法第49条", "商标法第50条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

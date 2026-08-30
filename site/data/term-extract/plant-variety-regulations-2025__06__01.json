@@ -1,0 +1,10 @@
+{
+  "chunk": "plant-variety-regulations-2025/06/01",
+  "anchorNode": "pvpr-06-01",
+  "terms": [
+    { "name": "保护期限", "aliases": [], "role": "defined", "confidence": "high", "evidence": "品种权的保护期限，自授权公告之日起，木本、藤本植物为25年，其他植物为20年。" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

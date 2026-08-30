@@ -1,0 +1,44 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/05/05/01",
+  "anchorNode": "tmeg-06-02-05-05-01",
+  "terms": [
+    {
+      "name": "真实使用意图",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "明显超出正常经营活动需求，缺乏真实使用意图"
+    },
+    {
+      "name": "防御性注册",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "防御性注册，应当是申请人在先注册商标已投入实际商业使用并具有一定知名度"
+    },
+    {
+      "name": "驳回复审",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "该申请人不服上述驳回决定，提出驳回复审申请"
+    },
+    {
+      "name": "审查意见书",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "商标注册部门通过审查意见书程序要求申请人"
+    },
+    {
+      "name": "经营范围",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "远超出其经营范围，不符合商业惯例"
+    }
+  ],
+  "laws": ["商标法第4条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

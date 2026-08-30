@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/05/02/05",
+  "anchorNode": "tmeg-01-05-02-05",
+  "terms": [
+    { "name": "答辩通知书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "答辩通知书" },
+    { "name": "送达", "aliases": [], "role": "defined", "confidence": "high", "evidence": "视为送达" },
+    { "name": "主送当事人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "主送当事人" },
+    { "name": "抄送当事人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "抄送当事人" },
+    { "name": "使用证据", "aliases": [], "role": "used", "confidence": "high", "evidence": "提交的使用证据" },
+    { "name": "在案证据", "aliases": [], "role": "used", "confidence": "mid", "evidence": "撤销审查在案证据" },
+    { "name": "文件送达", "aliases": [], "role": "used", "confidence": "mid", "evidence": "文件送达" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

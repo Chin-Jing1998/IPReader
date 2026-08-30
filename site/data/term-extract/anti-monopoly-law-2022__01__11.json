@@ -1,0 +1,10 @@
+{
+  "chunk": "anti-monopoly-law-2022/01/11",
+  "anchorNode": "aml-01-11",
+  "terms": [
+    { "name": "公平竞争秩序", "aliases": [], "role": "used", "confidence": "mid", "evidence": "维护公平竞争秩序" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T06:31:00+08:00",
+  "model": "claude-sonnet-5"
+}

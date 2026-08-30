@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/03/04/02",
+  "anchorNode": "tmeg-04-03-04-02",
+  "terms": [
+    { "name": "补充材料", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标国际异议申请补充材料须提交正、副本一式两份" },
+    { "name": "商业秘密", "aliases": [], "role": "used", "confidence": "high", "evidence": "异议人特别注明涉及商业秘密的材料除外" },
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标代理机构应当加盖公章" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

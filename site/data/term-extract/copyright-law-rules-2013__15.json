@@ -1,0 +1,12 @@
+{
+  "chunk": "copyright-law-rules-2013/15",
+  "anchorNode": "cplr-15",
+  "terms": [
+    { "name": "署名权", "aliases": [], "role": "used", "confidence": "high", "evidence": "其著作权中的署名权、修改权和保护作品完整权" },
+    { "name": "修改权", "aliases": [], "role": "used", "confidence": "high", "evidence": "署名权、修改权和保护作品完整权" },
+    { "name": "保护作品完整权", "aliases": [], "role": "used", "confidence": "high", "evidence": "修改权和保护作品完整权由作者的继承人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

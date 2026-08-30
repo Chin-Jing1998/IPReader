@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/03/03/02",
+  "anchorNode": "tmeg-01-03-03-02",
+  "terms": [
+    { "name": "在先权利人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在先权利人是指在先权利的所有者" },
+    { "name": "在先权利", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在先权利包括但不限于在先商标权、字号权、著作权、外观设计专利权、姓名权和肖像权" },
+    { "name": "利害关系人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "利害关系人是指系争商标的申请注册可能损害或削弱其相关在先权利" },
+    { "name": "系争商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "系争商标" },
+    { "name": "初步审定公告", "aliases": [], "role": "used", "confidence": "high", "evidence": "初步审定公告" },
+    { "name": "字号权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "字号权" }
+  ],
+  "laws": ["商标法第13条第2款", "商标法第13条第3款", "商标法第15条", "商标法第16条第1款", "商标法第30条", "商标法第31条", "商标法第32条", "商标法第4条", "商标法第10条", "商标法第11条", "商标法第12条", "商标法第19条第4款"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

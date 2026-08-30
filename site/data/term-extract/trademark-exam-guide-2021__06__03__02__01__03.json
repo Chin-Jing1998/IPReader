@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/01/03",
+  "anchorNode": "tmeg-06-03-02-01-03",
+  "terms": [
+    { "name": "政府间国际组织", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“政府间国际组织”，是指由若干国家和地区的政府为了特定目的" },
+    { "name": "国际组织的名称", "aliases": [], "role": "defined", "confidence": "high", "evidence": "国际组织的名称包括全称、简称或者缩写" },
+    { "name": "误认", "aliases": [], "role": "used", "confidence": "mid", "evidence": "公众对产品或服务的来源等产生误认" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

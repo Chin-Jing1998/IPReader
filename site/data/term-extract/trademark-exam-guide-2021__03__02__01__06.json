@@ -1,0 +1,18 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/01/06",
+  "anchorNode": "tmeg-03-02-01-06",
+  "terms": [
+    { "name": "近似商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "容易导致混淆、误认作为判定两件商标构成近似商标的要件" },
+    { "name": "混淆误认", "aliases": [], "role": "used", "confidence": "high", "evidence": "容易导致混淆、误认" },
+    { "name": "混淆可能性", "aliases": [], "role": "used", "confidence": "high", "evidence": "其造成混淆的可能性愈大" },
+    { "name": "知名度", "aliases": [], "role": "used", "confidence": "mid", "evidence": "两件商标的知名度高低、市场占有率大小" },
+    { "name": "市场占有率", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标知名度愈高、市场占有率愈大" },
+    { "name": "显著性", "aliases": [], "role": "used", "confidence": "high", "evidence": "两件商标标识本身显著性的强弱" },
+    { "name": "引证商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "认定转让商标和引证商标容易导致混淆、误认" },
+    { "name": "区分措施", "aliases": [], "role": "defined", "confidence": "high", "evidence": "能够避免混淆的区分措施主要是指，转、受让双方已达成相关协议或完成股份结构调整" },
+    { "name": "实体区隔", "aliases": [], "role": "used", "confidence": "mid", "evidence": "从而事实上完成了实体区隔，实现了各自独立运营" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,15 @@
+{
+  "chunk": "anti-monopoly-law-2022/04/09",
+  "anchorNode": "aml-04-09",
+  "terms": [
+    { "name": "经营者集中", "aliases": [], "role": "used", "confidence": "high", "evidence": "审查经营者集中，应当考虑下列因素" },
+    { "name": "相关市场", "aliases": [], "role": "used", "confidence": "high", "evidence": "参与集中的经营者在相关市场的市场份额" },
+    { "name": "市场份额", "aliases": [], "role": "used", "confidence": "high", "evidence": "经营者在相关市场的市场份额" },
+    { "name": "市场集中度", "aliases": [], "role": "used", "confidence": "high", "evidence": "相关市场的市场集中度" },
+    { "name": "市场控制力", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对市场的控制力" },
+    { "name": "市场进入", "aliases": [], "role": "used", "confidence": "mid", "evidence": "经营者集中对市场进入、技术进步的影响" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

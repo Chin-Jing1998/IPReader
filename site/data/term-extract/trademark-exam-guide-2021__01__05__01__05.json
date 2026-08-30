@@ -1,0 +1,30 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/05/01/05",
+  "anchorNode": "tmeg-01-05-01-05",
+  "terms": [
+    {
+      "name": "连续三年不使用",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "连续三年不使用"
+    },
+    {
+      "name": "三年时间期限",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "要求注册人提供的使用证据所覆盖的三年时间期限"
+    },
+    {
+      "name": "提供使用证据通知",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "《提供使用证据通知》"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

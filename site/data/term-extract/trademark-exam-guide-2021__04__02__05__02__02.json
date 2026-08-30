@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/02/05/02/02",
+  "anchorNode": "tmeg-04-02-05-02-02",
+  "terms": [
+    { "name": "受让人", "aliases": [], "role": "defined", "confidence": "high", "evidence": "受让人须符合下列条件之一" },
+    { "name": "缔约方", "aliases": [], "role": "used", "confidence": "high", "evidence": "受让人是缔约方国民" },
+    { "name": "工商营业场所", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在其所属缔约方境内有真实有效的工商营业场所" },
+    { "name": "国际组织", "aliases": [], "role": "used", "confidence": "mid", "evidence": "受让人所属缔约方是国际组织" },
+    { "name": "马德里商标国际注册所有人", "aliases": [], "role": "used", "confidence": "high", "evidence": "满足马德里商标国际注册所有人的资格要求" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

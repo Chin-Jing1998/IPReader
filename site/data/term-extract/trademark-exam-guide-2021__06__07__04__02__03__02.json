@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/07/04/02/03/02",
+  "anchorNode": "tmeg-06-07-04-02-03-02",
+  "terms": [
+    { "name": "商标近似", "aliases": [], "role": "defined", "confidence": "high", "evidence": "判定为相同或者近似商标" },
+    { "name": "平面商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "平面商标" },
+    { "name": "商标说明", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标说明" },
+    { "name": "整体视觉效果", "aliases": [], "role": "defined", "confidence": "high", "evidence": "整体视觉效果基本无差别或差别不大" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "相关公众对商品或者服务" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

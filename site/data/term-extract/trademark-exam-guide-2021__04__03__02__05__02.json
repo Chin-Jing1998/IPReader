@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/03/02/05/02",
+  "anchorNode": "tmeg-04-03-02-05-02",
+  "terms": [
+    { "name": "国际商标公告", "aliases": [], "role": "used", "confidence": "high", "evidence": "被异议商标的《国际商标公告》，可在世界知识产权组织网站上进行下载" },
+    { "name": "被异议商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "被异议商标的《国际商标公告》" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

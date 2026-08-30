@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/01/01/01",
+  "anchorNode": "tmeg-06-01-01-01",
+  "terms": [
+    { "name": "诚实信用原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "诚实信用原则是民法的基本原则之一" },
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "当事人及其商标代理机构应当具备诚实、善意、守信的主观状态" },
+    { "name": "在先权利", "aliases": [], "role": "used", "confidence": "high", "evidence": "他人商标权利或其他在先权利合理避让" },
+    { "name": "商标专用权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标专用权属于民事权利" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

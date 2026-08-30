@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/06/02/02/02",
+  "anchorNode": "tmeg-04-06-02-02-02",
+  "terms": [
+    { "name": "国际续展", "aliases": [], "role": "defined", "confidence": "high", "evidence": "有下列情形之一的，续展不予核准" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

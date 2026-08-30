@@ -1,0 +1,15 @@
+{
+  "chunk": "anti-monopoly-law-2022/03/01",
+  "anchorNode": "aml-03-01",
+  "terms": [
+    { "name": "市场支配地位", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本法所称市场支配地位，是指经营者在相关市场内具有能够控制商品价格" },
+    { "name": "相关市场", "aliases": [], "role": "used", "confidence": "high", "evidence": "经营者在相关市场内具有能够控制商品价格、数量或者其他交易条件" },
+    { "name": "滥用市场支配地位", "aliases": [], "role": "defined", "confidence": "high", "evidence": "禁止具有市场支配地位的经营者从事下列滥用市场支配地位的行为" },
+    { "name": "交易相对人", "aliases": [], "role": "used", "confidence": "high", "evidence": "没有正当理由，拒绝与交易相对人进行交易" },
+    { "name": "差别待遇", "aliases": [], "role": "used", "confidence": "high", "evidence": "对条件相同的交易相对人在交易价格等交易条件上实行差别待遇" },
+    { "name": "搭售", "aliases": [], "role": "used", "confidence": "mid", "evidence": "没有正当理由搭售商品，或者在交易时附加其他不合理的交易条件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

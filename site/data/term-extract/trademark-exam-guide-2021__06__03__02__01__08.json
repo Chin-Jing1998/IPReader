@@ -1,0 +1,30 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/01/08",
+  "anchorNode": "tmeg-06-03-02-01-08",
+  "terms": [
+    {
+      "name": "社会主义道德风尚",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "我国公众共同生活及其行为的准则、规范以及在一定时期内社会上流行的良好风气"
+    },
+    {
+      "name": "其他不良影响",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "标志的文字、图形或者其他构成要素具有贬损含义"
+    },
+    {
+      "name": "社会公共利益和公共秩序",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "对我国政治、经济、文化、宗教、民族等社会公共利益和公共秩序产生消极"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

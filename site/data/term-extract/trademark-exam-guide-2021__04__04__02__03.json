@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/04/02/03",
+  "anchorNode": "tmeg-04-04-02-03",
+  "terms": [
+    { "name": "实质审查标准", "aliases": [], "role": "defined", "confidence": "high", "evidence": "实质审查标准与国内商标注册申请实质审查标准相同" },
+    { "name": "国内商标注册申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "国内商标注册申请实质审查标准" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

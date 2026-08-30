@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/16/02/02/02/04",
+  "anchorNode": "tmeg-06-16-02-02-02-04",
+  "terms": [
+    { "name": "恶意明显", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "恶意明显的例外" }
+  ],
+  "laws": ["商标法第44条第1款"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

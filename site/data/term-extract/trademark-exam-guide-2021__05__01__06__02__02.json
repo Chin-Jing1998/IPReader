@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/01/06/02/02",
+  "anchorNode": "tmeg-05-01-06-02-02",
+  "terms": [
+    { "name": "期限届满日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "期限届满日是节假日的，以节假日后的第一个工作日为期限届满日" },
+    { "name": "初步审定公告", "aliases": [], "role": "used", "confidence": "high", "evidence": "初步审定公告的" },
+    { "name": "异议", "aliases": [], "role": "used", "confidence": "high", "evidence": "向商标注册部门提出异议" },
+    { "name": "在先权利人", "aliases": [], "role": "used", "confidence": "high", "evidence": "在先权利人" },
+    { "name": "利害关系人", "aliases": [], "role": "used", "confidence": "high", "evidence": "利害关系人" },
+    { "name": "商标驳回通知书", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标驳回通知书" },
+    { "name": "复审", "aliases": [], "role": "used", "confidence": "high", "evidence": "向商标注册部门申请复审" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:17:09+08:00",
+  "model": "claude-sonnet-5"
+}

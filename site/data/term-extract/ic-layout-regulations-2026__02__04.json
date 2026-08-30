@@ -1,0 +1,10 @@
+{
+  "chunk": "ic-layout-regulations-2026/02/04",
+  "anchorNode": "icld-02-04",
+  "terms": [
+    { "name": "合作创作", "aliases": [], "role": "defined", "confidence": "high", "evidence": "两个以上自然人、法人或者非法人组织合作创作的布图设计" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

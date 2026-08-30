@@ -1,0 +1,10 @@
+{
+  "chunk": "ic-layout-regulations-2026/03/07",
+  "anchorNode": "icld-03-07",
+  "terms": [
+    { "name": "申请日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "收到本条例第二十二条规定的布图设计登记申请文件之日为申请日" }
+  ],
+  "laws": ["集成电路布图设计保护条例第22条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

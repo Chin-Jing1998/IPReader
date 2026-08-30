@@ -1,0 +1,13 @@
+{
+  "chunk": "ic-layout-regulations-2026/05/05",
+  "anchorNode": "icld-05-05",
+  "terms": [
+    { "name": "未公开的内容", "aliases": [], "role": "used", "confidence": "high", "evidence": "泄露被代理人布图设计中未公开的内容的" },
+    { "name": "布图设计登记", "aliases": [], "role": "used", "confidence": "high", "evidence": "布图设计登记" },
+    { "name": "国家秘密", "aliases": [], "role": "used", "confidence": "mid", "evidence": "涉及泄露国家秘密、侵犯商业秘密的" },
+    { "name": "商业秘密", "aliases": [], "role": "used", "confidence": "mid", "evidence": "涉及泄露国家秘密、侵犯商业秘密的" }
+  ],
+  "laws": ["专利代理条例第25条"],
+  "extractedAt": "2026-08-30T06:49:44+08:00",
+  "model": "claude-sonnet-5"
+}

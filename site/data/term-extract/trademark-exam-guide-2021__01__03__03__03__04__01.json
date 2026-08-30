@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/03/03/03/04/01",
+  "anchorNode": "tmeg-01-03-03-03-04-01",
+  "terms": [
+    { "name": "地理标志", "aliases": [], "role": "used", "confidence": "high", "evidence": "地理标志" },
+    { "name": "在先使用商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "在先使用商标" },
+    { "name": "代理或代表关系", "aliases": [], "role": "used", "confidence": "mid", "evidence": "代理或代表关系" },
+    { "name": "抢注", "aliases": [], "role": "used", "confidence": "high", "evidence": "抢注" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

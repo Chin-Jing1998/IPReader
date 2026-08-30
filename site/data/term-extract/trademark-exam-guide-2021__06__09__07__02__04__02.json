@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/02/04/02",
+  "anchorNode": "tmeg-06-09-07-02-04-02",
+  "terms": [
+    { "name": "通用名称", "aliases": [], "role": "defined", "confidence": "high", "evidence": "指定商品或者服务与商标所含商品或者服务通用名称一致或密切相关" },
+    { "name": "地理标志", "aliases": [], "role": "used", "confidence": "mid", "evidence": "但其声誉与商标所含地名有密切关联，不会误认为地理标志的" },
+    { "name": "自然因素和人文因素", "aliases": [], "role": "used", "confidence": "mid", "evidence": "指定商品或者服务的特定品质并非由当地的自然因素和人文因素所决定" },
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标类型：集体商标" }
+  ],
+  "laws": ["商标法第10条第2款"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

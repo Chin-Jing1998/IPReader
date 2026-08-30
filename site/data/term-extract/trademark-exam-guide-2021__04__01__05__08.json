@@ -1,0 +1,17 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/01/05/08",
+  "anchorNode": "tmeg-04-01-05-08",
+  "terms": [
+    { "name": "身份证明文件", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "应提供有效期内的身份证明文件复印件或扫描件" },
+    { "name": "工商营业场所", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "符合在中国设有真实有效工商营业场所资格的" },
+    { "name": "资格证明", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "提供资格证明的复印件或扫描件" },
+    { "name": "外国人居留许可", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "中华人民共和国外国人居留许可复印件或扫描件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

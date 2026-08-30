@@ -1,0 +1,14 @@
+{
+  "chunk": "copyright-law-2020/04/02/02",
+  "anchorNode": "cpl-04-02-02",
+  "terms": [
+    { "name": "表演者权", "aliases": ["表演者的权利"], "role": "defined", "confidence": "high", "evidence": "表演者对其表演享有下列权利" },
+    { "name": "表明表演者身份权", "aliases": ["表明表演者身份"], "role": "defined", "confidence": "mid", "evidence": "表明表演者身份" },
+    { "name": "保护表演形象权", "aliases": ["保护表演形象不受歪曲"], "role": "defined", "confidence": "mid", "evidence": "保护表演形象不受歪曲" },
+    { "name": "录音录像制品", "aliases": [], "role": "used", "confidence": "high", "evidence": "录音录像制品" },
+    { "name": "被许可人", "aliases": [], "role": "used", "confidence": "high", "evidence": "被许可人" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

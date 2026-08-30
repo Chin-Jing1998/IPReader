@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/01/04/02",
+  "anchorNode": "tmeg-05-01-04-02",
+  "terms": [
+    { "name": "商标申请号", "aliases": [], "role": "defined", "confidence": "high", "evidence": "给出相应的商标申请号" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

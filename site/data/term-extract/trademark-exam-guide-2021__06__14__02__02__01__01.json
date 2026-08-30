@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/14/02/02/01/01",
+  "anchorNode": "tmeg-06-14-02-02-01-01",
+  "terms": [
+    { "name": "字号权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应当认定为对他人在先字号权的损害" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "导致中国相关公众混淆" },
+    { "name": "企业名称的简称", "aliases": [], "role": "used", "confidence": "mid", "evidence": "企业名称的简称" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

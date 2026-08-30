@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/03/02/01",
+  "anchorNode": "tmeg-06-09-07-03-02-01",
+  "terms": [
+    { "name": "证明商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "证明商标的基本功能在于证明商品或者服务的原产地、原料、制造方法、质量" },
+    { "name": "申请人主体资格", "aliases": ["主体资格"], "role": "defined", "confidence": "mid", "evidence": "申请人主体资格的审查" },
+    { "name": "监督能力", "aliases": [], "role": "used", "confidence": "mid", "evidence": "对所申请的商品或者服务的特定品质具有监督能力的组织" },
+    { "name": "身份证明文件", "aliases": [], "role": "used", "confidence": "mid", "evidence": "提交其依法成立的身份证明文件证明其具备申请的主体资格" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:53:23+08:00",
+  "model": "claude-sonnet-5"
+}

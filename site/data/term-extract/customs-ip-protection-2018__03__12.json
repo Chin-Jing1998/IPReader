@@ -1,0 +1,13 @@
+{
+  "chunk": "customs-ip-protection-2018/03/12",
+  "anchorNode": "cusr-03-12",
+  "terms": [
+    { "name": "侵权嫌疑货物", "aliases": [], "role": "used", "confidence": "high", "evidence": "被扣留的侵权嫌疑货物" },
+    { "name": "责令停止侵权行为", "aliases": ["责令停止侵权"], "role": "used", "confidence": "high", "evidence": "责令停止侵权行为" },
+    { "name": "财产保全", "aliases": [], "role": "used", "confidence": "high", "evidence": "财产保全的措施" },
+    { "name": "协助执行通知", "aliases": [], "role": "used", "confidence": "high", "evidence": "协助执行通知" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

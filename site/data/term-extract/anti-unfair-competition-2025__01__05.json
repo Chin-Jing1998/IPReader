@@ -1,0 +1,11 @@
+{
+  "chunk": "anti-unfair-competition-2025/01/05",
+  "anchorNode": "aucl-01-05",
+  "terms": [
+    { "name": "不正当竞争行为", "aliases": [], "role": "used", "confidence": "high", "evidence": "对不正当竞争行为进行监督检查" },
+    { "name": "市场监督管理", "aliases": [], "role": "used", "confidence": "mid", "evidence": "履行市场监督管理职责的部门" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

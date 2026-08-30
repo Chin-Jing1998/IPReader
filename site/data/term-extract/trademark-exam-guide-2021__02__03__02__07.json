@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/03/02/07",
+  "anchorNode": "tmeg-02-03-02-07",
+  "terms": [
+    { "name": "三维标志商标", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "三维标志商标，应根据商标的整体形状进行图形要素分类" },
+    { "name": "图形要素分类", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "应根据商标的整体形状进行图形要素分类" },
+    { "name": "颜色要素编码", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "还应划分颜色要素编码" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

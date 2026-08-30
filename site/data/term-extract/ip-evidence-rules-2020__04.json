@@ -1,0 +1,13 @@
+{
+  "chunk": "ip-evidence-rules-2020/04",
+  "anchorNode": "ipev-04",
+  "terms": [
+    { "name": "合法来源抗辩", "aliases": [], "role": "defined", "confidence": "high", "evidence": "被告依法主张合法来源抗辩的" },
+    { "name": "被诉侵权产品", "aliases": [], "role": "used", "confidence": "high", "evidence": "被诉侵权产品" },
+    { "name": "合理注意义务", "aliases": [], "role": "defined", "confidence": "high", "evidence": "合理注意义务" },
+    { "name": "复制品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "被诉侵权产品、复制品" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T14:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

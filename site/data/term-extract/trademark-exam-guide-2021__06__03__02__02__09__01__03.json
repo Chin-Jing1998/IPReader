@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/09/01/03",
+  "anchorNode": "tmeg-06-03-02-02-09-01-03",
+  "terms": [
+    { "name": "两个以上行政区划地名简称组成的商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标由两个或者两个以上行政区划的地名的简称组成" },
+    { "name": "产地误认", "aliases": ["商品产地误认"], "role": "used", "confidence": "high", "evidence": "容易使消费者对其指定商品的产地或者服务内容等特点发生误认的" }
+  ],
+  "laws": ["商标法第10条第一款第七项"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

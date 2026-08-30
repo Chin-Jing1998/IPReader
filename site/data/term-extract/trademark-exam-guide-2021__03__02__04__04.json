@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/04/04",
+  "anchorNode": "tmeg-03-02-04-04",
+  "terms": [
+    { "name": "商品/服务项目的删减", "aliases": ["删减申请"], "role": "used",
+      "confidence": "mid", "evidence": "申请删减的商品/服务项目应该与申请人在提交注册申请时所指定的商品/服务项目一致" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

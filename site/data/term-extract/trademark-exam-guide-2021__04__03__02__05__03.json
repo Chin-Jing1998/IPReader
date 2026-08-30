@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/03/02/05/03",
+  "anchorNode": "tmeg-04-03-02-05-03",
+  "terms": [
+    { "name": "商标代理委托书", "aliases": [], "role": "defined", "confidence": "high", "evidence": "代理委托书应当载明委托人名称、地址、被异议商标名称、代理权限、代理事项及授权日期" },
+    { "name": "商标国际异议申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "委托代理事项应当为“商标国际异议申请”" },
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "异议人是外国的，应当委托依法设立的商标代理机构办理" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,16 @@
+{
+  "chunk": "plant-variety-regulations-2025/06/05",
+  "anchorNode": "pvpr-06-05",
+  "terms": [
+    { "name": "追溯力", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以及已经履行的品种权实施许可合同和品种权转让合同，不具有追溯力" },
+    { "name": "自始不存在", "aliases": [], "role": "defined", "confidence": "high", "evidence": "被宣告无效的品种权视为自始不存在" },
+    { "name": "品种权实施许可合同", "aliases": [], "role": "used", "confidence": "mid", "evidence": "品种权实施许可合同和品种权转让合同" },
+    { "name": "品种权转让合同", "aliases": [], "role": "used", "confidence": "mid", "evidence": "品种权实施许可合同和品种权转让合同" },
+    { "name": "品种权使用费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "植物新品种侵权赔偿金、品种权使用费、品种权转让费" },
+    { "name": "品种权转让费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "植物新品种侵权赔偿金、品种权使用费、品种权转让费" },
+    { "name": "植物新品种侵权赔偿金", "aliases": [], "role": "used", "confidence": "mid", "evidence": "植物新品种侵权赔偿金、品种权使用费、品种权转让费" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

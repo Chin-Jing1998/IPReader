@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/04/03/04/03",
+  "anchorNode": "tmeg-01-04-03-04-03",
+  "terms": [
+    { "name": "证据目录", "aliases": [], "role": "defined", "confidence": "high", "evidence": "应制作相应的证据目录，一并附在正文后" },
+    { "name": "外文证据", "aliases": [], "role": "used", "confidence": "mid", "evidence": "如提交的是外文证据，应当对外文证据进行翻译" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

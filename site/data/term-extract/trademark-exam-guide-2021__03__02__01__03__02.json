@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/01/03/02",
+  "anchorNode": "tmeg-03-02-01-03-02",
+  "terms": [
+    { "name": "共有商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "共有商标全体共有人作为整体共同享有商标权" },
+    { "name": "共有人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "共有商标转让申请应经全体共有人一致确认同意" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

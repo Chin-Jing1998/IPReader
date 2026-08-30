@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/06/10/02/01",
+  "anchorNode": "tmeg-04-06-10-02-01",
+  "terms": [
+    { "name": "国际更正", "aliases": [], "role": "used", "confidence": "high", "evidence": "申请国际更正的商标为有效商标" },
+    { "name": "有效商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "有效商标" },
+    { "name": "权利待定的商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "权利待定的商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

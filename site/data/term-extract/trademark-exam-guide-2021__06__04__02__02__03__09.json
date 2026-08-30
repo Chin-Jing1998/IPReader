@@ -1,0 +1,30 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/04/02/02/03/09",
+  "anchorNode": "tmeg-06-04-02-02-03-09",
+  "terms": [
+    {
+      "name": "企业组织形式",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "其行业的组织形式，为行业公用"
+    },
+    {
+      "name": "行业名称",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "行业名称或简称"
+    },
+    {
+      "name": "显著特征",
+      "aliases": ["显著识别特征"],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "不具备商标的显著特征"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

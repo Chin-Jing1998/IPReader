@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/02/04/02/04",
+  "anchorNode": "tmeg-01-02-04-02-04",
+  "terms": [
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "委托商标代理机构办理" },
+    { "name": "委托书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "未提交委托书原件的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,30 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/05/03/04",
+  "anchorNode": "tmeg-06-02-05-03-04",
+  "terms": [
+    {
+      "name": "使用意图",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "未能有效举证其售卖或转让前具有使用意图"
+    },
+    {
+      "name": "转让费",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "索要高额转让费、许可使用费"
+    },
+    {
+      "name": "许可使用费",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "索要高额转让费、许可使用费、侵权赔偿金"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

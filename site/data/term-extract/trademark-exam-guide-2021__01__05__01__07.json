@@ -1,0 +1,37 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/05/01/07",
+  "anchorNode": "tmeg-01-05-01-07",
+  "terms": [
+    {
+      "name": "商标代理委托书",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "签字的新商标代理委托书"
+    },
+    {
+      "name": "代理变更",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "审查过程中发生名义、地址或代理变更的"
+    },
+    {
+      "name": "撤销申请代理机构",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "申请人请求更换撤销申请代理机构"
+    },
+    {
+      "name": "提供使用证据代理机构",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "注册人请求更换提供使用证据代理机构"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

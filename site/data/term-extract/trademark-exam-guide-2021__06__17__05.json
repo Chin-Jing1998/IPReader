@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/17/05",
+  "anchorNode": "tmeg-06-17-05",
+  "terms": [
+    { "name": "连续3年不使用", "aliases": [], "role": "used", "confidence": "high", "evidence": "连续3年不使用情形的" },
+    { "name": "使用的证据材料", "aliases": [], "role": "defined", "confidence": "high", "evidence": "前款所称使用的证据材料" },
+    { "name": "许可他人使用注册商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "许可他人使用注册商标的证据材料" },
+    { "name": "正当理由", "aliases": [], "role": "used", "confidence": "mid", "evidence": "正当理由" }
+  ],
+  "laws": ["商标法第49条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

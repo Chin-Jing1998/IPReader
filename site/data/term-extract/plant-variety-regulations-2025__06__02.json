@@ -1,0 +1,12 @@
+{
+  "chunk": "plant-variety-regulations-2025/06/02",
+  "anchorNode": "pvpr-06-02",
+  "terms": [
+    { "name": "年费", "aliases": [], "role": "used", "confidence": "high", "evidence": "应当自被授予品种权的当年开始缴纳年费" },
+    { "name": "繁殖材料", "aliases": [], "role": "used", "confidence": "high", "evidence": "该授权品种的繁殖材料" },
+    { "name": "授权品种", "aliases": [], "role": "used", "confidence": "mid", "evidence": "检测、测试的该授权品种" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

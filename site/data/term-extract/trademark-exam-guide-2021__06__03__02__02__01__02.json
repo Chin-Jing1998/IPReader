@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/01/02",
+  "anchorNode": "tmeg-06-03-02-02-01-02",
+  "terms": [
+    {
+      "name": "国旗、国徽、国歌相同或者近似",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "足以使公众将其与我国国旗、国徽、国歌相联系的"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

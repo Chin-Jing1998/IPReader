@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/02/03/03",
+  "anchorNode": "tmeg-04-02-03-03",
+  "terms": [
+    { "name": "有效期", "aliases": [], "role": "defined", "confidence": "high", "evidence": "马德里国际注册商标的有效期为10年" },
+    { "name": "宽展期", "aliases": [], "role": "defined", "confidence": "high", "evidence": "宽展期为国际注册到期之日起6个月" },
+    { "name": "宽展费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "则应缴纳宽展费" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

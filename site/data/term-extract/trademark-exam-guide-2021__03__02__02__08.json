@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/02/02/08",
+  "anchorNode": "tmeg-03-02-02-08",
+  "terms": [
+    { "name": "撤回许可备案", "aliases": [], "role": "defined", "confidence": "high", "evidence": "撤回许可备案由许可人即商标注册人提交" },
+    { "name": "中止审查", "aliases": [], "role": "used", "confidence": "mid", "evidence": "中止审查" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

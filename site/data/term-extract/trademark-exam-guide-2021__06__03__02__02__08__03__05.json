@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/08/03/05",
+  "anchorNode": "tmeg-06-03-02-02-08-03-05",
+  "terms": [
+    { "name": "宗教", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本指南中的“宗教”包括佛教、道教、伊斯兰教、基督教、天主教等" },
+    { "name": "民间信仰", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本指南中的民间信仰主要指妈祖等民间信仰。" },
+    { "name": "宗教信仰", "aliases": [], "role": "used", "confidence": "high", "evidence": "标志有下列情形之一的，判定为有害于宗教信仰、宗教感情或者民间信仰：" },
+    { "name": "宗教活动场所", "aliases": [], "role": "defined", "confidence": "high", "evidence": "宗教团体、宗教院校、宗教活动场所、宗教教职人员可以依法兴办公益慈善事业" }
+  ],
+  "laws": ["宗教事务条例第56条"],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "ic-layout-regulations-2026/04/07",
+  "anchorNode": "icld-04-07",
+  "terms": [
+    { "name": "非自愿许可", "aliases": [], "role": "used", "confidence": "high", "evidence": "给予使用布图设计非自愿许可的决定" },
+    { "name": "非商业性使用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "限于为公共目的非商业性使用" },
+    { "name": "非自愿许可的终止", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "终止使用布图设计非自愿许可的决定" }
+  ],
+  "laws": ["集成电路布图设计保护条例第40条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

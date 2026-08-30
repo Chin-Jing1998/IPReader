@@ -1,0 +1,23 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/17/06/03/02",
+  "anchorNode": "tmeg-06-17-06-03-02",
+  "terms": [
+    {
+      "name": "通用名称",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "商标的主要功能是区分不同商品，应判定为通用名称"
+    },
+    {
+      "name": "系争商标",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "系争商标"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,13 @@
+{
+  "chunk": "anti-monopoly-law-2022/06/08",
+  "anchorNode": "aml-06-08",
+  "terms": [
+    { "name": "经营者承诺", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "经营者承诺在反垄断执法机构认可的期限内采取具体措施消除该行为后果的" },
+    { "name": "中止调查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "反垄断执法机构可以决定中止调查" },
+    { "name": "恢复调查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "反垄断执法机构应当恢复调查" },
+    { "name": "终止调查", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "反垄断执法机构可以决定终止调查" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

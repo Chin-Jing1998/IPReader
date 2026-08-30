@@ -1,0 +1,12 @@
+{
+  "chunk": "plant-variety-regulations-2025/02/06",
+  "anchorNode": "pvpr-02-06",
+  "terms": [
+    { "name": "授权品种", "aliases": [], "role": "used", "confidence": "high", "evidence": "在下列情况下使用授权品种的，可以不经品种权人许可" },
+    { "name": "自繁自用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "（二）农民自繁自用授权品种的繁殖材料" },
+    { "name": "繁殖材料", "aliases": [], "role": "used", "confidence": "high", "evidence": "农民自繁自用授权品种的繁殖材料" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

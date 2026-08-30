@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/03/01/02/04",
+  "anchorNode": "tmeg-03-01-02-04",
+  "terms": [
+    { "name": "审查结论", "aliases": [], "role": "defined", "confidence": "high", "evidence": "可能作出的审查结论有补正、核准、不予核准三种" },
+    { "name": "补正", "aliases": [], "role": "used", "confidence": "high", "evidence": "可能作出的审查结论有补正、核准、不予核准三种" },
+    { "name": "核准", "aliases": [], "role": "used", "confidence": "mid", "evidence": "可能作出的审查结论有补正、核准、不予核准三种" },
+    { "name": "不予核准", "aliases": [], "role": "used", "confidence": "high", "evidence": "可能作出的审查结论有补正、核准、不予核准三种" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

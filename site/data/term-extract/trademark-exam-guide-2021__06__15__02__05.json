@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/15/02/05",
+  "anchorNode": "tmeg-06-15-02-05",
+  "terms": [
+    { "name": "商标无效宣告", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标无效宣告案" },
+    { "name": "争议商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "争议商标的注册申请构成" },
+    { "name": "诚实信用原则", "aliases": [], "role": "used", "confidence": "high", "evidence": "违反诚实信用原则" },
+    { "name": "字号", "aliases": [], "role": "used", "confidence": "mid", "evidence": "字号一般与商标同一" },
+    { "name": "商誉", "aliases": [], "role": "used", "confidence": "mid", "evidence": "实质是利用申请人商誉" },
+    { "name": "恶意", "aliases": [], "role": "used", "confidence": "mid", "evidence": "被申请人的恶意情形" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-monopoly-law-2022/05/05",
+  "anchorNode": "aml-05-05",
+  "terms": [
+    { "name": "滥用行政权力", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不得滥用行政权力，采取与本地经营者不平等待遇等方式" },
+    { "name": "不平等待遇", "aliases": [], "role": "used", "confidence": "mid", "evidence": "与本地经营者不平等待遇" },
+    { "name": "变相强制外地经营者", "aliases": [], "role": "used", "confidence": "mid", "evidence": "变相强制外地经营者" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

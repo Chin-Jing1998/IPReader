@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/04/02/06/02",
+  "anchorNode": "tmeg-05-04-02-06-02",
+  "terms": [
+    { "name": "商标注册证明", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "经审查，出具商标注册证明申请符合规定的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,86 +1,78 @@
 {
  "batchNo": 6,
- "domain": "trademark-exam-guide-2021",
+ "domain": "copyright-law-2020",
  "chunks": [
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/02.md",
-   "chunkId": "trademark-exam-guide-2021/01/02/03/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-02-03-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.2身份证明文件、主体资格证明文件",
-   "charLen": 56
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/05/02.md",
+   "chunkId": "copyright-law-2020/05/02",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-05-02",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第五章 著作权和与著作权有关的权利的保护 ｜ 第五十条 · 可避开技术措施的情形",
+   "charLen": 275
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/03.md",
-   "chunkId": "trademark-exam-guide-2021/01/02/03/03",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-02-03-03",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.3商标代理委托书",
-   "charLen": 40
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/05/03.md",
+   "chunkId": "copyright-law-2020/05/03",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-05-03",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第五章 著作权和与著作权有关的权利的保护 ｜ 第五十一条 · 权利管理信息的保护",
+   "charLen": 158
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/04.md",
-   "chunkId": "trademark-exam-guide-2021/01/02/03/04",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-02-03-04",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.4申请资格",
-   "charLen": 205
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/05/04.md",
+   "chunkId": "copyright-law-2020/05/04",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-05-04",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第五章 著作权和与著作权有关的权利的保护 ｜ 第五十二条 · 侵权行为的民事责任",
+   "charLen": 420
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/05.md",
-   "chunkId": "trademark-exam-guide-2021/01/02/03/05",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-02-03-05",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.5集体商标相关文件",
-   "charLen": 296
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/05/05.md",
+   "chunkId": "copyright-law-2020/05/05",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-05-05",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第五章 著作权和与著作权有关的权利的保护 ｜ 第五十三条 · 损害公共利益的侵权责任",
+   "charLen": 728
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/06.md",
-   "chunkId": "trademark-exam-guide-2021/01/02/03/06",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-02-03-06",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.6证明商标相关文件",
-   "charLen": 318
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/05/06.md",
+   "chunkId": "copyright-law-2020/05/06",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-05-06",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第五章 著作权和与著作权有关的权利的保护 ｜ 第五十四条 · 赔偿数额的确定",
+   "charLen": 486
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/03/07.md",
-   "chunkId": "trademark-exam-guide-2021/01/02/03/07",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-02-03-07",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 3形式审查内容 ｜ 3.7其他文件",
-   "charLen": 58
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/05/07.md",
+   "chunkId": "copyright-law-2020/05/07",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-05-07",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第五章 著作权和与著作权有关的权利的保护 ｜ 第五十五条 · 行政查处的职权",
+   "charLen": 197
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/04/01.md",
-   "chunkId": "trademark-exam-guide-2021/01/02/04/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-02-04-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 4审查结论 ｜ 4.1形式审查合格",
-   "charLen": 83
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/05/08.md",
+   "chunkId": "copyright-law-2020/05/08",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-05-08",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第五章 著作权和与著作权有关的权利的保护 ｜ 第五十六条 · 诉前保全措施",
+   "charLen": 133
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/04/02/01.md",
-   "chunkId": "trademark-exam-guide-2021/01/02/04/02/01",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-02-04-02-01",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 4审查结论 ｜ 4.2需要补正的情形 ｜ 4.2.1申请事项",
-   "charLen": 628
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/05/09.md",
+   "chunkId": "copyright-law-2020/05/09",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-05-09",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第五章 著作权和与著作权有关的权利的保护 ｜ 第五十七条 · 诉前证据保全",
+   "charLen": 78
   },
   {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/04/02/02.md",
-   "chunkId": "trademark-exam-guide-2021/01/02/04/02/02",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-02-04-02-02",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 4审查结论 ｜ 4.2需要补正的情形 ｜ 4.2.2商标图样和声音样本",
-   "charLen": 265
-  },
-  {
-   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/trademark-exam-guide-2021/_chunks/01/02/04/02/03.md",
-   "chunkId": "trademark-exam-guide-2021/01/02/04/02/03",
-   "domain": "trademark-exam-guide-2021",
-   "anchorNodeId": "tmeg-01-02-04-02-03",
-   "breadcrumb": "《商标审查审理指南（2022年施行）》 ｜ 上编·第一部分 商标申请形式审查 ｜ 第二章 注册申请形式审查 ｜ 4审查结论 ｜ 4.2需要补正的情形 ｜ 4.2.3商品服务项目",
-   "charLen": 125
+   "chunkPath": "/Users/chin.jing1998/编程项目工作站/PatentReader/copyright-law-2020/_chunks/05/10.md",
+   "chunkId": "copyright-law-2020/05/10",
+   "domain": "copyright-law-2020",
+   "anchorNodeId": "cpl-05-10",
+   "breadcrumb": "《中华人民共和国著作权法（2021年施行）》 ｜ 第五章 著作权和与著作权有关的权利的保护 ｜ 第五十八条 · 法院对违法财物的没收",
+   "charLen": 73
   }
  ]
 }

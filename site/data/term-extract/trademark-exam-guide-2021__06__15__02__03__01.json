@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/15/02/03/01",
+  "anchorNode": "tmeg-06-15-02-03-01",
+  "terms": [
+    { "name": "已经使用并有一定影响的商标", "aliases": ["已经使用并有一定影响"], "role": "defined", "confidence": "high", "evidence": "不能认定为“已经使用并有一定影响的商标”" },
+    { "name": "相关公众", "aliases": [], "role": "used", "confidence": "high", "evidence": "相关公众的判定参照本编第十章5.1 “相关公众”" },
+    { "name": "未注册商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "在先未注册商标通过商业宣传和生产经营活动" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

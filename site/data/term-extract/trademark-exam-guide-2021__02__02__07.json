@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/02/07",
+  "anchorNode": "tmeg-02-02-07",
+  "terms": [
+    { "name": "字头分卡", "aliases": [], "role": "defined", "confidence": "high", "evidence": "字头分卡中只能出现一个或两个大写英文字母" },
+    { "name": "英文分卡", "aliases": [], "role": "used", "confidence": "mid", "evidence": "除整体划分英文分卡外，应根据情况划分字头分卡" },
+    { "name": "图形检索", "aliases": [], "role": "used", "confidence": "mid", "evidence": "过于艺术化的，可以不划分，按图形检索" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

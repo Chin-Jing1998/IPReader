@@ -1,0 +1,12 @@
+{
+  "chunk": "ic-layout-regulations-2026/01/09",
+  "anchorNode": "icld-01-09",
+  "terms": [
+    { "name": "布图设计专有权", "aliases": [], "role": "used", "confidence": "high", "evidence": "行使布图设计专有权" },
+    { "name": "诚实信用原则", "aliases": [], "role": "used", "confidence": "mid", "evidence": "应当遵循诚实信用原则" },
+    { "name": "垄断行为", "aliases": [], "role": "used", "confidence": "mid", "evidence": "构成垄断行为的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

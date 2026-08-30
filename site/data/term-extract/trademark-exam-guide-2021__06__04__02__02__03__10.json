@@ -1,0 +1,37 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/04/02/02/03/10",
+  "anchorNode": "tmeg-06-04-02-02-03-10",
+  "terms": [
+    {
+      "name": "申请人名称全称",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "仅有申请人（不包括自然人）名称全称的"
+    },
+    {
+      "name": "显著特征",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "不具备商标的显著特征"
+    },
+    {
+      "name": "混淆误认",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "不会造成消费者混淆误认"
+    },
+    {
+      "name": "一一对应关系",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "产生一一对应关系，不会造成消费者混淆误认"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

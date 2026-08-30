@@ -1,0 +1,11 @@
+{
+  "chunk": "plant-variety-regulations-2025/06/03",
+  "anchorNode": "pvpr-06-03",
+  "terms": [
+    { "name": "品种权的终止", "aliases": [], "role": "defined", "confidence": "high", "evidence": "有下列情形之一的，品种权在其保护期限届满前终止" },
+    { "name": "特征和特性", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不再符合被授予品种权时的特征和特性的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

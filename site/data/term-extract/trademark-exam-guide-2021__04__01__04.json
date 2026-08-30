@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/01/04",
+  "anchorNode": "tmeg-04-01-04",
+  "terms": [
+    { "name": "马德里商标国际注册申请书", "aliases": [], "role": "used", "confidence": "high", "evidence": "马德里商标国际注册申请书" },
+    { "name": "MM2表格", "aliases": [], "role": "used", "confidence": "high", "evidence": "外文申请书 MM2表格" },
+    { "name": "MM18表格", "aliases": [], "role": "used", "confidence": "high", "evidence": "一并提交 MM18表格" },
+    { "name": "马德里商标国际注册代理委托书", "aliases": [], "role": "used", "confidence": "high", "evidence": "《马德里商标国际注册代理委托书》" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

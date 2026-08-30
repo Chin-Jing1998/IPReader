@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/06/04/04",
+  "anchorNode": "tmeg-04-06-04-04",
+  "terms": [
+    { "name": "部分转让", "aliases": [], "role": "used", "confidence": "high", "evidence": "部分转让不应使公众产生误认" },
+    { "name": "其他不良影响", "aliases": [], "role": "used", "confidence": "mid", "evidence": "或产生其他不良影响。" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,23 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/04/02/02/03/08",
+  "anchorNode": "tmeg-06-04-02-02-03-08",
+  "terms": [
+    {
+      "name": "常用贸易用语",
+      "aliases": ["商贸用语"],
+      "role": "defined",
+      "confidence": "mid",
+      "evidence": "均是常用的贸易用语，不具备商标的显著特征"
+    },
+    {
+      "name": "显著特征",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "不具备商标的显著特征"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

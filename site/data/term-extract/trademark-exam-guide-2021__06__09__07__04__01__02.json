@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/04/01/02",
+  "anchorNode": "tmeg-06-09-07-04-01-02",
+  "terms": [
+    { "name": "地理标志误导公众", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标中有商品的地理标志，而该商品并非来源于该标志所标示的地区，误导公众的" },
+    { "name": "地理标志权利人", "aliases": [], "role": "used", "confidence": "mid", "evidence": "地理标志权利人：沅陵县" },
+    { "name": "被异议商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "被异议商标申请注册已构成《商标法》第十六条第一款所指之情形" }
+  ],
+  "laws": ["商标法第16条第1款"],
+  "extractedAt": "2026-08-30T01:53:23+08:00",
+  "model": "claude-sonnet-5"
+}

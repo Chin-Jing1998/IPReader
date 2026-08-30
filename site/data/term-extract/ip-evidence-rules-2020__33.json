@@ -1,0 +1,10 @@
+{
+  "chunk": "ip-evidence-rules-2020/33",
+  "anchorNode": "ipev-33",
+  "terms": [
+    { "name": "司法解释", "aliases": [], "role": "used", "confidence": "mid", "evidence": "本院以前发布的相关司法解释与本规定不一致的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

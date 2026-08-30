@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/06/06/02",
+  "anchorNode": "tmeg-04-06-06-02",
+  "terms": [
+    { "name": "国际注册商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "其名下的国际注册商标" },
+    { "name": "基础商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "因基础商标失效" },
+    { "name": "原属局", "aliases": [], "role": "used", "confidence": "mid", "evidence": "国际局依原属局通知注销" },
+    { "name": "续展", "aliases": [], "role": "used", "confidence": "high", "evidence": "未及时申请续展" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/01/04/02/01/01/02",
+  "anchorNode": "tmeg-01-01-04-02-01-01-02",
+  "terms": [
+    { "name": "身份证明文件", "aliases": [], "role": "used", "confidence": "low", "evidence": "申请人应当填写身份证明文件上的名称" },
+    { "name": "主体资格证明文件", "aliases": [], "role": "used", "confidence": "low", "evidence": "所附身份证明文件、主体资格证明文件中的名称应当一致" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00"
+}

@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/05/03/03/01/04",
+  "anchorNode": "tmeg-06-05-03-03-01-04",
+  "terms": [
+    { "name": "细微差别", "aliases": [], "role": "used", "confidence": "mid", "evidence": "仅文字的间距或颜色存在细微差别" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

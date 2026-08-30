@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/07/02/05",
+  "anchorNode": "tmeg-06-03-02-02-07-02-05",
+  "terms": [
+    { "name": "企业名称", "aliases": [], "role": "defined", "confidence": "high", "evidence": "企业名称包括全称、简称、中文名称、英文名称以及名称的汉语拼音等" },
+    { "name": "实质性差异", "aliases": [], "role": "defined", "confidence": "high", "evidence": "与申请人名义不符的，判定为与申请人名义存在实质性差异" },
+    { "name": "商业惯例", "aliases": [], "role": "used", "confidence": "low", "evidence": "标志所含企业名称与申请人名称不一致，但符合商业惯例" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

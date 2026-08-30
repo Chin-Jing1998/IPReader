@@ -1,0 +1,17 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/05/02/01",
+  "anchorNode": "tmeg-05-05-02-01",
+  "terms": [
+    { "name": "商标异议", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "商标异议业务类" },
+    { "name": "商标撤销", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "商标撤销业务类" },
+    { "name": "商标复审", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "商标复审业务类" },
+    { "name": "商标无效", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "商标无效业务类" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T01:24:30+08:00",
+  "model": "claude-sonnet-5"
+}

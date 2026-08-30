@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/02/02/05",
+  "anchorNode": "tmeg-02-02-05",
+  "terms": [
+    { "name": "拼音分卡", "aliases": [], "role": "defined", "confidence": "high", "evidence": "拼音分卡中只能出现大写英文字母和空格" },
+    { "name": "纯拼音商标", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "纯拼音商标，或是商标拼音部分与汉字部分不一致的" },
+    { "name": "惯常拼读方式", "aliases": [], "role": "defined", "confidence": "high", "evidence": "有多种拼读方式的，应按惯常拼读方式分别划分拼音分卡" },
+    { "name": "英文分卡", "aliases": [], "role": "used", "confidence": "mid", "evidence": "还应划分英文分卡" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

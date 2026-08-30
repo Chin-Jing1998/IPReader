@@ -1,0 +1,11 @@
+{
+  "chunk": "anti-unfair-competition-2025/04/02",
+  "anchorNode": "aucl-04-02",
+  "terms": [
+    { "name": "混淆行为", "aliases": [], "role": "used", "confidence": "high", "evidence": "本法第七条规定实施混淆行为" },
+    { "name": "违法经营额", "aliases": [], "role": "used", "confidence": "high", "evidence": "违法经营额五万元以上的" }
+  ],
+  "laws": ["反不正当竞争法第7条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

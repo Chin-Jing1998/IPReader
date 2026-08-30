@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/05/05/05",
+  "anchorNode": "tmeg-06-02-05-05-05",
+  "terms": [
+    { "name": "不以使用为目的的恶意商标注册申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "不以使用为目的的恶意商标注册申请" },
+    { "name": "知名人物姓名", "aliases": [], "role": "used", "confidence": "mid", "evidence": "大量申请知名人物姓名作为商标" },
+    { "name": "牟取不正当利益", "aliases": [], "role": "used", "confidence": "mid", "evidence": "利用他人声誉牟取不正当利益" },
+    { "name": "商标注册秩序", "aliases": [], "role": "used", "confidence": "mid", "evidence": "扰乱正常的商标注册秩序" }
+  ],
+  "laws": ["商标法第4条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

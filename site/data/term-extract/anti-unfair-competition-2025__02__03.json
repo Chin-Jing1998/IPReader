@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-unfair-competition-2025/02/03",
+  "anchorNode": "aucl-02-03",
+  "terms": [
+    { "name": "虚假或者引人误解的商业宣传", "aliases": [], "role": "used", "confidence": "high", "evidence": "作虚假或者引人误解的商业宣传" },
+    { "name": "虚假交易", "aliases": [], "role": "used", "confidence": "high", "evidence": "组织虚假交易、虚假评价" },
+    { "name": "虚假评价", "aliases": [], "role": "used", "confidence": "high", "evidence": "组织虚假交易、虚假评价" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

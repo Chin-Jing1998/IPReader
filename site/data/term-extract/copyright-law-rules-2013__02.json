@@ -1,0 +1,10 @@
+{
+  "chunk": "copyright-law-rules-2013/02",
+  "anchorNode": "cplr-02",
+  "terms": [
+    { "name": "独创性", "aliases": [], "role": "used", "confidence": "high", "evidence": "具有独创性并能以某种有形形式复制的智力成果" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

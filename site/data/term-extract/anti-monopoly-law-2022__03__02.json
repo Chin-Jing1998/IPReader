@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-monopoly-law-2022/03/02",
+  "anchorNode": "aml-03-02",
+  "terms": [
+    { "name": "市场支配地位", "aliases": [], "role": "defined", "confidence": "high", "evidence": "认定经营者具有市场支配地位，应当依据下列因素" },
+    { "name": "相关市场", "aliases": [], "role": "used", "confidence": "high", "evidence": "该经营者在相关市场的市场份额，以及相关市场的竞争状况" },
+    { "name": "市场份额", "aliases": [], "role": "used", "confidence": "high", "evidence": "该经营者在相关市场的市场份额" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

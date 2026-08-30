@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/02/08/02/07",
+  "anchorNode": "tmeg-06-03-02-02-08-02-07",
+  "terms": [
+    { "name": "恐怖主义组织", "aliases": [], "role": "used", "confidence": "high", "evidence": "与恐怖主义组织、邪教组织" },
+    { "name": "邪教组织", "aliases": [], "role": "used", "confidence": "high", "evidence": "恐怖主义组织、邪教组织、黑社会组织" },
+    { "name": "黑社会组织", "aliases": [], "role": "used", "confidence": "high", "evidence": "邪教组织、黑社会组织或黑社会性质的组织" },
+    { "name": "黑社会性质的组织", "aliases": [], "role": "used", "confidence": "high", "evidence": "黑社会组织或黑社会性质的组织名称" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

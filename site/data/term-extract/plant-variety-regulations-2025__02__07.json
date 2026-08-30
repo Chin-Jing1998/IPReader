@@ -1,0 +1,11 @@
+{
+  "chunk": "plant-variety-regulations-2025/02/07",
+  "anchorNode": "pvpr-02-07",
+  "terms": [
+    { "name": "品种权强制许可", "aliases": [], "role": "defined", "confidence": "high", "evidence": "国务院农业农村、林业草原主管部门可以作出实施品种权强制许可的决定" },
+    { "name": "实施权", "aliases": [], "role": "used", "confidence": "mid", "evidence": "不享有独占的实施权，并且无权允许他人实施" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

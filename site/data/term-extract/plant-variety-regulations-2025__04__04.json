@@ -1,0 +1,11 @@
+{
+  "chunk": "plant-variety-regulations-2025/04/04",
+  "anchorNode": "pvpr-04-04",
+  "terms": [
+    { "name": "申请日", "aliases": [], "role": "defined", "confidence": "high", "evidence": "以寄出的邮戳日为申请日" },
+    { "name": "品种权", "aliases": [], "role": "used", "confidence": "high", "evidence": "品种权申请文件" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

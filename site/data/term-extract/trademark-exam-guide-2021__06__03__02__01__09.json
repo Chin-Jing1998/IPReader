@@ -1,0 +1,44 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/03/02/01/09",
+  "anchorNode": "tmeg-06-03-02-01-09",
+  "terms": [
+    {
+      "name": "县级以上行政区划",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "包括县级行政区划，如县、自治县、县级市、市辖区等"
+    },
+    {
+      "name": "公众知晓的外国地名",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "是指我国公众知晓的我国以外的其他国家或地区的地名"
+    },
+    {
+      "name": "地名具有其他含义",
+      "aliases": [],
+      "role": "defined",
+      "confidence": "high",
+      "evidence": "是指地名作为词汇具有确定含义且该含义强于作为地名的含义"
+    },
+    {
+      "name": "显著性",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "以地名作为商标本身缺乏显著性或显著性较弱"
+    },
+    {
+      "name": "显著特征",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "在整体上具有显著特征且整体上形成了强于上述地名以外的其他含义的"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

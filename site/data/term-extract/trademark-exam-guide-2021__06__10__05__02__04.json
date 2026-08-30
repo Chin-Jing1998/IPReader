@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/10/05/02/04",
+  "anchorNode": "tmeg-06-10-05-02-04",
+  "terms": [
+    { "name": "诚实信用原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "当事人请求驰名商标保护应当遵循诚实信用原则" },
+    { "name": "驰名商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "当事人请求驰名商标保护" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

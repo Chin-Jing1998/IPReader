@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/05/02/04/02/01",
+  "anchorNode": "tmeg-05-02-04-02-01",
+  "terms": [
+    { "name": "多缴", "aliases": [], "role": "defined", "confidence": "high", "evidence": "缴费通知书要求缴纳费用为270元，在规定期限内实际缴纳费用为300元" },
+    { "name": "重缴", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人在规定期限内缴纳费用270元后，再次缴纳270元" },
+    { "name": "错缴", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请人缴费时缴费信息填写错误；或者因缴费不足、逾期缴费导致商标申请权利丧失的" },
+    { "name": "商标申请权利丧失", "aliases": [], "role": "used", "confidence": "mid", "evidence": "缴费不足、逾期缴费导致商标申请权利丧失" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

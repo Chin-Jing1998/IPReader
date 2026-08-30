@@ -1,0 +1,11 @@
+{
+  "chunk": "copyright-law-2020/04/01/05",
+  "anchorNode": "cpl-04-01-05",
+  "terms": [
+    { "name": "文字性修改", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "报社、期刊社可以对作品作文字性修改、删节" },
+    { "name": "删节", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "报社、期刊社可以对作品作文字性修改、删节" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

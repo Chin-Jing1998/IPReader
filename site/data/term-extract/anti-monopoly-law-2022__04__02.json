@@ -1,0 +1,13 @@
+{
+  "chunk": "anti-monopoly-law-2022/04/02",
+  "anchorNode": "aml-04-02",
+  "terms": [
+    { "name": "经营者集中", "aliases": [], "role": "used", "confidence": "high", "evidence": "经营者集中达到国务院规定的申报标准的" },
+    { "name": "国务院反垄断执法机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "经营者应当事先向国务院反垄断执法机构申报" },
+    { "name": "申报标准", "aliases": [], "role": "used", "confidence": "high", "evidence": "国务院规定的申报标准" },
+    { "name": "排除、限制竞争效果", "aliases": [], "role": "used", "confidence": "high", "evidence": "该经营者集中具有或者可能具有排除、限制竞争效果的" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

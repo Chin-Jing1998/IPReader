@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/02/13",
+  "anchorNode": "tmeg-04-02-13",
+  "terms": [
+    { "name": "国际局", "aliases": [], "role": "used", "confidence": "high", "evidence": "通过国家知识产权局向国际局提交各项后续业务申请的" },
+    { "name": "后续业务申请", "aliases": [], "role": "used", "confidence": "high", "evidence": "国际局提交各项后续业务申请的" },
+    { "name": "规费", "aliases": [], "role": "used", "confidence": "high", "evidence": "由国家知识产权局向国际局代为转交规费" },
+    { "name": "国际注册规费标准", "aliases": [], "role": "used", "confidence": "mid", "evidence": "汇率及国际注册规费标准以人民币计价" },
+    { "name": "国际注册申请规费", "aliases": [], "role": "used", "confidence": "mid", "evidence": "以人民币计价代收国际注册申请规费" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

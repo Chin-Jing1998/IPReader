@@ -1,0 +1,10 @@
+{
+  "chunk": "ip-evidence-rules-2020/18",
+  "anchorNode": "ipev-18",
+  "terms": [
+    { "name": "被保全证据", "aliases": [], "role": "used", "confidence": "high", "evidence": "被保全证据" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

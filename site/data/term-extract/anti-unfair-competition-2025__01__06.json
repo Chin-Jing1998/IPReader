@@ -1,0 +1,12 @@
+{
+  "chunk": "anti-unfair-competition-2025/01/06",
+  "anchorNode": "aucl-01-06",
+  "terms": [
+    { "name": "不正当竞争行为", "aliases": [], "role": "used", "confidence": "high", "evidence": "对不正当竞争行为进行社会监督" },
+    { "name": "行业自律", "aliases": [], "role": "used", "confidence": "mid", "evidence": "行业组织应当加强行业自律" },
+    { "name": "市场竞争秩序", "aliases": [], "role": "used", "confidence": "mid", "evidence": "维护市场竞争秩序" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

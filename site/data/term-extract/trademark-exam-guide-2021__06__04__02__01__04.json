@@ -1,0 +1,14 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/04/02/01/04",
+  "anchorNode": "tmeg-06-04-02-01-04",
+  "terms": [
+    { "name": "经过使用取得显著特征", "aliases": [], "role": "defined", "confidence": "high", "evidence": "经过使用取得显著特征，并便于识别" },
+    { "name": "驳回复审案件", "aliases": [], "role": "used", "confidence": "high", "evidence": "驳回复审案件、不予注册复审案件应当以审理时的事实状态为准" },
+    { "name": "不予注册复审案件", "aliases": [], "role": "used", "confidence": "high", "evidence": "驳回复审案件、不予注册复审案件应当以审理时的事实状态为准" },
+    { "name": "无效宣告案件", "aliases": [], "role": "used", "confidence": "high", "evidence": "无效宣告案件原则上以系争商标申请注册时的事实状态为准" },
+    { "name": "系争商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "系争商标申请注册时的事实状态" }
+  ],
+  "laws": ["商标法第11条第1款", "商标法第11条第2款"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

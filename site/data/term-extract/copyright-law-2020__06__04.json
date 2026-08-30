@@ -1,0 +1,12 @@
+{
+  "chunk": "copyright-law-2020/06/04",
+  "anchorNode": "cpl-06-04",
+  "terms": [
+    { "name": "摄影作品", "aliases": [], "role": "used", "confidence": "high", "evidence": "摄影作品，其发表权" },
+    { "name": "发表权", "aliases": [], "role": "used", "confidence": "high", "evidence": "其发表权、本法第十条" },
+    { "name": "保护期", "aliases": [], "role": "used", "confidence": "high", "evidence": "权利的保护期在2021年6月1日前已经届满" }
+  ],
+  "laws": ["著作权法第10条第1款第5项至第17项", "著作权法第23条第1款"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

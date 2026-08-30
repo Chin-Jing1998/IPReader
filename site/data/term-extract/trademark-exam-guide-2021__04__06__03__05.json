@@ -1,0 +1,17 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/06/03/05",
+  "anchorNode": "tmeg-04-06-03-05",
+  "terms": [
+    { "name": "集体商标", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "集体商标" },
+    { "name": "证明商标", "aliases": [], "role": "used",
+      "confidence": "high", "evidence": "证明商标" },
+    { "name": "受让人主体资格", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "受让人主体资格" },
+    { "name": "商标使用管理规则", "aliases": [], "role": "used",
+      "confidence": "mid", "evidence": "商标使用管理规则" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

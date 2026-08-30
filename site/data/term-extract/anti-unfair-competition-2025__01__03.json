@@ -1,0 +1,11 @@
+{
+  "chunk": "anti-unfair-competition-2025/01/03",
+  "anchorNode": "aucl-01-03",
+  "terms": [
+    { "name": "公平竞争审查制度", "aliases": [], "role": "used", "confidence": "high", "evidence": "国家建立健全公平竞争审查制度" },
+    { "name": "市场竞争秩序", "aliases": [], "role": "used", "confidence": "mid", "evidence": "维护市场竞争秩序" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

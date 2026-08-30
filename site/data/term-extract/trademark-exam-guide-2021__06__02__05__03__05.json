@@ -1,0 +1,44 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/02/05/03/05",
+  "anchorNode": "tmeg-06-02-05-03-05",
+  "terms": [
+    {
+      "name": "评审程序",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "异议、评审程序中有证据证明"
+    },
+    {
+      "name": "使用意图",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "申请商标注册时缺乏真实使用意图"
+    },
+    {
+      "name": "商标专用权",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "仅以系争商标专用权对他人发起侵权投诉或诉讼"
+    },
+    {
+      "name": "系争商标",
+      "aliases": [],
+      "role": "used",
+      "confidence": "high",
+      "evidence": "证据证明系争商标申请人仅以系争商标专用权"
+    },
+    {
+      "name": "使用行为",
+      "aliases": [],
+      "role": "used",
+      "confidence": "mid",
+      "evidence": "既无实际使用行为，也无准备使用行为"
+    }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

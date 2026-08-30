@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/06/03",
+  "anchorNode": "tmeg-06-06-03",
+  "terms": [
+    { "name": "三维标志", "aliases": [], "role": "used", "confidence": "high", "evidence": "以三维标志申请注册商标的" },
+    { "name": "商品自身的性质产生的形状", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "仅由商品自身的性质产生的形状" },
+    { "name": "为获得技术效果而需有的商品形状", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "为获得技术效果而需有的商品形状" },
+    { "name": "使商品具有实质性价值的形状", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "使商品具有实质性价值的形状" }
+  ],
+  "laws": ["商标法第12条"],
+  "extractedAt": "2026-08-30T01:52:01+08:00",
+  "model": "claude-sonnet-5"
+}

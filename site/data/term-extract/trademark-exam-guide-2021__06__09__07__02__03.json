@@ -1,0 +1,17 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/09/07/02/03",
+  "anchorNode": "tmeg-06-09-07-02-03",
+  "terms": [
+    { "name": "集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "集体商标和证明商标注册不得违反《商标法》第三十条和第三十一条的规定" },
+    { "name": "证明商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "集体商标和证明商标注册不得违反《商标法》第三十条和第三十一条的规定" },
+    { "name": "普通商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "因为集体商标、证明商标与普通商标" },
+    { "name": "地理标志集体商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "地理标志集体商标、地理标志证明商标虽然同属商标的类型" },
+    { "name": "地理标志证明商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "地理标志集体商标、地理标志证明商标虽然同属商标的类型" },
+    { "name": "近似商标", "aliases": [], "role": "used", "confidence": "mid", "evidence": "注册两种不同类型的相同或者近似商标" },
+    { "name": "类似商品", "aliases": [], "role": "used", "confidence": "mid", "evidence": "也不能在相同或类似商品或者服务上注册两种不同类型" },
+    { "name": "在先注册", "aliases": [], "role": "used", "confidence": "mid", "evidence": "引证申请人在先注册的“嶂山”普通商标" }
+  ],
+  "laws": ["商标法第30条", "商标法第31条"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

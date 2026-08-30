@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/04/02/03",
+  "anchorNode": "tmeg-06-04-02-03",
+  "terms": [
+    { "name": "显著特征", "aliases": ["显著性"], "role": "defined", "confidence": "high", "evidence": "本身不具备显著特征的标志经过使用取得商标显著特征" },
+    { "name": "驳回复审", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标驳回复审案" },
+    { "name": "使用证据", "aliases": [], "role": "used", "confidence": "low", "evidence": "销售发票等使用证据证明" }
+  ],
+  "laws": ["商标法第11条第2款"],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

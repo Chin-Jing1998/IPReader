@@ -1,0 +1,13 @@
+{
+  "chunk": "copyright-law-2020/03/03",
+  "anchorNode": "cpl-03-03",
+  "terms": [
+    { "name": "出质登记", "aliases": [], "role": "used", "confidence": "high", "evidence": "出质登记" },
+    { "name": "出质人", "aliases": [], "role": "used", "confidence": "high", "evidence": "出质人" },
+    { "name": "质权人", "aliases": [], "role": "used", "confidence": "high", "evidence": "质权人" },
+    { "name": "财产权", "aliases": [], "role": "used", "confidence": "high", "evidence": "财产权" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

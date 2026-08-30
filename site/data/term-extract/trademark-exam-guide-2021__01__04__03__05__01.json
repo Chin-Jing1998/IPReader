@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/01/04/03/05/01",
+  "anchorNode": "tmeg-01-04-03-05-01",
+  "terms": [
+    { "name": "形式审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标评审申请经形式审查符合要求的，予以受理" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/04/03/04/04",
+  "anchorNode": "tmeg-04-03-04-04",
+  "terms": [
+    { "name": "商标代理机构", "aliases": [], "role": "used", "confidence": "high", "evidence": "异议当事人申请变更商标代理机构的" },
+    { "name": "代理委托书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "声明和新的代理委托书" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-29T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}

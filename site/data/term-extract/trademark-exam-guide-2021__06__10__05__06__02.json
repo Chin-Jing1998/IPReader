@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/06/10/05/06/02",
+  "anchorNode": "tmeg-06-10-05-06-02",
+  "terms": [
+    { "name": "混淆、误导可能性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "只需判定有无混淆、误导的可能性即可" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-30T00:00:00+08:00",
+  "model": "claude-sonnet-5"
+}
