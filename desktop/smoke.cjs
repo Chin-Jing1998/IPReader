@@ -111,7 +111,8 @@
 // 阶段5.11 波J（法域标签多选化）扩写步 28/29/32/33、步数仍为 35：标签行由单选改多选，
 // hiddenSections 仍是唯一事实源、标签行是其反解视图，故各步的既有单选断言逐值不动，
 // 只在其后追加多选路径——
-//   28  J-①并选（两枚同亮、图例显组=组并集 10 枚、扩展段控与两条段分隔线都在场）、
+//   28  J-①并选（两枚同亮、图例显组=组并集、骨架段控与法域边界分隔线的去留；
+//       组数与分隔线条数随波L 拆组由 10/2 改为 16/7，判据与文案见该步注释）、
 //       J-②toggle 取消回单选、J-③再取消即空集回「全部」、J-④依次点满六枚自动塌缩为「全部」；
 //   29-g 并选后左栏目录树两支可见四支 hidden（kb:graphfield 载荷本批由单值 {field}
 //       改为集合 {fields:[…]}，派发方与订阅方不同批改动即静默失联，本项是其护栏）；
@@ -130,6 +131,18 @@
 // 波K 一并压缩全站三栏间隙（页缘 24→16 / 列间距 36→28 / 侧栏内边距 24·32→16·20），
 // 步 14/15 逐字断言的 --titlebar-h 38px 与 body padding-top 38px 一字未动。
 // 总超时仍为 660s：32-h 是同页内的三次点击加两次复位，本机实测净增约 4s。
+//
+// 阶段5.11 波L（图例按「法域 × 文种」完整归类）改写步 28 与 33-e、步数仍为 35：
+// SECTION_GROUPS 由 15 组拆为 30 组（每组恰属一个「法域 × 文种」格），图例行随之
+// 由「主干段 / 扩展段 / 术语段」三段平铺改为「骨架段控 ▏法域段 × 6 ▏术语段」，
+// 法域段内再按文种分子段。本文件受影响的全是**计数与组号常量**，交互路径一字未动——
+//   28  图例可点钮 14 → 29；商标法域 2 组 → 5 组（19/20/8/21/15）；并选组数 10 → 16、
+//       隐藏 4 → 13；段分隔线 2 条 → 7 条（切点改在法域边界，顺修旧结构把专利法域
+//       从中劈开的错位）；新增法域段标题（6 个）与文种子标题（23 个）的在场断言，
+//       用以验证「相邻可见性」判据——空段的标题与并排孤线都必须自动撤下；
+//   33-e 目录抽屉未置灰组的期望集合按新组表重算（商标 5 组、并选 16 组）。
+// 组号常量都写死在本文件而不从组表派生：smoke 是 CJS、不能 import .ts，两侧靠
+// quartz/util/graphSections.test.ts 的同值断言互相钉住（那边改了这边跑不过）。
 const {
   app,
   BrowserWindow,
@@ -1459,17 +1472,19 @@ async function main() {
        };
      })()`,
   );
-  // 扩断言（阶段5.3 批 B5，追加于既有断言之后，既有条件与文案一字不动）：
-  // 图例行 .ge-legend-item[data-section] 随法域标签同步收窄的 hidden 分布——商标法域在
-  // SECTION_GROUPS 中恰有两组（"8"=商标、"15"=商标审查指南，见 quartz/util/graphSections.ts
-  // 的 groupsOfField("商标")），故点「商标」后 14 枚图例钮应恰 2 枚可见、其余 12 枚 hidden；
-  // 点回「全部」后 14 枚全可见，与挂载初始态一致。
-  const TRADEMARK_LEGEND_GROUPS = ["8", "15"];
+  // 扩断言（阶段5.3 批 B5，追加于既有断言之后）：
+  // 图例行 .ge-legend-item[data-section] 随法域标签同步收窄的 hidden 分布。
+  // 阶段5.11 波L 按「法域 × 文种」拆组后，组数 15 → 30、可点钮 14 → 29，商标法域由
+  // 2 组增为 5 组（19 法律 / 20 法规 / 8 规章 / 21 司解 / 15 指引，见
+  // quartz/util/graphSections.ts 的 groupsOfField("商标")）：点「商标」后 29 枚图例钮
+  // 应恰 5 枚可见、其余 24 枚 hidden；点回「全部」后 29 枚全可见，与挂载初始态一致。
+  const LEGEND_BTN_COUNT = 29; // 30 个域组 − 术语项（不可点的 span，不带 data-section）
+  const TRADEMARK_LEGEND_GROUPS = ["19", "20", "8", "21", "15"];
   const legendAfterTm = await win.webContents.executeJavaScript(
     `Array.from(document.querySelectorAll('.ge-legend-item[data-section]')).map((el) => ({ section: el.dataset.section, hidden: el.hidden }))`,
   );
   const legendTmOk =
-    legendAfterTm.length === 14 &&
+    legendAfterTm.length === LEGEND_BTN_COUNT &&
     legendAfterTm.every((it) =>
       TRADEMARK_LEGEND_GROUPS.includes(it.section) ? it.hidden === false : it.hidden === true,
     );
@@ -1481,18 +1496,23 @@ async function main() {
     `Array.from(document.querySelectorAll('.ge-legend-item[data-section]')).map((el) => ({ section: el.dataset.section, hidden: el.hidden }))`,
   );
   const legendAllOk =
-    legendAfterAll.length === 14 && legendAfterAll.every((it) => it.hidden === false);
+    legendAfterAll.length === LEGEND_BTN_COUNT && legendAfterAll.every((it) => it.hidden === false);
 
   // ---- 扩断言（阶段5.11 波J 标签多选化）：并选 / toggle 取消 / 空集回全部 / 选满塌缩 ----
   // 上面各条单选断言一字不动，本段自「全部」态接着往下点（上一次点击正是「全部」）。
-  // 探针一次读齐「七枚标签的 active + aria-pressed」与「14 枚图例钮的 hidden」，
-  // 另读扩展段控与两条段分隔线——「专利 + 商标」是 main 与 ext 两段都非空的组合，
-  // 正是段分隔线推导（syncLegendButtons 末两行）唯一会被走到的分支。
+  // 探针一次读齐「七枚标签的 active + aria-pressed」与「29 枚图例钮的 hidden」，
+  // 另读骨架段控与七条段分隔线——「专利 + 商标」在波L 的新版面里是「两个相邻法域段可见、
+  // 其后四个法域段整段撤空」的组合，正是 syncLegendChrome 的 pending 合并分支
+  //（中间整段为空时不留并排孤线）唯一会被走到的地方。
+  // 波L 另读两类新增的骨架元素：法域段标题与文种子标题的 hidden 分布，
+  // 用来验「相邻可见性」判据——空段的标题必须随之撤下，不能留下没有钮的孤零标题。
   const FIELD_TAB_STATE = `(() => {
      const tabs = Array.from(document.querySelectorAll('.ge-field-tab[data-field]'));
      const legend = Array.from(document.querySelectorAll('.ge-legend-item[data-section]'));
      const ctl = document.querySelector('.ge-legend-groupctl[data-section-group="ext"]');
      const seps = Array.from(document.querySelectorAll('.ge-legend > .ge-legend-sep'));
+     const fieldHeads = Array.from(document.querySelectorAll('.ge-legend > .ge-legend-field'));
+     const docHeads = Array.from(document.querySelectorAll('.ge-legend > .ge-legend-doctype'));
      return {
        active: tabs.filter((t) => t.classList.contains('active')).map((t) => t.dataset.field),
        pressed: tabs.filter((t) => t.getAttribute('aria-pressed') === 'true')
@@ -1501,6 +1521,10 @@ async function main() {
        hiddenCount: legend.filter((el) => el.hidden).length,
        ctlHidden: ctl ? ctl.hidden : null,
        sepHidden: seps.map((s) => s.hidden),
+       fieldHeads: fieldHeads.length,
+       fieldHeadsShown: fieldHeads.filter((el) => !el.hidden).map((el) => el.dataset.legendField),
+       docHeads: docHeads.length,
+       docHeadsShown: docHeads.filter((el) => !el.hidden).length,
      };
    })()`;
   const clickTab = async (field, ms = 700) => {
@@ -1514,42 +1538,61 @@ async function main() {
     Array.isArray(got) && [...got].sort().join(",") === [...want].sort().join(",");
 
   // J-①：从「全部」点商标 → 再点专利 = 并选。两枚同亮、「全部」落灰；
-  //       图例显组 = 组并集 {1,2,3,4,5,6,7,10} ∪ {8,15} 共 10 枚，隐 4 枚（11/12/13/14）
+  //       图例显组 = 组并集（专利 11 组 ∪ 商标 5 组）共 16 枚，隐 13 枚
+  //       （著作权 4 + 竞争法 3 + 品种布图 3 + 综合程序 3）。
+  //       版面骨架（波L）：仅「专利」「商标」两个法域段标题在场，其余四个随空段撤下；
+  //       七条分隔线只剩三条——[0] 骨架|专利、[1] 专利|商标、[6] 综合|术语，
+  //       中间四条因「著作权…综合程序」整段撤空而被 pending 合并逻辑作废。
   await clickTab("商标");
   const sDual = await clickTab("专利");
-  const DUAL_GROUPS = ["1", "2", "3", "4", "5", "6", "7", "10", "8", "15"];
+  const DUAL_GROUPS = [
+    "1", "2", "16", "10", "17", "3", "4", "5", "6", "7", "18", // 专利 11 组
+    "19", "20", "8", "21", "15", // 商标 5 组
+  ];
+  const DUAL_SEP_HIDDEN = [false, false, true, true, true, true, false];
+  // 可见文种子标题数 = 专利 5（法律/法规/规章/司解/指引）+ 商标 5 = 10
   const dualOk =
     !!sDual &&
     sameSet(sDual.active, ["商标", "专利"]) &&
     sameSet(sDual.pressed, ["商标", "专利"]) &&
     sameSet(sDual.shown, DUAL_GROUPS) &&
-    sDual.hiddenCount === 4 &&
-    // main 段（7 枚）与 ext 段（3 枚）都非空 ⇒ 段控在场、两条分隔线都不撤
+    sDual.hiddenCount === 13 &&
     sDual.ctlHidden === false &&
-    sDual.sepHidden.length === 2 &&
-    sDual.sepHidden.every((h) => h === false);
+    sDual.sepHidden.length === 7 &&
+    sDual.sepHidden.join(",") === DUAL_SEP_HIDDEN.join(",") &&
+    sDual.fieldHeads === 6 &&
+    sameSet(sDual.fieldHeadsShown, ["专利", "商标"]) &&
+    sDual.docHeads === 23 &&
+    sDual.docHeadsShown === 10;
   await shot(win, "图谱标签行-并选专利商标");
 
-  // J-②：再点商标 = toggle 取消，回落为单选专利（8 枚图例可见）
+  // J-②：再点商标 = toggle 取消，回落为单选专利（11 枚图例可见、隐 18 枚）
   const sToggle = await clickTab("商标");
   const toggleOk =
     !!sToggle &&
     sameSet(sToggle.active, ["专利"]) &&
     sameSet(sToggle.pressed, ["专利"]) &&
-    sameSet(sToggle.shown, ["1", "2", "3", "4", "5", "6", "7", "10"]) &&
-    sToggle.hiddenCount === 6;
+    sameSet(sToggle.shown, ["1", "2", "16", "10", "17", "3", "4", "5", "6", "7", "18"]) &&
+    sToggle.hiddenCount === 18 &&
+    // 只剩一个法域段：其标题在场，其余五个撤下；可见文种子标题 5 个
+    sameSet(sToggle.fieldHeadsShown, ["专利"]) &&
+    sToggle.docHeadsShown === 5;
 
-  // J-③：再点专利 = 集合清空 → 回「全部」（14 枚全显、「全部」独亮、六枚落灰）
+  // J-③：再点专利 = 集合清空 → 回「全部」（29 枚全显、「全部」独亮、六枚落灰，
+  //       六个法域段标题与 23 个文种子标题全部回场、七条分隔线全显）
   const sEmpty = await clickTab("专利");
   const emptyOk =
     !!sEmpty &&
     sameSet(sEmpty.active, ["*"]) &&
     sameSet(sEmpty.pressed, ["*"]) &&
-    sEmpty.shown.length === 14 &&
-    sEmpty.hiddenCount === 0;
+    sEmpty.shown.length === LEGEND_BTN_COUNT &&
+    sEmpty.hiddenCount === 0 &&
+    sEmpty.fieldHeadsShown.length === 6 &&
+    sEmpty.docHeadsShown === 23 &&
+    sEmpty.sepHidden.every((h) => h === false);
 
   // J-④：选满六枚自动塌缩为空集——依次点满六法域后，高亮回到「全部」、六枚落灰、
-  //       14 枚图例全显。塌缩是刻意归一：六枚并选与「全部」在组显隐上同解，
+  //       29 枚图例全显。塌缩是刻意归一：六枚并选与「全部」在组显隐上同解，
   //       但术语层不同（六枚并选会滤掉无法域归属的术语），故必须收敛到「全部」那条路径。
   let sFull = null;
   for (const f of ["专利", "商标", "著作权", "竞争法", "品种布图", "综合程序"]) {
@@ -1559,12 +1602,12 @@ async function main() {
     !!sFull &&
     sameSet(sFull.active, ["*"]) &&
     sameSet(sFull.pressed, ["*"]) &&
-    sFull.shown.length === 14 &&
+    sFull.shown.length === LEGEND_BTN_COUNT &&
     sFull.hiddenCount === 0;
   await shot(win, "图谱标签行-选满塌缩");
 
   record(
-    "图谱标签行（.ge-fieldnav + 七枚标签 + 初始「全部」/中国高亮 + 点「商标」后高亮转移 + 图例行随标签收窄 + 多选：并选/toggle/空集回全部/选满塌缩）",
+    "图谱标签行（.ge-fieldnav + 七枚标签 + 初始「全部」/中国高亮 + 点「商标」后高亮转移 + 图例行随标签收窄 + 波L 法域段/文种子标题/分隔线相邻可见性 + 多选：并选/toggle/空集回全部/选满塌缩）",
     fieldNavReady &&
       fieldNavProbe.hasNav &&
       fieldNavProbe.tabCount === 7 &&
@@ -1584,15 +1627,20 @@ async function main() {
       `初始「全部」高亮=${fieldNavProbe.allActive}, 中国徽标高亮=${fieldNavProbe.cnActive}；` +
       `点「商标」后：商标高亮=${fieldTabAfter.tmActive}（aria-pressed=${fieldTabAfter.tmPressed}）, ` +
       `「全部」已落灰=${!fieldTabAfter.allActive}（aria-pressed=${fieldTabAfter.allPressed}）；` +
-      `图例行分布：点「商标」后=${JSON.stringify(legendAfterTm)}（组8/15可见、其余隐→${legendTmOk}）, ` +
-      `点回「全部」后 14 枚全可见→${legendAllOk}; ` +
+      `图例行分布：点「商标」后可见组=${JSON.stringify(legendAfterTm.filter((it) => !it.hidden).map((it) => it.section))}` +
+      `（须为商标五组 ${JSON.stringify(TRADEMARK_LEGEND_GROUPS)}、其余 24 枚隐→${legendTmOk}）, ` +
+      `点回「全部」后 ${LEGEND_BTN_COUNT} 枚全可见→${legendAllOk}; ` +
       `J-① 并选商标+专利：高亮=${sDual ? JSON.stringify(sDual.active) : "-"}（须两枚同亮、无「*」）, ` +
-      `aria-pressed=${sDual ? JSON.stringify(sDual.pressed) : "-"}, 图例显组=${sDual ? JSON.stringify(sDual.shown) : "-"}` +
-      `（须并集 10 枚）, 隐 ${sDual ? sDual.hiddenCount : "-"} 枚（须 4）, 扩展段控 hidden=${sDual ? sDual.ctlHidden : "-"}（须 false）, ` +
-      `段分隔线 hidden=${sDual ? JSON.stringify(sDual.sepHidden) : "-"}（须 [false,false]）→${dualOk}; ` +
-      `J-② toggle 取消商标：高亮=${sToggle ? JSON.stringify(sToggle.active) : "-"}（须只剩专利）, 图例显 ${sToggle ? sToggle.shown.length : "-"} 枚（须 8）→${toggleOk}; ` +
-      `J-③ 再取消专利=空集：高亮=${sEmpty ? JSON.stringify(sEmpty.active) : "-"}（须只剩「*」）, 图例显 ${sEmpty ? sEmpty.shown.length : "-"} 枚（须 14）→${emptyOk}; ` +
-      `J-④ 依次点满六枚后塌缩：高亮=${sFull ? JSON.stringify(sFull.active) : "-"}（须只剩「*」、六枚落灰）, 图例显 ${sFull ? sFull.shown.length : "-"} 枚（须 14）→${fullCollapseOk}`,
+      `aria-pressed=${sDual ? JSON.stringify(sDual.pressed) : "-"}, 图例显 ${sDual ? sDual.shown.length : "-"} 枚` +
+      `（须并集 16 枚）, 隐 ${sDual ? sDual.hiddenCount : "-"} 枚（须 13）, 骨架段控 hidden=${sDual ? sDual.ctlHidden : "-"}（须 false）, ` +
+      `法域段标题在场=${sDual ? JSON.stringify(sDual.fieldHeadsShown) : "-"}（须只剩专利/商标，共 ${sDual ? sDual.fieldHeads : "-"} 个）, ` +
+      `文种子标题 ${sDual ? sDual.docHeadsShown : "-"}/${sDual ? sDual.docHeads : "-"} 在场（须 10/23）, ` +
+      `段分隔线 hidden=${sDual ? JSON.stringify(sDual.sepHidden) : "-"}（须 ${JSON.stringify(DUAL_SEP_HIDDEN)}，即空段间不留并排孤线）→${dualOk}; ` +
+      `J-② toggle 取消商标：高亮=${sToggle ? JSON.stringify(sToggle.active) : "-"}（须只剩专利）, 图例显 ${sToggle ? sToggle.shown.length : "-"} 枚（须 11）, ` +
+      `法域段标题=${sToggle ? JSON.stringify(sToggle.fieldHeadsShown) : "-"}, 文种子标题 ${sToggle ? sToggle.docHeadsShown : "-"} 个（须 5）→${toggleOk}; ` +
+      `J-③ 再取消专利=空集：高亮=${sEmpty ? JSON.stringify(sEmpty.active) : "-"}（须只剩「*」）, 图例显 ${sEmpty ? sEmpty.shown.length : "-"} 枚（须 ${LEGEND_BTN_COUNT}）, ` +
+      `法域段标题 ${sEmpty ? sEmpty.fieldHeadsShown.length : "-"}/6、文种子标题 ${sEmpty ? sEmpty.docHeadsShown : "-"}/23 全回场→${emptyOk}; ` +
+      `J-④ 依次点满六枚后塌缩：高亮=${sFull ? JSON.stringify(sFull.active) : "-"}（须只剩「*」、六枚落灰）, 图例显 ${sFull ? sFull.shown.length : "-"} 枚（须 ${LEGEND_BTN_COUNT}）→${fullCollapseOk}`,
   );
   await shot(win, "图谱标签行");
 
@@ -2898,12 +2946,17 @@ async function main() {
   );
   await sleep(2000);
   const s33e2 = await win.webContents.executeJavaScript(TOC_STATS);
-  // 商标法域 = 组 8（商标）+ 组 15（商标审查指南）；其余组的行须全部置灰
-  // 并选「商标 + 专利」= 上述两组 ∪ 专利八组（1–7 与 10），字典序即下方期望值
-  const DUAL_LIT_GROUPS = ["1", "10", "15", "2", "3", "4", "5", "6", "7", "8"];
+  // 商标法域（阶段5.11 波L 拆组后）= 组 19 法律 / 20 法规 / 8 规章 / 21 司解 / 15 指引；
+  // 其余组的行须全部置灰。并选「商标 + 专利」= 上述五组 ∪ 专利十一组
+  //（1/2/16/10/17/3/4/5/6/7/18），**字典序**即下方期望值（TOC_STATS 内 uniq 已 sort）。
+  const TM_LIT_GROUPS = ["19", "20", "8", "21", "15"];
+  const DUAL_LIT_GROUPS = [
+    "1", "10", "15", "16", "17", "18", "19", "2", "20", "21",
+    "3", "4", "5", "6", "7", "8",
+  ];
   const e33Ok =
     !!s33e1 &&
-    s33e1.litGroups.join(",") === ["8", "15"].sort().join(",") &&
+    s33e1.litGroups.join(",") === [...TM_LIT_GROUPS].sort().join(",") &&
     s33e1.dimmed > 0 &&
     !!s33e1b &&
     s33e1b.litGroups.join(",") === DUAL_LIT_GROUPS.join(",") &&
@@ -3216,7 +3269,7 @@ async function main() {
       `c 点行定位：c1「${c33a.title}」（期望「${tocTitles.guide}」）→drawer.hidden=${c33a.drawerHidden}（须 false——波C-c 起悬停模式点行不收起）, 重建计数=${c33a.calls}（须 0）; ` +
       `c2「${c33b.title}」（期望「${tocTitles.law}」）常开锁开→drawer.hidden=${c33b.drawerHidden}（须 false）, 重建计数=${c33b.calls}（须 0）; ` +
       `d 展开 1-专利法：built=${d33 ? d33.built : "-"}, 章行=${d33 ? d33.rows : "-"}（索引现算=${chapterExpected}）; ` +
-      `e 置灰：点「商标」后未置灰组=${s33e1 ? JSON.stringify(s33e1.litGroups) : "-"}（须 ["15","8"]）、置灰行=${s33e1 ? s33e1.dimmed : "-"}；` +
+      `e 置灰：点「商标」后未置灰组=${s33e1 ? JSON.stringify(s33e1.litGroups) : "-"}（须商标五组 ${JSON.stringify([...TM_LIT_GROUPS].sort())}）、置灰行=${s33e1 ? s33e1.dimmed : "-"}；` +
       `并选「+专利」后未置灰组=${s33e1b ? JSON.stringify(s33e1b.litGroups) : "-"}（须并集去重 ${JSON.stringify(DUAL_LIT_GROUPS)}）、置灰行=${s33e1b ? s33e1b.dimmed : "-"}（须 >0）；` +
       `回「全部」后置灰行=${s33e2 ? s33e2.dimmed : "-"}（须 0）; ` +
       `f 存活：两次法域切换触发重建 ${rebuilds} 次（须 0——就地 resize 零重建），drawer.hidden=${s33e2 ? s33e2.drawerHidden : "-"}, 书行=${s33e2 ? s33e2.books : "-"}（须 76）; ` +

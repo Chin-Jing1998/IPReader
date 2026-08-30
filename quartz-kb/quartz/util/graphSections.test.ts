@@ -3,11 +3,14 @@ import test from "node:test"
 import {
   ALL_GROUP_IDS,
   BOOK_COLORS,
+  DOCTYPE_ORDER,
+  DOCTYPE_SHORT,
   EXT_GROUP_IDS,
   FIELD_ALL,
   FIELD_TABS,
   NON_TERM_GROUP_IDS,
   SECTION_GROUPS,
+  buildLegendSections,
   groupOfSlug,
   groupsOfField,
   groupsOfFields,
@@ -22,7 +25,7 @@ import {
 // ============================================================
 
 test("高危点回归：组号不是 slug 字面前缀，startsWith 会误吞而 groupOfSlug 不会", () => {
-  // 组号 "10" = 专利扩展；slug "10-植物新品种纠纷解释/…" 的目录前缀 10 实属组号 "11" 品种布图
+  // 组号 "10" = 专利·规章；slug "10-植物新品种纠纷解释/…" 的目录前缀 10 实属组号 "11" 品图·司解
   const slug = "10-植物新品种纠纷解释/pv01-01"
 
   // 旧写法：字面前缀匹配 → 误判为属于组 "10"
@@ -30,24 +33,41 @@ test("高危点回归：组号不是 slug 字面前缀，startsWith 会误吞而
 
   // 新写法：经组表归一 → 正确归入组 "11"
   assert.equal(groupOfSlug(slug), "11")
-  assert.equal(isSlugInGroup(slug, "10"), false, "隐藏『专利扩展』不得连带清空品种文献的选中态")
+  assert.equal(isSlugInGroup(slug, "10"), false, "隐藏『专利·规章』不得连带清空品种文献的选中态")
   assert.equal(isSlugInGroup(slug, "11"), true)
 
   // 另一侧对称：真正属于组 "10" 的 slug 必须命中组 "10"
-  assert.equal(groupOfSlug("11-专利纠纷案件规定/pdr-01"), "10")
+  //（波L 后前缀 11 归组 "17" 专利·司解，不再与组 "10" 同组，改取组 10 在册的 85-）
   assert.equal(groupOfSlug("85-专利纠纷行政裁决和调解办法/padmd-01"), "10")
+  assert.equal(groupOfSlug("11-专利纠纷案件规定/pdr-01"), "17")
+})
+
+test("高危点回归（波L）：新组号 16–30 与同值目录前缀含义无关，一律经组表归一", () => {
+  // 波L 把 6 个跨文种组拆开后，组号 16–30 与目录前缀 16–30 大面积同值。
+  // 逐例钉死「同值 ≠ 同组」，防止将来有人图省事写 startsWith(groupId + "-")。
+  // 巧合命中（同值且恰属该组，最迷惑的一类）：
+  assert.equal(groupOfSlug("17-侵权解释一/pi01-01"), "17", "前缀 17 恰在组 17 内，纯属巧合")
+  assert.equal(groupOfSlug("21-商标确权解释/tmg-01"), "21", "前缀 21 恰在组 21 内，纯属巧合")
+  // 同值但分属两组（护栏真正要拦的）：
+  assert.equal(groupOfSlug("19-北上广知产法院管辖/ipcj-01"), "14", "前缀 19 属综合·司解，非组 19")
+  assert.equal(groupOfSlug("20-侵权解释二/pi02-01"), "17", "前缀 20 属专利·司解，非组 20")
+  assert.equal(groupOfSlug("22-行为保全规定/ipp-01"), "14", "前缀 22 属综合·司解，非组 22")
+  assert.equal(groupOfSlug("25-商业秘密解释/ts-01"), "12", "前缀 25 属竞争·司解，非组 25")
+  assert.equal(groupOfSlug("30-反不正当竞争法解释/ucl-01"), "12", "前缀 30 属竞争·司解，非组 30")
+  assert.equal(groupOfSlug("26-授权确权解释一/pgc-01"), "17", "前缀 26 属专利·司解，非组 26")
+  assert.equal(groupOfSlug("29-植物新品种规定二/pv02-01"), "11", "前缀 29 属品图·司解，非组 29")
 })
 
 test("高危点回归：多位数前缀精确到目录号边界，不发生 1/1x、8/8x 的前缀吞并", () => {
   // 单位数组号 "1"（专利法）不得吞掉 11-/12-/…/19- 开头的 slug
   assert.equal(groupOfSlug("1-专利法/law-01-01"), "1")
-  assert.equal(groupOfSlug("11-专利纠纷案件规定/pdr-01"), "10")
-  assert.equal(groupOfSlug("12-商标案件管辖解释/tmjur-01"), "8")
+  assert.equal(groupOfSlug("11-专利纠纷案件规定/pdr-01"), "17")
+  assert.equal(groupOfSlug("12-商标案件管辖解释/tmjur-01"), "21")
   assert.equal(groupOfSlug("19-北上广知产法院管辖/ipcj-01"), "14")
-  // 组号 "8"（商标）不得吞掉 83-/84- 开头的 slug 的判定逻辑——
+  // 组号 "8"（商标·规章）不得吞掉 83-/84- 开头的 slug 的判定逻辑——
   // 这两者恰好也属组 8，故另取属组 10 的 81- 做反例
   //（原用 82-，该书已于阶段5.11 波O 下线、前缀不再登记，改取同组仍在册的 81-）；
-  // 80 已于 G-2 独立成组 15（商标审查指南），不再属组 8，一并验证精确匹配
+  // 80 已于 G-2 独立成组 15（商标·指引），不再属组 8，一并验证精确匹配
   assert.equal(groupOfSlug("81-规范申请专利行为的规定/pfc-01"), "10")
   assert.equal(groupOfSlug("80-商标审查审理指南/tmeg-01"), "15")
   // 组号 "9"（术语）不得吞掉 90- 开头的 slug；90 前缀自 G-1 从 §14 摘除后即未登记，
@@ -70,16 +90,45 @@ test("无数字前缀或未登记前缀一律返回 undefined，由调用方回�
 test("组表自洽：组号唯一、前缀唯一、非术语前缀合计 76 部（主干 7 + 扩展 69）", () => {
   const ids = SECTION_GROUPS.map((g) => g.id)
   assert.equal(new Set(ids).size, ids.length, "组号不得重复")
-  assert.equal(ids.length, 15, "共 15 个域组（主干 7 + 扩展 7 + 术语 1）")
+  // 阶段5.11 波L：6 个跨文种扩展组按 (法域, 文种) 拆开，组数 15 → 30
+  assert.equal(ids.length, 30, "共 30 个域组（主干 7 + 扩展 22 + 术语 1）")
 
   const prefixes = SECTION_GROUPS.flatMap((g) => g.prefixes)
   assert.equal(new Set(prefixes).size, prefixes.length, "同一目录前缀不得登记进两个组")
 
   const extPrefixes = SECTION_GROUPS.filter((g) => g.tier === "ext").flatMap((g) => g.prefixes)
-  // 阶段5.11 波O：7 部登记在册的下线书（72/74/75/82 出组 10、51/77 出组 13、53 出组 8）摘除，76 → 69
+  // 阶段5.11 波O：7 部登记在册的下线书（72/74/75/82 出组 10、51/77 出组 13、53 出组 8）摘除，76 → 69。
+  // 波L 只重新划分这 69 部的归组，部数不变。
   assert.equal(extPrefixes.length, 69, "扩展入库文献共 69 部")
-  assert.deepEqual([...EXT_GROUP_IDS], ["10", "8", "15", "13", "12", "11", "14"])
-  assert.equal(ALL_GROUP_IDS.length, 15)
+  // 顺序即图例呈现顺序：法域（FIELD_TABS 序）→ 文种（D1→D5）→ 组（主干在前）
+  assert.deepEqual(
+    [...EXT_GROUP_IDS],
+    [
+      "16",
+      "10",
+      "17",
+      "18",
+      "19",
+      "20",
+      "8",
+      "21",
+      "15",
+      "22",
+      "13",
+      "23",
+      "24",
+      "25",
+      "26",
+      "12",
+      "27",
+      "28",
+      "11",
+      "29",
+      "30",
+      "14",
+    ],
+  )
+  assert.equal(ALL_GROUP_IDS.length, 30)
 
   // 划分完备性：非术语前缀（主干 + 扩展）应恰好合计 76 部，与术语组互不重叠
   const nonTermPrefixes = SECTION_GROUPS.filter((g) => g.tier !== "term").flatMap((g) => g.prefixes)
@@ -99,12 +148,104 @@ test("组表自洽：组号唯一、前缀唯一、非术语前缀合计 76 部�
 })
 
 test("组表与 CSS 变量命名对齐：每个组号都有对应的 --graph-section-<id>", () => {
-  // custom.scss 十二个主题块各定义 --graph-section-1..15；此处只校验组号取值域，
-  // 实际色值一致性由构建后的样式抽验覆盖。
+  // custom.scss 十二个主题块各定义 --graph-section-1..30，graphexplorer.scss 的图例点
+  // 规则以 @for 1 through 30 生成；此处只校验组号取值域，实际色值一致性由构建后的
+  // 样式抽验覆盖。上界变动时三处（本断言、scss @for、graph.inline.ts cssVars）同改。
   for (const g of SECTION_GROUPS) {
     const n = Number(g.id)
-    assert.ok(Number.isInteger(n) && n >= 1 && n <= 15, `组号 ${g.id} 应为 1–15 的整数`)
+    assert.ok(Number.isInteger(n) && n >= 1 && n <= 30, `组号 ${g.id} 应为 1–30 的整数`)
   }
+  // 组号连续无空洞：1–30 恰好被 30 个组用满，漏号即意味着某个 CSS 变量白定义
+  assert.deepEqual(
+    SECTION_GROUPS.map((g) => Number(g.id)).sort((a, b) => a - b),
+    Array.from({ length: 30 }, (_, i) => i + 1),
+  )
+})
+
+// ============================================================
+// 文种归类（阶段5.11 波L）：docType 完备性、组内单文种、图例分段结构
+// ============================================================
+
+test("docType：除术语组外一律必填，取值落在 DOCTYPE_ORDER 内", () => {
+  for (const g of SECTION_GROUPS) {
+    if (g.tier === "term") {
+      assert.equal(g.docType, undefined, "术语层不是文献，不得有文种")
+      continue
+    }
+    assert.ok(g.docType !== undefined, `组 ${g.id}（${g.label}）缺 docType`)
+    assert.ok(
+      DOCTYPE_ORDER.includes(g.docType!),
+      `组 ${g.id} 的 docType「${g.docType}」不在 DOCTYPE_ORDER 内`,
+    )
+    assert.ok(DOCTYPE_SHORT[g.docType!].length === 2, "文种简称一律 2 字（图例版面硬约束）")
+  }
+})
+
+test("(法域, 文种) 划分：每组恰属一个格子，主干七书是同格多组的唯一来源", () => {
+  // 每个格子里的组：键 = 法域 + 文种
+  const byCell = new Map<string, string[]>()
+  for (const g of SECTION_GROUPS) {
+    if (g.tier === "term") continue
+    const cell = `${g.field}/${g.docType}`
+    byCell.set(cell, [...(byCell.get(cell) ?? []), g.id])
+  }
+  // 波L 实测：76 部书落在 23 个 (法域, 文种) 格里
+  assert.equal(byCell.size, 23, "23 个非空格子")
+  // 只有专利·D2（实施细则 + 专利条例）与专利·D5（主干五书 + 专利指引）是一格多组，
+  // 且多出来的组一律因主干七书独立成组而来——换言之，非主干组与格子一一对应
+  const multi = [...byCell.entries()].filter(([, ids]) => ids.length > 1)
+  assert.deepEqual(
+    multi.map(([cell]) => cell).sort(),
+    ["专利/D2", "专利/D5"],
+    "同格多组只应出现在含主干七书的两个格子",
+  )
+  const extByCell = new Map<string, number>()
+  for (const g of SECTION_GROUPS) {
+    if (g.tier !== "ext") continue
+    const cell = `${g.field}/${g.docType}`
+    extByCell.set(cell, (extByCell.get(cell) ?? 0) + 1)
+  }
+  for (const [cell, n] of extByCell) {
+    assert.equal(n, 1, `格子 ${cell} 有 ${n} 个非主干组，应恰 1 个`)
+  }
+})
+
+test("buildLegendSections：六法域齐备、子段非空、组与组表逐项对应", () => {
+  const sections = buildLegendSections()
+  assert.deepEqual(
+    sections.map((s) => s.field),
+    [...FIELD_TABS],
+    "法域段顺序与 FIELD_TABS 一致",
+  )
+  // 文种子段：段内按 DOCTYPE_ORDER 升序、无空段、无重复
+  for (const s of sections) {
+    assert.ok(s.docTypes.length > 0, `${s.field} 至少有一个文种子段`)
+    const order = s.docTypes.map((d) => DOCTYPE_ORDER.indexOf(d.docType))
+    assert.deepEqual(
+      order,
+      [...order].sort((a, b) => a - b),
+      `${s.field} 的文种子段应按效力序`,
+    )
+    assert.equal(new Set(order).size, order.length, `${s.field} 的文种子段不得重复`)
+    for (const d of s.docTypes) {
+      assert.ok(d.groups.length > 0, `${s.field}·${d.short} 子段不得为空`)
+      assert.equal(d.short, DOCTYPE_SHORT[d.docType])
+      for (const g of d.groups) {
+        assert.equal(g.field, s.field)
+        assert.equal(g.docType, d.docType)
+      }
+    }
+  }
+  // 展平后恰是全部非术语组，且顺序与 SECTION_GROUPS 一致（数组顺序即图例呈现顺序）
+  const flat = sections.flatMap((s) => s.docTypes.flatMap((d) => d.groups.map((g) => g.id)))
+  assert.deepEqual(flat, [...NON_TERM_GROUP_IDS], "图例展平顺序应与组表顺序逐项相同")
+  // 实测规模：6 法域段 + 23 文种子段 + 29 组钮（术语项与骨架段控不在本结构内）
+  assert.equal(sections.length, 6)
+  assert.equal(
+    sections.reduce((n, s) => n + s.docTypes.length, 0),
+    23,
+  )
+  assert.equal(flat.length, 29)
 })
 
 // ============================================================
@@ -180,13 +321,26 @@ test("FIELD_TABS：六标签、顺序即显示顺序、不含术语", () => {
   )
 })
 
-test("groupsOfField：六标签 → 组集合精确映射（专利含主干七书 + 专利扩展，商标含商标审查指南）", () => {
-  assert.deepEqual(groupsOfField("专利"), ["1", "2", "3", "4", "5", "6", "7", "10"])
-  assert.deepEqual(groupsOfField("商标"), ["8", "15"])
-  assert.deepEqual(groupsOfField("著作权"), ["13"])
-  assert.deepEqual(groupsOfField("竞争法"), ["12"])
-  assert.deepEqual(groupsOfField("品种布图"), ["11"])
-  assert.deepEqual(groupsOfField("综合程序"), ["14"])
+test("groupsOfField：六标签 → 组集合精确映射（返回顺序即图例内的呈现顺序）", () => {
+  // 波L：每个法域展开为其名下各文种的组，顺序 = 组表顺序 = 文种效力序（主干组穿插其中）
+  assert.deepEqual(groupsOfField("专利"), [
+    "1",
+    "2",
+    "16",
+    "10",
+    "17",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "18",
+  ])
+  assert.deepEqual(groupsOfField("商标"), ["19", "20", "8", "21", "15"])
+  assert.deepEqual(groupsOfField("著作权"), ["22", "13", "23", "24"])
+  assert.deepEqual(groupsOfField("竞争法"), ["25", "26", "12"])
+  assert.deepEqual(groupsOfField("品种布图"), ["27", "28", "11"])
+  assert.deepEqual(groupsOfField("综合程序"), ["29", "30", "14"])
   // 术语组虽带 field="术语"，但不在 FIELD_TABS 中，不会被标签行枚举到
   assert.deepEqual(groupsOfField("术语"), ["9"])
   // 未登记标签与哨兵一律空数组，applyField 据此短路、不把整图切空
@@ -194,11 +348,11 @@ test("groupsOfField：六标签 → 组集合精确映射（专利含主干七�
   assert.deepEqual(groupsOfField(FIELD_ALL), [])
 })
 
-test("NON_TERM_GROUP_IDS：14 组，排除术语，且六标签构成其无重叠划分", () => {
-  assert.equal(NON_TERM_GROUP_IDS.length, 14, "主干 7 + 扩展 7")
+test("NON_TERM_GROUP_IDS：29 组，排除术语，且六标签构成其无重叠划分", () => {
+  assert.equal(NON_TERM_GROUP_IDS.length, 29, "主干 7 + 扩展 22")
   assert.equal(NON_TERM_GROUP_IDS.includes("9"), false, "术语组不参与标签切换")
   assert.equal(ALL_GROUP_IDS.length - NON_TERM_GROUP_IDS.length, 1)
-  // 扩展七组全部在内
+  // 扩展 22 组全部在内
   for (const id of EXT_GROUP_IDS) {
     assert.ok(NON_TERM_GROUP_IDS.includes(id), `扩展组 ${id} 应在全集内`)
   }
@@ -217,10 +371,30 @@ test("NON_TERM_GROUP_IDS：14 组，排除术语，且六标签构成其无重�
 })
 
 test("标签补集：hidden = 非术语全集 − 该标签组集，size 互补", () => {
-  assert.deepEqual([...hiddenSetOfField("专利")].sort(), ["11", "12", "13", "14", "15", "8"])
-  assert.equal(hiddenSetOfField("专利").size, 6)
-  assert.equal(hiddenSetOfField("商标").size, 12)
-  assert.equal(hiddenSetOfField("著作权").size, 13)
+  // 波L：专利 11 组、商标 5 组、著作权 4 组，非术语全集 29 组
+  assert.deepEqual([...hiddenSetOfField("专利")].sort(), [
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+    "8",
+  ])
+  assert.equal(hiddenSetOfField("专利").size, 18)
+  assert.equal(hiddenSetOfField("商标").size, 24)
+  assert.equal(hiddenSetOfField("著作权").size, 25)
   assert.equal(hiddenSetOfField(FIELD_ALL).size, 0, "「全部」= 清空非术语组隐藏")
   for (const f of FIELD_TABS) {
     assert.equal(hiddenSetOfField(f).size + groupsOfField(f).length, NON_TERM_GROUP_IDS.length)
@@ -236,24 +410,28 @@ test("高亮反解三态：精确匹配 / 全部 / 自定义", () => {
     assert.equal(activeFieldOf(hiddenSetOfField(f)), f, `${f} 的补集应反解回 ${f}`)
   }
   // ③ 自定义态：图例手动微调后不属任何标签组合的补集 → 无高亮
-  assert.equal(activeFields(new Set(["8"])).size, 0, "仅隐藏商标一组 = 自定义态（15 仍显）")
+  assert.equal(
+    activeFields(new Set(["8"])).size,
+    0,
+    "仅隐藏商标·规章一组 = 自定义态（商标另 4 组仍显）",
+  )
   assert.equal(activeFields(new Set(["1"])).size, 0, "仅隐藏专利法一组 = 自定义态")
   assert.equal(
-    activeFields(new Set(["11", "12", "13", "14", "15"])).size,
+    activeFields(new Set([...hiddenSetOfField("专利")].filter((id) => id !== "8"))).size,
     0,
-    "比「专利」补集少隐一组（8 商标）= 自定义态（商标只显了一半）",
+    "比「专利」补集少隐一组（8 商标·规章）= 自定义态（商标只显了一部分）",
   )
   assert.equal(
     activeFields(new Set([...NON_TERM_GROUP_IDS])).size,
     0,
     "非术语组全隐（无任何法域可见）= 自定义态，不得误判为某标签",
   )
-  // ④ 扩展段控全隐（EXT 七组全隐）：其中 10 属专利、8/15 属商标，
-  //    专利只显了 7/8 组 ⇒ 落自定义态，不得被多选反解误判为「主干七书那几片法域」
+  // ④ 骨架段控全隐（EXT 22 组全隐）：专利的 16/10/17/18 与商标全部 5 组都在其中，
+  //    专利只显了 7/11 组 ⇒ 落自定义态，不得被多选反解误判为「主干七书那几片法域」
   assert.equal(
     activeFields(new Set(EXT_GROUP_IDS)).size,
     0,
-    "扩展段控全隐 = 自定义态（专利组 10 亦被隐，专利只显一半）",
+    "骨架段控全隐 = 自定义态（专利的四个非主干组亦被隐，专利只显一部分）",
   )
   // ⑤ 术语组混入隐藏集不影响反解（术语层由三态钮独管）
   assert.deepEqual([...activeFields(new Set(["9"]))], [FIELD_ALL], "术语组不计入标签判定")
@@ -270,12 +448,18 @@ test("groupsOfFields：并集去重，空集合得空集合，非法标签被忽
   for (const f of FIELD_TABS) {
     assert.deepEqual([...groupsOfFields([f])].sort(), [...groupsOfField(f)].sort(), `${f} 单枚`)
   }
-  // 专利（8 组）+ 商标（2 组）= 10 组，main 与 ext 都非空的组合
+  // 专利（11 组）+ 商标（5 组）= 16 组，main 与 ext 都非空的组合
   assert.deepEqual([...groupsOfFields(["专利", "商标"])].sort(), [
     "1",
     "10",
     "15",
+    "16",
+    "17",
+    "18",
+    "19",
     "2",
+    "20",
+    "21",
     "3",
     "4",
     "5",
@@ -284,23 +468,57 @@ test("groupsOfFields：并集去重，空集合得空集合，非法标签被忽
     "8",
   ])
   // 重复传入不改结果（并集去重）
-  assert.deepEqual([...groupsOfFields(["商标", "商标"])].sort(), ["15", "8"])
+  assert.deepEqual([...groupsOfFields(["商标", "商标"])].sort(), ["15", "19", "20", "21", "8"])
   // 非法标签在组表内没有任何组，不产生任何贡献，也不报错
   assert.deepEqual([...groupsOfFields(["外观设计"])], [])
-  assert.deepEqual([...groupsOfFields(["商标", "外观设计"])].sort(), ["15", "8"])
+  assert.deepEqual([...groupsOfFields(["商标", "外观设计"])].sort(), ["15", "19", "20", "21", "8"])
   // 六枚全选 = 非术语全集（正是「选满即塌缩为全部」在数据层的依据）
   assert.equal(groupsOfFields(FIELD_TABS).size, NON_TERM_GROUP_IDS.length)
 })
 
 test("多选补集：hidden = 非术语全集 − 组并集，且反解回同一组标签", () => {
-  // 专利 + 商标：可见 10 组，隐藏 4 组（著作权 13 / 竞争法 12 / 品种布图 11 / 综合程序 14）
+  // 专利 + 商标：可见 16 组，隐藏 13 组（著作权 4 / 竞争法 3 / 品种布图 3 / 综合程序 3）
   const dual = hiddenSetOfFields(["专利", "商标"])
-  assert.deepEqual([...dual].sort(), ["11", "12", "13", "14"])
+  assert.deepEqual([...dual].sort(), [
+    "11",
+    "12",
+    "13",
+    "14",
+    "22",
+    "23",
+    "24",
+    "25",
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+  ])
   assert.deepEqual([...activeFields(dual)].sort(), ["专利", "商标"])
 
   // 三枚同选同样往返自洽
   const triple = hiddenSetOfFields(["著作权", "竞争法", "品种布图"])
-  assert.deepEqual([...triple].sort(), ["1", "10", "14", "15", "2", "3", "4", "5", "6", "7", "8"])
+  assert.deepEqual([...triple].sort(), [
+    "1",
+    "10",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "2",
+    "20",
+    "21",
+    "29",
+    "3",
+    "30",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+  ])
   assert.deepEqual([...activeFields(triple)].sort(), ["品种布图", "竞争法", "著作权"])
 
   // 任意两枚组合逐对往返：size 互补 + 反解回原组合

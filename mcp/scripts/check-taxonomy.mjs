@@ -10,12 +10,13 @@
 //
 // 比对链路：graphSections.ts 的 SECTION_GROUPS[].prefixes（顶层目录数字前缀）
 //         → 经 build-data.mjs 的 BOOKS（order → domain）映射为域 key
-//         → 经 domains.mjs 的 KNOWN_DOMAINS（domain → field）取得该域的六标签分类
-//         → 与该组号按折叠规则得出的「期望标签」比对，逐条不一致即报错并 exit 1。
+//         → 经 domains.mjs 的 KNOWN_DOMAINS（domain → field/docType）取得该域的分类
+//         → field 与该组号按折叠规则得出的「期望标签」比对；
+//           docType 与该组自带的 SectionGroup.docType 比对（阶段5.11 波L 新增，
+//           组内混文种即组划分错误——图例的文种子段会把同一个组塞进两个子段）。
+//         逐条不一致即报错并 exit 1。
 //
-// 折叠规则（组号 → 期望 field；"9" 为术语层非书域，不参与比对）：
-//   1,2,3,4,5,6,7,10（主干七部 + 专利扩展）→ 专利；8 → 商标；13 → 著作权；
-//   12 → 竞争法；11 → 品种布图；14 → 综合程序。
+// 折叠规则（组号 → 期望 field；"9" 为术语层非书域，不参与比对）见下方 GROUP_ID_TO_FIELD。
 //
 // 用法：node scripts/check-taxonomy.mjs
 import { readFileSync } from 'node:fs';
@@ -132,20 +133,43 @@ function loadSectionGroups() {
     if (typeof g?.id !== 'string' || typeof g?.label !== 'string' || !Array.isArray(g?.prefixes) || typeof g?.tier !== 'string') {
       throw new Error(`graphSections.ts SECTION_GROUPS 条目缺少合法的 id/label/prefixes/tier 字段：${JSON.stringify(g)}`);
     }
+    // 波L：非术语组必须声明 docType（图例的文种子段据此归并）
+    if (g.tier !== 'term' && typeof g.docType !== 'string') {
+      throw new Error(`graphSections.ts SECTION_GROUPS 组 id="${g.id}"（label="${g.label}"）缺少 docType 字段`);
+    }
   }
   return groups;
 }
 
 // ============ 四、折叠规则：组号 → 期望 field（"9" 术语层跳过，见文件头说明） ============
+// 2026-08-31 阶段5.11 波L：图例按「法域 × 文种」完整归类，6 个跨文种扩展组被拆开，
+// 组数 15 → 30、新增组号 16–30。本表刻意仍是**独立手写**的期望表，而非从
+// graphSections.ts 的 SectionGroup.field 直接取值——P9 的价值正在于「两侧各自
+// 声明、由脚本比对」，若改成读同一处字段，校验就退化为自证。
 const GROUP_ID_TO_FIELD = {
   1: '专利', 2: '专利', 3: '专利', 4: '专利', 5: '专利', 6: '专利', 7: '专利',
-  10: '专利', // 专利扩展
-  8: '商标',
+  10: '专利', // 专利·规章（波L 前为「专利扩展」整组）
+  16: '专利', // 专利·法规（国防专利条例 / 专利代理条例）
+  17: '专利', // 专利·司解
+  18: '专利', // 专利·指引（行政裁决办案指南 / 专利质量评价指南）
+  8: '商标',  // 商标·规章（波L 前为「商标」整组）
   15: '商标', // 2026-08-24 阶段5.1：商标审查审理指南自组 8 拆出独立成组（prefix 80）
-  13: '著作权',
-  12: '竞争法',
-  11: '品种布图',
-  14: '综合程序',
+  19: '商标', // 商标·法律
+  20: '商标', // 商标·法规
+  21: '商标', // 商标·司解
+  13: '著作权', // 著权·法规（波L 前为「著作权」整组）
+  22: '著作权', // 著权·法律
+  23: '著作权', // 著权·规章
+  24: '著作权', // 著权·司解
+  12: '竞争法', // 竞争·司解（波L 前为「竞争法」整组）
+  25: '竞争法', // 竞争·法律
+  26: '竞争法', // 竞争·规章
+  11: '品种布图', // 品图·司解（波L 前为「品种布图」整组）
+  27: '品种布图', // 品图·法规
+  28: '品种布图', // 品图·规章
+  14: '综合程序', // 综合·司解（波L 前为「综合程序」整组）
+  29: '综合程序', // 综合·法规
+  30: '综合程序', // 综合·规章
 };
 const SKIP_GROUP_IDS = new Set(['9']); // 术语层，非书域，不参与比对
 
@@ -156,7 +180,10 @@ const SKIP_GROUP_IDS = new Set(['9']); // 术语层，非书域，不参与比�
 // main 组一并核验（该两键此前已在，未被 5.1 摘除影响，见下表）。
 // 2026-08-30 阶段5.11 波O：12 部低检索价值文献归档下线（编号 51/53/63/72/74/75/
 // 77/79/82/87/89/90），三处登记表同批注释摘除，KNOWN_DOMAINS 由 88 减至 76；
-// GROUP_ID_TO_FIELD 折叠规则表不变（组号与法域映射零变更，仅组内前缀变少）。
+// 该批 GROUP_ID_TO_FIELD 折叠规则表不变（组号与法域映射零变更，仅组内前缀变少）。
+// 2026-08-31 阶段5.11 波L：SECTION_GROUPS 按「法域 × 文种」拆组，15 → 30 组，
+// GROUP_ID_TO_FIELD 随之补入 16–30 共 15 个新组号；KNOWN_DOMAINS 仍 76 域、
+// 书目与 field 取值零变更（拆的是图谱侧的分组，不是书的分类）。
 function checkDomainsTaxonomyFields() {
   if (KNOWN_DOMAINS.length !== 76) {
     fail(`KNOWN_DOMAINS 长度 ${KNOWN_DOMAINS.length} ≠ 76`);
@@ -215,6 +242,13 @@ function main() {
         fail(`不一致：组 "${g.id}"（${g.label}）前缀 ${prefix} → 域 ${domain}（${meta.title}）`
           + `的 field="${meta.field}"，与该组折叠规则期望的 field="${expectedField}" 不符`);
       }
+      // 波L：组内单文种。组自带的 docType 是图例文种子段的归并键，
+      // 一旦与某个成员前缀的实际 docType 不符，该书在图例里就会被归进错误的文种子段。
+      if (meta.docType !== g.docType) {
+        fail(`不一致：组 "${g.id}"（${g.label}）前缀 ${prefix} → 域 ${domain}（${meta.title}）`
+          + `的 docType="${meta.docType}"，与该组声明的 docType="${g.docType}" 不符`
+          + '（组内不得混文种：图例按 (法域, 文种) 分子段，混文种即组划分错误）');
+      }
     }
   }
 
@@ -228,7 +262,7 @@ function main() {
   console.log(`  domains.mjs：${KNOWN_DOMAINS.length} 域 country/field/docType 三字段齐备、取值均合法。`);
   console.log(`  build-data.mjs BOOKS：${booksCount} 条 order→domain 映射，与 KNOWN_DOMAINS 条目数一致。`);
   console.log(`  graphSections.ts SECTION_GROUPS：共 ${groups.length} 组（比对 ${comparedGroups} 组、跳过 ${groups.length - comparedGroups} 组「术语层」），`
-    + `合计比对 ${comparedPrefixes} 个顶层目录前缀，逐一折叠映射后与 domains.field 全部一致。`);
+    + `合计比对 ${comparedPrefixes} 个顶层目录前缀，逐一折叠映射后与 domains 的 field 与 docType 全部一致。`);
 }
 
 main();
