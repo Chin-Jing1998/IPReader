@@ -1,6 +1,6 @@
 // 图谱总览专页宿主组件（W3）：仅在生成器产出的 0-图谱总览/index 页渲染，
 // 挂 sharedPageComponents.afterBody（全站注入，非目标页返回 null、零开销），
-// 布局：顶部玻璃工具条（搜索定位 + 域图例 + 重置视图）
+// 布局：顶部玻璃工具条两行（① 中国｜法域标签｜搜索定位｜重置视图+退出阅读 ② 域图例 + 术语层）
 //      左侧全量图画布（renderGraph 复用，nodeClickMode:"panel"，点击不跳转）
 //      画布左上角浮动目录抽屉（阶段5.7 波B：法域→书→章→节三层，点行即 selectNode 定位）
 //      右侧玻璃侧栏阅读面板（标题面包屑/简介/详解/原文/相关知识点，交互见 graphexplorer.inline.ts）
@@ -102,9 +102,15 @@ const GraphExplorer: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
   }
   return (
     <div class="graph-explorer">
-      {/* 顶部玻璃工具条：国家/标签导航行 + 搜索定位 + 域图例 + 重置视图 */}
+      {/* 顶部玻璃工具条（两行；阶段5.11 波K 由四行压到两行）：
+          第一行 .ge-fieldnav —— 中国徽标 ｜ 法域标签 ｜ 搜索定位 ｜ 重置视图 + 退出阅读；
+          第二行 —— 域图例 + 术语层三态钮。
+          四段之间一律用既有的 .ge-fieldnav-sep 发丝竖线分隔，视觉语言只此一种。 */}
       <div class="ge-toolbar">
-        {/* 第一行：国家（中国）→ 法域标签（全部 + 六法域），整行独占，详见上方注释 */}
+        {/* 工具条首行（整行独占）：波K 之前只有「国家 → 法域标签」两段，右侧大片留白；
+            现把搜索定位段与按钮段一并收进来，工具条因此少两行、画布等量增高。
+            类名沿用 .ge-fieldnav 不改——smoke 步 32 的就绪探针与多处样式钩子都取它，
+            改名是纯粹的连带风险，语义扩展在此注释交代即可。 */}
         <div class="ge-fieldnav">
           <div class="ge-country-list" role="group" aria-label="国家/地区">
             <span
@@ -131,18 +137,45 @@ const GraphExplorer: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
               </button>
             ))}
           </div>
-        </div>
-        <div class="ge-search">
-          <input
-            class="ge-search-input"
-            type="text"
-            placeholder="输入节点名称，回车定位…"
-            aria-label="按节点名称搜索定位"
-          />
-          <button class="ge-search-btn" type="button">
-            定位
-          </button>
-          <span class="ge-search-status" aria-live="polite"></span>
+          <span class="ge-fieldnav-sep" aria-hidden="true"></span>
+          {/* 搜索定位段：placeholder 取短式「节点名称…」——首行分段后输入框只有约
+              13rem，长提示会被截断成半句 */}
+          <div class="ge-search">
+            <input
+              class="ge-search-input"
+              type="text"
+              placeholder="节点名称…"
+              aria-label="按节点名称搜索定位"
+            />
+            <button class="ge-search-btn" type="button">
+              定位
+            </button>
+            <span class="ge-search-status" aria-live="polite"></span>
+          </div>
+          <span class="ge-fieldnav-sep" aria-hidden="true"></span>
+          {/* 按钮段：重置视图常驻，退出阅读只在阅读模式现身（CSS 门控）。
+              分隔线置于本段**之前**，故退出阅读隐藏时本段仍有重置视图垫底，
+              不会留下一条无所指的孤线。 */}
+          <div class="ge-actions">
+            <button class="ge-reset" type="button" title="恢复全景视图并清空侧栏">
+              重置视图
+            </button>
+            {/* 退出阅读（阶段5.11 波K-3 逃生口，硬约束）：
+                本页在阅读模式下把左栏整条 display:none（栅格退化单列、画布吃满整宽），
+                而阅读模式的原切换钮 .readermode 正在左栏内——一旦进入就再无可见控件
+                可退出（本页无快捷键、标题条也无该控件）。故在按钮段补这一枚。
+                仅 html[reader-mode="on"] 时显示，门控写在 graphexplorer.scss，
+                SSR 恒渲染、不做 JS 插入，避免首帧闪入。点击行为见 graphexplorer.inline.ts
+                ——必须转派给原按钮，不得直写 html 属性。 */}
+            <button
+              class="ge-readerexit"
+              type="button"
+              title="退出阅读模式，恢复左侧目录栏"
+              aria-label="退出阅读模式"
+            >
+              退出阅读
+            </button>
+          </div>
         </div>
         <div class="ge-legend" aria-label="知识域图例">
           {MAIN_ITEMS.map((item) => (
@@ -184,31 +217,39 @@ const GraphExplorer: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
             <i class="ge-legend-dot" data-section={TERM_ITEM.id}></i>
             {TERM_ITEM.label}
           </span>
+          {/* 术语层三态分段钮：默认隐藏（与 explorerGraphConfig.termLayer 一致），
+              绑定见 graphexplorer.inline.ts。
+              位置（阶段5.11 波K 用户复核后定案）：**紧跟「● 术语」图例项**，同处
+              图例段末尾——控件与它所控的那一项相邻，读者不必在行首行尾之间来回找。
+              原「术语层」前缀字样随之删除：左邻的图例项文字已经是「术语」，再写一遍
+              是同义重复；无障碍语义由本容器的 role=group + aria-label 承担，未削弱。
+              ⚠️ 刻意**不**在此加 .ge-legend-sep：graphexplorer.inline.ts 的 legendSeps
+              以 `.ge-legend > .ge-legend-sep` 取数并按下标 [0]=主干|扩展、[1]=扩展|术语
+              消费，smoke 步 28 另有 `sepHidden.length === 2` 硬断言，多加一条即两处同时失配。 */}
+          <div class="ge-termlayer" role="group" aria-label="术语层显示模式">
+            <span class="ge-term-group">
+              <button
+                class="ge-term-btn active"
+                type="button"
+                data-term-mode="hidden"
+                aria-pressed="true"
+              >
+                隐藏
+              </button>
+              <button
+                class="ge-term-btn"
+                type="button"
+                data-term-mode="dimmed"
+                aria-pressed="false"
+              >
+                弱化
+              </button>
+              <button class="ge-term-btn" type="button" data-term-mode="shown" aria-pressed="false">
+                显示
+              </button>
+            </span>
+          </div>
         </div>
-        {/* 术语层三态分段钮：默认隐藏（与 explorerGraphConfig.termLayer 一致），
-            绑定见 graphexplorer.inline.ts */}
-        <div class="ge-termlayer" role="group" aria-label="术语层显示模式">
-          <span class="ge-termlayer-label">术语层</span>
-          <span class="ge-term-group">
-            <button
-              class="ge-term-btn active"
-              type="button"
-              data-term-mode="hidden"
-              aria-pressed="true"
-            >
-              隐藏
-            </button>
-            <button class="ge-term-btn" type="button" data-term-mode="dimmed" aria-pressed="false">
-              弱化
-            </button>
-            <button class="ge-term-btn" type="button" data-term-mode="shown" aria-pressed="false">
-              显示
-            </button>
-          </span>
-        </div>
-        <button class="ge-reset" type="button" title="恢复全景视图并清空侧栏">
-          重置视图
-        </button>
       </div>
       {/* 主体：左画布（renderGraph 渲染入此 div）+ 目录抽屉 + 右玻璃侧栏 */}
       <div class="ge-body">

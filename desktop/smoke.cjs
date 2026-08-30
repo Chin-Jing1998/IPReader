@@ -117,6 +117,16 @@
 //   33-e 并选后抽屉未置灰组 = 两法域组集的并集去重（置灰纯读 hiddenSections，
 //       并集写错会退化成单法域），33-f 的 rebuilds===0 原样成立。
 // 总超时仍为 660s：新增的全是同一页内的点击与同步取数，本机实测净增约 10s。
+//
+// 阶段5.11 波K（布局密度整改）扩写步 32、步数仍为 35：新增 32-h「阅读模式沉浸满宽」——
+// 图谱页在阅读模式下左栏 display:none、栅格退化单列，画布增量恰为「左栏轨道 + 列间距」，
+// 并验证工具条尾部新增的「退出阅读」逃生口可用（该钮存在的理由：原切换钮在左栏内、
+// 随左栏一并隐去）。两条判据纪律写在该子段注释里，改前务必先读：不得用 setAttribute
+// 模拟进入阅读模式（模块级闭包变量会失同步）、不得用 offsetParent 判可见（opacity 路径
+// 恒真）。本子段新增一张截图「阅读模式图谱页沉浸满宽」，其后各步的截图序号顺延一位。
+// 波K 一并压缩全站三栏间隙（页缘 24→16 / 列间距 36→28 / 侧栏内边距 24·32→16·20），
+// 步 14/15 逐字断言的 --titlebar-h 38px 与 body padding-top 38px 一字未动。
+// 总超时仍为 660s：32-h 是同页内的三次点击加两次复位，本机实测净增约 4s。
 const {
   app,
   BrowserWindow,
@@ -2354,7 +2364,10 @@ async function main() {
   const wide32 = !!m32a && m32a.viewportW >= 1200;
   const a32Ok = fitsBox(m32a);
 
-  // b. 点「商标」法域标签 → 图例行收窄、工具栏折行减少 → 容器变高
+  // b. 点「商标」法域标签 → 图例行收窄 → 容器高度变化（画布须跟上）
+  //    阶段5.11 波K 后工具条已压到两行（首行导航+搜索+按钮、次行图例+术语层），
+  //    收窄图例改变的是图例在其行内的折行数而非工具条的行数；本项判据是
+  //    fitsBox 的**相对量**（画布与容器差 ≤1px），与绝对行数无关，故一字未动。
   //    等待 600ms：RO 合并到下一帧 + 就地 resize 是微秒级，2000ms 那档是给
   //    「400ms 防抖 + 约 230ms 重建 + 260ms 淡入」留的，重建退役后不再需要；
   //    600ms 仍留足法域过滤自身的重排与 applyFitView 过渡余量
@@ -2505,8 +2518,96 @@ async function main() {
     s32f.canvases === 1 &&
     fitsBox(m32f);
 
+  // h. 阅读模式沉浸满宽（阶段5.11 波K-3）：本页在阅读模式下把左栏 display:none、
+  //    栅格退化为单列，画布吃满整宽——增量恰为「左栏轨道宽 + 列间距」。
+  //    两条判据纪律，改本段前务必先读：
+  //      ① **不得用 setAttribute('reader-mode','on') 模拟进入**。开关态记在
+  //         readermode.inline.ts 的模块级闭包变量 isReaderMode 上，html 属性只是它的
+  //         投影；直写属性只改投影，之后点原按钮会从旧值取反，属性与变量长期反相，
+  //         把后续各步一并带偏。本段一律走 click（进入点原按钮 .readermode，
+  //         退出点新增的逃生口 .ge-readerexit，顺带验证逃生口真的可用）。
+  //      ② **不得用 offsetParent 判可见**。阅读模式对内容页侧栏走的是 opacity:0
+  //         路径（元素仍在布局中），offsetParent 非空、判据恒真。量
+  //         gridTemplateColumns 的轨道条数与 .ge-canvas 的 offsetWidth 才是结构事实。
+  //    期望增量不写死 332px，而是现场从「首条轨道宽 + 列间距」算出来——左栏宽或
+  //    图谱页列间距日后调整时本断言自动跟随，不会变成又一处手工派生值。
+  //    先收起右栏（fire(null)），让画布宽度等于容器整宽，增量口径干净；末尾恢复
+  //    「右栏显现 + 法域全部」，与步 33 依赖的遗留状态一致。
+  const MEASURE_READER = `(() => {
+     const box = document.querySelector('.ge-canvas');
+     const qb = document.querySelector('.page > #quartz-body');
+     const left = document.querySelector('.page > #quartz-body > .sidebar.left');
+     const exit = document.querySelector('.ge-readerexit');
+     const cs = qb ? getComputedStyle(qb) : null;
+     const list = box ? box.querySelectorAll('canvas') : [];
+     return {
+       mode: document.documentElement.getAttribute('reader-mode'),
+       cols: cs ? cs.gridTemplateColumns.trim().split(/\\s+/).filter(Boolean) : null,
+       gap: cs ? (parseFloat(cs.columnGap) || 0) : null,
+       canvasW: box ? box.offsetWidth : null,
+       leftDisplay: left ? getComputedStyle(left).display : null,
+       exitDisplay: exit ? getComputedStyle(exit).display : null,
+       canvases: list.length,
+       calls: window.__smokeRenderCalls,
+     };
+   })()`;
+  const fireNull32 = `document.querySelector('.graph-explorer').dispatchEvent(
+       new CustomEvent('graphnodeselect', { detail: { slug: null } }))`;
+  await win.webContents.executeJavaScript(fireNull32);
+  await sleep(600);
+  const m32h0 = await win.webContents.executeJavaScript(MEASURE_READER);
+  await win.webContents.executeJavaScript(`document.querySelector('.readermode').click()`);
+  await sleep(600);
+  const m32h1 = await win.webContents.executeJavaScript(MEASURE_READER);
+  await shot(win, "阅读模式图谱页沉浸满宽");
+  await win.webContents.executeJavaScript(`document.querySelector('.ge-readerexit').click()`);
+  await sleep(600);
+  const m32h2 = await win.webContents.executeJavaScript(MEASURE_READER);
+  // 期望增量 = 左栏轨道宽 + 列间距（1440 视口下 320 + 12 = 332px）
+  const expGain32 =
+    m32h0 && m32h0.cols && m32h0.cols.length === 2 && m32h0.gap !== null
+      ? parseFloat(m32h0.cols[0]) + m32h0.gap
+      : null;
+  const gain32 = m32h0 && m32h1 ? m32h1.canvasW - m32h0.canvasW : null;
+  const h32Calls = [m32h0, m32h1, m32h2].map((m) => (m ? m.calls : null));
+  const h32Ok =
+    !wide32 ||
+    (!!m32h0 &&
+      !!m32h1 &&
+      !!m32h2 &&
+      // 进入前：两条轨道、左栏在流内、逃生口收起
+      m32h0.mode === "off" &&
+      m32h0.cols.length === 2 &&
+      m32h0.leftDisplay !== "none" &&
+      m32h0.exitDisplay === "none" &&
+      // 阅读模式中：单列轨道、左栏脱流、逃生口现身、画布吃满增量
+      m32h1.mode === "on" &&
+      m32h1.cols.length === 1 &&
+      m32h1.leftDisplay === "none" &&
+      m32h1.exitDisplay !== "none" &&
+      expGain32 !== null &&
+      gain32 !== null &&
+      Math.abs(gain32 - expGain32) <= 1 &&
+      // 点逃生口退出：三项全部复原
+      m32h2.mode === "off" &&
+      m32h2.cols.length === 2 &&
+      m32h2.leftDisplay !== "none" &&
+      m32h2.exitDisplay === "none" &&
+      Math.abs(m32h2.canvasW - m32h0.canvasW) <= 1 &&
+      // 全程零重建、画布恒 1 张（进出阅读模式只该走就地 syncSize）
+      h32Calls.every((c) => typeof c === "number") &&
+      h32Calls[1] - h32Calls[0] === 0 &&
+      h32Calls[2] - h32Calls[1] === 0 &&
+      [m32h0, m32h1, m32h2].every((m) => m.canvases === 1));
+  // 复位：右栏重新显现（阅读模式已由逃生口经原按钮归位，模块内变量与属性同步）
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.graph-explorer').dispatchEvent(
+       new CustomEvent('graphnodeselect', { detail: { slug: '1-专利法/', dbl: true } }))`,
+  );
+  await sleep(600);
+
   record(
-    "图谱总览画布尺寸同步（就地 resize：四态画布与容器差 ≤1px ＋ 全程零重建 ＋ 画布恒 1 张 ＋ 右栏显现相机守恒 ＋ 法域多选三段同步 ＋ 连发操作后竞态存活）",
+    "图谱总览画布尺寸同步（就地 resize：四态画布与容器差 ≤1px ＋ 全程零重建 ＋ 画布恒 1 张 ＋ 右栏显现相机守恒 ＋ 法域多选三段同步 ＋ 连发操作后竞态存活 ＋ 阅读模式沉浸满宽与逃生口）",
     graphReady32 &&
       a32Ok &&
       b32Ok &&
@@ -2516,7 +2617,8 @@ async function main() {
       single32 &&
       e32Ok &&
       g32Ok &&
-      f32Ok,
+      f32Ok &&
+      h32Ok,
     `视口宽=${m32a ? m32a.viewportW : "-"}px（${wide32 ? "≥1200，b/c/d/e 全断言" : "<1200，窄屏纵向堆叠，b/c/d/e 不适用已跳过"}）; ` +
       `a 基线：${fmtBox(m32a)}; ` +
       `b 点「商标」后：${fmtBox(m32b)}; ` +
@@ -2528,7 +2630,15 @@ async function main() {
       `g 多选三段：并选后 ${fmtBox(m32g1)}；toggle 取消后 ${fmtBox(m32g2)}；空集回全部后 ${fmtBox(m32g3)}；` +
       `重建计数 ${g32Calls.join("→")}（三段增量须全 0）→${g32Ok}; ` +
       `f 竞态存活：controller 非空=${s32f ? s32f.hasCtl : "-"}, 术语层=${s32f ? s32f.term : "-"}（须 hidden/dimmed/shown）, ` +
-      `画布张数=${s32f ? s32f.canvases : "-"}（须 1）, 连发后 ${fmtBox(m32f)}, panel.hidden=${s32f ? s32f.panelHidden : "-"}`,
+      `画布张数=${s32f ? s32f.canvases : "-"}（须 1）, 连发后 ${fmtBox(m32f)}, panel.hidden=${s32f ? s32f.panelHidden : "-"}; ` +
+      `h 阅读模式沉浸满宽：进入前 mode=${m32h0 ? m32h0.mode : "-"}, 轨道 [${m32h0 && m32h0.cols ? m32h0.cols.join(" | ") : "-"}], ` +
+      `列间距 ${m32h0 ? m32h0.gap : "-"}px, 画布宽 ${m32h0 ? m32h0.canvasW : "-"}, 左栏 display=${m32h0 ? m32h0.leftDisplay : "-"}, 逃生口 display=${m32h0 ? m32h0.exitDisplay : "-"}（须 none）; ` +
+      `阅读模式中 mode=${m32h1 ? m32h1.mode : "-"}, 轨道 [${m32h1 && m32h1.cols ? m32h1.cols.join(" | ") : "-"}]（须单列）, ` +
+      `画布宽 ${m32h1 ? m32h1.canvasW : "-"}（增量 ${gain32 === null ? "-" : gain32}，期望 ${expGain32 === null ? "-" : expGain32}＝左栏轨道+列间距，容差 1px）, ` +
+      `左栏 display=${m32h1 ? m32h1.leftDisplay : "-"}（须 none）, 逃生口 display=${m32h1 ? m32h1.exitDisplay : "-"}（须非 none）; ` +
+      `点逃生口退出后 mode=${m32h2 ? m32h2.mode : "-"}, 轨道 [${m32h2 && m32h2.cols ? m32h2.cols.join(" | ") : "-"}], ` +
+      `画布宽 ${m32h2 ? m32h2.canvasW : "-"}（须回到 ${m32h0 ? m32h0.canvasW : "-"}）, 左栏 display=${m32h2 ? m32h2.leftDisplay : "-"}; ` +
+      `重建计数 ${h32Calls.join("→")}（增量须全 0）→${h32Ok}`,
   );
 
   // ============ 阶段5.7 波B 新增一步（33）============

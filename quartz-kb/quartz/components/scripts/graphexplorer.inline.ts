@@ -1937,6 +1937,34 @@ document.addEventListener("nav", async () => {
   }
   resetBtn?.addEventListener("click", onReset)
 
+  /**
+   * 退出阅读（阶段5.11 波K-3 逃生口）。
+   *
+   * 本页在阅读模式下把左栏整条 display:none（custom.scss 的沉浸满宽块），
+   * 阅读模式的原切换钮 `.readermode` 就在左栏里，随之不可见——若无本钮，进入
+   * 阅读模式后本页再无任何可见出口（无快捷键、标题条也无该控件）。
+   *
+   * ⚠️ 实现方式是**把点击转派给原按钮**，严禁改写
+   * `document.documentElement.setAttribute("reader-mode", ...)`：
+   * readermode.inline.ts 的开关态记在**模块级闭包变量** `isReaderMode` 上
+   *（该文件第 1 行），html 属性只是它的投影。直写属性只改投影、不改变量，
+   * 下一次点原按钮时 `isReaderMode = !isReaderMode` 会从旧值取反，属性与
+   * 变量就此长期反相——表现为「按钮点一下没反应，点两下才切换」。
+   * 转派 click 则走的是同一条 switchReaderMode，变量与属性同步推进。
+   * display:none 的元素照样能接收程序化派发的 click（不参与命中测试的是**真实
+   * 指针事件**，`HTMLElement.click()` 直接派发，不受渲染状态影响），故本钮在
+   * 左栏已隐藏时仍能生效。
+   *
+   * 找不到原按钮（布局配置里摘掉了 ReaderMode 组件）时静默不动：本钮届时也
+   * 不会现身（CSS 门控依赖 html[reader-mode]，无该组件即无该属性）。
+   */
+  const readerExitBtn = explorer.querySelector<HTMLButtonElement>(".ge-readerexit")
+  const onReaderExit = () => {
+    const srcBtn = document.querySelector<HTMLElement>(".readermode")
+    srcBtn?.click()
+  }
+  readerExitBtn?.addEventListener("click", onReaderExit)
+
   // 术语层三态钮：点击 → controller.setTermLayer（hidden↔其它内部重建但引用不变；
   // dimmed↔shown 仅改透明度），完成后同步选中态
   const onTermModeClick = async (ev: Event) => {
@@ -2054,6 +2082,7 @@ document.addEventListener("nav", async () => {
     searchInput?.removeEventListener("keydown", onSearchKey)
     searchBtn?.removeEventListener("click", onSearchClick)
     resetBtn?.removeEventListener("click", onReset)
+    readerExitBtn?.removeEventListener("click", onReaderExit)
     for (const btn of termButtons) {
       btn.removeEventListener("click", onTermModeClick)
     }

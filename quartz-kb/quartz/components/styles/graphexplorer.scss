@@ -33,14 +33,21 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 
-    // ---------- 国家/标签层级导航行（C-4） ----------
-    // 工具条首行、整行独占（flex-basis 100% 强制换行），其下才是搜索区与图例行，
-    // 形成「粗粒度导航在上、组级微调在下」的层级读序。以发丝下边框与下方分隔，
+    // ---------- 工具条首行（C-4 国家/标签导航；阶段5.11 波K 扩为整行四段） ----------
+    // 整行独占（flex-basis 100% 强制换行），其下是图例 + 术语层那一行，形成
+    //「粗粒度导航在上、组级微调在下」的层级读序。以发丝下边框与下方分隔，
     // 与图例段分隔线 .ge-legend-sep 同一视觉语言（1px / --lightgray）。
-    // 高度成本：约 30px（含 0.45rem 下内边距），工具条 ~44px → ~74px；
-    // .ge-body 为 flex:1，画布等量收缩，900px 视口下占比约 3.3%。
     // 配色一律取既有主题变量（--secondary / --darkgray / --lightgray / --light），
     // 不引入任何 --graph-section-* 色——标签是导航层，不承担域配色语义。
+    //
+    // 波K：本行原本只有「中国 → 法域标签」两段，右侧留白约 500px 白白空着，而
+    // 搜索区、术语层、重置钮各自占去一行，工具条共四行。现把**搜索定位段**与
+    // **按钮段（重置视图 + 退出阅读）**收进本行，四段之间一律以 .ge-fieldnav-sep
+    // 发丝竖线分隔；术语层下移与图例同行。工具条 4 行 → 2 行，省下的两行高度由
+    // .ge-body（flex:1）自动补给画布，波A 的 syncSize 就地跟随、不重建实例。
+    // 1440 视口实算（可用宽约 1048px）：中国 61 + 标签 460 + 搜索 265 + 按钮 82
+    // ＋ 三条竖线与列间距约 70 ≈ 938px；阅读模式下多出「退出阅读」约 92px 仍在界内。
+    // 窄视口由本容器的 flex-wrap 自然折行兜底（各段整体换行，不拆散段内控件）。
     .ge-fieldnav {
       flex: 1 1 100%;
       display: flex;
@@ -49,6 +56,15 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
       gap: 0.3rem 0.6rem;
       padding-bottom: 0.45rem;
       border-bottom: 1px solid var(--lightgray);
+
+      // 按钮段（波K）：重置视图 + 退出阅读。成段而非平铺，是为让其左侧那条
+      // 分隔线始终有所指——退出阅读隐藏时段内还有重置视图，不留孤线。
+      .ge-actions {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        flex: 0 0 auto;
+      }
 
       // 国家层容器：本期仅「中国」一枚，容器与 data-country 钩子为多国预留
       .ge-country-list {
@@ -162,16 +178,47 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
       }
     }
 
+    // 搜索定位区（阶段5.11 波K 起并入工具条首行 .ge-fieldnav，见该块注释）。
+    // DOM 上已移进 .ge-fieldnav（见 GraphExplorer.tsx），本样式块仍挂在 .ge-toolbar
+    // 层级下——`.ge-toolbar .ge-search` 是后代选择器，节点搬进 .ge-fieldnav 后照样命中，
+    // 故位置未动，按「改动面最小」保留原位。
+    //
+    // 原 `flex: 1 1 16rem` 的 grow=1 会把整行余量全数吃进搜索区，同行其余控件因而
+    // 被顶到下一行——工具条恒为四行的成因即在于此。现改为「不放大、可收缩、宽度
+    // 由内部输入框限定」：
+    //   .ge-search        flex: 0 1 auto（撤掉 grow，宽度随内容）
+    //   .ge-search-input  flex: 0 1 13rem（208px 基准，窄屏可收缩到 7rem 下限）
+    //   .ge-search-status min-width: 0（有反馈文案时先收缩自身，不去挤输入框）
+    // 输入框由波K 中途的 19rem 再收到 13rem：并入首行后与中国徽标、七枚法域标签、
+    // 按钮段共用一行，208px 恰好容下短式 placeholder「节点名称…」而不截断。
+    //
+    // ⚠️ max-width 是**折行护栏**，不是装饰：flex 换行按各项的「假定主尺寸」
+    //（flex base size 经 min/max 钳制后的值）决定，而非收缩后的实际宽度。
+    // .ge-search-status 带文案时基准可达 14rem，不钳制就会把假定主尺寸推到
+    // 约 500px，按钮段随之被挤到第二行——每出一次定位反馈工具条就抖一行。
+    // 给容器加 max-width 后假定主尺寸恒定，反馈文案只在段内挤占输入框（已有
+    // 省略号兜底），行结构纹丝不动。改这两个数值前请连带复核首行宽度预算。
     .ge-search {
       display: flex;
       align-items: center;
       gap: 0.4rem;
-      flex: 1 1 16rem;
-      min-width: 14rem;
+      flex: 0 1 auto;
+      min-width: 0;
+      // 21rem＝336px：空闲态用不到（内容仅 280px），只在反馈文案出现时封顶。
+      // 首行宽度预算实测 1048px，本段按 336px 计仍余约 39px，故文案出现前后
+      // 行结构不变；阅读模式下首行宽 1380px、余量更大。
+      max-width: 21rem;
 
       .ge-search-input {
-        flex: 1;
-        min-width: 0;
+        // width 与 flex-basis 同写 13rem：input 是有固有尺寸的表单控件（默认
+        // size=20，约 174px），容器按内容定宽时会取那个固有值而非 flex-basis，
+        // 只写 flex-basis 实测只得 174px。显式 width 把基准钉到 208px；
+        // 收缩仍由 flex-shrink 与 min-width 兜底，窄视口照常压到 7rem。
+        // shrink 0.5 而非默认 1：段内与反馈文案争宽时，输入框只让出一半份额
+        //（文案自带省略号兜底，输入框被压到不能输入则是功能损失）
+        flex: 0 0.5 13rem;
+        width: 13rem;
+        min-width: 7rem;
         padding: 0.35rem 0.7rem;
         font-size: 0.9rem;
         color: var(--dark);
@@ -191,6 +238,8 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
       }
 
       .ge-search-btn {
+        // 不参与收缩：窄屏下该让输入框先窄，「定位」二字被压成竖排即不可用
+        flex: 0 0 auto;
         padding: 0.35rem 0.8rem;
         font-size: 0.85rem;
         color: var(--light);
@@ -205,8 +254,12 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
         }
       }
 
-      // 定位结果反馈（aria-live），单行省略避免撑破工具条
+      // 定位结果反馈（aria-live），单行省略避免撑破工具条。
+      // 波K 补 flex 收缩位：本区与输入框现同处一行，反馈文案出现时应先收缩自身
+      //（已有省略号兜底），而不是把输入框挤没。
       .ge-search-status {
+        flex: 0 1 auto;
+        min-width: 0;
         font-size: 0.8rem;
         color: var(--gray);
         max-width: 14rem;
@@ -219,13 +272,19 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
     // 域图例（v17）：主干七书 + 扩展七法域组 + 术语，共 15 个色项与 1 个「扩展」段控
     //（阶段5.2 Q-1《专利质量评价指南》入库后由 main5/ext7/term1 的 13 组扩为 main7/ext7/term1 的 15 组）。
     // 容器 flex-wrap：色项 + 段控 + 2 条分隔线版面宽约 1030px（14 项时代实测值，15 项后未复测），
-    // 工具条同层还有搜索区（flex:1 1 16rem）、术语层三态钮与重置钮约 512px，1280px 视口下必折为 2 行，
     // 工具条高度约 44px → 66px（+22px，占 900px 视口画布高度 2.9%；同为 14 项时代实测值，未复测）。
     // 刻意不折叠：颜色图例的价值在读图时随时可瞥，收进浮层等于取消该价值。
+    //
+    // 波K：本容器独占工具条第二行（也是最后一行），术语层三态钮已移入其内部、
+    // 紧跟「● 术语」图例项，故本行不再有第二个兄弟项去争宽。
+    // `flex: 1 1 0` + `min-width: 0`：基准归零使本容器不参与「够不够宽」的换行判定，
+    // 而是吃满该行余量，色项与三态钮在其内部按 flex-wrap 自行折行。
     .ge-legend {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
+      flex: 1 1 0;
+      min-width: 0;
       gap: 0.3rem 0.8rem;
 
       // 段分隔发丝线（v17）：切分「主干段 / 扩展段 / 术语段」
@@ -386,17 +445,17 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
       }
     }
 
-    // 术语层三态分段钮（玻璃分段控件，与工具条其余控件同一形制）
+    // 术语层三态分段钮（玻璃分段控件，与工具条其余控件同一形制）。
+    // 波K（用户复核后定案）：本控件已移入 .ge-legend 内、紧跟「● 术语」图例项，
+    // 与所控对象相邻。故 `flex: 0 0 auto` —— 它是定宽分段控件，既不被图例的色项
+    // 挤扁，也不参与折行余量的分配；折行由 .ge-legend 自身的 flex-wrap 处理，
+    // 本控件整体换行、不会被拆散。
+    // 原 .ge-termlayer-label（「术语层」三字）随同批删除：左邻图例项文字已是
+    //「术语」，重复一遍只占宽度；无障碍语义由 role=group + aria-label 承担。
     .ge-termlayer {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-
-      .ge-termlayer-label {
-        font-size: 0.8rem;
-        color: var(--darkgray);
-        white-space: nowrap;
-      }
+      flex: 0 0 auto;
 
       .ge-term-group {
         display: inline-flex;
@@ -435,6 +494,9 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
     }
 
     .ge-reset {
+      // 波K：并入首行按钮段后不参与收缩，且四字不得被压成两行
+      flex: 0 0 auto;
+      white-space: nowrap;
       padding: 0.35rem 0.8rem;
       font-size: 0.85rem;
       color: var(--darkgray);
@@ -449,6 +511,46 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
       &:hover {
         background: var(--lightgray);
         color: var(--dark);
+      }
+    }
+
+    // 退出阅读（阶段5.11 波K-3 逃生口）：常态整体撤出布局，只在阅读模式现身。
+    // 形制照抄 .ge-reset（同为首行按钮段里的中性钮），仅描边取 --secondary 以示
+    // 「这是当前的临时出口」，不做实底——实底是术语层选中态的语言，两者不混用。
+    //
+    // 门控用 display:none/inline-flex 而非 hidden 属性：本钮的显隐由 CSS 单方
+    // 决定（html[reader-mode] 是 readermode.inline.ts 的既有产物），脚本不参与，
+    // 因而没有「属性与实际态失配」的可能。整体撤出布局也保证常态下首行的宽度
+    // 预算不含这一枚；阅读模式下画布本就宽出 332px，首行也随之宽出同量，容得下。
+    .ge-readerexit {
+      display: none;
+      align-items: center;
+      flex: 0 0 auto;
+      white-space: nowrap;
+      padding: 0.35rem 0.8rem;
+      font-size: 0.85rem;
+      color: var(--secondary);
+      background: transparent;
+      border: 1px solid var(--secondary);
+      border-radius: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+
+      &:hover {
+        background: var(--glass-hover-wash, var(--lightgray));
+        color: var(--dark);
+      }
+
+      // 现身门控。刻意写在本块内用 `html[reader-mode="on"] &`：拼出的
+      // `html[reader-mode="on"] .graph-explorer .ge-toolbar .ge-readerexit`
+      // 为 (0,4,1)，压得过上方 display:none 的 (0,3,0)。若挪到文件外层写成
+      // `html[reader-mode="on"] .ge-readerexit`（(0,2,1)），会被 display:none
+      // 反压，钮永不现身——这正是本轮必须把门控与声明写在一处的原因。
+      html[reader-mode="on"] & {
+        display: inline-flex;
       }
     }
   }

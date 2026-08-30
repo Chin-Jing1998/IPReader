@@ -1740,6 +1740,48 @@ body[data-slug="0-图谱总览/index"] .graph-explorer {
   height: calc(100vh - 2 * var(--kb-panel-inset) - var(--titlebar-h));
 }
 
+// —— 阅读模式下的图谱总览页：沉浸满宽（阶段5.11 波K-3，用户拍板方案 a）——
+//
+// 症结：阅读模式（readermode.scss）只把侧栏 opacity 归零，元素**不脱流**——
+// 图谱页栅格的 320px 左栏轨道与 12px 列间距原样占位，画布永远少 332px，那条
+// 不可见的死带还照常拦截鼠标（拖到左边缘即失灵）。内容页看不出问题（正文本就
+// 限宽居中），图谱页是唯一「宽度即信息量」的页面，故只在本页做脱流处理。
+//
+// 两条纪律，缺一即整条失效：
+//   ① 特异性必须压过 graphexplorer.scss 内的图谱页栅格规则
+//      `body[data-slug="0-图谱总览/index"] .page > #quartz-body`（1,2,1）。
+//      本条为 (1,3,2)：ID 1（#quartz-body）；属性/类 3（[reader-mode]、
+//      [data-slug]、.page）；类型 2（html、body）。
+//   ② **必须重写 grid-template-areas**。只收 grid-template-columns 而留着
+//      base.scss 桌面栅格的三区命名，浏览器会为仍被引用的 grid-sidebar-left
+//      再开一条隐式列——左列原地还魂，等于没改。settings.scss:806-824 的设置页
+//      收轨道是同一处理的完整先例，两处刻意保持同形，改一处请连带核对另一处。
+//
+// 逃生口（硬约束）：左栏一旦 display:none，阅读模式的原切换钮（.readermode，
+// 挂在左栏 Flex 行内）随之不可见，本页又无快捷键、标题条亦无该控件。故工具条
+// 尾部另置「退出阅读」钮——SSR 见 GraphExplorer.tsx，显隐门控见
+// graphexplorer.scss 的 .ge-readerexit，点击转派见 graphexplorer.inline.ts。
+//
+// 画布宽度不在此处指定：波A 的 ResizeObserver 观察 .ge-canvas，容器宽度一变即
+// controller.syncSize() 就地改渲染器尺寸并做相机左上锚定补偿，不重建实例。
+//
+// 移动端不入本块：$mobileGrid 本就是单列，且移动端左栏退化为顶部横条，
+// display:none 会连同顶部导航一并抹掉——与「让画布更宽」无关，属越界。
+@media all and not ($mobile) {
+  html[reader-mode="on"] body[data-slug="0-图谱总览/index"] .page > #quartz-body {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "grid-header"
+      "grid-center"
+      "grid-footer";
+    column-gap: 0;
+  }
+
+  html[reader-mode="on"] body[data-slug="0-图谱总览/index"] .page > #quartz-body > .sidebar.left {
+    display: none;
+  }
+}
+
 // —— 设置页内容列宽（需求④配套）——
 // 设置卡片是三列栅格，比正文阅读栏宽，故另立 --settings-col 而非复用
 // --reading-col。本条与第十节的 --reading-col 规则同为 (1,3,1)——那条的
