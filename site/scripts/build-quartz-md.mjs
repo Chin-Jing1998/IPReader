@@ -264,12 +264,20 @@ for (const n of nodes) {
 }
 
 // 术语：9-关键词索引/<NN-主题分组>/term-XXXX.md
-//   编号取 lib/topics.mjs::TERM_TOPIC_GROUPS 的组序（2026-08-12 起：36 细粒度主题归并为 19 组），
+//   编号取 lib/topics.mjs::TERM_TOPIC_GROUPS 的组号（2026-08-12 起：36 细粒度主题归并为 19 组；
+//   2026-08-30 波H 起商标段用 23-01…23-14 两级编号，组号不再等于数组下标），
 //   无 topicKey 或未收编者进 99-综合。细粒度 topicKey 本身不变，仅目录呈现按分组收口。
+const MISC_DIR = '99-综合';
+const MISC_NAME = '综合';
+// 目录名 → 主题显示名。目录名带两级编号（商标段）时靠正则剥前缀会误剥成「01-商标显著特征」，
+//   故在生成目录名的同时登记显示名，主题索引页与总目录一律查表，不再从目录名反解。
+const topicDirTitle = new Map([[MISC_DIR, MISC_NAME]]);
 function topicDirName(topicKey) {
   const g = termGroupOf(topicKey);
-  if (g) return `${String(g.no).padStart(2, '0')}-${sanitizeName(g.name.replace(/\//g, '与'))}`;
-  return '99-综合';
+  if (!g) return MISC_DIR;
+  const dir = `${String(g.no).padStart(2, '0')}-${sanitizeName(g.name.replace(/\//g, '与'))}`;
+  topicDirTitle.set(dir, g.name);
+  return dir;
 }
 for (const n of nodes) {
   if (n.level !== 'term') continue;
@@ -896,7 +904,7 @@ for (const n of nodes) {
   termsByTopicDir.get(dir).push(n);
 }
 for (const [dir, terms] of termsByTopicDir) {
-  const topicName = dir === '99-综合' ? '综合' : dir.replace(/^\d+-/, '');
+  const topicName = topicDirTitle.get(dir) || dir;
   const fm = frontmatter({ title: topicName, tags: ['关键词索引'] });
   // 词表直出（v7 需求4）：本页原先只有一句导语、列表全靠 Quartz 组件的
   // page-listing 补位，且导语称「按标题拼音序」与组件实际的文档序不符。
@@ -929,7 +937,7 @@ for (const [dir, terms] of termsByTopicDir) {
   ];
   const dirs = [...termsByTopicDir.keys()].sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
   for (const dir of dirs) {
-    const topicName = dir === '99-综合' ? '综合' : dir.replace(/^\d+-/, '');
+    const topicName = topicDirTitle.get(dir) || dir;
     const terms = termsByTopicDir.get(dir).slice().sort((a, b) => (b.df || 0) - (a.df || 0) || a.label.localeCompare(b.label, 'zh-CN'));
     parts.push(`## ${topicName}`, '');
     parts.push(terms.map((t) => `${linkTo(t.id, t.label)}（${t.df || 0}）`).join(' · '), '');

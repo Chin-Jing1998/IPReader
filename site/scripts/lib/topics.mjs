@@ -384,58 +384,110 @@ export const TERM_TOPIC_GROUPS = [
   // 权属与费用
   { key: 'gInventorship', name: '职务发明与权属', members: ['inventorship'] },
   { key: 'gFee', name: '费用与期限', members: ['fee'] },
-  // 商标（2026-08-23 新增，组序 23）：收编 TOPICS 41~48 的八个商标主题。
-  //   单设一组而非按专利体系分散归并——商标与专利分属两套授权要件，
-  //   「显著特征」不是「新颖性」的同层概念，混入既有组会让目录语义失真。
-  //   组内八主题合计覆盖 tmeg 上下两编全部章节，词量足以支撑独立目录。
-  //   2026-08-30 阶段5.11 波F：members 内部追加 5 个细分主题 + tmMisc 兜底键（组序 23 不动、
-  //   既有八主题次序不动）。**只往 members 里加、不把既有主题拆到新组**——拆分会让存量商标词条
-  //   的目录从 23-商标审查审理 迁走，等于 slug 变更，与「零 slug 变更」硬约束冲突。
-  {
-    key: 'gTrademark',
-    name: '商标审查审理',
-    members: ['tmDistinctiveness', 'tmAbsoluteGrounds', 'tmSimilarity', 'tmWellKnown',
-      'tmCollectiveGI', 'tmBadFaith', 'tmUseRevocation', 'tmFormalProc',
-      'tmMadrid', 'tmChangeAssign', 'tmClassification', 'tmOppositionReview', 'tmFeeArchive',
-      'tmMisc'],
-  },
+  // —— 商标段（组号 23-01 ~ 23-14）：2026-08-30 阶段5.11 波H 由原单组 gTrademark 拆分而来 ——
+  //   沿革：2026-08-23 商标入库时单设 23-商标审查审理 一组收编八个 tm* 主题；波F 又往 members
+  //   里追加 5 个细分主题 + tmMisc 兜底键，使该组独吞 587 词——占全表 1743 词的三分之一，
+  //   与专利 22 组「一主题一目录」的粒度严重不对等（专利最大组 67 词）。波F 当时不拆的理由是
+  //   「零 slug 变更」硬约束；波H 经用户拍板放行 587 个词条页的 slug 变更，故在此拆为 14 组，
+  //   目录粒度与专利段同构（每个 tm* 主题各占一个目录，含兜底键 tmMisc → 商标综合）。
+  //
+  //   为何用「23-NN」子编号而不顺延新号段：拆组只许动商标段——专利 22 组（01~22）、
+  //   四法域四组（24~27）与 99-综合 的目录名与 slug 一律零变更。若把 14 组顺延到 28~41，
+  //   商标段会被四法域组从中劈开（目录树呈 …22、24~27、28~41），语序错乱；占用 23 号段的
+  //   两级编号则使 14 个商标目录在 22 与 24 之间连续排布，且不迁动任何非商标组。
+  //   排序正确性：Explorer 的 sortNodes 先比首段数字（均为 23）、再用 numeric 整理器比整段
+  //   字面（"23-01-…" < "23-02-…"），build-quartz-md 总目录同样按 numeric localeCompare 排，
+  //   两处均按子编号定序，不退化为拼音序。
+  { key: 'gTmDistinctiveness', no: '23-01', name: '商标显著特征', members: ['tmDistinctiveness'] },
+  { key: 'gTmAbsoluteGrounds', no: '23-02', name: '商标禁用与不良影响', members: ['tmAbsoluteGrounds'] },
+  { key: 'gTmSimilarity', no: '23-03', name: '商标近似与混淆判断', members: ['tmSimilarity'] },
+  { key: 'gTmWellKnown', no: '23-04', name: '驰名商标', members: ['tmWellKnown'] },
+  { key: 'gTmCollectiveGI', no: '23-05', name: '集体商标证明商标与地理标志', members: ['tmCollectiveGI'] },
+  { key: 'gTmBadFaith', no: '23-06', name: '恶意注册与在先权利', members: ['tmBadFaith'] },
+  { key: 'gTmUseRevocation', no: '23-07', name: '商标使用与撤销', members: ['tmUseRevocation'] },
+  { key: 'gTmFormalProc', no: '23-08', name: '商标形式审查与注册事务', members: ['tmFormalProc'] },
+  { key: 'gTmMadrid', no: '23-09', name: '马德里商标国际注册', members: ['tmMadrid'] },
+  { key: 'gTmChangeAssign', no: '23-10', name: '商标变更与处分类申请', members: ['tmChangeAssign'] },
+  { key: 'gTmClassification', no: '23-11', name: '商品服务与检索要素分类', members: ['tmClassification'] },
+  { key: 'gTmOppositionReview', no: '23-12', name: '商标异议与评审', members: ['tmOppositionReview'] },
+  { key: 'gTmFeeArchive', no: '23-13', name: '商标费用送达与档案', members: ['tmFeeArchive'] },
+  // tmMisc 是 manualOnly 兜底键（tmeg 概述章等无实体主题可挂的出处），独立成目录而非并入
+  //   99-综合：其 12 个词全部出自《商标审查审理指南》，落在商标段比落在跨法域的综合组更可检。
+  { key: 'gTmMisc', no: '23-14', name: '商标综合', members: ['tmMisc'] },
   // —— 以下 24~27 组为 2026-08-30 阶段5.11 波F 四法域扩类：5.9 波2 纳入的著作权、竞争法、
   //    品种布图、综合程序四个法域各立一组，与「商标单设一组」同理——四者与专利分属不同法律
   //    体系，混入既有专利组会让目录语义失真。四组一律追加在尾部，既有 1~23 组序号与 key 不动，
   //    存量词条的目录路径逐字不变。
+  //    2026-08-30 波H：商标段由 1 组拆为 14 组后，数组下标不再等于组号，故四组各自写明 no，
+  //    把 24~27 钉死（下方 FROZEN_GROUP_NO 另有守卫），目录名与 slug 与波G 逐字一致。
   {
     key: 'gCopyright',
+    no: 24,
     name: '著作权与邻接权',
     members: ['cprWorks', 'cprRightsLimit', 'cprContract', 'cprNeighboring', 'cprProtection'],
   },
   {
     key: 'gCompetition',
+    no: 25,
     name: '反不正当竞争与反垄断',
     members: ['cmpUnfairActs', 'cmpTradeSecret', 'cmpMonopolyConduct', 'cmpConcentration',
       'cmpEnforcement'],
   },
   {
     key: 'gPlantIcLayout',
+    no: 26,
     name: '植物新品种与集成电路布图',
     members: ['pvGrantCondition', 'pvApplicationExam', 'pvRightTermination', 'icLayoutDesign'],
   },
   {
     key: 'gProcedureGeneral',
+    no: 27,
     name: '知识产权综合程序',
     members: ['prcEvidence', 'prcCustoms', 'prcPreservation', 'prcLiability'],
   },
 ];
 
-// 细粒度 topicKey → { key, name, no }（no 为 1 起的分组序号，供目录 NN- 前缀使用）
+// 组号（目录 NN- 前缀）：默认取数组下标 +1，写了 no 字段者以 no 为准。
+//   2026-08-30 波H 引入显式 no：商标段拆为 14 组后必须占用 23 号段的两级编号
+//   （23-01…23-14），下标与组号不再一一对应；非商标组一律写死既有组号以免随下标漂移。
+export const groupNoOf = (g, i) => g.no ?? i + 1;
+
+// 冻结表：波H 之前既有的 26 组组号（专利 22 + 四法域 4）逐一钉死。
+//   任何改动使这些组的目录前缀变化，都会让存量词条页 slug 迁移、外部链接与 smoke 硬编码
+//   路径失效，故在模块加载期即断言，不留到构建期才发现。
+const FROZEN_GROUP_NO = {
+  gNovelty: 1, gInventiveness: 2, gUtilityUnity: 3, gSubjectMatter: 4, gClaims: 5,
+  gDescription: 6, gGeneticResources: 7, gAmendment: 8, gPriority: 9, gDesign: 10,
+  gCompound: 11, gProcReception: 12, gProcSubstantive: 13, gProcGrant: 14, gProcAffairs: 15,
+  gClassificationSearch: 16, gReexam: 17, gInvalidation: 18, gPct: 19, gInfringement: 20,
+  gInventorship: 21, gFee: 22,
+  gCopyright: 24, gCompetition: 25, gPlantIcLayout: 26, gProcedureGeneral: 27,
+};
+
+// 细粒度 topicKey → { key, name, no }（no 为组号，供目录 NN- 前缀使用）
 const TERM_GROUP_OF = new Map();
+const seenGroupNo = new Map();
 TERM_TOPIC_GROUPS.forEach((g, i) => {
+  const no = groupNoOf(g, i);
+  if (seenGroupNo.has(String(no))) {
+    throw new Error(`TERM_TOPIC_GROUPS 组号重复：${no}（${seenGroupNo.get(String(no))} / ${g.key}）`);
+  }
+  seenGroupNo.set(String(no), g.key);
+  if (FROZEN_GROUP_NO[g.key] !== undefined && FROZEN_GROUP_NO[g.key] !== no) {
+    throw new Error(`组号被改动：${g.key} 应为 ${FROZEN_GROUP_NO[g.key]}，实为 ${no}——该组目录与词条 slug 必须逐字不变`);
+  }
   for (const m of g.members) {
     if (TERM_GROUP_OF.has(m)) {
       throw new Error(`TERM_TOPIC_GROUPS 成员重复收编：${m}（${TERM_GROUP_OF.get(m).name} / ${g.name}）`);
     }
-    TERM_GROUP_OF.set(m, { key: g.key, name: g.name, no: i + 1 });
+    TERM_GROUP_OF.set(m, { key: g.key, name: g.name, no });
   }
 });
+for (const k of Object.keys(FROZEN_GROUP_NO)) {
+  if (!TERM_TOPIC_GROUPS.some((g) => g.key === k)) {
+    throw new Error(`冻结组「${k}」已从 TERM_TOPIC_GROUPS 消失：其词条目录会整体迁移，不允许`);
+  }
+}
 // 完整性自检：TOPICS 每一项都必须被收编，否则该主题下的词条会静默落入 99-综合。
 // 日后往 TOPICS 追加主题时，此断言会在生成期立即报错，提醒同步登记分组。
 for (const t of TOPICS) {
