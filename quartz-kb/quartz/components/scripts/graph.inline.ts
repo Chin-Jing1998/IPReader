@@ -404,6 +404,61 @@ const ASSEMBLY_CACHE_MAX = 4
  */
 const assemblyCache = new Map<string, AssemblyCacheEntry>()
 
+// ---------- 结构「有子」前缀表（阶段5.11 波I）----------
+
+/**
+ * 全库 slug 的祖先前缀集合：某个目录形态 slug（以「/」结尾）落在集内，即表示
+ * 知识库结构上**确有**下级页面挂在它下面。
+ *
+ * 用途见 renderRadius：Quartz 的 simplifySlug 只看「是不是 index 页」，凡带 index.md
+ * 的目录一律得到尾斜杠 slug，于是 49 部书里「一条一目录」的法条页（如
+ * 「17-专利侵权解释一/1-第一条·专利权保护范围的确定/」）在形态上是容器、在结构上却
+ * 无子——它们与审查指南的小节同为最末级条文，却被 levelRadius 判成中层容器画大一圈。
+ * 本表把「是否真有下级」从 slug 形态里独立出来，供渲染侧降级这 847 个节点。
+ *
+ * ⚠️ 口径是**全库结构**，不是当前图的节点集（阶段5.11 波I 实测裁决）：
+ *   · 按节点集判会让同一节点在不同视图里忽大忽小——首页「/」的局部图只含 90 个书根、
+ *     它们的子页一个都不在图内，按节点集判会把 88 个书根从 10 缩到 3.5，
+ *     整张书目盘塌成小点云（全站 8121 张局部图逐页扫描，仅此一张出问题）；
+ *   · 根「/」是全库唯一的公共祖先，任何非根页面都使它有子——不显式加它，
+ *     首页节点（IPReader，度数 90+）会被误判成叶子。
+ *
+ * 与 assemblyCache 同为模块级、跨 SPA 软导航存活，但**不进** AssemblyCacheEntry：
+ * 它只依赖 rawIndex，与术语层/tags/排除集这些组装键无关，按组装键存会重复存好几份。
+ */
+let structuralParentsMemo: { src: GraphContentIndex; set: ReadonlySet<string> } | null = null
+
+/**
+ * 取（或按需构建）结构有子前缀表。memo 键取 **rawIndex 的对象引用**而非条目数：
+ * 全站三个取数方共享 window.__graphIndex 那一个 Promise，同一上下文内解析结果恒为
+ * 同一对象，引用相等即同源同版本；索引换新（硬跳转新上下文、或预热重发 fetch）
+ * 必是新对象，引用不等即自动重建，不存在「内容变了条目数没变」的漏网。
+ * 建表成本实测约 4.0ms／8123 条，memo 后每个 JS 上下文只付一次——SPA 软导航期间的
+ * 后续实例（含每页局部图）零成本，只有硬跳转换上下文才重付。
+ */
+function structuralParentsOf(rawIndex: GraphContentIndex): ReadonlySet<string> {
+  if (structuralParentsMemo !== null && structuralParentsMemo.src === rawIndex) {
+    return structuralParentsMemo.set
+  }
+  const set = new Set<string>()
+  for (const key of Object.keys(rawIndex)) {
+    const id = simplifySlug(key as FullSlug)
+    // 根是所有非根页面的祖先；simplifySlug 对站点根返回 "/"，不会自己成为自己的祖先
+    if (id !== "/") set.add("/")
+    // 逐段增量拼前缀，不用 slice(0,i).join("/")：后者对每段都新建一个数组再拼一次
+    // 完整路径，深度 d 的 slug 要付 O(d²) 的字符串量（实测全库建表 4.97→4.03ms）
+    let prefix = ""
+    for (const seg of id.split("/")) {
+      if (seg.length === 0) continue
+      prefix += seg + "/"
+      // 走到末段时前缀恰等于容器页自身的 slug——那是它自己，不算「有子」
+      if (prefix !== id) set.add(prefix)
+    }
+  }
+  structuralParentsMemo = { src: rawIndex, set }
+  return set
+}
+
 // ---------- 常设性能埋点（阶段5.6 波1-1.1）----------
 
 /**
@@ -463,6 +518,19 @@ type GraphPerfMark = {
    * 二者分开才谈得上归因——只看 frameMs 会把别人的账记到渲染头上。
    */
   firstRenderMs: number | null
+  /**
+   * 渲染半径直方图（阶段5.11 波I）：键＝半径 toFixed(2)，值＝该档节点数。
+   * 记的是**渲染**半径（renderRadius），不是碰撞半径（nodeRadius）——两者自波I 起
+   * 分家，这里要看的正是用户眼里的那一档。全库半径档位有限（叶子 3.5、tags 3、
+   * 书根 10、总入口 12，中层容器带度数修正故为若干 7.x／5.x 值），故对象键数可控。
+   */
+  renderRadiusHist: Record<string, number>
+  /**
+   * 目录形态（slug 带尾斜杠）但全库结构上无下级页面、因而按叶子半径渲染的节点数
+   *（阶段5.11 波I）。全量图两档实测均为 847（49 部书的「一条一目录」法条页）；
+   * 该值塌到 0 即说明 renderRadius 的降级分支被绕开或结构前缀表建错。
+   */
+  leafSizedContainers: number
 }
 
 /** 保留的记录条数上限：够看清「首开 vs 二次打开」的对照，又不至于常驻内存 */
@@ -511,6 +579,9 @@ function logGraphPerfMark(mark: GraphPerfMark) {
       cacheHit: mark.assemblyCacheHit,
       seeded: mark.layoutSeeded,
       layout: mark.layoutSource,
+      // 波I：目录形态但结构无子、按叶子半径渲染的节点数（全量图两档实测均 847）。
+      // 直方图不进表——档位数十项，一行铺开反而看不清，需要时直接读 __graphPerf
+      leafSized: mark.leafSizedContainers,
     },
   ])
 }
@@ -829,6 +900,8 @@ async function createGraphInstance(
     buildMs: 0,
     frameMs: null,
     firstRenderMs: null,
+    renderRadiusHist: {},
+    leafSizedContainers: 0,
   }
   const slug = simplifySlug(fullSlug)
   const visited = getVisited()
@@ -1288,6 +1361,38 @@ async function createGraphInstance(
     return Math.min(base + boost, MAX_NODE_RADIUS)
   }
 
+  /** 本实例的结构有子前缀表（全库口径，模块级 memo，见 structuralParentsOf） */
+  const structuralHasChildren = structuralParentsOf(rawIndex)
+
+  /**
+   * **渲染**半径（阶段5.11 波I）：与 nodeRadius（布局/碰撞半径）自本轮起分家。
+   *
+   * 语义分工，两者不可互换：
+   *   · nodeRadius —— 喂给 forceCollide 的排斥半径，是**布局参数**。它参与
+   *     graphLayout.json／graphLayout-terms.json 的预计算坐标，而那两份产物的指纹
+   *     **不含半径项**（见 plugins/emitters/graphLayout.tsx）——改了它，运行期算出的
+   *     坐标与产物就是两套解，指纹却照样相等、校验一路放行，表现为静默错配。
+   *     故它一字不动，本轮零布局回归的根据即在此。
+   *   · renderRadius —— 下笔画圆、命中区、包围盒取的半径，是**视觉量**。
+   *
+   * 降级规则只一条：目录形态（尾斜杠）且全库结构上无下级页面 → 按叶子画 LEAF_R。
+   * 命中的是 49 部书里「一条一目录」的法条页（实测 847 个），它们与审查指南的小节
+   * 同属最末级条文，理应等大；对照组（专利法/实施细则/审查指南/关键词索引）零命中。
+   *
+   * 三类节点显式不受影响：
+   *   · 真叶子（不带尾斜杠）——nodeRadius 本就恒为 LEAF_R，逐值不变；
+   *   · tags 节点（3px，比 LEAF_R 还小）——`base > LEAF_R` 这一支挡住，不会被放大；
+   *   · 有子容器（书根 10、编/部 7+boost、词条分类目录 5.5）——前缀表命中，原值。
+   *
+   * 副作用是「画 3.5、按 7.x 排斥」，即降级节点周围多出一圈留白。方向安全：排斥半径
+   * 只会比视觉半径大，节点之间只会更疏，不产生重叠。
+   */
+  function renderRadius(d: NodeData): number {
+    const base = nodeRadius(d)
+    if (base > LEAF_R && d.id.endsWith("/") && !structuralHasChildren.has(d.id)) return LEAF_R
+    return base
+  }
+
   /**
    * 画布量测的**唯一口径**（阶段5.10 波A-R2）：构造期初值与 syncSize 的现测同源。
    *
@@ -1312,6 +1417,10 @@ async function createGraphInstance(
     .force("charge", forceManyBody().strength(-100 * repelForce))
     .force("center", forceCenter().strength(centerForce))
     .force("link", forceLink(graphData.links).distance(linkDistance))
+    // ⚠️ 碰撞半径恒取 nodeRadius，**不得**改成 renderRadius（阶段5.11 波I 红线）：
+    // 它是布局参数，与 static/graphLayout*.json 的预计算坐标是同一套解，而那两份产物的
+    // 指纹不含半径项——改了它，运行期与产物各算各的，校验却照样通过，静默错配。
+    // 视觉统一由 renderRadius 在渲染侧单独承担，与本行互不干涉（见 renderRadius 注释）。
     .force("collide", forceCollide<NodeData>((n) => nodeRadius(n)).iterations(3))
 
   // 局部图专属阻尼（阶段5.10 波B-1）：**独立语句、不并入上方链式表达式**，
@@ -2247,7 +2356,14 @@ async function createGraphInstance(
     label.scale.set(1 / scale)
 
     const isTagNode = nodeId.startsWith("tags/")
-    const r = nodeRadius(n)
+    // 渲染半径（阶段5.11 波I）：下笔的圆、几何池键、命中区与 NodeRenderData.radius
+    // 四者同取此值——命中区与视觉圆一致是正确语义，focus 环读的也是这个 radius，
+    // 故自动跟随。布局侧的碰撞半径另走 nodeRadius，见上方 forceCollide 处红线注释。
+    const r = renderRadius(n)
+    // 埋点（波I）：渲染半径直方图 + 降级计数，供 smoke 步 30 断言机制存活
+    const rKey = r.toFixed(2)
+    perfMark.renderRadiusHist[rKey] = (perfMark.renderRadiusHist[rKey] ?? 0) + 1
+    if (r !== nodeRadius(n)) perfMark.leafSizedContainers += 1
     // 每节点只算一次颜色（1.4）：原实现在 fill 与 NodeRenderData.color 两处各算一遍。
     // 注意 tag 节点的**填充**是 --light、而 NodeRenderData.color 记的仍是 color(n)，
     // 二者本就不同名同物，合并时须分开保留，不得图省事写成同一个值
@@ -2556,7 +2672,9 @@ async function createGraphInstance(
       // 包围盒取「节点外缘」而非圆心（v14 修）：圆心入框不等于圆入框。半径由
       // nodeRadius 按层级 + 度数算出，最大可达 MAX_NODE_RADIUS(13)，旧实现每侧
       // 因此少留整整一个节点的量，表现为贴边节点只露半个圆——本轮缺陷本体。
-      const r = nodeRadius(n)
+      // 阶段5.11 波I 改取 renderRadius：包围盒框的是**画出来的**圆，取碰撞半径会为
+      // 降级节点多留一圈本不存在的边距，入框后整图偏小。
+      const r = renderRadius(n)
       if (n.x - r < minX) minX = n.x - r
       if (n.x + r > maxX) maxX = n.x + r
       if (n.y - r < minY) minY = n.y - r

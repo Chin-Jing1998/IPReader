@@ -1872,6 +1872,9 @@ async function main() {
   //     ② 时间断言（宽熔断）——SPA 二次打开 total < 1200ms。取值刻意远离实测中位
   //        （约 250ms）：本步的职责是抓「机制失效导致的塌方」，不是守护性能指标，
   //        指标的对照留给 /tmp 下的采数探针。CI 机器慢一倍也不会误报。
+  //     ③ 渲染半径断言（硬失败，阶段5.11 波I）——见下方 hardRadiusOk：渲染半径与
+  //        碰撞半径分家后，「目录形态但结构无子」的 847 个法条节点须按叶子 3.5 画，
+  //        同时书根 10 一个不少。两个数一升一降把降级判据锁死在全库结构口径上。
   //
   //     ⚠️ 返回图谱页必须走 SPA 软导航，不能用 loadURL：硬跳转新建 JS 上下文，
   //     模块级 assemblyCache 随之清空，cacheHit 恒 false，本步的断言就永远绿不了
@@ -1905,6 +1908,10 @@ async function main() {
        prewarmMs: m.prewarmed - m.nodesBuilt,
        termHidden: m.termHidden,
        nodes: m.nodeCount,
+       // 阶段5.11 波I：渲染半径分家后的两个诊断量
+       leafSized: m.leafSizedContainers,
+       bookRoots: m.renderRadiusHist ? (m.renderRadiusHist["10.00"] || 0) : -1,
+       leafBucket: m.renderRadiusHist ? (m.renderRadiusHist["3.50"] || 0) : -1,
      };
    })()`;
   const waitGraphMark = async () => {
@@ -1922,6 +1929,20 @@ async function main() {
   // 不匹配或节点覆盖不全（三者都会静默回落，功能不坏但首开又要多付约 230ms 预热），
   // 正是本断言要抓的那类无声失效。
   const hardPrebuiltOk = !!hardMark && hardMark.layoutSource === "prebuilt";
+  // 阶段5.11 波I 追加子断言：目录形态法条节点按叶子半径渲染，且容器层级未被误伤。
+  //   · leafSized === 847：49 部书里「一条一目录」的法条页（slug 带尾斜杠但结构无子）
+  //     全部降级到 LEAF_R=3.5。该值塌到 0 即 renderRadius 的降级分支被绕开或结构
+  //     前缀表建错；数值本身随语料条文增删而变，改语料时同步更新此处与代码注释。
+  //   · bookRoots === 83：渲染半径恰为 10.00 的节点数＝全量图内的书根数
+  //     （88 部减去 GRAPH_HIDDEN_BOOKS 的 5 部）。它守的是「别把降级判据写宽」——
+  //     若误按当前图节点集而非全库结构判「有子」，书根会跟着塌到 3.5，此值即归零。
+  //   · leafBucket > leafSized：3.50 档里除了这 847 个，还必须有大量真叶子条文页
+  //     （实测术语层 hidden 档 5759、显示档 7502），该档若只剩 847 说明真叶子丢了。
+  const hardRadiusOk =
+    !!hardMark &&
+    hardMark.leafSized === 847 &&
+    hardMark.bookRoots === 83 &&
+    hardMark.leafBucket > hardMark.leafSized;
 
   // 力导预热后的基线快照要等实例销毁（SPA 离开图谱页）或自然收敛才写回缓存；
   // 此处只需给首帧之后的渲染留出落定时间，销毁写回由下一步的软导航触发
@@ -1995,10 +2016,11 @@ async function main() {
   await shot(win, "图谱缓存命中与坐标播种");
 
   record(
-    "图谱首帧零标签光栅化＋首开命中构建期坐标＋SPA 往返命中组装缓存与坐标播种＋图谱索引悬空内链恒零（结构断言硬失败：firstFrameVisibleLabels=0 / 首开 layoutSource=prebuilt / 二开 assemblyCacheHit+layoutSeeded+layoutSource=cache / contentIndexGraph 悬空链=0；时间宽熔断：二次打开 total<1200ms）",
+    "图谱首帧零标签光栅化＋首开命中构建期坐标＋SPA 往返命中组装缓存与坐标播种＋图谱索引悬空内链恒零＋目录形态法条节点按叶子半径渲染（结构断言硬失败：firstFrameVisibleLabels=0 / 首开 layoutSource=prebuilt / 二开 assemblyCacheHit+layoutSeeded+layoutSource=cache / contentIndexGraph 悬空链=0 / leafSizedContainers=847+书根 10.00 档=83；时间宽熔断：二次打开 total<1200ms）",
     graphReady30 &&
       hardLabelsOk &&
       hardPrebuiltOk &&
+      hardRadiusOk &&
       leftGraph === "/1-专利法/1-总则/law-01-01" &&
       backPath === "/0-图谱总览/" &&
       spaStructOk &&
@@ -2008,6 +2030,9 @@ async function main() {
       `节点数=${hardMark ? hardMark.nodes : "-"}, 首开 cacheHit=${hardMark ? hardMark.cacheHit : "-"}（须 false，硬跳转无模块缓存）, ` +
       `首开 layoutSource=${hardMark ? hardMark.layoutSource : "-"}（须 prebuilt）, ` +
       `首开 prewarmMs=${hardMark ? hardMark.prewarmMs.toFixed(1) : "-"}ms; ` +
+      `渲染半径（波I）：叶子化目录节点=${hardMark ? hardMark.leafSized : "无记录"}（须 847）, ` +
+      `书根 10.00 档=${hardMark ? hardMark.bookRoots : "-"}（须 83）, ` +
+      `3.50 档合计=${hardMark ? hardMark.leafBucket : "-"}（须 >847）; ` +
       `SPA 离开落地=${leftGraph}, popstate 返回落地=${backPath}; ` +
       `二次打开：cacheHit=${spaMark ? spaMark.cacheHit : "无记录"}（须 true）, ` +
       `layoutSeeded=${spaMark ? spaMark.seeded : "-"}（须 true）, ` +
