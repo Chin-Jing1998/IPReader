@@ -43,7 +43,11 @@ const checkRefs = opts.refs === null ? isFullScan : opts.refs;
 // 豁免规模偏离基线时打印提示，提醒人工复核数据形态变化；提示本身不改变退出码。
 const EXEMPT_BASELINE = {
   'doc.narrative-empty-own-text': 33, // 标题即全文的叶子节点，original（ownText）为空 → narrative 必空
-  'term.definition-empty-seed': 147, // 词表 seed 词条且 df=0，提取产物无 role=defined 记录 → definition 回退为空串
+  // 词表 seed 词条且 df=0，提取产物无 role=defined 记录 → definition 回退为空串。
+  // 2026-08-30 阶段5.11 波G（5.9 波4 全量重建）：147 → 131。本批新增 1279 片提取产物后，
+  //   原本全无 defined 记录的 16 个 seed 词条在商标指南/四法域正文中拿到了定义句，
+  //   空定义面随之收窄——属数据形态好转，非缺失，按实测更新基线。
+  'term.definition-empty-seed': 131,
 };
 
 // ── 取值域 ───────────────────────────────────────────────────────────────────
