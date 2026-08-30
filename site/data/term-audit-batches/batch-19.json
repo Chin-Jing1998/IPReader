@@ -1,0 +1,1148 @@
+[
+ {
+  "termKey": "撤销布图设计登记",
+  "canonical": "撤销布图设计登记",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "ic-layout-regulations-2026"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "ic-layout-regulations-2026/03/12",
+    "text": "撤销布图设计登记"
+   }
+  ],
+  "breadcrumbs": [
+   "ic-layout-regulations-2026:集成电路布图设计保护条例（2026年施行） › 第三章 布图设计的登记 › 第三十条 · 登记的撤销与请求撤销"
+  ]
+ },
+ {
+  "termKey": "撤销登记",
+  "canonical": "撤销登记",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/03/03/04",
+    "text": "有下列情形之一的，应当撤销登记"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 3注册商标专用权质权登记 › 3.3审查结论 › 3.3.4撤销登记"
+  ]
+ },
+ {
+  "termKey": "撤销注册商标复审",
+  "canonical": "撤销注册商标复审",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/01/02/04",
+    "text": "撤销注册商标复审案件，应当针对撤销或者维持注册商标决定和当事人申请复审时"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第一章 概述 › 2审查审理范围 › 2.4商标评审审理"
+  ]
+ },
+ {
+  "termKey": "驰名商标保护",
+  "canonical": "驰名商标保护",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/10/05/01",
+    "text": "从保护驰名商标持有人利益和维护公平竞争及消费者权益出发"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第十章 复制、摹仿或者翻译他人驰名商标的审查审理 › 第三条 › 2释义"
+  ]
+ },
+ {
+  "termKey": "驰名商标持有人再次请求驰名商标保护",
+  "canonical": "驰名商标持有人再次请求驰名商标保护",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/10/05/04/05",
+    "text": "驰名商标持有人再次请求驰名商标保护"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第十章 复制、摹仿或者翻译他人驰名商标的审查审理 › 第三条 › 5驰名商标的判定 › 5.5驰名商标持有人再次请求驰名商标保护"
+  ]
+ },
+ {
+  "termKey": "驰名商标的显著特征",
+  "canonical": "驰名商标的显著特征",
+  "aliases": [
+   "驰名商标的显著部分"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/10/05/05/02",
+    "text": "驰名商标的显著部分或者显著特征是指驰名商标赖以起主要识别作用的部分或者特征"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第十章 复制、摹仿或者翻译他人驰名商标的审查审理 › 第三条 › 6复制、摹仿或者翻译他人驰名商标的判定 › 6.2摹仿"
+  ]
+ },
+ {
+  "termKey": "驰名商标认定因素",
+  "canonical": "驰名商标认定因素",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/10/03",
+    "text": "认定驰名商标应当考虑下列因素"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第十章 复制、摹仿或者翻译他人驰名商标的审查审理 › 第十四条 · 驰名商标的认定因素"
+  ]
+ },
+ {
+  "termKey": "驰名商标受保护的记录",
+  "canonical": "驰名商标受保护的记录",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/10/05/02/01",
+    "text": "在本案中可以作为驰名商标受保护的记录予以考虑"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第十章 复制、摹仿或者翻译他人驰名商标的审查审理 › 第三条 › 3驰名商标认定的原则 › 3.1个案认定原则"
+  ]
+ },
+ {
+  "termKey": "抽奖式有奖销售",
+  "canonical": "抽奖式有奖销售",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "anti-unfair-competition-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "anti-unfair-competition-2025/02/05",
+    "text": "抽奖式的有奖销售，最高奖的金额超过五万元"
+   }
+  ],
+  "breadcrumbs": [
+   "anti-unfair-competition-2025:中华人民共和国反不正当竞争法（2025年施行） › 第二章 不正当竞争行为 › 第十一条 · 有奖销售的禁止情形"
+  ]
+ },
+ {
+  "termKey": "出版",
+  "canonical": "出版",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "copyright-law-2020"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/06/02",
+    "text": "本法第二条所称的出版，指作品的复制、发行"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第六章 附则 › 第六十三条 · 出版的含义"
+  ]
+ },
+ {
+  "termKey": "出质商标",
+  "canonical": "出质商标",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/03/02/04",
+    "text": "出质商标应当符合以下条件"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 3注册商标专用权质权登记 › 3.2质权登记申请 › 3.2.4出质的商标"
+  ]
+ },
+ {
+  "termKey": "出租服务",
+  "canonical": "出租服务",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/02/01/04/02",
+    "text": "出租服务，原则上与通过出租物所实现的服务分在同一类别"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第二部分 商品服务和商标检索要素的分类 › 第六章 商品服务分类 › 4商品和服务分类原则 › 4.2服务分类原则"
+  ]
+ },
+ {
+  "termKey": "出租权",
+  "canonical": "出租权",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "copyright-law-2020"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/02/01/02",
+    "text": "出租权，即有偿许可他人临时使用视听作品、计算机软件的原件或者复制件的权利"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第一节 著作权人及其权利 › 第十条 · 著作权的内容"
+  ]
+ },
+ {
+  "termKey": "创作",
+  "canonical": "创作",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "copyright-law-rules-2013"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-rules-2013/03",
+    "text": "著作权法所称创作，是指直接产生文学、艺术和科学作品的智力活动。"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-rules-2013:中华人民共和国著作权法实施条例（2013年施行） › 第三条 · 创作的含义"
+  ]
+ },
+ {
+  "termKey": "创作者",
+  "canonical": "创作者",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "ic-layout-regulations-2026"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "ic-layout-regulations-2026/02/03",
+    "text": "由自然人创作的布图设计，该自然人是创作者"
+   }
+  ],
+  "breadcrumbs": [
+   "ic-layout-regulations-2026:集成电路布图设计保护条例（2026年施行） › 第二章 布图设计专有权 › 第十三条 · 专有权归属与创作者认定"
+  ]
+ },
+ {
+  "termKey": "词形变化",
+  "canonical": "词形变化",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/05/03/04/01/11",
+    "text": "商标文字仅在形式上发生单复数、动名词、缩写、比较级或最高级、词性"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第五章 商标相同、近似的审查审理 › 第三十一条 › 5具体适用：商标近似的审查 › 5.1文字商标近似的审查 › 5.1.11商标文字仅在形式上发生单复数、动名词、缩写、比较级或最高级、词性、添加冠词、添加连词、添加介词等变化，例如：“MORE”“THE”“LA”“LE”“AND”“BY”“FROM”等，但表达含义基本相同，易使相关公众对商品或者服务的来源产生混淆的，判定为近似商标"
+  ]
+ },
+ {
+  "termKey": "大小地名套用",
+  "canonical": "大小地名套用",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/09/07/04/03/02",
+    "text": "由具有包含关系的两级地名即“大地名+小地名+商品通用名称”构成"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第九章 集体商标、证明商标的审查审理 › 第四条 › 5地理标志集体商标和地理标志证明商标标志的审查 › 5.3地理标志集体商标和地理标志证明商标相同、近似的审查 › 5.3.2大小地名套用"
+  ]
+ },
+ {
+  "termKey": "代表关系",
+  "canonical": "代表关系",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/11/02/03/03",
+    "text": "下列证据可以证明代表关系的存在"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第十一章 擅自注册被代理人或者被代表人商标的审查审理 › 第十五条 › 4代理关系、代表关系的判定 › 4.3证明代理关系、代表关系存在的证据"
+  ]
+ },
+ {
+  "termKey": "代理关系",
+  "canonical": "代理关系",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/11/02/03/03",
+    "text": "下列证据可以证明代理关系的存在"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第十一章 擅自注册被代理人或者被代表人商标的审查审理 › 第十五条 › 4代理关系、代表关系的判定 › 4.3证明代理关系、代表关系存在的证据"
+  ]
+ },
+ {
+  "termKey": "单纯事实消息",
+  "canonical": "单纯事实消息",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "copyright-law-2020"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/01/05",
+    "text": "单纯事实消息"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第一章 总则 › 第五条 · 本法不适用的对象"
+  ]
+ },
+ {
+  "termKey": "担保放行",
+  "canonical": "担保放行",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "customs-ip-protection-2018"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "customs-ip-protection-2018/03/08",
+    "text": "担保放行"
+   }
+  ],
+  "breadcrumbs": [
+   "customs-ip-protection-2018:中华人民共和国知识产权海关保护条例（2004年施行） › 第三章 扣留侵权嫌疑货物的申请及其处理 › 第十九条 · 涉嫌侵犯专利权货物的担保放行"
+  ]
+ },
+ {
+  "termKey": "党派",
+  "canonical": "党派",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/03/02/02/08/03/06",
+    "text": "本条中的党派包括中国共产党和被统称为民主党派的八个政党"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第三章 不得作为商标标志的审查审理 › 第十条 › 3具体适用 › 3.8有害于社会主义道德风尚或者有其他不良影响的 › 3.8.3对我国经济、文化、民族、宗教、社会易产生消极、负面影响，损害公共利益，扰乱公共秩序的 › 3.8.3.6与我国各党派、政府机构、社会团体等单位或者组织的名称、标志相同或者近似的"
+  ]
+ },
+ {
+  "termKey": "党政机关",
+  "canonical": "党政机关",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/03/02/02/08/03/07",
+    "text": "本条中的党政机关通常包括中国共产党机关、人大机关、民主党派机关"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第三章 不得作为商标标志的审查审理 › 第十条 › 3具体适用 › 3.8有害于社会主义道德风尚或者有其他不良影响的 › 3.8.3对我国经济、文化、民族、宗教、社会易产生消极、负面影响，损害公共利益，扰乱公共秩序的 › 3.8.3.7与我国党政机关、军队、警察等职务、职级、职衔名称相同的，易与上述特定主体产生联系，引起混淆或误导，损害公共利益、扰乱公共秩序的本条中的党政机关通常包括中国共产党机关、人大机关、民主党派机关、政协机关、行政机关、审判机关、检察机关等。行政机关的职务包括总理、部长、局（司）长、处长、科长、科员等；行政机关的职级包括巡视员、调研员等。军队的行政职务包括司令员、军长、师长、旅长、团长、营长、连长、排长等；军队的军衔包括将官三级即上将、中将、少将，校官四级即大校、上校、中校、少校，尉官三级即上尉、中尉、少尉等。警衔包括五等十三级，如总警监（副总警监）、警监、警督、警司、警员等。消防救援衔包括总监、副总监、助理总监、指挥长、指挥员、高级消防员、中级消防员、初级消防员等。海关关衔包括海关总监、海关副总监、关务监督、关务督察、关务督办、关务员等。外交衔级包括大使、公使、参赞、秘书、随员等。"
+  ]
+ },
+ {
+  "termKey": "地理标志概念",
+  "canonical": "地理标志概念",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/09/07/05/06/03",
+    "text": "仅由自然因素或者仅由人文因素决定的产品，不符合地理标志概念"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第九章 集体商标、证明商标的审查审理 › 第四条 › 6地理标志集体商标和地理标志证明商标特有事项的审查 › 6.6地理标志产品特定质量、信誉或其他特征与该地域自然因素、人文因素关系说明的审查 › 6.6.3主要由人文因素决定的"
+  ]
+ },
+ {
+  "termKey": "地理标志误导公众",
+  "canonical": "地理标志误导公众",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/09/07/04/01/02",
+    "text": "商标中有商品的地理标志，而该商品并非来源于该标志所标示的地区，误导公众的"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第九章 集体商标、证明商标的审查审理 › 第四条 › 5地理标志集体商标和地理标志证明商标标志的审查 › 5.1地理标志集体商标和地理标志证明商标禁用条款的审查 › 5.1.2含有地理标志易误导公众的商标的审查"
+  ]
+ },
+ {
+  "termKey": "地名的其他含义强于地名含义",
+  "canonical": "地名的其他含义强于地名含义",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/03/02/02/09/01/01",
+    "text": "地名具有其他含义且该含义强于地名含义的"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第三章 不得作为商标标志的审查审理 › 第十条 › 3具体适用 › 3.9含有地名的商标 › 3.9.1含有县级以上行政区划地名的商标的审查审理 › 3.9.1.1地名具有其他含义且该含义强于地名含义的例如："
+  ]
+ },
+ {
+  "termKey": "地名仅起真实表示申请人所在地作用",
+  "canonical": "地名仅起真实表示申请人所在地作用",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/03/02/02/09/03",
+    "text": "商标所含地名与其他具备显著特征的要素相互独立，地名仅起真实表示申请人所在地作用的"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第三章 不得作为商标标志的审查审理 › 第十条 › 3具体适用 › 3.9含有地名的商标 › 3.9.3商标所含地名与其他具备显著特征的要素相互独立，地名仅起真实表示申请人所在地作用的除外"
+  ]
+ },
+ {
+  "termKey": "地域范围证明文件",
+  "canonical": "地域范围证明文件",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/09/07/05/05",
+    "text": "地理标志所标示地区的人民政府或行业主管部门出具的地域范围证明文件"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第九章 集体商标、证明商标的审查审理 › 第四条 › 6地理标志集体商标和地理标志证明商标特有事项的审查 › 6.5地理标志所标示的生产地域范围的审查"
+  ]
+ },
+ {
+  "termKey": "登记日期",
+  "canonical": "登记日期",
+  "aliases": [
+   "质权登记日期"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/03/03/01",
+    "text": "受理日期即为登记日期"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 3注册商标专用权质权登记 › 3.3审查结论 › 3.3.1登记发证"
+  ]
+ },
+ {
+  "termKey": "独占权",
+  "canonical": "独占权",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "plant-variety-regulations-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "plant-variety-regulations-2025/02/01",
+    "text": "对其授权品种，享有排他的独占权"
+   }
+  ],
+  "breadcrumbs": [
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第二章 品种权的内容和归属 › 第七条 · 品种权的独占权内容"
+  ]
+ },
+ {
+  "termKey": "独占使用权",
+  "canonical": "独占使用权",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "ic-layout-regulations-2026"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "ic-layout-regulations-2026/04/08",
+    "text": "不享有独占的使用权"
+   }
+  ],
+  "breadcrumbs": [
+   "ic-layout-regulations-2026:集成电路布图设计保护条例（2026年施行） › 第四章 布图设计专有权的行使 › 第四十一条 · 非自愿许可使用权的限制"
+  ]
+ },
+ {
+  "termKey": "多音字",
+  "canonical": "多音字",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/02/02/04/01",
+    "text": "商标中包含多音字的，拼音分卡一般应为惯常读音的组合"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第二部分 商品服务和商标检索要素的分类 › 第七章 商标文字检索要素分类 › 4汉字分卡 › 4.1多音字"
+  ]
+ },
+ {
+  "termKey": "发行权",
+  "canonical": "发行权",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "copyright-law-2020"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/02/01/02",
+    "text": "发行权，即以出售或者赠与方式向公众提供作品的原件或者复制件的权利"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第一节 著作权人及其权利 › 第十条 · 著作权的内容"
+  ]
+ },
+ {
+  "termKey": "法定许可",
+  "canonical": "法定许可",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "copyright-law-2020"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/02/04/02",
+    "text": "法定许可"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第四节 权利的限制 › 第二十五条 · 教科书法定许可"
+  ]
+ },
+ {
+  "termKey": "法定许可付酬期限",
+  "canonical": "法定许可付酬期限",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "copyright-law-rules-2013"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-rules-2013/32",
+    "text": "应当自使用该作品之日起2个月内向著作权人支付报酬"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-rules-2013:中华人民共和国著作权法实施条例（2013年施行） › 第三十二条 · 法定许可的付酬期限"
+  ]
+ },
+ {
+  "termKey": "翻译权",
+  "canonical": "翻译权",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "copyright-law-2020"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/02/01/02",
+    "text": "翻译权，即将作品从一种语言文字转换成另一种语言文字的权利"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第一节 著作权人及其权利 › 第十条 · 著作权的内容"
+  ]
+ },
+ {
+  "termKey": "防御性注册",
+  "canonical": "防御性注册",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/02/05/05/01",
+    "text": "防御性注册，应当是申请人在先注册商标已投入实际商业使用并具有一定知名度"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第二章 不以使用为目的的恶意商标注册申请的审查审理 › 第八条 › 6典型案例 › 6.1商标注册申请数量巨大，明显超出正常经营活动需求，缺乏真实使用意图，扰乱商标注册秩序的"
+  ]
+ },
+ {
+  "termKey": "妨害证据保全",
+  "canonical": "妨害证据保全",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "ip-evidence-rules-2020"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "ip-evidence-rules-2020/13",
+    "text": "或者妨害证据保全，致使无法保全证据的"
+   }
+  ],
+  "breadcrumbs": [
+   "ip-evidence-rules-2020:最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行） › 第十三条 · 妨害证据保全的后果"
+  ]
+ },
+ {
+  "termKey": "放弃专用权说明",
+  "canonical": "放弃专用权说明",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/06/05/02/02/04/03",
+    "text": "放弃专用权说明需在商标公告和商标注册证上予以加注"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第六章 三维标志商标的审查审理 › 第四十三条 › 3三维标志商标实质审查 › 3.2三维标志商标显著特征审查 › 3.2.4三维形状和平面要素的组合 › 3.2.4.3由缺乏显著特征的三维形状和具有显著特征的其他平面要素组合而成的"
+  ]
+ },
+ {
+  "termKey": "放行",
+  "canonical": "放行",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "customs-ip-protection-2018"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "customs-ip-protection-2018/03/13",
+    "text": "海关应当放行被扣留的侵权嫌疑货物"
+   }
+  ],
+  "breadcrumbs": [
+   "customs-ip-protection-2018:中华人民共和国知识产权海关保护条例（2004年施行） › 第三章 扣留侵权嫌疑货物的申请及其处理 › 第二十四条 · 放行被扣留货物的情形"
+  ]
+ },
+ {
+  "termKey": "放映权",
+  "canonical": "放映权",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "copyright-law-2020"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/02/01/02",
+    "text": "放映权，即通过放映机、幻灯机等技术设备公开再现美术、摄影、视听作品等的权利"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第一节 著作权人及其权利 › 第十条 · 著作权的内容"
+  ]
+ },
+ {
+  "termKey": "非商业性使用",
+  "canonical": "非商业性使用",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "ic-layout-regulations-2026"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "ic-layout-regulations-2026/04/07",
+    "text": "限于为公共目的非商业性使用"
+   }
+  ],
+  "breadcrumbs": [
+   "ic-layout-regulations-2026:集成电路布图设计保护条例（2026年施行） › 第四章 布图设计专有权的行使 › 第四十条 · 非自愿许可决定与终止"
+  ]
+ },
+ {
+  "termKey": "非音乐性质的声音商标",
+  "canonical": "非音乐性质的声音商标",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/02/04/03",
+    "text": "非音乐性质的声音商标，声音要素编码为 S2"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第二部分 商品服务和商标检索要素的分类 › 第九章 商标其他检索要素分类 › 3非音乐性质的声音商标"
+  ]
+ },
+ {
+  "termKey": "非音乐性质声音商标",
+  "canonical": "非音乐性质声音商标",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/01/02/03/01/04/04/02",
+    "text": "非音乐性质声音商标应当用文字加以描述"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第二章 注册申请形式审查 › 3形式审查内容 › 3.1申请书 › 3.1.4商标图样 › 3.1.4.4声音商标 › 3.1.4.4.2声音商标描述"
+  ]
+ },
+ {
+  "termKey": "非职务育种",
+  "canonical": "非职务育种",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "plant-variety-regulations-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "plant-variety-regulations-2025/02/03",
+    "text": "非职务育种，品种权的申请权属于完成育种的个人"
+   }
+  ],
+  "breadcrumbs": [
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第二章 品种权的内容和归属 › 第九条 · 品种权申请权的归属"
+  ]
+ },
+ {
+  "termKey": "服务分类原则",
+  "canonical": "服务分类原则",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/02/01/04/02",
+    "text": "服务分类原则"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第二部分 商品服务和商标检索要素的分类 › 第六章 商品服务分类 › 4商品和服务分类原则 › 4.2服务分类原则"
+  ]
+ },
+ {
+  "termKey": "复制件或者图样",
+  "canonical": "复制件或者图样",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "ic-layout-regulations-2026"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "ic-layout-regulations-2026/03/05",
+    "text": "提交的复制件或者图样应当包含布图设计的必要信息"
+   }
+  ],
+  "breadcrumbs": [
+   "ic-layout-regulations-2026:集成电路布图设计保护条例（2026年施行） › 第三章 布图设计的登记 › 第二十三条 · 复制件或图样的要求"
+  ]
+ },
+ {
+  "termKey": "复制权",
+  "canonical": "复制权",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "copyright-law-2020"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/02/01/02",
+    "text": "复制权，即以印刷、复印、拓印、录音、录像、翻录、翻拍、数字化等方式"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第一节 著作权人及其权利 › 第十条 · 著作权的内容"
+  ]
+ },
+ {
+  "termKey": "改编权",
+  "canonical": "改编权",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "copyright-law-2020"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/02/01/02",
+    "text": "改编权，即改变作品，创作出具有独创性的新作品的权利"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第一节 著作权人及其权利 › 第十条 · 著作权的内容"
+  ]
+ },
+ {
+  "termKey": "个别字母不同",
+  "canonical": "个别字母不同",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/05/03/04/01/09",
+    "text": "“个别字母不同”包括变字母、增加或减少字母、邻近字母变换顺序等"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第五章 商标相同、近似的审查审理 › 第三十一条 › 5具体适用：商标近似的审查 › 5.1文字商标近似的审查 › 5.1.9外文商标由三个或者三个以上字母构成，仅个别字母不同，整体无含义或者含义无明显区别，易使相关公众对商品或者服务的来源产生混淆的，判定为近似商标"
+  ]
+ },
+ {
+  "termKey": "工作任务",
+  "canonical": "工作任务",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "copyright-law-rules-2013"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-rules-2013/11",
+    "text": "是指公民在该法人或者该组织中应当履行的职责"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-rules-2013:中华人民共和国著作权法实施条例（2013年施行） › 第十一条 · 职务作品用语的含义"
+  ]
+ },
+ {
+  "termKey": "公告方式送达",
+  "canonical": "公告方式送达",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/01/04/03/02/01",
+    "text": "以公告方式送达的，自公告发布之日起满三十日视为送达"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第四章 评审形式审查 › 3形式审查 › 3.2期限 › 3.2.1送达日的确定"
+  ]
+ },
+ {
+  "termKey": "官方标志",
+  "canonical": "官方标志",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/03/02/02/04",
+    "text": "予以保证的官方标志、检验印记"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第三章 不得作为商标标志的审查审理 › 第十条 › 3具体适用 › 3.4与表明实施控制、予以保证的官方标志、检验印记相同或者近似的"
+  ]
+ },
+ {
+  "termKey": "官方标志、检验印记",
+  "canonical": "官方标志、检验印记",
+  "aliases": [
+   "官方标记、检验印记"
+  ],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/03/02/01/04",
+    "text": "实施控制、予以保证或者进行检验的标志或印记"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第三章 不得作为商标标志的审查审理 › 第十条 › 2释义 › 2.4与表明实施控制、予以保证的官方标志、检验印记相同或者近似的"
+  ]
+ },
+ {
+  "termKey": "官方正式译文",
+  "canonical": "官方正式译文",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "copyright-law-2020"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/01/05",
+    "text": "官方正式译文"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第一章 总则 › 第五条 · 本法不适用的对象"
+  ]
+ },
+ {
+  "termKey": "惯常读音",
+  "canonical": "惯常读音",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/02/02/04/01",
+    "text": "拼音分卡一般应为惯常读音的组合"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第二部分 商品服务和商标检索要素的分类 › 第七章 商标文字检索要素分类 › 4汉字分卡 › 4.1多音字"
+  ]
+ },
+ {
+  "termKey": "惯常呼叫习惯",
+  "canonical": "惯常呼叫习惯",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/02/02/04/02",
+    "text": "原则上按照惯常呼叫习惯划分汉字分卡"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第二部分 商品服务和商标检索要素的分类 › 第七章 商标文字检索要素分类 › 4汉字分卡 › 4.2非单一顺序排列"
+  ]
+ },
+ {
+  "termKey": "惯常拼读方式",
+  "canonical": "惯常拼读方式",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/02/02/05",
+    "text": "有多种拼读方式的，应按惯常拼读方式分别划分拼音分卡"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第二部分 商品服务和商标检索要素的分类 › 第七章 商标文字检索要素分类 › 5拼音分卡"
+  ]
+ },
+ {
+  "termKey": "广播权",
+  "canonical": "广播权",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "copyright-law-2020"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/02/01/02",
+    "text": "广播权，即以有线或者无线方式公开传播或者转播作品"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第一节 著作权人及其权利 › 第十条 · 著作权的内容"
+  ]
+ },
+ {
+  "termKey": "广播组织的禁止权",
+  "canonical": "广播组织的禁止权",
+  "aliases": [],
+  "tier": "high",
+  "df": 1,
+  "domains": [
+   "copyright-law-2020"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/04/04/03",
+    "text": "广播组织的禁止权"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第四章 与著作权有关的权利 › 第四节 广播电台、电视台播放 › 第四十七条 · 广播组织的禁止权"
+  ]
+ }
+]

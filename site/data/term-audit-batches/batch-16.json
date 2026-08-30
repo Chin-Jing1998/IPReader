@@ -1,0 +1,1799 @@
+[
+ {
+  "termKey": "品种权",
+  "canonical": "品种权",
+  "aliases": [],
+  "tier": "high",
+  "df": 21,
+  "domains": [
+   "plant-variety-regulations-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "plant-variety-regulations-2025/01/04",
+    "text": "植物新品种授予植物新品种权（以下称品种权）"
+   },
+   {
+    "chunk": "plant-variety-regulations-2025/01/06",
+    "text": "被授予品种权的植物新品种"
+   },
+   {
+    "chunk": "plant-variety-regulations-2025/02/04",
+    "text": "一个植物新品种只能授予一项品种权"
+   }
+  ],
+  "breadcrumbs": [
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第一章 总则 › 第四条 · 主管部门的职责分工",
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第一章 总则 › 第六条 · 授权品种的生产经营要求",
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第二章 品种权的内容和归属 › 第十条 · 一品种一权与先申请原则"
+  ]
+ },
+ {
+  "termKey": "布图设计专有权",
+  "canonical": "布图设计专有权",
+  "aliases": [
+   "集成电路布图设计专有权",
+   "专有权"
+  ],
+  "tier": "high",
+  "df": 15,
+  "domains": [
+   "ic-layout-regulations-2026"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "ic-layout-regulations-2026/01/01",
+    "text": "集成电路布图设计专有权"
+   },
+   {
+    "chunk": "ic-layout-regulations-2026/01/04",
+    "text": "依照本条例享有布图设计专有权"
+   },
+   {
+    "chunk": "ic-layout-regulations-2026/01/08",
+    "text": "布图设计专有权"
+   }
+  ],
+  "breadcrumbs": [
+   "ic-layout-regulations-2026:集成电路布图设计保护条例（2026年施行） › 第一章 总 则 › 第一条 · 立法目的",
+   "ic-layout-regulations-2026:集成电路布图设计保护条例（2026年施行） › 第一章 总 则 › 第四条 · 享有专有权的主体范围",
+   "ic-layout-regulations-2026:集成电路布图设计保护条例（2026年施行） › 第一章 总 则 › 第八条 · 主管部门的职责"
+  ]
+ },
+ {
+  "termKey": "经营者集中",
+  "canonical": "经营者集中",
+  "aliases": [],
+  "tier": "high",
+  "df": 14,
+  "domains": [
+   "anti-monopoly-law-2022"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "anti-monopoly-law-2022/01/03",
+    "text": "具有或者可能具有排除、限制竞争效果的经营者集中"
+   },
+   {
+    "chunk": "anti-monopoly-law-2022/04/01",
+    "text": "经营者集中是指下列情形"
+   },
+   {
+    "chunk": "anti-monopoly-law-2022/04/02",
+    "text": "经营者集中达到国务院规定的申报标准的"
+   }
+  ],
+  "breadcrumbs": [
+   "anti-monopoly-law-2022:中华人民共和国反垄断法（2022年施行） › 第一章 总 则 › 第三条 · 垄断行为的类型",
+   "anti-monopoly-law-2022:中华人民共和国反垄断法（2022年施行） › 第四章 经营者集中 › 第二十五条 · 经营者集中的情形",
+   "anti-monopoly-law-2022:中华人民共和国反垄断法（2022年施行） › 第四章 经营者集中 › 第二十六条 · 经营者集中的申报义务"
+  ]
+ },
+ {
+  "termKey": "商业秘密",
+  "canonical": "商业秘密",
+  "aliases": [],
+  "tier": "high",
+  "df": 14,
+  "domains": [
+   "anti-monopoly-law-2022",
+   "anti-unfair-competition-2025",
+   "customs-ip-protection-2018",
+   "examination-guideline",
+   "ic-layout-regulations-2026",
+   "ip-evidence-rules-2020",
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "anti-monopoly-law-2022/06/04",
+    "text": "知悉的商业秘密"
+   },
+   {
+    "chunk": "anti-monopoly-law-2022/07/11",
+    "text": "泄露执法过程中知悉的商业秘密"
+   },
+   {
+    "chunk": "anti-unfair-competition-2025/02/04",
+    "text": "本法所称的商业秘密，是指不为公众所知悉、具有商业价值并经权利人采取相应保密措施的"
+   }
+  ],
+  "breadcrumbs": [
+   "anti-monopoly-law-2022:中华人民共和国反垄断法（2022年施行） › 第六章 对涉嫌垄断行为的调查 › 第四十九条 · 执法机构的保密义务",
+   "anti-monopoly-law-2022:中华人民共和国反垄断法（2022年施行） › 第七章 法律责任 › 第六十六条 · 执法机构工作人员的处分",
+   "anti-unfair-competition-2025:中华人民共和国反不正当竞争法（2025年施行） › 第二章 不正当竞争行为 › 第十条 · 侵犯商业秘密的行为与定义"
+  ]
+ },
+ {
+  "termKey": "受让人",
+  "canonical": "受让人",
+  "aliases": [
+   "受让方"
+  ],
+  "tier": "high",
+  "df": 14,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/01/02/01",
+    "text": "受让人应提供证明其从事经营活动的主体资格证明文件"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/01/02/02",
+    "text": "转让人、受让人、转让商标应当一致"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/01/02/03/01",
+    "text": "加盖受让人公章的受让人主体资格证明文件复印件"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 1注册商标/注册申请的转让和移转 › 1.2转让申请文件 › 1.2.1申请文件要求",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 1注册商标/注册申请的转让和移转 › 1.2转让申请文件 › 1.2.2移转申请的特殊要求",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 1注册商标/注册申请的转让和移转 › 1.2转让申请文件 › 1.2.3集体商标、证明商标转让/移转申请文件的特殊要求 › 1.2.3.1申请集体商标转让/移转的"
+  ]
+ },
+ {
+  "termKey": "显著性",
+  "canonical": "显著性",
+  "aliases": [],
+  "tier": "high",
+  "df": 14,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/01/06",
+    "text": "两件商标标识本身显著性的强弱"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/06/01/03/05",
+    "text": "应考虑在先商标的显著性和知名度等因素"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/06/02/05/03/03",
+    "text": "显著性较强的商标"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 1注册商标/注册申请的转让和移转 › 1.6商标相同或者近似和同一种或类似商品/服务的判断",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第一章 概述 › 3基本概念 › 3.5混 潇",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第二章 不以使用为目的的恶意商标注册申请的审查审理 › 第八条 › 4考虑因素 › 4.3商标具体构成情况"
+  ]
+ },
+ {
+  "termKey": "知名度",
+  "canonical": "知名度",
+  "aliases": [],
+  "tier": "high",
+  "df": 14,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/01/06",
+    "text": "两件商标的知名度高低、市场占有率大小"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/06/01/03/05",
+    "text": "应考虑在先商标的显著性和知名度等因素"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/06/02/05/03/03",
+    "text": "有一定知名度或显著性较强的商标"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 1注册商标/注册申请的转让和移转 › 1.6商标相同或者近似和同一种或类似商品/服务的判断",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第一章 概述 › 3基本概念 › 3.5混 潇",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第二章 不以使用为目的的恶意商标注册申请的审查审理 › 第八条 › 4考虑因素 › 4.3商标具体构成情况"
+  ]
+ },
+ {
+  "termKey": "独创性",
+  "canonical": "独创性",
+  "aliases": [],
+  "tier": "high",
+  "df": 13,
+  "domains": [
+   "copyright-law-2020",
+   "copyright-law-rules-2013",
+   "ic-layout-regulations-2026",
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/01/03",
+    "text": "具有独创性并能以一定形式表现的智力成果"
+   },
+   {
+    "chunk": "copyright-law-2020/02/02/05",
+    "text": "对其内容的选择或者编排体现独创性"
+   },
+   {
+    "chunk": "copyright-law-rules-2013/02",
+    "text": "具有独创性并能以某种有形形式复制的智力成果"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第一章 总则 › 第三条 · 作品的定义与种类",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第二节 著作权归属 › 第十五条 · 汇编作品的著作权",
+   "copyright-law-rules-2013:中华人民共和国著作权法实施条例（2013年施行） › 第二条 · 作品的定义"
+  ]
+ },
+ {
+  "termKey": "保护期",
+  "canonical": "保护期",
+  "aliases": [],
+  "tier": "high",
+  "df": 12,
+  "domains": [
+   "copyright-law-2020",
+   "copyright-law-rules-2013",
+   "ic-layout-regulations-2026",
+   "plant-variety-regulations-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/02/02/11",
+    "text": "保护期"
+   },
+   {
+    "chunk": "copyright-law-2020/02/03/01",
+    "text": "保护期"
+   },
+   {
+    "chunk": "copyright-law-2020/02/03/02",
+    "text": "保护期"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第二节 著作权归属 › 第二十一条 · 著作权的依法转移",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第三节 权利的保护期 › 第二十二条 · 人身权保护期不受限制",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第三节 权利的保护期 › 第二十三条 · 发表权与财产权保护期"
+  ]
+ },
+ {
+  "termKey": "繁殖材料",
+  "canonical": "繁殖材料",
+  "aliases": [],
+  "tier": "high",
+  "df": 12,
+  "domains": [
+   "plant-variety-regulations-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "plant-variety-regulations-2025/01/04",
+    "text": "完善繁殖材料保藏管理"
+   },
+   {
+    "chunk": "plant-variety-regulations-2025/02/01",
+    "text": "不得对该授权品种的繁殖材料"
+   },
+   {
+    "chunk": "plant-variety-regulations-2025/02/06",
+    "text": "农民自繁自用授权品种的繁殖材料"
+   }
+  ],
+  "breadcrumbs": [
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第一章 总则 › 第四条 · 主管部门的职责分工",
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第二章 品种权的内容和归属 › 第七条 · 品种权的独占权内容",
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第二章 品种权的内容和归属 › 第十二条 · 不经许可使用的情形"
+  ]
+ },
+ {
+  "termKey": "不予核准",
+  "canonical": "不予核准",
+  "aliases": [],
+  "tier": "high",
+  "df": 11,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/03/01/01/06/02",
+    "text": "存在下列情形之一的，不予核准"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/03/01/02/04",
+    "text": "可能作出的审查结论有补正、核准、不予核准三种"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/03/01/03/04",
+    "text": "不予核准"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十章 商标变更类申请 › 1商标注册人/申请人名称或地址的变更 › 1.6审查结论 › 1.6.2不予核准",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十章 商标变更类申请 › 2商标注册申请人的代理机构的变更 › 2.4审查结论",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十章 商标变更类申请 › 3文件接收人的变更 › 3.4审查结论"
+  ]
+ },
+ {
+  "termKey": "不正当竞争行为",
+  "canonical": "不正当竞争行为",
+  "aliases": [],
+  "tier": "high",
+  "df": 11,
+  "domains": [
+   "anti-unfair-competition-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "anti-unfair-competition-2025/01/01",
+    "text": "预防和制止不正当竞争行为"
+   },
+   {
+    "chunk": "anti-unfair-competition-2025/01/02",
+    "text": "本法所称的不正当竞争行为，是指经营者在生产经营活动中"
+   },
+   {
+    "chunk": "anti-unfair-competition-2025/01/04",
+    "text": "预防和制止不正当竞争行为"
+   }
+  ],
+  "breadcrumbs": [
+   "anti-unfair-competition-2025:中华人民共和国反不正当竞争法（2025年施行） › 第一章 总 则 › 第一条 · 立法目的",
+   "anti-unfair-competition-2025:中华人民共和国反不正当竞争法（2025年施行） › 第一章 总 则 › 第二条 · 竞争原则与不正当竞争界定",
+   "anti-unfair-competition-2025:中华人民共和国反不正当竞争法（2025年施行） › 第一章 总 则 › 第四条 · 政府职责与工作协调机制"
+  ]
+ },
+ {
+  "termKey": "马德里商标国际注册代理委托书",
+  "canonical": "马德里商标国际注册代理委托书",
+  "aliases": [],
+  "tier": "high",
+  "df": 11,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/04/01/04",
+    "text": "《马德里商标国际注册代理委托书》"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/04/01/05/09",
+    "text": "代理人应使用马德里商标国际注册代理委托书"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/04/01/06/01",
+    "text": "《马德里商标国际注册代理委托书》"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十三章 马德里商标国际注册申请审查 › 4书式要求",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十三章 马德里商标国际注册申请审查 › 5马德里商标国际注册申请审查标准 › 5.9马德里商标国际注册申请代理委托书",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十三章 马德里商标国际注册申请审查 › 6国际申请撤回 › 6.1撤回申请文件"
+  ]
+ },
+ {
+  "termKey": "审查结论",
+  "canonical": "审查结论",
+  "aliases": [],
+  "tier": "high",
+  "df": 10,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/03/01/01/06/01",
+    "text": "申请人未能在规定期限内补正的，不影响商标注册部门作出审查结论"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/03/01/02/04",
+    "text": "可能作出的审查结论有补正、核准、不予核准三种"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/03/01/04/06",
+    "text": "审查结论有补正、核准、不予核准"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十章 商标变更类申请 › 1商标注册人/申请人名称或地址的变更 › 1.6审查结论 › 1.6.1补正及对补正通知书回文的审查",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十章 商标变更类申请 › 2商标注册申请人的代理机构的变更 › 2.4审查结论",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十章 商标变更类申请 › 4商标申请/注册事项的更正 › 4.6审查结论"
+  ]
+ },
+ {
+  "termKey": "禁用条款",
+  "canonical": "禁用条款",
+  "aliases": [],
+  "tier": "high",
+  "df": 9,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/04/02/02/04/02",
+    "text": "不适用相关禁用条款，只需对显著部分予以审查"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/06/06/05/01",
+    "text": "包括禁用条款的审查、显著特征的审查、功能性审查和相同、近似的审查"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/06/06/05/02/01",
+    "text": "不得违反商标法禁用条款的相关规定"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第四章 商标显著特征的审查审理 › 第十一条 › 3具体适用：缺乏显著特征的 › 3.4商标含有不具备显著特征的标志的审查 › 3.4.2商标由不具备显著特征的标志和其他要素构成，其中不具备显著特征的标志如果与其指定商品或者服务的特点相一致，而且依据商业惯例和消费习惯，不会造成相关公众误认的，不适用相关禁用条款，只需对显著部分予以审查例如：",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第六章 三维标志商标的审查审理 › 第四十三条 › 2释义*",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第六章 三维标志商标的审查审理 › 第四十三条 › 3三维标志商标实质审查 › 3.1三维标志商标禁用条款审查"
+  ]
+ },
+ {
+  "termKey": "邻接权",
+  "canonical": "邻接权",
+  "aliases": [
+   "与著作权有关的权益",
+   "与著作权有关的权利"
+  ],
+  "tier": "high",
+  "df": 9,
+  "domains": [
+   "copyright-law-2020",
+   "copyright-law-rules-2013"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/01/01",
+    "text": "与著作权有关的权益"
+   },
+   {
+    "chunk": "copyright-law-2020/01/08",
+    "text": "与著作权有关的权利"
+   },
+   {
+    "chunk": "copyright-law-2020/02/04/01",
+    "text": "与著作权有关的权利"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第一章 总则 › 第一条 · 立法目的",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第一章 总则 › 第八条 · 著作权集体管理组织",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第四节 权利的限制 › 第二十四条 · 合理使用的情形"
+  ]
+ },
+ {
+  "termKey": "混淆",
+  "canonical": "混淆",
+  "aliases": [],
+  "tier": "high",
+  "df": 8,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/01/09/02",
+    "text": "容易导致混淆"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/06/01/03/05",
+    "text": "混淆通常是指使用在同一种或类似商品或者服务上的商标"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/06/06/05/02/04/01/01",
+    "text": "对商品或者服务的来源产生混淆"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 1注册商标/注册申请的转让和移转 › 1.9审查结论 › 1.9.2不予核准",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第一章 概述 › 3基本概念 › 3.5混 潇",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第六章 三维标志商标的审查审理 › 第四十三条 › 3三维标志商标实质审查 › 3.4三维标志商标相同、近似的审查 › 3.4.1三维标志商标之间相同、近似的审查 › 3.4.1.1三维标志商标仅由三维形状构成"
+  ]
+ },
+ {
+  "termKey": "滥用行政权力",
+  "canonical": "滥用行政权力",
+  "aliases": [],
+  "tier": "high",
+  "df": 8,
+  "domains": [
+   "anti-monopoly-law-2022"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "anti-monopoly-law-2022/05/01",
+    "text": "不得滥用行政权力"
+   },
+   {
+    "chunk": "anti-monopoly-law-2022/05/02",
+    "text": "不得滥用行政权力"
+   },
+   {
+    "chunk": "anti-monopoly-law-2022/05/03",
+    "text": "不得滥用行政权力，实施下列行为"
+   }
+  ],
+  "breadcrumbs": [
+   "anti-monopoly-law-2022:中华人民共和国反垄断法（2022年施行） › 第五章 滥用行政权力排除、限制竞争 › 第三十九条 · 行政权力限定交易的禁止",
+   "anti-monopoly-law-2022:中华人民共和国反垄断法（2022年施行） › 第五章 滥用行政权力排除、限制竞争 › 第四十条 · 以合作协议妨碍市场进入的禁止",
+   "anti-monopoly-law-2022:中华人民共和国反垄断法（2022年施行） › 第五章 滥用行政权力排除、限制竞争 › 第四十一条 · 妨碍商品自由流通的禁止"
+  ]
+ },
+ {
+  "termKey": "商业利用",
+  "canonical": "商业利用",
+  "aliases": [
+   "首次商业利用"
+  ],
+  "tier": "high",
+  "df": 8,
+  "domains": [
+   "ic-layout-regulations-2026"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "ic-layout-regulations-2026/01/03",
+    "text": "是指为商业目的进口、销售或者以其他方式提供受保护的布图设计"
+   },
+   {
+    "chunk": "ic-layout-regulations-2026/01/04",
+    "text": "在中国境内投入商业利用"
+   },
+   {
+    "chunk": "ic-layout-regulations-2026/02/01",
+    "text": "投入商业利用"
+   }
+  ],
+  "breadcrumbs": [
+   "ic-layout-regulations-2026:集成电路布图设计保护条例（2026年施行） › 第一章 总 则 › 第三条 · 本条例用语的含义",
+   "ic-layout-regulations-2026:集成电路布图设计保护条例（2026年施行） › 第一章 总 则 › 第四条 · 享有专有权的主体范围",
+   "ic-layout-regulations-2026:集成电路布图设计保护条例（2026年施行） › 第二章 布图设计专有权 › 第十一条 · 布图设计专有权的内容"
+  ]
+ },
+ {
+  "termKey": "署名权",
+  "canonical": "署名权",
+  "aliases": [],
+  "tier": "high",
+  "df": 8,
+  "domains": [
+   "copyright-law-2020",
+   "copyright-law-rules-2013",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/02/01/02",
+    "text": "署名权，即表明作者身份，在作品上署名的权利"
+   },
+   {
+    "chunk": "copyright-law-2020/02/02/07",
+    "text": "编剧、导演、摄影、作词、作曲等作者享有署名权"
+   },
+   {
+    "chunk": "copyright-law-2020/02/02/08",
+    "text": "作者享有署名权，著作权的其他权利由法人或者非法人组织享有"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第一节 著作权人及其权利 › 第十条 · 著作权的内容",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第二节 著作权归属 › 第十七条 · 视听作品的著作权归属",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第二节 著作权归属 › 第十八条 · 职务作品的著作权归属"
+  ]
+ },
+ {
+  "termKey": "图形要素分类",
+  "canonical": "图形要素分类",
+  "aliases": [],
+  "tier": "high",
+  "df": 8,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/02/03/02/01",
+    "text": "图形商标的图形要素分类"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/02/03/02/02",
+    "text": "规范的汉字不需要进行图形要素分类"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/02/03/02/03",
+    "text": "货币符号等，应进行图形要素分类"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第二部分 商品服务和商标检索要素的分类 › 第八章 商标图形要素分类 › 2需要进行图形要素分类的情形 › 2.1商标包含图形的",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第二部分 商品服务和商标检索要素的分类 › 第八章 商标图形要素分类 › 2需要进行图形要素分类的情形 › 2.2商标包含文字或字母的",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第二部分 商品服务和商标检索要素的分类 › 第八章 商标图形要素分类 › 2需要进行图形要素分类的情形 › 2.3商标包含符号的"
+  ]
+ },
+ {
+  "termKey": "相关市场",
+  "canonical": "相关市场",
+  "aliases": [],
+  "tier": "high",
+  "df": 7,
+  "domains": [
+   "anti-monopoly-law-2022"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "anti-monopoly-law-2022/01/15",
+    "text": "本法所称相关市场，是指经营者在一定时期内就特定商品或者服务"
+   },
+   {
+    "chunk": "anti-monopoly-law-2022/03/01",
+    "text": "经营者在相关市场内具有能够控制商品价格、数量或者其他交易条件"
+   },
+   {
+    "chunk": "anti-monopoly-law-2022/03/02",
+    "text": "该经营者在相关市场的市场份额，以及相关市场的竞争状况"
+   }
+  ],
+  "breadcrumbs": [
+   "anti-monopoly-law-2022:中华人民共和国反垄断法（2022年施行） › 第一章 总 则 › 第十五条 · 经营者与相关市场的定义",
+   "anti-monopoly-law-2022:中华人民共和国反垄断法（2022年施行） › 第三章 滥用市场支配地位 › 第二十二条 · 滥用市场支配地位的行为类型",
+   "anti-monopoly-law-2022:中华人民共和国反垄断法（2022年施行） › 第三章 滥用市场支配地位 › 第二十三条 · 市场支配地位的认定因素"
+  ]
+ },
+ {
+  "termKey": "规费",
+  "canonical": "规费",
+  "aliases": [],
+  "tier": "high",
+  "df": 6,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/01/02/06/02",
+    "text": "不需要缴纳规费"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/04/01/05/10",
+    "text": "申请人缴纳规费后"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/04/01/05/11",
+    "text": "马德里商标国际注册申请规费由国家知识产权局代收，向国际局转交"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第二章 注册申请形式审查 › 6撤回注册申请 › 6.2内容与要求",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十三章 马德里商标国际注册申请审查 › 5马德里商标国际注册申请审查标准 › 5.10审查结论",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十三章 马德里商标国际注册申请审查 › 5马德里商标国际注册申请审查标准 › 5.11规费"
+  ]
+ },
+ {
+  "termKey": "国际续展",
+  "canonical": "国际续展",
+  "aliases": [],
+  "tier": "high",
+  "df": 6,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/04/02/02",
+    "text": "国际续展"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/04/02/03/01",
+    "text": "国际续展"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/04/02/12/02",
+    "text": "国际续展、注册人名称或地址变更"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十四章 马德里商标国际注册后续业务申请审查 › 2引言",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十四章 马德里商标国际注册后续业务申请审查 › 3国际续展 › 3.1申请文件",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十四章 马德里商标国际注册后续业务申请审查 › 12审查结论 › 12.2核准"
+  ]
+ },
+ {
+  "termKey": "国务院反垄断执法机构",
+  "canonical": "国务院反垄断执法机构",
+  "aliases": [],
+  "tier": "high",
+  "df": 6,
+  "domains": [
+   "anti-monopoly-law-2022"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "anti-monopoly-law-2022/01/13",
+    "text": "国务院反垄断执法机构负责反垄断统一执法工作"
+   },
+   {
+    "chunk": "anti-monopoly-law-2022/04/02",
+    "text": "经营者应当事先向国务院反垄断执法机构申报"
+   },
+   {
+    "chunk": "anti-monopoly-law-2022/04/03",
+    "text": "可以不向国务院反垄断执法机构申报"
+   }
+  ],
+  "breadcrumbs": [
+   "anti-monopoly-law-2022:中华人民共和国反垄断法（2022年施行） › 第一章 总 则 › 第十三条 · 反垄断执法机构及其授权",
+   "anti-monopoly-law-2022:中华人民共和国反垄断法（2022年施行） › 第四章 经营者集中 › 第二十六条 · 经营者集中的申报义务",
+   "anti-monopoly-law-2022:中华人民共和国反垄断法（2022年施行） › 第四章 经营者集中 › 第二十七条 · 可以不申报的集中情形"
+  ]
+ },
+ {
+  "termKey": "市场支配地位",
+  "canonical": "市场支配地位",
+  "aliases": [],
+  "tier": "high",
+  "df": 6,
+  "domains": [
+   "anti-monopoly-law-2022"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "anti-monopoly-law-2022/01/03",
+    "text": "经营者滥用市场支配地位"
+   },
+   {
+    "chunk": "anti-monopoly-law-2022/01/07",
+    "text": "具有市场支配地位的经营者"
+   },
+   {
+    "chunk": "anti-monopoly-law-2022/03/01",
+    "text": "本法所称市场支配地位，是指经营者在相关市场内具有能够控制商品价格"
+   }
+  ],
+  "breadcrumbs": [
+   "anti-monopoly-law-2022:中华人民共和国反垄断法（2022年施行） › 第一章 总 则 › 第三条 · 垄断行为的类型",
+   "anti-monopoly-law-2022:中华人民共和国反垄断法（2022年施行） › 第一章 总 则 › 第七条 · 禁止滥用市场支配地位",
+   "anti-monopoly-law-2022:中华人民共和国反垄断法（2022年施行） › 第三章 滥用市场支配地位 › 第二十二条 · 滥用市场支配地位的行为类型"
+  ]
+ },
+ {
+  "termKey": "整体视觉效果",
+  "canonical": "整体视觉效果",
+  "aliases": [],
+  "tier": "high",
+  "df": 6,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/06/05/02/04/01/01",
+    "text": "整体视觉效果与他人在先的三维标志商标相同或者近似"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/06/06/05/02/04/02/01",
+    "text": "整体视觉效果"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/06/06/05/02/04/02/02",
+    "text": "整体视觉效果上相同或者近似"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第六章 三维标志商标的审查审理 › 第四十三条 › 3三维标志商标实质审查 › 3.4三维标志商标相同、近似的审查 › 3.4.1三维标志商标之间相同、近似的审查 › 3.4.1.1三维标志商标仅由三维形状构成",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第六章 三维标志商标的审查审理 › 第四十三条 › 3三维标志商标实质审查 › 3.4三维标志商标相同、近似的审查 › 3.4.2三维标志商标与平面商标相同、近似的审查 › 3.4.2.1三维标志商标仅由三维形状构成",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第六章 三维标志商标的审查审理 › 第四十三条 › 3三维标志商标实质审查 › 3.4三维标志商标相同、近似的审查 › 3.4.2三维标志商标与平面商标相同、近似的审查 › 3.4.2.2三维标志商标由三维形状和其他平面要素组合而成"
+  ]
+ },
+ {
+  "termKey": "转让人",
+  "canonical": "转让人",
+  "aliases": [
+   "转让方"
+  ],
+  "tier": "high",
+  "df": 6,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/01/02/02",
+    "text": "转让人章戳处盖章"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/01/02/03/01",
+    "text": "加盖转让人公章的转让人身份证明文件复印件"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/01/02/03/02",
+    "text": "加盖转让人公章的转让人主体资格证明文件复印件"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 1注册商标/注册申请的转让和移转 › 1.2转让申请文件 › 1.2.2移转申请的特殊要求",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 1注册商标/注册申请的转让和移转 › 1.2转让申请文件 › 1.2.3集体商标、证明商标转让/移转申请文件的特殊要求 › 1.2.3.1申请集体商标转让/移转的",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 1注册商标/注册申请的转让和移转 › 1.2转让申请文件 › 1.2.3集体商标、证明商标转让/移转申请文件的特殊要求 › 1.2.3.2申请证明商标转让/移转的"
+  ]
+ },
+ {
+  "termKey": "表演者",
+  "canonical": "表演者",
+  "aliases": [],
+  "tier": "high",
+  "df": 5,
+  "domains": [
+   "copyright-law-2020",
+   "copyright-law-rules-2013"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/04/03/02",
+    "text": "应当同表演者订立合同"
+   },
+   {
+    "chunk": "copyright-law-2020/04/03/03",
+    "text": "还应当取得表演者许可，并支付报酬"
+   },
+   {
+    "chunk": "copyright-law-2020/05/04",
+    "text": "未经表演者许可"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第四章 与著作权有关的权利 › 第三节 录音录像 › 第四十三条 · 与表演者订立合同",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第四章 与著作权有关的权利 › 第三节 录音录像 › 第四十四条 · 录音录像制作者权利",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第五章 著作权和与著作权有关的权利的保护 › 第五十二条 · 侵权行为的民事责任"
+  ]
+ },
+ {
+  "termKey": "撤回申请",
+  "canonical": "撤回申请",
+  "aliases": [],
+  "tier": "high",
+  "df": 5,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/01/05/01/09/02",
+    "text": "撤回申请"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/01/05/01/09/03",
+    "text": "撤回申请"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/01/05/02/07",
+    "text": "撤回申请"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第五章 撤销注册商标申请形式审查 › 1撤销连续三年不使用注册商标申请的形式审查 › 1.9撤回申请 › 1.9.2内容与要求",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第五章 撤销注册商标申请形式审查 › 1撤销连续三年不使用注册商标申请的形式审查 › 1.9撤回申请 › 1.9.3审查结论",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第五章 撤销注册商标申请形式审查 › 2撤销成为通用名称商标申请的形式审查 › 2.7撤回申请"
+  ]
+ },
+ {
+  "termKey": "发表权",
+  "canonical": "发表权",
+  "aliases": [],
+  "tier": "high",
+  "df": 5,
+  "domains": [
+   "copyright-law-2020",
+   "copyright-law-rules-2013"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/02/01/02",
+    "text": "发表权，即决定作品是否公之于众的权利"
+   },
+   {
+    "chunk": "copyright-law-2020/02/02/10",
+    "text": "不构成对作者发表权的侵犯"
+   },
+   {
+    "chunk": "copyright-law-2020/02/03/02",
+    "text": "发表权"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第一节 著作权人及其权利 › 第十条 · 著作权的内容",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第二节 著作权归属 › 第二十条 · 原件转移与展览权",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第三节 权利的保护期 › 第二十三条 · 发表权与财产权保护期"
+  ]
+ },
+ {
+  "termKey": "非自愿许可",
+  "canonical": "非自愿许可",
+  "aliases": [],
+  "tier": "high",
+  "df": 5,
+  "domains": [
+   "ic-layout-regulations-2026"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "ic-layout-regulations-2026/04/06",
+    "text": "国务院知识产权行政部门可以给予使用其布图设计的非自愿许可"
+   },
+   {
+    "chunk": "ic-layout-regulations-2026/04/07",
+    "text": "给予使用布图设计非自愿许可的决定"
+   },
+   {
+    "chunk": "ic-layout-regulations-2026/04/08",
+    "text": "取得使用布图设计非自愿许可的自然人"
+   }
+  ],
+  "breadcrumbs": [
+   "ic-layout-regulations-2026:集成电路布图设计保护条例（2026年施行） › 第四章 布图设计专有权的行使 › 第三十九条 · 非自愿许可的给予情形",
+   "ic-layout-regulations-2026:集成电路布图设计保护条例（2026年施行） › 第四章 布图设计专有权的行使 › 第四十条 · 非自愿许可决定与终止",
+   "ic-layout-regulations-2026:集成电路布图设计保护条例（2026年施行） › 第四章 布图设计专有权的行使 › 第四十一条 · 非自愿许可使用权的限制"
+  ]
+ },
+ {
+  "termKey": "合理开支",
+  "canonical": "合理开支",
+  "aliases": [],
+  "tier": "high",
+  "df": 5,
+  "domains": [
+   "anti-unfair-competition-2025",
+   "copyright-law-2020",
+   "customs-ip-protection-2018",
+   "ic-layout-regulations-2026",
+   "patent-law"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "anti-unfair-competition-2025/04/01",
+    "text": "经营者为制止侵权行为所支付的合理开支"
+   },
+   {
+    "chunk": "copyright-law-2020/05/06",
+    "text": "合理开支"
+   },
+   {
+    "chunk": "customs-ip-protection-2018/03/14",
+    "text": "为制止侵权行为所支付的合理开支"
+   }
+  ],
+  "breadcrumbs": [
+   "anti-unfair-competition-2025:中华人民共和国反不正当竞争法（2025年施行） › 第四章 法律责任 › 第二十二条 · 民事责任与赔偿数额确定",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第五章 著作权和与著作权有关的权利的保护 › 第五十四条 · 赔偿数额的确定",
+   "customs-ip-protection-2018:中华人民共和国知识产权海关保护条例（2004年施行） › 第三章 扣留侵权嫌疑货物的申请及其处理 › 第二十五条 · 仓储保管处置费用的负担"
+  ]
+ },
+ {
+  "termKey": "领土延伸新申请",
+  "canonical": "领土延伸新申请",
+  "aliases": [
+   "更正转新申请"
+  ],
+  "tier": "high",
+  "df": 5,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/04/05/03/02/01",
+    "text": "更正分拣为领土延伸新申请（更正转新申请）"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/04/05/03/02/03",
+    "text": "将更正申请件分拣为领土延伸新申请"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/04/05/03/02/04",
+    "text": "原则上分拣为领土延伸新申请"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十七章 领土延伸至中国的 国际注册后续业务形式审查 › 3国际更正分拣 › 3.2对领土延伸和后期指定通知更正的分拣标准 › 3.2.1增加在中国的领土延伸和后期指定",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十七章 领土延伸至中国的 国际注册后续业务形式审查 › 3国际更正分拣 › 3.2对领土延伸和后期指定通知更正的分拣标准 › 3.2.3对国际注册权利日期信息的更正",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十七章 领土延伸至中国的 国际注册后续业务形式审查 › 3国际更正分拣 › 3.2对领土延伸和后期指定通知更正的分拣标准 › 3.2.4对指定商品或者服务项目的更正"
+  ]
+ },
+ {
+  "termKey": "录音录像制作者",
+  "canonical": "录音录像制作者",
+  "aliases": [],
+  "tier": "high",
+  "df": 5,
+  "domains": [
+   "copyright-law-2020"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/04/03/01",
+    "text": "录音录像制作者使用他人作品制作录音录像制品"
+   },
+   {
+    "chunk": "copyright-law-2020/04/03/02",
+    "text": "录音录像制作者制作录音录像制品"
+   },
+   {
+    "chunk": "copyright-law-2020/04/03/03",
+    "text": "录音录像制作者对其制作的录音录像制品，享有许可他人复制、发行"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第四章 与著作权有关的权利 › 第三节 录音录像 › 第四十二条 · 制作录音录像的许可",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第四章 与著作权有关的权利 › 第三节 录音录像 › 第四十三条 · 与表演者订立合同",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第四章 与著作权有关的权利 › 第三节 录音录像 › 第四十四条 · 录音录像制作者权利"
+  ]
+ },
+ {
+  "termKey": "录音制品",
+  "canonical": "录音制品",
+  "aliases": [],
+  "tier": "high",
+  "df": 5,
+  "domains": [
+   "copyright-law-2020",
+   "copyright-law-rules-2013"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/04/03/01",
+    "text": "已经合法录制为录音制品的音乐作品"
+   },
+   {
+    "chunk": "copyright-law-2020/04/04/01",
+    "text": "将录音制品用于有线或者无线公开传播"
+   },
+   {
+    "chunk": "copyright-law-rules-2013/05",
+    "text": "录音制品，是指任何对表演的声音和其他声音的录制品"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第四章 与著作权有关的权利 › 第三节 录音录像 › 第四十二条 · 制作录音录像的许可",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第四章 与著作权有关的权利 › 第四节 广播电台、电视台播放 › 第四十五条 · 录音制品播放付酬",
+   "copyright-law-rules-2013:中华人民共和国著作权法实施条例（2013年施行） › 第五条 · 用语含义"
+  ]
+ },
+ {
+  "termKey": "商标注册人",
+  "canonical": "商标注册人",
+  "aliases": [],
+  "tier": "high",
+  "df": 5,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/03/01/02/02",
+    "text": "变更代理机构的申请人应当是商标注册人"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/01/03/01",
+    "text": "商标注册人包括自然人、法人和非法人组织三种类型的民事主体"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/02/03",
+    "text": "许可人应为商标注册人"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十章 商标变更类申请 › 2商标注册申请人的代理机构的变更 › 2.2申请人",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 1注册商标/注册申请的转让和移转 › 1.3转让双方的民事主体资格 › 1.3.1转让人",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 2注册商标的使用许可备案（变更许可人、被许可人名称，许可提前终止） › 2.3许可人"
+  ]
+ },
+ {
+  "termKey": "视听作品",
+  "canonical": "视听作品",
+  "aliases": [],
+  "tier": "high",
+  "df": 5,
+  "domains": [
+   "copyright-law-2020"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/01/03",
+    "text": "视听作品"
+   },
+   {
+    "chunk": "copyright-law-2020/02/02/07",
+    "text": "视听作品中的电影作品、电视剧作品的著作权由制作者享有"
+   },
+   {
+    "chunk": "copyright-law-2020/02/03/02",
+    "text": "视听作品"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第一章 总则 › 第三条 · 作品的定义与种类",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第二节 著作权归属 › 第十七条 · 视听作品的著作权归属",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第三节 权利的保护期 › 第二十三条 · 发表权与财产权保护期"
+  ]
+ },
+ {
+  "termKey": "收获材料",
+  "canonical": "收获材料",
+  "aliases": [],
+  "tier": "high",
+  "df": 5,
+  "domains": [
+   "plant-variety-regulations-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "plant-variety-regulations-2025/02/01",
+    "text": "由未经许可使用授权品种的繁殖材料而获得的收获材料"
+   },
+   {
+    "chunk": "plant-variety-regulations-2025/03/02",
+    "text": "申请日前在中国境内销售、推广该品种繁殖材料、收获材料未超过4年的，具备新颖性"
+   },
+   {
+    "chunk": "plant-variety-regulations-2025/07/03",
+    "text": "繁殖材料、收获材料"
+   }
+  ],
+  "breadcrumbs": [
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第二章 品种权的内容和归属 › 第七条 · 品种权的独占权内容",
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第三章 授予品种权的条件 › 第十五条 · 新颖性的判断",
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第七章 法律责任 › 第四十三条 · 查处案件的行政措施"
+  ]
+ },
+ {
+  "termKey": "保护作品完整权",
+  "canonical": "保护作品完整权",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "copyright-law-2020",
+   "copyright-law-rules-2013"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/02/01/02",
+    "text": "保护作品完整权，即保护作品不受歪曲、篡改的权利"
+   },
+   {
+    "chunk": "copyright-law-2020/02/03/01",
+    "text": "保护作品完整权"
+   },
+   {
+    "chunk": "copyright-law-2020/03/06",
+    "text": "保护作品完整权"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第一节 著作权人及其权利 › 第十条 · 著作权的内容",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第三节 权利的保护期 › 第二十二条 · 人身权保护期不受限制",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第三章 著作权许可使用和转让合同 › 第三十一条 · 使用作品不得侵犯作者权利"
+  ]
+ },
+ {
+  "termKey": "错缴",
+  "canonical": "错缴",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline",
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline/05/002/04",
+    "text": "多缴、重缴、错缴专利费用的"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/05/02/04/01",
+    "text": "多缴、重缴、错缴商标费用的"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/05/02/04/02/01",
+    "text": "申请人缴费时缴费信息填写错误；或者因缴费不足、逾期缴费导致商标申请权利丧失的"
+   }
+  ],
+  "breadcrumbs": [
+   "examination-guideline:专利申请及事务处理 › 专利费用 › 费用的暂存与退款",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第五部分 商标申请事务处理 › 第二十章 商标费用 › 4退款 › 4.1退款规则",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第五部分 商标申请事务处理 › 第二十章 商标费用 › 4退款 › 4.2退款情形 › 4.2.1当事人可以请求退款的情形"
+  ]
+ },
+ {
+  "termKey": "担保金",
+  "canonical": "担保金",
+  "aliases": [
+   "担保"
+  ],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "customs-ip-protection-2018"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "customs-ip-protection-2018/03/03",
+    "text": "向海关提供不超过货物等值的担保，用于赔偿可能因申请不当给收货人、发货人造成的损失"
+   },
+   {
+    "chunk": "customs-ip-protection-2018/03/08",
+    "text": "货物等值的担保金"
+   },
+   {
+    "chunk": "customs-ip-protection-2018/03/13",
+    "text": "货物等值的担保金"
+   }
+  ],
+  "breadcrumbs": [
+   "customs-ip-protection-2018:中华人民共和国知识产权海关保护条例（2004年施行） › 第三章 扣留侵权嫌疑货物的申请及其处理 › 第十四条 · 扣留申请的担保",
+   "customs-ip-protection-2018:中华人民共和国知识产权海关保护条例（2004年施行） › 第三章 扣留侵权嫌疑货物的申请及其处理 › 第十九条 · 涉嫌侵犯专利权货物的担保放行",
+   "customs-ip-protection-2018:中华人民共和国知识产权海关保护条例（2004年施行） › 第三章 扣留侵权嫌疑货物的申请及其处理 › 第二十四条 · 放行被扣留货物的情形"
+  ]
+ },
+ {
+  "termKey": "多缴",
+  "canonical": "多缴",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline",
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline/05/002/04",
+    "text": "多缴、重缴、错缴专利费用的"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/05/02/04/01",
+    "text": "多缴、重缴、错缴商标费用的"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/05/02/04/02/01",
+    "text": "缴费通知书要求缴纳费用为270元，在规定期限内实际缴纳费用为300元"
+   }
+  ],
+  "breadcrumbs": [
+   "examination-guideline:专利申请及事务处理 › 专利费用 › 费用的暂存与退款",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第五部分 商标申请事务处理 › 第二十章 商标费用 › 4退款 › 4.1退款规则",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第五部分 商标申请事务处理 › 第二十章 商标费用 › 4退款 › 4.2退款情形 › 4.2.1当事人可以请求退款的情形"
+  ]
+ },
+ {
+  "termKey": "合作作品",
+  "canonical": "合作作品",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "copyright-law-2020",
+   "copyright-law-rules-2013"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/02/02/04",
+    "text": "两人以上合作创作的作品，著作权由合作作者共同享有"
+   },
+   {
+    "chunk": "copyright-law-2020/02/03/02",
+    "text": "合作作品"
+   },
+   {
+    "chunk": "copyright-law-rules-2013/09",
+    "text": "合作作品不可以分割使用的，其著作权由各合作作者共同享有"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第二节 著作权归属 › 第十四条 · 合作作品的著作权",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第三节 权利的保护期 › 第二十三条 · 发表权与财产权保护期",
+   "copyright-law-rules-2013:中华人民共和国著作权法实施条例（2013年施行） › 第九条 · 不可分割合作作品行使"
+  ]
+ },
+ {
+  "termKey": "合作作者",
+  "canonical": "合作作者",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "copyright-law-2020",
+   "copyright-law-rules-2013"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/02/02/04",
+    "text": "没有参加创作的人，不能成为合作作者"
+   },
+   {
+    "chunk": "copyright-law-2020/05/04",
+    "text": "未经合作作者许可"
+   },
+   {
+    "chunk": "copyright-law-rules-2013/09",
+    "text": "由各合作作者共同享有，通过协商一致行使"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第二节 著作权归属 › 第十四条 · 合作作品的著作权",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第五章 著作权和与著作权有关的权利的保护 › 第五十二条 · 侵权行为的民事责任",
+   "copyright-law-rules-2013:中华人民共和国著作权法实施条例（2013年施行） › 第九条 · 不可分割合作作品行使"
+  ]
+ },
+ {
+  "termKey": "监督检测能力",
+  "canonical": "监督检测能力",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/01/02/03/02",
+    "text": "受让人监督检测能力证明"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/01/02/03/03",
+    "text": "受让人监督检测能力证明材料"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/06/09/07/05/02",
+    "text": "对该地理标志产品特定品质具备监督检测能力"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 1注册商标/注册申请的转让和移转 › 1.2转让申请文件 › 1.2.3集体商标、证明商标转让/移转申请文件的特殊要求 › 1.2.3.2申请证明商标转让/移转的",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 1注册商标/注册申请的转让和移转 › 1.2转让申请文件 › 1.2.3集体商标、证明商标转让/移转申请文件的特殊要求 › 1.2.3.3申请地理标志集体商标/地理标志证明商标转让/移转的",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第九章 集体商标、证明商标的审查审理 › 第四条 › 6地理标志集体商标和地理标志证明商标特有事项的审查 › 6.2申请人主体资格的审查"
+  ]
+ },
+ {
+  "termKey": "权利转让合同",
+  "canonical": "权利转让合同",
+  "aliases": [
+   "转让合同"
+  ],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "copyright-law-2020",
+   "copyright-law-rules-2013",
+   "examination-guideline"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/03/02",
+    "text": "权利转让合同"
+   },
+   {
+    "chunk": "copyright-law-2020/03/04",
+    "text": "转让合同"
+   },
+   {
+    "chunk": "copyright-law-rules-2013/25",
+    "text": "转让合同"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第三章 著作权许可使用和转让合同 › 第二十七条 · 权利转让合同的内容",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第三章 著作权许可使用和转让合同 › 第二十九条 · 未明确权利不得行使",
+   "copyright-law-rules-2013:中华人民共和国著作权法实施条例（2013年施行） › 第二十五条 · 专有许可与转让合同备案"
+  ]
+ },
+ {
+  "termKey": "申请人资格",
+  "canonical": "申请人资格",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/04/01/03/01",
+    "text": "申请人资格"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/04/02/10/02",
+    "text": "申请人必须是以国家知识产权局为原属局的马德里国际注册商标注册人"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/04/02/11/02",
+    "text": "申请人必须是以国家知识产权局为原属局的马德里国际注册商标注册人"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十三章 马德里商标国际注册申请审查 › 3申请人资格与申请条件 › 3.1申请人资格",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十四章 马德里商标国际注册后续业务申请审查 › 10国际放弃 › 10.2申请人资格",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十四章 马德里商标国际注册后续业务申请审查 › 11后期指定 › 11.2申请人资格"
+  ]
+ },
+ {
+  "termKey": "授权品种",
+  "canonical": "授权品种",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "plant-variety-regulations-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "plant-variety-regulations-2025/01/06",
+    "text": "被授予品种权的植物新品种（以下称授权品种）"
+   },
+   {
+    "chunk": "plant-variety-regulations-2025/02/01",
+    "text": "不得对该授权品种的繁殖材料，实施下列行为"
+   },
+   {
+    "chunk": "plant-variety-regulations-2025/02/06",
+    "text": "在下列情况下使用授权品种的，可以不经品种权人许可"
+   }
+  ],
+  "breadcrumbs": [
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第一章 总则 › 第六条 · 授权品种的生产经营要求",
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第二章 品种权的内容和归属 › 第七条 · 品种权的独占权内容",
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第二章 品种权的内容和归属 › 第十二条 · 不经许可使用的情形"
+  ]
+ },
+ {
+  "termKey": "修改权",
+  "canonical": "修改权",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "copyright-law-2020",
+   "copyright-law-rules-2013"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/02/01/02",
+    "text": "修改权，即修改或者授权他人修改作品的权利"
+   },
+   {
+    "chunk": "copyright-law-2020/02/03/01",
+    "text": "修改权"
+   },
+   {
+    "chunk": "copyright-law-2020/03/06",
+    "text": "修改权"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第一节 著作权人及其权利 › 第十条 · 著作权的内容",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第三节 权利的保护期 › 第二十二条 · 人身权保护期不受限制",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第三章 著作权许可使用和转让合同 › 第三十一条 · 使用作品不得侵犯作者权利"
+  ]
+ },
+ {
+  "termKey": "许可使用合同",
+  "canonical": "许可使用合同",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "copyright-law-2020",
+   "copyright-law-rules-2013",
+   "ip-evidence-rules-2020"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/03/01",
+    "text": "许可使用合同"
+   },
+   {
+    "chunk": "copyright-law-2020/03/04",
+    "text": "许可使用合同"
+   },
+   {
+    "chunk": "copyright-law-rules-2013/23",
+    "text": "订立许可使用合同"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第三章 著作权许可使用和转让合同 › 第二十六条 · 许可使用合同的内容",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第三章 著作权许可使用和转让合同 › 第二十九条 · 未明确权利不得行使",
+   "copyright-law-rules-2013:中华人民共和国著作权法实施条例（2013年施行） › 第二十三条 · 许可使用合同与形式"
+  ]
+ },
+ {
+  "termKey": "知识产权海关保护备案",
+  "canonical": "知识产权海关保护备案",
+  "aliases": [
+   "知识产权备案",
+   "知识产权保护备案"
+  ],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "customs-ip-protection-2018"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "customs-ip-protection-2018/02/03",
+    "text": "知识产权权利人申请知识产权备案未如实提供有关情况或者文件的"
+   },
+   {
+    "chunk": "customs-ip-protection-2018/02/04",
+    "text": "知识产权海关保护备案自海关总署准予备案之日起生效，有效期为10年"
+   },
+   {
+    "chunk": "customs-ip-protection-2018/03/09",
+    "text": "侵犯备案知识产权嫌疑"
+   }
+  ],
+  "breadcrumbs": [
+   "customs-ip-protection-2018:中华人民共和国知识产权海关保护条例（2004年施行） › 第二章 知识产权的备案 › 第九条 · 备案的撤销",
+   "customs-ip-protection-2018:中华人民共和国知识产权海关保护条例（2004年施行） › 第二章 知识产权的备案 › 第十条 · 备案的生效续展与失效",
+   "customs-ip-protection-2018:中华人民共和国知识产权海关保护条例（2004年施行） › 第三章 扣留侵权嫌疑货物的申请及其处理 › 第二十条 · 扣留后的调查认定期限"
+  ]
+ },
+ {
+  "termKey": "职务作品",
+  "canonical": "职务作品",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "copyright-law-2020",
+   "copyright-law-rules-2013"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/02/02/08",
+    "text": "自然人为完成法人或者非法人组织工作任务所创作的作品是职务作品"
+   },
+   {
+    "chunk": "copyright-law-2020/02/03/02",
+    "text": "职务作品"
+   },
+   {
+    "chunk": "copyright-law-rules-2013/11",
+    "text": "职务作品"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第二节 著作权归属 › 第十八条 · 职务作品的著作权归属",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第二章 著作权 › 第三节 权利的保护期 › 第二十三条 · 发表权与财产权保护期",
+   "copyright-law-rules-2013:中华人民共和国著作权法实施条例（2013年施行） › 第十一条 · 职务作品用语的含义"
+  ]
+ },
+ {
+  "termKey": "植物新品种",
+  "canonical": "植物新品种",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "plant-variety-regulations-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "plant-variety-regulations-2025/01/01",
+    "text": "植物新品种"
+   },
+   {
+    "chunk": "plant-variety-regulations-2025/01/02",
+    "text": "本条例所称植物新品种，是指经过人工选育或者对发现的野生植物加以改良"
+   },
+   {
+    "chunk": "plant-variety-regulations-2025/01/04",
+    "text": "负责全国植物新品种保护工作"
+   }
+  ],
+  "breadcrumbs": [
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第一章 总则 › 第一条 · 立法目的",
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第一章 总则 › 第二条 · 植物新品种的定义",
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第一章 总则 › 第四条 · 主管部门的职责分工"
+  ]
+ },
+ {
+  "termKey": "中止审查",
+  "canonical": "中止审查",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/03/01/01/07/02",
+    "text": "在审查过程中出现以下情形的，可以中止审查"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/01/10",
+    "text": "转让申请的撤回和中止审查"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/02/08",
+    "text": "中止审查"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十章 商标变更类申请 › 1商标注册人/申请人名称或地址的变更 › 1.7变更申请的撤回和中止审查 › 1.7.2中止审查",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 1注册商标/注册申请的转让和移转 › 1.10转让申请的撤回和中止审查",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 2注册商标的使用许可备案（变更许可人、被许可人名称，许可提前终止） › 2.8撤回许可备案和中止审查"
+  ]
+ },
+ {
+  "termKey": "重缴",
+  "canonical": "重缴",
+  "aliases": [],
+  "tier": "high",
+  "df": 4,
+  "domains": [
+   "examination-guideline",
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "examination-guideline/05/002/04",
+    "text": "多缴、重缴、错缴专利费用的"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/05/02/04/01",
+    "text": "多缴、重缴、错缴商标费用的"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/05/02/04/02/01",
+    "text": "申请人在规定期限内缴纳费用270元后，再次缴纳270元"
+   }
+  ],
+  "breadcrumbs": [
+   "examination-guideline:专利申请及事务处理 › 专利费用 › 费用的暂存与退款",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第五部分 商标申请事务处理 › 第二十章 商标费用 › 4退款 › 4.1退款规则",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第五部分 商标申请事务处理 › 第二十章 商标费用 › 4退款 › 4.2退款情形 › 4.2.1当事人可以请求退款的情形"
+  ]
+ },
+ {
+  "termKey": "版式设计",
+  "canonical": "版式设计",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "copyright-law-2020",
+   "copyright-law-rules-2013"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "copyright-law-2020/05/03",
+    "text": "版式设计"
+   },
+   {
+    "chunk": "copyright-law-2020/05/04",
+    "text": "版式设计的"
+   },
+   {
+    "chunk": "copyright-law-rules-2013/26",
+    "text": "图书和期刊的版式设计享有的权利"
+   }
+  ],
+  "breadcrumbs": [
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第五章 著作权和与著作权有关的权利的保护 › 第五十一条 · 权利管理信息的保护",
+   "copyright-law-2020:中华人民共和国著作权法（2021年施行） › 第五章 著作权和与著作权有关的权利的保护 › 第五十二条 · 侵权行为的民事责任",
+   "copyright-law-rules-2013:中华人民共和国著作权法实施条例（2013年施行） › 第二十六条 · 与著作权有关权益范围"
+  ]
+ },
+ {
+  "termKey": "保密义务",
+  "canonical": "保密义务",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "anti-monopoly-law-2022",
+   "anti-unfair-competition-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "anti-monopoly-law-2022/06/04",
+    "text": "依法负有保密义务"
+   },
+   {
+    "chunk": "anti-unfair-competition-2025/02/04",
+    "text": "违反保密义务或者违反权利人有关保守商业秘密的要求"
+   },
+   {
+    "chunk": "anti-unfair-competition-2025/03/04",
+    "text": "依法负有保密义务"
+   }
+  ],
+  "breadcrumbs": [
+   "anti-monopoly-law-2022:中华人民共和国反垄断法（2022年施行） › 第六章 对涉嫌垄断行为的调查 › 第四十九条 · 执法机构的保密义务",
+   "anti-unfair-competition-2025:中华人民共和国反不正当竞争法（2025年施行） › 第二章 不正当竞争行为 › 第十条 · 侵犯商业秘密的行为与定义",
+   "anti-unfair-competition-2025:中华人民共和国反不正当竞争法（2025年施行） › 第三章 对涉嫌不正当竞争行为的调查 › 第十九条 · 监督检查部门的保密义务"
+  ]
+ },
+ {
+  "termKey": "标准名称",
+  "canonical": "标准名称",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/02/01/02",
+    "text": "商品和服务项目名称为标准名称"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/02/01/03",
+    "text": "申请人既可以申报标准名称"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/02/01/05",
+    "text": "应首先考虑使用《类似商品和服务区分表》中已列出的标准名称"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第二部分 商品服务和商标检索要素的分类 › 第六章 商品服务分类 › 2商品和服务分类概述",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第二部分 商品服务和商标检索要素的分类 › 第六章 商品服务分类 › 3商品和服务项目申报原则",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第二部分 商品服务和商标检索要素的分类 › 第六章 商品服务分类 › 5商品和服务项目申报基本要求"
+  ]
+ },
+ {
+  "termKey": "补充证据材料",
+  "canonical": "补充证据材料",
+  "aliases": [],
+  "tier": "high",
+  "df": 3,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/01/03/05/01",
+    "text": "异议补充证据材料分为异议申请补充证据材料和异议答辩补充证据材料"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/01/04/05/01",
+    "text": "补充证据材料"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/01/04/05/02",
+    "text": "补充证据材料需要补正的"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第三章 异议形式审查 › 5补充证据材料的审查 › 5.1补充证据材料的要求",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第四章 评审形式审查 › 5补充证据材料的审查 › 5.1补充证据材料的要求",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第四章 评审形式审查 › 5补充证据材料的审查 › 5.2审查结论"
+  ]
+ }
+]

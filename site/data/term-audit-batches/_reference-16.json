@@ -1,0 +1,6040 @@
+[
+ {
+  "canonical": "客体审查",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "不授予专利权",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "遗传资源",
+  "tier": "seed",
+  "df": 9,
+  "topicKey": "geneticResources"
+ },
+ {
+  "canonical": "不授予专利权的客体",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "科学发现",
+  "tier": "seed",
+  "df": 5,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "智力活动规则方法",
+  "tier": "seed",
+  "df": 8,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "疾病的诊断和治疗方法",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "外科手术方法",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "动物和植物品种",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "原子核变换方法",
+  "tier": "seed",
+  "df": 3,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "计算机程序",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "人工智能",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "比特流",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "商业规则方法",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "说明书充分公开",
+  "tier": "seed",
+  "df": 10,
+  "topicKey": "sufficiency"
+ },
+ {
+  "canonical": "实施例",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "embodiment"
+ },
+ {
+  "canonical": "补交实验数据",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "sufficiency"
+ },
+ {
+  "canonical": "权利要求清楚简要",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "clarity"
+ },
+ {
+  "canonical": "以说明书为依据",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "support"
+ },
+ {
+  "canonical": "必要技术特征",
+  "tier": "seed",
+  "df": 12,
+  "topicKey": "essentialFeatures"
+ },
+ {
+  "canonical": "独立权利要求",
+  "tier": "seed",
+  "df": 24,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "从属权利要求",
+  "tier": "seed",
+  "df": 20,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "功能性特征",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "protectionScope"
+ },
+ {
+  "canonical": "马库什权利要求",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "用途权利要求",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "瑞士型权利要求",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "新颖性",
+  "tier": "seed",
+  "df": 18,
+  "topicKey": "novelty"
+ },
+ {
+  "canonical": "现有技术",
+  "tier": "seed",
+  "df": 22,
+  "topicKey": "novelty"
+ },
+ {
+  "canonical": "抵触申请",
+  "tier": "seed",
+  "df": 19,
+  "topicKey": "novelty"
+ },
+ {
+  "canonical": "单独对比",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "novelty"
+ },
+ {
+  "canonical": "上位下位概念",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "惯用手段直接置换",
+  "tier": "seed",
+  "df": 3,
+  "topicKey": "novelty"
+ },
+ {
+  "canonical": "数值范围",
+  "tier": "seed",
+  "df": 1
+ },
+ {
+  "canonical": "制法限定的产品权要",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "创造性",
+  "tier": "seed",
+  "df": 19,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "三步法",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "最接近的现有技术",
+  "tier": "seed",
+  "df": 10,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "区别特征",
+  "tier": "seed",
+  "df": 3,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "实际解决的技术问题",
+  "tier": "seed",
+  "df": 5,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "技术启示",
+  "tier": "seed",
+  "df": 10,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "所属技术领域的技术人员",
+  "tier": "seed",
+  "df": 12,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "公知常识",
+  "tier": "seed",
+  "df": 10,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "事后诸葛亮",
+  "tier": "seed",
+  "df": 3,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "预料不到的技术效果",
+  "tier": "seed",
+  "df": 8,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "技术偏见",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "商业成功",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "开拓性发明",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "选择发明",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "转用发明",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "已知产品新用途",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "实用性",
+  "tier": "seed",
+  "df": 15,
+  "topicKey": "utility"
+ },
+ {
+  "canonical": "再现性",
+  "tier": "seed",
+  "df": 3,
+  "topicKey": "utility"
+ },
+ {
+  "canonical": "永动机",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "utility"
+ },
+ {
+  "canonical": "单一性",
+  "tier": "seed",
+  "df": 21,
+  "topicKey": "unity"
+ },
+ {
+  "canonical": "特定技术特征",
+  "tier": "seed",
+  "df": 8,
+  "topicKey": "unity"
+ },
+ {
+  "canonical": "分案申请",
+  "tier": "seed",
+  "df": 22,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "检索",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "实质审查程序",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "优先权审查",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "答复期限",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "主动修改时机",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "答复审查意见通知书时的修改",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "修改超范围",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "amendment"
+ },
+ {
+  "canonical": "允许的修改",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "amendment"
+ },
+ {
+  "canonical": "不允许的修改",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "amendment"
+ },
+ {
+  "canonical": "数值范围放弃",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "amendment"
+ },
+ {
+  "canonical": "依职权修改",
+  "tier": "seed",
+  "df": 5,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "驳回决定",
+  "tier": "seed",
+  "df": 10,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "十一种驳回情形",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "听证原则",
+  "tier": "seed",
+  "df": 6,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "化学发明审查",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "化合物新颖性",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "novelty"
+ },
+ {
+  "canonical": "化合物创造性",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "组合物",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "医药用途",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "制药用途新颖性",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "novelty"
+ },
+ {
+  "canonical": "生物材料保藏",
+  "tier": "seed",
+  "df": 6,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "微生物",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "基因",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "转基因动植物",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "中药发明审查",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "中药组合物",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "不丧失新颖性宽限期",
+  "tier": "seed",
+  "df": 7,
+  "topicKey": "gracePeriod"
+ },
+ {
+  "canonical": "同样的发明创造",
+  "tier": "seed",
+  "df": 11,
+  "topicKey": "doubleProtect"
+ },
+ {
+  "canonical": "一案两请",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "doubleProtect"
+ },
+ {
+  "canonical": "优先权",
+  "tier": "seed",
+  "df": 12,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "优先权恢复",
+  "tier": "seed",
+  "df": 8,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "优先权要求增加改正",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "援引加入",
+  "tier": "seed",
+  "df": 7,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "实质审查请求",
+  "tier": "seed",
+  "df": 5,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "提前公布声明",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "撤回专利申请声明",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "著录项目变更",
+  "tier": "seed",
+  "df": 6,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "专利权转让",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "inventorship"
+ },
+ {
+  "canonical": "辞去委托",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "委托代理机构",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "实用新型客体",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "实用新型只保护产品",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "外观设计客体",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "不授予外观设计的 11 种情形",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "外观设计图片照片",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "简要说明",
+  "tier": "seed",
+  "df": 11,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "局部外观设计",
+  "tier": "seed",
+  "df": 5,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "图形用户界面",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "动态图形用户界面",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "相似外观设计",
+  "tier": "seed",
+  "df": 7,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "成套产品",
+  "tier": "seed",
+  "df": 5,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "平面印刷品标识性设计",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "外观设计相同",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "一般消费者",
+  "tier": "seed",
+  "df": 3,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "现有设计",
+  "tier": "seed",
+  "df": 5,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "惯常设计",
+  "tier": "seed",
+  "df": 5,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "外观设计转用",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "在先合法权利冲突",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "国际专利分类 IPC",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "多重分类",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "复审请求",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "复审三个月期限",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "前置审查",
+  "tier": "seed",
+  "df": 5,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "复审合议审查",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "复审依职权审查",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "复审修改限制",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "复审决定类型",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "复审决定的约束力",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "无效宣告请求",
+  "tier": "seed",
+  "df": 7,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "无效法定理由",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "一事不再理",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "无效宣告理由增加",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "无效宣告证据补充",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "无效宣告修改原则",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "无效宣告修改方式",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "无效宣告修改时机限制",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "当事人处置原则",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "无效宣告决定类型",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "部分无效",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "药品专利纠纷早期解决机制",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "口头审理",
+  "tier": "seed",
+  "df": 7,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "口审申请理由",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "口审通知答复期",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "口审四阶段",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "证人出庭作证",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "实用新型无效审查",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "实用新型创造性",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "同样发明创造无效宣告",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "无效宣告证据规则",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "公知常识证据",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "互联网证据",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "使用公开",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "novelty"
+ },
+ {
+  "canonical": "申请文件形式",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "专利费用",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "申请日更正",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "专利申请文档",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "案卷保存期限",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "保密申请",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "向外国申请专利的保密审查",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "通知和决定",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "送达方式",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "送达日推定",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "期限种类",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "期限延长",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "权利的恢复",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "中止程序",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "优先审查",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "快速审查",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "延迟审查",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "专利公报",
+  "tier": "seed",
+  "df": 7,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "专利单行本",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "专利权授予",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "专利证书",
+  "tier": "seed",
+  "df": 3,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "专利登记簿",
+  "tier": "seed",
+  "df": 5,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "专利权期限补偿",
+  "tier": "seed",
+  "df": 8,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "新药专利期限补偿",
+  "tier": "seed",
+  "df": 6,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "专利权终止",
+  "tier": "seed",
+  "df": 5,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "专利权评价报告",
+  "tier": "seed",
+  "df": 9,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "专利开放许可",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "进入国家阶段国际申请",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "PCT 第 19/34 条修改",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "改正译文错误",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "国际单位错误改正",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "海牙协定外观设计国际申请",
+  "tier": "seed",
+  "df": 11,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "外观设计国际申请审查",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "给予保护决定",
+  "tier": "seed",
+  "df": 3,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "立法目的",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "发明创造定义",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "职务发明",
+  "tier": "seed",
+  "df": 5,
+  "topicKey": "inventorship"
+ },
+ {
+  "canonical": "共有专利",
+  "tier": "seed",
+  "df": 3,
+  "topicKey": "inventorship"
+ },
+ {
+  "canonical": "保密审查",
+  "tier": "seed",
+  "df": 9,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "诚实信用原则",
+  "tier": "seed",
+  "df": 9,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "外观设计授权条件",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "申请文件",
+  "tier": "seed",
+  "df": 2
+ },
+ {
+  "canonical": "申请日",
+  "tier": "seed",
+  "df": 10,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "早期公开",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "实质审查",
+  "tier": "seed",
+  "df": 13,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "复审",
+  "tier": "seed",
+  "df": 9,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "专利权期限",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "无效宣告",
+  "tier": "seed",
+  "df": 9,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "开放许可",
+  "tier": "seed",
+  "df": 8
+ },
+ {
+  "canonical": "强制许可",
+  "tier": "seed",
+  "df": 14
+ },
+ {
+  "canonical": "保护范围解释",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "protectionScope"
+ },
+ {
+  "canonical": "方法专利举证倒置",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "假冒专利",
+  "tier": "seed",
+  "df": 3
+ },
+ {
+  "canonical": "惩罚性赔偿",
+  "tier": "seed",
+  "df": 1
+ },
+ {
+  "canonical": "行为保全",
+  "tier": "seed",
+  "df": 3
+ },
+ {
+  "canonical": "证据保全",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "诉讼时效",
+  "tier": "seed",
+  "df": 1
+ },
+ {
+  "canonical": "专利权用尽",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "先用权",
+  "tier": "seed",
+  "df": 2
+ },
+ {
+  "canonical": "Bolar 例外",
+  "tier": "seed",
+  "df": 1
+ },
+ {
+  "canonical": "药品专利链接",
+  "tier": "seed",
+  "df": 1
+ },
+ {
+  "canonical": "合法来源抗辩",
+  "tier": "seed",
+  "df": 2
+ },
+ {
+  "canonical": "电子形式",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "中文与外文译文",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "递交日",
+  "tier": "seed",
+  "df": 7,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "期限计算",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "权利恢复",
+  "tier": "seed",
+  "df": 13,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "国防专利",
+  "tier": "seed",
+  "df": 4
+ },
+ {
+  "canonical": "向外国申请前的保密审查",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "申请日与优先权日的区别",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "职务发明创造的范围",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "inventorship"
+ },
+ {
+  "canonical": "发明人",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "inventorship"
+ },
+ {
+  "canonical": "专利权转移",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "inventorship"
+ },
+ {
+  "canonical": "委托代理与可自行办理事务",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "请求书记载事项",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "说明书撰写要求",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "description"
+ },
+ {
+  "canonical": "附图与附图标记规则",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "drawings"
+ },
+ {
+  "canonical": "权利要求书基本要求",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "独权",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "独权两段式",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "从权两段式",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "说明书摘要",
+  "tier": "seed",
+  "df": 13,
+  "topicKey": "abstract"
+ },
+ {
+  "canonical": "外观设计简要说明",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "国际展览会",
+  "tier": "seed",
+  "df": 3,
+  "topicKey": "gracePeriod"
+ },
+ {
+  "canonical": "优先权文件副本",
+  "tier": "seed",
+  "df": 6,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "多项优先权",
+  "tier": "seed",
+  "df": 11,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "优先权要求的增加或改正",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "撤回申请的声明",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "审查人员回避",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "申请日与申请号的确定",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "不予受理的情形",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "援引在先申请补交",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "附图缺失的补交",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "drawings"
+ },
+ {
+  "canonical": "同日同样发明双申请处理",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "doubleProtect"
+ },
+ {
+  "canonical": "分案申请的提出与时限",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "初步审查的范围",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "早日公布请求",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "第三人意见",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "主动实质审查",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "主动修改时限",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "修改替换页",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "实质审查驳回的法定情形",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "授权登记",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "复审审理与决定",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "无效宣告请求与法定理由",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "无效不予受理",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "无效证据补充时限",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "无效程序修改限制",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "无效口头审理",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "无效程序期限不得延长",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "PTA 请求时限",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "合理延迟",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "新药相关发明专利",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "PTE 期间保护范围限定",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "protectionScope"
+ },
+ {
+  "canonical": "开放许可声明的内容与禁止情形",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "强制许可请求与决定程序",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "强制许可使用费裁决",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "职务发明奖金法定最低标准",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "inventorship"
+ },
+ {
+  "canonical": "全国有重大影响的侵权纠纷",
+  "tier": "seed",
+  "df": 1
+ },
+ {
+  "canonical": "行政处理地域管辖",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "行政处理中的中止",
+  "tier": "seed",
+  "df": 1
+ },
+ {
+  "canonical": "假冒专利行为的具体类型",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "权属纠纷",
+  "tier": "seed",
+  "df": 3,
+  "topicKey": "inventorship"
+ },
+ {
+  "canonical": "专利公报公告事项",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "费用种类",
+  "tier": "seed",
+  "df": 6,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "申请费缴费时限",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "年费",
+  "tier": "seed",
+  "df": 9,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "费用减缴",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "PCT 进入中国国家阶段",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "PCT 在华效力终止情形",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "PCT 国际阶段修改的中文译文",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "PCT 译文错误改正",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "PCT 临时保护",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "PCT 分案",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "译文错误对保护范围的影响",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "protectionScope"
+ },
+ {
+  "canonical": "案卷查阅与保存期限",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "著录事项变更",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "邮寄规范",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "审查指南的制定依据",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "全面覆盖原则",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "literalInfringement"
+ },
+ {
+  "canonical": "下位概念",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "封闭式权利要求",
+  "tier": "seed",
+  "df": 5,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "捐献规则",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "estoppel"
+ },
+ {
+  "canonical": "等同侵权\"三基本+一非劳\"",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "equivalence"
+ },
+ {
+  "canonical": "禁止反悔",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "estoppel"
+ },
+ {
+  "canonical": "主题名称",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "使用环境特征",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "protectionScope"
+ },
+ {
+  "canonical": "折衷原则",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "protectionScope"
+ },
+ {
+  "canonical": "整体比对原则",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "设计空间",
+  "tier": "seed",
+  "df": 7,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "现有技术抗辩",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "priorArtDefense"
+ },
+ {
+  "canonical": "现有设计抗辩",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "priorArtDefense"
+ },
+ {
+  "canonical": "恶意取得专利权",
+  "tier": "seed",
+  "df": 1
+ },
+ {
+  "canonical": "共同侵权",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "indirectInfringement"
+ },
+ {
+  "canonical": "标准必要专利 SEP",
+  "tier": "seed",
+  "df": 1
+ },
+ {
+  "canonical": "临时保护期",
+  "tier": "seed",
+  "df": 1
+ },
+ {
+  "canonical": "用尽原则",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "方法专利延及产品",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "protectionScope"
+ },
+ {
+  "canonical": "新产品举证倒置",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "摘要 300 字",
+  "tier": "seed",
+  "df": 8,
+  "topicKey": "abstract"
+ },
+ {
+  "canonical": "择一引用",
+  "tier": "seed",
+  "df": 3,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "方位名词改相对关系",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "draftingPractice"
+ },
+ {
+  "canonical": "\"分别\"用法",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "draftingPractice"
+ },
+ {
+  "canonical": "子母特征不引连接关系",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "draftingPractice"
+ },
+ {
+  "canonical": "开放式",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "工艺步骤执行主体",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "draftingPractice"
+ },
+ {
+  "canonical": "化合物表征",
+  "tier": "seed",
+  "df": 3,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "检测方法",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "embodiment"
+ },
+ {
+  "canonical": "中药",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "社会公德",
+  "tier": "seed",
+  "df": 5,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "生物保藏",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "核苷酸",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "背景技术",
+  "tier": "seed",
+  "df": 7,
+  "topicKey": "description"
+ },
+ {
+  "canonical": "同符号在不同分子式中须区分",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "draftingPractice"
+ },
+ {
+  "canonical": "最接近现有技术",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "区别技术特征",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "显著进步",
+  "tier": "seed",
+  "df": 7,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "整体技术方案",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "权利要求支持",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "support"
+ },
+ {
+  "canonical": "功能性限定",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "上位概念概括",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "support"
+ },
+ {
+  "canonical": "等同替代",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "重复授权",
+  "tier": "seed",
+  "df": 11,
+  "topicKey": "doubleProtect"
+ },
+ {
+  "canonical": "公开不充分",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "sufficiency"
+ },
+ {
+  "canonical": "一次性告知原则",
+  "tier": "seed",
+  "df": 1
+ },
+ {
+  "canonical": "补正通知书",
+  "tier": "seed",
+  "df": 11,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "不予受理",
+  "tier": "seed",
+  "df": 6,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "商标代理委托书",
+  "tier": "seed",
+  "df": 3
+ },
+ {
+  "canonical": "商标图样",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "声音样本",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "商标异议申请",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "商标评审申请",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "注册满三年的计算",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "类似商品和服务区分表",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "tmSimilarity"
+ },
+ {
+  "canonical": "文字检索分卡",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "图形要素编码",
+  "tier": "seed",
+  "df": 2
+ },
+ {
+  "canonical": "商标变更申请",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "注册商标转让",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "商标使用许可备案",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "注册商标专用权质权登记",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "注册商标续展",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "马德里商标国际注册申请",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "后期指定",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "国际注册后续业务",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "商标国际异议",
+  "tier": "seed",
+  "df": 1
+ },
+ {
+  "canonical": "领土延伸申请",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "商标申请文件接收",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "商标规费",
+  "tier": "seed",
+  "df": 1
+ },
+ {
+  "canonical": "商标文件送达",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "补发商标注册证",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "商标档案",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "商标公告",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "商标电子申请",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "绝对理由与相对理由",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "tmAbsoluteGrounds"
+ },
+ {
+  "canonical": "相关公众",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "tmSimilarity"
+ },
+ {
+  "canonical": "不以使用为目的的恶意注册",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "tmBadFaith"
+ },
+ {
+  "canonical": "不得作为商标使用的标志",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "tmAbsoluteGrounds"
+ },
+ {
+  "canonical": "带有欺骗性",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "tmAbsoluteGrounds"
+ },
+ {
+  "canonical": "不良影响",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "tmAbsoluteGrounds"
+ },
+ {
+  "canonical": "县级以上行政区划地名",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "tmAbsoluteGrounds"
+ },
+ {
+  "canonical": "显著特征",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "tmDistinctiveness"
+ },
+ {
+  "canonical": "固有显著性",
+  "tier": "seed",
+  "df": 3,
+  "topicKey": "tmDistinctiveness"
+ },
+ {
+  "canonical": "经过使用取得显著特征",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "tmDistinctiveness"
+ },
+ {
+  "canonical": "通用名称",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "tmDistinctiveness"
+ },
+ {
+  "canonical": "近似商标",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "tmSimilarity"
+ },
+ {
+  "canonical": "隔离观察",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "tmSimilarity"
+ },
+ {
+  "canonical": "要部比对",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "tmSimilarity"
+ },
+ {
+  "canonical": "混淆可能性",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "tmSimilarity"
+ },
+ {
+  "canonical": "三维标志商标",
+  "tier": "seed",
+  "df": 3,
+  "topicKey": "tmDistinctiveness"
+ },
+ {
+  "canonical": "颜色组合商标",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "tmDistinctiveness"
+ },
+ {
+  "canonical": "声音商标",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "tmDistinctiveness"
+ },
+ {
+  "canonical": "集体商标",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "tmCollectiveGI"
+ },
+ {
+  "canonical": "证明商标",
+  "tier": "seed",
+  "df": 3,
+  "topicKey": "tmCollectiveGI"
+ },
+ {
+  "canonical": "地理标志证明商标",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "tmCollectiveGI"
+ },
+ {
+  "canonical": "使用管理规则",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "tmCollectiveGI"
+ },
+ {
+  "canonical": "驰名商标",
+  "tier": "seed",
+  "df": 3,
+  "topicKey": "tmWellKnown"
+ },
+ {
+  "canonical": "复制摹仿或者翻译",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "tmWellKnown"
+ },
+ {
+  "canonical": "代理人抢注",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "tmBadFaith"
+ },
+ {
+  "canonical": "特定关系人抢注",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "tmBadFaith"
+ },
+ {
+  "canonical": "商标代理机构申请注册商标",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "在先权利",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "tmBadFaith"
+ },
+ {
+  "canonical": "字号权",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "tmBadFaith"
+ },
+ {
+  "canonical": "姓名权",
+  "tier": "seed",
+  "df": 1,
+  "topicKey": "tmBadFaith"
+ },
+ {
+  "canonical": "外观设计专利权",
+  "tier": "seed",
+  "df": 4,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "已经使用并有一定影响的商标",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "tmBadFaith"
+ },
+ {
+  "canonical": "以其他不正当手段取得注册",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "tmBadFaith"
+ },
+ {
+  "canonical": "连续三年不使用",
+  "tier": "seed",
+  "df": 2,
+  "topicKey": "tmUseRevocation"
+ },
+ {
+  "canonical": "商标使用",
+  "tier": "seed",
+  "df": 0,
+  "topicKey": "tmUseRevocation"
+ },
+ {
+  "canonical": "撤销无效注销后一年限制",
+  "tier": "seed",
+  "df": 0
+ },
+ {
+  "canonical": "审查意见书",
+  "tier": "seed",
+  "df": 3,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "视为撤回",
+  "tier": "high",
+  "df": 39,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "优先权日",
+  "tier": "high",
+  "df": 13,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "利害关系人",
+  "tier": "high",
+  "df": 11
+ },
+ {
+  "canonical": "审查意见通知书",
+  "tier": "high",
+  "df": 11,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "专利代理机构",
+  "tier": "high",
+  "df": 11,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "初步审查",
+  "tier": "high",
+  "df": 10,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "对比文件",
+  "tier": "high",
+  "df": 10
+ },
+ {
+  "canonical": "国际申请",
+  "tier": "high",
+  "df": 10,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "技术方案",
+  "tier": "high",
+  "df": 10
+ },
+ {
+  "canonical": "技术问题",
+  "tier": "high",
+  "df": 10
+ },
+ {
+  "canonical": "世界知识产权组织国际局",
+  "tier": "high",
+  "df": 10,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "技术效果",
+  "tier": "high",
+  "df": 9
+ },
+ {
+  "canonical": "外国优先权",
+  "tier": "high",
+  "df": 9,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "附图标记",
+  "tier": "high",
+  "df": 8,
+  "topicKey": "drawings"
+ },
+ {
+  "canonical": "技术特征",
+  "tier": "high",
+  "df": 8
+ },
+ {
+  "canonical": "视为未提出",
+  "tier": "high",
+  "df": 8,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "序列表",
+  "tier": "high",
+  "df": 8,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "有益效果",
+  "tier": "high",
+  "df": 8,
+  "topicKey": "description"
+ },
+ {
+  "canonical": "专利合作条约",
+  "tier": "high",
+  "df": 8,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "保护范围",
+  "tier": "high",
+  "df": 7,
+  "topicKey": "protectionScope"
+ },
+ {
+  "canonical": "发明内容",
+  "tier": "high",
+  "df": 7,
+  "topicKey": "description"
+ },
+ {
+  "canonical": "技术领域",
+  "tier": "high",
+  "df": 7,
+  "topicKey": "description"
+ },
+ {
+  "canonical": "进入日",
+  "tier": "high",
+  "df": 7,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "具体实施方式",
+  "tier": "high",
+  "df": 7,
+  "topicKey": "description"
+ },
+ {
+  "canonical": "明显实质性缺陷",
+  "tier": "high",
+  "df": 7,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "权利要求书",
+  "tier": "high",
+  "df": 7,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "上位概念",
+  "tier": "high",
+  "df": 7,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "说明书",
+  "tier": "high",
+  "df": 7,
+  "topicKey": "description"
+ },
+ {
+  "canonical": "优先权要求费",
+  "tier": "high",
+  "df": 7,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "驳回",
+  "tier": "high",
+  "df": 6,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "驳回理由",
+  "tier": "high",
+  "df": 6,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "管理专利工作的部门",
+  "tier": "high",
+  "df": 6
+ },
+ {
+  "canonical": "开放许可声明",
+  "tier": "high",
+  "df": 6
+ },
+ {
+  "canonical": "前序部分",
+  "tier": "high",
+  "df": 6,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "请求书",
+  "tier": "high",
+  "df": 6,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "视为未提出通知书",
+  "tier": "high",
+  "df": 6,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "无效宣告程序",
+  "tier": "high",
+  "df": 6,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "主动修改",
+  "tier": "high",
+  "df": 6,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "方法权利要求",
+  "tier": "high",
+  "df": 5,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "附加技术特征",
+  "tier": "high",
+  "df": 5,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "公告送达",
+  "tier": "high",
+  "df": 5,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "国际申请日",
+  "tier": "high",
+  "df": 5,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "申请附加费",
+  "tier": "high",
+  "df": 5,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "视为未要求优先权",
+  "tier": "high",
+  "df": 5,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "说明书附图",
+  "tier": "high",
+  "df": 5,
+  "topicKey": "drawings"
+ },
+ {
+  "canonical": "特征部分",
+  "tier": "high",
+  "df": 5,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "在先申请",
+  "tier": "high",
+  "df": 5,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "著录项目",
+  "tier": "high",
+  "df": 5,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "专利代理师",
+  "tier": "high",
+  "df": 5,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "巴黎公约",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "保密原则",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "被控侵权人",
+  "tier": "high",
+  "df": 4
+ },
+ {
+  "canonical": "补充检索",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "不以使用为目的的恶意商标注册申请",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "tmBadFaith"
+ },
+ {
+  "canonical": "产品权利要求",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "撤回专利申请",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "程序节约原则",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "代表人",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "第一次审查意见通知书",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "多项从属权利要求",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "发明专利申请单行本",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "分类号",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "复审决定",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "公布印刷费",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "国际初步审查",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "国际注册日",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "进入声明",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "举证责任",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "书面审查原则",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "相关技术",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "description"
+ },
+ {
+  "canonical": "形式审查",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "延长期限请求费",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "要求优先权声明",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "依赖遗传资源完成的发明创造",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "geneticResources"
+ },
+ {
+  "canonical": "依职权审查",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "遗传资源来源披露登记表",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "geneticResources"
+ },
+ {
+  "canonical": "译文错误",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "著录事项变更费",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "专利申请权",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "inventorship"
+ },
+ {
+  "canonical": "专利实施许可合同",
+  "tier": "high",
+  "df": 4
+ },
+ {
+  "canonical": "专利许可使用费",
+  "tier": "high",
+  "df": 4
+ },
+ {
+  "canonical": "组件产品",
+  "tier": "high",
+  "df": 4,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "保密责任",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "被许可人",
+  "tier": "high",
+  "df": 3
+ },
+ {
+  "canonical": "不正当手段",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "tmBadFaith"
+ },
+ {
+  "canonical": "地理标志",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "tmCollectiveGI"
+ },
+ {
+  "canonical": "发明名称",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "description"
+ },
+ {
+  "canonical": "发明信息",
+  "tier": "high",
+  "df": 3
+ },
+ {
+  "canonical": "妨害公共利益",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "非职务发明创造",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "inventorship"
+ },
+ {
+  "canonical": "附图说明",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "drawings"
+ },
+ {
+  "canonical": "高分子化合物",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "国际外观设计分类法",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "海牙协定",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "疾病的诊断方法",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "疾病的治疗方法",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "技术缺陷",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "description"
+ },
+ {
+  "canonical": "检索报告",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "举证期限",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "开放式权利要求",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "期限届满日",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "缺席审理",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "商标代理机构",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "审查基础声明",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "视为放弃",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "视为未提交",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "授予专利权通知",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "委托书",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "先申请原则",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "doubleProtect"
+ },
+ {
+  "canonical": "显而易见",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "相同主题",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "许诺销售",
+  "tier": "high",
+  "df": 3
+ },
+ {
+  "canonical": "学术会议或者技术会议",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "gracePeriod"
+ },
+ {
+  "canonical": "延长期限请求",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "优先权转让证明文件",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "原说明书和权利要求书记载的范围",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "amendment"
+ },
+ {
+  "canonical": "在先权利人",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "tmBadFaith"
+ },
+ {
+  "canonical": "在中国完成的发明或者实用新型",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "质证",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "主体资格证明文件",
+  "tier": "high",
+  "df": 3
+ },
+ {
+  "canonical": "著录项目变更申报书",
+  "tier": "high",
+  "df": 3,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "专利标识",
+  "tier": "high",
+  "df": 3
+ },
+ {
+  "canonical": "按需认定原则",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "tmWellKnown"
+ },
+ {
+  "canonical": "驳回复审",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "不可抗拒的事由",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "查询时效",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "产品的形状",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "产权激励",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "inventorship"
+ },
+ {
+  "canonical": "地名具有其他含义",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "tmCollectiveGI"
+ },
+ {
+  "canonical": "等同特征",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "equivalence"
+ },
+ {
+  "canonical": "对比例",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "embodiment"
+ },
+ {
+  "canonical": "发明构思",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "unity"
+ },
+ {
+  "canonical": "发明专利申请公布",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "仿制药申请人",
+  "tier": "high",
+  "df": 2
+ },
+ {
+  "canonical": "放弃专利权",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "非治疗目的的外科手术方法",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "负责专利执法的部门",
+  "tier": "high",
+  "df": 2
+ },
+ {
+  "canonical": "附加信息",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "个案审查原则",
+  "tier": "high",
+  "df": 2
+ },
+ {
+  "canonical": "公开原则",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "公众不能得到的生物材料",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "国家阶段",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "合法原则",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "基本检索要素",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "进一步限定的技术特征",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "禁止权利滥用原则",
+  "tier": "high",
+  "df": 2
+ },
+ {
+  "canonical": "绝对理由",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "tmAbsoluteGrounds"
+ },
+ {
+  "canonical": "科学研究和实验例外",
+  "tier": "high",
+  "df": 2
+ },
+ {
+  "canonical": "宽展期",
+  "tier": "high",
+  "df": 2
+ },
+ {
+  "canonical": "类似商品",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "tmSimilarity"
+ },
+ {
+  "canonical": "明显错误",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "请求原则",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "全面审查",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "商标的使用",
+  "tier": "high",
+  "df": 2
+ },
+ {
+  "canonical": "商标近似",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "tmSimilarity"
+ },
+ {
+  "canonical": "商标评审",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "商标相同",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "tmDistinctiveness"
+ },
+ {
+  "canonical": "设计人",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "inventorship"
+ },
+ {
+  "canonical": "申请号",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "申请人引起的不合理延迟",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "审查决定",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "审查文本",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "事实认定",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "收到日",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "提前公布",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "通式",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "同样的发明或者实用新型",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "doubleProtect"
+ },
+ {
+  "canonical": "同样的外观设计",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "同一种商品",
+  "tier": "high",
+  "df": 2
+ },
+ {
+  "canonical": "未实施或者未充分实施",
+  "tier": "high",
+  "df": 2
+ },
+ {
+  "canonical": "文件不受理通知书",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "无效宣告程序的终止",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "无效宣告请求审查通知书",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "五人合议组",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "限定部分",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "一并转让",
+  "tier": "high",
+  "df": 2
+ },
+ {
+  "canonical": "一个总的发明构思",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "unity"
+ },
+ {
+  "canonical": "医生处方",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "依照专利方法直接获得的产品",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "protectionScope"
+ },
+ {
+  "canonical": "引得码",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "引用部分",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "优先权证明文件",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "有一定影响的商品或者服务名称",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "tmBadFaith"
+ },
+ {
+  "canonical": "域外证据",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "原申请日",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "援引加入声明",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "在先使用",
+  "tier": "high",
+  "df": 2
+ },
+ {
+  "canonical": "直接地、毫无疑义地确定",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "amendment"
+ },
+ {
+  "canonical": "植物品种",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "指定期限",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "重新确定申请日",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "主审员",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "主视图",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "专利权保护范围",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "protectionScope"
+ },
+ {
+  "canonical": "专利审查指南",
+  "tier": "high",
+  "df": 2
+ },
+ {
+  "canonical": "E类文件",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "P类文件",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "PE类文件",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "X类文件",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "Y类文件",
+  "tier": "high",
+  "df": 2,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "办理登记手续通知",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "帮助他人实施侵犯专利权行为",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "indirectInfringement"
+ },
+ {
+  "canonical": "背景文件",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "被动保护原则",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmWellKnown"
+ },
+ {
+  "canonical": "变化状态产品",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "标准执行一致原则",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "并列独立权利要求",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "并列选择法概括",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "不规范汉字",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "draftingPractice"
+ },
+ {
+  "canonical": "不明显缺乏单一性的申请",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "unity"
+ },
+ {
+  "canonical": "不予注册复审",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "部分违反专利法第五条第一款的申请",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "部分优先权",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "参考图",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "参审员",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "产地误认",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "产品的构造",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "产品名称",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "常规检索",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "常用设计手法",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "撤回商标注册申请",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "撤三申请",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmUseRevocation"
+ },
+ {
+  "canonical": "程序模块",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "驰名商标认定",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmWellKnown"
+ },
+ {
+  "canonical": "出版物",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "novelty"
+ },
+ {
+  "canonical": "处分决定",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "处于各形成和发育阶段的人体",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "纯功能性的权利要求",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "support"
+ },
+ {
+  "canonical": "纯培养物",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "从属专利",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "代理人",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "单纯的美容方法",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "单纯图案的外观设计",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "单纯形状的外观设计",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "单克隆抗体",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "单克隆抗体权利要求",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "地理标志集体商标",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmCollectiveGI"
+ },
+ {
+  "canonical": "等同侵权",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "equivalence"
+ },
+ {
+  "canonical": "第一独立权利要求",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "缔约方",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "电子发文",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "电子商标注册证",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "动植物品种的生产方法",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "独立原则",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "独任审查",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "独特视觉效果",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "对比设计",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "恶意",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "二级分类表",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "发明或实用新型专利权的保护范围",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "protectionScope"
+ },
+ {
+  "canonical": "发明人奖金",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "inventorship"
+ },
+ {
+  "canonical": "法定赔偿",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "法定期限",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "法定异议期限",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "翻译",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "放弃专利权声明",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "非书面公开",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "novelty"
+ },
+ {
+  "canonical": "非显而易见性",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "非限定型权利要求",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "非形状、非构造技术特征",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "protectionScope"
+ },
+ {
+  "canonical": "费用种类的转换",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "服务商标",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "符合发明目的原则",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "protectionScope"
+ },
+ {
+  "canonical": "复查请求",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "复核组",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "复审程序终止",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "复审类案件",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "复审请求案件",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "复制",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "富有美感",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "改良型新药",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "割裂技术特征",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "格言警句",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "隔离比对",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "隔离期限",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "个案认定原则",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmWellKnown"
+ },
+ {
+  "canonical": "公共事业名称",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "公认的同一化合物类别",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "公证文书",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "公众人物姓名",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "公众知晓的外国地名",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmAbsoluteGrounds"
+ },
+ {
+  "canonical": "功能分类",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "功能性",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "共同申请",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "共有商标",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "管辖权",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "国际商标异议答辩通知书",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "国际申请不能进入中国国家阶段通知书",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "国际申请撤回",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "国际注册转国内申请",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "国家公布",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "国家阶段的修改",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "国家知识产权局认可的保藏单位",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "汉字编码方法",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "合案申请",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "合并审理",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "合法在先权利",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmBadFaith"
+ },
+ {
+  "canonical": "合方发明",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "合议审查",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "后续业务",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "互联网证据的公开时间",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "化合物权利要求",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "化学产品",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "化学产品的医药用途发明的新颖性",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "novelty"
+ },
+ {
+  "canonical": "化学产品发明",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "化学产品用途发明",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "化学产品用途发明的新颖性",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "novelty"
+ },
+ {
+  "canonical": "化学方法发明",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "化学方法权利要求",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "恢复权利请求期限",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "会晤",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "会晤记录",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "混合系统",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "机械构造",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "积极效果",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "utility"
+ },
+ {
+  "canonical": "基础商标",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "集体商标使用管理规则",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmCollectiveGI"
+ },
+ {
+  "canonical": "计算机程序产品",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "计算机汉字输入方法",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "技术方案的删除",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "amendment"
+ },
+ {
+  "canonical": "技术主题",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "教唆他人实施侵犯专利权行为",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "indirectInfringement"
+ },
+ {
+  "canonical": "解密请求",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "仅直接表示",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmDistinctiveness"
+ },
+ {
+  "canonical": "进口专利产品",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "举证责任倒置",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "决定的理由",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "决定要点",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "开放许可声明的撤回",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "科学理论",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "口头审理通知",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "扩展检索",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "六面正投影视图",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "轮候保全",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "马德里商标领土延伸申请",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "马库什要素",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "民族歧视性",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmAbsoluteGrounds"
+ },
+ {
+  "canonical": "摹仿",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmWellKnown"
+ },
+ {
+  "canonical": "尼斯分类",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmSimilarity"
+ },
+ {
+  "canonical": "排除法",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "判断客体",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "期满未续展注销",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "期限的起算日",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "其他不良影响",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmAbsoluteGrounds"
+ },
+ {
+  "canonical": "其他不正当手段",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmBadFaith"
+ },
+ {
+  "canonical": "其他关系",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "起诉期限",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "前置审查意见",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "侵权获利",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "取得专利权的药品",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "全部注册商标一并变更",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "权利的部分放弃",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "权利要求的进一步限定",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "amendment"
+ },
+ {
+  "canonical": "权利要求的删除",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "amendment"
+ },
+ {
+  "canonical": "缺乏显著特征",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmDistinctiveness"
+ },
+ {
+  "canonical": "人类胚胎干细胞",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "融合细胞",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "色彩",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "商标代理从业人员",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "商标代理服务",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "商标电子申请用户",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "商标审查审理指南",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "商标数字证书",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "商标图形要素分类",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "商标文字检索要素分类",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "商标异议",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "商标注册档案",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "商标注册申请日",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmFormalProc"
+ },
+ {
+  "canonical": "商标注册实质审查",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "商标专用权",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "商品商标",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "商品通用名称",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmDistinctiveness"
+ },
+ {
+  "canonical": "设计构思相同",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "社会主义道德风尚",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmAbsoluteGrounds"
+ },
+ {
+  "canonical": "涉案专利",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "涉及计算机程序的发明",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "涉及图形用户界面的产品外观设计",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "身份证明文件",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "生产地域范围",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmCollectiveGI"
+ },
+ {
+  "canonical": "生物材料样品国际保藏单位",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "声音要素编码",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "剩余大组",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "时间顺序原则",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "实际损失",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "实用新型专利申请的初步审查",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "实质审查程序的恢复",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "实质审查程序的中止",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "实质审查程序的终止",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "实质审查请求之日",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "实质性非侵权用途",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "indirectInfringement"
+ },
+ {
+  "canonical": "实质性价值",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "视为放弃取得专利权",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "视为未办理登记手续",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "适用的限制",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "适于工业应用",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "收到文件回执",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "受理部门",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "说明书及附图的解释作用",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "protectionScope"
+ },
+ {
+  "canonical": "诉前行为保全",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "诉前证据保全",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "他人未经申请人同意而泄露其内容",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "gracePeriod"
+ },
+ {
+  "canonical": "特别授权的委托书",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "特定品质",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "天然物质",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "同类独立权利要求",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "突出的实质性特点和显著的进步",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "图案",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "图案和色彩结合的外观设计",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "外观设计分类",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "外观设计实质相同",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "外观设计相同主题",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "外观设计要素",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "外观设计专利权的保护范围",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "外国部分优先权",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "外国首次申请",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "完全确定的化合物",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "网络流行词汇",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "微生物的分类命名",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "微生物发明",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "违反法律的发明创造",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "维也纳分类",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "未注册商标",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "无效宣告案件",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "无效宣告理由和证据的补充",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "无效宣告请求客体",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "无需经过创造性劳动就能够想到",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "显著经济意义的重大技术进步",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "县级以上行政区划的地名",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmAbsoluteGrounds"
+ },
+ {
+  "canonical": "现有设计特征",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "线路构造",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "相对理由",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "相近种类的产品",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "相同侵权",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "literalInfringement"
+ },
+ {
+  "canonical": "相同种类产品",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "向外国申请专利",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "肖像权",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmBadFaith"
+ },
+ {
+  "canonical": "新产品",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "新产品用途发明的创造性",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "新药相关技术方案",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "新种",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "形状、图案和色彩结合的外观设计",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "形状和色彩结合的外观设计",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "形状和图案结合的外观设计",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "修改更正通知书",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "续展",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "巡回口头审理",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "衍生物",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "样品或者模型",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "要素变更的发明",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "要素关系改变的发明",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "要素省略的发明",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "要素替代的发明",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "业务往来关系",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "遗传工程",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "遗传功能",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "geneticResources"
+ },
+ {
+  "canonical": "遗传功能单位",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "geneticResources"
+ },
+ {
+  "canonical": "遗传资源的原始来源",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "geneticResources"
+ },
+ {
+  "canonical": "遗传资源的直接来源",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "geneticResources"
+ },
+ {
+  "canonical": "遗传资源来源的披露",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "geneticResources"
+ },
+ {
+  "canonical": "已经使用并有一定影响",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmBadFaith"
+ },
+ {
+  "canonical": "已知产品用途发明的创造性",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "以欺骗手段取得商标注册",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "以制备方法界定产品的技术特征",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "protectionScope"
+ },
+ {
+  "canonical": "以注册为主、以使用为补充的原则",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "异议期限",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "异议人变更",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "引用基础",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "应用分类",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "英文分卡",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "用途限定",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "protectionScope"
+ },
+ {
+  "canonical": "用途原则",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "用物理化学参数表征的化学产品",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "用原子核变换方法所获得的物质",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "邮戳日",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "邮寄送达",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "邮路查询时效",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "有害于宗教信仰",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "原生环境",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "geneticResources"
+ },
+ {
+  "canonical": "原说明书和权利要求书",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "amendment"
+ },
+ {
+  "canonical": "原图片或者照片表示的范围",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "amendment"
+ },
+ {
+  "canonical": "再次审查意见通知书",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "在先商标权",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "在先著作权",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "真实原则",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "整体比对",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "整体分类",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "证据的合法性",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "证据的真实性",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "证明商标使用管理规则",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmCollectiveGI"
+ },
+ {
+  "canonical": "证人证言",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "直接涉及共有权利的手续",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "inventorship"
+ },
+ {
+  "canonical": "指定管辖",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "中国在后申请",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "中间体与最终产物的单一性",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "unity"
+ },
+ {
+  "canonical": "中间文件",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "中药材",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "中药产品的制药用途",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "中药提取物",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "中药饮片",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "中药原料变更的组方发明",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "中药制剂",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "中止口头审理",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "中止期限",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "终止实施强制许可的决定",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "重组载体",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "主要是生物学的方法",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "注册商标",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmUseRevocation"
+ },
+ {
+  "canonical": "注册商标有效期",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "著作权",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "专利纠纷调解",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "专利开放许可实施合同",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "专利开放许可实施期间",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "专利年费减缴",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "专利侵权",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "专利权期满终止",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "专利权宣告无效的追溯力",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "专利权终止通知书",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "专利审查档案",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "protectionScope"
+ },
+ {
+  "canonical": "专利业务办理系统",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "专用产品",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "indirectInfringement"
+ },
+ {
+  "canonical": "字头分卡",
+  "tier": "high",
+  "df": 1
+ },
+ {
+  "canonical": "自行改变注册商标",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "tmUseRevocation"
+ },
+ {
+  "canonical": "自组方发明",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "组合发明",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "inventiveness"
+ },
+ {
+  "canonical": "组合库",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "组合物发明",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "组合物权利要求",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "最低限度数据库",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "A类文件",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "L类文件",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "PX类文件",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "PY类文件",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "R类文件",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "T类文件",
+  "tier": "high",
+  "df": 1,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "发明点",
+  "tier": "mid",
+  "df": 6,
+  "topicKey": "description"
+ },
+ {
+  "canonical": "视为撤回通知书",
+  "tier": "mid",
+  "df": 6,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "恢复权利请求费",
+  "tier": "mid",
+  "df": 5,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "技术手段",
+  "tier": "mid",
+  "df": 5
+ },
+ {
+  "canonical": "存活证明",
+  "tier": "mid",
+  "df": 4,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "单一性恢复费",
+  "tier": "mid",
+  "df": 4,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "复审费",
+  "tier": "mid",
+  "df": 4,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "复审和无效审理部",
+  "tier": "mid",
+  "df": 4,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "国际公布",
+  "tier": "mid",
+  "df": 4,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "基本设计",
+  "tier": "mid",
+  "df": 4,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "权利要求",
+  "tier": "mid",
+  "df": 4,
+  "topicKey": "claims"
+ },
+ {
+  "canonical": "实质审查费",
+  "tier": "mid",
+  "df": 4,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "维持专利权",
+  "tier": "mid",
+  "df": 4,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "意见陈述书",
+  "tier": "mid",
+  "df": 4,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "原申请",
+  "tier": "mid",
+  "df": 4,
+  "topicKey": "procReception"
+ },
+ {
+  "canonical": "专利性国际初步报告",
+  "tier": "mid",
+  "df": 4,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "保藏证明",
+  "tier": "mid",
+  "df": 3,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "独占许可",
+  "tier": "mid",
+  "df": 3
+ },
+ {
+  "canonical": "放弃专用权",
+  "tier": "mid",
+  "df": 3,
+  "topicKey": "tmDistinctiveness"
+ },
+ {
+  "canonical": "复审请求人",
+  "tier": "mid",
+  "df": 3,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "复审通知书",
+  "tier": "mid",
+  "df": 3,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "国际检索报告",
+  "tier": "mid",
+  "df": 3,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "国际阶段",
+  "tier": "mid",
+  "df": 3,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "合议组",
+  "tier": "mid",
+  "df": 3,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "互惠原则",
+  "tier": "mid",
+  "df": 3
+ },
+ {
+  "canonical": "排他许可",
+  "tier": "mid",
+  "df": 3
+ },
+ {
+  "canonical": "商业规则和方法特征",
+  "tier": "mid",
+  "df": 3,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "申请费",
+  "tier": "mid",
+  "df": 3,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "受理局",
+  "tier": "mid",
+  "df": 3,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "算法特征",
+  "tier": "mid",
+  "df": 3,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "同日申请",
+  "tier": "mid",
+  "df": 3,
+  "topicKey": "doubleProtect"
+ },
+ {
+  "canonical": "无效宣告请求费",
+  "tier": "mid",
+  "df": 3,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "译文改正费",
+  "tier": "mid",
+  "df": 3,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "优先权期限",
+  "tier": "mid",
+  "df": 3,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "指定局",
+  "tier": "mid",
+  "df": 3,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "专利保护的客体",
+  "tier": "mid",
+  "df": 3,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "专利权评价报告请求书",
+  "tier": "mid",
+  "df": 3,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "专利实施许可",
+  "tier": "mid",
+  "df": 3
+ },
+ {
+  "canonical": "《规范申请专利行为的规定》",
+  "tier": "mid",
+  "df": 2
+ },
+ {
+  "canonical": "保密基准",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "保密专利权",
+  "tier": "mid",
+  "df": 2
+ },
+ {
+  "canonical": "保全措施",
+  "tier": "mid",
+  "df": 2
+ },
+ {
+  "canonical": "变化状态图",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "撤回无效宣告请求",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "登记本",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "恶意注册",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "tmBadFaith"
+ },
+ {
+  "canonical": "发明专利公报",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "放弃实用新型专利权",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "doubleProtect"
+ },
+ {
+  "canonical": "分案通知书",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "复审请求书",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "关于微生物保藏的说明",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "国际更正",
+  "tier": "mid",
+  "df": 2
+ },
+ {
+  "canonical": "国际删减",
+  "tier": "mid",
+  "df": 2
+ },
+ {
+  "canonical": "国际注册号",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "国家申请号",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "恢复权利请求",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "恢复权利请求书",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "计算机可读存储介质",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "subjectMatter"
+ },
+ {
+  "canonical": "检索资料",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "缴费通知书",
+  "tier": "mid",
+  "df": 2
+ },
+ {
+  "canonical": "解除委托",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "经常居所",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "局部放大图",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "drawings"
+ },
+ {
+  "canonical": "滥用专利权",
+  "tier": "mid",
+  "df": 2
+ },
+ {
+  "canonical": "剖面线",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "drawings"
+ },
+ {
+  "canonical": "普通许可",
+  "tier": "mid",
+  "df": 2
+ },
+ {
+  "canonical": "请求保护色彩",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "design"
+ },
+ {
+  "canonical": "确认援引项目或部分决定的通知书",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "申请专利的权利",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "inventorship"
+ },
+ {
+  "canonical": "生产经营目的",
+  "tier": "mid",
+  "df": 2
+ },
+ {
+  "canonical": "生物材料",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "生物材料样品保藏证明",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "实用新型专利权",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "doubleProtect"
+ },
+ {
+  "canonical": "实质审查请求书",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "视为未要求优先权通知书",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "首次申请",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "授予发明专利权通知书",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "送达公告",
+  "tier": "mid",
+  "df": 2
+ },
+ {
+  "canonical": "违反法定程序",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "文件接收人",
+  "tier": "mid",
+  "df": 2
+ },
+ {
+  "canonical": "无效宣告请求人",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "修改对照表",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "选定通知书",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "引证商标",
+  "tier": "mid",
+  "df": 2
+ },
+ {
+  "canonical": "用途发明",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "compound"
+ },
+ {
+  "canonical": "优先权要求的撤回",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "原始申请文件",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "在后申请",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "priority"
+ },
+ {
+  "canonical": "指定中国",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "中国国家阶段",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "pct"
+ },
+ {
+  "canonical": "中途退庭",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "主动提出修改",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "procSubstantive"
+ },
+ {
+  "canonical": "著录事项",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "procAffairs"
+ },
+ {
+  "canonical": "专利产品",
+  "tier": "mid",
+  "df": 2
+ },
+ {
+  "canonical": "专利登记簿副本",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "procGrant"
+ },
+ {
+  "canonical": "专利复审委员会",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "reexam"
+ },
+ {
+  "canonical": "专利侵权纠纷",
+  "tier": "mid",
+  "df": 2
+ },
+ {
+  "canonical": "专利权评价报告请求费",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "fee"
+ },
+ {
+  "canonical": "专利权无效宣告请求书",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "invalidation"
+ },
+ {
+  "canonical": "专利权质押",
+  "tier": "mid",
+  "df": 2
+ },
+ {
+  "canonical": "专利权质押登记",
+  "tier": "mid",
+  "df": 2
+ },
+ {
+  "canonical": "专利文献",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "classificationSearch"
+ },
+ {
+  "canonical": "最后位置规则",
+  "tier": "mid",
+  "df": 2,
+  "topicKey": "classificationSearch"
+ }
+]

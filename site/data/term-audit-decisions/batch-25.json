@@ -1,0 +1,362 @@
+[
+ {
+  "termKey": "提供使用证据通知",
+  "canonical": "提供使用证据通知",
+  "decision": "keep",
+  "note": "商标撤三程序中审查机关制发的法定通知文书名称，概念边界清晰。"
+ },
+ {
+  "termKey": "统一社会信用代码",
+  "canonical": "统一社会信用代码",
+  "decision": "keep",
+  "note": "申请人主体资格审查中的法定编码标识，检索价值明确。"
+ },
+ {
+  "termKey": "违法所得",
+  "canonical": "违法所得",
+  "decision": "keep",
+  "note": "行政处罚与民事责任中没收、追缴对象的法律概念，边界清晰，多部法规通用。"
+ },
+ {
+  "termKey": "误导公众",
+  "canonical": "误导公众",
+  "decision": "keep",
+  "note": "驰名商标保护及在先权利审查中的法定构成要件用语。"
+ },
+ {
+  "termKey": "误认",
+  "canonical": "误认",
+  "decision": "keep",
+  "note": "商标审查中判断带有欺骗性、易导致相关公众误认等条款的核心认定概念。"
+ },
+ {
+  "termKey": "细微差别",
+  "canonical": "细微差别",
+  "decision": "keep",
+  "note": "商标相同认定标准中的专门限定词，但脱离字体、大小写等具体限定语后独立检索区分度不高，拿不准保留。"
+ },
+ {
+  "termKey": "刑事责任",
+  "canonical": "刑事责任",
+  "decision": "keep",
+  "note": "与民事责任、行政责任并列的法律责任类型，边界清晰。"
+ },
+ {
+  "termKey": "在先商标",
+  "canonical": "在先商标",
+  "decision": "keep",
+  "note": "商标近似审查中的比对基准概念，边界清晰。"
+ },
+ {
+  "termKey": "真实使用意图",
+  "canonical": "真实使用意图",
+  "decision": "keep",
+  "note": "恶意商标注册审查（商标法第四条）中的核心判断要素。"
+ },
+ {
+  "termKey": "质权登记",
+  "canonical": "质权登记",
+  "decision": "merge-into:注册商标专用权质权登记",
+  "note": "语料均为商标语境下办理质权登记的简称表述，与参考词表已收录的规范全称属同一概念。"
+ },
+ {
+  "termKey": "质押",
+  "canonical": "质押",
+  "decision": "keep",
+  "note": "跨专利权、商标权领域的通用担保法律行为概念，独立于具体质权登记程序。"
+ },
+ {
+  "termKey": "字号",
+  "canonical": "字号",
+  "decision": "keep",
+  "note": "反不正当竞争与商标恶意注册审查中的基础法律概念，独立于企业字号、字号权等具体化表述。"
+ },
+ {
+  "termKey": "驰名商标保护记录",
+  "canonical": "驰名商标保护记录",
+  "decision": "keep",
+  "note": "驰名商标认定证据审查中的具体证据类型概念。"
+ },
+ {
+  "termKey": "答辩材料",
+  "canonical": "答辩材料",
+  "decision": "keep",
+  "note": "评审程序中的法定文件类型概念，非纯程序动作。"
+ },
+ {
+  "termKey": "电子档案",
+  "canonical": "电子档案",
+  "decision": "keep",
+  "note": "商标档案管理中与纸质档案并列的具体档案类型。"
+ },
+ {
+  "termKey": "复制、摹仿或者翻译",
+  "canonical": "复制、摹仿或者翻译",
+  "decision": "merge-into:复制摹仿或者翻译",
+  "note": "与参考词表已收录词条仅顿号标点差异，系商标法第十三条同一法定行为类型的不同书写形式。"
+ },
+ {
+  "termKey": "更正撤回",
+  "canonical": "更正撤回",
+  "decision": "keep",
+  "note": "马德里国际注册后续业务审查结论中的情形分类用语，是否宜作独立检索节点存疑，拿不准保留。"
+ },
+ {
+  "termKey": "公序良俗",
+  "canonical": "公序良俗",
+  "decision": "keep",
+  "note": "民法基本原则在商标审查中的适用概念，边界清晰。"
+ },
+ {
+  "termKey": "共有权利",
+  "canonical": "共有权利",
+  "decision": "keep",
+  "note": "多主体共有权利行使规则中的基础法律概念，独立于共有专利等具体化表述。"
+ },
+ {
+  "termKey": "国际部分转让",
+  "canonical": "国际部分转让",
+  "decision": "keep",
+  "note": "马德里商标国际注册后续业务的具体业务类型。"
+ },
+ {
+  "termKey": "国际商标公告",
+  "canonical": "国际商标公告",
+  "decision": "keep",
+  "note": "世界知识产权组织官方公告出版物的专有名词，检索价值明确。"
+ },
+ {
+  "termKey": "核准",
+  "canonical": "核准",
+  "decision": "keep",
+  "note": "商标审查结论三分类（补正、核准、不予核准）之一，脱离具体审查事项独立检索区分度不高，拿不准保留。"
+ },
+ {
+  "termKey": "后续业务申请",
+  "canonical": "后续业务申请",
+  "decision": "keep",
+  "note": "马德里体系下办理后续业务的申请行为，与参考词表中业务类型本身的后续业务概念层级不同，不予合并。"
+ },
+ {
+  "termKey": "来源混淆",
+  "canonical": "来源混淆",
+  "decision": "keep",
+  "note": "商标近似审查考虑因素中的具体混淆类型，区别于更宽泛的混淆可能性。"
+ },
+ {
+  "termKey": "滥用职权",
+  "canonical": "滥用职权",
+  "decision": "keep",
+  "note": "与玩忽职守、徇私舞弊并列的渎职行为类型，边界清晰。"
+ },
+ {
+  "termKey": "马德里国际注册商标注册人",
+  "canonical": "马德里国际注册商标注册人",
+  "decision": "keep",
+  "note": "马德里体系下的具体主体身份概念。"
+ },
+ {
+  "termKey": "民事责任",
+  "canonical": "民事责任",
+  "decision": "keep",
+  "note": "与刑事责任、行政责任并列的法律责任类型。"
+ },
+ {
+  "termKey": "平面商标",
+  "canonical": "平面商标",
+  "decision": "keep",
+  "note": "与三维标志商标相对的商标类型概念。"
+ },
+ {
+  "termKey": "平台经营者",
+  "canonical": "平台经营者",
+  "decision": "keep",
+  "note": "反不正当竞争法2025年新规平台治理章节的核心主体概念。"
+ },
+ {
+  "termKey": "普通商标",
+  "canonical": "普通商标",
+  "decision": "keep",
+  "note": "与集体商标、证明商标相对的商标类型概念。"
+ },
+ {
+  "termKey": "其他含义或者特定的表现形式",
+  "canonical": "其他含义或者特定的表现形式",
+  "decision": "keep",
+  "note": "判断标志是否具有不良影响、欺骗性等的法定抗辩标准完整表述。"
+ },
+ {
+  "termKey": "企业字号",
+  "canonical": "企业字号",
+  "decision": "keep",
+  "note": "恶意抢注审查中的具体在先权益类型，独立于上位概念字号。"
+ },
+ {
+  "termKey": "三维形状",
+  "canonical": "三维形状",
+  "decision": "keep",
+  "note": "三维标志商标构成要素审查中的核心概念。"
+ },
+ {
+  "termKey": "商标国际异议申请",
+  "canonical": "商标国际异议申请",
+  "decision": "merge-into:商标国际异议",
+  "note": "语料显示两者在马德里国际异议程序中互指同一申请事项，属全称与简称关系。"
+ },
+ {
+  "termKey": "商标失效",
+  "canonical": "商标失效",
+  "decision": "keep",
+  "note": "后续业务审查结论中的具体状态判断概念。"
+ },
+ {
+  "termKey": "商标使用方式",
+  "canonical": "商标使用方式",
+  "decision": "keep",
+  "note": "商标使用证据、图样声音样本审查中的具体概念。"
+ },
+ {
+  "termKey": "商标注册部门",
+  "canonical": "商标注册部门",
+  "decision": "keep",
+  "note": "指代商标注册主管机关（商标局）的具体机构概念。"
+ },
+ {
+  "termKey": "商标注册证明",
+  "canonical": "商标注册证明",
+  "decision": "keep",
+  "note": "官方出具的具体证明文件类型。"
+ },
+ {
+  "termKey": "商标转让合同",
+  "canonical": "商标转让合同",
+  "decision": "keep",
+  "note": "转让申请文件审查中的具体法律文书类型。"
+ },
+ {
+  "termKey": "商标转让受让人",
+  "canonical": "商标转让受让人",
+  "decision": "keep",
+  "note": "转让程序中的具体主体概念。"
+ },
+ {
+  "termKey": "申请权",
+  "canonical": "申请权",
+  "decision": "keep",
+  "note": "跨专利、植物新品种领域的上位申请权利概念，不窄化合并至专利申请权等领域限定表述。"
+ },
+ {
+  "termKey": "申请人主体资格",
+  "canonical": "申请人主体资格",
+  "decision": "keep",
+  "note": "集体商标、证明商标审查中的具体审查事项。"
+ },
+ {
+  "termKey": "世界知识产权组织",
+  "canonical": "世界知识产权组织",
+  "decision": "keep",
+  "note": "国际组织专有名词，区别于其内设机构国际局。"
+ },
+ {
+  "termKey": "市场份额",
+  "canonical": "市场份额",
+  "decision": "keep",
+  "note": "反垄断法市场支配地位认定的核心指标概念。"
+ },
+ {
+  "termKey": "图形商标",
+  "canonical": "图形商标",
+  "decision": "keep",
+  "note": "商标类型分类中的具体概念。"
+ },
+ {
+  "termKey": "玩忽职守",
+  "canonical": "玩忽职守",
+  "decision": "keep",
+  "note": "与滥用职权、徇私舞弊并列的渎职行为类型。"
+ },
+ {
+  "termKey": "显著部分",
+  "canonical": "显著部分",
+  "decision": "keep",
+  "note": "商标标志构成要素审查中的具体概念，区别于整体属性概念显著特征。"
+ },
+ {
+  "termKey": "行业协会",
+  "canonical": "行业协会",
+  "decision": "keep",
+  "note": "反垄断法组织垄断行为责任主体的具体概念。"
+ },
+ {
+  "termKey": "行政裁决",
+  "canonical": "行政裁决",
+  "decision": "keep",
+  "note": "专利、布图设计非自愿许可争议处理程序中的具体概念。"
+ },
+ {
+  "termKey": "行政诉讼",
+  "canonical": "行政诉讼",
+  "decision": "keep",
+  "note": "与行政复议并列的诉讼程序类型概念。"
+ },
+ {
+  "termKey": "虚假交易",
+  "canonical": "虚假交易",
+  "decision": "keep",
+  "note": "反不正当竞争法平台治理章节的具体违法行为类型。"
+ },
+ {
+  "termKey": "虚假评价",
+  "canonical": "虚假评价",
+  "decision": "keep",
+  "note": "与虚假交易并列的另一具体违法行为类型。"
+ },
+ {
+  "termKey": "徇私舞弊",
+  "canonical": "徇私舞弊",
+  "decision": "keep",
+  "note": "与滥用职权、玩忽职守并列的渎职行为类型。"
+ },
+ {
+  "termKey": "一标多类",
+  "canonical": "一标多类",
+  "decision": "keep",
+  "note": "商标注册申请制度中的具体概念，指一份申请指定多个类别。"
+ },
+ {
+  "termKey": "在先使用人",
+  "canonical": "在先使用人",
+  "decision": "keep",
+  "note": "先用权、在先使用抗辩审查中的具体主体概念，区别于行为概念在先使用。"
+ },
+ {
+  "termKey": "证据材料",
+  "canonical": "证据材料",
+  "decision": "keep",
+  "note": "证据类别上位概括词，泛化程度较高但仍指向具体证据类客体，拿不准保留。"
+ },
+ {
+  "termKey": "纸质档案",
+  "canonical": "纸质档案",
+  "decision": "keep",
+  "note": "与电子档案并列的具体商标档案类型。"
+ },
+ {
+  "termKey": "注册人名称或地址变更",
+  "canonical": "注册人名称或地址变更",
+  "decision": "keep",
+  "note": "马德里后续业务审查中的具体业务类型。"
+ },
+ {
+  "termKey": "注册商标专用权",
+  "canonical": "注册商标专用权",
+  "decision": "merge-into:商标专用权",
+  "note": "商标法语境下注册商标专用权与参考词表已收录的商标专用权为全称与常用简称关系，同指注册商标专有使用权。"
+ },
+ {
+  "termKey": "自然人",
+  "canonical": "自然人",
+  "decision": "keep",
+  "note": "与法人、其他组织并列的民事主体资格基础类型概念。"
+ }
+]

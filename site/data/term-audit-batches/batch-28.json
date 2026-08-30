@@ -1,0 +1,508 @@
+[
+ {
+  "termKey": "营业场所",
+  "canonical": "营业场所",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "plant-variety-regulations-2025",
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "plant-variety-regulations-2025/04/02",
+    "text": "营业场所"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/04/01/03/01",
+    "text": "在中国设有真实有效的营业场所"
+   }
+  ],
+  "breadcrumbs": [
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第四章 品种权的申请和受理 › 第二十一条 · 外国申请人的申请办理",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十三章 马德里商标国际注册申请审查 › 3申请人资格与申请条件 › 3.1申请人资格"
+  ]
+ },
+ {
+  "termKey": "有效注册商标",
+  "canonical": "有效注册商标",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/01/05/02/02",
+    "text": "有效注册商标"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/03/01/01/04",
+    "text": "申请变更的商标包括有效注册商标和在注册申请中的商标"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第五章 撤销注册商标申请形式审查 › 2撤销成为通用名称商标申请的形式审查 › 2.2形式审查内容",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十章 商标变更类申请 › 1商标注册人/申请人名称或地址的变更 › 1.4商标"
+  ]
+ },
+ {
+  "termKey": "有专门知识的人",
+  "canonical": "有专门知识的人",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "ip-evidence-rules-2020"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "ip-evidence-rules-2020/15",
+    "text": "可以根据当事人的申请通知有专门知识的人到场"
+   },
+   {
+    "chunk": "ip-evidence-rules-2020/28",
+    "text": "当事人可以申请有专门知识的人出庭，就专业问题提出意见"
+   }
+  ],
+  "breadcrumbs": [
+   "ip-evidence-rules-2020:最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行） › 第十五条 · 证据保全的到场人员与案外人证据",
+   "ip-evidence-rules-2020:最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行） › 第二十八条 · 有专门知识的人出庭"
+  ]
+ },
+ {
+  "termKey": "责令改正",
+  "canonical": "责令改正",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "anti-unfair-competition-2025",
+   "implementation-rules"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "anti-unfair-competition-2025/04/14",
+    "text": "责令改正"
+   },
+   {
+    "chunk": "implementation-rules/08/005",
+    "text": "由县级以上负责专利执法的部门责令改正"
+   }
+  ],
+  "breadcrumbs": [
+   "anti-unfair-competition-2025:中华人民共和国反不正当竞争法（2025年施行） › 第四章 法律责任 › 第三十五条 · 拒绝阻碍调查的处罚",
+   "implementation-rules:专利法实施细则 › 第八章 专利权的保护 › 第九十九条 · 专利标识的规范"
+  ]
+ },
+ {
+  "termKey": "展会的优先权",
+  "canonical": "展会的优先权",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/01/02/05/01",
+    "text": "基于展会的优先权"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/01/02/05/03",
+    "text": "基于展会的优先权"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第二章 注册申请形式审查 › 5申请人要求优先权 › 5.1申报要求",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第二章 注册申请形式审查 › 5申请人要求优先权 › 5.3优先权有效情形"
+  ]
+ },
+ {
+  "termKey": "整体外观",
+  "canonical": "整体外观",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/05/03/04/01/04",
+    "text": "商标含义、字形或者整体外观区别明显"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/06/05/03/04/01/05",
+    "text": "使商标的整体外观近似"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第五章 商标相同、近似的审查审理 › 第三十一条 › 5具体适用：商标近似的审查 › 5.1文字商标近似的审查 › 5.1.4商标文字或显著识别部分文字读音相同或者近似，且字形或者整体外观近似，易使相关公众对商品或者服务的来源产生混淆的，判定为近似商标",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第五章 商标相同、近似的审查审理 › 第三十一条 › 5具体适用：商标近似的审查 › 5.1文字商标近似的审查 › 5.1.5商标文字构成、读音不同，但商标字形近似，易使相关公众对商品或者服务的来源产生混淆的，判定为近似商标"
+  ]
+ },
+ {
+  "termKey": "证据持有人",
+  "canonical": "证据持有人",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "ip-evidence-rules-2020"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "ip-evidence-rules-2020/11",
+    "text": "可能采取的保全措施对证据持有人的影响"
+   },
+   {
+    "chunk": "ip-evidence-rules-2020/12",
+    "text": "对证据持有人正常生产经营的影响"
+   }
+  ],
+  "breadcrumbs": [
+   "ip-evidence-rules-2020:最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行） › 第十一条 · 证据保全申请的审查因素",
+   "ip-evidence-rules-2020:最高人民法院关于知识产权民事诉讼证据的若干规定（2020年施行） › 第十二条 · 证据保全的限度与措施"
+  ]
+ },
+ {
+  "termKey": "证据目录清单",
+  "canonical": "证据目录清单",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/01/04/03/05/03",
+    "text": "证据目录清单"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/01/04/04/02",
+    "text": "证据目录清单"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第四章 评审形式审查 › 3形式审查 › 3.5审查结论 › 3.5.3补正",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第四章 评审形式审查 › 4答辩材料的审查 › 4.2评审答辩材料审查结论"
+  ]
+ },
+ {
+  "termKey": "知晓程度",
+  "canonical": "知晓程度",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/06/10/03",
+    "text": "相关公众对该商标的知晓程度"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/06/10/05/04/02",
+    "text": "相关公众对该商标的知晓程度"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第十章 复制、摹仿或者翻译他人驰名商标的审查审理 › 第十四条 · 驰名商标的认定因素",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 下编·商标审查审理编 › 第十章 复制、摹仿或者翻译他人驰名商标的审查审理 › 第三条 › 5驰名商标的判定 › 5.2考虑因素"
+  ]
+ },
+ {
+  "termKey": "植物品种保护名录",
+  "canonical": "植物品种保护名录",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "plant-variety-regulations-2025"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "plant-variety-regulations-2025/03/01",
+    "text": "申请品种权的植物新品种应当属于国家植物品种保护名录中列举的植物的属或者种"
+   },
+   {
+    "chunk": "plant-variety-regulations-2025/05/01",
+    "text": "植物品种保护名录"
+   }
+  ],
+  "breadcrumbs": [
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第三章 授予品种权的条件 › 第十四条 · 保护名录范围与不授权情形",
+   "plant-variety-regulations-2025:中华人民共和国植物新品种保护条例（2025年施行） › 第五章 品种权的审查与批准 › 第二十八条 · 初步审查的内容"
+  ]
+ },
+ {
+  "termKey": "指定代理人",
+  "canonical": "指定代理人",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/04/02/02",
+    "text": "指定代理人"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/04/02/12/02",
+    "text": "指定代理人、代理人名称或地址变更"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十四章 马德里商标国际注册后续业务申请审查 › 2引言",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十四章 马德里商标国际注册后续业务申请审查 › 12审查结论 › 12.2核准"
+  ]
+ },
+ {
+  "termKey": "指定国家",
+  "canonical": "指定国家",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/04/05/03/02/01",
+    "text": "在指定国家列表中添加中国的"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/04/05/03/02/02",
+    "text": "在指定国家列表中去掉中国"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十七章 领土延伸至中国的 国际注册后续业务形式审查 › 3国际更正分拣 › 3.2对领土延伸和后期指定通知更正的分拣标准 › 3.2.1增加在中国的领土延伸和后期指定",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十七章 领土延伸至中国的 国际注册后续业务形式审查 › 3国际更正分拣 › 3.2对领土延伸和后期指定通知更正的分拣标准 › 3.2.2撤回在中国的领土延伸和后期指定"
+  ]
+ },
+ {
+  "termKey": "主债权",
+  "canonical": "主债权",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/03/04",
+    "text": "质权合同担保的主债权数额变更的"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/03/02/03/05",
+    "text": "主债权未能按期实现"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 3注册商标专用权质权登记 › 3.4质权登记变更",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十一章 商标权的处分类申请 › 3注册商标专用权质权登记 › 3.5质权登记延期"
+  ]
+ },
+ {
+  "termKey": "注册代理人",
+  "canonical": "注册代理人",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/01/05/01/04/01",
+    "text": "记载的注册代理人名义及地址"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/01/05/01/09/02",
+    "text": "注册代理人"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第五章 撤销注册商标申请形式审查 › 1撤销连续三年不使用注册商标申请的形式审查 › 1.4文件送达 › 1.4.1主送",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第五章 撤销注册商标申请形式审查 › 1撤销连续三年不使用注册商标申请的形式审查 › 1.9撤回申请 › 1.9.2内容与要求"
+  ]
+ },
+ {
+  "termKey": "注册人",
+  "canonical": "注册人",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/04/02/10/03",
+    "text": "注册人名称必须与国际注册簿保持一致"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/04/02/11/03",
+    "text": "注册人名称及地址必须与国际注册簿保持一致"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十四章 马德里商标国际注册后续业务申请审查 › 10国际放弃 › 10.3内容及要求",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十四章 马德里商标国际注册后续业务申请审查 › 11后期指定 › 11.3内容及要求"
+  ]
+ },
+ {
+  "termKey": "注册商标无效宣告",
+  "canonical": "注册商标无效宣告",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/05/05/04/01/01",
+    "text": "注册商标无效宣告申请书"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/05/05/04/01/02",
+    "text": "注册商标无效宣告证据材料"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第五部分 商标申请事务处理 › 第二十三章 商标档案 › 4保管期限及销毁 › 4.1商标注册纸质档案 › 4.1.1永久保管类",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第五部分 商标申请事务处理 › 第二十三章 商标档案 › 4保管期限及销毁 › 4.1商标注册纸质档案 › 4.1.2定期保管类"
+  ]
+ },
+ {
+  "termKey": "注册商标争议",
+  "canonical": "注册商标争议",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/05/05/04/01/01",
+    "text": "注册商标争议申请书"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/05/05/04/01/02",
+    "text": "注册商标争议证据材料"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第五部分 商标申请事务处理 › 第二十三章 商标档案 › 4保管期限及销毁 › 4.1商标注册纸质档案 › 4.1.1永久保管类",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第五部分 商标申请事务处理 › 第二十三章 商标档案 › 4保管期限及销毁 › 4.1商标注册纸质档案 › 4.1.2定期保管类"
+  ]
+ },
+ {
+  "termKey": "专用权",
+  "canonical": "专用权",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/01/02/03/01/04/02/01",
+    "text": "申请人不要求专用权保护"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/01/02/03/01/04/02/02",
+    "text": "声明放弃专用权"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第二章 注册申请形式审查 › 3形式审查内容 › 3.1申请书 › 3.1.4商标图样 › 3.1.4.2三维标志商标 › 3.1.4.2.1图样",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第二章 注册申请形式审查 › 3形式审查内容 › 3.1申请书 › 3.1.4商标图样 › 3.1.4.2三维标志商标 › 3.1.4.2.2商标说明和使用方式"
+  ]
+ },
+ {
+  "termKey": "转让",
+  "canonical": "转让",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/01/05/01/04/02",
+    "text": "对于正在办理转让的商标"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/03/01/01/06/02",
+    "text": "如变更申请书填写了错误的注册号码的、商标已经转让给他人的"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第一部分 商标申请形式审查 › 第五章 撤销注册商标申请形式审查 › 1撤销连续三年不使用注册商标申请的形式审查 › 1.4文件送达 › 1.4.2抄送",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第三部分 其他商标业务审查* › 第十章 商标变更类申请 › 1商标注册人/申请人名称或地址的变更 › 1.6审查结论 › 1.6.2不予核准"
+  ]
+ },
+ {
+  "termKey": "状态标志",
+  "canonical": "状态标志",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/04/06/05/04",
+    "text": "商品或者服务项目的状态标志"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/04/06/07/04",
+    "text": "商品或者服务项目的状态标志"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十八章 领土延伸至中国的 国际注册后续业务实质审查 › 5国际删减 › 5.4国际删减的登记项目",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十八章 领土延伸至中国的 国际注册后续业务实质审查 › 7国际部分注销 › 7.4国际部分注销的登记项目"
+  ]
+ },
+ {
+  "termKey": "mm4表格",
+  "canonical": "MM4表格",
+  "aliases": [],
+  "tier": "mid",
+  "df": 2,
+  "domains": [
+   "trademark-exam-guide-2021"
+  ],
+  "sampleEvidence": [
+   {
+    "chunk": "trademark-exam-guide-2021/04/02/11/01",
+    "text": "MM4表格"
+   },
+   {
+    "chunk": "trademark-exam-guide-2021/04/02/11/03",
+    "text": "此类缔约方名单详见MM4表格"
+   }
+  ],
+  "breadcrumbs": [
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十四章 马德里商标国际注册后续业务申请审查 › 11后期指定 › 11.1申请文件",
+   "trademark-exam-guide-2021:商标审查审理指南（2022年施行） › 上编·第四部分 马德里商标国际注册审查 › 第十四章 马德里商标国际注册后续业务申请审查 › 11后期指定 › 11.3内容及要求"
+  ]
+ }
+]
