@@ -24514,6 +24514,7 @@
     "canonical": "初步证据",
     "aliases": [],
     "matchers": [],
+    "topicKey": "prcEvidence",
     "sources": {
       "anti-unfair-competition-2025": [
         "aucl-04-18"
@@ -49148,6 +49149,7 @@
     "canonical": "平台规则",
     "aliases": [],
     "matchers": [],
+    "topicKey": "cmpUnfairActs",
     "sources": {
       "anti-monopoly-law-2022": [
         "aml-01-09"
@@ -49175,6 +49177,7 @@
     "canonical": "平台内经营者",
     "aliases": [],
     "matchers": [],
+    "topicKey": "cmpUnfairActs",
     "sources": {
       "anti-unfair-competition-2025": [
         "aucl-02-08",
@@ -49775,6 +49778,7 @@
     "canonical": "商品声誉",
     "aliases": [],
     "matchers": [],
+    "topicKey": "cmpUnfairActs",
     "sources": {
       "anti-unfair-competition-2025": [
         "aucl-02-06",
@@ -49802,6 +49806,7 @@
     "canonical": "商业信誉",
     "aliases": [],
     "matchers": [],
+    "topicKey": "cmpUnfairActs",
     "sources": {
       "anti-unfair-competition-2025": [
         "aucl-02-06",
@@ -50912,6 +50917,7 @@
     "canonical": "协同行为",
     "aliases": [],
     "matchers": [],
+    "topicKey": "cmpMonopolyConduct",
     "sources": {
       "anti-monopoly-law-2022": [
         "aml-02-01",
@@ -50964,6 +50970,7 @@
     "canonical": "行业自律",
     "aliases": [],
     "matchers": [],
+    "topicKey": "cmpEnforcement",
     "sources": {
       "anti-monopoly-law-2022": [
         "aml-01-14"
@@ -51378,6 +51385,7 @@
     "canonical": "有专门知识的人",
     "aliases": [],
     "matchers": [],
+    "topicKey": "prcEvidence",
     "sources": {
       "ip-evidence-rules-2020": [
         "ipev-15",
