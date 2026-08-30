@@ -89,6 +89,22 @@
 // 断言由 ≥1 反转为 ===0（法域切换不再重建，抽屉自然存活）。哨兵包装器三处安装点
 // 一并把 controller 捞到 window.__smokeCtl（A.0），供 32-f 直接读术语层。
 // 总超时仍为 600s：新增断言全是同步取数，等待反而净减约 4s。
+// 阶段5.11 波E（一键收起根治）全面改写步 35、步数仍为 35：按钮由「一次收完」改为
+// 两段（第一段收非祖先链、第二段连祖先链一起收），并新增「展开还原」钮与
+// `fileTree-v2:snapshot` 收起前快照。旧 35-b 的 `disabled===true` 属性断言**已删除**
+// ——它把缺陷写成了通过条件：旧实现把折叠态表整体写成 collapsed=true 并落盘，
+// 而 DOM 又按 containsCurrent 留开祖先链，置灰谓词 state.every(collapsed) 点一次即
+// 恒真，按钮自我锁死且跨会话持久。现步 35 改为六子项行为断言——
+//   a 两段序列（第一次点后 open===祖先链数且严格小于起点，第二次点后 open===0 才置灰）；
+//   b 展开还原（open 回到起点值、快照键清除、还原钮复灰）；
+//   c 导航恢复（全收后 SPA 跳到不同祖先链的条文页，收起钮 disabled===false）；
+//   d 持久化回归（全收后硬 loadURL 重开同页，祖先链重新强制展开、钮非灰——
+//     覆盖位刻意不落盘，故这是预期语义而非残留）；
+//   e 手动收起顶层三组后钮仍可点（旧实现在此同样恒灰，从未点过按钮也失效）；
+//   f 收尾双键复位（fileTree-v2 + 快照键，硬性）。
+// 祖先链条数不写死：由 a.active 沿 DOM 上溯收集 .folder-outer 得出。
+// 步 29 的图谱页「初始展开 ≥1000」原样不动——「一键收起绝不自动执行」仍是纪律。
+// 总超时仍为 660s：新增两次 loadURL 与三段点击等待，本机实测步 35 由约 8s 增至约 25s。
 const {
   app,
   BrowserWindow,
@@ -3145,110 +3161,281 @@ async function main() {
       `g 收尾：顺序表复位=${g34Ok}（步首快照=${s34a ? JSON.stringify(s34a.orderBefore) : "-"}）`,
   );
 
-  // 35. 目录树一键收起
+  // 35. 目录树一键收起（两段）＋展开还原  —— 阶段5.11 波E 全面改写为**行为断言**
   //     **绝不自动执行**：只有用户点这枚钮才收起（图谱页首访仍按「书下 3 层可见」
   //     铺开，步 29 的 open ≥1000 即这条纪律的常设护栏，本步全程不碰图谱页）。
-  //     语义＝「全部置 collapsed，再用既有公式 refreshFolderOpenState 重算」，
-  //     故净效果是「除当前页祖先链外全收」——祖先链恒为合成三层 + 书 + 章，
-  //     b 段用结构化判据钉死（每个仍展开的节点必须是当前页祖先或 synthetic:），
-  //     不写死数字，语料增删也不会把这条断言变成噪声。
+  //     新语义分两段：第一段收「非当前页祖先链」的全部展开项（祖先链保持可见），
+  //     第二段（再点一次）连祖先链一起收干净；「展开还原」钮把状态回灌成
+  //     首次收起之前的那份快照（localStorage 的 `fileTree-v2:snapshot`）。
+  //
+  //     **旧版 b 段的 `disabled===true` 断言已删除**：那条断言把阶段5.8 的缺陷
+  //     写成了通过条件——旧实现把折叠态表整体写成 collapsed=true（含祖先链）并落盘，
+  //     而 DOM 又按 containsCurrent 把祖先链留开，置灰谓词 state.every(collapsed)
+  //     因此点一次即恒真，按钮自我锁死且跨会话持久。现判据改为「DOM 里
+  //     .folder-outer.open 计数为 0 才置灰」，故本步逐段核的是**可用性与展开条数**，
+  //     不再核状态表的形状。
+  //     祖先链条数不写死：由当前页 a.active 沿 DOM 向上收集 .folder-outer 得出
+  //     （结构判据），语料增删不会把断言变成噪声。
   const COLLAPSE_PAGE = "1-专利法/1-总则/law-01-01";
+  const COLLAPSE_SNAP_KEY = "fileTree-v2:snapshot";
+  const waitCollapseReady = async () => {
+    for (let i = 0; i < 20; i += 1) {
+      await sleep(300);
+      const ok = await win.webContents.executeJavaScript(
+        `!!document.querySelector('.explorer-action-collapse') &&
+         !!document.querySelector('.explorer-action-expand') &&
+         document.querySelectorAll('.explorer-ul .folder-outer').length > 0`,
+      );
+      if (ok) return true;
+    }
+    return false;
+  };
   await win.loadURL(`${base}/${encodeURI(COLLAPSE_PAGE)}`);
-  let collapseReady = false;
-  for (let i = 0; i < 20; i += 1) {
-    await sleep(300);
-    collapseReady = await win.webContents.executeJavaScript(
-      `!!document.querySelector('.explorer-action-collapse') &&
-       document.querySelectorAll('.explorer-ul .folder-outer').length > 0`,
-    );
-    if (collapseReady) break;
-  }
+  let collapseReady = await waitCollapseReady();
+  // 步首两键原值（供 f 段复位）+ 清掉可能残留的收起快照：展开还原钮的初始灰态
+  // 是 a 段的断言之一，而钮态在页面就绪时结算，故清键必须先于那次结算 → 清完重开
+  const s35pre = await win.webContents.executeJavaScript(
+    `(() => {
+       let tree = 'ERR', snap = 'ERR';
+       try { tree = localStorage.getItem('fileTree-v2'); } catch (e) {}
+       try { snap = localStorage.getItem(${JSON.stringify(COLLAPSE_SNAP_KEY)}); } catch (e) {}
+       try { localStorage.removeItem(${JSON.stringify(COLLAPSE_SNAP_KEY)}); } catch (e) {}
+       return { tree: tree, snap: snap };
+     })()`,
+  );
+  await win.loadURL(`${base}/${encodeURI(COLLAPSE_PAGE)}`);
+  collapseReady = (await waitCollapseReady()) && collapseReady;
+
   const COLLAPSE_STATS = `(() => {
      const opens = Array.from(document.querySelectorAll('.explorer-ul .folder-outer.open'));
      const current = document.body.dataset.slug || '';
      const paths = opens.map((o) => (o.previousElementSibling ? o.previousElementSibling.dataset.folderpath : null));
-     const btn = document.querySelector('.explorer-action-collapse');
-     let saved = 'ERR';
+     // 当前页祖先链：从 .active 沿 DOM 上溯收集 .folder-outer（合成三层 + 书 + 章）。
+     // 结构判据，不靠 slug 前缀字符串，也不把「所有 synthetic: 层」一概算作祖先。
+     const active = document.querySelector('.explorer-ul a.active') ||
+       document.querySelector('.explorer-ul .folder-container.active');
+     const chain = [];
+     for (let n = active; n; n = n.parentElement) {
+       if (n.classList && n.classList.contains('folder-outer')) chain.push(n);
+       if (n.classList && n.classList.contains('explorer-ul')) break;
+     }
+     const collapseBtn = document.querySelector('.explorer-action-collapse');
+     const expandBtn = document.querySelector('.explorer-action-expand');
+     let saved = 'ERR', snap = 'ERR';
      try { saved = localStorage.getItem('fileTree-v2'); } catch (e) {}
-     let everyCollapsed = null, savedLen = null;
+     try { snap = localStorage.getItem(${JSON.stringify(COLLAPSE_SNAP_KEY)}); } catch (e) {}
+     let savedLen = null, snapLen = null;
      try {
        const parsed = JSON.parse(saved || 'null');
-       if (Array.isArray(parsed)) { everyCollapsed = parsed.every((e) => e.collapsed === true); savedLen = parsed.length; }
+       if (Array.isArray(parsed)) savedLen = parsed.length;
+     } catch (e) {}
+     try {
+       const parsed = JSON.parse(snap || 'null');
+       if (Array.isArray(parsed)) snapLen = parsed.length;
      } catch (e) {}
      return {
        open: opens.length,
        total: document.querySelectorAll('.explorer-ul .folder-outer').length,
+       ancestorCount: chain.length,
+       ancestorOpen: chain.filter((o) => o.classList.contains('open')).length,
        paths: paths,
        ancestorOnly: paths.every((p) => {
          if (!p) return false;
          if (p.indexOf('synthetic:') === 0) return true;
          return current.indexOf(p.replace(/\\/index$/, '')) === 0;
        }),
-       disabled: btn ? btn.disabled : null,
-       ariaDisabled: btn ? btn.getAttribute('aria-disabled') : null,
-       everyCollapsed: everyCollapsed,
+       collapseDisabled: collapseBtn ? collapseBtn.disabled : null,
+       collapseAria: collapseBtn ? collapseBtn.getAttribute('aria-disabled') : null,
+       expandDisabled: expandBtn ? expandBtn.disabled : null,
+       expandAria: expandBtn ? expandBtn.getAttribute('aria-disabled') : null,
+       snapPresent: snap !== null && snap !== 'ERR',
+       snapLen: snapLen,
        savedLen: savedLen,
        saved: saved,
        slug: current,
      };
    })()`;
-  // a. 快照（fileTree-v2 原值供收尾写回）+ 收起前规模 + 钮可用
-  const s35a = await win.webContents.executeJavaScript(COLLAPSE_STATS);
-  const a35Ok =
-    collapseReady && !!s35a && s35a.open > 0 && s35a.disabled === false;
+  const clickCollapse = async () => {
+    await win.webContents.executeJavaScript(
+      `document.querySelector('.explorer-action-collapse').click()`,
+    );
+    await sleep(500);
+  };
+  // 连点到「一个展开项都不剩」；返回实际点击次数（钮已灰即停，灰钮 click 不派发事件）
+  const collapseUntilEmpty = async (max = 3) => {
+    for (let i = 0; i < max; i += 1) {
+      const disabled = await win.webContents.executeJavaScript(
+        `document.querySelector('.explorer-action-collapse').disabled`,
+      );
+      if (disabled) return i;
+      await clickCollapse();
+    }
+    return max;
+  };
 
-  // b. 点收起
+  // a. 两段序列：初始 open0 > 祖先链数 → 第一次点后 open===祖先链数且严格小于 open0
+  //    → 第二次点后 open===0 且钮置灰；快照在第一次点击时写下、第二次点击不覆盖
+  const s35a0 = await win.webContents.executeJavaScript(COLLAPSE_STATS);
+  await clickCollapse();
+  const s35a1 = await win.webContents.executeJavaScript(COLLAPSE_STATS);
+  await clickCollapse();
+  const s35a2 = await win.webContents.executeJavaScript(COLLAPSE_STATS);
+  const a35Ok =
+    collapseReady &&
+    !!s35a0 &&
+    !!s35a1 &&
+    !!s35a2 &&
+    // 起点：有可收的东西、收起钮可点、无快照故还原钮灰
+    s35a0.ancestorCount > 0 &&
+    s35a0.open > s35a0.ancestorCount &&
+    s35a0.collapseDisabled === false &&
+    s35a0.expandDisabled === true &&
+    s35a0.snapPresent === false &&
+    // 第一段：只剩祖先链，收起钮仍可点（还能收第二段），还原钮已亮，快照已落盘
+    s35a1.open === s35a1.ancestorCount &&
+    s35a1.open < s35a0.open &&
+    s35a1.ancestorOpen === s35a1.ancestorCount &&
+    s35a1.ancestorOnly === true &&
+    s35a1.collapseDisabled === false &&
+    s35a1.expandDisabled === false &&
+    s35a1.snapPresent === true &&
+    s35a1.savedLen === s35a1.total &&
+    // 第二段：全收，收起钮此时才置灰；快照未被第二次点击覆盖（长度与首次一致）
+    s35a2.open === 0 &&
+    s35a2.ancestorOpen === 0 &&
+    s35a2.collapseDisabled === true &&
+    s35a2.collapseAria === "true" &&
+    s35a2.expandDisabled === false &&
+    s35a2.snapLen === s35a1.snapLen;
+  await shot(win, "目录树一键收起-两段全收");
+
+  // b. 展开还原：回到收起前的展开态，快照键随之清除、还原钮复灰、收起钮复活
   await win.webContents.executeJavaScript(
-    `document.querySelector('.explorer-action-collapse').click()`,
+    `document.querySelector('.explorer-action-expand').click()`,
   );
   await sleep(500);
   const s35b = await win.webContents.executeJavaScript(COLLAPSE_STATS);
   const b35Ok =
     !!s35b &&
-    s35b.open < s35a.open &&
-    s35b.open <= 6 &&
-    s35b.ancestorOnly === true &&
-    s35b.everyCollapsed === true &&
-    s35b.savedLen === s35b.total &&
-    s35b.disabled === true &&
-    s35b.ariaDisabled === "true";
-  await shot(win, "目录树一键收起");
+    s35b.open === s35a0.open &&
+    s35b.snapPresent === false &&
+    s35b.expandDisabled === true &&
+    s35b.expandAria === "true" &&
+    s35b.collapseDisabled === false;
+  await shot(win, "目录树展开还原");
 
-  // c. SPA 往返后仍保持（复用路径逐导航整树重算，收起结果来自落盘态而非 DOM 残留）
+  // c. 导航恢复：两段全收后 SPA 跳到**不同祖先链**的条文页，收起钮必须重新可点
+  //    （旧实现在这里恒灰——落盘的全 true 记录让 every(collapsed) 跨页持续成真）
+  const c35Clicks = await collapseUntilEmpty();
+  const s35c0 = await win.webContents.executeJavaScript(COLLAPSE_STATS);
   await win.webContents.executeJavaScript(
     `window.spaNavigate(new URL(${JSON.stringify("/" + encodeURI(SPA_HOPS[1]))}, location.href))`,
   );
   await sleep(900);
-  await win.webContents.executeJavaScript(
-    `window.spaNavigate(new URL(${JSON.stringify("/" + encodeURI(COLLAPSE_PAGE))}, location.href))`,
-  );
-  await sleep(900);
   const s35c = await win.webContents.executeJavaScript(COLLAPSE_STATS);
-  const c35Ok = !!s35c && s35c.open <= 6 && s35c.ancestorOnly === true;
+  const c35Ok =
+    c35Clicks > 0 &&
+    !!s35c0 &&
+    s35c0.open === 0 &&
+    s35c0.collapseDisabled === true &&
+    !!s35c &&
+    s35c.slug !== s35c0.slug &&
+    s35c.open > 0 &&
+    s35c.open === s35c.ancestorCount &&
+    s35c.ancestorOnly === true &&
+    s35c.collapseDisabled === false;
 
-  // d. 收尾：fileTree-v2 写回步首快照（硬性——不把「全部收起」留给用户）
-  const s35d = await win.webContents.executeJavaScript(
+  // d. 持久化回归：在新页两段全收后 loadURL 硬重开同页——覆盖位刻意不落盘，
+  //    故重开后祖先链按 containsCurrent 重新强制展开，收起钮必然**非灰**。
+  //    这条正是旧缺陷「跨重启恒灰」的定点回归门。
+  const d35Clicks = await collapseUntilEmpty();
+  await win.loadURL(`${base}/${encodeURI(SPA_HOPS[1])}`);
+  const d35Ready = await waitCollapseReady();
+  const s35d = await win.webContents.executeJavaScript(COLLAPSE_STATS);
+  const d35Ok =
+    d35Clicks > 0 &&
+    d35Ready &&
+    !!s35d &&
+    s35d.open > 0 &&
+    s35d.open === s35d.ancestorCount &&
+    s35d.collapseDisabled === false &&
+    s35d.collapseAria === "false";
+
+  // e. 手动收起顶层三组：旧实现下这同样会触发恒灰（从未点过按钮也失效）。
+  //    新判据只看 DOM——顶层收起后子孙的 open 类仍在，故钮必须仍可点。
+  await win.loadURL(`${base}/${encodeURI(COLLAPSE_PAGE)}`);
+  const e35Ready = await waitCollapseReady();
+  const s35e = await win.webContents.executeJavaScript(
     `(() => {
-       const before = ${JSON.stringify(s35a ? s35a.saved : null)};
-       try {
-         if (before === null) localStorage.removeItem('fileTree-v2');
-         else localStorage.setItem('fileTree-v2', before);
-       } catch (e) {}
-       let now = 'ERR';
-       try { now = localStorage.getItem('fileTree-v2'); } catch (e) {}
-       return { restored: now === before, len: now ? now.length : null };
+       const tops = Array.from(document.querySelectorAll('.explorer-ul > li > .folder-container'));
+       const openOf = (c) => !!(c.nextElementSibling && c.nextElementSibling.classList.contains('open'));
+       const before = tops.filter(openOf).length;
+       for (const c of tops) {
+         if (!openOf(c)) continue;
+         const icon = c.querySelector('svg.folder-icon');
+         if (icon) icon.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+       }
+       const btn = document.querySelector('.explorer-action-collapse');
+       return {
+         tops: tops.map((c) => c.dataset.folderpath || null),
+         topOpenBefore: before,
+         topOpenAfter: tops.filter(openOf).length,
+         open: document.querySelectorAll('.explorer-ul .folder-outer.open').length,
+         collapseDisabled: btn ? btn.disabled : null,
+         collapseAria: btn ? btn.getAttribute('aria-disabled') : null,
+       };
      })()`,
   );
-  const d35Ok = !!s35d && s35d.restored === true;
+  const e35Ok =
+    e35Ready &&
+    !!s35e &&
+    s35e.tops.length === 3 &&
+    s35e.topOpenBefore > 0 &&
+    s35e.topOpenAfter === 0 &&
+    s35e.open > 0 &&
+    s35e.collapseDisabled === false &&
+    s35e.collapseAria === "false";
+
+  // f. 收尾（硬性）：fileTree-v2 与快照键双双复位回步首值——冒烟不得把
+  //    「全部收起」或一份陈年快照留在用户的 localStorage 里
+  const s35f = await win.webContents.executeJavaScript(
+    `(() => {
+       const beforeTree = ${JSON.stringify(s35pre ? s35pre.tree : null)};
+       const beforeSnap = ${JSON.stringify(s35pre ? s35pre.snap : null)};
+       try {
+         if (beforeTree === null || beforeTree === 'ERR') localStorage.removeItem('fileTree-v2');
+         else localStorage.setItem('fileTree-v2', beforeTree);
+       } catch (e) {}
+       try {
+         if (beforeSnap === null || beforeSnap === 'ERR') localStorage.removeItem(${JSON.stringify(COLLAPSE_SNAP_KEY)});
+         else localStorage.setItem(${JSON.stringify(COLLAPSE_SNAP_KEY)}, beforeSnap);
+       } catch (e) {}
+       let tree = 'ERR', snap = 'ERR';
+       try { tree = localStorage.getItem('fileTree-v2'); } catch (e) {}
+       try { snap = localStorage.getItem(${JSON.stringify(COLLAPSE_SNAP_KEY)}); } catch (e) {}
+       const wantTree = (beforeTree === 'ERR') ? null : beforeTree;
+       const wantSnap = (beforeSnap === 'ERR') ? null : beforeSnap;
+       return {
+         treeRestored: tree === wantTree,
+         snapRestored: snap === wantSnap,
+         len: tree ? tree.length : null,
+         snapNow: snap === null ? null : snap.length,
+       };
+     })()`,
+  );
+  const f35Ok = !!s35f && s35f.treeRestored === true && s35f.snapRestored === true;
 
   record(
-    "目录树一键收起（点钮才收 + 除当前页祖先链外全收 + 落盘全 collapsed + 钮置灰 + SPA 往返保持 + 收尾复位）",
-    a35Ok && b35Ok && c35Ok && d35Ok,
-    `a 收起前：展开=${s35a ? s35a.open : "-"}/${s35a ? s35a.total : "-"}, 钮 disabled=${s35a ? s35a.disabled : "-"}（须 false）, 当前页=${s35a ? s35a.slug : "-"}; ` +
-      `b 点收起后：展开=${s35b ? s35b.open : "-"}（须 <${s35a ? s35a.open : "-"} 且 ≤6）, 仍展开的节点=${s35b ? JSON.stringify(s35b.paths) : "-"}, 全为祖先或合成层=${s35b ? s35b.ancestorOnly : "-"}, ` +
-      `落盘 every(collapsed)=${s35b ? s35b.everyCollapsed : "-"}（须 true）／条目=${s35b ? s35b.savedLen : "-"}（须 =${s35b ? s35b.total : "-"}）, 钮 disabled=${s35b ? s35b.disabled : "-"}／aria=${s35b ? s35b.ariaDisabled : "-"}; ` +
-      `c SPA 往返后：展开=${s35c ? s35c.open : "-"}（须 ≤6）, 全为祖先或合成层=${s35c ? s35c.ancestorOnly : "-"}; ` +
-      `d 收尾：fileTree-v2 写回=${d35Ok}（长度 ${s35d ? s35d.len : "-"}）`,
+    "目录树一键收起两段化与展开还原（点钮才收 + 第一段留祖先链 + 第二段全收 + 快照还原 + 导航与重开后钮不恒灰 + 手动收顶层不锁死 + 收尾双键复位）",
+    a35Ok && b35Ok && c35Ok && d35Ok && e35Ok && f35Ok,
+    `a 两段：起点展开=${s35a0 ? s35a0.open : "-"}/${s35a0 ? s35a0.total : "-"}（须 >祖先链 ${s35a0 ? s35a0.ancestorCount : "-"}）, 收起钮=${s35a0 ? s35a0.collapseDisabled : "-"}／还原钮=${s35a0 ? s35a0.expandDisabled : "-"}（须 false／true）; ` +
+      `第一段后展开=${s35a1 ? s35a1.open : "-"}（须 ===祖先链 ${s35a1 ? s35a1.ancestorCount : "-"} 且 <${s35a0 ? s35a0.open : "-"}）, 仍展开的节点=${s35a1 ? JSON.stringify(s35a1.paths) : "-"}, 收起钮=${s35a1 ? s35a1.collapseDisabled : "-"}（须 false）／还原钮=${s35a1 ? s35a1.expandDisabled : "-"}（须 false）, 快照=${s35a1 ? s35a1.snapPresent : "-"}／条目 ${s35a1 ? s35a1.snapLen : "-"}, 落盘条目=${s35a1 ? s35a1.savedLen : "-"}（须 =${s35a1 ? s35a1.total : "-"}）; ` +
+      `第二段后展开=${s35a2 ? s35a2.open : "-"}（须 0）, 收起钮=${s35a2 ? s35a2.collapseDisabled : "-"}／aria=${s35a2 ? s35a2.collapseAria : "-"}（须 true）, 快照未被覆盖=${s35a1 && s35a2 ? s35a2.snapLen === s35a1.snapLen : "-"}; ` +
+      `b 展开还原：展开=${s35b ? s35b.open : "-"}（须 ===起点 ${s35a0 ? s35a0.open : "-"}）, 快照已清=${s35b ? !s35b.snapPresent : "-"}, 还原钮=${s35b ? s35b.expandDisabled : "-"}（须 true）, 收起钮=${s35b ? s35b.collapseDisabled : "-"}（须 false）; ` +
+      `c 导航恢复：全收点击=${c35Clicks} 次→展开=${s35c0 ? s35c0.open : "-"}／钮灰=${s35c0 ? s35c0.collapseDisabled : "-"}; 跳 ${SPA_HOPS[1]} 后展开=${s35c ? s35c.open : "-"}（须 ===祖先链 ${s35c ? s35c.ancestorCount : "-"}）, 收起钮 disabled=${s35c ? s35c.collapseDisabled : "-"}（须 false）; ` +
+      `d 持久化回归：全收点击=${d35Clicks} 次后硬重开同页 → 展开=${s35d ? s35d.open : "-"}（须 ===祖先链 ${s35d ? s35d.ancestorCount : "-"} 且 >0）, 收起钮 disabled=${s35d ? s35d.collapseDisabled : "-"}／aria=${s35d ? s35d.collapseAria : "-"}（须 false）; ` +
+      `e 手动收顶层：顶层组=${s35e ? s35e.tops.length : "-"}（须 3）, 收前展开顶层=${s35e ? s35e.topOpenBefore : "-"}→收后=${s35e ? s35e.topOpenAfter : "-"}（须 0）, 全树仍展开=${s35e ? s35e.open : "-"}（须 >0）, 收起钮 disabled=${s35e ? s35e.collapseDisabled : "-"}（须 false）; ` +
+      `f 收尾：fileTree-v2 复位=${s35f ? s35f.treeRestored : "-"}（长度 ${s35f ? s35f.len : "-"}）, 快照键复位=${s35f ? s35f.snapRestored : "-"}（现长度 ${s35f ? s35f.snapNow : "-"}）`,
   );
 
   // —— 离线报告 ——
