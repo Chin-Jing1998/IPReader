@@ -541,22 +541,62 @@ function regroupByTaxonomy(
 }
 
 /**
+ * 目录行形态判据（阶段5.11 波M）：该节点是否渲染成**文件夹行**——带折叠箭头、带
+ * 兄弟 `.folder-outer` 子树、且占一条折叠态记录。返回 false 即渲染成普通文档行
+ * （`template-file` 的 `li > a`，点击直达正文）。
+ *
+ * 判据 = `isFolder && children.length > 0`，外加一道**深度门**：顶层行与书层行
+ * 即便无子也保持文件夹形态。
+ *
+ * 降级的由来：库内 789 个条文页以「目录页」形态落盘（`…/1-第一条·立法目的/index.md`），
+ * fileTrie 的 insert 沿途把父段置 `isFolder = true`，却没有任何子项挂上去；渲染成
+ * 文件夹行后带一枚永远展不出内容的箭头，字号字重也与真正的章节同档。用户两次反馈
+ * 「条文应当就是正文」，指的就是这批行。
+ *
+ * 两道门缺一不可：
+ * ① **顶层**（`parentKey === null`）——`0-图谱总览` 本身就是无子的目录页。降级后
+ *    顶层只剩两个 `.folder-container`，desktop/smoke.cjs 步 35-e 的 `tops === 3`
+ *    立即变红；顶层三巨头是目录树骨架，形态本就该一致。
+ * ② **书层**（`parentKey` 命中 `isOrderableParentKey`，即父为合成分组层）——书目行
+ *    承载同级重排手柄（`data-orderable` 与 attachDragHandle 只挂在 `.folder-container`
+ *    上）。现有 76 部书本本有子，但一旦出现「只有 index、没有条文」的单页书，降级会
+ *    让它悄悄失去手柄并从顺序表里掉队。此处用**父键前缀**而非深度数字判定，与本文件
+ *    既有的「禁用深度魔数」纪律同源：分组层增删时深度整体漂移，前缀不会。
+ *
+ * **严禁改写成 `node.isFolder = false`**：util/fileTrie.ts 的 slug getter 靠 isFolder
+ * 补 `/index`，置 false 后 slug 退化成并不存在的 `…/1-第一条·立法目的`——链接 404，
+ * sortNodes 的「文件夹在前」也随之错位。本判据只改**渲染形态与折叠态归属**，
+ * 节点自身的 isFolder 一字不动。
+ */
+function isFolderRow(node: FileTrieNode, parentKey: string | null): boolean {
+  if (!node.isFolder) {
+    return false
+  }
+  return node.children.length > 0 || parentKey === null || isOrderableParentKey(parentKey)
+}
+
+/**
  * 按渲染树遍历出全部目录节点的折叠键与显示深度（根的直接子节点为 1）。
  * 取代上游 `trie.getFolderPaths()`：后者只认 slug，既拿不到合成节点的稳定键，
  * 也给不出分组后的真实层级。未启用分组时两者结果等价（仅少一条恒不参与渲染的根条目）。
  */
 function collectFolderStates(trie: FileTrieNode): Array<{ path: string; depth: number }> {
   const out: Array<{ path: string; depth: number }> = []
-  const walk = (node: FileTrieNode, depth: number) => {
+  const walk = (node: FileTrieNode, depth: number, parentKey: string | null) => {
     for (const child of node.children) {
-      if (!child.isFolder) {
+      // 波M 铁律：本判据与 createFolderNode 子循环、setupExplorer 根层循环两处的
+      // dispatch **必须同源**（三处共调 isFolderRow）。漏改任一处，折叠态表就与渲染树
+      // 差出 789 条，「push 顺序＝渲染树前序遍历」这条不变式（见 createFolderNode 内
+      // FolderRecord 一带说明）随之作废——表与 flatFolders 整体串行错位一格。
+      if (!isFolderRow(child, parentKey)) {
         continue
       }
-      out.push({ path: folderStateKey(child), depth })
-      walk(child, depth + 1)
+      const key = folderStateKey(child)
+      out.push({ path: key, depth })
+      walk(child, depth + 1, key)
     }
   }
-  walk(trie, 1)
+  walk(trie, 1, null)
   return out
 }
 // ==== /patent-kb ====
@@ -616,6 +656,10 @@ function applyCustomOrder(trie: FileTrieNode, table: ExplorerOrderTable) {
   }
   const walk = (node: FileTrieNode) => {
     for (const child of node.children) {
+      // 波M 例外说明：本处**刻意**仍用裸 isFolder，不改 isFolderRow。三处 dispatch
+      // 的同源要求只覆盖「渲染树形态 + 折叠态表」，本函数排的是**子项次序**，且下一行
+      // 就被 isOrderableParentKey 收窄到合成分组层——合成节点恒有子（createSyntheticNode
+      // 建出即挂子），落不进降级分支；条文层根本不在遍历范围内。改与不改结果逐位相同。
       if (!child.isFolder) {
         continue
       }
@@ -1723,7 +1767,10 @@ function createFolderNode(
   siblings.push(record)
 
   for (const child of node.children) {
-    const childNode = child.isFolder
+    // 波M：形态判据统一走 isFolderRow（三处 dispatch 同源，见该函数注释里的铁律）。
+    // 无子的条文目录页在此落到 createFileNode 分支——因节点自身的 isFolder 仍为 true，
+    // node.slug 照旧补出 `…/index`，href / data-for / 折叠键取值与降级前逐字相同。
+    const childNode = isFolderRow(child, folderPath)
       ? createFolderNode(
           currentSlug,
           child,
@@ -2438,7 +2485,10 @@ async function setupExplorer(currentSlug: FullSlug) {
     }
     const fragment = document.createDocumentFragment()
     for (const child of trie.children) {
-      const node = child.isFolder
+      // 波M：与 collectFolderStates、createFolderNode 子循环同源的形态判据。根层
+      // parentKey 传 null，深度门①在此生效——顶层的 `0-图谱总览` 虽无子也保持
+      // 文件夹形态（详见 isFolderRow）。
+      const node = isFolderRow(child, null)
         ? createFolderNode(currentSlug, child, opts, 1, tree, root, tree.rootFolders, null)
         : createFileNode(currentSlug, child, tree, root)
 

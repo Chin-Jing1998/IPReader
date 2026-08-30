@@ -58,8 +58,9 @@
 // 35 去 law-01-01 点收起），放在中段会污染前面各步的图谱状态与截图基线。
 // 两步各自持有硬性收尾：34-g 把 kb-explorer-order:v1 复位回步首快照，35-d 把
 // fileTree-v2 写回步首快照——冒烟不得把「自定义排序」或「全部收起」留在用户的
-// localStorage 里。全程不碰图谱页的一键收起：步 29 的「初始展开 ≥1000」正是
+// localStorage 里。全程不碰图谱页的一键收起：步 29 的「初始展开 ≥397」正是
 // 「绝不自动收起」的常设护栏，本批新钮若被误接进 nav 回调，那条断言会立刻变红。
+//（阈值由 ≥1000 重标定为 ≥397，见阶段5.11 波M：条文行降级后文件夹行 1,286→497。）
 // 新增两步实测合计约 20s，600s 超时预算无需上调。
 // 阶段5.10 波C（目录抽屉 hover ＋ 多选）扩写步 33、步数仍为 35：抽屉新增
 // 「鼠标悬停自动弹出/移出自动隐藏」与「复选框多选节点」两项能力，步 33 随之
@@ -103,7 +104,8 @@
 //   e 手动收起顶层三组后钮仍可点（旧实现在此同样恒灰，从未点过按钮也失效）；
 //   f 收尾双键复位（fileTree-v2 + 快照键，硬性）。
 // 祖先链条数不写死：由 a.active 沿 DOM 上溯收集 .folder-outer 得出。
-// 步 29 的图谱页「初始展开 ≥1000」原样不动——「一键收起绝不自动执行」仍是纪律。
+// 步 29 的图谱页「初始展开 ≥397」（阶段5.11 波M 重标定，原 ≥1000）本步不碰——
+// 「一键收起绝不自动执行」仍是纪律。
 // 总超时仍为 660s：新增两次 loadURL 与三段点击等待，本机实测步 35 由约 8s 增至约 25s。
 // 阶段5.11 波J（法域标签多选化）扩写步 28/29/32/33、步数仍为 35：标签行由单选改多选，
 // hiddenSections 仍是唯一事实源、标签行是其反解视图，故各步的既有单选断言逐值不动，
@@ -1628,7 +1630,12 @@ async function main() {
        total: document.querySelectorAll('.explorer-ul .folder-outer').length,
      }))()`,
   );
-  const expandOk = expandProbe.open >= 1000;
+  // 阈值随阶段5.11 波M 重标定：条文目录页降级为文档行后，全库文件夹行由 1,286 减为
+  // 497（789 个无子条文页不再产出 .folder-outer；顶层「0-图谱总览」按深度门保留）。
+  // 图谱页 graphExpandToDepth=6 覆盖全部 5 层文件夹，故 open 实测即 total=497。
+  // 取实测值的八成向下取整（497×0.8→397）留出语料增删余量——本断言守的是
+  // 「一键收起绝不自动执行」这条纪律（首访必须大面积铺开），不是精确规模。
+  const expandOk = expandProbe.open >= 397;
   // 手动折叠任一文件夹再展开复原：书夹标题在 link 行为下是 <a>，点它会跳走，
   // 故经 .folder-icon 触发 toggleFolder。注意 .folder-icon 是 SVG 元素，
   // SVGElement 无 HTMLElement.click() 方法，须派发 MouseEvent（toggleFolder 读
@@ -1997,7 +2004,7 @@ async function main() {
       branchResetOk &&
       homeOk &&
       reuseToggleOk,
-    `初始展开：.folder-outer.open=${expandProbe.open}/${expandProbe.total}（须 ≥1000）; ` +
+    `初始展开：.folder-outer.open=${expandProbe.open}/${expandProbe.total}（须 ≥397）; ` +
       `fileTree 隔离：折叠再展开后 v2 逐字节不变=${isolationProbe.v2After === v2Before}, graph 键存在=${!!isolationProbe.graphKey}; ` +
       `a-d 目录直达：落地 path=${afterNav.path}, title="${afterNav.title}", kb:graphlocate=${afterNav.locateCount} 次（恒 0）, ` +
       `落地页 .ge-panel 存在=${afterNav.panelExists}（须 false）, 点击瞬间重建计数=${navClickSnap.callsAtClick}（哨兵①·同步快照）; ` +
@@ -3501,7 +3508,7 @@ async function main() {
 
   // 35. 目录树一键收起（两段）＋展开还原  —— 阶段5.11 波E 全面改写为**行为断言**
   //     **绝不自动执行**：只有用户点这枚钮才收起（图谱页首访仍按「书下 3 层可见」
-  //     铺开，步 29 的 open ≥1000 即这条纪律的常设护栏，本步全程不碰图谱页）。
+  //     铺开，步 29 的 open ≥397 即这条纪律的常设护栏，本步全程不碰图谱页）。
   //     新语义分两段：第一段收「非当前页祖先链」的全部展开项（祖先链保持可见），
   //     第二段（再点一次）连祖先链一起收干净；「展开还原」钮把状态回灌成
   //     首次收起之前的那份快照（localStorage 的 `fileTree-v2:snapshot`）。
@@ -3613,6 +3620,12 @@ async function main() {
 
   // a. 两段序列：初始 open0 > 祖先链数 → 第一次点后 open===祖先链数且严格小于 open0
   //    → 第二次点后 open===0 且钮置灰；快照在第一次点击时写下、第二次点击不覆盖
+  //    **`open0 > ancestorCount` 的余量出自哪里**（阶段5.11 波M 追注）：本页
+  //    （1-专利法/1-总则/law-01-01）是叶子文件行，openLevels:1 使 depth===1 的三个顶层
+  //    默认展开，祖先链另有 CN／专利／D1／1-专利法／1-总则 五级——即 open0=7、
+  //    ancestorCount=5，余量恰为两个**非祖先**顶层（0-图谱总览 与 9-关键词索引）。
+  //    波M 的深度门保住了 0-图谱总览 的文件夹形态，故余量仍是 2；若哪天取消深度门，
+  //    余量降为 1，本断言仍成立但只剩一条命，届时须改用别的页面取样。
   const s35a0 = await win.webContents.executeJavaScript(COLLAPSE_STATS);
   await clickCollapse();
   const s35a1 = await win.webContents.executeJavaScript(COLLAPSE_STATS);
@@ -3701,6 +3714,9 @@ async function main() {
 
   // e. 手动收起顶层三组：旧实现下这同样会触发恒灰（从未点过按钮也失效）。
   //    新判据只看 DOM——顶层收起后子孙的 open 类仍在，故钮必须仍可点。
+  //    `tops === 3` 期望值在阶段5.11 波M 后**逐值不变**：0-图谱总览 虽是无子的
+  //    目录页，但 isFolderRow 的深度门①（parentKey===null）把顶层排除在降级之外，
+  //    它仍渲染成 .folder-container。这条断言正是那道门存在的第一条理由。
   await win.loadURL(`${base}/${encodeURI(COLLAPSE_PAGE)}`);
   const e35Ready = await waitCollapseReady();
   const s35e = await win.webContents.executeJavaScript(

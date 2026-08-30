@@ -227,6 +227,21 @@ button.desktop-explorer {
       color: var(--dark);
       opacity: 0.75;
       pointer-events: all;
+      // patent-kb（阶段5.11 波M）：长串断行兜底，与 .folder-container 里
+      // `div > a` / `div > button span` 那两处同款（需求⑧的兜底三件套之一）。
+      // 波M 把 789 个无子条文页从文件夹行降级成文档行，这批行原先吃的是
+      // .folder-container 那条规则；不在此补齐，它们就是**唯一**丢掉断行兜底的一批。
+      // 现网无一条目录标题含 ≥16 位连续 ASCII（789 条文行 + 6,569 文档行逐条扫描
+      // 命中 0），故本条当下零视觉变化，纯属把降级前已有的性质原样带过来。
+      //
+      // **font-size 刻意不在此处补**（探查建议 0.95rem 经实测否决）：
+      // ① custom.scss 第十二节的同选择器规则（`font-size: .875rem`）特异性同为
+      //    (0,2,2)，且在打包产物 public/index.css 里排在本条之后（custom.scss 于组件
+      //    样式之后拼装），后位胜出——此处写 font-size 是死代码，实测已核；
+      // ② 那条规则的设计意图是「文件夹行 15px/600 重于叶子行 14px/500」，波M 的目标
+      //    恰是让条文行**变成叶子行**，与之同向；在此上调字号反而会把全库 6,569 条
+      //    文档行一起放大，与「样式对齐文档行」相悖。
+      overflow-wrap: anywhere;
 
       &.active {
         opacity: 1;
