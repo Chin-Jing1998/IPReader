@@ -545,23 +545,26 @@ function regroupByTaxonomy(
  * 兄弟 `.folder-outer` 子树、且占一条折叠态记录。返回 false 即渲染成普通文档行
  * （`template-file` 的 `li > a`，点击直达正文）。
  *
- * 判据 = `isFolder && children.length > 0`，外加一道**深度门**：顶层行与书层行
+ * 判据 = `isFolder && children.length > 0`，外加一道**书层门**：父为合成分组层的行
  * 即便无子也保持文件夹形态。
  *
- * 降级的由来：库内 789 个条文页以「目录页」形态落盘（`…/1-第一条·立法目的/index.md`），
- * fileTrie 的 insert 沿途把父段置 `isFolder = true`，却没有任何子项挂上去；渲染成
- * 文件夹行后带一枚永远展不出内容的箭头，字号字重也与真正的章节同档。用户两次反馈
- * 「条文应当就是正文」，指的就是这批行。
+ * 降级的由来：库内 790 个目录页无任何子项（789 个条文页以 `…/1-第一条·立法目的/index.md`
+ * 形态落盘，另加顶层的 `0-图谱总览/index`）。fileTrie 的 insert 沿途把父段置
+ * `isFolder = true`，却没有任何子项挂上去；渲染成文件夹行后带一枚**永远展不出内容的
+ * 箭头**，字号字重还与真正的章节同档。用户两次反馈「条文应当就是正文」，症结正是
+ * 这枚误导性的空箭头。
  *
- * 两道门缺一不可：
- * ① **顶层**（`parentKey === null`）——`0-图谱总览` 本身就是无子的目录页。降级后
- *    顶层只剩两个 `.folder-container`，desktop/smoke.cjs 步 35-e 的 `tops === 3`
- *    立即变红；顶层三巨头是目录树骨架，形态本就该一致。
- * ② **书层**（`parentKey` 命中 `isOrderableParentKey`，即父为合成分组层）——书目行
- *    承载同级重排手柄（`data-orderable` 与 attachDragHandle 只挂在 `.folder-container`
- *    上）。现有 76 部书本本有子，但一旦出现「只有 index、没有条文」的单页书，降级会
- *    让它悄悄失去手柄并从顺序表里掉队。此处用**父键前缀**而非深度数字判定，与本文件
- *    既有的「禁用深度魔数」纪律同源：分组层增删时深度整体漂移，前缀不会。
+ * 唯一保留的门是**书层**（`parentKey` 命中 `isOrderableParentKey`，即父为合成分组层）：
+ * 书目行承载同级重排手柄（`data-orderable` 与 attachDragHandle 只挂在
+ * `.folder-container` 上）。现有 76 部书本本有子，但一旦出现「只有 index、没有条文」
+ * 的单页书，降级会让它悄悄失去手柄并从顺序表里掉队。此处用**父键前缀**而非深度数字
+ * 判定，与本文件既有的「禁用深度魔数」纪律同源：分组层增删时深度整体漂移，前缀不会。
+ *
+ * **顶层不设门**（波M 补丁修订，原实现曾豁免 `parentKey === null`）：`0-图谱总览`
+ * 同样是无子目录页，留着它那枚空箭头等于把用户抱怨的现象在骨架层原样保留。降级后它
+ * 成为顶层文档行，点击行为逐字不变（folderClickBehavior:"link" 下标题本就是 `<a>`
+ * 直达该页），仅箭头消失。连带影响仅一处：desktop/smoke.cjs 步 35-e 的顶层
+ * `.folder-container` 计数由 3 改 2（顶层 `li` 仍是 3+1 占位，34-f 的 roots===4 不受影响）。
  *
  * **严禁改写成 `node.isFolder = false`**：util/fileTrie.ts 的 slug getter 靠 isFolder
  * 补 `/index`，置 false 后 slug 退化成并不存在的 `…/1-第一条·立法目的`——链接 404，
@@ -572,7 +575,7 @@ function isFolderRow(node: FileTrieNode, parentKey: string | null): boolean {
   if (!node.isFolder) {
     return false
   }
-  return node.children.length > 0 || parentKey === null || isOrderableParentKey(parentKey)
+  return node.children.length > 0 || isOrderableParentKey(parentKey)
 }
 
 /**
@@ -586,7 +589,7 @@ function collectFolderStates(trie: FileTrieNode): Array<{ path: string; depth: n
     for (const child of node.children) {
       // 波M 铁律：本判据与 createFolderNode 子循环、setupExplorer 根层循环两处的
       // dispatch **必须同源**（三处共调 isFolderRow）。漏改任一处，折叠态表就与渲染树
-      // 差出 789 条，「push 顺序＝渲染树前序遍历」这条不变式（见 createFolderNode 内
+      // 差出 790 条，「push 顺序＝渲染树前序遍历」这条不变式（见 createFolderNode 内
       // FolderRecord 一带说明）随之作废——表与 flatFolders 整体串行错位一格。
       if (!isFolderRow(child, parentKey)) {
         continue
@@ -2486,8 +2489,8 @@ async function setupExplorer(currentSlug: FullSlug) {
     const fragment = document.createDocumentFragment()
     for (const child of trie.children) {
       // 波M：与 collectFolderStates、createFolderNode 子循环同源的形态判据。根层
-      // parentKey 传 null，深度门①在此生效——顶层的 `0-图谱总览` 虽无子也保持
-      // 文件夹形态（详见 isFolderRow）。
+      // parentKey 传 null，故书层门在此恒不成立——顶层的 `0-图谱总览` 因无子而降级为
+      // 文档行（波M 补丁：顶层不设豁免，详见 isFolderRow）。
       const node = isFolderRow(child, null)
         ? createFolderNode(currentSlug, child, opts, 1, tree, root, tree.rootFolders, null)
         : createFileNode(currentSlug, child, tree, root)

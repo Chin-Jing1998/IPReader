@@ -101,7 +101,8 @@
 //   c 导航恢复（全收后 SPA 跳到不同祖先链的条文页，收起钮 disabled===false）；
 //   d 持久化回归（全收后硬 loadURL 重开同页，祖先链重新强制展开、钮非灰——
 //     覆盖位刻意不落盘，故这是预期语义而非残留）；
-//   e 手动收起顶层三组后钮仍可点（旧实现在此同样恒灰，从未点过按钮也失效）；
+//   e 手动收起全部顶层文件夹组后钮仍可点（旧实现在此同样恒灰，从未点过按钮也失效）；
+//     组数在阶段5.11 波M 补丁后由 3 减为 2（0-图谱总览 降级为文档行，不再带箭头）；
 //   f 收尾双键复位（fileTree-v2 + 快照键，硬性）。
 // 祖先链条数不写死：由 a.active 沿 DOM 上溯收集 .folder-outer 得出。
 // 步 29 的图谱页「初始展开 ≥397」（阶段5.11 波M 重标定，原 ≥1000）本步不碰——
@@ -1630,11 +1631,12 @@ async function main() {
        total: document.querySelectorAll('.explorer-ul .folder-outer').length,
      }))()`,
   );
-  // 阈值随阶段5.11 波M 重标定：条文目录页降级为文档行后，全库文件夹行由 1,286 减为
-  // 497（789 个无子条文页不再产出 .folder-outer；顶层「0-图谱总览」按深度门保留）。
-  // 图谱页 graphExpandToDepth=6 覆盖全部 5 层文件夹，故 open 实测即 total=497。
-  // 取实测值的八成向下取整（497×0.8→397）留出语料增删余量——本断言守的是
-  // 「一键收起绝不自动执行」这条纪律（首访必须大面积铺开），不是精确规模。
+  // 阈值随阶段5.11 波M 重标定：无子目录页降级为文档行后，全库文件夹行由 1,286 减为
+  // 496（790 个无子目录页——789 条文页 + 顶层 0-图谱总览——不再产出 .folder-outer）。
+  // 图谱页 graphExpandToDepth=6 覆盖全部 5 层文件夹，故 open 实测即 total=496。
+  // 取实测值的八成向下取整（497×0.8→397，补丁摘掉 1 行后仍沿用该阈，余量充足）
+  // 留出语料增删空间——本断言守的是「一键收起绝不自动执行」这条纪律
+  //（首访必须大面积铺开），不是精确规模。
   const expandOk = expandProbe.open >= 397;
   // 手动折叠任一文件夹再展开复原：书夹标题在 link 行为下是 <a>，点它会跳走，
   // 故经 .folder-icon 触发 toggleFolder。注意 .folder-icon 是 SVG 元素，
@@ -3620,12 +3622,13 @@ async function main() {
 
   // a. 两段序列：初始 open0 > 祖先链数 → 第一次点后 open===祖先链数且严格小于 open0
   //    → 第二次点后 open===0 且钮置灰；快照在第一次点击时写下、第二次点击不覆盖
-  //    **`open0 > ancestorCount` 的余量出自哪里**（阶段5.11 波M 追注）：本页
-  //    （1-专利法/1-总则/law-01-01）是叶子文件行，openLevels:1 使 depth===1 的三个顶层
-  //    默认展开，祖先链另有 CN／专利／D1／1-专利法／1-总则 五级——即 open0=7、
-  //    ancestorCount=5，余量恰为两个**非祖先**顶层（0-图谱总览 与 9-关键词索引）。
-  //    波M 的深度门保住了 0-图谱总览 的文件夹形态，故余量仍是 2；若哪天取消深度门，
-  //    余量降为 1，本断言仍成立但只剩一条命，届时须改用别的页面取样。
+  //    **`open0 > ancestorCount` 的余量出自哪里**（阶段5.11 波M 追注，补丁后修订）：
+  //    本页（1-专利法/1-总则/law-01-01）是叶子文件行，openLevels:1 使 depth===1 的顶层
+  //    文件夹默认展开，祖先链另有 CN／专利／D1／1-专利法／1-总则 五级。波M 补丁把无子的
+  //    0-图谱总览 降级为顶层文档行后，depth===1 的文件夹只剩 CN 与 9-关键词索引 两个
+  //    ——即 open0=6、ancestorCount=5，**余量仅剩 1**，来源是唯一的非祖先顶层
+  //    9-关键词索引。余量已无冗余：若将来 9-关键词索引 也被收编进合成分组层，本断言
+  //    会退化成 5>5 而变红，届时须改用祖先链更短的页面取样（例如书根页）。
   const s35a0 = await win.webContents.executeJavaScript(COLLAPSE_STATS);
   await clickCollapse();
   const s35a1 = await win.webContents.executeJavaScript(COLLAPSE_STATS);
@@ -3712,11 +3715,12 @@ async function main() {
     s35d.collapseDisabled === false &&
     s35d.collapseAria === "false";
 
-  // e. 手动收起顶层三组：旧实现下这同样会触发恒灰（从未点过按钮也失效）。
+  // e. 手动收起顶层文件夹组：旧实现下这同样会触发恒灰（从未点过按钮也失效）。
   //    新判据只看 DOM——顶层收起后子孙的 open 类仍在，故钮必须仍可点。
-  //    `tops === 3` 期望值在阶段5.11 波M 后**逐值不变**：0-图谱总览 虽是无子的
-  //    目录页，但 isFolderRow 的深度门①（parentKey===null）把顶层排除在降级之外，
-  //    它仍渲染成 .folder-container。这条断言正是那道门存在的第一条理由。
+  //    `tops === 2`（阶段5.11 波M 补丁由 3 改 2）：顶层 li 仍是三条，但无子的
+  //    0-图谱总览 已随「空箭头一并去除」降级为文档行（li > a，无 .folder-container），
+  //    本选择器只数带 .folder-container 的顶层行，故命中 CN 与 9-关键词索引 两条。
+  //    顶层 li 总数不受影响，步 34-f 的 roots===4（3 顶层 + 1 占位）逐值不变。
   await win.loadURL(`${base}/${encodeURI(COLLAPSE_PAGE)}`);
   const e35Ready = await waitCollapseReady();
   const s35e = await win.webContents.executeJavaScript(
@@ -3743,7 +3747,7 @@ async function main() {
   const e35Ok =
     e35Ready &&
     !!s35e &&
-    s35e.tops.length === 3 &&
+    s35e.tops.length === 2 &&
     s35e.topOpenBefore > 0 &&
     s35e.topOpenAfter === 0 &&
     s35e.open > 0 &&
@@ -3788,7 +3792,7 @@ async function main() {
       `b 展开还原：展开=${s35b ? s35b.open : "-"}（须 ===起点 ${s35a0 ? s35a0.open : "-"}）, 快照已清=${s35b ? !s35b.snapPresent : "-"}, 还原钮=${s35b ? s35b.expandDisabled : "-"}（须 true）, 收起钮=${s35b ? s35b.collapseDisabled : "-"}（须 false）; ` +
       `c 导航恢复：全收点击=${c35Clicks} 次→展开=${s35c0 ? s35c0.open : "-"}／钮灰=${s35c0 ? s35c0.collapseDisabled : "-"}; 跳 ${SPA_HOPS[1]} 后展开=${s35c ? s35c.open : "-"}（须 ===祖先链 ${s35c ? s35c.ancestorCount : "-"}）, 收起钮 disabled=${s35c ? s35c.collapseDisabled : "-"}（须 false）; ` +
       `d 持久化回归：全收点击=${d35Clicks} 次后硬重开同页 → 展开=${s35d ? s35d.open : "-"}（须 ===祖先链 ${s35d ? s35d.ancestorCount : "-"} 且 >0）, 收起钮 disabled=${s35d ? s35d.collapseDisabled : "-"}／aria=${s35d ? s35d.collapseAria : "-"}（须 false）; ` +
-      `e 手动收顶层：顶层组=${s35e ? s35e.tops.length : "-"}（须 3）, 收前展开顶层=${s35e ? s35e.topOpenBefore : "-"}→收后=${s35e ? s35e.topOpenAfter : "-"}（须 0）, 全树仍展开=${s35e ? s35e.open : "-"}（须 >0）, 收起钮 disabled=${s35e ? s35e.collapseDisabled : "-"}（须 false）; ` +
+      `e 手动收顶层：顶层文件夹组=${s35e ? s35e.tops.length : "-"}（须 2＝CN 与 9-关键词索引；0-图谱总览 已降级为文档行）, 收前展开顶层=${s35e ? s35e.topOpenBefore : "-"}→收后=${s35e ? s35e.topOpenAfter : "-"}（须 0）, 全树仍展开=${s35e ? s35e.open : "-"}（须 >0）, 收起钮 disabled=${s35e ? s35e.collapseDisabled : "-"}（须 false）; ` +
       `f 收尾：fileTree-v2 复位=${s35f ? s35f.treeRestored : "-"}（长度 ${s35f ? s35f.len : "-"}）, 快照键复位=${s35f ? s35f.snapRestored : "-"}（现长度 ${s35f ? s35f.snapNow : "-"}）`,
   );
 
