@@ -1079,7 +1079,11 @@ async function main() {
        // border-color: var(--secondary)（search.scss），首卡描边因此按设计
        // 另走 --secondary，与本条测的 --glass-border 基线态无关，取一张不带
        // 该类的卡片才是 baseline 描边。
-       const card = document.querySelector('.result-card:not(.focus)');
+       // 同理排除 :hover（2026-08-30 阶段5.11 波H 补）——上面三者是同一套合并选择器，
+       // 只排 .focus 会漏掉「物理鼠标指针恰停在某张卡上」这一条：冒烟不移动系统光标，
+       // 指针停在窗口内哪张卡上取决于运行时的桌面状态，实测曾据此把本步判成主题化回归
+       // （探针实证 .result-card:hover 命中 1 张、其余卡描边仍是期望的 --glass-border）。
+       const card = document.querySelector('.result-card:not(.focus):not(:hover)');
        const cardCs = card ? getComputedStyle(card) : null;
        const cardRadius = cardCs ? cardCs.borderRadius : null;
        const tokenGlassBorder = rootCs.getPropertyValue('--glass-border').trim();
