@@ -622,6 +622,17 @@ document.addEventListener("nav", async () => {
   // 三者合起来使「不用目录的用户」在首开路径上与波B 之前逐字等价。
   const TOC_PINNED_KEY = "graph-toc-pinned"
 
+  // ---------- 悬停开合（阶段5.10 波C-c） ----------
+  // 进 150ms / 出 300ms，两个门限刻意不对称：
+  //   进 150ms 取自 popover 类控件的通行值——足以滤掉「鼠标路过左上角」的扫掠，
+  //     又短到不让有意悬停的用户觉得没反应；
+  //   出 300ms 必须明显更长，因为 .ge-toc 的悬浮钮与抽屉本体之间隔着 0.35rem 的
+  //     gap，而容器自身是 pointer-events:none（见 graphexplorer.scss 的说明），
+  //     指针穿过这道缝隙时既不在钮上也不在抽屉上，浏览器照常派发 pointerleave。
+  //     没有这段延时，用户从钮往抽屉里移动的途中抽屉就会关掉。
+  const TOC_HOVER_OPEN_MS = 150
+  const TOC_HOVER_CLOSE_MS = 300
+
   /**
    * 钉住态读写一律 try/catch 兜底（先例见 graph.inline.ts 的 getVisited/addToVisited）：
    * localStorage 在隐私模式、配额写满或被扩展改写时会抛，而钉住只是一个体验偏好，
@@ -644,6 +655,7 @@ document.addEventListener("nav", async () => {
     }
   }
 
+  const tocRoot = explorer.querySelector<HTMLElement>(".ge-toc")
   const tocToggle = explorer.querySelector<HTMLButtonElement>(".ge-toc-toggle")
   const tocDrawer = explorer.querySelector<HTMLElement>(".ge-toc-drawer")
   const tocPinBtn = explorer.querySelector<HTMLButtonElement>(".ge-toc-pin")
@@ -661,6 +673,21 @@ document.addEventListener("nav", async () => {
   // 可见性可言，为它遍历 89–1200 行 DOM 是白付；打开时补做即可保证所见即所得）
   let tocDirty = false
   let tocPinned = readTocPinned()
+  /**
+   * 是否启用悬停开合（波C-c）。门控取 `(hover:hover) and (pointer:fine)`：
+   * 触屏与触控笔设备上没有「悬停」这一状态，浏览器会把点击合成为一次
+   * enter→leave，绑上去即「点一下抽屉自己弹出又收回」。不匹配时本节整体不绑，
+   * 触屏用户拿到的是与波C 之前逐字相同的点击开合。
+   * 在挂载闭包内现算而不放模块级：SPA 导航之间设备能力可能变（外接鼠标插拔、
+   * 开发者工具的设备模拟），每次挂载重新问一次的成本可以忽略。
+   */
+  const hoverCapable =
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(hover:hover) and (pointer:fine)").matches
+  // 两枚悬停定时器的句柄放挂载闭包内：SPA 清理时必须双双撤销，否则导航后回调
+  // 会写到已被替换的 DOM 上（先例见 themeChangeTimer / statusAutoClearTimer）
+  let tocHoverOpenTimer: ReturnType<typeof setTimeout> | undefined
+  let tocHoverCloseTimer: ReturnType<typeof setTimeout> | undefined
   // 行/子容器 → 数据条目：折叠展开时据此惰性物化子层，不必把整棵树的 DOM 一次造完
   const tocEntryOf = new WeakMap<HTMLElement, TocEntry>()
 
@@ -882,7 +909,13 @@ document.addEventListener("nav", async () => {
     }
   }
 
-  /** 开合（定案③：开合本身不持久化，挂载时 open = pinned） */
+  /**
+   * 开合（定案③：开合本身不持久化，挂载时 open = pinned）。
+   *
+   * ⚠️ 负向约束（波C-c 硬守）：本函数**只管抽屉的显隐**，绝不触碰选中态——
+   * hover 移出会调 setTocOpen(false)，若在这里顺手清一下锚点，用户勾好 12 个节点
+   * 后鼠标一移开就全没了。「已选节点保持点击显示效果」正是靠两者完全解耦实现的。
+   */
   function setTocOpen(open: boolean) {
     tocOpen = open
     if (tocDrawer !== null) tocDrawer.hidden = !open
@@ -943,7 +976,10 @@ document.addEventListener("nav", async () => {
       // 图内定位语义完全复用 selectNode：相机 400ms 居中 + 选中高亮 + 右栏卡片；
       // 目标域组被隐藏时走它既有的拒绝分支写状态条（置灰行仍可点即为此）。
       void selectNode(slug as FullSlug)
-      if (!tocPinned) setTocOpen(false)
+      // 波C-c：悬停模式下点目录项**不再自动收起**——抽屉本就由鼠标位置决定去留，
+      // 点一下就关掉会让「点几个相邻条目对比着看」变成每次都要重新悬停。
+      // 移开鼠标 300ms 后自会收起。触屏（hoverCapable 为假）保留原行为。
+      if (!hoverCapable && !tocPinned) setTocOpen(false)
       return
     }
     const caret = target.closest<HTMLElement>(".ge-toc-caret")
@@ -967,6 +1003,38 @@ document.addEventListener("nav", async () => {
   /** 「清空(N)」：一次清掉全部锚点（与点画布空白同义，只是不必先找到空白处） */
   const onTocClearClick = () => commitSelection([])
 
+  /**
+   * 悬停进入（波C-c）：先撤销待执行的关闭，再排一次 150ms 后的展开。
+   * 已经展开就直接返回——不排定时器即不会有「已开着还要再开一次」的多余调用，
+   * 也避免把 ensureTocBuilt 的 then 链重复挂上。
+   */
+  const onTocPointerEnter = () => {
+    clearTimeout(tocHoverCloseTimer)
+    if (tocOpen) return
+    tocHoverOpenTimer = setTimeout(() => setTocOpen(true), TOC_HOVER_OPEN_MS)
+  }
+
+  /**
+   * 悬停离开：先撤销待执行的展开（鼠标只是扫过，别让它 150ms 后突然弹出来），
+   * 再看常开锁——tocPinned 为真即**永不自动收起**，这正是「常开」这枚钮在
+   * 波C-c 中的新语义（原「钉住」只管点目录项不收起）。
+   */
+  const onTocPointerLeave = () => {
+    clearTimeout(tocHoverOpenTimer)
+    if (tocPinned) return
+    tocHoverCloseTimer = setTimeout(() => setTocOpen(false), TOC_HOVER_CLOSE_MS)
+  }
+
+  // 挂在 .ge-toc **容器**而非悬浮钮或抽屉本体上：两者是并列的子元素，各绑一份
+  // 就会在它们之间的 gap 上互相触发 leave/enter；挂容器则「钮 + 缝隙 + 抽屉」
+  // 被当作一个整体，只有真正离开这片区域才算 leave。
+  // 容器的 pointer-events:none 不妨碍 enter/leave 派发——这两个事件沿祖先链
+  // 逐个派发（不冒泡但会分别送达），命中的子元素是 pointer-events:auto 的。
+  if (hoverCapable && tocRoot !== null) {
+    tocRoot.addEventListener("pointerenter", onTocPointerEnter)
+    tocRoot.addEventListener("pointerleave", onTocPointerLeave)
+  }
+
   tocToggle?.addEventListener("click", onTocToggleClick)
   tocCloseBtn?.addEventListener("click", onTocCloseClick)
   tocPinBtn?.addEventListener("click", onTocPinClick)
@@ -978,6 +1046,16 @@ document.addEventListener("nav", async () => {
     tocPinBtn?.removeEventListener("click", onTocPinClick)
     tocClearBtn?.removeEventListener("click", onTocClearClick)
     tocTreeBox?.removeEventListener("click", onTocTreeClick)
+    // 波C-c 硬规约：两枚悬停定时器双清、两个悬停监听双解绑。
+    // 定时器不清 → 导航后回调对着已替换的 DOM 调 setTocOpen；
+    // 监听不解绑 → 旧闭包继续持有本次挂载的 tocOpen/tocPinned，下一页的抽屉
+    // 会被上一页的状态操纵。解绑与绑定同条件（hoverCapable），未绑时 remove 也无害。
+    clearTimeout(tocHoverOpenTimer)
+    clearTimeout(tocHoverCloseTimer)
+    if (tocRoot !== null) {
+      tocRoot.removeEventListener("pointerenter", onTocPointerEnter)
+      tocRoot.removeEventListener("pointerleave", onTocPointerLeave)
+    }
     // 数据树与未决的建树 Promise 一并置空：树体持有 1289 个条目对象，
     // 挂载闭包若因任何一处引用被延寿，置空能让这部分立刻可回收
     tocTree = null

@@ -61,6 +61,27 @@
 // localStorage 里。全程不碰图谱页的一键收起：步 29 的「初始展开 ≥1000」正是
 // 「绝不自动收起」的常设护栏，本批新钮若被误接进 nav 回调，那条断言会立刻变红。
 // 新增两步实测合计约 20s，600s 超时预算无需上调。
+// 阶段5.10 波C（目录抽屉 hover ＋ 多选）扩写步 33、步数仍为 35：抽屉新增
+// 「鼠标悬停自动弹出/移出自动隐藏」与「复选框多选节点」两项能力，步 33 随之
+// 由九子项扩为十二子项——
+//   · **步头光标复位**（硬性）：Electron 窗口内的初始光标停在 (0,0)，正压着画布
+//     左上角的 .ge-toc 悬浮钮。hover 开合上线后，那个位置会在页面就绪的瞬间派发
+//     pointerenter 并在 150ms 后自动展开抽屉，把 33-a 的「初始收起」打红。故本步
+//     第一条动作前先 sendInputEvent 把鼠标移到画布中心，再显式向 .ge-toc 派发一次
+//     pointerleave（撤销可能已排上的展开），等 400ms 让两个门限都过期；
+//   · 33-c **反转**：点目录项后抽屉不再自动收起（hover 模式下抽屉由鼠标位置决定
+//     去留，点一下就关会让「连点几个相邻条目对比着看」每次都要重新悬停），
+//     断言由 drawerHidden===true 改为 ===false，「重建计数 0」原样保留；
+//   · 33-h/i 仅措辞随钮的语义由「钉住」改为「常开」，断言值与 removeItem 复位不变；
+//   · 新增 33-j（勾 3 个复选框 → 三锚点与其邻居并集全在选中集、渲染计数 0、
+//     右栏「已选 3 个节点」、chips 3 枚、清空钮含 3、三枚 aria-pressed 全真）；
+//   · 新增 33-l（连勾 13 个 → chips 恒 12、状态条含「最多」、第 13 个未被勾上）；
+//   · 新增 33-k（合成 PointerEvent 直接派发到 .ge-toc 验 150/300ms 门限与常开锁；
+//     enter/leave 不冒泡，必须派发到容器本身而非悬浮钮）。33-k 排在 33-i 之后是
+//     刻意的：它要反复开关常开锁，而 33-h 依赖 33-c2 留下的 pinned=true，故把它
+//     放到硬性收尾之后，并自带「取消常开 + removeItem」的二次复位。
+// 总超时 600→660s：新增三子项含 33-k 的四段门限等待（合计约 2.3s）与 33-l 的
+// 十三次点击，实测新增约 12s，慢档机器按 5 倍留白计需再放宽一档。
 // 阶段5.10 波A（残影根治）改写既有断言、步数仍为 35：容器尺寸变化由「RO 防抖 +
 // crossfade 整实例重建」改为 controller.syncSize() 就地 resize + 相机左上锚定补偿，
 // 故步 32 扩为「四态尺寸 ≤1px ＋ 全程零重建 ＋ 画布恒 1 张 ＋ 32-e 相机守恒公式
@@ -2306,8 +2327,44 @@ async function main() {
   //         反转，原断言为「各触发一次 RO 重建」）——抽屉挂在 .ge-body 而非 .ge-canvas
   //         这条设计仍然成立，只是尺寸变化已不再重建，守的对象改为「重建计数纹丝不动」
   //       g 尺寸中立：抽屉开→关→开，.ge-canvas 尺寸逐像素不动（脱流的凭据）
-  //       h 钉住持久化：reload 后抽屉仍展开
+  //       h 常开持久化：reload 后抽屉仍展开
   //       i 收尾复位 removeItem（硬性，同步骤 24 主题复位规约，防污染用户 localStorage）
+  //       j 复选框多选（波C-b）：勾 3 个 → 并集高亮 + 右栏摘要 + 清空钮计数，全程零重建
+  //       l 上限 12（波C-b）：连勾 13 个 → 恒 12 + 状态条提示 + 第 13 个未勾上
+  //       k 悬停开合与常开锁（波C-c）：150/300ms 门限 + 常开锁，自带二次复位
+  //
+  // 步头光标复位（波C-c 硬性）：Electron 的初始光标在窗口 (0,0)，正压着
+  // .ge-toc 的悬浮钮。hover 开合上线后，那里会派发 pointerenter 并在 150ms 后
+  // 把抽屉展开，33-a 的「初始收起」必被打红——且这不是缺陷，是冒烟环境的光标
+  // 落点问题。故先把鼠标移到画布中心（真实输入事件，Chromium 据此更新 hover），
+  // 再显式向 .ge-toc 派发一次 pointerleave 撤销可能已排上的展开定时器，
+  // 最后等 400ms 让 150/300ms 两个门限都过期。
+  const tocCenter = await win.webContents.executeJavaScript(
+    `(() => {
+       const box = document.querySelector('.ge-canvas');
+       if (!box) return null;
+       const r = box.getBoundingClientRect();
+       return { x: Math.round(r.left + r.width / 2), y: Math.round(r.top + r.height / 2) };
+     })()`,
+  );
+  if (tocCenter) {
+    win.webContents.sendInputEvent({
+      type: "mouseMove",
+      x: tocCenter.x,
+      y: tocCenter.y,
+    });
+  }
+  await win.webContents.executeJavaScript(
+    `(() => {
+       const root = document.querySelector('.ge-toc');
+       if (!root) return false;
+       root.dispatchEvent(new PointerEvent('pointerleave', {
+         bubbles: false, cancelable: true, pointerId: 1, isPrimary: true }));
+       return true;
+     })()`,
+  );
+  await sleep(400);
+
   const TOC_STATS = `(() => {
      const root = document.querySelector('.ge-toc');
      if (!root) return null;
@@ -2410,18 +2467,20 @@ async function main() {
        calls: window.__smokeRenderCalls,
      };
    })()`;
-  // c1：未钉住态点「3-专利审查指南」——标题须从步 32 遗留的「专利法」转移过来，
-  //     且抽屉按定案自动收起
+  // c1：未开常开锁时点「3-专利审查指南」——标题须从步 32 遗留的「专利法」转移过来。
+  //     **阶段5.10 波C-c 反转**：抽屉不再自动收起（drawerHidden 由 true 改为 false）。
+  //     悬停开合上线后，抽屉的去留改由鼠标位置决定：点一下就关，会让「连点几个
+  //     相邻条目对比着看」每次都得重新悬停。收起交给「移开鼠标 300ms」。
+  //     触屏（matchMedia 不匹配 hover:hover）仍走原来的「点完即收」，那条路径
+  //     不在本冒烟的覆盖范围内（Electron 恒为精确指针设备）。
+  //     「重建计数 0」原样保留——点目录行走的仍是 focus 定位而非重建兜底。
   await win.webContents.executeJavaScript(
     `document.querySelector('.ge-toc-link[data-slug="3-专利审查指南/index"]').click()`,
   );
   await sleep(600);
   const c33a = await win.webContents.executeJavaScript(READ_PANEL);
-  // c2：重开抽屉 → 钉住 → 点「1-专利法」：标题再次转移，抽屉因钉住而保持展开
-  await win.webContents.executeJavaScript(
-    `document.querySelector('.ge-toc-toggle').click()`,
-  );
-  await sleep(200);
+  // c2：开常开锁 → 点「1-专利法」：标题再次转移，抽屉照样保持展开。
+  //     抽屉此刻已是展开态（c1 不再收起），故无须先重开。
   await win.webContents.executeJavaScript(
     `document.querySelector('.ge-toc-pin').click()`,
   );
@@ -2432,7 +2491,7 @@ async function main() {
   const c33b = await win.webContents.executeJavaScript(READ_PANEL);
   const c33Ok =
     c33a.title === tocTitles.guide &&
-    c33a.drawerHidden === true &&
+    c33a.drawerHidden === false &&
     c33a.calls === 0 &&
     c33b.title === tocTitles.law &&
     c33b.drawerHidden === false &&
@@ -2523,7 +2582,148 @@ async function main() {
     g33Open1.w === g33Open2.w &&
     g33Open1.h === g33Open2.h;
 
-  // h. 钉住持久化：整页重载后抽屉仍展开（挂载时 open = pinned）
+  // ---------- 阶段5.10 波C-b 新增：j 多选、l 上限 ----------
+  // 排在 g 与 h 之间：此刻抽屉展开、常开锁已开（c2 点过）、「1-专利法」的 8 个章行
+  // 已由 d 物化，三个锚点（两本书 + 一个章）不必再额外展开分支即可取到。
+  // h 的 reload 会把选中集连同哨兵一并清掉（多选刻意不跨导航存活），故两子项
+  // 必须排在 reload 之前。
+  const SELECT_STATS = `(() => {
+     const tree = document.querySelector('.ge-toc-tree');
+     const rows = tree ? Array.from(tree.querySelectorAll('.ge-toc-row')) : [];
+     const checks = tree ? Array.from(tree.querySelectorAll('.ge-toc-check')) : [];
+     const on = checks.filter((c) => c.getAttribute('aria-pressed') === 'true');
+     const clear = document.querySelector('.ge-toc-clear');
+     const title = document.querySelector('.ge-panel-content .ge-title');
+     const status = document.querySelector('.ge-search-status');
+     return {
+       checks: checks.length,
+       fieldRowsWithCheck: rows.filter((r) => r.classList.contains('ge-toc-row--field') &&
+                                              r.querySelector('.ge-toc-check')).length,
+       pressed: on.map((c) => c.dataset.slug),
+       selectedRows: rows.filter((r) => r.classList.contains('ge-toc-row--selected')).length,
+       clearHidden: clear ? clear.hidden : null,
+       clearText: clear ? clear.textContent : null,
+       panelTitle: title ? title.textContent : null,
+       chips: document.querySelectorAll('.ge-panel-content .ge-chip--anchor').length,
+       status: status ? status.textContent : null,
+       calls: window.__smokeRenderCalls,
+     };
+   })()`;
+
+  // j. 复选框多选：勾「1-专利法」「3-专利审查指南」与专利法下首个章。
+  //    三条判据缺一不可：
+  //      ① 三个锚点与**任一已知邻居**都在选中集内（并集生效——若内核漏改成
+  //         「只认最后一个锚点」，前两个会当场落空）；
+  //      ② 全程零重建（勾选只改 alpha 强调轴，不该惊动渲染实例）；
+  //      ③ UI 三处同步：右栏「已选 3 个节点」+ chips 3 枚 + 清空钮含 3，
+  //         且三枚复选框 aria-pressed 全真（惰性物化补做漏掉即在此变红）。
+  const callsBeforeSelect = await win.webContents.executeJavaScript(READ_RENDER_CALLS);
+  const firstChapterSlug = await win.webContents.executeJavaScript(
+    `(() => {
+       const row = document.querySelector('.ge-toc-link[data-slug="1-专利法/index"]').closest('.ge-toc-row');
+       const kids = row.nextElementSibling;
+       const c = kids ? kids.querySelector(':scope > .ge-toc-row .ge-toc-check') : null;
+       return c ? c.dataset.slug : null;
+     })()`,
+  );
+  const jSlugs = ["1-专利法/index", "3-专利审查指南/index", firstChapterSlug];
+  for (const slug of jSlugs) {
+    if (!slug) continue;
+    await win.webContents.executeJavaScript(
+      `(() => { const c = document.querySelector('.ge-toc-check[data-slug="' + ${JSON.stringify(slug)} + '"]');
+                if (!c) return false; c.click(); return true; })()`,
+    );
+    await sleep(200);
+  }
+  await sleep(500);
+  const s33j = await win.webContents.executeJavaScript(SELECT_STATS);
+  // 并集判据：三个锚点自身 + 各自的一个已知邻居（取自 __graphIndex 的 links，
+  // 不写死 slug——语料增删章节时断言随之自适应）
+  const j33Union = await win.webContents.executeJavaScript(
+    `(async () => {
+       const simple = (s) => (s === 'index' ? '/' : s.endsWith('/index') ? s.slice(0, -5) : s);
+       const ctl = window.__smokeCtl;
+       if (!ctl) return null;
+       const idx = await window.__graphIndex;
+       const anchors = ${JSON.stringify(jSlugs)}.filter(Boolean).map(simple);
+       const anchorsIn = anchors.map((a) => ctl.isInSelectedSet(a));
+       // 每个锚点取一个在数据集内的邻居（links 已是 SimpleSlug 形态）
+       const neighbours = [];
+       for (const full of ${JSON.stringify(jSlugs)}.filter(Boolean)) {
+         const links = (idx[full] || {}).links || [];
+         const hit = links.find((l) => ctl.isNodeVisible(l));
+         neighbours.push(hit === undefined ? null : { of: full, nb: hit, inSet: ctl.isInSelectedSet(hit) });
+       }
+       return { anchors, anchorsIn, neighbours, ctlAnchors: ctl.getSelectedAnchors() };
+     })()`,
+  );
+  const callsAfterSelect = await win.webContents.executeJavaScript(READ_RENDER_CALLS);
+  const selectRebuilds = callsAfterSelect - callsBeforeSelect;
+  const j33Ok =
+    !!s33j &&
+    !!j33Union &&
+    j33Union.anchorsIn.length === 3 &&
+    j33Union.anchorsIn.every((v) => v === true) &&
+    // 至少一个邻居真的落在并集里（三本书的 links 都非空，恒能取到）
+    j33Union.neighbours.some((n) => n !== null && n.inSet === true) &&
+    selectRebuilds === 0 &&
+    s33j.panelTitle === "已选 3 个节点" &&
+    s33j.chips === 3 &&
+    s33j.clearHidden === false &&
+    s33j.clearText.indexOf("3") >= 0 &&
+    s33j.pressed.length === 3 &&
+    s33j.selectedRows === 3 &&
+    s33j.fieldRowsWithCheck === 0;
+  await shot(win, "图谱目录抽屉-多选三节点");
+
+  // l. 上限 12：在已勾 3 个的基础上再点 10 个复选框（合计 13 次勾选尝试）。
+  //    第 13 次必须被拒——chips 与 aria-pressed 恒 12、状态条给出「最多…」提示，
+  //    且那第 13 个复选框自身仍为未勾状态（拒绝不能只体现在集合里、UI 却勾上）。
+  const l33Click = await win.webContents.executeJavaScript(
+    `(() => {
+       const checks = Array.from(document.querySelectorAll('.ge-toc-check'));
+       const off = checks.filter((c) => c.getAttribute('aria-pressed') !== 'true');
+       const picked = off.slice(0, 10);
+       picked.forEach((c) => c.click());
+       // 第 13 次尝试落在哪一枚：picked 的最后一枚（前 9 枚把总数顶到 12）
+       return { clicked: picked.length,
+                lastSlug: picked.length > 0 ? picked[picked.length - 1].dataset.slug : null };
+     })()`,
+  );
+  await sleep(700);
+  const s33l = await win.webContents.executeJavaScript(SELECT_STATS);
+  const l33Last = await win.webContents.executeJavaScript(
+    `(() => {
+       const c = document.querySelector('.ge-toc-check[data-slug="' + ${JSON.stringify(l33Click.lastSlug || "")} + '"]');
+       return c ? c.getAttribute('aria-pressed') : null;
+     })()`,
+  );
+  const l33Anchors = await win.webContents.executeJavaScript(
+    `window.__smokeCtl ? window.__smokeCtl.getSelectedAnchors().length : -1`,
+  );
+  const l33Ok =
+    !!s33l &&
+    l33Click.clicked === 10 &&
+    s33l.pressed.length === 12 &&
+    s33l.chips === 12 &&
+    l33Anchors === 12 &&
+    l33Last === "false" &&
+    typeof s33l.status === "string" &&
+    s33l.status.indexOf("最多") >= 0;
+  // 收尾：清空钮一次清干净，把选中态交还给后续子项（h 的 reload 本也会清，
+  // 但显式清空同时验证了清空钮这条路径）
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-toc-clear').click()`,
+  );
+  await sleep(500);
+  const s33lClear = await win.webContents.executeJavaScript(SELECT_STATS);
+  const l33ClearOk =
+    !!s33lClear &&
+    s33lClear.pressed.length === 0 &&
+    s33lClear.selectedRows === 0 &&
+    s33lClear.clearHidden === true;
+
+  // h. 常开持久化：整页重载后抽屉仍展开（挂载时 open = pinned）
   await win.webContents.reload();
   let ready33 = false;
   for (let i = 0; i < 40; i += 1) {
@@ -2557,19 +2757,117 @@ async function main() {
   );
   const i33Ok = !!s33i && s33i.stored === null && s33i.pinned === "false";
 
+  // k. 悬停开合与常开锁（阶段5.10 波C-c）。
+  //    ⚠️ pointerenter/pointerleave **不冒泡**，必须直接派发到 .ge-toc 容器本身：
+  //      派到悬浮钮上，事件不会向上到达容器，监听器一次也不会跑，断言全部空转变绿。
+  //    ⚠️ 排在 33-i（硬性收尾）之后而非之前：本子项要反复开关常开锁，而 33-h
+  //      依赖 33-c2 留下的 pinned=true。故让它最后跑，并自带二次复位
+  //      （取消常开 + removeItem），保证冒烟不把偏好留在用户的 localStorage 里。
+  //    时序取样点刻意跨在门限两侧：150ms 门限验 100ms「还没开」/400ms「已开」，
+  //    300ms 门限验 150ms「还没关」/600ms「已关」——门限若被改成 0 或极大值，
+  //    两侧中必有一侧变红。
+  const PTR = (type) =>
+    `document.querySelector('.ge-toc').dispatchEvent(new PointerEvent('${type}', {
+       bubbles: false, cancelable: true, pointerId: 1, isPrimary: true }))`;
+  const DRAWER_HIDDEN = `(() => { const d = document.querySelector('.ge-toc-drawer'); return d ? d.hidden : null; })()`;
+  // 先把抽屉收起并复位光标（reload 后 Chromium 的光标位置可能回到 (0,0)，
+  // 那里正压着悬浮钮，会与合成事件叠加）
+  if (tocCenter) {
+    win.webContents.sendInputEvent({
+      type: "mouseMove",
+      x: tocCenter.x,
+      y: tocCenter.y,
+    });
+  }
+  await win.webContents.executeJavaScript(
+    `(() => { const c = document.querySelector('.ge-toc-close'); if (c) c.click(); return true; })()`,
+  );
+  await win.webContents.executeJavaScript(PTR("pointerleave"));
+  await sleep(500);
+  const k33Base = await win.webContents.executeJavaScript(DRAWER_HIDDEN);
+  // k1：enter 后 100ms 仍收起（150ms 门限未到）
+  await win.webContents.executeJavaScript(PTR("pointerenter"));
+  await sleep(100);
+  const k33At100 = await win.webContents.executeJavaScript(DRAWER_HIDDEN);
+  // k2：再等 300ms（累计 400ms）已展开
+  await sleep(300);
+  const k33At400 = await win.webContents.executeJavaScript(DRAWER_HIDDEN);
+  // k3：leave 后 150ms 仍展开（300ms 门限未到）
+  await win.webContents.executeJavaScript(PTR("pointerleave"));
+  await sleep(150);
+  const k33Leave150 = await win.webContents.executeJavaScript(DRAWER_HIDDEN);
+  // k4：再等 450ms（累计 600ms）已收起
+  await sleep(450);
+  const k33Leave600 = await win.webContents.executeJavaScript(DRAWER_HIDDEN);
+  // k5：常开锁——开锁后 enter 展开、leave 600ms 仍展开
+  await win.webContents.executeJavaScript(PTR("pointerenter"));
+  await sleep(400);
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-toc-pin').click()`,
+  );
+  const k33Pinned = await win.webContents.executeJavaScript(
+    `document.querySelector('.ge-toc-pin').getAttribute('aria-pressed')`,
+  );
+  await win.webContents.executeJavaScript(PTR("pointerleave"));
+  await sleep(600);
+  const k33Locked = await win.webContents.executeJavaScript(DRAWER_HIDDEN);
+  // k6：二次复位（硬性）——取消常开 + removeItem，与 33-i 同规约
+  const s33k = await win.webContents.executeJavaScript(
+    `(() => {
+       const pin = document.querySelector('.ge-toc-pin');
+       if (pin && pin.getAttribute('aria-pressed') === 'true') pin.click();
+       try { localStorage.removeItem('graph-toc-pinned'); } catch (e) {}
+       let stored = 'ERR';
+       try { stored = localStorage.getItem('graph-toc-pinned'); } catch (e) { stored = 'ERR'; }
+       return { stored: stored, pinned: pin ? pin.getAttribute('aria-pressed') : null };
+     })()`,
+  );
+  const k33Ok =
+    k33Base === true &&
+    k33At100 === true &&
+    k33At400 === false &&
+    k33Leave150 === false &&
+    k33Leave600 === true &&
+    k33Pinned === "true" &&
+    k33Locked === false &&
+    !!s33k &&
+    s33k.stored === null &&
+    s33k.pinned === "false";
+  await shot(win, "图谱目录抽屉-悬停常开锁");
+
   record(
-    "图谱总览目录导航抽屉（惰性首建 6 法域+83 书行／点行即 selectNode 且零重建／章行数与索引一致／置灰联动／法域切换零重建且抽屉存活／尺寸中立／钉住持久化／收尾复位）",
-    a33Ok && b33Ok && c33Ok && d33Ok && e33Ok && f33Ok && g33Ok && h33Ok && i33Ok,
+    "图谱总览目录导航抽屉（惰性首建 6 法域+83 书行／点行即 selectNode 且零重建不收起／章行数与索引一致／置灰联动／法域切换零重建且抽屉存活／尺寸中立／复选框多选并集／上限 12／常开持久化／悬停开合与常开锁／两道收尾复位）",
+    a33Ok &&
+      b33Ok &&
+      c33Ok &&
+      d33Ok &&
+      e33Ok &&
+      f33Ok &&
+      g33Ok &&
+      j33Ok &&
+      l33Ok &&
+      l33ClearOk &&
+      h33Ok &&
+      i33Ok &&
+      k33Ok,
     `a 结构：drawer.hidden=${s33a ? s33a.drawerHidden : "无"}（须 true）, aria-expanded=${s33a ? s33a.expanded : "-"}, 树内行数=${s33a ? s33a.rows : "-"}（须 0，惰性）; ` +
       `b 首开：点开→树可见 ${typeof openMs === "number" ? openMs.toFixed(1) : openMs}ms（目标 ≤50ms）, ${fmtToc(s33b)}（须 6 法域 / 83 书）; ` +
-      `c 点行定位：c1「${c33a.title}」（期望「${tocTitles.guide}」）未钉住→drawer.hidden=${c33a.drawerHidden}（须 true）, 重建计数=${c33a.calls}（须 0）; ` +
-      `c2「${c33b.title}」（期望「${tocTitles.law}」）钉住→drawer.hidden=${c33b.drawerHidden}（须 false）, 重建计数=${c33b.calls}（须 0）; ` +
+      `c 点行定位：c1「${c33a.title}」（期望「${tocTitles.guide}」）→drawer.hidden=${c33a.drawerHidden}（须 false——波C-c 起悬停模式点行不收起）, 重建计数=${c33a.calls}（须 0）; ` +
+      `c2「${c33b.title}」（期望「${tocTitles.law}」）常开锁开→drawer.hidden=${c33b.drawerHidden}（须 false）, 重建计数=${c33b.calls}（须 0）; ` +
       `d 展开 1-专利法：built=${d33 ? d33.built : "-"}, 章行=${d33 ? d33.rows : "-"}（索引现算=${chapterExpected}）; ` +
       `e 置灰：点「商标」后未置灰组=${s33e1 ? JSON.stringify(s33e1.litGroups) : "-"}（须 ["15","8"]）、置灰行=${s33e1 ? s33e1.dimmed : "-"}；回「全部」后置灰行=${s33e2 ? s33e2.dimmed : "-"}（须 0）; ` +
       `f 存活：两次法域切换触发重建 ${rebuilds} 次（须 0——就地 resize 零重建），drawer.hidden=${s33e2 ? s33e2.drawerHidden : "-"}, 书行=${s33e2 ? s33e2.books : "-"}（须 83）; ` +
       `g 尺寸中立：开 ${g33Open1 ? g33Open1.w + "×" + g33Open1.h : "-"} → 关 ${g33Closed ? g33Closed.w + "×" + g33Closed.h : "-"} → 开 ${g33Open2 ? g33Open2.w + "×" + g33Open2.h : "-"}（须逐像素等）; ` +
-      `h 钉住 reload：就绪=${ready33}, drawer.hidden=${s33h ? s33h.drawerHidden : "-"}（须 false）, pin=${s33h ? s33h.pinned : "-"}, localStorage=${s33h ? s33h.stored : "-"}, 书行=${s33h ? s33h.books : "-"}; ` +
-      `i 收尾：取消钉住后 pin=${s33i ? s33i.pinned : "-"}, localStorage=${s33i ? JSON.stringify(s33i.stored) : "-"}（须 null）`,
+      `j 多选：勾 ${JSON.stringify(jSlugs)} → 锚点在集内=${j33Union ? JSON.stringify(j33Union.anchorsIn) : "-"}（须全 true）, ` +
+      `邻居并集=${j33Union ? JSON.stringify(j33Union.neighbours.map((n) => (n ? n.nb + ":" + n.inSet : null))) : "-"}（须至少一个 true）, ` +
+      `渲染计数增量=${selectRebuilds}（须 0）, 右栏「${s33j ? s33j.panelTitle : "-"}」（须「已选 3 个节点」）, chips=${s33j ? s33j.chips : "-"}（须 3）, ` +
+      `清空钮「${s33j ? s33j.clearText : "-"}」hidden=${s33j ? s33j.clearHidden : "-"}, aria-pressed 真数=${s33j ? s33j.pressed.length : "-"}（须 3）, 选中行=${s33j ? s33j.selectedRows : "-"}, 法域行带复选框=${s33j ? s33j.fieldRowsWithCheck : "-"}（须 0）; ` +
+      `l 上限：再点 ${l33Click.clicked} 枚（合计 13 次尝试）→ aria-pressed 真数=${s33l ? s33l.pressed.length : "-"}（须 12）, chips=${s33l ? s33l.chips : "-"}（须 12）, 渲染层锚点=${l33Anchors}（须 12）, ` +
+      `第 13 枚「${l33Click.lastSlug}」aria-pressed=${l33Last}（须 false）, 状态条「${s33l ? s33l.status : "-"}」（须含「最多」）; 清空后 勾选=${s33lClear ? s33lClear.pressed.length : "-"}／选中行=${s33lClear ? s33lClear.selectedRows : "-"}／清空钮 hidden=${s33lClear ? s33lClear.clearHidden : "-"}; ` +
+      `h 常开 reload：就绪=${ready33}, drawer.hidden=${s33h ? s33h.drawerHidden : "-"}（须 false）, pin=${s33h ? s33h.pinned : "-"}, localStorage=${s33h ? s33h.stored : "-"}, 书行=${s33h ? s33h.books : "-"}; ` +
+      `i 收尾：取消常开后 pin=${s33i ? s33i.pinned : "-"}, localStorage=${s33i ? JSON.stringify(s33i.stored) : "-"}（须 null）; ` +
+      `k 悬停：基线 hidden=${k33Base}（须 true）→ enter+100ms=${k33At100}（须 true，150ms 门限未到）→ +400ms=${k33At400}（须 false）→ leave+150ms=${k33Leave150}（须 false，300ms 门限未到）→ +600ms=${k33Leave600}（须 true）; ` +
+      `常开锁：pin=${k33Pinned}（须 true）后 leave+600ms hidden=${k33Locked}（须 false，锁住不收）; 二次复位 pin=${s33k ? s33k.pinned : "-"}, localStorage=${s33k ? JSON.stringify(s33k.stored) : "-"}（须 null）`,
   );
 
   // ============ 阶段5.8 新增两步（34–35） ============
@@ -3005,7 +3303,10 @@ app.whenReady().then(() =>
 // loadURL 开图谱页 + 三次交互各等 2s（400ms RO 防抖 + 约 230ms 重建 + 260ms 淡入 +
 // 余量）。本机实测 32 步全程 77s、新增三步合计约 10s，420s 本就有约 5 倍余量；
 // 上调是给慢档机器留统一空间——整体放大 5 倍即 (77+10)×5≈435s 已越过 420s。）
+// （阶段5.10 波C 由 600s 上调至 660s：步 33 新增三子项——33-k 的四段门限等待
+// 合计约 2.3s、33-j/l 的十三次勾选与两次面板重绘约 4s、步头光标复位 0.4s，
+// 本机实测新增约 12s。600s 的留白仍够用，上调是为慢档机器保住既有的倍数余量。）
 setTimeout(() => {
   console.error("冒烟超时，强制退出");
   app.exit(1);
-}, 600000);
+}, 660000);
