@@ -128,6 +128,62 @@ body[data-slug^="9-关键词索引/"] .page > #quartz-body > .sidebar.right > .t
 }
 
 // ============================================================
+// 一之二、布局密度 token（v18 · 阶段5.11 波K）
+// ============================================================
+// 桌面三栏的间隙与内边距此前散落在五处硬编码里（页缘 / 列间距 / 侧栏外缩 /
+// 侧栏内边距 / 侧栏组件间距），改一处须手工回算其余各处——第十节 .page-header
+// 的 margin-top 正是这样一枚手工派生值（原写死 2.25rem，等于「侧栏外缩 +
+// 侧栏内边距」之和，两个加数任一变动它都会静默失配）。本节把五项收敛为六个
+// token，全部消费点一律 var()，派生值改写成 calc() 自维持恒等式。
+//
+// 取值与红线（阶段5.11 波K 探查实测，1440×900）：
+//   --kb-page-edge    1rem     页缘留白。**下限 16px**：再小则暗色主题
+//                              --glass-shadow 的 32px 模糊被视口边缘削平，
+//                              侧栏玻璃卡看着像被切了一刀。
+//   --kb-col-gap      1.75rem  桌面三栏列间距（28px）。**硬地板 26px** ＝
+//                              影子滚动条拇指 14px + 轨道留白 TRACK_GAP 10px
+//                              + 2px 余隙；低于此值拇指会压到右栏玻璃边缘。
+//                              平板段的 1.25rem 是另一档，刻意不并入本 token。
+//   --kb-panel-inset  0.5rem   侧栏上下外缩。三处耦合：margin-top ＝ inset、
+//                              sticky top ＝ inset + 标题条高、height 的减项
+//                              恒为 2×inset（第三节），改一必改三，故收敛为
+//                              单一 token 后由 calc 自动保持。
+//   --kb-panel-pad-y  1rem     侧栏内边距（纵）——覆盖 base.scss 的 $topSpacing
+//                              6rem（24px→16px，本轮真正改动的一维）。
+//   --kb-panel-pad-x  1.25rem  侧栏内边距（横）。⚠️ 横向有**两个**消费点：第三节
+//                              $desktop 段的 padding 简写，以及第五节位置更靠后、
+//                              特异性相同（1,2,0）因而实际决胜的 padding-left/right
+//                              那条。后者原是写死的 1.25rem——本轮一并改取本 token，
+//                              否则改 token 横向纹丝不动（死 token 陷阱）。
+//                              取值与改前逐像素相同，横向本轮实为「只换事实源、
+//                              不换数值」。
+//   --kb-panel-gap    0.85rem  侧栏内各组件间距，覆盖 base.scss:224 的 1.2rem。
+//                              覆盖点写在本文件的 $desktop 块而非改 base.scss：
+//                              base 那条同时管平板与移动端，就地改会外溢。
+//
+// 两项刻意不入本表，勿顺手并进来：
+//   · --titlebar-h 38px：desktop/smoke.cjs 步 14/15 逐字断言字符串 "38px"，
+//     是红线，本轮一字未动；
+//   · 右栏二级卡（.graph / .toc / .backlinks）的 0.75rem·0.9rem 内边距：外层
+//     侧栏已由本表减去 8px×12px，内层再减会让卡内文字贴边。
+//
+// 消费点清单（改 token 前先通读，均在非移动端媒体块内）：
+//   第三节  侧栏 margin-top / sticky top / height / padding / gap
+//   第五节  .page max-width（页缘）、#quartz-body column-gap
+//   第十节  .page-header margin-top（inset + pad-y + 1px 玻璃描边）
+//   第十三节 图谱总览页画布高度（2×inset），及 graphexplorer.scss 内与之配对
+//           的 .graph-explorer margin-top / margin-bottom
+//   第十五节 html scroll-padding-top（标题条高 + inset）
+:root {
+  --kb-page-edge: 1rem;
+  --kb-col-gap: 1.75rem;
+  --kb-panel-inset: 0.5rem;
+  --kb-panel-pad-y: 1rem;
+  --kb-panel-pad-x: 1.25rem;
+  --kb-panel-gap: 0.85rem;
+}
+
+// ============================================================
 // 二、页面底衬：极淡主题色渐变，衬托玻璃层次（背景色 --light 不动）
 // ============================================================
 
@@ -176,13 +232,16 @@ body {
 @media all and not ($mobile) {
   .page > #quartz-body > .sidebar {
     position: sticky;
-    // sticky 未吸附时 top 不产生偏移，用 margin-top 补回同等的常规流留白
-    margin-top: 0.75rem;
+    // sticky 未吸附时 top 不产生偏移，用 margin-top 补回同等的常规流留白。
+    // 三行同取 --kb-panel-inset（第一之二节）：margin ＝ inset、top ＝ inset +
+    // 标题条高、height 的减项 ＝ 2×inset（上下各一份）。写成 calc 而非手工回算，
+    // 是让「改 inset 即三处同步」成为语法保证而非注释约定。
+    margin-top: var(--kb-panel-inset);
     // 标题条偏移消费点②（见第十三节）：吸附位置让出标题条高度。
     // body 的 padding-top 已把未吸附时的起点推到同一处（padding + margin
-    // = titlebar-h + 0.75rem），二者相抵，吸附瞬间零跳动。
-    top: calc(0.75rem + var(--titlebar-h));
-    height: calc(100vh - 1.5rem - var(--titlebar-h));
+    // = titlebar-h + inset），二者相抵，吸附瞬间零跳动。
+    top: calc(var(--kb-panel-inset) + var(--titlebar-h));
+    height: calc(100vh - 2 * var(--kb-panel-inset) - var(--titlebar-h));
   }
   // 平板断点下右栏本就退化为文末横排（base.scss 高优先级规则接管
   // position/height），此处 top 对 position:initial 元素无副作用
@@ -190,9 +249,22 @@ body {
 
 // 桌面端侧栏不再沿用正文页头的 6rem 顶部留白，避免左右栏内容明显下沉。
 // 仅调整侧栏内部起始位置，不改变正文页头的布局节奏。
+//
+// v18（波K）两点变化：
+//   ① 由 padding-top 单边改为 padding 简写，把 base.scss:227 的
+//      `$topSpacing 2rem 2rem 2rem` 四边整体接管为 --kb-panel-pad-y /
+//      --kb-panel-pad-x（16px×20px）。刻意在此覆盖而非改 base.scss——base 那条
+//      同时供平板与移动端消费，就地改会外溢到本轮不打算动的两个断点。
+//      ⚠️ 横向两边最终由第五节「收窄侧栏左右留白」那条 padding-left/right 决胜
+//      （同为 (1,2,0)、位置在后）；那条已一并改取 --kb-panel-pad-x，两处同源，
+//      故本行的横向值与它恒等。新增横向覆盖时务必连带核对那一条。
+//   ② gap 由 base.scss:224 的 1.2rem 收到 --kb-panel-gap（13.6px），落点同理。
+//      本块 (1,2,0) 高于 base 的 (0,2,0)，且移动端 `.sidebar.left { gap: 0 }`
+//      在 $mobile 媒体块内、与本块互斥，两者不会相撞。
 @media all and ($desktop) {
   .page > #quartz-body > .sidebar {
-    padding-top: 1.5rem;
+    padding: var(--kb-panel-pad-y) var(--kb-panel-pad-x);
+    gap: var(--kb-panel-gap);
   }
 }
 
@@ -434,13 +506,24 @@ article table td {
 // ============================================================
 
 // 桌面/平板：整页可用宽度放宽（原 1500px），三栏气口从 5px 加大——
-// 侧栏玻璃卡不再紧贴正文，宽屏下向两侧舒展
+// 侧栏玻璃卡不再紧贴正文，宽屏下向两侧舒展。
+//
+// v18（波K）两项收紧＋一项放宽，净效果全数归给正文列：
+//   · 页缘 1.5rem→--kb-page-edge（24px→16px，左右共让出 16px）；
+//   · 列间距 2.25rem→--kb-col-gap（36px→28px，两条共让出 16px）；
+//   · 封顶 1720px→1880px：三栏总需求（320×2 侧栏 + 28×2 间距 + 正文）在超宽屏
+//     下原被 1720px 卡住，放宽后 1920 及以上视口的正文列继续跟涨；1880 而非满宽
+//     是给页缘留出与 1440 档同量级的收口。
+// 1440×900 实测：24|320|36|680|36|320|24 → 16|320|28|712|28|320|16（正文 +32px）。
+// 平板段的 column-gap 由紧随其后的 $tablet 块以 1.25rem 接管，不受本块影响；
+// 但 .page 的 max-width 无平板覆盖，故平板内容区同步 +16px（波K 已知外溢，
+// 方向与本轮密度收敛一致）。
 @media all and not ($mobile) {
   .page {
-    max-width: min(1720px, calc(100vw - 3rem));
+    max-width: min(1880px, calc(100vw - var(--kb-page-edge) * 2));
   }
   .page > #quartz-body {
-    column-gap: 2.25rem;
+    column-gap: var(--kb-col-gap);
   }
 }
 @media all and ($tablet) {
@@ -589,10 +672,17 @@ article table td {
 }
 
 // 桌面/平板保留对称的 320px 侧栏外框，仅收窄内部左右留白，增加内容可视宽度。
+//
+// v18（波K）：取值由写死的 1.25rem 改取 --kb-panel-pad-x（同值，computed 一分未变）。
+// 必须改：本条位于第三节 $desktop 段那条 `padding: var(--kb-panel-pad-y)
+// var(--kb-panel-pad-x)` 之**后**、特异性同为 (1,2,0)，横向两边由本条决胜——
+// 留着字面量就等于让 --kb-panel-pad-x 成为一枚永不生效的死 token（改它没有任何
+// 反应，正是波K 要消灭的那类陷阱）。本条覆盖 not($mobile)，平板段的横向内边距
+// 因取同值而逐像素不变。
 @media all and not ($mobile) {
   .page > #quartz-body > .sidebar {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: var(--kb-panel-pad-x);
+    padding-right: var(--kb-panel-pad-x);
   }
 }
 
@@ -1363,17 +1453,23 @@ ul.toc-content.overflow > li > a {
   //
   // 取值 = 三栏首元素同基线（v14 面包屑对齐修复）。左右栏首元素的视口顶距由
   // 第三节的三段叠加而成，缺一不可：
-  //   0.75rem 外缩（margin-top，与 sticky 的 top: calc(0.75rem + var(--titlebar-h))
-  //   配对做零跳动吸附）+ 1px 玻璃描边（glass-panel-host）+ 1.5rem 内边距
-  //   （本文件 $desktop 段把 base 的 $topSpacing 6rem 压到此值）= 37px@16px。
+  //   侧栏外缩 --kb-panel-inset（margin-top，与 sticky 的
+  //   top: calc(var(--kb-panel-inset) + var(--titlebar-h)) 配对做零跳动吸附）
+  //   + 1px 玻璃描边（glass-panel-host）+ 侧栏内边距 --kb-panel-pad-y
+  //   （第三节 $desktop 段把 base 的 $topSpacing 6rem 压到此值）。
   // 原值 1.5rem 只抵到其中的内边距一段，面包屑遂比左右栏首元素高出 13px——
   // 实测 1280×720 Web 端：面包屑 top 24 vs 左栏站名 top 37 / 右栏图谱卡 top 37，
   // 这就是「三栏头部参差」的全部来源（面包屑自身的 margin-top 12px 与本条相邻
   // 外边距合并，取较大者，故改本条即等于改面包屑的实际起点）。
   // --titlebar-h 不进本式：第十三节把它记在 body 的 padding-top 上，三列一视同仁，
   // 不产生列间差——桌面壳下三列同步下移 38px，本式的差值恒等关系不变。
+  //
+  // v18（波K）：原写死 calc(2.25rem + 1px) 是手工回算出的派生值（0.75 + 1.5 + 1px），
+  // 侧栏外缩或内边距一改它就静默失配、参差重现。现改为直接用两个 token 相加的
+  // **自维持恒等式**——恒等关系由 calc 保证，不再依赖注释提醒。
+  // 现值 = 8 + 16 + 1 = 25px@16px（原 37px）。
   body:not([data-slug="0-图谱总览/index"]) #quartz-body .center > .page-header {
-    margin-top: calc(2.25rem + 1px);
+    margin-top: calc(var(--kb-panel-inset) + var(--kb-panel-pad-y) + 1px);
   }
 
   body:not([data-slug="0-图谱总览/index"]) #quartz-body .center > .page-header .article-title {
@@ -1635,8 +1731,13 @@ body {
 // 消费点⑥：图谱总览页画布（graphexplorer.scss 内 body[data-slug=…] .graph-explorer，
 // 同特异性 (0,2,1) 后位胜）。该页 html+body 双重 overflow:hidden，高度不减去
 // 标题条会把画布底缘顶出视口且无从滚动。
+// v18（波K）：减项由写死的 1.5rem 改为 2 × --kb-panel-inset（上下各一份外边距）。
+// 与之配对的 .graph-explorer margin-top / margin-bottom 在 graphexplorer.scss
+// 内同步取 var(--kb-panel-inset)，三者构成恒等式
+//   margin-top + height + margin-bottom + body padding-top = 100vh，
+// 缺改任一项画布底缘就会被顶出视口（该页 html+body 双重 overflow:hidden，无从滚动）。
 body[data-slug="0-图谱总览/index"] .graph-explorer {
-  height: calc(100vh - 1.5rem - var(--titlebar-h));
+  height: calc(100vh - 2 * var(--kb-panel-inset) - var(--titlebar-h));
 }
 
 // —— 设置页内容列宽（需求④配套）——
@@ -1769,8 +1870,10 @@ body[data-slug="设置/index"] #quartz-body .center > .page-footer {
   // 一条覆盖 scrollIntoView / TOC 点击 / :target / 原生片段跳转四类跳转：
   // 顶部让出桌面标题条，免得跳转落点被 fixed 标题条压住首行。
   // base.scss 的移动端 `scroll-padding-top: 4rem` 在本媒体块之外，不受影响。
+  // v18（波K）：0.75rem 那一档原本就是「与侧栏外缩同量」的呼吸位，随
+  // --kb-panel-inset 一并收到 8px，跳转落点与三栏首元素继续保持同一基线。
   html {
-    scroll-padding-top: calc(var(--titlebar-h) + 0.75rem);
+    scroll-padding-top: calc(var(--titlebar-h) + var(--kb-panel-inset));
   }
 
   // —— E. 影子滚动条表现层 ——

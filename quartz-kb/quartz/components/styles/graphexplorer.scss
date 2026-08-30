@@ -1294,10 +1294,17 @@ body[data-slug="0-图谱总览/index"] {
   }
 
   // 页头移除后画布可用高度增加：原 calc(100vh - 10rem) 预留标题区 151px +
-  // margin，现仅余自身 margin 与底部留白（与左栏 100vh 底边平齐）
+  // margin，现仅余自身 margin 与底部留白（与左栏 100vh 底边平齐）。
+  //
+  // 阶段5.11 波K：三个数值全部改取 --kb-panel-inset（custom.scss 第一之二节的
+  // 布局密度 token，默认 0.5rem），与左栏的 margin-top / height 同源——上下外边距
+  // 各一份 inset、height 的减项两份，恒等式见 custom.scss 消费点⑥的注释。
+  // 带回退值 0.5rem 是本文件的既有规约（主题层变量未就绪时不塌）；height 一行
+  // 在最终层叠里被 custom.scss 的同特异性后位规则接管（那条另减 --titlebar-h），
+  // 此处保留是给「无桌面壳的纯 Web 预览」兜底，两处必须同取一个 token。
   .graph-explorer {
-    height: calc(100vh - 1.5rem);
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
+    height: calc(100vh - 2 * var(--kb-panel-inset, 0.5rem));
+    margin-top: var(--kb-panel-inset, 0.5rem);
+    margin-bottom: var(--kb-panel-inset, 0.5rem);
   }
 }
