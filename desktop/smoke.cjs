@@ -1784,7 +1784,7 @@ async function main() {
   // f：书目条目直达文档——点击目录里的书根条目走 SPA 落地该书首页，kb:graphlocate 恒 0。
   // 原「预检拦截提示」断言随定位链路撤销一并删除（EXPLORER_LOCATE_MISS 已不存在）。
   // 阶段5.11 波O：本例原取 63-规范性文件制定管理办法（GRAPH_HIDDEN_BOOKS 五部之一，
-  // 守的是「隐藏书条目同样直达」），该书已随 11 部书目归档下线、GRAPH_HIDDEN_BOOKS
+  // 守的是「隐藏书条目同样直达」），该书已随 12 部书目归档下线、GRAPH_HIDDEN_BOOKS
   // 机制亦整体拆除，「书在库但不进图谱」的半态不复存在；改取仍在册的
   // 62-专利收费减缴办法，用例语义收敛为「目录书根条目直达且不触发图内定位」。
   await win.webContents.executeJavaScript(

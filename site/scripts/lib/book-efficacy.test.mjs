@@ -113,7 +113,7 @@ if (process.argv.includes('--print')) {
     });
 
     // 阶段5.11 波O（2026-08-30）：本例原取 gb-standards-index（字段为「不适用（…）」
-    // 自述），该书随 11 部书目归档下线已不在 book-meta 中，改取仍在册的
+    // 自述），该书随 12 部书目归档下线已不在 book-meta 中，改取仍在册的
     // patent-adjudication-manual-2019——其 effectiveDate 同为「非规范日期的自述式
     // 括注文本」，且 sourceUrl 空、adoptedDate 空，与原例覆盖同样三项行为。
     // 全库复核：波O 后在册域已无以「不适用（…）」起首的字段，该形态改由括注自述承载；
