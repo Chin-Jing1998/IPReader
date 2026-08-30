@@ -25,21 +25,48 @@ test("选中态只高亮当前节点与直接相关节点之间的连线", () =>
   const related = slug("book/related")
   const otherRelated = slug("book/other-related")
   const outside = slug("book/outside")
+  const anchors = new Set<string>([selected])
 
-  assert.equal(isSelectedAnchorLink(selected, selected, related), true)
-  assert.equal(isSelectedAnchorLink(selected, related, selected), true)
-  assert.equal(isSelectedAnchorLink(selected, related, otherRelated), false)
-  assert.equal(isSelectedAnchorLink(selected, related, outside), false)
-  assert.equal(isSelectedAnchorLink(null, selected, related), false)
+  assert.equal(isSelectedAnchorLink(anchors, selected, related), true)
+  assert.equal(isSelectedAnchorLink(anchors, related, selected), true)
+  assert.equal(isSelectedAnchorLink(anchors, related, otherRelated), false)
+  assert.equal(isSelectedAnchorLink(anchors, related, outside), false)
+  // 空集＝无选中，逐值等价于波C 之前传 null
+  assert.equal(isSelectedAnchorLink(new Set(), selected, related), false)
 })
 
 test("选中态直接关联线加粗，其他连线保持原线宽并变暗", () => {
   const selected = slug("book/selected")
   const related = slug("book/related")
   const outside = slug("book/outside")
+  const anchors = new Set<string>([selected])
 
-  assert.deepEqual(selectedLinkStroke(selected, selected, related), { width: 1.6, alpha: 1 })
-  assert.deepEqual(selectedLinkStroke(selected, related, outside), { width: 1, alpha: 0.2 })
+  assert.deepEqual(selectedLinkStroke(anchors, selected, related), { width: 1.6, alpha: 1 })
+  assert.deepEqual(selectedLinkStroke(anchors, related, outside), { width: 1, alpha: 0.2 })
+})
+
+// 阶段5.10 波C-a：多选锚点。三个判据的语义都从「等于那一个锚点」升为
+// 「属于锚点集合」，本用例守的是**并集**语义——任一锚点命中即算命中，
+// 而不是「全部锚点都命中才算」，也不是只看集合里的第一个。
+test("多选：任一锚点命中即高亮，各锚点的相关边取并集", () => {
+  const a = slug("book/anchor-a")
+  const b = slug("book/anchor-b")
+  const nearA = slug("book/near-a")
+  const nearB = slug("book/near-b")
+  const outside = slug("book/outside")
+  const anchors = new Set<string>([a, b])
+
+  // 两个锚点各自的相关边都算相关（并集，而非交集）
+  assert.equal(isSelectedAnchorLink(anchors, a, nearA), true)
+  assert.equal(isSelectedAnchorLink(anchors, nearB, b), true)
+  // 锚点之间的边天然属于并集
+  assert.equal(isSelectedAnchorLink(anchors, a, b), true)
+  // 两端都不是锚点：即便端点在某个锚点的邻域内也只是暗边（判据是锚点直连，不是选中集）
+  assert.equal(isSelectedAnchorLink(anchors, nearA, nearB), false)
+  assert.equal(isSelectedAnchorLink(anchors, nearA, outside), false)
+
+  assert.deepEqual(selectedLinkStroke(anchors, nearB, b), { width: 1.6, alpha: 1 })
+  assert.deepEqual(selectedLinkStroke(anchors, nearA, nearB), { width: 1, alpha: 0.2 })
 })
 
 test("点击连线不被判定为空白点击", () => {
@@ -53,12 +80,36 @@ test("选中状态下暗节点不显示标签", () => {
   const selected = slug("book/selected")
   const related = slug("book/related")
   const outside = slug("book/outside")
+  const anchors = new Set<string>([selected])
   const selectedSet = new Set<SimpleSlug>([selected, related])
 
-  assert.equal(shouldShowLabelDuringSelection(selected, selectedSet, selected), true)
-  assert.equal(shouldShowLabelDuringSelection(selected, selectedSet, related), true)
-  assert.equal(shouldShowLabelDuringSelection(selected, selectedSet, outside), false)
-  assert.equal(shouldShowLabelDuringSelection(null, new Set(), outside), true)
+  assert.equal(shouldShowLabelDuringSelection(anchors, selectedSet, selected), true)
+  assert.equal(shouldShowLabelDuringSelection(anchors, selectedSet, related), true)
+  assert.equal(shouldShowLabelDuringSelection(anchors, selectedSet, outside), false)
+  // 空锚点集＝无选中：全部放行，逐值等价于波C 之前传 null
+  assert.equal(shouldShowLabelDuringSelection(new Set(), new Set(), outside), true)
+})
+
+// 波C-a：标签判据看的是**并集** selectedSet，不是锚点集本身——
+// 漏改成 selectedAnchors.has(nodeId) 会让多选时两个锚点的邻居标签全灭，
+// 而那正是「选中集常亮」的主体部分。
+test("多选：标签判据取锚点邻域的并集，非锚点集本身", () => {
+  const a = slug("book/anchor-a")
+  const b = slug("book/anchor-b")
+  const nearA = slug("book/near-a")
+  const nearB = slug("book/near-b")
+  const outside = slug("book/outside")
+  const anchors = new Set<string>([a, b])
+  // 调用方（computeSelectedSet）算好的并集：两个锚点 + 各自邻居
+  const selectedSet = new Set<SimpleSlug>([a, b, nearA, nearB])
+
+  assert.equal(shouldShowLabelDuringSelection(anchors, selectedSet, a), true)
+  assert.equal(shouldShowLabelDuringSelection(anchors, selectedSet, nearA), true)
+  assert.equal(shouldShowLabelDuringSelection(anchors, selectedSet, nearB), true)
+  assert.equal(shouldShowLabelDuringSelection(anchors, selectedSet, outside), false)
+  // 锚点非空但并集只含锚点自身（孤立节点）：邻居为空不影响锚点自身显示
+  assert.equal(shouldShowLabelDuringSelection(anchors, new Set([a, b]), b), true)
+  assert.equal(shouldShowLabelDuringSelection(anchors, new Set([a, b]), nearA), false)
 })
 
 // 阶段5.10 波B 红线：全量图（depth<0）的拖拽三参数必须逐值维持改前取值。

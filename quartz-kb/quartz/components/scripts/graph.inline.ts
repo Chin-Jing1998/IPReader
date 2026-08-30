@@ -593,11 +593,19 @@ export interface GraphController {
   restoreBaseLayout(): void
   /** 选中节点（null 清除）：选中集常亮、其余灰度 0.2；hops 2=二跳展开 */
   setSelected(nodeId: SimpleSlug | null, hops?: 1 | 2): void
-  /** 当前选中节点（无则 null） */
+  /**
+   * 多选（阶段5.10 波C-a）：整批替换锚点集合，各锚点邻域取并集后常亮、其余灰度 0.2。
+   * 不在当前数据集的 id 逐个跳过；超过 12 个就地截断（渲染层兜底，见 MAX_SELECTED_ANCHORS）。
+   * 传空数组即清除选中，与 setSelected(null) 等价。
+   */
+  setSelectedMany(nodeIds: readonly SimpleSlug[], hops?: 1 | 2): void
+  /** 首个选中锚点（无则 null）；要整份集合用 getSelectedAnchors */
   getSelected(): SimpleSlug | null
+  /** 当前锚点集合快照（按加入顺序；无选中时空数组） */
+  getSelectedAnchors(): SimpleSlug[]
   /** 当前选中跳数（无选中时 1） */
   getSelectedHops(): 1 | 2
-  /** 节点是否属于当前选中集（选中节点 + 相关节点；无选中时 false） */
+  /** 节点是否属于当前选中集（各锚点 + 其相关节点的并集；无选中时 false） */
   isInSelectedSet(nodeId: SimpleSlug): boolean
   /** 当前缩放平移快照（含画布尺寸）；未启用 zoom 时返回 null */
   getTransform(): SavedTransform | null
@@ -635,9 +643,13 @@ type GraphInstance = {
   restoreBaseLayout(): void
   /** 选中节点（null 清除）：选中集常亮、其余灰度 0.2；hops 2=二跳展开 */
   setSelected(nodeId: SimpleSlug | null, hops?: 1 | 2): void
-  /** 当前选中节点（无则 null） */
+  /** 多选（波C-a）：整批替换锚点集合，不在数据集的 id 逐个跳过、超上限截断 */
+  setSelectedMany(nodeIds: readonly SimpleSlug[], hops?: 1 | 2): void
+  /** 首个选中锚点（无则 null） */
   getSelected(): SimpleSlug | null
-  /** 节点是否属于当前选中集（选中节点 + 相关节点；无选中时 false） */
+  /** 当前锚点集合快照（按加入顺序） */
+  getSelectedAnchors(): SimpleSlug[]
+  /** 节点是否属于当前选中集（各锚点 + 其相关节点的并集；无选中时 false） */
   isInSelectedSet(nodeId: SimpleSlug): boolean
   getTransform(): SavedTransform | null
   applyTransform(saved: SavedTransform): void
@@ -1560,7 +1572,7 @@ async function createGraphInstance(
    * 破例不构成成本。
    */
   const canRasterizeLabel = (id: string): boolean => {
-    if (id === hoveredNodeId || id === selectedNodeId || id === focusedNodeId) return true
+    if (id === hoveredNodeId || isSelectedAnchor(id) || id === focusedNodeId) return true
     if (zoomFreezeLabels) return false
     return labelRasterBudget > 0
   }
@@ -1718,15 +1730,44 @@ async function createGraphInstance(
   // ---------- 选中态（v14）：选中节点 → 相关节点常亮、其余变暗 ----------
   // v16：常亮不闪烁；单击语义见 graphexplorer（无选中单击即选中、选中集内仅刷右栏、
   // 暗色单击不响应、双击切换）
-  let selectedNodeId: SimpleSlug | null = null
+  //
+  // 阶段5.10 波C-a：单个 selectedNodeId 升为**锚点集合** selectedAnchors，
+  // 供目录抽屉的复选框一次高亮多个节点。集合为空即等价于波C 之前的 null，
+  // 单元素集即等价于原单值，故一切既有调用方（局部图、右栏 chips、图内点击）
+  // 的行为逐字不变——它们走的都是下方 setSelected 这层薄包装。
+  //
+  // ⚠️ 本节改动全部落在 **alpha 强调轴**（谁亮、谁暗、谁出标签），一处也没有落到
+  // 可见性轴上：isNodeRenderVisible 与 syncLabelRender 这两条「唯一谓词」一字未动。
+  // 选中与可见是正交的两件事，混进去就是在给可见性开第二条通路。
+  const selectedAnchors = new Set<SimpleSlug>()
   let selectedHops: 1 | 2 = 1
   let selectedSet: Set<string> = new Set()
 
+  /** 当下是否有选中（空集＝无选中，逐值等价于波C 之前的 `selectedNodeId !== null`） */
+  const hasSelection = (): boolean => selectedAnchors.size > 0
+
+  /**
+   * 该 id 是否为当前锚点之一。入参收 string 而非 SimpleSlug：多处调用点
+   * （canRasterizeLabel / wantsLabel / renderLabels）手里持的是未加品牌的 id，
+   * 集中在此做一次收窄，省得每个调用点各写一遍 as。
+   */
+  const isSelectedAnchor = (id: string): boolean => selectedAnchors.has(id as SimpleSlug)
+
+  /**
+   * 锚点数上限（阶段5.10 波C）：编排层（graphexplorer.inline.ts）已在入口按
+   * MAX_SELECTED_ANCHORS 拒绝超限勾选，本处是**渲染层兜底**——外部若绕过编排层
+   * 直接调 setSelectedMany（如冒烟脚本、控制台），超出部分就地截断。
+   * 取 12 的理由在编排层同名常量处，两处字面量同值、改一处须改另一处。
+   */
+  const MAX_SELECTED_ANCHORS = 12
+
   function computeSelectedSet(): Set<string> {
     const set = new Set<string>()
-    if (selectedNodeId === null) return set
-    set.add(selectedNodeId)
-    let frontier = new Set<SimpleSlug>([selectedNodeId])
+    if (selectedAnchors.size === 0) return set
+    // BFS 起点由单点改为**整个锚点集**：一轮扩散即得各锚点邻域的并集，
+    // 逐锚点各跑一遍 BFS 再合并会把交叠区域重复展开（多选下交叠是常态）
+    for (const anchor of selectedAnchors) set.add(anchor)
+    let frontier = new Set<SimpleSlug>(selectedAnchors)
     for (let hop = 0; hop < selectedHops; hop++) {
       const next = new Set<SimpleSlug>()
       for (const id of frontier) {
@@ -1742,10 +1783,23 @@ async function createGraphInstance(
     return set
   }
 
-  function setSelected(nodeId: SimpleSlug | null, hops: 1 | 2 = 1) {
-    // 节点不在当前数据集（如术语层 hidden 剔除/域隐藏）：忽略
-    if (nodeId !== null && nodeRenderDataById.get(nodeId) === undefined) return
-    selectedNodeId = nodeId
+  /**
+   * 多选落地（波C-a）：整批替换锚点集合。
+   * 不在当前数据集（术语层 hidden 剔除 / 域隐藏）的 id **逐个过滤**掉，
+   * 剩下的照常生效——与单值路径的「一个都选不上就什么都不改」刻意不同：
+   * 集合路径的调用方（目录复选框、重建后重放）要的是「能选上的都选上」，
+   * 遇到一个失效锚点就整批放弃，等于让一个隐藏节点吞掉用户勾的其余 11 个。
+   */
+  function setSelectedMany(nodeIds: readonly SimpleSlug[], hops: 1 | 2 = 1) {
+    const next: SimpleSlug[] = []
+    for (const id of nodeIds) {
+      if (nodeRenderDataById.get(id) === undefined) continue
+      if (next.includes(id)) continue
+      next.push(id)
+      if (next.length >= MAX_SELECTED_ANCHORS) break
+    }
+    selectedAnchors.clear()
+    for (const id of next) selectedAnchors.add(id)
     selectedHops = hops
     selectedSet = computeSelectedSet()
     // 选中态与 focus 高亮环 / hover 高亮互斥：两者都清除，避免叠加
@@ -1753,7 +1807,7 @@ async function createGraphInstance(
     if (hoveredNodeId !== null) {
       updateHoverInfo(null)
     }
-    if (selectedNodeId !== null) {
+    if (hasSelection()) {
       // 选中：立即按选中态重绘边与节点分级（相关边加亮、其余淡化；
       // 选中集常亮、其余灰度 0.2），随后的闪烁帧只动节点 alpha
       drawLinks()
@@ -1769,8 +1823,31 @@ async function createGraphInstance(
     markDirty()
   }
 
+  /**
+   * 单选薄包装（签名与语义均与波C 之前逐字一致）：局部图、右栏 chips、图内点击
+   * 三类调用方一字不改即可继续工作。
+   * 「节点不在当前数据集即静默 return」这条原语义在此保留——它与集合路径的
+   * 逐个过滤并不矛盾，理由见 setSelectedMany 的注释。
+   */
+  function setSelected(nodeId: SimpleSlug | null, hops: 1 | 2 = 1) {
+    // 节点不在当前数据集（如术语层 hidden 剔除/域隐藏）：忽略
+    if (nodeId !== null && nodeRenderDataById.get(nodeId) === undefined) return
+    setSelectedMany(nodeId === null ? [] : [nodeId], hops)
+  }
+
+  /**
+   * 首个锚点（无选中则 null）。多选下只报第一个：本函数的两个消费点
+   * （controller.getSelectedHops 判空、外部探针）关心的都是「有没有选中」，
+   * 要整份集合的走 getSelectedAnchors。
+   */
   function getSelected(): SimpleSlug | null {
-    return selectedNodeId
+    for (const anchor of selectedAnchors) return anchor
+    return null
+  }
+
+  /** 当前锚点集合的快照（按加入顺序，Set 的迭代序即插入序） */
+  function getSelectedAnchors(): SimpleSlug[] {
+    return Array.from(selectedAnchors)
   }
 
   let hoveredNodeId: string | null = null
@@ -1789,14 +1866,14 @@ async function createGraphInstance(
    * dimmed 术语节点恒假：该态下「术语无标签」是既定语义（updateLabelOpacities 与
    * renderLabels 都不给它拉 alpha），此处短路顺带保证 hover 也不会把它拉出来。
    *
-   * ⚠️ 声明位置卡在两处之间，勿上下挪：须排在 hoveredNodeId / selectedNodeId 两个
-   * let 之后（const 不提升，排前即运行期 TDZ，本文件 basePositions 有同款教训），
+   * ⚠️ 声明位置卡在两处之间，勿上下挪：须排在 hoveredNodeId / selectedAnchors 两个
+   * 声明之后（const 不提升，排前即运行期 TDZ，本文件 basePositions 有同款教训），
    * 又须排在节点构造循环之前（循环内的 pointerover/pointerleave 闭包引用它）。
    */
   const wantsLabel = (n: NodeRenderData): boolean => {
     const id = n.simulationData.id
     if (isDimmedNode(id)) return false
-    return n.label.alpha > LABEL_ALPHA_EPSILON || id === hoveredNodeId || id === selectedNodeId
+    return n.label.alpha > LABEL_ALPHA_EPSILON || id === hoveredNodeId || isSelectedAnchor(id)
   }
 
   // dirty-flag 按需渲染（V4-B1）：仅在力导 tick / tween 活跃 / zoom / drag / hover
@@ -1906,10 +1983,7 @@ async function createGraphInstance(
     for (const n of nodeRenderData) {
       const nodeId = n.simulationData.id
 
-      if (
-        selectedNodeId !== null &&
-        !shouldShowLabelDuringSelection(selectedNodeId, selectedSet, nodeId)
-      ) {
+      if (hasSelection() && !shouldShowLabelDuringSelection(selectedAnchors, selectedSet, nodeId)) {
         tweenGroup.add(
           new Tweened<Text>(n.label).to(
             {
@@ -1923,8 +1997,9 @@ async function createGraphInstance(
       }
 
       // dimmed 术语节点无标签：悬停也不拉起标签透明度；
-      // v16：选中节点标签同样拉起（节点+连线+标签常亮的显示效果）
-      if ((hoveredNodeId === nodeId || selectedNodeId === nodeId) && !isDimmedNode(nodeId)) {
+      // v16：选中节点标签同样拉起（节点+连线+标签常亮的显示效果）；
+      // 波C-a：多选下每个锚点各自拉起，判据由等值比对改为集合成员查询
+      if ((hoveredNodeId === nodeId || isSelectedAnchor(nodeId)) && !isDimmedNode(nodeId)) {
         tweenGroup.add(
           new Tweened<Text>(n.label).to(
             {
@@ -1964,9 +2039,10 @@ async function createGraphInstance(
     for (const n of nodeRenderData) {
       let alpha = 1
 
-      if (selectedNodeId !== null) {
+      if (hasSelection()) {
         // 选中态（v16）：选中集节点常亮（alpha 1）、其余变暗 0.2——
-        // 与鼠标悬浮时的非邻节点状态一致；hover 高亮让位（移开鼠标选中态保持）
+        // 与鼠标悬浮时的非邻节点状态一致；hover 高亮让位（移开鼠标选中态保持）。
+        // 波C-a：selectedSet 已是各锚点邻域的并集，本行一字未动即得多选语义
         alpha = selectedSet.has(n.simulationData.id) ? 1 : 0.2
       } else if (hoveredNodeId !== null && focusOnHover) {
         // if we are hovering over a node, we want to highlight the immediate neighbours
@@ -2320,8 +2396,8 @@ async function createGraphInstance(
       // hover 高亮中的标签透明度交给 tween，缩放不覆盖
       if (n.active) continue
       if (
-        selectedNodeId !== null &&
-        !shouldShowLabelDuringSelection(selectedNodeId, selectedSet, n.simulationData.id)
+        hasSelection() &&
+        !shouldShowLabelDuringSelection(selectedAnchors, selectedSet, n.simulationData.id)
       ) {
         n.label.alpha = 0
         n.label.scale.set(1 / scale)
@@ -2330,8 +2406,8 @@ async function createGraphInstance(
         syncLabelRender(n)
         continue
       }
-      // 选中节点标签由 renderLabels 拉起（v16），缩放不覆盖
-      if (selectedNodeId !== null && n.simulationData.id === selectedNodeId) continue
+      // 锚点标签由 renderLabels 拉起（v16），缩放不覆盖（波C-a：多选下每个锚点都算）
+      if (isSelectedAnchor(n.simulationData.id)) continue
       n.label.alpha = isDimmedNode(n.simulationData.id) ? 0 : scaleOpacity
       n.labelWanted = wantsLabel(n)
       syncLabelRender(n)
@@ -2893,9 +2969,10 @@ async function createGraphInstance(
     const ox = width / 2
     const oy = height / 2
 
-    // 选中态：仅当前锚点与直接相关节点之间的边提亮，其他边只降低透明度；
-    // 直接相关边加粗，暗边保持原线宽。闪烁帧不重绘此处（见 animate）
-    if (selectedNodeId !== null) {
+    // 选中态：仅锚点与直接相关节点之间的边提亮，其他边只降低透明度；
+    // 直接相关边加粗，暗边保持原线宽。闪烁帧不重绘此处（见 animate）。
+    // 波C-a：判据收锚点**集合**，多选下各锚点的相关边取并集
+    if (hasSelection()) {
       let hasRelated = false
       let relatedStroke: ReturnType<typeof selectedLinkStroke> | null = null
       for (const l of linkRenderData) {
@@ -2903,9 +2980,9 @@ async function createGraphInstance(
         if (d.source.x === undefined || d.source.y === undefined) continue
         if (d.target.x === undefined || d.target.y === undefined) continue
         if (!isLinkRenderVisible(d)) continue
-        const related = isSelectedAnchorLink(selectedNodeId, d.source.id, d.target.id)
+        const related = isSelectedAnchorLink(selectedAnchors, d.source.id, d.target.id)
         if (!related) continue
-        relatedStroke = selectedLinkStroke(selectedNodeId, d.source.id, d.target.id)
+        relatedStroke = selectedLinkStroke(selectedAnchors, d.source.id, d.target.id)
         linkGfx.moveTo(d.source.x + ox, d.source.y + oy)
         linkGfx.lineTo(d.target.x + ox, d.target.y + oy)
         hasRelated = true
@@ -2922,8 +2999,8 @@ async function createGraphInstance(
         if (d.source.x === undefined || d.source.y === undefined) continue
         if (d.target.x === undefined || d.target.y === undefined) continue
         if (!isLinkRenderVisible(d)) continue
-        if (isSelectedAnchorLink(selectedNodeId, d.source.id, d.target.id)) continue
-        otherStroke = selectedLinkStroke(selectedNodeId, d.source.id, d.target.id)
+        if (isSelectedAnchorLink(selectedAnchors, d.source.id, d.target.id)) continue
+        otherStroke = selectedLinkStroke(selectedAnchors, d.source.id, d.target.id)
         linkGfx.moveTo(d.source.x + ox, d.source.y + oy)
         linkGfx.lineTo(d.target.x + ox, d.target.y + oy)
         hasOther = true
@@ -3236,8 +3313,10 @@ async function createGraphInstance(
     relayoutVisible,
     restoreBaseLayout,
     setSelected,
+    setSelectedMany,
     getSelected,
-    isInSelectedSet: (nodeId: SimpleSlug) => selectedNodeId !== null && selectedSet.has(nodeId),
+    getSelectedAnchors,
+    isInSelectedSet: (nodeId: SimpleSlug) => hasSelection() && selectedSet.has(nodeId),
     getTransform,
     applyTransform,
     syncSize,
@@ -3273,10 +3352,14 @@ async function renderGraph(
   }
   applyHiddenTo(instance)
   // 选中态（v14）：controller 级持有，重建后恢复（renderCanvas 重建路径由调用方恢复）。
-  // 用 const 对象包装规避 TS 对闭包捕获 let 变量的流分析收窄
-  const selectedBox: { nodeId: SimpleSlug | null; hops: 1 | 2 } = { nodeId: null, hops: 1 }
+  // 用 const 对象包装规避 TS 对闭包捕获 let 变量的流分析收窄。
+  // ⚠️ 波C-a：承载体由单值 nodeId 改为**锚点数组** anchors。这里正是术语层
+  // hidden↔其它那条**内部重建**路径的选中承载体——漏改即「多选后切一次术语层，
+  // 12 个锚点只剩 1 个」的静默吞集，且因为重建在 controller 内部完成，
+  // 编排层的重放代码一行都跑不到，外面看不出来。
+  const selectedBox: { anchors: SimpleSlug[]; hops: 1 | 2 } = { anchors: [], hops: 1 }
   const applySelectedTo = (inst: GraphInstance) => {
-    if (selectedBox.nodeId !== null) inst.setSelected(selectedBox.nodeId, selectedBox.hops)
+    if (selectedBox.anchors.length > 0) inst.setSelectedMany(selectedBox.anchors, selectedBox.hops)
   }
   applySelectedTo(instance)
   // 术语法域过滤态（阶段5.3 需求6）：controller 级持有，术语层 hidden↔其它的重建
@@ -3327,11 +3410,20 @@ async function renderGraph(
     },
     setSelected: (nodeId: SimpleSlug | null, hops: 1 | 2 = 1) => {
       if (destroyed) return
-      selectedBox.nodeId = nodeId
+      selectedBox.anchors = nodeId === null ? [] : [nodeId]
       selectedBox.hops = hops
       instance.setSelected(nodeId, hops)
     },
+    setSelectedMany: (nodeIds: readonly SimpleSlug[], hops: 1 | 2 = 1) => {
+      if (destroyed) return
+      // 记的是**外部意图**的完整集合（未按数据集过滤）：某个锚点当下因术语层
+      // hidden／域隐藏不在数据集，重建回来时仍应恢复。实例侧的过滤只作用于本次渲染。
+      selectedBox.anchors = Array.from(nodeIds)
+      selectedBox.hops = hops
+      instance.setSelectedMany(nodeIds, hops)
+    },
     getSelected: () => instance.getSelected(),
+    getSelectedAnchors: () => instance.getSelectedAnchors(),
     getSelectedHops: () => (instance.getSelected() === null ? 1 : selectedBox.hops),
     isInSelectedSet: (nodeId: SimpleSlug) => instance.isInSelectedSet(nodeId),
     setTermLayer: (mode: TermLayerMode): Promise<void> => {

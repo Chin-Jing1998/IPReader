@@ -41,22 +41,35 @@ export function resolveSingleClickAction(
   return targetInSelectedSet ? "show" : "ignore"
 }
 
-/** 选中态只高亮当前锚点节点与其直接相连的边。 */
+// ============================================================
+// 多选锚点（阶段5.10 波C-a）
+// ============================================================
+// 下面三个函数原先各收一个 `selectedNode: SimpleSlug | null`，波C 起一律改收
+// **锚点集合** ReadonlySet<string>：空集即等价于原先的 null，单元素集即等价于
+// 原先的单值，故三者对既有单选场景的返回值逐值不变（回归断言见 .test.ts）。
+//
+// 收 ReadonlySet 而非数组：判据全是「这条边的端点是不是锚点」这类成员查询，
+// 12 个锚点 × 29,010 条边的线性扫描会在 drawLinks 里被跑两遍；Set 查询是 O(1)，
+// 且调用方（graph.inline.ts 的 selectedAnchors）本就以 Set 持有，无须每帧重建。
+// 用 ReadonlySet 而非 Set：本模块是纯逻辑层，不该有能力改调用方的状态。
+
+/** 选中态只高亮锚点节点与其直接相连的边（多选时取各锚点相关边的并集）。 */
 export function isSelectedAnchorLink(
-  selectedNode: SimpleSlug | null,
+  selectedAnchors: ReadonlySet<string>,
   source: SimpleSlug,
   target: SimpleSlug,
 ): boolean {
-  return selectedNode !== null && (source === selectedNode || target === selectedNode)
+  if (selectedAnchors.size === 0) return false
+  return selectedAnchors.has(source) || selectedAnchors.has(target)
 }
 
 /** 选中态的直接关联边加粗，暗边仅降低透明度。 */
 export function selectedLinkStroke(
-  selectedNode: SimpleSlug | null,
+  selectedAnchors: ReadonlySet<string>,
   source: SimpleSlug,
   target: SimpleSlug,
 ): GraphLinkStroke {
-  return isSelectedAnchorLink(selectedNode, source, target)
+  return isSelectedAnchorLink(selectedAnchors, source, target)
     ? { width: 1.6, alpha: 1 }
     : { width: 1, alpha: 0.2 }
 }
@@ -138,11 +151,18 @@ export function shouldSettleOnDragEnd(
   return !fullGraph && alphaAtDragStart < alphaMin * SETTLE_ALPHA_SLACK
 }
 
-/** 选中态下仅允许选中节点及其相关节点显示标签。 */
+/**
+ * 选中态下仅允许选中集内的节点显示标签。
+ *
+ * 判据取 selectedSet（锚点 + 其 hops 跳邻域的**并集**）而非锚点集本身：
+ * 多选时各锚点的邻域相互交叠，逐锚点判断会把同一个节点算好几遍，
+ * 并集是调用方一次算好的（computeSelectedSet），此处只做成员查询。
+ * selectedAnchors 只用来判断「当下究竟有没有选中」——空集即无选中，全放行。
+ */
 export function shouldShowLabelDuringSelection(
-  selectedNode: SimpleSlug | null,
+  selectedAnchors: ReadonlySet<string>,
   selectedSet: ReadonlySet<string>,
   nodeId: SimpleSlug,
 ): boolean {
-  return selectedNode === null || selectedSet.has(nodeId)
+  return selectedAnchors.size === 0 || selectedSet.has(nodeId)
 }
