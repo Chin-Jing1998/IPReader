@@ -1781,11 +1781,14 @@ async function main() {
   const termOk =
     termShown === "shown" && termRestored === "hidden" && termRenderCalls === 0;
 
-  // f：隐藏书条目同样直达文档——63-规范性文件制定管理办法 属 GRAPH_HIDDEN_BOOKS 五部之一
-  //（不进图谱视图），但目录条目仍是普通链接：点击 SPA 落地该书首页，kb:graphlocate 恒 0。
-  // 原「预检拦截提示」断言随定位链路撤销一并删除（EXPLORER_LOCATE_MISS 已不存在）
+  // f：书目条目直达文档——点击目录里的书根条目走 SPA 落地该书首页，kb:graphlocate 恒 0。
+  // 原「预检拦截提示」断言随定位链路撤销一并删除（EXPLORER_LOCATE_MISS 已不存在）。
+  // 阶段5.11 波O：本例原取 63-规范性文件制定管理办法（GRAPH_HIDDEN_BOOKS 五部之一，
+  // 守的是「隐藏书条目同样直达」），该书已随 11 部书目归档下线、GRAPH_HIDDEN_BOOKS
+  // 机制亦整体拆除，「书在库但不进图谱」的半态不复存在；改取仍在册的
+  // 62-专利收费减缴办法，用例语义收敛为「目录书根条目直达且不触发图内定位」。
   await win.webContents.executeJavaScript(
-    `document.querySelector('.explorer-ul a[data-for="63-规范性文件制定管理办法/index"]').click()`,
+    `document.querySelector('.explorer-ul a[data-for="62-专利收费减缴办法/index"]').click()`,
   );
   await sleep(1200);
   const afterBookNav = await win.webContents.executeJavaScript(
@@ -1797,8 +1800,8 @@ async function main() {
   );
   const bookOk =
     // 书夹链接经 simplifySlug 剥掉 index 段后保留尾斜杠（文件条目无段可剥、无尾斜杠）
-    afterBookNav.path === "/63-规范性文件制定管理办法/" &&
-    afterBookNav.title.includes("规范性文件制定和管理办法") &&
+    afterBookNav.path === "/62-专利收费减缴办法/" &&
+    afterBookNav.title.includes("专利收费减缴办法") &&
     afterBookNav.locateCount === 0;
 
   // 再回图谱总览页做状态条自动消失与过滤联动两组页内断言
@@ -2021,7 +2024,7 @@ async function main() {
   //        （约 250ms）：本步的职责是抓「机制失效导致的塌方」，不是守护性能指标，
   //        指标的对照留给 /tmp 下的采数探针。CI 机器慢一倍也不会误报。
   //     ③ 渲染半径断言（硬失败，阶段5.11 波I）——见下方 hardRadiusOk：渲染半径与
-  //        碰撞半径分家后，「目录形态但结构无子」的 847 个法条节点须按叶子 3.5 画，
+  //        碰撞半径分家后，「目录形态但结构无子」的 789 个法条节点须按叶子 3.5 画，
   //        同时书根 10 一个不少。两个数一升一降把降级判据锁死在全库结构口径上。
   //
   //     ⚠️ 返回图谱页必须走 SPA 软导航，不能用 loadURL：硬跳转新建 JS 上下文，
@@ -2078,18 +2081,20 @@ async function main() {
   // 正是本断言要抓的那类无声失效。
   const hardPrebuiltOk = !!hardMark && hardMark.layoutSource === "prebuilt";
   // 阶段5.11 波I 追加子断言：目录形态法条节点按叶子半径渲染，且容器层级未被误伤。
-  //   · leafSized === 847：49 部书里「一条一目录」的法条页（slug 带尾斜杠但结构无子）
+  //   · leafSized === 789：38 部书里「一条一目录」的法条页（slug 带尾斜杠但结构无子）
   //     全部降级到 LEAF_R=3.5。该值塌到 0 即 renderRadius 的降级分支被绕开或结构
   //     前缀表建错；数值本身随语料条文增删而变，改语料时同步更新此处与代码注释。
-  //   · bookRoots === 83：渲染半径恰为 10.00 的节点数＝全量图内的书根数
-  //     （88 部减去 GRAPH_HIDDEN_BOOKS 的 5 部）。它守的是「别把降级判据写宽」——
-  //     若误按当前图节点集而非全库结构判「有子」，书根会跟着塌到 3.5，此值即归零。
-  //   · leafBucket > leafSized：3.50 档里除了这 847 个，还必须有大量真叶子条文页
-  //     （实测术语层 hidden 档 5759、显示档 7502），该档若只剩 847 说明真叶子丢了。
+  //     （阶段5.11 波O 书目下线后由 847/49 部重测为 789/38 部。）
+  //   · bookRoots === 76：渲染半径恰为 10.00 的节点数＝全量图内的书根数。
+  //     它守的是「别把降级判据写宽」——若误按当前图节点集而非全库结构判「有子」，
+  //     书根会跟着塌到 3.5，此值即归零。波O 前为 83（88 部减 GRAPH_HIDDEN_BOOKS 的
+  //     5 部）；波O 下线 12 部书并整体拆除该机制后，图内书根＝在册书目数 76。
+  //   · leafBucket > leafSized：3.50 档里除了这 789 个，还必须有大量真叶子条文页，
+  //     该档若只剩 789 说明真叶子丢了。
   const hardRadiusOk =
     !!hardMark &&
-    hardMark.leafSized === 847 &&
-    hardMark.bookRoots === 83 &&
+    hardMark.leafSized === 789 &&
+    hardMark.bookRoots === 76 &&
     hardMark.leafBucket > hardMark.leafSized;
 
   // 力导预热后的基线快照要等实例销毁（SPA 离开图谱页）或自然收敛才写回缓存；
@@ -2164,7 +2169,7 @@ async function main() {
   await shot(win, "图谱缓存命中与坐标播种");
 
   record(
-    "图谱首帧零标签光栅化＋首开命中构建期坐标＋SPA 往返命中组装缓存与坐标播种＋图谱索引悬空内链恒零＋目录形态法条节点按叶子半径渲染（结构断言硬失败：firstFrameVisibleLabels=0 / 首开 layoutSource=prebuilt / 二开 assemblyCacheHit+layoutSeeded+layoutSource=cache / contentIndexGraph 悬空链=0 / leafSizedContainers=847+书根 10.00 档=83；时间宽熔断：二次打开 total<1200ms）",
+    "图谱首帧零标签光栅化＋首开命中构建期坐标＋SPA 往返命中组装缓存与坐标播种＋图谱索引悬空内链恒零＋目录形态法条节点按叶子半径渲染（结构断言硬失败：firstFrameVisibleLabels=0 / 首开 layoutSource=prebuilt / 二开 assemblyCacheHit+layoutSeeded+layoutSource=cache / contentIndexGraph 悬空链=0 / leafSizedContainers=789+书根 10.00 档=76；时间宽熔断：二次打开 total<1200ms）",
     graphReady30 &&
       hardLabelsOk &&
       hardPrebuiltOk &&
@@ -2178,9 +2183,9 @@ async function main() {
       `节点数=${hardMark ? hardMark.nodes : "-"}, 首开 cacheHit=${hardMark ? hardMark.cacheHit : "-"}（须 false，硬跳转无模块缓存）, ` +
       `首开 layoutSource=${hardMark ? hardMark.layoutSource : "-"}（须 prebuilt）, ` +
       `首开 prewarmMs=${hardMark ? hardMark.prewarmMs.toFixed(1) : "-"}ms; ` +
-      `渲染半径（波I）：叶子化目录节点=${hardMark ? hardMark.leafSized : "无记录"}（须 847）, ` +
-      `书根 10.00 档=${hardMark ? hardMark.bookRoots : "-"}（须 83）, ` +
-      `3.50 档合计=${hardMark ? hardMark.leafBucket : "-"}（须 >847）; ` +
+      `渲染半径（波I）：叶子化目录节点=${hardMark ? hardMark.leafSized : "无记录"}（须 789）, ` +
+      `书根 10.00 档=${hardMark ? hardMark.bookRoots : "-"}（须 76）, ` +
+      `3.50 档合计=${hardMark ? hardMark.leafBucket : "-"}（须 >789）; ` +
       `SPA 离开落地=${leftGraph}, popstate 返回落地=${backPath}; ` +
       `二次打开：cacheHit=${spaMark ? spaMark.cacheHit : "无记录"}（须 true）, ` +
       `layoutSeeded=${spaMark ? spaMark.seeded : "-"}（须 true）, ` +
@@ -2655,7 +2660,7 @@ async function main() {
   //         （增量非 0 即说明走了重建兜底，那是 700ms 的全量重建，不是 focus 定位）
   //       d 展开一本书：章行数与 __graphIndex 现算一致（不写死，随语料增删自适应）
   //       e 置灰联动：点「商标」后，data-group 不属 {8,15} 的行全部 dimmed；回「全部」全亮
-  //       f 存活守门：两次法域切换后抽屉仍在、83 书行未被清，且**零重建**（阶段5.10 波A
+  //       f 存活守门：两次法域切换后抽屉仍在、76 书行未被清，且**零重建**（阶段5.10 波A
   //         反转，原断言为「各触发一次 RO 重建」）——抽屉挂在 .ge-body 而非 .ge-canvas
   //         这条设计仍然成立，只是尺寸变化已不再重建，守的对象改为「重建计数纹丝不动」
   //       g 尺寸中立：抽屉开→关→开，.ge-canvas 尺寸逐像素不动（脱流的凭据）
@@ -2755,7 +2760,7 @@ async function main() {
   await sleep(400);
   const s33b = await win.webContents.executeJavaScript(TOC_STATS);
   const b33Ok =
-    !!s33b && s33b.fields === 6 && s33b.books === 83 && s33b.drawerHidden === false;
+    !!s33b && s33b.fields === 6 && s33b.books === 76 && s33b.drawerHidden === false;
   await shot(win, "图谱目录抽屉-展开态");
 
   // c. 点目录行 = selectNode。哨兵在本上下文中重装（步 29 装的那份已随 loadURL 失效），
@@ -2897,7 +2902,7 @@ async function main() {
     !!s33e2 &&
     s33e2.dimmed === 0;
 
-  // f. 存活守门（阶段5.10 波A 反转）：两次法域切换后抽屉与 83 书行都还在，
+  // f. 存活守门（阶段5.10 波A 反转）：两次法域切换后抽屉与 76 书行都还在，
   //    且**一次重建都没有发生**。原断言是 rebuilds>=1——那时法域切换会改画布高度、
   //    触发 RO 的 400ms 防抖整实例重建，本项守的是「抽屉挂在 .ge-body 而非 .ge-canvas，
   //    重建时的 removeAllChildren 扫不到它」。波A 把尺寸变化改成就地 resize 后，
@@ -2906,7 +2911,7 @@ async function main() {
   const callsAfterField = await win.webContents.executeJavaScript(READ_RENDER_CALLS);
   const rebuilds = callsAfterField - callsBeforeField;
   const f33Ok =
-    !!s33e2 && s33e2.drawerHidden === false && s33e2.books === 83 && rebuilds === 0;
+    !!s33e2 && s33e2.drawerHidden === false && s33e2.books === 76 && rebuilds === 0;
 
   // g. 尺寸中立：抽屉开→关→开，.ge-canvas 逐像素不动（绝对定位脱流的凭据）
   const g33Open1 = await win.webContents.executeJavaScript(MEASURE_TOC_BOX);
@@ -3088,7 +3093,7 @@ async function main() {
     s33h.drawerHidden === false &&
     s33h.pinned === "true" &&
     s33h.stored === "true" &&
-    s33h.books === 83;
+    s33h.books === 76;
   await shot(win, "图谱目录抽屉-钉住后reload仍展开");
 
   // i. 收尾复位（硬性）：取消钉住 + removeItem，绝不把偏好留在用户的 localStorage 里
@@ -3183,7 +3188,7 @@ async function main() {
   await shot(win, "图谱目录抽屉-悬停常开锁");
 
   record(
-    "图谱总览目录导航抽屉（惰性首建 6 法域+83 书行／点行即 selectNode 且零重建不收起／章行数与索引一致／置灰联动／法域切换零重建且抽屉存活／尺寸中立／复选框多选并集／上限 12／常开持久化／悬停开合与常开锁／两道收尾复位）",
+    "图谱总览目录导航抽屉（惰性首建 6 法域+76 书行／点行即 selectNode 且零重建不收起／章行数与索引一致／置灰联动／法域切换零重建且抽屉存活／尺寸中立／复选框多选并集／上限 12／常开持久化／悬停开合与常开锁／两道收尾复位）",
     a33Ok &&
       b33Ok &&
       c33Ok &&
@@ -3198,14 +3203,14 @@ async function main() {
       i33Ok &&
       k33Ok,
     `a 结构：drawer.hidden=${s33a ? s33a.drawerHidden : "无"}（须 true）, aria-expanded=${s33a ? s33a.expanded : "-"}, 树内行数=${s33a ? s33a.rows : "-"}（须 0，惰性）; ` +
-      `b 首开：点开→树可见 ${typeof openMs === "number" ? openMs.toFixed(1) : openMs}ms（目标 ≤50ms）, ${fmtToc(s33b)}（须 6 法域 / 83 书）; ` +
+      `b 首开：点开→树可见 ${typeof openMs === "number" ? openMs.toFixed(1) : openMs}ms（目标 ≤50ms）, ${fmtToc(s33b)}（须 6 法域 / 76 书）; ` +
       `c 点行定位：c1「${c33a.title}」（期望「${tocTitles.guide}」）→drawer.hidden=${c33a.drawerHidden}（须 false——波C-c 起悬停模式点行不收起）, 重建计数=${c33a.calls}（须 0）; ` +
       `c2「${c33b.title}」（期望「${tocTitles.law}」）常开锁开→drawer.hidden=${c33b.drawerHidden}（须 false）, 重建计数=${c33b.calls}（须 0）; ` +
       `d 展开 1-专利法：built=${d33 ? d33.built : "-"}, 章行=${d33 ? d33.rows : "-"}（索引现算=${chapterExpected}）; ` +
       `e 置灰：点「商标」后未置灰组=${s33e1 ? JSON.stringify(s33e1.litGroups) : "-"}（须 ["15","8"]）、置灰行=${s33e1 ? s33e1.dimmed : "-"}；` +
       `并选「+专利」后未置灰组=${s33e1b ? JSON.stringify(s33e1b.litGroups) : "-"}（须并集去重 ${JSON.stringify(DUAL_LIT_GROUPS)}）、置灰行=${s33e1b ? s33e1b.dimmed : "-"}（须 >0）；` +
       `回「全部」后置灰行=${s33e2 ? s33e2.dimmed : "-"}（须 0）; ` +
-      `f 存活：两次法域切换触发重建 ${rebuilds} 次（须 0——就地 resize 零重建），drawer.hidden=${s33e2 ? s33e2.drawerHidden : "-"}, 书行=${s33e2 ? s33e2.books : "-"}（须 83）; ` +
+      `f 存活：两次法域切换触发重建 ${rebuilds} 次（须 0——就地 resize 零重建），drawer.hidden=${s33e2 ? s33e2.drawerHidden : "-"}, 书行=${s33e2 ? s33e2.books : "-"}（须 76）; ` +
       `g 尺寸中立：开 ${g33Open1 ? g33Open1.w + "×" + g33Open1.h : "-"} → 关 ${g33Closed ? g33Closed.w + "×" + g33Closed.h : "-"} → 开 ${g33Open2 ? g33Open2.w + "×" + g33Open2.h : "-"}（须逐像素等）; ` +
       `j 多选：勾 ${JSON.stringify(jSlugs)} → 锚点在集内=${j33Union ? JSON.stringify(j33Union.anchorsIn) : "-"}（须全 true）, ` +
       `邻居并集=${j33Union ? JSON.stringify(j33Union.neighbours.map((n) => (n ? n.nb + ":" + n.inSet : null))) : "-"}（须至少一个 true）, ` +
@@ -3410,10 +3415,10 @@ async function main() {
     bookReady &&
     !!s34e &&
     s34e.fields[0] === "synthetic:CN/商标" &&
-    s34e.booksBefore.length === 9 &&
+    s34e.booksBefore.length === 7 &&
     s34e.probe.engaged === true &&
     s34e.probe.markedFirst === true &&
-    s34e.booksAfter.length === 9 &&
+    s34e.booksAfter.length === 7 &&
     s34e.booksAfter[0] === s34e.booksBefore[1] &&
     s34e.domMatchesTable === true;
   await shot(win, "目录树自定义排序-书目行拖到首位");
@@ -3489,7 +3494,7 @@ async function main() {
       `DOM 首=${s34b ? s34b.first : "-"}／表首=${s34b ? s34b.tableFirst : "-"}（须均为 synthetic:CN/商标）, 表长=${s34b ? s34b.tableLen : "-"}（须 6，整段写入）, 抬指残留 dragging=${s34b ? s34b.probe.residueDragging : "-"}／指示线=${s34b ? s34b.probe.residueMarks : "-"}／全局标记=${s34b ? String(s34b.probe.residueFlag) : "-"}; ` +
       `c 不变式：li[hidden]=${s34c ? s34c.hiddenLis : "-"}（须 0）, 合成节点内 <a>=${s34c ? s34c.anchorsInSynthetic : "-"}（须 0）, 顶层直达链=${s34c ? s34c.topLevelCN : "-"}, container→outer 相邻破坏=${s34c ? s34c.siblingBroken : "-"}（须 0）; ` +
       `d 复用路径（SPA 往返）：落地=${s34d ? s34d.path : "-"}, 法域首=${s34d ? s34d.fields[0] : "-"}（须 synthetic:CN/商标）, 手柄=${s34d ? s34d.inv.handles : "-"}／可重排行=${s34d ? s34d.inv.orderables : "-"}（须相等且 >0——手柄监听若误登记 cleanup，此处必为 0）; ` +
-      `e 重建路径（硬跳 ${SPA_HOPS[1]}）：法域首=${s34e ? s34e.fields[0] : "-"}, D5 书=${s34e ? s34e.booksBefore.length : "-"} 本（须 9）, 第二本拖到首=${s34e ? s34e.booksAfter[0] : "-"}（期望 ${s34e ? s34e.booksBefore[1] : "-"}）, DOM 与表逐项一致=${s34e ? s34e.domMatchesTable : "-"}; ` +
+      `e 重建路径（硬跳 ${SPA_HOPS[1]}）：法域首=${s34e ? s34e.fields[0] : "-"}, D5 书=${s34e ? s34e.booksBefore.length : "-"} 本（须 7）, 第二本拖到首=${s34e ? s34e.booksAfter[0] : "-"}（期望 ${s34e ? s34e.booksBefore[1] : "-"}）, DOM 与表逐项一致=${s34e ? s34e.domMatchesTable : "-"}; ` +
       `f 恢复默认：首点后 data-confirm=${s34f1 ? s34f1.confirm : "-"}（须 on）且序未变=${s34f1 ? s34f1.fields[0] : "-"}; 再点后法域首=${s34f2 ? s34f2.fields[0] : "-"}（须 synthetic:CN/专利）, 书首=${s34f2 ? s34f2.books[0] : "-"}, 顺序键=${s34f2 ? JSON.stringify(s34f2.order) : "-"}（须 null）, 恢复钮 display=${s34f2 ? s34f2.resetDisplay : "-"}（须 none）, fileTree-v2 未被动=${s34f1 && s34f2 ? s34f2.tree === s34f1.treeSnapshot : "-"}, 顶层 li=${s34f2 ? s34f2.roots : "-"}（须 4＝3 顶层+1 占位，防双树叠加）; ` +
       `g 收尾：顺序表复位=${g34Ok}（步首快照=${s34a ? JSON.stringify(s34a.orderBefore) : "-"}）`,
   );

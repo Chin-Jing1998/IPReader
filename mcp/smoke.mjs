@@ -105,13 +105,20 @@ async function main() {
   //   2026-08-30 阶段5.9 波4（施工批次：阶段5.11 波G）：术语索引扩充批全量重建——商标审查审理指南
   //     全量重提取（109 → 895 片）＋著作权/竞争法/品种布图/综合程序四法域 8 部法律法规首次纳入
   //     （384 片），术语 1035 → 1743；文档 6247 不变（本批不改语料切分），7282 → 7990；书目仍恒 88 部。
-  ok('八十八部书目全开', books.books.length === 88, books.books.map((b) => b.short).join('、'));
-  ok('节点总数 7990', books.totalNodes === 7990, String(books.totalNodes));
+  //   2026-08-30 阶段5.11 波O（书目归档下线）：12 部低检索价值文献（编号 51/53/63/72/74/75/77/
+  //     79/82/87/89/90）语料归档、三处登记表注释摘除，书目 88 → 76；文档 6247 → 5963（−284），
+  //     术语 1743 不变（该 12 部零术语引用，施工前实测命中 0），7990 → 7706；
+  //     法条正文 2521 → 2409 键（下线书中 5 部有 lawName）。
+  ok('七十六部书目全开', books.books.length === 76, books.books.map((b) => b.short).join('、'));
+  ok('节点总数 7706', books.totalNodes === 7706, String(books.totalNodes));
   ok('术语 1743 条', books.termCount === 1743, String(books.termCount));
   // 2026-08-22 阶段3批②「lawName 登记」：69 部规范授 lawName 后 lawArticles 从 231 键增至 2496 键
   //   （设计方案 PatentReader-2026-设计方案-阶段3法条键跨法域改造 §四「全链路影响预判」）。
   //   2026-08-23 阶段5波A：cppl 缺陷修复后补授 lawName（第 70 域），2496 → 2521 键。
-  ok('法条正文 2521 条', books.lawArticleCount === 2521, String(books.lawArticleCount));
+  //   2026-08-30 阶段5.11 波O：12 部下线书中 5 部有 lawName（51 作品自愿登记／53 商标印制管理
+  //     办法／63 规范性文件制定管理办法／77 使用文字作品支付报酬／87 规章制定程序规定），
+  //     2521 → 2409 键。
+  ok('法条正文 2409 条', books.lawArticleCount === 2409, String(books.lawArticleCount));
 
   // ============ 三、search_kb ============
   console.log('\n三、search_kb');
@@ -184,7 +191,7 @@ async function main() {
   // ============ 七、browse_toc 与 related_nodes ============
   console.log('\n七、browse_toc 与 related_nodes');
   const b1 = dataOf(await client.callTool({ name: 'browse_toc', arguments: {} }), 'browse_toc');
-  ok('缺省列出八十八部书', b1.books.length === 88);
+  ok('缺省列出七十六部书', b1.books.length === 76);
   const b2 = dataOf(await client.callTool({ name: 'browse_toc', arguments: { root: '02-04', depth: 1 } }), 'browse_toc');
   ok('按节点展开子结构', b2.children.length > 0, `${b2.children.length} 个子节点`);
   ok('depth 生效（不递归下一层）', b2.children.every((c) => c.children === undefined));
@@ -218,7 +225,7 @@ async function main() {
   const { client: c2, transport: tr2 } = await connect({ IPREADER_MCP_DOMAINS: 'patent-law' });
   const d1 = dataOf(await c2.callTool({ name: 'list_books', arguments: {} }), 'list_books');
   ok('仅开放一部书', d1.books.length === 1 && d1.books[0].domain === 'patent-law', d1.books.map((b) => b.short).join('、'));
-  ok('其余八十七部标记为已关闭', d1.closedBooks.length === 87, d1.closedBooks.map((b) => b.title).join('、'));
+  ok('其余七十五部标记为已关闭', d1.closedBooks.length === 75, d1.closedBooks.map((b) => b.title).join('、'));
   const d2 = dataOf(await c2.callTool({ name: 'read_node', arguments: { id: '02-04-05' } }), 'read_node');
   ok('已关闭书目的节点不可读', typeof d2.error === 'string', d2.error);
   const d3 = dataOf(await c2.callTool({ name: 'search_kb', arguments: { query: '创造性判断' } }), 'search_kb');

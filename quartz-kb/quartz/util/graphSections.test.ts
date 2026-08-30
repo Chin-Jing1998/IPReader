@@ -45,12 +45,13 @@ test("高危点回归：多位数前缀精确到目录号边界，不发生 1/1x
   assert.equal(groupOfSlug("12-商标案件管辖解释/tmjur-01"), "8")
   assert.equal(groupOfSlug("19-北上广知产法院管辖/ipcj-01"), "14")
   // 组号 "8"（商标）不得吞掉 83-/84- 开头的 slug 的判定逻辑——
-  // 这两者恰好也属组 8，故另取属组 10 的 82- 做反例；
+  // 这两者恰好也属组 8，故另取属组 10 的 81- 做反例
+  //（原用 82-，该书已于阶段5.11 波O 下线、前缀不再登记，改取同组仍在册的 81-）；
   // 80 已于 G-2 独立成组 15（商标审查指南），不再属组 8，一并验证精确匹配
-  assert.equal(groupOfSlug("82-专利审查指南发布令/egd-01"), "10")
+  assert.equal(groupOfSlug("81-规范申请专利行为的规定/pfc-01"), "10")
   assert.equal(groupOfSlug("80-商标审查审理指南/tmeg-01"), "15")
-  // 组号 "9"（术语）不得吞掉 90- 开头的 slug；90 前缀已于 G-1 从 §14 摘除、不再登记，
-  // 故落回 undefined（而非误判为 "9"）
+  // 组号 "9"（术语）不得吞掉 90- 开头的 slug；90 前缀自 G-1 从 §14 摘除后即未登记，
+  // 阶段5.11 波O 更随书目整体下线，故落回 undefined（而非误判为 "9"）
   assert.equal(groupOfSlug("9-关键词索引/99-综合/term-0186"), "9")
   assert.equal(groupOfSlug("90-GB国家标准清单/gbstd-01"), undefined)
 })
@@ -66,7 +67,7 @@ test("无数字前缀或未登记前缀一律返回 undefined，由调用方回�
   assert.equal(groupOfSlug("28-已剔除/x"), undefined)
 })
 
-test("组表自洽：组号唯一、前缀唯一、非术语前缀合计 83 部（主干 7 + 扩展 76）", () => {
+test("组表自洽：组号唯一、前缀唯一、非术语前缀合计 76 部（主干 7 + 扩展 69）", () => {
   const ids = SECTION_GROUPS.map((g) => g.id)
   assert.equal(new Set(ids).size, ids.length, "组号不得重复")
   assert.equal(ids.length, 15, "共 15 个域组（主干 7 + 扩展 7 + 术语 1）")
@@ -75,13 +76,14 @@ test("组表自洽：组号唯一、前缀唯一、非术语前缀合计 83 部�
   assert.equal(new Set(prefixes).size, prefixes.length, "同一目录前缀不得登记进两个组")
 
   const extPrefixes = SECTION_GROUPS.filter((g) => g.tier === "ext").flatMap((g) => g.prefixes)
-  assert.equal(extPrefixes.length, 76, "扩展入库文献共 76 部")
+  // 阶段5.11 波O：7 部登记在册的下线书（72/74/75/82 出组 10、51/77 出组 13、53 出组 8）摘除，76 → 69
+  assert.equal(extPrefixes.length, 69, "扩展入库文献共 69 部")
   assert.deepEqual([...EXT_GROUP_IDS], ["10", "8", "15", "13", "12", "11", "14"])
   assert.equal(ALL_GROUP_IDS.length, 15)
 
-  // 划分完备性：非术语前缀（主干 + 扩展）应恰好合计 83 部，与术语组互不重叠
+  // 划分完备性：非术语前缀（主干 + 扩展）应恰好合计 76 部，与术语组互不重叠
   const nonTermPrefixes = SECTION_GROUPS.filter((g) => g.tier !== "term").flatMap((g) => g.prefixes)
-  assert.equal(nonTermPrefixes.length, 83, "非术语前缀合计 83 部（主干 7 + 扩展 76）")
+  assert.equal(nonTermPrefixes.length, 76, "非术语前缀合计 76 部（主干 7 + 扩展 69）")
 
   // 主干七书与术语层沿用「组号 = 目录前缀」的历史行为
   for (const g of SECTION_GROUPS) {
@@ -324,34 +326,29 @@ test("选满六枚塌缩：隐藏集为空 ⇒ 反解为「全部」而非六枚
 })
 
 // ============================================================
-// 书级色板回归（阶段5.1 批 G-2；阶段5.2 批 Q-2 更新计数）：BOOK_COLORS 键集与色值格式。
-// 88 = SECTION_GROUPS 非术语组登记的 83 部前缀 + 已摘组但页内局部图仍渲染的
-// 5 部隐藏书前缀（63/79/87/89/90，详见 graphSections.ts 顶部沿革注释）。
-// 前缀 5/6 已于阶段5.2 批 Q-2 随 SECTION_GROUPS 召回为独立 main 组，不再属于
-// 隐藏书前缀、改由 nonTermPrefixes 覆盖。
+// 书级色板回归（阶段5.1 批 G-2；阶段5.2 批 Q-2、阶段5.11 波O 更新计数）：
+// BOOK_COLORS 键集与色值格式。76 = SECTION_GROUPS 非术语组登记的全部前缀，
+// 与书目数恒等——波O 之前另有「已摘组但页内局部图仍渲染」的 5 部隐藏书前缀
+// （63/79/87/89/90）需并入期望键集，那 5 部已随书目下线、GRAPH_HIDDEN_BOOKS
+// 机制亦整体拆除，故本用例的期望键集退化为 nonTermPrefixes 本身，
+// 不再有第二个来源（详见 graphSections.ts 顶部沿革注释与 util/appPages.ts 尾注）。
 // ============================================================
 
-test("BOOK_COLORS：88 键 = 非术语组全部前缀 ∪ 5 部隐藏书前缀，不含术语前缀 9", () => {
+test("BOOK_COLORS：76 键 = 非术语组全部前缀，不含术语前缀 9", () => {
   const nonTermPrefixes = SECTION_GROUPS.filter((g) => g.tier !== "term").flatMap((g) =>
     g.prefixes.map(String),
   )
-  // 阶段5.1 批 G-1 从 SECTION_GROUPS 摘除、但仍保留书级配色供页内局部图渲染的 5 部
-  const hiddenBookPrefixes = ["63", "79", "87", "89", "90"]
   const byNumber = (a: string, b: string) => Number(a) - Number(b)
-  const expectedKeys = [...new Set([...nonTermPrefixes, ...hiddenBookPrefixes])].sort(byNumber)
+  const expectedKeys = [...new Set(nonTermPrefixes)].sort(byNumber)
 
   const actualKeys = Object.keys(BOOK_COLORS)
   assert.equal(new Set(actualKeys).size, actualKeys.length, "BOOK_COLORS 键不得重复")
-  assert.equal(actualKeys.length, 88, "BOOK_COLORS 应恰为 88 键")
-  assert.deepEqual(
-    [...actualKeys].sort(byNumber),
-    expectedKeys,
-    "键集应等于非术语组前缀并集 5 部隐藏书前缀",
-  )
+  assert.equal(actualKeys.length, 76, "BOOK_COLORS 应恰为 76 键")
+  assert.deepEqual([...actualKeys].sort(byNumber), expectedKeys, "键集应等于非术语组前缀集")
   assert.equal(BOOK_COLORS["9"], undefined, "BOOK_COLORS 不得含术语前缀 9（术语层无书级配色）")
 })
 
-test("BOOK_COLORS：每键 light/dark 均为合法十六进制色值，176 色值全局无重复", () => {
+test("BOOK_COLORS：每键 light/dark 均为合法十六进制色值，152 色值全局无重复", () => {
   const hexPattern = /^#[0-9a-f]{6}$/
   const allValues: string[] = []
   for (const [prefix, { light, dark }] of Object.entries(BOOK_COLORS)) {
@@ -359,6 +356,6 @@ test("BOOK_COLORS：每键 light/dark 均为合法十六进制色值，176 色�
     assert.match(dark, hexPattern, `前缀 ${prefix} 的 dark 色值格式非法：${dark}`)
     allValues.push(light, dark)
   }
-  assert.equal(allValues.length, 176, "88 键 × light/dark 应共 176 个色值")
-  assert.equal(new Set(allValues).size, 176, "176 个色值不得有重复")
+  assert.equal(allValues.length, 152, "76 键 × light/dark 应共 152 个色值")
+  assert.equal(new Set(allValues).size, 152, "152 个色值不得有重复")
 })

@@ -10,7 +10,8 @@ import { buildGraphToc, countTocEntries, type TocIndexLike } from "./graphToc"
 // 单独重跑：cd quartz-kb && npx tsx --test quartz/util/graphToc.test.ts
 //
 // 真实语料的规模对照（2026-08-29 实测，由冒烟步 33 在浏览器侧守）：
-//   83 部书 / 1124 章 / 82 节；节仅存于 3-专利审查指南与 80-商标审查审理指南。
+//   76 部书（阶段5.11 波O 下线 12 部后；波O 前为 83 部）；
+//   节仅存于 3-专利审查指南与 80-商标审查审理指南。
 // ============================================================
 
 /** 造一个索引条目（只有 title 被消费） */
@@ -45,7 +46,9 @@ const FIXTURE: TocIndexLike = {
   // ① 术语层（组 9，tier=term）：由术语层三态钮独管，入目录即死行
   "9-关键词索引/index": entry("关键词索引"),
   "9-关键词索引/01-新颖性/index": entry("新颖性"),
-  // ② 未登记前缀：GRAPH_HIDDEN_BOOKS 的 5 部之一，与图谱 excludeSlugs 同集
+  // ② 未登记前缀：90 前缀自阶段5.1 起就未登记入 SECTION_GROUPS，
+  //    阶段5.11 波O 更随书目整体下线（该书已不在语料与内容目录中）；
+  //    夹具是字面量，故此条仍作「未登记前缀不得入树」的护栏保留
   "90-GB国家标准清单/index": entry("GB 国家标准清单"),
   // ③ 无数字前缀的应用页
   "设置/index": entry("设置"),
@@ -117,7 +120,7 @@ test("术语组、未登记前缀、应用页、叶子页与 5 段目录一律�
   for (const excluded of [
     "9-关键词索引/index", // 术语组（tier=term）
     "9-关键词索引/01-新颖性/index",
-    "90-GB国家标准清单/index", // 未登记前缀（GRAPH_HIDDEN_BOOKS）
+    "90-GB国家标准清单/index", // 未登记前缀（该书已于波O 下线，此处仅作护栏）
     "设置/index", // 无数字前缀的应用页
     "0-图谱总览/index", // 前缀 0 未登记
     "index", // 站点首页（单段）

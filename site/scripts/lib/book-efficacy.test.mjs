@@ -92,7 +92,6 @@ const SAMPLES = [
   ['patent-enforcement-2015', '原文 1585 字修改决定'],
   ['patent-adjudication-manual-2019', 'DROP 域：有字段、原文被上游裁决丢弃'],
   ['patent-law', '无「公布与施行」域，且元数据字段全空'],
-  ['gb-standards-index', '无「公布与施行」域，字段含「不适用（…）」自述'],
 ];
 
 if (process.argv.includes('--print')) {
@@ -113,12 +112,18 @@ if (process.argv.includes('--print')) {
       assert.ok(!rows.some((r) => r.label === '制定机关'), 'issuedBy 为空则不渲染该行');
     });
 
-    test('gb-standards-index：「不适用（…）」自述原样渲染，sourceRef 兜底', () => {
-      const md = render('gb-standards-index');
+    // 阶段5.11 波O（2026-08-30）：本例原取 gb-standards-index（字段为「不适用（…）」
+    // 自述），该书随 11 部书目归档下线已不在 book-meta 中，改取仍在册的
+    // patent-adjudication-manual-2019——其 effectiveDate 同为「非规范日期的自述式
+    // 括注文本」，且 sourceUrl 空、adoptedDate 空，与原例覆盖同样三项行为。
+    // 全库复核：波O 后在册域已无以「不适用（…）」起首的字段，该形态改由括注自述承载；
+    // 本例守的判据本就是「非日期文本原样落页、不造词不改写」，与「不适用」四字无关。
+    test('patent-adjudication-manual-2019：自述式非日期字段原样渲染，sourceRef 兜底', () => {
+      const md = render('patent-adjudication-manual-2019');
 
-      assert.match(md, /- \*\*施行日期\*\*：不适用（多项标准各自实施日期见清单表内'实施日期'列，详见正文）/);
-      assert.match(md, /- \*\*发文字号\*\*：不适用（元数据索引类文件，非单一规范性文件，无发文字号）/);
-      assert.match(md, /- \*\*来源\*\*：全国标准信息公共服务平台/); // sourceUrl 空 → sourceRef
+      assert.match(md, /- \*\*施行日期\*\*：2019年12月印发（办案指南性质文件，未见独立施行日期条款）/);
+      assert.match(md, /- \*\*发文字号\*\*：国知发保字〔2019〕57号/);
+      assert.match(md, /- \*\*来源\*\*：https:\/\/amr\.sz\.gov\.cn\//); // sourceUrl 空 → sourceRef
       assert.ok(!md.includes('通过／公布日期'), 'adoptedDate 为空则不渲染该行');
     });
 
@@ -145,12 +150,16 @@ if (process.argv.includes('--print')) {
       assert.ok(!md.includes('### 公布与施行原文'), '原文为空串时不得出子节');
     });
 
-    test('promulgationText 非空的 77 域全部产出原文子节，且逐字落页', () => {
+    // 域数随入库规模变动：2026-08-30 阶段5.11 波O 归档下线 12 部书后，
+    // 有「公布与施行」正文的域由 77 减至 66（下线的 12 部中 11 部本有该 H1，
+    // 其中 gb-standards-index 属源 md 本无此标题的一类；口径与 parse-domains.mjs
+    // 的 PROMULGATION_STRIPPED_EXPECTED=68 减去 PROMULGATION_DROP 的 2 域一致）。
+    test('promulgationText 非空的 66 域全部产出原文子节，且逐字落页', () => {
       const keys = Object.entries(bookMeta)
         .filter(([, v]) => (v.promulgationText || '').trim())
         .map(([k]) => k);
 
-      assert.equal(keys.length, 77);
+      assert.equal(keys.length, 66);
       for (const k of keys) {
         const md = render(k);
         assert.ok(md.includes('### 公布与施行原文'), `${k} 缺原文子节`);
