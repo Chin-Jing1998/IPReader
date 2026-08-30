@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/03-03",
+  "anchorNode": "tmeg-03-03",
+  "terms": [
+    { "name": "商标图形要素分类", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标图形要素分类是为方便图形商标的事先查询和审查而做的一项基础性工作" },
+    { "name": "维也纳分类", "aliases": ["商标图形要素国际分类"], "role": "defined", "confidence": "high", "evidence": "是以《商标图形要素国际分类》（维也纳分类）为基础" },
+    { "name": "图形要素编码", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "图形要素分为29大类，每类再细分为若干组，每组再细分为若干项" },
+    { "name": "显著部分", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "只对图形的显著部分和关系到是否与其他商标相同近似起决定作用的部分，进行图形要素分类" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-23"
+}

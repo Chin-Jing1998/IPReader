@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/07-16/02",
+  "anchorNode": "tmeg-07-16-02",
+  "terms": [
+    { "name": "以欺骗手段取得商标注册", "aliases": [], "role": "defined", "confidence": "high", "evidence": "此种行为是指系争商标注册人在申请注册商标时，采取向商标注册部门虚构或者隐瞒事实真相、提交伪造的申请书件或者其他证明文件等手段骗取商标注册" },
+    { "name": "其他不正当手段", "aliases": [], "role": "defined", "confidence": "high", "evidence": "此种行为是指确有充分证据证明系争商标注册人采用欺骗手段以外的扰乱商标注册秩序、损害公共利益、不正当占用公共资源或者以其他方式谋取不正当利益等其他不正当手段取得注册" },
+    { "name": "注册商标无效", "aliases": [], "role": "used", "confidence": "mid", "evidence": "由商标局宣告该注册商标无效" }
+  ],
+  "laws": ["商标法第45条"],
+  "extractedAt": "2026-08-23"
+}

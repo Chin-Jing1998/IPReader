@@ -1,0 +1,16 @@
+{
+  "chunk": "trademark-exam-guide-2021/07-03/02",
+  "anchorNode": "tmeg-07-03-02",
+  "terms": [
+    { "name": "不得作为商标使用的标志", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本条列举了不得作为商标使用的标志，明确了使用地名作为商标的限制" },
+    { "name": "其他不良影响", "aliases": [], "role": "defined", "confidence": "high", "evidence": "“其他不良影响”是指除了有害于社会主义道德风尚之外的情况" },
+    { "name": "社会主义道德风尚", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本条中的“社会主义道德风尚”，是指我国公众共同生活及其行为的准则、规范" },
+    { "name": "带有欺骗性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本条中的“带有欺骗性”，是指标志对其指定商品或者服务的质量等特点或者来源作了超过其固有程度或与事实不符的表示" },
+    { "name": "民族歧视性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本条中的“民族歧视性”，是指标志中带有对特定民族进行丑化、贬低或者其他不平等看待该民族的内容" },
+    { "name": "公众知晓的外国地名", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本条中的“公众知晓的外国地名”，是指我国公众知晓的我国以外的其他国家或地区的地名" },
+    { "name": "县级以上行政区划的地名", "aliases": [], "role": "defined", "confidence": "high", "evidence": "县级以上行政区划的地名或者公众知晓的外国地名，不得作为商标" },
+    { "name": "地名具有其他含义", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本条中的“地名具有其他含义”，是指地名作为词汇具有确定含义且该含义强于作为地名的含义，不会误导公众的" }
+  ],
+  "laws": ["商标法第10条"],
+  "extractedAt": "2026-08-23"
+}

@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/08",
+  "anchorNode": "tmeg-08",
+  "terms": [
+    { "name": "绝对理由", "aliases": [], "role": "used", "confidence": "high", "evidence": "该章将绝对理由和相对理由概念在《指南》中固定" },
+    { "name": "不以使用为目的的恶意商标注册申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "《商标法》第四条所规定的“不以使用为目的的恶意商标注册申请”是指“申请人并非基于生产经营活动的需要，而提交大量商标注册申请，缺乏真实使用意图，不正当占用商标资源，扰乱商标注册秩序的行为”" },
+    { "name": "防止权利滥用原则", "aliases": [], "role": "used", "confidence": "high", "evidence": "分别为：诚实信用原则，以注册为主、以使用为补充的原则，保护合法在先权利原则，标准执行一致与个案审查原则以及防止权利滥用原则" },
+    { "name": "三维标志商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "统一采用“三维标志商标”表述，不再使用“立体商标”概念" },
+    { "name": "隔离观察", "aliases": [], "role": "used", "confidence": "mid", "evidence": "新增商标相同、近似隔离观察判定方法" }
+  ],
+  "laws": ["商标法第4条","商标法第10条","商标法第11条","商标法实施条例第13条","商标法实施条例第43条"],
+  "extractedAt": "2026-08-23"
+}

@@ -1,0 +1,15 @@
+{
+  "chunk": "trademark-exam-guide-2021/07-01/01",
+  "anchorNode": "tmeg-07-01-01",
+  "terms": [
+    { "name": "诚实信用原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "诚实信用原则是民法的基本原则之一" },
+    { "name": "以注册为主、以使用为补充的原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "始终贯彻以注册为主、以使用为补充的原则" },
+    { "name": "注册原则", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "我国商标专用权取得以注册原则为基本原则" },
+    { "name": "合法在先权利", "aliases": [], "role": "defined", "confidence": "high", "evidence": "合法在先权利是指申请注册商标的申请日之前他人已经依法取得或者依法享有" },
+    { "name": "标准执行一致原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "标准执行一致原则指的是在商标注册申请、异议、驳回复审、宣告无效等各类商标案件" },
+    { "name": "个案审查原则", "aliases": [], "role": "defined", "confidence": "high", "evidence": "个案审查原则是指由于不同的商标案件之间" },
+    { "name": "禁止权利滥用原则", "aliases": ["防止权利滥用原则"], "role": "defined", "confidence": "high", "evidence": "禁止权利滥用原则指一切民事权利的行使，均不得超过其正当界限" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-23"
+}

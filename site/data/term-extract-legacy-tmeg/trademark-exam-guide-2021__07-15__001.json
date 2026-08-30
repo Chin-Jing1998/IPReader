@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06-15/02",
+  "anchorNode": "tmeg-06-15-02",
+  "terms": [
+    { "name": "已经使用并有一定影响", "aliases": [], "role": "defined", "confidence": "high", "evidence": "在先未注册商标通过商业宣传和生产经营活动，发挥了识别商品或者服务来源的作用，并为中国一定范围的相关公众所知晓的，认定为“已经使用并有一定影响”" },
+    { "name": "不正当手段", "aliases": [], "role": "defined", "confidence": "high", "evidence": "系争商标申请人明知或者应知他人在先使用未注册商标存在而抢先注册的，判定为采取了“不正当手段”" },
+    { "name": "未注册商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "未注册商标包括在系争商标申请日前未提出商标注册申请或者注册期满未续展丧失商标专用权的商标" },
+    { "name": "抢先注册", "aliases": [], "role": "used", "confidence": "high", "evidence": "也不得以不正当手段抢先注册他人已经使用并有一定影响的商标" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-23"
+}

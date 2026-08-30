@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/01-03",
+  "anchorNode": "tmeg-01-03",
+  "terms": [
+    { "name": "异议人变更", "aliases": [], "role": "defined", "confidence": "high", "evidence": "异议人变更是指异议申请提交之后至异议决定作出之前，异议人据以提出异议申请的在先权利转移至案外第三人" },
+    { "name": "撤回商标异议申请", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "异议人在商标注册部门作出决定前，可以书面向商标注册部门要求撤回申请并说明理由" },
+    { "name": "补充证据材料", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "应当在商标异议申请书或者答辩书中声明，并在提交商标异议申请书或者答辩书之日起3个月内提交" },
+    { "name": "商标异议答辩通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "被异议人应当在收到《商标异议答辩通知书》之日起30日内提交异议答辩材料" }
+  ],
+  "laws": ["商标法第33条"],
+  "extractedAt": "2026-08-23"
+}

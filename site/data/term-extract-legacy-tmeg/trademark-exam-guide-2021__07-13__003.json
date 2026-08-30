@@ -1,0 +1,11 @@
+{
+  "chunk": "trademark-exam-guide-2021/06-13/04",
+  "anchorNode": "tmeg-06-13-04",
+  "terms": [
+    { "name": "商标代理服务", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标代理服务是指商标代理机构接受委托人的委托，以委托人的名义办理商标注册申请、商标评审或者其他商标事宜" },
+    { "name": "不予受理", "aliases": [], "role": "used", "confidence": "high", "evidence": "商标代理机构申请注册或者受让其代理服务以外的其他商标，商标局不予受理" },
+    { "name": "类似群", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标代理机构的代理服务以《类似商品和服务区分表》中对应的第四十五类4506类似群服务内容为限" }
+  ],
+  "laws": ["商标法第19条"],
+  "extractedAt": "2026-08-23"
+}

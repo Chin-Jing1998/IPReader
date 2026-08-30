@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/07",
+  "anchorNode": "tmeg-07",
+  "terms": [
+    { "name": "按需认定原则", "aliases": [], "role": "used", "confidence": "high", "evidence": "一是完善“按需认定原则”含义" },
+    { "name": "驰名商标", "aliases": [], "role": "used", "confidence": "high", "evidence": "更加强调对驰名商标的严认定、强保护" },
+    { "name": "有一定影响的商品或者服务名称", "aliases": [], "role": "used", "confidence": "high", "evidence": "将“知名商品特有名称、包装、装潢”改为“有一定影响的商品或者服务名称、包装、装潢”并对应调整内容" },
+    { "name": "在先使用", "aliases": [], "role": "used", "confidence": "high", "evidence": "二是调整关于“在先使用”的判定标准，取消仅在中国市场使用的限制" },
+    { "name": "不正当手段", "aliases": [], "role": "used", "confidence": "high", "evidence": "五是完善“不正当手段”的判定考虑因素" }
+  ],
+  "laws": ["商标法第13条","商标法第15条","商标法第32条","商标法第44条","商标法第50条","商标法实施条例第84条"],
+  "extractedAt": "2026-08-23"
+}

@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06-02/05/05/01",
+  "anchorNode": "tmeg-06-02-05-05-01",
+  "terms": [
+    { "name": "审查意见书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "商标注册部门通过审查意见书程序要求申请人就申请注册商标的意图及使用情况作出说明" },
+    { "name": "防御性注册", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "申请人辩称的防御性注册，应当是申请人在先注册商标已投入实际商业使用" }
+  ],
+  "laws": [
+    "商标法第4条"
+  ],
+  "extractedAt": "2026-08-23"
+}

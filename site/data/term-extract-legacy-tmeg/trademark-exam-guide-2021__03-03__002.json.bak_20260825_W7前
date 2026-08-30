@@ -1,0 +1,10 @@
+{
+  "chunk": "trademark-exam-guide-2021/03-03/03/03",
+  "anchorNode": "tmeg-03-03-03-03",
+  "terms": [
+    { "name": "不可省略图形要素", "aliases": [], "role": "defined", "confidence": "mid", "evidence": "图形商标如果由具有同等明显特征的几种图形要素组成，必须划分全部图形要素编码，不得省略" },
+    { "name": "图形要素编码", "aliases": [], "role": "used", "confidence": "mid", "evidence": "有些商标，虽然各部分图形大小不同，但都具有明显特征，也应划分全部图形要素编码，不得省略" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-23"
+}

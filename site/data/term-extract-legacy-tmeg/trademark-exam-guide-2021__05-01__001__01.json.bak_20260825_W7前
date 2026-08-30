@@ -1,0 +1,25 @@
+{
+  "chunk": "trademark-exam-guide-2021/05-01",
+  "anchorNode": "tmeg-05-01",
+  "terms": [
+    { "name": "马德里商标国际注册申请", "aliases": [], "role": "defined", "confidence": "high", "evidence": "本章所指马德里商标国际注册申请是以国家知识产权局为原属局" },
+    { "name": "原属局", "aliases": [], "role": "used", "confidence": "high", "evidence": "以国家知识产权局为原属局，指定领土延伸至" },
+    { "name": "国际局", "aliases": ["世界知识产权组织国际局"], "role": "defined", "confidence": "high", "evidence": "向世界知识产权组织国际局（以下简称国际局）提交申请" },
+    { "name": "缔约方", "aliases": [], "role": "defined", "confidence": "high", "evidence": "《商标国际注册马德里协定有关议定书》缔约方（以下简称缔约方）" },
+    { "name": "基础商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "申请注册马德里国际商标的，必须在国内已有基础商标" }
+  ],
+  "laws": [
+    "商标法第18条",
+    "商标法第21条",
+    "商标法实施条例第5条",
+    "商标法实施条例第35条",
+    "商标法实施条例第36条",
+    "商标法实施条例第37条",
+    "商标法实施条例第38条",
+    "商标法实施条例第39条",
+    "商标法实施条例第40条",
+    "商标法实施条例第41条",
+    "商标法实施条例第86条"
+  ],
+  "extractedAt": "2026-08-23"
+}

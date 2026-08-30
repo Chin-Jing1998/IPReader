@@ -1,0 +1,22 @@
+{
+  "chunk": "trademark-exam-guide-2021/06-01/03",
+  "anchorNode": "tmeg-06-01-03",
+  "terms": [
+    { "name": "商标专用权", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标专用权以核定注册的商标和核定使用的商品或者服务为限" },
+    { "name": "显著特征", "aliases": ["显著性"], "role": "defined", "confidence": "high", "evidence": "商标的显著特征，亦即商标的显著性，是商标标志获得商标注册的前提条件" },
+    { "name": "商标相同", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标相同是指两商标在视觉效果上或者声音商标在听觉感知上完全相同或基本无差别" },
+    { "name": "商标近似", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标近似是指文字、图形、字母、数字、三维标志、颜色组合和声音等商标的构成要素" },
+    { "name": "隔离比对", "aliases": [], "role": "defined", "confidence": "high", "evidence": "隔离比对是指在判定商标近似时，不能将商标并排放置进行比对" },
+    { "name": "整体比对", "aliases": [], "role": "defined", "confidence": "high", "evidence": "整体比对是指应当将两商标进行整体的对比" },
+    { "name": "要部比对", "aliases": [], "role": "defined", "confidence": "high", "evidence": "要部比对是指应对比商标中显著识别的部分" },
+    { "name": "同一种商品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "同一种商品是指名称相同的商品，或者名称不同但在功能、用途、主要原料" },
+    { "name": "类似商品", "aliases": [], "role": "defined", "confidence": "high", "evidence": "类似商品是指在功能、用途、生产部门、销售渠道、消费对象等方面相同或有密切联系的商品" },
+    { "name": "类似商品和服务区分表", "aliases": [], "role": "used", "confidence": "high", "evidence": "类似商品或者服务的判定应当参照《类似商品和服务区分表》" },
+    { "name": "混淆可能性", "aliases": [], "role": "defined", "confidence": "high", "evidence": "混淆可能性的判定，首先，应考虑商品或者服务的类似程度" },
+    { "name": "商标的使用", "aliases": [], "role": "defined", "confidence": "high", "evidence": "商标的使用，是指将商标用于商品、商品包装或者容器以及商品交易文书上" },
+    { "name": "不正当手段", "aliases": [], "role": "defined", "confidence": "high", "evidence": "不正当手段是指商标申请人或者商标代理机构在申请商标注册或者办理其他商标事宜时" },
+    { "name": "恶意", "aliases": [], "role": "defined", "confidence": "high", "evidence": "恶意是指商标申请人或者商标代理机构在申请商标注册或者办理其他商标事宜时" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-23"
+}

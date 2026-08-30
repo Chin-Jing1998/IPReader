@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/07",
+  "anchorNode": "tmeg-07",
+  "terms": [
+    { "name": "商标审查审理指南", "aliases": [], "role": "defined", "confidence": "high", "evidence": "制定了《商标审查审理指南》（以下简称《指南》）" },
+    { "name": "商标审查及审理标准", "aliases": [], "role": "used", "confidence": "mid", "evidence": "在《商标审查及审理标准》（原国家工商行政管理总局商标局、商标评审委员会共同制定，以下简称《标准》）的基础上" },
+    { "name": "形式审查", "aliases": [], "role": "defined", "confidence": "high", "evidence": "该章是对商标申请形式审查的一般性规定的归纳和概括，确认了商标申请形式审查书面审查、一次性告知和确保效率三项基本原则" },
+    { "name": "马德里商标国际注册", "aliases": [], "role": "used", "confidence": "mid", "evidence": "《指南》第四部分“马德里商标国际注册审查”" },
+    { "name": "领土延伸申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "马德里商标领土延伸申请由世界知识产权组织国际局进行形式审查后通知国家知识产权局" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-23"
+}

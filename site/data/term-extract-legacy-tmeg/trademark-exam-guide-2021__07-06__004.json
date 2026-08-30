@@ -1,0 +1,12 @@
+{
+  "chunk": "trademark-exam-guide-2021/06-06/05",
+  "anchorNode": "tmeg-06-06-05",
+  "terms": [
+    { "name": "三维标志商标", "aliases": [], "role": "defined", "confidence": "high", "evidence": "三维标志商标是指仅由三维标志或者由含有其他要素的三维标志构成的商标" },
+    { "name": "实质审查", "aliases": [], "role": "used", "confidence": "high", "evidence": "三维标志商标实质审查包括禁用条款的审查、显著特征的审查、功能性审查和相同、近似的审查" },
+    { "name": "放弃专用权", "aliases": [], "role": "used", "confidence": "high", "evidence": "若申请人未主动声明放弃不具有显著特征的三维形状部分的商标专用权，审查时应发出审查意见书，要求申请人声明放弃" },
+    { "name": "领土延伸申请", "aliases": [], "role": "used", "confidence": "mid", "evidence": "未在上述期限内提交相关材料的，商标局驳回该领土延伸申请" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-23"
+}

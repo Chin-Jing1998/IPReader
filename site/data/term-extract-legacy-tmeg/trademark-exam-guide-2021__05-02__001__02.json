@@ -1,0 +1,13 @@
+{
+  "chunk": "trademark-exam-guide-2021/04-02",
+  "anchorNode": "tmeg-04-02",
+  "terms": [
+    { "name": "国际删减", "aliases": [], "role": "used", "confidence": "high", "evidence": "以纸件形式提出马德里商标国际删减申请的" },
+    { "name": "国际注销", "aliases": [], "role": "used", "confidence": "high", "evidence": "以纸件形式提出马德里商标国际注销申请的" },
+    { "name": "后期指定", "aliases": [], "role": "defined", "confidence": "high", "evidence": "一份后期指定申请，仅可涉及一个国际注册号" },
+    { "name": "补正通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "国家知识产权局会向申请人或代理人寄送补正通知书" },
+    { "name": "商标国际注册缴费通知书", "aliases": [], "role": "used", "confidence": "mid", "evidence": "向申请人或代理人寄送《商标国际注册缴费通知书》" }
+  ],
+  "laws": [],
+  "extractedAt": "2026-08-23"
+}
