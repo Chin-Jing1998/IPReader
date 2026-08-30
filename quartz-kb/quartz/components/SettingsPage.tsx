@@ -326,7 +326,7 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
                 <p class="kb-about-row">
                   <span class="kb-about-label">版本</span>
                   {/* 桌面端由 settings.inline.ts 以 app.getVersion() 覆写，避免静态页版本信息滞后 */}
-                  <span data-update-version>v1.5.5</span>
+                  <span data-update-version>v1.5.6</span>
                 </p>
                 <p class="kb-about-row">
                   <span class="kb-about-label">内容</span>
