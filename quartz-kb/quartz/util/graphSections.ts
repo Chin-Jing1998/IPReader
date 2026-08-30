@@ -25,16 +25,23 @@
 // 未被移除，同批独立成新组 id15，紧邻 id8 排列。
 //
 // 沿革（阶段5.1 批 G-2）：① 上述排除收窄为**两处**（globalGraph 与图谱总览专页），
-// 页内局部图不再排除，理由见 appPages.GRAPH_HIDDEN_BOOKS 的适用范围说明；
-// ② 节点着色下沉到书级（见下方 BOOK_COLORS），组级色只余图例点、术语层与回落三用，
-// 显隐粒度不变、仍是组级。
+// 页内局部图不再排除；② 节点着色下沉到书级（见下方 BOOK_COLORS），组级色只余
+// 图例点、术语层与回落三用，显隐粒度不变、仍是组级。
 //
 // 沿革（阶段5.2 批 Q-2）：应用户指令召回 G-1 摘除的 id5（机械撰写）/ id6（化学撰写）
 // 两整组，按原定义插回 id4 与 id7 之间——主干由 5 组恢复为 7 组，appPages.
-// GRAPH_HIDDEN_BOOKS 同步摘除这两部（现仅剩 63/79/87/89/90 五部政策程序类文献仍隐藏，
-// 理由不变）。同批新入库域 91（专利质量评价指南）登记入 id10（专利扩展）组。
-// 组数由 13（main5/ext7/term1）增至 15（main7/ext7/term1）；EXT_GROUP_IDS 与其余
-// 6 个扩展组的前缀集不受影响。
+// GRAPH_HIDDEN_BOOKS 同步摘除这两部。同批新入库域 91（专利质量评价指南）登记入
+// id10（专利扩展）组。组数由 13（main5/ext7/term1）增至 15（main7/ext7/term1）；
+// EXT_GROUP_IDS 与其余 6 个扩展组的前缀集不受影响。
+//
+// 沿革（阶段5.11 波O，2026-08-30 · 书目归档下线）：12 部文献下线，书目 88 → 76。
+// 其中 7 部本表原有登记，按组摘除前缀——id10（专利扩展）摘 72/74/75/82，
+// id13（著作权）摘 51/77，id8（商标）摘 53；另 5 部（63/79/87/89/90）本表自 G-1 起就未登记，
+// 此番随语料一并下线，「已摘组但仍在库」的半态就此消失，appPages.GRAPH_HIDDEN_BOOKS
+// 机制整体拆除（拆除理由见该文件尾注）。组数仍 15、组号与顺序零变更；
+// BOOK_COLORS 同步删 12 键（88 → 76），色值按下线名单手工摘键、**未重跑
+// gen-book-colors.mjs**——该脚本按「组内第 k 本书落在 (k+0.5)/n 色相处」分配，
+// 书数一变全组重排，重跑会造成全库配色漂移，故保留书色值逐字不变。
 
 /** 图例分段：main = 主干七书，ext = 扩展法域组，term = 术语层（由三态钮单独控制） */
 export type SectionTier = "main" | "ext" | "term"
@@ -80,20 +87,18 @@ export const SECTION_GROUPS: readonly SectionGroup[] = [
   { id: "5", label: "机械撰写", prefixes: [5], tier: "main", field: "专利" },
   { id: "6", label: "化学撰写", prefixes: [6], tier: "main", field: "专利" },
   { id: "7", label: "答复OA", prefixes: [7], tier: "main", field: "专利" },
-  // —— 扩展入库按法域归组（23 + 16 + 1 + 11 + 6 + 6 + 13 = 76）——
+  // —— 扩展入库按法域归组（19 + 15 + 1 + 9 + 6 + 6 + 13 = 69；波O 前为 23/16/11 → 76）——
   {
     id: "10",
     label: "专利扩展",
-    prefixes: [
-      11, 17, 20, 26, 37, 44, 56, 57, 60, 61, 62, 64, 65, 68, 72, 73, 74, 75, 78, 81, 82, 85, 91,
-    ],
+    prefixes: [11, 17, 20, 26, 37, 44, 56, 57, 60, 61, 62, 64, 65, 68, 73, 78, 81, 85, 91],
     tier: "ext",
     field: "专利",
   },
   {
     id: "8",
     label: "商标",
-    prefixes: [12, 13, 16, 18, 21, 42, 49, 53, 58, 59, 66, 67, 69, 70, 83, 84],
+    prefixes: [12, 13, 16, 18, 21, 42, 49, 58, 59, 66, 67, 69, 70, 83, 84],
     tier: "ext",
     field: "商标",
   },
@@ -107,7 +112,7 @@ export const SECTION_GROUPS: readonly SectionGroup[] = [
   {
     id: "13",
     label: "著作权",
-    prefixes: [14, 38, 39, 40, 41, 45, 51, 52, 55, 76, 77],
+    prefixes: [14, 38, 39, 40, 41, 45, 52, 55, 76],
     tier: "ext",
     field: "著作权",
   },
@@ -130,8 +135,8 @@ export const SECTION_GROUPS: readonly SectionGroup[] = [
 ]
 
 /**
- * 书级色板（阶段5.1 批 G-2；阶段5.2 批 Q-2 更新计数）：目录数字前缀 →
- * { light, dark } 十六进制色值，共 88 键。
+ * 书级色板（阶段5.1 批 G-2；阶段5.2 批 Q-2、阶段5.11 波O 更新计数）：目录数字前缀 →
+ * { light, dark } 十六进制色值，共 76 键。
  *
  * 真源仍是 CSS —— custom.scss 文末「书级图谱色板」节的 --graph-book-<前缀>
  * （:root 与 :root[saved-theme="dark"] 两个全局块，随明暗自动切换）。本表是
@@ -143,10 +148,15 @@ export const SECTION_GROUPS: readonly SectionGroup[] = [
  * `node scripts/gen-book-colors.mjs --write` 一次生成，**勿手改**；改配色改脚本
  * 参数后重跑，两处同步更新。
  *
- * 88 = SECTION_GROUPS 登记的 83 部（术语组 9 不计）+ 已摘组但页内局部图仍渲染的
- * 5 部（前缀 63/79/87/89/90，脚本内的寄养表把它们并入邻近法域色系并降饱和）。
- * 前缀 5/6 已于阶段5.2 批 Q-2 随 SECTION_GROUPS 召回为独立 main 组，不再寄养、
- * 恢复各自组锚点色相与正常饱和。前缀 8 与 28 在内容目录中不存在，故不在表内。
+ * 76 = SECTION_GROUPS 登记的全部非术语前缀（术语组 9 不计），与书目数恒等。
+ * 前缀 8 与 28 在内容目录中不存在，故不在表内。
+ *
+ * 沿革（阶段5.11 波O）：88 → 76，删去 12 部下线书的键
+ * （51/53/63/72/74/75/77/79/82/87/89/90）。此番是**按名单摘键、未重跑生成器**的
+ * 唯一破例——脚本按「组内第 k 本书落在 (k+0.5)/n 色相处」分配，n 变即全组重排，
+ * 重跑将使 76 部保留书全部换色；摘键后保留书色值与 custom.scss 两侧仍逐字对齐。
+ * 同批 63/79/87/89/90 五部随 GRAPH_HIDDEN_BOOKS 机制拆除退出寄养表
+ * （gen-book-colors.mjs 的 ORPHAN_HOST 已清空），本表不再有「登记外」的键。
  */
 // >>> gen-book-colors:ts
 export const BOOK_COLORS: Record<string, { light: string; dark: string }> = {
@@ -197,9 +207,7 @@ export const BOOK_COLORS: Record<string, { light: string; dark: string }> = {
   "48": { light: "#70a0b8", dark: "#7fb0c8" },
   "49": { light: "#bd76a6", dark: "#cf86b6" },
   "50": { light: "#36614a", dark: "#4b775f" },
-  "51": { light: "#7c3189", dark: "#9347a1" },
   "52": { light: "#b766c0", dark: "#c977d2" },
-  "53": { light: "#a57c96", dark: "#b78da6" },
   "54": { light: "#47456b", dark: "#5d5b82" },
   "55": { light: "#7b457d", dark: "#925a93" },
   "56": { light: "#b0a04b", dark: "#bfaf5a" },
@@ -209,7 +217,6 @@ export const BOOK_COLORS: Record<string, { light: string; dark: string }> = {
   "60": { light: "#5c582e", dark: "#716e43" },
   "61": { light: "#9c9b6f", dark: "#abab7e" },
   "62": { light: "#b2b35e", dark: "#bfc16c" },
-  "63": { light: "#6e6d89", dark: "#80809d" },
   "64": { light: "#707449", dark: "#83875c" },
   "65": { light: "#8f9946", dark: "#9fa957" },
   "66": { light: "#ac4383", dark: "#c25797" },
@@ -218,25 +225,16 @@ export const BOOK_COLORS: Record<string, { light: string; dark: string }> = {
   "69": { light: "#7a345a", dark: "#924a70" },
   "70": { light: "#a65a7e", dark: "#ba6d91" },
   "71": { light: "#274f68", dark: "#3d6680" },
-  "72": { light: "#6f802e", dark: "#819242" },
   "73": { light: "#b0c676", dark: "#bcd382" },
-  "74": { light: "#91ab5d", dark: "#a0ba6b" },
-  "75": { light: "#819269", dark: "#91a379" },
   "76": { light: "#a76ba4", dark: "#b97db6" },
-  "77": { light: "#af56a8", dark: "#c368bb" },
   "78": { light: "#40512c", dark: "#556841" },
-  "79": { light: "#57526e", dark: "#6c6884" },
   "80": { light: "#9a4469", dark: "#b0597d" },
   "81": { light: "#6e9148", dark: "#7fa35a" },
-  "82": { light: "#556b47", dark: "#68805a" },
   "83": { light: "#831352", dark: "#9e3068" },
   "84": { light: "#cf5d92", dark: "#e26ea3" },
   "85": { light: "#8ebd78", dark: "#9bcb85" },
   "86": { light: "#604f94", dark: "#7464ab" },
-  "87": { light: "#836fb8", dark: "#9581cc" },
   "88": { light: "#83759d", dark: "#9587b0" },
-  "89": { light: "#a894c8", dark: "#b7a3d7" },
-  "90": { light: "#745e8e", dark: "#8871a3" },
   "91": { light: "#94b08a", dark: "#a1be98" },
 }
 // <<< gen-book-colors:ts

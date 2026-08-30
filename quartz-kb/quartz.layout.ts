@@ -1,6 +1,5 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
-import { GRAPH_HIDDEN_BOOKS } from "./quartz/util/appPages"
 
 /**
  * Explorer 共用配置（内容页与列表页保持一致）。
@@ -22,7 +21,7 @@ const explorerConfig = {
  * Graph 关系图参数调优：
  * - 局部图 depth 取 1（v3 W3）：详情页右侧只显示与当前页直接关联的一跳邻居，
  *   两跳邻居在中等章节页会引入上百个节点、喧宾夺主；全量探索交给图谱总览专页；
- * - 全局图节点规模约 83 部书章节 + 1035 术语，初始缩放调小、开启径向布局与悬停聚焦；
+ * - 全局图节点规模约 76 部书章节 + 1743 术语，初始缩放调小、开启径向布局与悬停聚焦；
  * - 中文标签字号略放大；关闭 tag 节点避免术语页标签造成视觉噪声。
  */
 const graphConfig = {
@@ -42,9 +41,9 @@ const graphConfig = {
     // 同一条路径：先同步预热力导（首帧即成形，无跳变），再无过渡地落入框相机。
     zoomToFit: true,
     // V4-B1：排除链接全站的宿主页节点（目录 index 页的 simplifySlug 带尾斜杠）
-    // 刻意**不**排除 GRAPH_HIDDEN_BOOKS：局部图是「当前页的一跳邻居」视图，
-    // 排掉那 5 部会让它们自己的页面局部图整块空白、并使他页丢失跨书邻居。
-    // 隐藏只在全局迷你图与图谱总览两处生效（见 appPages.GRAPH_HIDDEN_BOOKS 注释）。
+    // 阶段5.11 波O 起本项与 globalGraph 同值：曾额外存在的「隐藏书」半态
+    // （书在库但不进全局骨架）随 GRAPH_HIDDEN_BOOKS 机制整体拆除而消失，
+    // 三处图谱的排除表就此统一为两个应用页（拆除理由见 util/appPages.ts 尾注）。
     excludeSlugs: ["0-图谱总览/", "设置/"],
   },
   globalGraph: {
@@ -58,11 +57,11 @@ const graphConfig = {
     showTags: false,
     focusOnHover: true,
     enableRadial: true,
-    // V4-B1：全局图默认隐藏术语层（1015 节点/9728 边），骨架约 1203 节点/7042 边；
-    // 布局成形后自动整图入框；除宿主页节点外，另排除 GRAPH_HIDDEN_BOOKS 那 5 部
+    // V4-B1：全局图默认隐藏术语层，骨架仅书目章节；布局成形后自动整图入框；
+    // 排除表仅两个应用页（阶段5.11 波O 拆除 GRAPH_HIDDEN_BOOKS 后与 localGraph 同值）
     termLayer: "hidden" as const,
     zoomToFit: true,
-    excludeSlugs: ["0-图谱总览/", "设置/", ...GRAPH_HIDDEN_BOOKS],
+    excludeSlugs: ["0-图谱总览/", "设置/"],
   },
 }
 

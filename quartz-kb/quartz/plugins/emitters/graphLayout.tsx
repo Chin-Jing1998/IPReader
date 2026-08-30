@@ -15,7 +15,7 @@ import { FullSlug, SimpleSlug, joinSegments, simplifySlug } from "../../util/pat
 import { QuartzEmitterPlugin } from "../types"
 import { write } from "./helpers"
 import type { GraphContentDetails } from "./contentIndex"
-import { GRAPH_EXCLUDE, SETTINGS_EXCLUDE, GRAPH_HIDDEN_BOOKS } from "../../util/appPages"
+import { GRAPH_EXCLUDE, SETTINGS_EXCLUDE } from "../../util/appPages"
 
 /**
  * 构建期预计算全景坐标（阶段5.6 波3-3.1）。
@@ -68,8 +68,9 @@ const LAYOUT_VARIANTS: ReadonlyArray<{ termHidden: boolean; slug: string }> = [
 const SHOW_TAGS = false
 /** 专页 removeTags: []（showTags 为 false 时不生效，仍入 key 以与运行期同构） */
 const REMOVE_TAGS: string[] = []
-/** 排除前缀：与 GraphExplorer.tsx 的 excludeSlugs 同源同序（quartz.layout.ts 的 globalGraph 同值） */
-const EXCLUDE_SLUGS: string[] = [GRAPH_EXCLUDE, SETTINGS_EXCLUDE, ...GRAPH_HIDDEN_BOOKS]
+/** 排除前缀：与 GraphExplorer.tsx 的 excludeSlugs 同源同序（quartz.layout.ts 的 globalGraph 同值）
+ *  阶段5.11 波O：随 GRAPH_HIDDEN_BOOKS 机制拆除，本表退化为两个应用页 */
+const EXCLUDE_SLUGS: string[] = [GRAPH_EXCLUDE, SETTINGS_EXCLUDE]
 
 // ---------- 力参数（逐字复刻 graph.inline.ts:1131-1138）----------
 

@@ -11,15 +11,17 @@
 // 与图谱数据集同集，零第二份排除表：准入判据是「末段 index + 段数 2–4 +
 // groupOfSlug 有登记且非术语组」。三项合起来天然滤掉——
 //   · 应用页（`设置/index`、`0-图谱总览/index`）：无数字前缀或前缀未登记；
-//   · GRAPH_HIDDEN_BOOKS 的 5 部（63/79/87/89/90）：阶段5.1 已摘出 SECTION_GROUPS，
-//     groupOfSlug 返回 undefined，与图谱 excludeSlugs 的排除结果一致；
 //   · 术语层（`9-关键词索引/…`）：组 9 的 tier === "term"，由术语层三态钮独管，
 //     入目录即是死行（图上默认不可见）。
 // 由此本模块不持有任何自己的排除名单，改组表即两侧同步变化。
 //
-// 实测规模（2026-08-29，语料 7398 条目）：83 部书 / 1124 章 / 82 节；
+// 沿革（阶段5.11 波O，2026-08-30）：上列第三项「GRAPH_HIDDEN_BOOKS 的 5 部
+// （63/79/87/89/90）经 groupOfSlug 返回 undefined 而天然滤掉」已随书目下线失去
+// 对象——这 5 部全在波O 的 12 部下线名单内，索引里不再有其条目，
+// GRAPH_HIDDEN_BOOKS 机制亦整体拆除（见 util/appPages.ts 尾注）。准入判据一字未改。
+//
+// 实测规模（2026-08-30 波O 后，语料见 contentIndex）：76 部书；
 // 节仅存于 3-专利审查指南与 80-商标审查审理指南两部，其余书只有两层。
-// 法域分布：专利 30 / 商标 17 / 著作权 11 / 竞争法 6 / 品种布图 6 / 综合程序 13。
 
 import type { FullSlug } from "./path"
 import { FIELD_TABS, SECTION_GROUPS, groupOfSlug, type FieldTab } from "./graphSections"
@@ -58,7 +60,7 @@ export const TOC_MAX_SEGMENTS = 4
 
 /**
  * 无数字前缀的排序键：沉到同层末尾，再由 title / slug 的 localeCompare 定序。
- * 当前语料下不会命中（83 部书与其全部章节的本层目录段都带数字前缀，实测 0 例），
+ * 当前语料下不会命中（76 部书与其全部章节的本层目录段都带数字前缀，实测 0 例），
  * 是给将来新增无前缀目录留的确定性退化路径，而非死代码。
  */
 const NO_ORDER = Number.MAX_SAFE_INTEGER

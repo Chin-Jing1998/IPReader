@@ -9,7 +9,7 @@ import script from "./scripts/graphexplorer.inline"
 import styles from "./styles/graphexplorer.scss"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { D3Config } from "./Graph"
-import { GRAPH_EXCLUDE, GRAPH_SLUG, SETTINGS_EXCLUDE, GRAPH_HIDDEN_BOOKS } from "../util/appPages"
+import { GRAPH_EXCLUDE, GRAPH_SLUG, SETTINGS_EXCLUDE } from "../util/appPages"
 import { FIELD_ALL, FIELD_TABS, SECTION_GROUPS, groupsOfField } from "../util/graphSections"
 
 // 宿主页 slug 取 appPages.GRAPH_SLUG（阶段5.3 批 B4）：此处原为本地字面量
@@ -24,10 +24,11 @@ import { FIELD_ALL, FIELD_TABS, SECTION_GROUPS, groupsOfField } from "../util/gr
  * - scale 初值取小，首屏尽量呈现全景；中文标签字号与全局图一致；
  * - termLayer "hidden" 默认隐藏术语层（骨架图先行，三态钮可切换）；
  *   zoomToFit 布局成形后自动整图入框；excludeSlugs 剔除链接全站的宿主页
- *   与独立设置页（应用页非阅读页，常量见 quartz/util/appPages.ts），并追加
- *   GRAPH_HIDDEN_BOOKS（阶段5.1 摘出 SECTION_GROUPS 的 5 部文献，同一常量、
- *   与 quartz.layout.ts 的 globalGraph 配置一致，避免两处漂移；页内局部图刻意
- *   不排除，理由见 appPages.GRAPH_HIDDEN_BOOKS 的适用范围说明）。
+ *   与独立设置页（应用页非阅读页，常量见 quartz/util/appPages.ts）——阶段5.11
+ *   波O 起仅此两项：原先追加的 GRAPH_HIDDEN_BOOKS（阶段5.1 摘出 SECTION_GROUPS
+ *   的 5 部文献）已随该机制整体拆除，其 5 部书全在波O 的 12 部下线名单内，图谱数据集
+ *   中不再存在这些节点（拆除理由见 util/appPages.ts 尾注）。三处图谱（本专页、
+ *   globalGraph、localGraph）的排除表就此同值。
  */
 const explorerGraphConfig: D3Config = {
   drag: true,
@@ -46,7 +47,7 @@ const explorerGraphConfig: D3Config = {
   nodeClickMode: "panel",
   termLayer: "hidden",
   zoomToFit: true,
-  excludeSlugs: [GRAPH_EXCLUDE, SETTINGS_EXCLUDE, ...GRAPH_HIDDEN_BOOKS],
+  excludeSlugs: [GRAPH_EXCLUDE, SETTINGS_EXCLUDE],
 }
 
 // 域图例（v17）：项定义迁往 util/graphSections.ts 的 SECTION_GROUPS，与

@@ -3038,16 +3038,16 @@ html[data-kb-overlay] .kb-pagescroll {
 // ============================================================
 // 第十六节之二：书级图谱色板（阶段5.1 批 G-2）
 // ============================================================
-// 【是什么】--graph-book-<目录前缀>：图谱节点的**书级**颜色，共 88 部文献各一色。
+// 【是什么】--graph-book-<目录前缀>：图谱节点的**书级**颜色，共 76 部文献各一色。
 // 上方六主题块里的 --graph-section-<组号> 不被取代，二者分工如下：
 //   · --graph-book-*    图谱节点着色（graph.inline.ts 的 bookColor 逐节点读取）；
 //   · --graph-section-* 图例色点（graphexplorer.scss）、术语层节点色、以及
 //                       书级变量缺失时的组级回落。显隐粒度仍是**组级**，未改。
 //
 // 【为什么放在全局块而不是六主题块】书级色板全站只有 light / dark 两套，六套主题
-// 共用。若逐主题定义就是 6 × 2 × 88 = 1056 个值，既不可维护，收益也不成比例——
+// 共用。若逐主题定义就是 6 × 2 × 76 = 912 个值，既不可维护，收益也不成比例——
 // 六套主题的差异只是明度/彩度包络的小幅平移，而书级色板的全部预算已经用在
-// 「88 色两两可辨」这件事上，再按主题挪动包络只会把好不容易拉开的间距压回去。
+// 「诸色两两可辨」这件事上，再按主题挪动包络只会把好不容易拉开的间距压回去。
 // 特异性上也无冲突：六主题块 (0,2,0)/(0,3,0) 一概不声明 --graph-book-*，
 // 本节 :root (0,1,0) 与 :root[saved-theme="dark"] (0,2,0) 各管明暗一套，
 // 暗态凭属性选择器压过亮态，与既有暗色块写法同构。
@@ -3058,15 +3058,21 @@ html[data-kb-overlay] .kb-pagescroll {
 // 并跑一遍 prettier。分配口径：色相 = 法域（每组一段色相带，带宽按书数加权劈分），
 // 明度/彩度 = 组内区分（9 级明度 × 3 级彩度的六方点阵）。
 // 实测（ΔEok = OKLab 欧氏距离，按量化后 hex 计；大色块 JND≈0.020，小圆点工作
-// 阈值取 2 倍即 0.040）：light 组内最小 0.0451 / 跨组最小 0.0440 / 全局最小 0.0440，
-// dark 0.0430 / 0.0449 / 0.0430，两套均 0 / 3828 对低于 0.040（3828 = C(88,2)）。
+// 阈值取 2 倍即 0.040）：88 部态下 light 组内最小 0.0451 / 跨组最小 0.0440 /
+// 全局最小 0.0440，dark 0.0430 / 0.0449 / 0.0430，两套均 0 / 3828 对低于 0.040
+// （3828 = C(88,2)）。阶段5.11 波O 摘掉 11 部后该组实测值仍是**下界**——
+// 删点不会缩短任何一对保留色之间的距离，故现 76 部态的各项最小色差 ≥ 上列值。
 //
-// 【为什么是 88 部而不是 83 部】G-1 移出图例的 5 部（前缀 63/79/87/89/90）
-// 在**页内局部图**仍会渲染（见 util/appPages.ts 的 GRAPH_HIDDEN_BOOKS 适用范围），
-// 故一并配色；它们按原法域归入邻近组的色相带并统一降饱和至 0.72 倍，
-// 行尾以「·寄养」标注。前缀 5/6（机械撰写、化学撰写）已于阶段5.2 批 Q-2 随
-// SECTION_GROUPS 召回为独立 main 组，不再计入寄养之列（口径同
-// util/graphSections.ts 的 BOOK_COLORS 注释：88 = 登记的 83 部 + 寄养 5 部）。
+// 【沿革：88 部 → 76 部（阶段5.11 波O，2026-08-30）】12 部文献归档下线，本节
+// 同步删去其 --graph-book-51/53/63/72/74/75/77/79/82/87/89/90（light 与 dark 各 12 条）。
+// 其中 63/79/87/89/90 原是「G-1 移出图例、但页内局部图仍渲染」的寄养色（按原法域
+// 归入邻近组色相带、统一降饱和至 0.72 倍、行尾标「·寄养」），随 GRAPH_HIDDEN_BOOKS
+// 机制整体拆除而消失，本节自此**不再有寄养色**，76 键与 SECTION_GROUPS 登记的
+// 非术语前缀一一对应。
+// ⚠️ 本次是按名单**手工摘键、未重跑 gen-book-colors.mjs** 的破例：该脚本按
+// 「组内第 k 本书落在 (k+0.5)/n 色相处」分配，n 一变全组重排，重跑会让 76 部
+// 保留书全部换色。摘键后两侧（本节与 util/graphSections.ts 的 BOOK_COLORS）
+// 仍逐字对齐；下次因配色需求重跑脚本时会按 76 部自然重算，届时全库换色属预期。
 :root {
   // >>> gen-book-colors:light
   --graph-book-1: #c45868; // 专利法
@@ -3116,9 +3122,7 @@ html[data-kb-overlay] .kb-pagescroll {
   --graph-book-48: #70a0b8; // 竞争法
   --graph-book-49: #bd76a6; // 商标
   --graph-book-50: #36614a; // 品种布图
-  --graph-book-51: #7c3189; // 著作权
   --graph-book-52: #b766c0; // 著作权
-  --graph-book-53: #a57c96; // 商标
   --graph-book-54: #47456b; // 综合程序
   --graph-book-55: #7b457d; // 著作权
   --graph-book-56: #b0a04b; // 专利扩展
@@ -3128,7 +3132,6 @@ html[data-kb-overlay] .kb-pagescroll {
   --graph-book-60: #5c582e; // 专利扩展
   --graph-book-61: #9c9b6f; // 专利扩展
   --graph-book-62: #b2b35e; // 专利扩展
-  --graph-book-63: #6e6d89; // 综合程序·寄养
   --graph-book-64: #707449; // 专利扩展
   --graph-book-65: #8f9946; // 专利扩展
   --graph-book-66: #ac4383; // 商标
@@ -3137,25 +3140,16 @@ html[data-kb-overlay] .kb-pagescroll {
   --graph-book-69: #7a345a; // 商标
   --graph-book-70: #a65a7e; // 商标
   --graph-book-71: #274f68; // 竞争法
-  --graph-book-72: #6f802e; // 专利扩展
   --graph-book-73: #b0c676; // 专利扩展
-  --graph-book-74: #91ab5d; // 专利扩展
-  --graph-book-75: #819269; // 专利扩展
   --graph-book-76: #a76ba4; // 著作权
-  --graph-book-77: #af56a8; // 著作权
   --graph-book-78: #40512c; // 专利扩展
-  --graph-book-79: #57526e; // 综合程序·寄养
   --graph-book-80: #9a4469; // 商标审查指南
   --graph-book-81: #6e9148; // 专利扩展
-  --graph-book-82: #556b47; // 专利扩展
   --graph-book-83: #831352; // 商标
   --graph-book-84: #cf5d92; // 商标
   --graph-book-85: #8ebd78; // 专利扩展
   --graph-book-86: #604f94; // 综合程序
-  --graph-book-87: #836fb8; // 综合程序·寄养
   --graph-book-88: #83759d; // 综合程序
-  --graph-book-89: #a894c8; // 综合程序·寄养
-  --graph-book-90: #745e8e; // 综合程序·寄养
   --graph-book-91: #94b08a; // 专利扩展
   // <<< gen-book-colors:light
 }
@@ -3208,9 +3202,7 @@ html[data-kb-overlay] .kb-pagescroll {
   --graph-book-48: #7fb0c8; // 竞争法
   --graph-book-49: #cf86b6; // 商标
   --graph-book-50: #4b775f; // 品种布图
-  --graph-book-51: #9347a1; // 著作权
   --graph-book-52: #c977d2; // 著作权
-  --graph-book-53: #b78da6; // 商标
   --graph-book-54: #5d5b82; // 综合程序
   --graph-book-55: #925a93; // 著作权
   --graph-book-56: #bfaf5a; // 专利扩展
@@ -3220,7 +3212,6 @@ html[data-kb-overlay] .kb-pagescroll {
   --graph-book-60: #716e43; // 专利扩展
   --graph-book-61: #abab7e; // 专利扩展
   --graph-book-62: #bfc16c; // 专利扩展
-  --graph-book-63: #80809d; // 综合程序·寄养
   --graph-book-64: #83875c; // 专利扩展
   --graph-book-65: #9fa957; // 专利扩展
   --graph-book-66: #c25797; // 商标
@@ -3229,25 +3220,16 @@ html[data-kb-overlay] .kb-pagescroll {
   --graph-book-69: #924a70; // 商标
   --graph-book-70: #ba6d91; // 商标
   --graph-book-71: #3d6680; // 竞争法
-  --graph-book-72: #819242; // 专利扩展
   --graph-book-73: #bcd382; // 专利扩展
-  --graph-book-74: #a0ba6b; // 专利扩展
-  --graph-book-75: #91a379; // 专利扩展
   --graph-book-76: #b97db6; // 著作权
-  --graph-book-77: #c368bb; // 著作权
   --graph-book-78: #556841; // 专利扩展
-  --graph-book-79: #6c6884; // 综合程序·寄养
   --graph-book-80: #b0597d; // 商标审查指南
   --graph-book-81: #7fa35a; // 专利扩展
-  --graph-book-82: #68805a; // 专利扩展
   --graph-book-83: #9e3068; // 商标
   --graph-book-84: #e26ea3; // 商标
   --graph-book-85: #9bcb85; // 专利扩展
   --graph-book-86: #7464ab; // 综合程序
-  --graph-book-87: #9581cc; // 综合程序·寄养
   --graph-book-88: #9587b0; // 综合程序
-  --graph-book-89: #b7a3d7; // 综合程序·寄养
-  --graph-book-90: #8871a3; // 综合程序·寄养
   --graph-book-91: #a1be98; // 专利扩展
   // <<< gen-book-colors:dark
 }
