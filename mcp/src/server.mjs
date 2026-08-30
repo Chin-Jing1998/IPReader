@@ -45,6 +45,36 @@ const reply = (data, text) => ({
 
 const line = (...parts) => parts.filter(Boolean).join(' · ');
 
+// 法条节点 label 形如「第二十二条 · 发明/实用新型授权条件」，分隔符后半段即条旨
+const LAW_TITLE_SEP = ' · ';
+function lawTitleOf(nodeId) {
+  const label = nodeId ? kb.byId.get(nodeId)?.label : '';
+  if (!label) return '';
+  const i = label.indexOf(LAW_TITLE_SEP);
+  return i >= 0 ? label.slice(i + LAW_TITLE_SEP.length) : label;
+}
+
+/**
+ * 关联法条的可读渲染（lookup_term 文本分支专用）。
+ *
+ * 词条详情里的 laws 是 `{ lawKey, fullCite, nodeId }` 对象（site/scripts/build-term-content.mjs
+ * 产出），原实现写作 `l.law || l`——对象没有 law 字段，短路后落到对象本身，模板字符串
+ * 把它渲染成 `[object Object]`（词表 lawKeys 越多，乱码越长：「驰名商标」连出 8 个）。
+ * structuredContent 侧一直是完整对象、不受影响，只有给模型读的文本被污染。
+ *
+ * 现按「法名+条号（条旨）」渲染：引用形态优先取 fullCite（如「专利法第22条第2款」），
+ * 缺失时退回法条键 lawKey；条旨取该法条节点 label 的分隔符后半段，取不到就只出引用形态。
+ * 兼容字符串元素（词表侧 lawKeys 原本就是字符串数组），便于将来两种形态并存。
+ */
+function lawLabel(l) {
+  if (typeof l === 'string') return l;
+  if (!l || typeof l !== 'object') return String(l ?? '');
+  const cite = l.fullCite || l.lawKey || l.law || '';
+  const title = lawTitleOf(l.nodeId);
+  if (!cite) return title || l.nodeId || '';
+  return title ? `${cite}（${title}）` : cite;
+}
+
 // ============ 三、七个工具 ============
 const DOMAIN_ENUM = kb.allBooks.map((b) => b.domain);
 
@@ -161,7 +191,7 @@ function registerTools(server) {
       const text = [
         line(r.term, r.topic && `主题：${r.topic}`, r.aliases.length && `别名：${r.aliases.join('、')}`),
         r.definition && `\n${r.definition}`,
-        r.laws.length ? `\n关联法条：${r.laws.map((l) => l.law || l).join('、')}` : '',
+        r.laws.length ? `\n关联法条：${r.laws.map(lawLabel).filter(Boolean).join('、')}` : '',
         r.relatedTerms.length ? `相关术语：${r.relatedTerms.map((t) => t.term).join('、')}` : '',
         r.occurrenceCount ? `\n出处 ${r.occurrenceCount} 处：\n${r.occurrences.map((o) => `  · ${o.path}（${o.book}，${o.nodeId}）`).join('\n')}` : '',
       ].filter(Boolean).join('\n');

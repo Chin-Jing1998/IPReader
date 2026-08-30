@@ -158,6 +158,17 @@ async function main() {
   const t2 = dataOf(await client.callTool({ name: 'lookup_term', arguments: { term: '这不是术语' } }), 'lookup_term');
   ok('未收录术语给出提示', typeof t2.error === 'string' && Array.isArray(t2.suggestions), t2.error);
 
+  // 关联法条的文本渲染（2026-08-30 阶段5.11 波H 修复的回归闸）：词条详情的 laws 是
+  //   { lawKey, fullCite, nodeId } 对象，旧实现 `l.law || l` 短路到对象本身，文本分支被渲染成
+  //   [object Object]（「驰名商标」有 8 条关联法条即连出 8 个）。取词条中关联法条最多者做断言。
+  const t3text = (await client.callTool({ name: 'lookup_term', arguments: { term: '驰名商标' } })).content?.[0]?.text || '';
+  const t3lawLine = t3text.split('\n').find((s) => s.startsWith('关联法条：')) || '（无关联法条行）';
+  ok(
+    '关联法条文本可读（无 [object Object]）',
+    !t3text.includes('[object Object]') && /^关联法条：.*商标法第/.test(t3lawLine),
+    t3lawLine,
+  );
+
   // ============ 六、find_law ============
   console.log('\n六、find_law');
   const l1 = dataOf(await client.callTool({ name: 'find_law', arguments: { article: '专利法第22条' } }), 'find_law');
