@@ -116,17 +116,18 @@ type NodeRenderData = {
 /**
  * IPReader 定制：按**域组号**映射域色板——**兜底值**。
  * 组号由 `quartz/util/graphSections.ts` 的 groupOfSlug 从 slug 顶层目录数字前缀解析：
- * 主干五书 1-…4-、7- 各自成组（组号即前缀）、「9-关键词索引/…」为术语层（靛蓝），
- * 扩展入库的文献按法域归为 7 组（组号 8、10–15）。
- * 注意本表的键是**组号**而非目录前缀：主干与术语二者数值恰好相同，扩展则不同
- * （如前缀 12「商标案件管辖解释」属组号 8「商标」）。
+ * 主干七书 1-…7- 各自成组（组号即前缀）、「9-关键词索引/…」为术语层（靛蓝），
+ * 其余文献按 (法域, 文种) 归为 22 组（组号 8、10–30；阶段5.11 波L 由 7 组拆细）。
+ * 注意本表的键是**组号**而非目录前缀：主干与术语二者数值恰好相同，其余则不同
+ * （如前缀 12「商标案件管辖解释」属组号 21「商标司解」；波L 后组号 16–30 与目录
+ * 前缀 16–30 大面积同值而含义无关，一律经 groupOfSlug 取键，勿按字面推断）。
  *
  * 组级色的用途自阶段5.1 批 G-2 起收窄：**节点着色已下沉到书级**（见下方 bookColor），
  * 组级色只剩三个消费点——图例色点（graphexplorer.scss）、术语层节点、以及书级色
  * 缺失时的最后回落。
  *
  * 色值真源在 `quartz/styles/custom.scss` 的六套主题覆盖块：每套主题的 light/dark
- * 两块各定义 --graph-section-1..15，随主题与明暗切换而变。本表仅在 CSS 变量缺失时
+ * 两块各定义 --graph-section-1..30，随主题与明暗切换而变。本表仅在 CSS 变量缺失时
  * 兜底（变量未定义 / getComputedStyle 返回空串，例如样式表尚未生效、或第三方复用
  * 本脚本却未引入主题层），保证图谱不至于失色。改配色请改
  * `scripts/gen-book-colors.mjs` 后重跑（它同时生成 custom.scss 的组级与书级色值），
@@ -144,12 +145,33 @@ const SECTION_COLORS_FALLBACK: Record<string, string> = {
   "7": "#8e6bbf", // 紫
   "8": "#c26f9e", // 品红：商标
   "9": "#3f51b5", // 靛蓝：关键词索引（术语词条）
-  "10": "#76863f", // 秋香：专利扩展
-  "11": "#488c40", // 草绿：品种布图
-  "12": "#3b7e8f", // 湖青：竞争法
-  "13": "#844c92", // 堇紫：著作权
-  "14": "#4d43a6", // 青莲：综合程序
-  "15": "#9a4469", // 绛红：商标审查指南
+  "10": "#76863f", // 秋香：专利·规章
+  "11": "#488c40", // 草绿：品图·司解
+  "12": "#3b7e8f", // 湖青：竞争·司解
+  "13": "#844c92", // 堇紫：著权·法规
+  "14": "#4d43a6", // 青莲：综合·司解
+  "15": "#9a4469", // 绛红：商标·指引
+  // 波L 拆组新增的 15 组（16–30）：色值由 `scripts/gen-section-colors.mjs` 以
+  // 上列 1–15 为基色跑「母色邻域内 max-min 避让搜索」算得，**勿手改**，改配色改脚本
+  // 参数后重跑（该脚本同时回写 custom.scss 的 12 个主题块）。两处基色不同
+  //（那边是各主题的组色、这边是本表的中性基线），故色值不相等，各自独立跑同一算法。
+  // >>> gen-section-colors:fallback
+  "16": "#b3be63", // 专利·法规（母 10）
+  "17": "#433f2d", // 专利·司解（母 10）
+  "18": "#879e6e", // 专利·指引（母 10）
+  "19": "#e1acdf", // 商标·法律（母 8）
+  "20": "#c7a7ac", // 商标·法规（母 8）
+  "21": "#b341af", // 商标·司解（母 8）
+  "22": "#5c3067", // 著权·法律（母 13）
+  "23": "#a58cae", // 著权·规章（母 13）
+  "24": "#996e95", // 著权·司解（母 13）
+  "25": "#5fc7b2", // 竞争·法律（母 12）
+  "26": "#225761", // 竞争·规章（母 12）
+  "27": "#65b649", // 品图·法规（母 11）
+  "28": "#296632", // 品图·规章（母 11）
+  "29": "#2c2c80", // 综合·法规（母 14）
+  "30": "#6772a1", // 综合·规章（母 14）
+  // <<< gen-section-colors:fallback
 }
 
 /** 术语层节点判定：slug 顶层目录为「9-关键词索引」（以 9- 开头） */
@@ -1478,10 +1500,10 @@ async function createGraphInstance(
     "--graphFont",
     "--graphLink",
     "--graphLinkActive",
-    // 域色板（D1）：十五个键必须逐个字面写出——computedStyleMap 的键类型取自
+    // 域色板（D1）：三十个键必须逐个字面写出——computedStyleMap 的键类型取自
     // 本元组的字面量联合（`Record<(typeof cssVars)[number], string>`），
     // 用循环生成会退化为 string 而丢掉类型约束。
-    // 1–4/7 主干五书、9 术语层、8+10–15 扩展入库按法域归的七组
+    // 1–7 主干七书、9 术语层、8+10–30 其余文献按 (法域, 文种) 归的 22 组
     //（组表见 quartz/util/graphSections.ts；新增组号时此处必须同步补字面量，
     //  否则 custom.scss 补了变量脚本也读不到）
     // 书级色 --graph-book-* 不进本元组：87 个键逐字写出既臃肿又与类型约束无关，
@@ -1501,6 +1523,21 @@ async function createGraphInstance(
     "--graph-section-13",
     "--graph-section-14",
     "--graph-section-15",
+    "--graph-section-16",
+    "--graph-section-17",
+    "--graph-section-18",
+    "--graph-section-19",
+    "--graph-section-20",
+    "--graph-section-21",
+    "--graph-section-22",
+    "--graph-section-23",
+    "--graph-section-24",
+    "--graph-section-25",
+    "--graph-section-26",
+    "--graph-section-27",
+    "--graph-section-28",
+    "--graph-section-29",
+    "--graph-section-30",
   ] as const
   const computedStyleMap = cssVars.reduce(
     (acc, key) => {
@@ -1531,7 +1568,7 @@ async function createGraphInstance(
   const linkColor = computedStyleMap["--graphLink"].trim() || computedStyleMap["--lightgray"]
   const linkActiveColor = computedStyleMap["--graphLinkActive"].trim() || computedStyleMap["--gray"]
 
-  // 域色取值（D1）：真源是 CSS 变量 --graph-section-1..14（custom.scss 六主题
+  // 域色取值（D1）：真源是 CSS 变量 --graph-section-1..30（custom.scss 六主题
   // × light/dark 覆盖块），故必须走本实例的 computedStyleMap 快照——这也是本函数
   // 从模块级下沉进 createGraphInstance 的原因（需要闭包持有快照）。
   // 主题切换后由外层重建实例重新取快照，无需在此监听。

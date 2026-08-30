@@ -15,7 +15,11 @@
 // 未登记的前缀 groupOfSlug 返回 undefined，节点回落 --gray——灰点即「未登记」的可见
 // 信号，刻意不做静默并组。`0-图谱总览` 亦刻意不登记（已由 appPages.GRAPH_EXCLUDE
 // 排出图谱数据集）。前缀 8 与 28 在内容目录中不存在（28 为已裁决剔除的修正案元文档）。
-// 新增**组**时另需给出 field（法域标签归属，C-4 标签行据此归并），并同步 FIELD_TABS。
+// 新增**组**时另需给出 field（法域标签归属，C-4 标签行据此归并）与 docType（文种，
+// 图例的文种子段据此归并），并同步 FIELD_TABS；新增组号还须在四处补齐——
+// custom.scss 六主题 × 明暗共 12 块的 --graph-section-<id>、graphexplorer.scss 的
+// 图例点规则（现已改 @for 循环，只需上调上界）、graph.inline.ts 的 cssVars 字面量元组
+// 与 SECTION_COLORS_FALLBACK、mcp/scripts/check-taxonomy.mjs 的 GROUP_ID_TO_FIELD。
 //
 // 沿革（阶段5.1 批 G-1）：摘除 id5（机械撰写）/ id6（化学撰写）两整组，并从 id14
 // （综合程序）摘除 63、79、87、89、90 五个前缀——上述共 7 部文献同批经 excludeSlugs
@@ -34,6 +38,26 @@
 // id10（专利扩展）组。组数由 13（main5/ext7/term1）增至 15（main7/ext7/term1）；
 // EXT_GROUP_IDS 与其余 6 个扩展组的前缀集不受影响。
 //
+// 沿革（阶段5.11 波L，2026-08-31 · 图例按「法域 → 文种」完整归类）：组表由 15 组
+// 拆为 **30 组**，判据变为「每组恰属一个 (法域, 文种) 格」——原先 6 个扩展组各自
+// 跨 3–4 个文种，图例无法按文种分段呈现，故按 taxonomy.json 的 docType 逐格拆开。
+// 拆法：每个被拆组的**最大子块保留原组号**（配色与历史标识随之保留），其余子块取
+// 新号 16–30；主干七组（1–7）与术语组（9）零变更。原组号去向——
+//   8  商标      → 商标·D3 规章（8 部，原 15 部中的最大子块）
+//   10 专利扩展  → 专利·D3 规章（11 部，原 19 部中的最大子块）
+//   11 品种布图  → 品种布图·D4 司解（3 部）
+//   12 竞争法    → 竞争法·D4 司解（3 部）
+//   13 著作权    → 著作权·D2 法规（4 部）
+//   14 综合程序  → 综合程序·D4 司解（10 部）
+//   15 商标审查指南 → 商标·D5 指引（1 部，未拆，仅 label 缩为「商标指引」）
+// 数组顺序同步改为「法域（FIELD_TABS 序）→ 文种（D1→D5）→ 组（主干在前）」，
+// 即图例的呈现顺序；tier 的 main/ext 语义退化为「主干七书 / 其余」，不再是图例分段依据
+//（图例分段现由 field + docType 决定，见 buildLegendSections）。
+// ⚠️ 本波**未重跑** scripts/gen-book-colors.mjs：该脚本按「组内第 k 本书落在
+// (k+0.5)/n 色相处」分配书色，组一拆书色全库重排；其 GROUP_TWEAKS 锚点表仍按 15 组
+// 组号书写，重跑前必须先按新组表重写该表，否则产出的书色与本表组划分不再对应。
+// BOOK_COLORS 与 custom.scss 的 --graph-book-* 因此逐字未动（76 键、色值不变）。
+//
 // 沿革（阶段5.11 波O，2026-08-30 · 书目归档下线）：12 部文献下线，书目 88 → 76。
 // 其中 7 部本表原有登记，按组摘除前缀——id10（专利扩展）摘 72/74/75/82，
 // id13（著作权）摘 51/77，id8（商标）摘 53；另 5 部（63/79/87/89/90）本表自 G-1 起就未登记，
@@ -43,14 +67,48 @@
 // gen-book-colors.mjs**——该脚本按「组内第 k 本书落在 (k+0.5)/n 色相处」分配，
 // 书数一变全组重排，重跑会造成全库配色漂移，故保留书色值逐字不变。
 
-/** 图例分段：main = 主干七书，ext = 扩展法域组，term = 术语层（由三态钮单独控制） */
+/**
+ * 组的层级标记：main = 主干七书，ext = 扩展入库，term = 术语层（由三态钮单独控制）。
+ *
+ * 波L 起 tier **不再是图例的分段依据**（图例改按 field + docType 分段，见
+ * buildLegendSections），其语义收窄为两处：
+ *   · term —— 术语层专用标记，目录准入（graphToc）与标签导航全集（NON_TERM_GROUP_IDS）
+ *     都靠它排除术语组，不可省；
+ *   · main / ext —— 「主干七书 / 其余」的二分，唯一消费点是图例行首的「骨架」段控
+ *     （EXT_GROUP_IDS，一次收起主干之外的全部组）。
+ */
 export type SectionTier = "main" | "ext" | "term"
+
+/**
+ * 文种（docType）：取值与 static/taxonomy.json 的 docType 字段同域。
+ * D6（政策与规划）自阶段5.11 波O 的 12 部书下线后已无在册文献，故不在联合内——
+ * 将来若重新入库 D6 文献，此处与 DOCTYPE_SHORT / DOCTYPE_ORDER 三处同步扩充即可。
+ */
+export type SectionDocType = "D1" | "D2" | "D3" | "D4" | "D5"
+
+/**
+ * 文种的 **2 字简称**，图例文种子段标题专用。
+ * 取 2 字是版面硬约束：图例行现有 30 个组钮 + 6 个法域段标题 + 23 个文种子标题，
+ * 子标题若用 taxonomy 的全称（「部门规章与规范性文件」「司法解释与裁判规则」）
+ * 单是标题就要占掉约一行半。左栏目录抽屉（explorer.inline.ts 的合成 docType 行）
+ * 仍用全称，两处是同一层级的**详略两种呈现**，不是取值不一致。
+ */
+export const DOCTYPE_SHORT: Readonly<Record<SectionDocType, string>> = {
+  D1: "法律",
+  D2: "法规",
+  D3: "规章",
+  D4: "司解",
+  D5: "指引",
+}
+
+/** 文种在图例内的呈现顺序（与 explorer.inline.ts 的 DOCTYPE_ORDER 同序，效力等级由高到低） */
+export const DOCTYPE_ORDER: readonly SectionDocType[] = ["D1", "D2", "D3", "D4", "D5"]
 
 /**
  * 法域标签（C-4）：图谱总览页「中国 → 六标签」层级导航的第二级。
  * 与 tier 是两个正交维度——tier 描述图例的呈现分段（主干／扩展／术语），
- * field 描述文献的法域归属；主干七书与「专利扩展」同归 field「专利」，
- * 故一次点击「专利」即得完整专利法域视图（组 1–7 + 10）。
+ * field 描述文献的法域归属；主干七书与专利法域的四个扩展组同归 field「专利」，
+ * 故一次点击「专利」即得完整专利法域视图（波L 后共 11 组：1/2/16/10/17/3/4/5/6/7/18）。
  */
 export type FieldTab = "专利" | "商标" | "著作权" | "竞争法" | "品种布图" | "综合程序"
 
@@ -67,70 +125,154 @@ export type SectionGroup = {
   tier: SectionTier
   /** 法域标签归属（C-4 标签行 data-field 的取值） */
   field: SectionField
+  /**
+   * 文种归属（波L）：图例文种子段据此归并，取值须与 taxonomy.json 中该组各前缀的
+   * docType **完全一致**（组内前缀不同文种即为组划分错误，由 check-taxonomy P9 拦截）。
+   * 术语组无文种（术语层不是文献），故为可选字段——除术语组外一律必填。
+   */
+  docType?: SectionDocType
 }
 
 /**
- * 域组表：数组顺序即图例显示顺序。
- * 主干七书与术语层沿用「组号 = 目录前缀」（历史行为不变）；扩展入库的文献按法域
- * 归为 7 组，组号取 8、10–15——其中 8 复用 custom.scss 十二块早已定义、却从未被
- * 任何目录前缀命中的预留位（原注「粉紫（预留）」）；15（阶段5.1新增，商标审查
- * 指南独立成组）的 --graph-section-15 与图例点规则已于批 G-2 在十二块中补齐
- * （由同块的组 8 派生，落在各主题的商标红系族内）。
- * 归组判据：文献的规范对象是否限于单一法域；跨两个及以上法域、或规范对象为
- * 程序／机关事务／政策者，一律入 §14 综合程序。
+ * 域组表：数组顺序即图例显示顺序 ——「法域（FIELD_TABS 序）→ 文种（DOCTYPE_ORDER 序）
+ * → 组（同格内主干组在前、按原组号升序）」，术语组置于末尾。
+ *
+ * 归组判据（波L 起为两级，缺一不可）：
+ *   ① 法域 —— 文献的规范对象是否限于单一法域；跨两个及以上法域、或规范对象为
+ *      程序／机关事务／政策者，一律归「综合程序」；
+ *   ② 文种 —— 取 taxonomy.json 的 docType，**组内不得混文种**。
+ * 二者共同决定组：一个组恰对应一个 (法域, 文种) 格。反过来，一个格可以有多个组
+ *——专利·D2 有「实施细则」与「专利条例」两组、专利·D5 有主干五组加「专利指引」
+ * 共六组，因为主干七书各自独立成组是历史契约（组号 = 目录前缀，不合并）。
+ *
+ * 组号的两条既定事实（勿据字面推断）：
+ *   · 组号**不是** slug 的目录前缀。波L 后 16–30 这批新组号与目录前缀 16–30
+ *     大面积同值而含义完全不同（例：组号 "17" 是专利·D4 司解，目录前缀 17 是
+ *     《侵权解释一》，恰好也在该组内；组号 "21" 是商标·D4 司解，目录前缀 21
+ *     《商标确权》亦在其中；但组号 "19" 是商标·D1，目录前缀 19《知产法院管辖》
+ *     却属组 "14"）。判归属只能用 groupOfSlug，见其函数注释。
+ *   · 组号即 CSS 变量后缀 --graph-section-<id>，取值域现为 1–30。
+ *
+ * 主干七书与术语层沿用「组号 = 目录前缀」；扩展组的组号取 8、10–30——其中 8 复用
+ * custom.scss 十二块早已定义、却从未被任何目录前缀命中的预留位（原注「粉紫（预留）」），
+ * 16–30 由波L 新增（色值按各自母组派生，规则见 custom.scss「域组色板」节）。
  */
 export const SECTION_GROUPS: readonly SectionGroup[] = [
-  { id: "1", label: "专利法", prefixes: [1], tier: "main", field: "专利" },
-  { id: "2", label: "实施细则", prefixes: [2], tier: "main", field: "专利" },
-  { id: "3", label: "审查指南", prefixes: [3], tier: "main", field: "专利" },
-  { id: "4", label: "侵权判定", prefixes: [4], tier: "main", field: "专利" },
-  { id: "5", label: "机械撰写", prefixes: [5], tier: "main", field: "专利" },
-  { id: "6", label: "化学撰写", prefixes: [6], tier: "main", field: "专利" },
-  { id: "7", label: "答复OA", prefixes: [7], tier: "main", field: "专利" },
-  // —— 扩展入库按法域归组（19 + 15 + 1 + 9 + 6 + 6 + 13 = 69；波O 前为 23/16/11 → 76）——
+  // ============ 专利（11 组 / 26 部）============
+  { id: "1", label: "专利法", prefixes: [1], tier: "main", field: "专利", docType: "D1" },
+  { id: "2", label: "实施细则", prefixes: [2], tier: "main", field: "专利", docType: "D2" },
+  // 37 国防专利条例 / 44 专利代理条例：与「实施细则」同为行政法规，故同格不同组
+  { id: "16", label: "专利条例", prefixes: [37, 44], tier: "ext", field: "专利", docType: "D2" },
   {
     id: "10",
-    label: "专利扩展",
-    prefixes: [11, 17, 20, 26, 37, 44, 56, 57, 60, 61, 62, 64, 65, 68, 73, 78, 81, 85, 91],
+    label: "专利规章",
+    prefixes: [56, 57, 60, 61, 62, 64, 65, 68, 73, 81, 85],
     tier: "ext",
     field: "专利",
+    docType: "D3",
   },
+  {
+    id: "17",
+    label: "专利司解",
+    prefixes: [11, 17, 20, 26],
+    tier: "ext",
+    field: "专利",
+    docType: "D4",
+  },
+  { id: "3", label: "审查指南", prefixes: [3], tier: "main", field: "专利", docType: "D5" },
+  { id: "4", label: "侵权判定", prefixes: [4], tier: "main", field: "专利", docType: "D5" },
+  { id: "5", label: "机械撰写", prefixes: [5], tier: "main", field: "专利", docType: "D5" },
+  { id: "6", label: "化学撰写", prefixes: [6], tier: "main", field: "专利", docType: "D5" },
+  { id: "7", label: "答复OA", prefixes: [7], tier: "main", field: "专利", docType: "D5" },
+  // 78 行政裁决办案指南 / 91 专利质量评价指南：主干五部之外的专利实务指引
+  { id: "18", label: "专利指引", prefixes: [78, 91], tier: "ext", field: "专利", docType: "D5" },
+  // ============ 商标（5 组 / 16 部）============
+  { id: "19", label: "商标法律", prefixes: [49], tier: "ext", field: "商标", docType: "D1" },
+  { id: "20", label: "商标条例", prefixes: [42], tier: "ext", field: "商标", docType: "D2" },
   {
     id: "8",
-    label: "商标",
-    prefixes: [12, 13, 16, 18, 21, 42, 49, 58, 59, 66, 67, 69, 70, 83, 84],
+    label: "商标规章",
+    prefixes: [58, 59, 66, 67, 69, 70, 83, 84],
     tier: "ext",
     field: "商标",
+    docType: "D3",
   },
   {
-    id: "15",
-    label: "商标审查指南",
-    prefixes: [80],
+    id: "21",
+    label: "商标司解",
+    prefixes: [12, 13, 16, 18, 21],
     tier: "ext",
     field: "商标",
+    docType: "D4",
   },
+  { id: "15", label: "商标指引", prefixes: [80], tier: "ext", field: "商标", docType: "D5" },
+  // ============ 著作权（4 组 / 9 部）============
+  { id: "22", label: "著权法律", prefixes: [45], tier: "ext", field: "著作权", docType: "D1" },
   {
     id: "13",
-    label: "著作权",
-    prefixes: [14, 38, 39, 40, 41, 45, 52, 55, 76],
+    label: "著权条例",
+    prefixes: [38, 39, 40, 41],
     tier: "ext",
     field: "著作权",
+    docType: "D2",
   },
-  { id: "12", label: "竞争法", prefixes: [25, 30, 32, 46, 48, 71], tier: "ext", field: "竞争法" },
   {
-    id: "11",
-    label: "品种布图",
-    prefixes: [10, 15, 29, 36, 47, 50],
+    id: "23",
+    label: "著权规章",
+    prefixes: [52, 55, 76],
+    tier: "ext",
+    field: "著作权",
+    docType: "D3",
+  },
+  { id: "24", label: "著权司解", prefixes: [14], tier: "ext", field: "著作权", docType: "D4" },
+  // ============ 竞争法（3 组 / 6 部）============
+  { id: "25", label: "竞争法律", prefixes: [46, 48], tier: "ext", field: "竞争法", docType: "D1" },
+  { id: "26", label: "竞争规章", prefixes: [71], tier: "ext", field: "竞争法", docType: "D3" },
+  {
+    id: "12",
+    label: "竞争司解",
+    prefixes: [25, 30, 32],
+    tier: "ext",
+    field: "竞争法",
+    docType: "D4",
+  },
+  // ============ 品种布图（3 组 / 6 部）============
+  {
+    id: "27",
+    label: "品图条例",
+    prefixes: [47, 50],
     tier: "ext",
     field: "品种布图",
+    docType: "D2",
+  },
+  { id: "28", label: "品图规章", prefixes: [36], tier: "ext", field: "品种布图", docType: "D3" },
+  {
+    id: "11",
+    label: "品图司解",
+    prefixes: [10, 15, 29],
+    tier: "ext",
+    field: "品种布图",
+    docType: "D4",
+  },
+  // ============ 综合程序（3 组 / 13 部）============
+  { id: "29", label: "综合条例", prefixes: [43], tier: "ext", field: "综合程序", docType: "D2" },
+  {
+    id: "30",
+    label: "综合规章",
+    prefixes: [54, 86],
+    tier: "ext",
+    field: "综合程序",
+    docType: "D3",
   },
   {
     id: "14",
-    label: "综合程序",
-    prefixes: [19, 22, 23, 24, 27, 31, 33, 34, 35, 43, 54, 86, 88],
+    label: "综合司解",
+    prefixes: [19, 22, 23, 24, 27, 31, 33, 34, 35, 88],
     tier: "ext",
     field: "综合程序",
+    docType: "D4",
   },
+  // ============ 术语层（1 组，无文种）============
   { id: "9", label: "术语", prefixes: [9], tier: "term", field: "术语" },
 ]
 
@@ -249,8 +391,10 @@ const PREFIX_TO_GROUP: ReadonlyMap<string, string> = new Map(
  * 由调用方回落原生配色。
  *
  * ⚠️ 组号不是 slug 的字面前缀：判断「某 slug 是否属于某组」必须用本函数比对返回值，
- * 不得写 `slug.startsWith(groupId + "-")`——组号 "10"（专利扩展）会误吞
- * slug "10-植物新品种纠纷解释/…"（该前缀实属组号 "11" 品种布图）。
+ * 不得写 `slug.startsWith(groupId + "-")`——组号 "10"（专利·规章）会误吞
+ * slug "10-植物新品种纠纷解释/…"（该前缀实属组号 "11" 品种布图·司解）。
+ * 波L 后这类同值巧合从 1 例增至十余例（组号 16–30 与目录前缀 16–30 大面积同值），
+ * 本函数是唯一正确的归属判据。
  */
 export function groupOfSlug(id: string): string | undefined {
   const prefix = id.match(/^(\d+)-/)?.[1]
@@ -266,7 +410,13 @@ export function isSlugInGroup(id: string, groupId: string): boolean {
 /** 全部域组号（含主干与术语），顺序同 SECTION_GROUPS */
 export const ALL_GROUP_IDS: readonly string[] = SECTION_GROUPS.map((g) => g.id)
 
-/** 扩展法域组的组号（供图例「扩展」段控一次性切换全部 7 组） */
+/**
+ * 主干七书之外的全部非术语组号（tier === "ext"，波L 后共 22 组 / 69 部）。
+ * 唯一消费点是图例行首的「骨架」段控——一次收起主干之外的全部组，只留主干七书骨架。
+ * 波L 之前该段控叫「扩展」、与图例的「扩展段」同名同义；文种分段后图例已无「扩展段」
+ * 这一视觉分区（22 个 ext 组按法域与文种散布在六个法域段内），故段控改名「骨架」、
+ * 移到图例行首独立成段，而集合定义与 data-section-group="ext" 钩子一字未改。
+ */
 export const EXT_GROUP_IDS: readonly string[] = SECTION_GROUPS.filter((g) => g.tier === "ext").map(
   (g) => g.id,
 )
@@ -296,7 +446,7 @@ export const FIELD_TABS: readonly FieldTab[] = [
 export const FIELD_ALL = "*"
 
 /**
- * 参与标签切换的组号（全部非术语组，共 14 = 主干 7 + 扩展 7）。
+ * 参与标签切换的组号（全部非术语组，波L 后共 29 = 主干 7 + 扩展 22）。
  * 标签行的显隐运算一律以本集合为全集：hidden = 本集合 − groupsOfField(field)，
  * 术语组不在其中，故任何标签切换都不会波及术语层三态钮的状态。
  */
@@ -330,6 +480,53 @@ export function groupsOfFields(fields: Iterable<string>): Set<string> {
   const out = new Set<string>()
   for (const field of fields) {
     for (const id of groupsOfField(field)) out.add(id)
+  }
+  return out
+}
+
+// ============================================================
+// 图例分段（阶段5.11 波L）：法域段 → 文种子段 → 组钮 的三层结构
+// ============================================================
+
+/** 文种子段：一个 (法域, 文种) 格，groups 至少一项（空格子不入表） */
+export type LegendDocTypeSection = {
+  docType: SectionDocType
+  /** 子段标题文案，取 DOCTYPE_SHORT 的 2 字简称 */
+  short: string
+  groups: SectionGroup[]
+}
+
+/** 法域段：一个法域及其名下按 DOCTYPE_ORDER 排列的文种子段 */
+export type LegendFieldSection = {
+  field: FieldTab
+  docTypes: LegendDocTypeSection[]
+}
+
+/**
+ * 组表 → 图例的分层结构（法域 → 文种 → 组），供 GraphExplorer.tsx 构建期 SSR。
+ *
+ * 与左栏目录抽屉（explorer.inline.ts 的「国家 → 法域 → docType → 书」合成节点树）
+ * **同构**：两处都是「法域 → 文种」两级归类，差别只在叶子——目录到书，图例到组。
+ * 二者的分类维度同源（taxonomy.json 的 field / docType），故不会出现「目录里在
+ * 商标·规章下、图例里却在别处」的错位。
+ *
+ * 只列**非空**格子：某法域没有某文种的文献时该子段整段不渲染（例如竞争法无 D2、
+ * 品种布图无 D1），而不是渲染一个空标题。术语组不入本结构——它由术语层三态钮独管，
+ * 在图例里是行尾的一枚不可点色点，不属任何法域段。
+ *
+ * 返回新数组（每次调用重算）：调用点只有构建期 SSR 一处，不值得为它引入模块级缓存。
+ */
+export function buildLegendSections(): LegendFieldSection[] {
+  const out: LegendFieldSection[] = []
+  for (const field of FIELD_TABS) {
+    const inField = SECTION_GROUPS.filter((g) => g.field === field && g.tier !== "term")
+    const docTypes: LegendDocTypeSection[] = []
+    for (const docType of DOCTYPE_ORDER) {
+      const groups = inField.filter((g) => g.docType === docType)
+      if (groups.length === 0) continue
+      docTypes.push({ docType, short: DOCTYPE_SHORT[docType], groups })
+    }
+    out.push({ field, docTypes })
   }
   return out
 }
