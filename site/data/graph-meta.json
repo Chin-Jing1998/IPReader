@@ -2,14 +2,14 @@
   "schemaVersion": 3,
   "termCount": 1743,
   "edgeCounts": {
-    "hierarchy": 5092,
+    "hierarchy": 4908,
     "xref": 375,
-    "colaw": 624,
-    "lawref": 2678,
+    "colaw": 615,
+    "lawref": 2648,
     "termref": 5382,
     "termlaw": 2672,
     "termrel": 312,
     "termco": 2187
   },
-  "generatedAt": "2026-08-30T15:13:16.435Z"
+  "generatedAt": "2026-08-30T16:14:19.572Z"
 }

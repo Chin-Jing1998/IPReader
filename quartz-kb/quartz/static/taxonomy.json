@@ -422,30 +422,12 @@
     "docType": "D2",
     "docTypeName": "行政法规"
   },
-  "51": {
-    "domain": "work-registration-1994",
-    "title": "作品自愿登记试行办法（1995年施行）",
-    "short": "作品登记",
-    "country": "CN",
-    "field": "著作权",
-    "docType": "D3",
-    "docTypeName": "部门规章与规范性文件"
-  },
   "52": {
     "domain": "software-copyright-registration-2002",
     "title": "计算机软件著作权登记办法（2002年施行）",
     "short": "软件登记",
     "country": "CN",
     "field": "著作权",
-    "docType": "D3",
-    "docTypeName": "部门规章与规范性文件"
-  },
-  "53": {
-    "domain": "trademark-printing-2004",
-    "title": "商标印制管理办法（2004年施行）",
-    "short": "商标印制",
-    "country": "CN",
-    "field": "商标",
     "docType": "D3",
     "docTypeName": "部门规章与规范性文件"
   },
@@ -530,15 +512,6 @@
     "docType": "D3",
     "docTypeName": "部门规章与规范性文件"
   },
-  "63": {
-    "domain": "cnipa-normative-docs-2016",
-    "title": "国家知识产权局规范性文件制定和管理办法（2017年施行）",
-    "short": "规范文件",
-    "country": "CN",
-    "field": "综合程序",
-    "docType": "D3",
-    "docTypeName": "部门规章与规范性文件"
-  },
   "64": {
     "domain": "patent-agency-admin-2019",
     "title": "专利代理管理办法（2019年施行）",
@@ -611,15 +584,6 @@
     "docType": "D3",
     "docTypeName": "部门规章与规范性文件"
   },
-  "72": {
-    "domain": "fee-adjustment-notice-2024",
-    "title": "国家知识产权局关于调整部分专利收费标准和减缴政策的公告",
-    "short": "收费调整",
-    "country": "CN",
-    "field": "专利",
-    "docType": "D3",
-    "docTypeName": "部门规章与规范性文件"
-  },
   "73": {
     "domain": "priority-examination-2026",
     "title": "专利优先审查管理办法（2026年施行）",
@@ -629,37 +593,10 @@
     "docType": "D3",
     "docTypeName": "部门规章与规范性文件"
   },
-  "74": {
-    "domain": "patent-payment-guide-2026",
-    "title": "专利缴费操作指引",
-    "short": "缴费指引",
-    "country": "CN",
-    "field": "专利",
-    "docType": "D5",
-    "docTypeName": "审查与实务指引"
-  },
-  "75": {
-    "domain": "patent-ic-fee-manual-2026",
-    "title": "专利和集成电路布图设计缴费服务指南",
-    "short": "缴费指南",
-    "country": "CN",
-    "field": "专利",
-    "docType": "D5",
-    "docTypeName": "审查与实务指引"
-  },
   "76": {
     "domain": "copyright-pledge-registration-2011",
     "title": "著作权质权登记办法（2011年施行）",
     "short": "质权登记",
-    "country": "CN",
-    "field": "著作权",
-    "docType": "D3",
-    "docTypeName": "部门规章与规范性文件"
-  },
-  "77": {
-    "domain": "text-work-remuneration-2014",
-    "title": "使用文字作品支付报酬办法（2014年施行）",
-    "short": "报酬办法",
     "country": "CN",
     "field": "著作权",
     "docType": "D3",
@@ -673,15 +610,6 @@
     "field": "专利",
     "docType": "D5",
     "docTypeName": "审查与实务指引"
-  },
-  "79": {
-    "domain": "ip-power-outline-2021",
-    "title": "知识产权强国建设纲要（2021－2035年）",
-    "short": "强国纲要",
-    "country": "CN",
-    "field": "综合程序",
-    "docType": "D6",
-    "docTypeName": "政策文件与标准索引"
   },
   "80": {
     "domain": "trademark-exam-guide-2021",
@@ -700,15 +628,6 @@
     "field": "专利",
     "docType": "D3",
     "docTypeName": "部门规章与规范性文件"
-  },
-  "82": {
-    "domain": "exam-guideline-decree-2023",
-    "title": "国家知识产权局令第78号（发布《专利审查指南》）（2024年施行）",
-    "short": "指南发布令",
-    "country": "CN",
-    "field": "专利",
-    "docType": "D6",
-    "docTypeName": "政策文件与标准索引"
   },
   "83": {
     "domain": "collective-cert-trademark-2023",
@@ -746,15 +665,6 @@
     "docType": "D3",
     "docTypeName": "部门规章与规范性文件"
   },
-  "87": {
-    "domain": "rulemaking-procedure-2024",
-    "title": "国家知识产权局规章制定程序规定（2025年施行）",
-    "short": "规章程序",
-    "country": "CN",
-    "field": "综合程序",
-    "docType": "D3",
-    "docTypeName": "部门规章与规范性文件"
-  },
   "88": {
     "domain": "ipc-digest-2024",
     "title": "最高人民法院知识产权法庭裁判要旨摘要（2024）",
@@ -763,24 +673,6 @@
     "field": "综合程序",
     "docType": "D4",
     "docTypeName": "司法解释与裁判规则"
-  },
-  "89": {
-    "domain": "ip-plan-15th-2026",
-    "title": "知识产权保护和运用“十五五”规划（2026年施行）",
-    "short": "十五五",
-    "country": "CN",
-    "field": "综合程序",
-    "docType": "D6",
-    "docTypeName": "政策文件与标准索引"
-  },
-  "90": {
-    "domain": "gb-standards-index",
-    "title": "知识产权相关 GB/T 国家标准清单与在线预览入口",
-    "short": "GB清单",
-    "country": "CN",
-    "field": "综合程序",
-    "docType": "D6",
-    "docTypeName": "政策文件与标准索引"
   },
   "91": {
     "domain": "quality-evaluation",
