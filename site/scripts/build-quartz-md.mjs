@@ -47,22 +47,31 @@ const ASSETS_IMG_DIR = join(SITE_DIR, 'assets', 'book-images');
 // 附图总数 88 → 101。属 W-5 定版数批次的漏更新项，经主会话裁决补记。
 const EXPECTED_EMBEDDED_IMAGES = 101; // 四书正文实际引用的附图总数（manifest 定版）
 // PDF 抽取正文的富文本定版数（详见第七节 contentBlocks 与 lib/rich-text.mjs）：
-//   内嵌 HTML 表格全库 48 张（2026-08-22 入库批次四后）——29 转 GFM 管道表格、19 回退 raw HTML：
+//   内嵌 HTML 表格全库 38 张（2026-08-30 阶段5.11 波O 书目下线后）——27 转 GFM 管道表格、
+//   11 回退 raw HTML：
 //     《专利侵权纠纷行政裁决办案指南》30 张（批次四，办案文书空白表单）：20 转 GFM
 //       （表 1-8、14-18、21-24、26、28、29），10 回退 raw（表 9-13、19、20、25、27、30），
 //       回退原因全为合并单元格——colspan=2 ×5、colspan=3 ×2、colspan=4 ×1、colspan=5 ×1、rowspan=2 ×1；
-//     以下为批次三及以前既有 18 张：
-//     《化学撰写规范》8 张：7 转 GFM，1 张（chem-02-03-03 表1，rowspan/colspan 合并表头）回退 raw；
-//     《专利和集成电路布图设计缴费服务指南》10 张（单行 HTML，TABLE_BLOCK_RE 的 [\s\S]*? 正常命中）：
-//       2 转 GFM（表4 恢复权利请求费、表10 费用标准），8 回退 raw，回退原因均为合并单元格——
-//       colspan=6 ×1、colspan=3 ×1、rowspan=2 ×2、rowspan=3 ×3、rowspan=4 ×1。
-//   行内 LaTeX 公式实测 125 处（ownText）在正文链路完成降解，取 120 为下限留余量。
-const EXPECTED_GFM_TABLES = 29;
-const EXPECTED_RAW_TABLES = 19;
+//     《化学撰写规范》8 张：7 转 GFM，1 张（chem-02-03-03 表1，rowspan/colspan 合并表头）回退 raw。
+//   〔波O 沿革〕原第三部含表书目《专利和集成电路布图设计缴费服务指南》（10 张单行 HTML：
+//     2 转 GFM＝表4 恢复权利请求费、表10 费用标准；8 回退 raw＝colspan=6 ×1、colspan=3 ×1、
+//     rowspan=2 ×2、rowspan=3 ×3、rowspan=4 ×1）随书目归档下线，全库表格 48 → 38、
+//     GFM 29 → 27、raw 19 → 11。
+//   行内 LaTeX 公式实测 147 处（ownText）在正文链路完成降解，取 120 为下限留余量。
+const EXPECTED_GFM_TABLES = 27;
+const EXPECTED_RAW_TABLES = 11;
 const EXPECTED_MATH_MIN = 120;
 const imagesToEmit = new Map(); // content 相对路径 → 资产绝对路径
 
 // ============ 一、书目登记：域 → 顶层目录（顺序 = 法律层级） ============
+// 沿革（2026-08-30 阶段5.11 波O · 书目归档下线）：12 部低检索价值文献（order
+//   51/53/63/72/74/75/77/79/82/87/89/90）经用户勾选定案下线，书目 88 → 76。摘除形态为
+//   **注释保留而非物理删行**，恢复时取消注释即可；本表须与另一处 BOOKS 逐条一致
+//   （site/scripts/build-quartz-md.mjs ↔ mcp/scripts/build-data.mjs，P7 惯例，
+//   条目数由 mcp/scripts/check-taxonomy.mjs 与 domains.mjs KNOWN_DOMAINS 比对把关）。
+//   语料源文件同步归档至 PatentReader/_archive/，恢复方法见该目录 _说明.md。
+//   ⚠ 摘条目必须与 rm quartz-kb/content/NN-*/ 同批完成：下方 managedTop 只清理在册
+//   BOOKS 的目录，先摘条目而不删目录会留下无人管理的孤儿目录（仍被 quartz 建站）。
 const BOOKS = [
   { order: 1, domain: 'patent-law', dir: '1-专利法' },
   { order: 2, domain: 'implementation-rules', dir: '2-专利法实施细则' },
@@ -115,9 +124,9 @@ const BOOKS = [
   { order: 49, domain: 'trademark-law-2026', dir: '49-商标法' },
   { order: 50, domain: 'ic-layout-regulations-2026', dir: '50-集成电路布图设计条例' },
   // ---- 入库批次三「02 部门规章与规范性文件」25 件（2026-08-22）：order/dir 自 51 起连续 ----
-  { order: 51, domain: 'work-registration-1994', dir: '51-作品自愿登记试行办法' },
+  // 〔波O 下线〕{ order: 51, domain: 'work-registration-1994', dir: '51-作品自愿登记试行办法' },
   { order: 52, domain: 'software-copyright-registration-2002', dir: '52-计算机软件著作权登记办法' },
-  { order: 53, domain: 'trademark-printing-2004', dir: '53-商标印制管理办法' },
+  // 〔波O 下线〕{ order: 53, domain: 'trademark-printing-2004', dir: '53-商标印制管理办法' },
   { order: 54, domain: 'customs-ip-measures-2009', dir: '54-知识产权海关保护实施办法' },
   { order: 55, domain: 'copyright-penalty-2009', dir: '55-著作权行政处罚实施办法' },
   { order: 56, domain: 'patent-marking-2012', dir: '56-专利标识标注办法' },
@@ -127,7 +136,7 @@ const BOOKS = [
   { order: 60, domain: 'biomaterial-deposit-2015', dir: '60-生物材料保藏办法' },
   { order: 61, domain: 'patent-enforcement-2015', dir: '61-专利行政执法办法' },
   { order: 62, domain: 'fee-reduction-2016', dir: '62-专利收费减缴办法' },
-  { order: 63, domain: 'cnipa-normative-docs-2016', dir: '63-规范性文件制定管理办法' },
+  // 〔波O 下线〕{ order: 63, domain: 'cnipa-normative-docs-2016', dir: '63-规范性文件制定管理办法' },
   { order: 64, domain: 'patent-agency-admin-2019', dir: '64-专利代理管理办法' },
   { order: 65, domain: 'patent-attorney-exam-2019', dir: '65-专利代理师资格考试办法' },
   { order: 66, domain: 'trademark-filing-conduct-2019', dir: '66-规范商标申请注册行为规定' },
@@ -136,26 +145,26 @@ const BOOKS = [
   { order: 69, domain: 'trademark-violation-standard-2021', dir: '69-商标一般违法判断标准' },
   { order: 70, domain: 'trademark-agency-supervision-2022', dir: '70-商标代理监督管理规定' },
   { order: 71, domain: 'ip-abuse-competition-2023', dir: '71-禁止滥用知识产权竞争规定' },
-  { order: 72, domain: 'fee-adjustment-notice-2024', dir: '72-专利收费调整公告' },
+  // 〔波O 下线〕{ order: 72, domain: 'fee-adjustment-notice-2024', dir: '72-专利收费调整公告' },
   { order: 73, domain: 'priority-examination-2026', dir: '73-专利优先审查管理办法' },
-  { order: 74, domain: 'patent-payment-guide-2026', dir: '74-专利缴费操作指引' },
-  { order: 75, domain: 'patent-ic-fee-manual-2026', dir: '75-专利和集成电路缴费服务指南' },
+  // 〔波O 下线〕{ order: 74, domain: 'patent-payment-guide-2026', dir: '74-专利缴费操作指引' },
+  // 〔波O 下线〕{ order: 75, domain: 'patent-ic-fee-manual-2026', dir: '75-专利和集成电路缴费服务指南' },
   // ---- 入库批次四（收尾）15 件（2026-08-22）：order/dir 76–90，全量入库收官 ----
   { order: 76, domain: 'copyright-pledge-registration-2011', dir: '76-著作权质权登记办法' },
-  { order: 77, domain: 'text-work-remuneration-2014', dir: '77-使用文字作品支付报酬办法' },
+  // 〔波O 下线〕{ order: 77, domain: 'text-work-remuneration-2014', dir: '77-使用文字作品支付报酬办法' },
   { order: 78, domain: 'patent-adjudication-manual-2019', dir: '78-专利侵权纠纷行政裁决办案指南' },
-  { order: 79, domain: 'ip-power-outline-2021', dir: '79-知识产权强国建设纲要' },
+  // 〔波O 下线〕{ order: 79, domain: 'ip-power-outline-2021', dir: '79-知识产权强国建设纲要' },
   { order: 80, domain: 'trademark-exam-guide-2021', dir: '80-商标审查审理指南' },
   { order: 81, domain: 'patent-filing-conduct-2023', dir: '81-规范申请专利行为的规定' },
-  { order: 82, domain: 'exam-guideline-decree-2023', dir: '82-专利审查指南发布令' },
+  // 〔波O 下线〕{ order: 82, domain: 'exam-guideline-decree-2023', dir: '82-专利审查指南发布令' },
   { order: 83, domain: 'collective-cert-trademark-2023', dir: '83-集体商标证明商标注册管理规定' },
   { order: 84, domain: 'gi-product-protection-2023', dir: '84-地理标志产品保护办法' },
   { order: 85, domain: 'patent-adjudication-mediation-2024', dir: '85-专利纠纷行政裁决和调解办法' },
   { order: 86, domain: 'admin-reconsideration-2024', dir: '86-国家知识产权局行政复议规程' },
-  { order: 87, domain: 'rulemaking-procedure-2024', dir: '87-国家知识产权局规章制定程序规定' },
+  // 〔波O 下线〕{ order: 87, domain: 'rulemaking-procedure-2024', dir: '87-国家知识产权局规章制定程序规定' },
   { order: 88, domain: 'ipc-digest-2024', dir: '88-知产法庭裁判要旨2024' },
-  { order: 89, domain: 'ip-plan-15th-2026', dir: '89-知识产权保护和运用十五五规划' },
-  { order: 90, domain: 'gb-standards-index', dir: '90-GB国家标准清单' },
+  // 〔波O 下线〕{ order: 89, domain: 'ip-plan-15th-2026', dir: '89-知识产权保护和运用十五五规划' },
+  // 〔波O 下线〕{ order: 90, domain: 'gb-standards-index', dir: '90-GB国家标准清单' },
   // ---- 入库批次五（召回）1 件（2026-08-24 阶段5.2 批次 Q-1）：order 91 顺延，避开既有 8/9 与 28 号空洞语义 ----
   { order: 91, domain: 'quality-evaluation', dir: '91-专利质量评价指南' },
 ];
@@ -1228,7 +1237,7 @@ console.log(`✅ 生成完成：${totalPages} 页，wikilink ${scanned} 条全�
 // 只依赖 BOOKS（顶层目录前缀登记）与 DOMAIN_META（阶段5.3 批次 W3 起经 resolveDomainTitles
 // 派生自 KNOWN_DOMAINS + book-meta.json，title 字段可能带年份后缀，field/docType 等分类字段
 // 逐字不变），故 0-图谱总览、
-// 9-关键词索引两个非书前缀天然不入表（BOOKS 数组本就只登记 88 部书，不含二者）；
+// 9-关键词索引两个非书前缀天然不入表（BOOKS 数组本就只登记 76 部书，不含二者）；
 // 落盘目标是 quartz/static/（quartz 静态资产树，与本文件其余产物所在的 content/ 是两棵不同的树），
 // 因此不经 emit()/outputs 收集，径直 writeFileSync。
 function emitTaxonomy() {

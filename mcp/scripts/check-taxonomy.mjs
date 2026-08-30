@@ -1,6 +1,6 @@
 // check-taxonomy.mjs —— P9 不变量：图谱域分组（graphSections.ts）与分类元数据（domains.mjs）一致性校验
 //
-// 背景：88 部书按六标签（field）分类的单一事实源是 site/scripts/lib/domains.mjs；
+// 背景：76 部书按六标签（field）分类的单一事实源是 site/scripts/lib/domains.mjs；
 // 图谱侧的分组显隐/配色单一事实源是 quartz-kb/quartz/util/graphSections.ts 的 SECTION_GROUPS
 // （该文件因 esbuild 零依赖约束、不能 import domains.mjs，见其文件头注释）。两处各自维护、
 // 却描述同一件事——「哪些顶层目录前缀属于哪个法域」，故需要一个独立脚本比对二者是否同构，
@@ -149,14 +149,17 @@ const GROUP_ID_TO_FIELD = {
 };
 const SKIP_GROUP_IDS = new Set(['9']); // 术语层，非书域，不参与比对
 
-// ============ 五、88 域三字段齐备与取值合法性校验 ============
+// ============ 五、76 域三字段齐备与取值合法性校验 ============
 // 沿革：2026-08-24 阶段5.2 批 Q-1 新入库《专利质量评价指南》（prefix 91，
 // key quality-evaluation），KNOWN_DOMAINS 由 87 增至 88；同批 Q-2 另将
 // GROUP_ID_TO_FIELD 的 5/6 键（机械/化学撰写规范）随 SECTION_GROUPS 召回为
 // main 组一并核验（该两键此前已在，未被 5.1 摘除影响，见下表）。
+// 2026-08-30 阶段5.11 波O：12 部低检索价值文献归档下线（编号 51/53/63/72/74/75/
+// 77/79/82/87/89/90），三处登记表同批注释摘除，KNOWN_DOMAINS 由 88 减至 76；
+// GROUP_ID_TO_FIELD 折叠规则表不变（组号与法域映射零变更，仅组内前缀变少）。
 function checkDomainsTaxonomyFields() {
-  if (KNOWN_DOMAINS.length !== 88) {
-    fail(`KNOWN_DOMAINS 长度 ${KNOWN_DOMAINS.length} ≠ 88`);
+  if (KNOWN_DOMAINS.length !== 76) {
+    fail(`KNOWN_DOMAINS 长度 ${KNOWN_DOMAINS.length} ≠ 76`);
   }
   const docTypeKeys = new Set(Object.keys(DOC_TYPES));
   for (const d of KNOWN_DOMAINS) {

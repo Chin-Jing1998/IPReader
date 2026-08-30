@@ -70,28 +70,32 @@ function spanText(lines, headings, idx, sameOrHigher) {
 }
 
 // ---- 域级前置摘除：「公布与施行」H1（阶段5.3 批次 W1／D1）----
-// 背景（2026-08-25 全库实测）：88 域中 79 域的主 md 首个标题为「# 公布与施行」，承载公布令、
+// 背景（2026-08-25 全库实测；数值经 2026-08-30 阶段5.11 波O 书目下线后重测更新）：
+//   76 域中 68 域的主 md 首个标题为「# 公布与施行」，承载公布令、
 //   修订沿革、施行日期等**书前元信息**而非正文层级，却被三解析器一律建成域内首个顶层节点
 //   （78 chapter + tmeg 1 part），在星图与目录里与实体章节混排。本函数在 heading 流进入
 //   解析器主循环／位次计数器**之前**把它摘掉，其正文改由 data/book-meta.json 承载。
 // 摘除判据与实测事实：
 //   ① 只认本域**第一个** level===1 且 cleanLabel 后严格等于「公布与施行」的标题。
-//      实测：79 域各恰 1 处、且均落在 heading 下标 0（无一例外）；全库无非 H1 的同名标题。
-//      其余 9 域无此标题（examination-guideline / patent-law / implementation-rules /
+//      实测：68 域各恰 1 处、且均落在 heading 下标 0（无一例外）；全库无非 H1 的同名标题。
+//      其余 8 域无此标题（examination-guideline / patent-law / implementation-rules /
 //      infringement-guide / mechanical-drafting-rules / chemistry-drafting-rules /
-//      oa-response-guide / gb-standards-index / quality-evaluation），本函数原样返回。
+//      oa-response-guide / quality-evaluation），本函数原样返回。
+//      〔波O〕原第 9 域 gb-standards-index 已随书目下线，故该清单由 9 域减为 8 域。
 //   ② promulgationText 取该标题的 **ownText**（到下一个**任意层级**标题为止），非 fullText。
-//      67 域该 H1 之下无任何子标题，两者恒等；余 12 域（下方「树根域」）该 H1 之下直挂全域
+//      58 域该 H1 之下无任何子标题，两者恒等；余 10 域（下方「树根域」）该 H1 之下直挂全域
 //      条文 H2，按 fullText 取文会把整部法规正文塞进元数据字段（实测 copyright-law-rules-2013
 //      将由 485 字暴涨至 3886 字），故一律取 ownText。
 //   ③ 摘除范围＝该标题到下一个 level<=1 标题之间；范围内其余标题 level 整体减 1（上提一级）。
-//      命中 12 个「树根域」共 293 条 H2 条文因此升为顶层 chapter，与其余 67 域体例一致：
+//      命中 10 个「树根域」共 260 条 H2 条文因此升为顶层 chapter，与其余 58 域体例一致：
 //      copyright-law-rules-2013 38 / trademark-infringement-standard-2020 38 /
 //      trademark-violation-standard-2021 35 / ip-abuse-competition-2023 33 /
 //      network-dissemination-regulations-2013 27 / major-patent-adjudication-2021 27 /
 //      wellknown-tm-recognition-2014 21 / trademark-filing-conduct-2019 19 /
-//      work-registration-1994 17 / trademark-printing-2004 16 / fee-reduction-2016 12 /
-//      patent-marking-2012 10。12 域范围内均为纯 H2、无更深层级（实测 deeper=0）。
+//      fee-reduction-2016 12 / patent-marking-2012 10。
+//      10 域范围内均为纯 H2、无更深层级（实测 deeper=0）。
+//      〔波O〕原树根域中的 work-registration-1994（17 条）与 trademark-printing-2004
+//      （16 条）已随书目下线，故树根域 12 → 10、H2 条文 293 → 260（2026-08-30 重测）。
 //      tmeg 的正文合成条目（带 itemLevel、level 恒 9 仅作排序占位）不参与上提——其 level
 //      非层级语义；实测 tmeg 摘除范围内零合成条目，该守卫为防御性。
 //   ④ 摘除发生在位次计数**之前**，故后续兄弟节点 id 自然从 01 起算，无需事后补偿。
@@ -944,9 +948,12 @@ if (tmeg.length) {
 }
 
 // ---- 「公布与施行」摘除 + book-meta 校验（阶段5.3 批次 W1）----
-//   79／88 域命中摘除（其余 9 域源 md 本无此标题）；其中 2 域（PROMULGATION_DROP）正文弃置，
-//   故 promulgationText 非空者 77 域。数值为 2026-08-25 全库实测定版，
-//   若源语料增删导致此处报警，先核对各域主 md 首个 H1，勿直接改期望值。
+//   68／76 域命中摘除（其余 8 域源 md 本无此标题）；其中 2 域（PROMULGATION_DROP）正文弃置，
+//   故 promulgationText 非空者 66 域。数值原为 2026-08-25 全库 88 域态实测定版
+//   （79／88 摘除、77 域有正文），2026-08-30 阶段5.11 波O 归档下线 12 部书后重测更新：
+//   12 部中 11 部本有该 H1（gb-standards-index 属本无此标题的一类），故 79 → 68、77 → 66。
+//   若源语料再有增删导致此处报警，先核对各域主 md 首个 H1，勿直接改期望值。
+const PROMULGATION_STRIPPED_EXPECTED = 68;
 const bmKeys = Object.keys(bookMeta);
 if (bmKeys.length !== domains.length) { ok = false; console.error(`✗ book-meta 期望 ${domains.length} 域，实得 ${bmKeys.length}`); }
 if (STRIP_PROMULGATION) {
@@ -954,9 +961,11 @@ if (STRIP_PROMULGATION) {
   if (stray.length) { ok = false; console.error(`✗ 仍有「${PROMULGATION_LABEL}」节点 ${stray.length} 个：${stray.slice(0, 5).map((n) => n.id).join('、')}`); }
   const stripped = bmKeys.filter((k) => bookMeta[k].promulgationLabel);
   const withText = bmKeys.filter((k) => bookMeta[k].promulgationText);
-  if (stripped.length !== 79) { ok = false; console.error(`✗ 「${PROMULGATION_LABEL}」摘除期望 79 域，实得 ${stripped.length}`); }
-  if (withText.length !== 79 - PROMULGATION_DROP.size) {
-    ok = false; console.error(`✗ promulgationText 非空期望 ${79 - PROMULGATION_DROP.size} 域，实得 ${withText.length}`);
+  if (stripped.length !== PROMULGATION_STRIPPED_EXPECTED) {
+    ok = false; console.error(`✗ 「${PROMULGATION_LABEL}」摘除期望 ${PROMULGATION_STRIPPED_EXPECTED} 域，实得 ${stripped.length}`);
+  }
+  if (withText.length !== PROMULGATION_STRIPPED_EXPECTED - PROMULGATION_DROP.size) {
+    ok = false; console.error(`✗ promulgationText 非空期望 ${PROMULGATION_STRIPPED_EXPECTED - PROMULGATION_DROP.size} 域，实得 ${withText.length}`);
   }
   console.log(`book-meta: ${bmKeys.length} 域；「${PROMULGATION_LABEL}」摘除 ${stripped.length} 域，正文入库 ${withText.length} 域（DROP ${PROMULGATION_DROP.size}）`);
 }

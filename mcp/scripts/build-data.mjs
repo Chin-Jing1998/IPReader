@@ -67,13 +67,30 @@ const OUT_FILE = join(OUT_DIR, 'kb-data.json.gz');
 //   植物新品种保护条例、集成电路布图设计保护条例、知识产权海关保护条例、知识产权民事诉讼证据规定
 //   共 8 部法律法规的 384 片提取，词表 1035 → 1743（入图术语节点同数）。
 //   文档节点 6247 不变（本批不改语料切分，只加术语层）；总数 7282 → 7990；书目仍恒 88 部。
-const EXPECTED_NODES = 7990;
-const EXPECTED_DOC_NODES = 6247;
+//   2026-08-30 阶段5.11 波O（书目归档下线）：12 部低检索价值文献（编号 51/53/63/72/74/
+//   75/77/79/82/87/89/90）语料归档至 PatentReader/_archive/，三处登记表同批注释摘除，
+//   书目 88 → 76。文档节点 6247 → 5963（−284）；术语 1743 不变（该 12 部零术语引用，
+//   波O 施工前已实测：1743 个 term-*.json 的 occurrences 与 laws 对这 12 部命中 0）；
+//   总数 7990 → 7706。同批法条键 528 → 512、法条正文索引 2521 → 2409 条
+//   （下线书中 5 部有 lawName）、法条引用反向索引 3014 → 2983 条、
+//   图谱边 19322 → 19099 条。
+//   已知并接受的连带降级：69《商标一般违法判断标准》原有 12 处指向 53《商标印制管理办法》
+//   的 lawref 随 53 下线而不再成链（退化为纯文本，非悬空），经用户拍板接受。
+const EXPECTED_NODES = 7706;
+const EXPECTED_DOC_NODES = 5963;
 const EXPECTED_TERM_NODES = 1743;
 
 const readJson = (p) => JSON.parse(readFileSync(p, 'utf8'));
 
 // ============ 一、书目登记：域 → 顶层目录（与 build-quartz-md.mjs:55-63 逐字一致） ============
+// 沿革（2026-08-30 阶段5.11 波O · 书目归档下线）：12 部低检索价值文献（order
+//   51/53/63/72/74/75/77/79/82/87/89/90）经用户勾选定案下线，书目 88 → 76。摘除形态为
+//   **注释保留而非物理删行**，恢复时取消注释即可；本表须与另一处 BOOKS 逐条一致
+//   （site/scripts/build-quartz-md.mjs ↔ mcp/scripts/build-data.mjs，P7 惯例，
+//   条目数由 mcp/scripts/check-taxonomy.mjs 与 domains.mjs KNOWN_DOMAINS 比对把关）。
+//   语料源文件同步归档至 PatentReader/_archive/，恢复方法见该目录 _说明.md。
+//   ⚠ 摘条目必须与 rm quartz-kb/content/NN-*/ 同批完成：下方 managedTop 只清理在册
+//   BOOKS 的目录，先摘条目而不删目录会留下无人管理的孤儿目录（仍被 quartz 建站）。
 const BOOKS = [
   { order: 1, domain: 'patent-law', dir: '1-专利法' },
   { order: 2, domain: 'implementation-rules', dir: '2-专利法实施细则' },
@@ -126,9 +143,9 @@ const BOOKS = [
   { order: 49, domain: 'trademark-law-2026', dir: '49-商标法' },
   { order: 50, domain: 'ic-layout-regulations-2026', dir: '50-集成电路布图设计条例' },
   // ---- 入库批次三「02 部门规章与规范性文件」25 件（2026-08-22）：order/dir 自 51 起连续 ----
-  { order: 51, domain: 'work-registration-1994', dir: '51-作品自愿登记试行办法' },
+  // 〔波O 下线〕{ order: 51, domain: 'work-registration-1994', dir: '51-作品自愿登记试行办法' },
   { order: 52, domain: 'software-copyright-registration-2002', dir: '52-计算机软件著作权登记办法' },
-  { order: 53, domain: 'trademark-printing-2004', dir: '53-商标印制管理办法' },
+  // 〔波O 下线〕{ order: 53, domain: 'trademark-printing-2004', dir: '53-商标印制管理办法' },
   { order: 54, domain: 'customs-ip-measures-2009', dir: '54-知识产权海关保护实施办法' },
   { order: 55, domain: 'copyright-penalty-2009', dir: '55-著作权行政处罚实施办法' },
   { order: 56, domain: 'patent-marking-2012', dir: '56-专利标识标注办法' },
@@ -138,7 +155,7 @@ const BOOKS = [
   { order: 60, domain: 'biomaterial-deposit-2015', dir: '60-生物材料保藏办法' },
   { order: 61, domain: 'patent-enforcement-2015', dir: '61-专利行政执法办法' },
   { order: 62, domain: 'fee-reduction-2016', dir: '62-专利收费减缴办法' },
-  { order: 63, domain: 'cnipa-normative-docs-2016', dir: '63-规范性文件制定管理办法' },
+  // 〔波O 下线〕{ order: 63, domain: 'cnipa-normative-docs-2016', dir: '63-规范性文件制定管理办法' },
   { order: 64, domain: 'patent-agency-admin-2019', dir: '64-专利代理管理办法' },
   { order: 65, domain: 'patent-attorney-exam-2019', dir: '65-专利代理师资格考试办法' },
   { order: 66, domain: 'trademark-filing-conduct-2019', dir: '66-规范商标申请注册行为规定' },
@@ -147,26 +164,26 @@ const BOOKS = [
   { order: 69, domain: 'trademark-violation-standard-2021', dir: '69-商标一般违法判断标准' },
   { order: 70, domain: 'trademark-agency-supervision-2022', dir: '70-商标代理监督管理规定' },
   { order: 71, domain: 'ip-abuse-competition-2023', dir: '71-禁止滥用知识产权竞争规定' },
-  { order: 72, domain: 'fee-adjustment-notice-2024', dir: '72-专利收费调整公告' },
+  // 〔波O 下线〕{ order: 72, domain: 'fee-adjustment-notice-2024', dir: '72-专利收费调整公告' },
   { order: 73, domain: 'priority-examination-2026', dir: '73-专利优先审查管理办法' },
-  { order: 74, domain: 'patent-payment-guide-2026', dir: '74-专利缴费操作指引' },
-  { order: 75, domain: 'patent-ic-fee-manual-2026', dir: '75-专利和集成电路缴费服务指南' },
+  // 〔波O 下线〕{ order: 74, domain: 'patent-payment-guide-2026', dir: '74-专利缴费操作指引' },
+  // 〔波O 下线〕{ order: 75, domain: 'patent-ic-fee-manual-2026', dir: '75-专利和集成电路缴费服务指南' },
   // ---- 入库批次四（收尾）15 件（2026-08-22）：order/dir 76–90，全量入库收官 ----
   { order: 76, domain: 'copyright-pledge-registration-2011', dir: '76-著作权质权登记办法' },
-  { order: 77, domain: 'text-work-remuneration-2014', dir: '77-使用文字作品支付报酬办法' },
+  // 〔波O 下线〕{ order: 77, domain: 'text-work-remuneration-2014', dir: '77-使用文字作品支付报酬办法' },
   { order: 78, domain: 'patent-adjudication-manual-2019', dir: '78-专利侵权纠纷行政裁决办案指南' },
-  { order: 79, domain: 'ip-power-outline-2021', dir: '79-知识产权强国建设纲要' },
+  // 〔波O 下线〕{ order: 79, domain: 'ip-power-outline-2021', dir: '79-知识产权强国建设纲要' },
   { order: 80, domain: 'trademark-exam-guide-2021', dir: '80-商标审查审理指南' },
   { order: 81, domain: 'patent-filing-conduct-2023', dir: '81-规范申请专利行为的规定' },
-  { order: 82, domain: 'exam-guideline-decree-2023', dir: '82-专利审查指南发布令' },
+  // 〔波O 下线〕{ order: 82, domain: 'exam-guideline-decree-2023', dir: '82-专利审查指南发布令' },
   { order: 83, domain: 'collective-cert-trademark-2023', dir: '83-集体商标证明商标注册管理规定' },
   { order: 84, domain: 'gi-product-protection-2023', dir: '84-地理标志产品保护办法' },
   { order: 85, domain: 'patent-adjudication-mediation-2024', dir: '85-专利纠纷行政裁决和调解办法' },
   { order: 86, domain: 'admin-reconsideration-2024', dir: '86-国家知识产权局行政复议规程' },
-  { order: 87, domain: 'rulemaking-procedure-2024', dir: '87-国家知识产权局规章制定程序规定' },
+  // 〔波O 下线〕{ order: 87, domain: 'rulemaking-procedure-2024', dir: '87-国家知识产权局规章制定程序规定' },
   { order: 88, domain: 'ipc-digest-2024', dir: '88-知产法庭裁判要旨2024' },
-  { order: 89, domain: 'ip-plan-15th-2026', dir: '89-知识产权保护和运用十五五规划' },
-  { order: 90, domain: 'gb-standards-index', dir: '90-GB国家标准清单' },
+  // 〔波O 下线〕{ order: 89, domain: 'ip-plan-15th-2026', dir: '89-知识产权保护和运用十五五规划' },
+  // 〔波O 下线〕{ order: 90, domain: 'gb-standards-index', dir: '90-GB国家标准清单' },
   // ---- 入库批次五（召回）1 件（2026-08-24 阶段5.2 批次 Q-1）：order 91 顺延，避开既有 8/9 与 28 号空洞语义 ----
   { order: 91, domain: 'quality-evaluation', dir: '91-专利质量评价指南' },
 ];

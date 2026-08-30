@@ -17,6 +17,21 @@ export function projectRoot(scriptsDir) {
 //     按标题文字判类＋章/条正文一级、二级编号切分重建 part/chapter/section/subsection 树，
 //     813 节点校验、语义深度上限 6（阶段5.2 W-1），详见 parse-domains.mjs 头注与 parseTmegGuideline 注释块）。
 //   lawName 非空者，其"第X条"标题节点会被赋 lawKey，供跨域 lawref 连线锚定。
+//
+// 沿革（2026-08-30 阶段5.11 波O · 书目归档下线）：经用户勾选定案，12 部低检索价值文献
+//   （编号 51/53/63/72/74/75/77/79/82/87/89/90，见下方各条的「波O 下线」注释）自本表摘除，
+//   书目 88 → 76。摘除形态为**注释保留而非物理删行**：条目原文逐字留在原位，恢复时取消
+//   注释即可，与「〔已剔除〕ip-interps-amendment-2020」的裁决剔除写法同源。
+//   语料源文件同步 mv 至 PatentReader/_archive/（语料仓非 git，那里是唯一副本），
+//   恢复方法、下线缘由与书级色板存档见该目录的 _说明.md。
+//   ⚠ 摘条目与归档语料必须同做：只摘条目而语料仍在根目录，discoverDomains 的自动发现段
+//   会把它当「未知域」重新纳入（前缀由 prefixFromKey 现编）；只归档语料而不摘条目，
+//   isDomainDir 判假、条目空转，但下游 BOOKS/graphSections 的登记会与实际域集脱钩。
+//   ⚠ 已知并接受的连带降级：53（trademark-printing-2004）的条文原被在库的 69
+//   《商标一般违法判断标准》实引（law-citations 内 12 条 lawref + 5 条 colaw）。
+//   施工前实测报出该依赖后，用户拍板「接受引用降级」，53 照常下线——69 正文中
+//   「《商标印制管理办法》第X条」自此退化为纯文本（lawKey 注册表随本表收缩而不再命中，
+//   非悬空链、不报错），法条溯源少 12 处。
 export const KNOWN_DOMAINS = [
   { key: 'examination-guideline', title: '专利审查指南', short: '审查指南', prefix: '', special: 'guideline', country: 'CN', field: '专利', docType: 'D5' },
   { key: 'patent-law', title: '中华人民共和国专利法', short: '专利法', prefix: 'law', lawName: '专利法', country: 'CN', field: '专利', docType: 'D1' },
@@ -82,9 +97,9 @@ export const KNOWN_DOMAINS = [
   //   其中专利优先审查管理办法为「尚未施行」文本。
   //   阶段 3（2026-08-22）已为其中 22 件补充 lawName；fee-adjustment-notice-2024／
   //   patent-payment-guide-2026／patent-ic-fee-manual-2026 为公告与操作指引，无「第X条」条文体例，不设 lawName。
-  { key: 'work-registration-1994', title: '作品自愿登记试行办法', short: '作品登记', prefix: 'wkreg', lawName: '作品自愿登记试行办法', country: 'CN', field: '著作权', docType: 'D3' },
+  // 〔波O 下线·51〕{ key: 'work-registration-1994', title: '作品自愿登记试行办法', short: '作品登记', prefix: 'wkreg', lawName: '作品自愿登记试行办法', country: 'CN', field: '著作权', docType: 'D3' },
   { key: 'software-copyright-registration-2002', title: '计算机软件著作权登记办法', short: '软件登记', prefix: 'swreg', lawName: '计算机软件著作权登记办法', country: 'CN', field: '著作权', docType: 'D3' },
-  { key: 'trademark-printing-2004', title: '商标印制管理办法', short: '商标印制', prefix: 'tmprt', lawName: '商标印制管理办法', country: 'CN', field: '商标', docType: 'D3' },
+  // 〔波O 下线·53〕{ key: 'trademark-printing-2004', title: '商标印制管理办法', short: '商标印制', prefix: 'tmprt', lawName: '商标印制管理办法', country: 'CN', field: '商标', docType: 'D3' },
   { key: 'customs-ip-measures-2009', title: '中华人民共和国海关关于《中华人民共和国知识产权海关保护条例》的实施办法', short: '海关办法', prefix: 'cusm', lawName: '海关关于《中华人民共和国知识产权海关保护条例》的实施办法', country: 'CN', field: '综合程序', docType: 'D3' },
   { key: 'copyright-penalty-2009', title: '著作权行政处罚实施办法', short: '著权处罚', prefix: 'cppen', lawName: '著作权行政处罚实施办法', country: 'CN', field: '著作权', docType: 'D3' },
   { key: 'patent-marking-2012', title: '专利标识标注办法', short: '专利标识', prefix: 'pmark', lawName: '专利标识标注办法', country: 'CN', field: '专利', docType: 'D3' },
@@ -94,7 +109,7 @@ export const KNOWN_DOMAINS = [
   { key: 'biomaterial-deposit-2015', title: '用于专利程序的生物材料保藏办法', short: '生物保藏', prefix: 'biod', lawName: '用于专利程序的生物材料保藏办法', country: 'CN', field: '专利', docType: 'D3' },
   { key: 'patent-enforcement-2015', title: '专利行政执法办法', short: '行政执法', prefix: 'penf', lawName: '专利行政执法办法', country: 'CN', field: '专利', docType: 'D3' },
   { key: 'fee-reduction-2016', title: '专利收费减缴办法', short: '收费减缴', prefix: 'fered', lawName: '专利收费减缴办法', country: 'CN', field: '专利', docType: 'D3' },
-  { key: 'cnipa-normative-docs-2016', title: '国家知识产权局规范性文件制定和管理办法', short: '规范文件', prefix: 'nrmd', lawName: '国家知识产权局规范性文件制定和管理办法', country: 'CN', field: '综合程序', docType: 'D3' },
+  // 〔波O 下线·63〕{ key: 'cnipa-normative-docs-2016', title: '国家知识产权局规范性文件制定和管理办法', short: '规范文件', prefix: 'nrmd', lawName: '国家知识产权局规范性文件制定和管理办法', country: 'CN', field: '综合程序', docType: 'D3' },
   { key: 'patent-agency-admin-2019', title: '专利代理管理办法', short: '代理管理', prefix: 'pagm', lawName: '专利代理管理办法', country: 'CN', field: '专利', docType: 'D3' },
   { key: 'patent-attorney-exam-2019', title: '专利代理师资格考试办法', short: '资格考试', prefix: 'paex', lawName: '专利代理师资格考试办法', country: 'CN', field: '专利', docType: 'D3' },
   { key: 'trademark-filing-conduct-2019', title: '规范商标申请注册行为若干规定', short: '申请规范', prefix: 'tmfil', lawName: '规范商标申请注册行为若干规定', country: 'CN', field: '商标', docType: 'D3' },
@@ -103,10 +118,10 @@ export const KNOWN_DOMAINS = [
   { key: 'trademark-violation-standard-2021', title: '商标一般违法判断标准', short: '违法标准', prefix: 'tmvs', lawName: '商标一般违法判断标准', country: 'CN', field: '商标', docType: 'D3' },
   { key: 'trademark-agency-supervision-2022', title: '商标代理监督管理规定', short: '商标代理', prefix: 'tmagy', lawName: '商标代理监督管理规定', country: 'CN', field: '商标', docType: 'D3' },
   { key: 'ip-abuse-competition-2023', title: '禁止滥用知识产权排除、限制竞争行为规定', short: '滥用规定', prefix: 'ipabc', lawName: '禁止滥用知识产权排除、限制竞争行为规定', country: 'CN', field: '竞争法', docType: 'D3' },
-  { key: 'fee-adjustment-notice-2024', title: '国家知识产权局关于调整部分专利收费标准和减缴政策的公告', short: '收费调整', prefix: 'fadj', country: 'CN', field: '专利', docType: 'D3' },
+  // 〔波O 下线·72〕{ key: 'fee-adjustment-notice-2024', title: '国家知识产权局关于调整部分专利收费标准和减缴政策的公告', short: '收费调整', prefix: 'fadj', country: 'CN', field: '专利', docType: 'D3' },
   { key: 'priority-examination-2026', title: '专利优先审查管理办法', short: '优先审查', prefix: 'prex', lawName: '专利优先审查管理办法', country: 'CN', field: '专利', docType: 'D3' },
-  { key: 'patent-payment-guide-2026', title: '专利缴费操作指引', short: '缴费指引', prefix: 'payg', country: 'CN', field: '专利', docType: 'D5' },
-  { key: 'patent-ic-fee-manual-2026', title: '专利和集成电路布图设计缴费服务指南', short: '缴费指南', prefix: 'feem', country: 'CN', field: '专利', docType: 'D5' },
+  // 〔波O 下线·74〕{ key: 'patent-payment-guide-2026', title: '专利缴费操作指引', short: '缴费指引', prefix: 'payg', country: 'CN', field: '专利', docType: 'D5' },
+  // 〔波O 下线·75〕{ key: 'patent-ic-fee-manual-2026', title: '专利和集成电路布图设计缴费服务指南', short: '缴费指南', prefix: 'feem', country: 'CN', field: '专利', docType: 'D5' },
   // ---- 入库批次四（收尾）15 件（2026-08-22）：按发布/施行日期升序，GB 清单为元数据索引域置末 ----
   //   title 用官方全称。本批含业务指南 2、政策纲要/规划 2、公布令 1、案例汇编 1、元数据索引 1。
   //   四批累计 80 件全量入库完成：7 部原书 + 25 司法解释 + 15 法律法规 + 25 部门规章 + 15 收尾 = 87 域
@@ -116,20 +131,20 @@ export const KNOWN_DOMAINS = [
   //   （按商标法条文解读、条号重复缺号，非本域条文）仍按判据 2 排除，其余 6 件为业务指南/政策纲要/公布令/
   //   案例汇编/元数据索引，无「第X条」条文体例，均不设 lawName。
   { key: 'copyright-pledge-registration-2011', title: '著作权质权登记办法', short: '质权登记', prefix: 'cppl', lawName: '著作权质权登记办法', country: 'CN', field: '著作权', docType: 'D3' },
-  { key: 'text-work-remuneration-2014', title: '使用文字作品支付报酬办法', short: '报酬办法', prefix: 'remun', lawName: '使用文字作品支付报酬办法', country: 'CN', field: '著作权', docType: 'D3' },
+  // 〔波O 下线·77〕{ key: 'text-work-remuneration-2014', title: '使用文字作品支付报酬办法', short: '报酬办法', prefix: 'remun', lawName: '使用文字作品支付报酬办法', country: 'CN', field: '著作权', docType: 'D3' },
   { key: 'patent-adjudication-manual-2019', title: '专利侵权纠纷行政裁决办案指南', short: '办案指南', prefix: 'padm', country: 'CN', field: '专利', docType: 'D5' },
-  { key: 'ip-power-outline-2021', title: '知识产权强国建设纲要（2021－2035年）', short: '强国纲要', prefix: 'ipout', country: 'CN', field: '综合程序', docType: 'D6' },
+  // 〔波O 下线·79〕{ key: 'ip-power-outline-2021', title: '知识产权强国建设纲要（2021－2035年）', short: '强国纲要', prefix: 'ipout', country: 'CN', field: '综合程序', docType: 'D6' },
   { key: 'trademark-exam-guide-2021', title: '商标审查审理指南', short: '商标审查', prefix: 'tmeg', special: 'tmeg-guideline', country: 'CN', field: '商标', docType: 'D5' },
   { key: 'patent-filing-conduct-2023', title: '规范申请专利行为的规定', short: '规范申请', prefix: 'pfc', lawName: '规范申请专利行为的规定', country: 'CN', field: '专利', docType: 'D3' },
-  { key: 'exam-guideline-decree-2023', title: '国家知识产权局令第78号（发布《专利审查指南》）', short: '指南发布令', prefix: 'egd', country: 'CN', field: '专利', docType: 'D6' },
+  // 〔波O 下线·82〕{ key: 'exam-guideline-decree-2023', title: '国家知识产权局令第78号（发布《专利审查指南》）', short: '指南发布令', prefix: 'egd', country: 'CN', field: '专利', docType: 'D6' },
   { key: 'collective-cert-trademark-2023', title: '集体商标、证明商标注册和管理规定', short: '集体商标', prefix: 'cctm', lawName: '集体商标、证明商标注册和管理规定', country: 'CN', field: '商标', docType: 'D3' },
   { key: 'gi-product-protection-2023', title: '地理标志产品保护办法', short: '地理标志', prefix: 'gipp', lawName: '地理标志产品保护办法', country: 'CN', field: '商标', docType: 'D3' },
   { key: 'patent-adjudication-mediation-2024', title: '专利纠纷行政裁决和调解办法', short: '裁决调解', prefix: 'padmd', lawName: '专利纠纷行政裁决和调解办法', country: 'CN', field: '专利', docType: 'D3' },
   { key: 'admin-reconsideration-2024', title: '国家知识产权局行政复议规程', short: '行政复议', prefix: 'adrc', lawName: '国家知识产权局行政复议规程', country: 'CN', field: '综合程序', docType: 'D3' },
-  { key: 'rulemaking-procedure-2024', title: '国家知识产权局规章制定程序规定', short: '规章程序', prefix: 'rmkp', lawName: '国家知识产权局规章制定程序规定', country: 'CN', field: '综合程序', docType: 'D3' },
+  // 〔波O 下线·87〕{ key: 'rulemaking-procedure-2024', title: '国家知识产权局规章制定程序规定', short: '规章程序', prefix: 'rmkp', lawName: '国家知识产权局规章制定程序规定', country: 'CN', field: '综合程序', docType: 'D3' },
   { key: 'ipc-digest-2024', title: '最高人民法院知识产权法庭裁判要旨摘要（2024）', short: '要旨2024', prefix: 'dg24', country: 'CN', field: '综合程序', docType: 'D4' },
-  { key: 'ip-plan-15th-2026', title: '知识产权保护和运用“十五五”规划', short: '十五五', prefix: 'plan15', country: 'CN', field: '综合程序', docType: 'D6' },
-  { key: 'gb-standards-index', title: '知识产权相关 GB/T 国家标准清单与在线预览入口', short: 'GB清单', prefix: 'gbstd', country: 'CN', field: '综合程序', docType: 'D6' },
+  // 〔波O 下线·89〕{ key: 'ip-plan-15th-2026', title: '知识产权保护和运用“十五五”规划', short: '十五五', prefix: 'plan15', country: 'CN', field: '综合程序', docType: 'D6' },
+  // 〔波O 下线·90〕{ key: 'gb-standards-index', title: '知识产权相关 GB/T 国家标准清单与在线预览入口', short: 'GB清单', prefix: 'gbstd', country: 'CN', field: '综合程序', docType: 'D6' },
   // ---- 入库批次五（召回）1 件（2026-08-24 阶段5.2 批次 Q-1）：第 88 部书 ----
   //   《专利质量评价指南》：15 章 199 条撰写质量评价规则，语料自 skills-package/quality-evaluation 迁入
   //   项目根 quality-evaluation/（两处此后独立演化）。体例为「章（H1）/条（H2）」两级，走通用解析。
