@@ -111,8 +111,12 @@ button.desktop-explorer {
   }
 }
 
-// ==== patent-kb: 头部动作组（阶段5.8）====
-// 标题钮与两枚动作钮同处一行。汉堡钮不在本容器内（见 Explorer.tsx 的说明）。
+// ==== patent-kb: 头部动作组（阶段5.8；阶段5.11 扩为三钮）====
+// 标题钮与动作钮同处一行。汉堡钮不在本容器内（见 Explorer.tsx 的说明）。
+// 三枚钮＝全部收起 / 展开还原 / 恢复默认排序，共用 .explorer-action 的尺寸、
+// 悬停与 :disabled 形制（下方 158-161 那条），新增的展开还原钮无需任何专属规则：
+// 它常驻显示、仅靠 disabled 表达「有无可还原的快照」，与收起钮完全同形。
+// 移动端与根级折叠时整组隐藏（本节末两条规则按容器选择，自然覆盖第三枚钮）。
 .explorer-header {
   display: flex;
   align-items: center;

@@ -213,15 +213,50 @@ type ExplorerPerfMark = {
 /** 保留的记录条数上限：够看清「首次导航 vs 后续导航」的对照，又不至于常驻内存 */
 const EXPLORER_PERF_MAX_MARKS = 20
 
-const explorerPerf: { marks: ExplorerPerfMark[] } = { marks: [] }
+/**
+ * 头部动作钮的「上下文未命中」记录（阶段5.11）。此前 onCollapseAllClick 在
+ * explorerContextOf 落空时静默 return——按钮看着可点、点了毫无反应，且不留任何线索。
+ * 现改为「先按文档里现挂的目录树兜底，再把这次未命中记进埋点」，
+ * recovered 表示兜底是否成功（false 即本次点击确实无处施加）。
+ */
+type ExplorerActionMiss = {
+  /** 动作标识：collapse（一键收起）｜expand（展开还原） */
+  action: string
+  /** performance.now 绝对值 */
+  at: number
+  /** 兜底是否找到了现挂树的上下文 */
+  recovered: boolean
+  /** 当时的落地页 slug（取 document.body.dataset.slug，缺席为空串） */
+  slug: string
+}
+
+/** 未命中记录条数上限：这类事件本应为零，留 20 条足够回溯 */
+const EXPLORER_PERF_MAX_MISSES = 20
+
+const explorerPerf: { marks: ExplorerPerfMark[]; actionMisses: ExplorerActionMiss[] } = {
+  marks: [],
+  actionMisses: [],
+}
 
 declare global {
   interface Window {
     /** 常设性能埋点存档：最近 20 次 setupExplorer 的耗时切片与规模量 */
-    __explorerPerf?: { marks: ExplorerPerfMark[] }
+    __explorerPerf?: { marks: ExplorerPerfMark[]; actionMisses: ExplorerActionMiss[] }
   }
 }
 window.__explorerPerf = explorerPerf
+
+function recordExplorerActionMiss(action: string, recovered: boolean) {
+  explorerPerf.actionMisses.push({
+    action,
+    at: performance.now(),
+    recovered,
+    slug: document.body?.dataset?.slug ?? "",
+  })
+  if (explorerPerf.actionMisses.length > EXPLORER_PERF_MAX_MISSES) {
+    explorerPerf.actionMisses.shift()
+  }
+}
 
 function recordExplorerPerf(mark: ExplorerPerfMark) {
   explorerPerf.marks.push(mark)
@@ -251,6 +286,71 @@ function recordExplorerPerf(mark: ExplorerPerfMark) {
  * setupExplorer 同步刷新，回调存活期间读到的一定是当前页的键，语义正确。
  */
 let activeStorageKey = FOLDER_STATE_STORAGE_KEY
+
+// ==== patent-kb: 收起前快照与「展开还原」（阶段5.11 波E）====
+// 一键收起是破坏性动作：它把用户手工铺开的一整套展开态一次抹平，此前没有任何退路。
+// 现在于**首次**从「树上尚有展开项」的状态执行收起之前，把当时的 currentExplorerState
+// 原样存进 `<折叠态键>:snapshot`，由头部新增的「展开还原」钮一键回灌。
+//
+// 两条语义铁律：
+//   · 快照随折叠态键分身（fileTree-v2:snapshot / fileTree-graph:snapshot），
+//     图谱页与文档站互不可见，与折叠态本身的双键隔离同口径；
+//   · 两段收起连点**不覆盖**快照——「还原」的定义是回到最初那一下点击之前，
+//     而不是回到第一段之后那个半收状态。
+
+/** 当前生效的快照键。随 activeStorageKey 走，故图谱页与文档站各有一份。 */
+function snapshotStorageKey(): string {
+  return `${activeStorageKey}:snapshot`
+}
+
+/** 快照是否存在。展开还原钮的可用性判据（读不到 localStorage 时按「无快照」处理）。 */
+function hasExplorerSnapshot(): boolean {
+  try {
+    return localStorage.getItem(snapshotStorageKey()) !== null
+  } catch {
+    return false
+  }
+}
+
+/** 读回快照；键缺席、解析失败或结构不符一律按「无快照」处理。 */
+function readExplorerSnapshot(): FolderState[] | null {
+  let raw: string | null = null
+  try {
+    raw = localStorage.getItem(snapshotStorageKey())
+  } catch {
+    return null
+  }
+  if (raw === null) {
+    return null
+  }
+  try {
+    const parsed: unknown = JSON.parse(raw)
+    return Array.isArray(parsed) ? (parsed as FolderState[]) : null
+  } catch {
+    return null
+  }
+}
+
+/** 写快照。已存在即原样保留（两段收起连点不覆盖），写不进去不影响收起本身。 */
+function saveExplorerSnapshotOnce(state: FolderState[]) {
+  try {
+    if (localStorage.getItem(snapshotStorageKey()) !== null) {
+      return
+    }
+    localStorage.setItem(snapshotStorageKey(), JSON.stringify(state))
+  } catch {
+    // 配额满/隐私模式：还原能力本次不可用，但绝不能因此打断收起动作
+  }
+}
+
+function clearExplorerSnapshot() {
+  try {
+    localStorage.removeItem(snapshotStorageKey())
+  } catch {
+    // 同上：删不掉只会让还原钮多亮一会儿，不构成功能故障
+  }
+}
+// ==== /patent-kb ====
 
 /** 权利类型（field）展示顺序；taxonomy 中出现的未知取值按首次出现顺序缀在其后。 */
 const FIELD_ORDER = ["专利", "商标", "著作权", "竞争法", "品种布图", "综合程序"]
@@ -910,6 +1010,10 @@ function toggleFolder(evt: MouseEvent) {
   const isCollapsed = !childFolderContainer.classList.contains("open")
   setFolderState(childFolderContainer, isCollapsed)
 
+  // patent-kb（阶段5.11）：用户开始自己安排展开态，「连祖先链一起收」的覆盖位即刻作废——
+  // 否则下一次整树重算（导航或展开还原之外的任何重算）会把这次手动展开重新压回去
+  forceAllCollapsed = false
+
   const currentFolderState = currentExplorerState.find(
     (item) => item.path === folderContainer.dataset.folderpath,
   )
@@ -983,6 +1087,13 @@ type FolderRecord = {
   depth: number
   /** 真实目录的 simplifySlug(path)；合成分组层为 null（没有 slug 可比前缀） */
   simple: string | null
+  /**
+   * 本节点是否在当前页的祖先链上（阶段5.11）。建树时由 createFolderNode 写入、
+   * 其后每次 refreshFolderOpenState 重算时同步刷新，故恒与「本次导航落地页」同步。
+   * 缓存它是为让「一键收起」的两段判据（树上是否存在**非祖先链**展开项）降为 O(1)：
+   * 该值本就是 refreshFolderOpenState 的返回值，此前每次点击都要整树重算一遍。
+   */
+  containsCurrent: boolean
   children: FolderRecord[]
 }
 
@@ -1598,6 +1709,8 @@ function createFolderNode(
     path: folderPath,
     depth,
     simple: simpleFolderPath,
+    // 阶段5.11：祖先链缓存。取值与上面那条 open 判据同一个变量，两者恒同源
+    containsCurrent: folderIsPrefixOfCurrentSlug,
     children: [],
   }
   tree.flatFolders.push(record)
@@ -1698,10 +1811,23 @@ function updateExplorerTree(
 }
 
 /**
- * 递归重算单个文件夹的展开态，返回其 containsCurrent。
+ * 「连祖先链一起收起」的覆盖位（阶段5.11 波E）。为真时 refreshFolderOpenState 忽略
+ * containsCurrent 的强制展开，整棵树一个 open 都不留——这是一键收起**第二段**的实现。
+ *
+ * 刻意**不落盘**：它表达的是「用户此刻想把树彻底收干净」这一瞬时意图，而非折叠习惯。
+ * 清除时机三处，任一触发即清：手动 toggleFolder（用户重新开始自己安排展开）／
+ * SPA 导航（setupExplorer 入口，换页即回到「祖先链恒可见」的常态）／展开还原。
+ */
+let forceAllCollapsed = false
+
+/**
+ * 递归重算单个文件夹的展开态，返回其 containsCurrent 并写回 rec 缓存。
  * 真实目录的 containsCurrent 就是自身 slug 前缀命中（祖先链上每一级都各自命中，
  * 无需向下 OR）；合成分组层没有 slug，取子层的 OR——与 regroupByTaxonomy 里
  * 「命中的书把 country/field/docType 三级一起置真」的算法等价。
+ *
+ * 阶段5.11：展开公式追加覆盖位 —— `(!collapsed || containsCurrent) && !forceAllCollapsed`。
+ * 覆盖位为假（常态）时逐位等价于原公式，为真时整树全收（一键收起第二段）。
  */
 function refreshFolderOpenState(
   rec: FolderRecord,
@@ -1717,8 +1843,10 @@ function refreshFolderOpenState(
     }
   }
   const containsCurrent = rec.simple === null ? childContains : own
+  // 祖先链缓存与展开态在同一次遍历里刷新，二者恒同源（供一键收起的两段判据 O(1) 复用）
+  rec.containsCurrent = containsCurrent
   const collapsed = explorerStateIndex.get(rec.path) ?? defaultCollapsed(rec.depth, opts)
-  const shouldOpen = !collapsed || containsCurrent
+  const shouldOpen = (!collapsed || containsCurrent) && !forceAllCollapsed
   if (rec.outer.classList.contains("open") !== shouldOpen) {
     rec.outer.classList.toggle("open", shouldOpen)
   }
@@ -1792,26 +1920,38 @@ const RESET_CONFIRM_TIMEOUT = 4000
 let resetConfirmTimer: number | undefined
 
 /**
- * 两枚动作钮的监听绑定。**必须逐 nav 绑定并登记 addCleanup**——与手柄和折叠钮
+ * 三枚动作钮的监听绑定。**必须逐 nav 绑定并登记 addCleanup**——与手柄和折叠钮
  * 相反：它们属 SSR 骨架，每次导航都可能被 micromorph 换成新节点，绑在旧节点上
- * 的监听随之作废。复用路径与重建路径两处都要调，漏一处则该路径上的钮全哑。
+ * 的监听随之作废。
+ *
+ * 阶段5.11：调用点由「复用路径末 + 重建路径末」上提到 setupExplorer 每个 explorer
+ * 的**循环体开头**——原先两处调用都排在 `if (!explorerUl) continue` 之后，
+ * 一旦某个 explorer 缺 .explorer-ul（SSR 骨架未就位），绑定被 continue 跳过，
+ * 而循环之外的 refreshHeaderActionState 照旧解灰，留下「看着可点、点了没反应」的窗口。
+ * 本函数只需要 explorer 元素本身，提前调用无任何前置依赖。
  *
  * 回调一律用**具名模块函数**（不捕获局部上下文）：同一函数引用重复
  * addEventListener 由浏览器天然去重，故「恢复默认」触发的就地重建即便在同一个
  * nav 周期内二次绑定，也不会造成一次点击跑两遍。上下文改由 explorerContextOf
  * 从被点的钮反查。
+ *
+ * 此处不再写 `disabled = false`：三枚钮的可用性统一由 refreshHeaderActionState
+ * 按「树上是否有展开项 / 是否存在快照 / 是否存在自定义序」判定（阶段5.11 起
+ * 收起钮的判据改读 DOM，见该函数）。绑定与解灰因此不再是两套口径。
  */
 function bindExplorerHeaderActions(explorer: HTMLElement) {
   const collapseBtn = explorer.querySelector<HTMLButtonElement>(".explorer-action-collapse")
   if (collapseBtn) {
-    // SSR 渲染成 disabled，此处放开——「脚本活着」是这两枚钮可用的前提
-    collapseBtn.disabled = false
     collapseBtn.addEventListener("click", onCollapseAllClick)
     window.addCleanup(() => collapseBtn.removeEventListener("click", onCollapseAllClick))
   }
+  const expandBtn = explorer.querySelector<HTMLButtonElement>(".explorer-action-expand")
+  if (expandBtn) {
+    expandBtn.addEventListener("click", onExpandRestoreClick)
+    window.addCleanup(() => expandBtn.removeEventListener("click", onExpandRestoreClick))
+  }
   const resetBtn = explorer.querySelector<HTMLButtonElement>(".explorer-action-reset")
   if (resetBtn) {
-    resetBtn.disabled = false
     resetBtn.addEventListener("click", onResetOrderClick)
     window.addCleanup(() => resetBtn.removeEventListener("click", onResetOrderClick))
   }
@@ -1830,41 +1970,134 @@ function explorerContextOf(el: HTMLElement): ExplorerContext | undefined {
   return undefined
 }
 
+/**
+ * 动作钮的上下文解析（阶段5.11）。先按被点的钮反查；查不到再退到「文档里现挂的
+ * 第一棵 .explorer」——多实例布局本库并不存在，此兜底只用于 explorerContexts 与
+ * DOM 短暂脱节的窗口（例如就地重建途中被点）。两条路径都落空即记一次埋点，
+ * 不再静默 return：此前那条静默路径正是「点了毫无反应且无从归因」的成因之一。
+ */
+function resolveActionContext(el: HTMLElement, action: string): ExplorerContext | undefined {
+  const direct = explorerContextOf(el)
+  if (direct) {
+    return direct
+  }
+  const host = document.querySelector<HTMLElement>("div.explorer")
+  const fallback = host
+    ? explorerContexts.find((ctx) => ctx !== undefined && ctx.explorer === host)
+    : undefined
+  recordExplorerActionMiss(action, fallback !== undefined)
+  return fallback
+}
+
 function onCollapseAllClick(this: HTMLButtonElement, ev: MouseEvent) {
   ev.stopPropagation()
-  const ctx = explorerContextOf(this)
+  const ctx = resolveActionContext(this, "collapse")
   if (!ctx) {
     return
   }
   collapseAllFolders(ctx)
 }
 
+function onExpandRestoreClick(this: HTMLButtonElement, ev: MouseEvent) {
+  ev.stopPropagation()
+  const ctx = resolveActionContext(this, "expand")
+  if (!ctx) {
+    return
+  }
+  restoreExplorerSnapshot(ctx)
+}
+
 /**
- * 一键收起。**绝不自动执行**——只有用户点这枚钮才会发生（图谱页首访仍按
- * 「书下 3 层可见」铺开，冒烟步 29 的 open ≥1000 是这条纪律的常设护栏）。
+ * 一键收起（阶段5.11 改为两段式）。**绝不自动执行**——只有用户点这枚钮才会发生
+ * （图谱页首访仍按「书下 3 层可见」铺开，冒烟步 29 的 open ≥1000 是这条纪律的常设护栏）。
  *
- * 做法是「全部置 collapsed=true，再用既有公式 refreshFolderOpenState 重算
- * （shouldOpen = !collapsed || containsCurrent）」，净效果＝除当前页祖先链外
- * 全部收起。刻意不选另两种：
- *   · 回落 openLevels 默认态——图谱页的默认展开深度是 6，几乎等于什么都没收；
- *   · 连祖先链一起强收——下次导航时祖先链会被重新强制展开，弹回来像个鬼影。
+ * **第一段**（树上尚有非祖先链展开项时）：把祖先链**之外**的条目置 collapsed=true，
+ * 祖先链条目保持原值不动，再用既有公式重算 DOM。净效果与阶段5.8 一致（除当前页
+ * 祖先链外全收），但消除了那一版的结构性缺陷——它连祖先链一起写 true 并落盘，
+ * 而 DOM 又按 containsCurrent 把祖先链强行留开，状态表与所见就此脱钩，
+ * 旧的置灰谓词 `state.every(collapsed)` 因此点一次即恒真、按钮自我锁死且跨会话持久。
+ *
+ * **第二段**（第一段之后再点，树上只剩祖先链是展开的）：置 forceAllCollapsed 覆盖位，
+ * 同一个 refreshFolderOpenState 便会忽略 containsCurrent，连祖先链一起收干净。
+ * 覆盖位不落盘（见其声明处），故下次导航自然回到「祖先链恒可见」的常态——
+ * 这正是阶段5.8 注释里担心的「弹回来像个鬼影」，现改由用户显式再点一次来触发，
+ * 意图明确，且导航即复位，不构成持久的反直觉状态。
+ *
+ * 首次从「有展开项」的状态收起前留一份快照，供「展开还原」钮回灌（两段连点不覆盖）。
  *
  * 作用域是当前 activeStorageKey 对应的那棵状态（图谱页与文档站的双键隔离保持）。
  */
 function collapseAllFolders(ctx: ExplorerContext) {
-  // ① 折叠态整表重造 + ② 索引重建（两者恒等价，见 explorerStateIndex 的说明）
-  currentExplorerState = ctx.tree.flatFolders.map((rec) => ({ path: rec.path, collapsed: true }))
-  explorerStateIndex = new Map(currentExplorerState.map((entry) => [entry.path, true] as const))
-  // ③ 逐根重算展开态。**在体执行**，故 .folder-outer 的 0.3s 过渡会正常播放，
+  // ① 判段：树上是否还有**非祖先链**的展开项。containsCurrent 由建树/每次重算写入
+  //    FolderRecord（见其字段说明），此处 O(1) 读取，不重走一遍递归
+  const hasNonAncestorOpen = ctx.tree.flatFolders.some(
+    (rec) => !rec.containsCurrent && rec.outer.classList.contains("open"),
+  )
+
+  // ② 收起前快照（仅首次；两段连点保留最初那一份，故「还原」恒回到最初形态）
+  saveExplorerSnapshotOnce(currentExplorerState ?? [])
+
+  if (hasNonAncestorOpen) {
+    // ③-第一段：祖先链之外整体置 true，祖先链保持原值——状态表与 DOM 自此恒一致
+    currentExplorerState = ctx.tree.flatFolders.map((rec) => ({
+      path: rec.path,
+      collapsed: rec.containsCurrent
+        ? (explorerStateIndex.get(rec.path) ?? defaultCollapsed(rec.depth, ctx.opts))
+        : true,
+    }))
+    explorerStateIndex = new Map(
+      currentExplorerState.map((entry) => [entry.path, entry.collapsed] as const),
+    )
+  } else {
+    // ③-第二段：覆盖位接管，连祖先链一起收。状态表不再改动（第一段的结果已落盘，
+    //    且祖先链的折叠习惯不该被这次「临时收干净」永久改写）
+    forceAllCollapsed = true
+  }
+
+  // ④ 逐根重算展开态。**在体执行**，故 .folder-outer 的 0.3s 过渡会正常播放，
   //    动画落定后的精确几何由滚动器上既有的 transitionend 监听补齐
   for (const rec of ctx.tree.rootFolders) {
     refreshFolderOpenState(rec, ctx.currentSlug, ctx.opts)
   }
-  // ④ 落盘（键取 activeStorageKey：图谱页落 fileTree-graph，其余落 fileTree-v2）
+  // ⑤ 落盘（键取 activeStorageKey：图谱页落 fileTree-graph，其余落 fileTree-v2）
   try {
     localStorage.setItem(activeStorageKey, JSON.stringify(currentExplorerState))
   } catch {
     // 折叠态丢失无妨，绝不因此抛出打断后续
+  }
+  scheduleOverlayScrollbarSync()
+  refreshHeaderActionState()
+}
+
+/**
+ * 展开还原（阶段5.11 新增）：把折叠态回灌成「上一次一键收起之前」的那一份快照。
+ *
+ * 步骤与 collapseAllFolders 同形：状态表 → 索引 → 逐根重算 DOM → 清覆盖位与快照 →
+ * 落盘 → 滚动条几何 → 钮态。快照缺席时整体空转（正常情况下该钮此时已置灰）。
+ *
+ * 快照里的折叠键取自同一棵渲染树，故与 flatFolders 逐条对得上；万一某条缺席，
+ * refreshFolderOpenState 会回落到 defaultCollapsed，不会抛错。
+ */
+function restoreExplorerSnapshot(ctx: ExplorerContext) {
+  const snapshot = readExplorerSnapshot()
+  if (!snapshot) {
+    refreshHeaderActionState()
+    return
+  }
+  currentExplorerState = snapshot
+  explorerStateIndex = new Map(
+    currentExplorerState.map((entry) => [entry.path, entry.collapsed] as const),
+  )
+  // 还原即「回到用户自己安排的展开态」，第二段的强收覆盖位必须同时解除
+  forceAllCollapsed = false
+  for (const rec of ctx.tree.rootFolders) {
+    refreshFolderOpenState(rec, ctx.currentSlug, ctx.opts)
+  }
+  clearExplorerSnapshot()
+  try {
+    localStorage.setItem(activeStorageKey, JSON.stringify(currentExplorerState))
+  } catch {
+    // 同 collapseAllFolders：落盘失败只丢持久化，本次还原的可见结果已经生效
   }
   scheduleOverlayScrollbarSync()
   refreshHeaderActionState()
@@ -1932,23 +2165,36 @@ async function rebuildExplorerInPlace(ctx: ExplorerContext) {
 }
 
 /**
- * 两枚动作钮的状态刷新。凡是可能改变「是否全部折叠」或「是否存在自定义序」的
- * 动作之后都要调一次：重建路径末、复用路径末、toggleFolder 末、一键收起末、
- * 拖拽落定后、恢复默认后。
+ * 三枚动作钮的状态刷新。凡是可能改变「树上是否还有展开项」「是否存在收起前快照」
+ * 或「是否存在自定义序」的动作之后都要调一次：重建路径末、复用路径末、
+ * toggleFolder 末、一键收起末、展开还原末、拖拽落定后、恢复默认后。
  *
- * 不接受上下文参数：toggleFolder 是模块级事件回调，拿不到 setupExplorer 的局部量；
- * 而「全部折叠」的判据本就取模块级的 currentExplorerState，与作用域无关。
+ * 不接受上下文参数：toggleFolder 是模块级事件回调，拿不到 setupExplorer 的局部量。
  * 钮缺席（SSR 骨架尚未换上或旧版本页面）时整体空转。
+ *
+ * **阶段5.11 判据重写**：收起钮的可用性改看 DOM 里 `.folder-outer.open` 的实际条数，
+ * 只有真的一个展开项都不剩（open===0）才置灰。原判据 `state.every(collapsed)`
+ * 读的是折叠态表，而表在阶段5.8 的收起实现里被整体写成 true、DOM 却按
+ * containsCurrent 留开祖先链——表与所见脱钩，使按钮点一次即恒灰、落盘后跨会话
+ * 持久（手动收起顶层三组同样触发）。判据改读 DOM 之后，旧 localStorage 里那些
+ * 「全 true」的毒化记录自然失去杀伤力，无需任何数据迁移。
+ * 每个 explorer 各按自己的子树统计，多实例布局下互不串用。
  */
 function refreshHeaderActionState() {
-  const state = currentExplorerState ?? []
-  const allCollapsed = state.length > 0 && state.every((entry) => entry.collapsed)
   const custom = hasCustomOrder(readOrderTable())
+  const snapshotAvailable = hasExplorerSnapshot()
   for (const explorer of document.querySelectorAll<HTMLElement>("div.explorer")) {
     const collapseBtn = explorer.querySelector<HTMLButtonElement>(".explorer-action-collapse")
     if (collapseBtn) {
-      collapseBtn.disabled = allCollapsed
-      collapseBtn.setAttribute("aria-disabled", String(allCollapsed))
+      const openCount = explorer.querySelectorAll(".explorer-ul .folder-outer.open").length
+      const nothingToCollapse = openCount === 0
+      collapseBtn.disabled = nothingToCollapse
+      collapseBtn.setAttribute("aria-disabled", String(nothingToCollapse))
+    }
+    const expandBtn = explorer.querySelector<HTMLButtonElement>(".explorer-action-expand")
+    if (expandBtn) {
+      expandBtn.disabled = !snapshotAvailable
+      expandBtn.setAttribute("aria-disabled", String(!snapshotAvailable))
     }
     const resetBtn = explorer.querySelector<HTMLButtonElement>(".explorer-action-reset")
     if (resetBtn) {
@@ -1988,6 +2234,11 @@ async function setupExplorer(currentSlug: FullSlug) {
   activeStorageKey = onGraph ? GRAPH_FOLDER_STATE_STORAGE_KEY : FOLDER_STATE_STORAGE_KEY
   // ==== /patent-kb ====
 
+  // patent-kb（阶段5.11）：「连祖先链一起收」的覆盖位逐导航复位。它是瞬时意图而非
+  // 折叠习惯，换页即回到「当前页祖先链恒可见」的常态；也因此，下面重建路径里
+  // createFolderNode 的展开判据无需再考虑覆盖位（建树恒发生在复位之后）。
+  forceAllCollapsed = false
+
   // ==== patent-kb（DOM 复用）：让位一个微任务，保住 nav 监听器之间的既有先后 ====
   // OverflowList 的 createScrollEdgeScript 也监听 nav，且注册在本脚本之后
   //（Explorer.afterDOMLoaded = concatenateResources(script, overflowListAfterDOMLoaded)），
@@ -2025,6 +2276,12 @@ async function setupExplorer(currentSlug: FullSlug) {
   // ==== /patent-kb ====
 
   for (const explorer of allExplorers) {
+    // patent-kb（阶段5.11）：头部动作钮的绑定提到循环体最前，**排在两条
+    // `if (!explorerUl) continue` 之前**——否则某个 explorer 缺 .explorer-ul 时
+    // 绑定被跳过，而循环之外的 refreshHeaderActionState 仍会把钮解灰，
+    // 留下「看着可点、点了没反应」的窗口。本调用只依赖 explorer 元素本身。
+    bindExplorerHeaderActions(explorer)
+
     const dataFns = JSON.parse(explorer.dataset.dataFns || "{}")
     const opts: ParsedOptions = {
       folderClickBehavior: (explorer.dataset.behavior || "collapse") as "collapse" | "link",
@@ -2099,7 +2356,6 @@ async function setupExplorer(currentSlug: FullSlug) {
       }
       restoreExplorerScroll(explorerUl as HTMLElement)
       bindExplorerToggles(explorer)
-      bindExplorerHeaderActions(explorer)
       bindGraphLinkage(explorer)
       continue
     }
@@ -2203,7 +2459,6 @@ async function setupExplorer(currentSlug: FullSlug) {
 
     restoreExplorerScroll(explorerUl as HTMLElement)
     bindExplorerToggles(explorer)
-    bindExplorerHeaderActions(explorer)
 
     // Set up folder click handlers
     // patent-kb（C-3）：原本仅在 "collapse" 行为下绑定。"link" 行为下真实目录的标题
@@ -2233,8 +2488,10 @@ async function setupExplorer(currentSlug: FullSlug) {
     bindGraphLinkage(explorer)
   }
 
-  // patent-kb（阶段5.8）：两条路径共用的收尾刷新点——「一键收起」置灰随折叠态、
-  // 「恢复默认排序」显隐随顺序表。放在循环之外，复用路径的 continue 也覆盖得到。
+  // patent-kb（阶段5.8；阶段5.11 更新判据）：两条路径共用的收尾刷新点——
+  // 「一键收起」置灰随**DOM 里的展开项条数**、「展开还原」随收起前快照是否存在、
+  // 「恢复默认排序」显隐随顺序表。放在循环之外，复用路径的 continue 也覆盖得到；
+  // 此时树已挂回 DOM（两条路径的 insertBefore 都在其前），故 open 计数取值有效。
   refreshHeaderActionState()
 
   const perfEnd = performance.now()

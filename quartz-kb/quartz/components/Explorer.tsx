@@ -137,11 +137,12 @@ export default ((userOpts?: Partial<Options>) => {
             </svg>
           </button>
           {/*
-            两枚钮 SSR 即 disabled，由 explorer.inline.ts 的 bindExplorerHeaderActions
-            放开——「脚本活着」才是它们可用的前提（无 JS 时点了不会有任何反应）。
-            「恢复默认排序」另受 CSS 的 [data-has-custom-order] 门控，无自定义序时
-            整枚不显示（display 控制，禁用 hidden 属性——目录树里的 hidden 是法域
-            过滤的专用信号）。
+            三枚钮 SSR 即 disabled，由 explorer.inline.ts 的 refreshHeaderActionState
+            按各自判据放开——「脚本活着」才是它们可用的前提（无 JS 时点了不会有任何反应）。
+            判据（阶段5.11）：收起钮＝树上尚有展开项；展开还原钮＝存在收起前快照；
+            「恢复默认排序」＝存在自定义序，且另受 CSS 的 [data-has-custom-order] 门控，
+            无自定义序时整枚不显示（display 控制，禁用 hidden 属性——目录树里的 hidden
+            是法域过滤的专用信号）。
           */}
           <div class="explorer-actions">
             <button
@@ -149,7 +150,7 @@ export default ((userOpts?: Partial<Options>) => {
               class="explorer-action explorer-action-collapse"
               disabled
               aria-disabled="true"
-              title="全部收起（保留当前页所在层级）"
+              title="全部收起（再点一次连当前页所在层级一起收起）"
               aria-label="全部收起"
             >
               <svg
@@ -166,6 +167,34 @@ export default ((userOpts?: Partial<Options>) => {
               >
                 <polyline points="17 11 12 6 7 11"></polyline>
                 <polyline points="17 18 12 13 7 18"></polyline>
+              </svg>
+            </button>
+            {/*
+              阶段5.11：一键收起的退路。位置固定在收起钮之后、恢复默认钮之前
+              （恢复默认恒为动作组末位，且多数时候整枚隐藏）。
+            */}
+            <button
+              type="button"
+              class="explorer-action explorer-action-expand"
+              disabled
+              aria-disabled="true"
+              title="展开还原（还原到收起前的展开状态）"
+              aria-label="展开还原"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide-chevrons-down"
+              >
+                <polyline points="7 6 12 11 17 6"></polyline>
+                <polyline points="7 13 12 18 17 13"></polyline>
               </svg>
             </button>
             <button
