@@ -287,6 +287,29 @@ async function main() {
   const l4 = dataOf(await client.callTool({ name: 'find_law', arguments: { article: '专利法第999条' } }), 'find_law');
   ok('不存在的条号返回错误', typeof l4.error === 'string', l4.error);
 
+  // 阶段5.13b 补丁：法条类工具透出所属书目的效力著录，消除「同一条号在不同版本下是不同规范」
+  //   的歧义。取商标法验证——本库是 2026 修订、2027-01-01 起施行的版本，其第30条为
+  //   「展览会优先权」，而现行 2019 版第30条是驳回条款，正是最易误读的一条。
+  ok('find_law 透出效力著录', l1.statusCode === 'in-force' || l1.statusCode === 'unknown',
+    `专利法第22条 statusCode=${l1.statusCode} effectiveDate=「${l1.effectiveDate}」`);
+  const l5res = await client.callTool({ name: 'find_law', arguments: { article: '商标法第30条' } });
+  const l5 = dataOf(l5res, 'find_law');
+  ok('尚未施行的法条被标注', l5.statusCode === 'not-yet-effective' && l5.effectiveDate === '2027年1月1日',
+    `${l5.article} statusCode=${l5.statusCode} eff=${l5.effectiveDate}`);
+  // 提示必须在条文正文之前出现——放在末尾等于让人先按错的版本理解完再被纠正。
+  // 锚点取正文首 16 字而非某个具体词：条旨也可能含该词（「第三十条 · 展览会优先权」
+  // 就在首行），拿词去比位置会误判。
+  const l5text = l5res.content?.[0]?.text || '';
+  ok('尚未施行的法条在条文正文之前前置提示',
+    typeof l5.effectivityWarning === 'string' && /尚未生效/.test(l5.effectivityWarning)
+    && l5text.includes(l5.effectivityWarning)
+    && l5text.indexOf(l5.effectivityWarning) < l5text.indexOf(l5.text.slice(0, 16)),
+    `提示在第 ${l5text.indexOf(l5.effectivityWarning)} 字符处，正文在第 ${l5text.indexOf(l5.text.slice(0, 16))} 字符处`);
+  // 现行有效者不加提示：警示只对真有风险的状态发出，否则会被稀释到无人再看
+  ok('现行有效与未标注者不发提示',
+    l1.effectivityWarning === undefined && l3.effectivityWarning === undefined,
+    `专利法22=${l1.statusCode}／细则22=${l3.statusCode}`);
+
   // ============ 七、browse_toc 与 related_nodes ============
   console.log('\n七、browse_toc 与 related_nodes');
   const b1 = dataOf(await client.callTool({ name: 'browse_toc', arguments: {} }), 'browse_toc');
@@ -325,6 +348,10 @@ async function main() {
     `${a2.lawName} 第 ${a2.articles.map((x) => x.num).join('/')} 条`);
   const a3 = dataOf(await client.callTool({ name: 'list_articles', arguments: { lawName: '这不是一部法' } }), 'list_articles');
   ok('未知法名返回错误而非空表', typeof a3.error === 'string', a3.error);
+  const a4 = dataOf(await client.callTool({ name: 'list_articles', arguments: { lawName: '商标法', limit: 3 } }), 'list_articles');
+  ok('list_articles 顶层透出效力著录并提示',
+    a4.statusCode === 'not-yet-effective' && /尚未生效/.test(a4.effectivityWarning || ''),
+    `${a4.lawName} ${a4.statusCode} eff=${a4.effectiveDate}`);
 
   // ============ 九、compare_articles（阶段5.13b 新增） ============
   console.log('\n九、compare_articles');
@@ -341,6 +368,15 @@ async function main() {
   ok('取不到的条列入 notFound 并说明原因',
     cmp2.notFound.length === 1 && /无第999条/.test(cmp2.notFound[0].reason),
     JSON.stringify(cmp2.notFound[0]));
+  // 跨法对照是版本歧义最易出事的场景：一条现行、一条尚未施行，逐条标注 + 顶层汇总
+  const tmItem = cmp2.articles.find((x) => x.article.includes('商标法'));
+  const plItem = cmp2.articles.find((x) => x.article.startsWith('专利法'));
+  ok('跨法对照逐条透出效力著录',
+    tmItem && tmItem.statusCode === 'not-yet-effective' && plItem && plItem.statusCode !== 'not-yet-effective',
+    `${tmItem && tmItem.article}=${tmItem && tmItem.statusCode}／${plItem && plItem.article}=${plItem && plItem.statusCode}`);
+  ok('非现行有效者汇总到 effectivityWarnings',
+    (cmp2.effectivityWarnings || []).length === 1 && /尚未生效/.test(cmp2.effectivityWarnings[0].warning),
+    cmp2.effectivityWarnings[0].article);
   const cmp3 = dataOf(await client.callTool({ name: 'compare_articles', arguments: { articles: ['专利法第22条'], charsPerArticle: 100 } }), 'compare_articles');
   ok('charsPerArticle 生效', cmp3.articles[0].text.length <= 100 && cmp3.articles[0].textTruncated === true, `${cmp3.articles[0].text.length}/${cmp3.articles[0].chars} 字`);
 
@@ -394,6 +430,11 @@ async function main() {
     (fc4.notes || []).some((n) => n.includes('不存在的域')), (fc4.notes || [])[0]);
   const fc5 = dataOf(await client.callTool({ name: 'find_citing_sections', arguments: { articles: ['专利法第22条'], books: ['全都不存在'] } }), 'find_citing_sections');
   ok('域键全部无效时返回错误而非全库结果', typeof fc5.error === 'string', fc5.error);
+  const fc6 = dataOf(await client.callTool({ name: 'find_citing_sections', arguments: { lawName: '商标法', limit: 3 } }), 'find_citing_sections');
+  ok('效力著录汇总在顶层且不逐条重复',
+    (fc6.effectivity || []).length === 1 && fc6.effectivity[0].statusCode === 'not-yet-effective'
+    && fc6.items.every((it) => it.statusCode === undefined),
+    `${fc6.effectivity[0].lawName} ${fc6.effectivity[0].statusCode}`);
 
   // ============ 十三、get_brief（阶段5.13b 新增） ============
   console.log('\n十三、get_brief');

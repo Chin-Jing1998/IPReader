@@ -159,6 +159,17 @@ const tailFields = {
   hint: S.str.optional(),
   estimatedTokens: S.num.optional(),
 };
+/**
+ * 法条类工具通用的效力著录字段（阶段5.13b 补丁）。
+ * effectiveDate 照录数据包中的中文日期串（如「2027年1月1日」），不做格式转换——
+ * 归一日期格式是上游著录侧的事，此处擅自改写反而制造第二套口径。
+ * effectivityWarning 只在 statusCode 为 not-yet-effective / repealed 时出现。
+ */
+const effectivityFields = {
+  effectiveDate: S.str.optional(),
+  statusCode: S.str.optional(),
+  effectivityWarning: S.str.optional(),
+};
 
 const OUT = {
   search_kb: obj({
@@ -214,6 +225,7 @@ const OUT = {
     text: S.str,
     citedByCount: S.num,
     citedBy: z.array(nodeItem).optional(),
+    ...effectivityFields,
     ambiguous: S.bool.optional(),
     candidates: z.array(obj({ article: S.str, lawName: S.str.optional(), id: S.str.optional() })).optional(),
     ...tailFields,
@@ -246,6 +258,7 @@ const OUT = {
   list_articles: obj({
     lawName: S.str,
     domain: S.str.optional(),
+    ...effectivityFields,
     total: S.num,
     matched: S.num,
     offset: S.num,
@@ -259,7 +272,10 @@ const OUT = {
     requested: S.num,
     returned: S.num,
     charsPerArticle: S.num.optional(),
-    articles: z.array(obj({ query: S.str, article: S.str, id: S.str, title: S.str.optional(), text: S.str })),
+    articles: z.array(obj({
+      query: S.str, article: S.str, id: S.str, title: S.str.optional(), text: S.str, ...effectivityFields,
+    })),
+    effectivityWarnings: z.array(obj({ article: S.str, statusCode: S.str, warning: S.str })).optional(),
     notFound: z.array(obj({ query: S.str, reason: S.str })),
     overflow: S.num.optional(),
     ...tailFields,
@@ -289,6 +305,7 @@ const OUT = {
   }),
   find_citing_sections: obj({
     criteria: z.unknown().optional(),
+    effectivity: z.array(obj({ domain: S.str, lawName: S.str.optional(), ...effectivityFields })).optional(),
     articleCount: S.num,
     citedArticleCount: S.num,
     totalCitations: S.num,
@@ -503,7 +520,10 @@ function registerTools(server) {
         ? `\n\n引用该条的章节共 ${r.citedByCount} 处${r.truncated ? `（下列 ${r.citedBy.length} 处）` : ''}：\n`
           + r.citedBy.map((c) => `  · ${c.path}（${c.book}，${c.id}）`).join('\n')
         : '\n\n（无其他章节引用该条的记录）';
-      return reply(r, `${r.article}　${r.title}\nid：${r.id}\n\n${r.text}${cites}`);
+      // 版本提示置于条文正文之前：读到条文时就该知道它是不是现行有效的，
+      // 放在末尾等于让人先按错的版本理解完再被纠正
+      const warn = r.effectivityWarning ? `${r.effectivityWarning}\n\n` : '';
+      return reply(r, `${r.article}　${r.title}\nid：${r.id}\n\n${warn}${r.text}${cites}`);
     },
   );
 
@@ -595,6 +615,7 @@ function registerTools(server) {
       const r = listArticles(ctx, args);
       if (r.error) return reply(r, `${r.error}。${r.hint || ''}`);
       const text = [
+        r.effectivityWarning || '',
         `《${r.lawName}》共 ${r.total} 条${r.matched !== r.total ? `，区间内 ${r.matched} 条` : ''}，`
         + `本页 ${r.returned} 条：`,
         ...r.articles.map((a) => `  第${a.num}条　${a.title}（${a.id}，${a.chars} 字）`),
@@ -624,9 +645,16 @@ function registerTools(server) {
     async (args) => {
       const r = compareArticles(ctx, args);
       if (r.error) return reply(r, `${r.error}。${r.hint || ''}`);
+      // 跨法对照时提示置顶：并列比对最怕「一条现行、一条尚未施行」而读者不知情
+      const warns = (r.effectivityWarnings || []).map((w) => w.warning);
+      // 逐条标注只在非现行有效时出现，现行条目不加噪音
+      const mark = (a) => (a.statusCode === 'not-yet-effective'
+        ? `，${a.effectiveDate || ''}起施行`
+        : a.statusCode === 'repealed' ? '，已废止' : '');
       const text = [
-        `对照 ${r.returned}/${r.requested} 条：`,
-        ...r.articles.map((a) => `\n【${a.article}】${a.title}（${a.id}，共 ${a.chars} 字${a.textTruncated ? '，已截断' : ''}）\n${a.text}`),
+        ...warns,
+        `${warns.length ? '\n' : ''}对照 ${r.returned}/${r.requested} 条：`,
+        ...r.articles.map((a) => `\n【${a.article}】${a.title}（${a.id}，共 ${a.chars} 字${a.textTruncated ? '，已截断' : ''}${mark(a)}）\n${a.text}`),
         r.notFound.length ? `\n未取到 ${r.notFound.length} 条：${r.notFound.map((x) => `${x.query}（${x.reason}）`).join('；')}` : '',
         r.hint || '',
       ].filter(Boolean).join('\n');
@@ -729,6 +757,7 @@ function registerTools(server) {
       const r = findCitingSections(ctx, args || {});
       if (r.error) return reply(r, `${r.error}。${r.hint || ''}`);
       const text = [
+        ...(r.effectivity || []).map((e) => e.effectivityWarning).filter(Boolean),
         `查 ${r.articleCount} 条，其中 ${r.citedArticleCount} 条有被引记录（合计 ${r.totalCitations} 处），本页 ${r.returned} 条：`,
         ...r.items.map((it) => `\n【${it.article}】${it.title} —— 被引 ${it.citingCount} 处，跨 ${it.bookCount} 部书\n`
           + it.citing.map((c) => `  · ${c.path}（${c.book}，${c.id}）`).join('\n')),

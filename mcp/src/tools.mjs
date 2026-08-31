@@ -241,13 +241,16 @@ function buildTaxonomyTree(books) {
 /**
  * 容器节点的入口子节点：首个自身带正文的后代。
  *
- * 4453 个文档节点中约 447 个无 own（其中 438 个有子节点），它们的 summary 实为子节点
+ * 5963 个文档节点中 756 个无 own（其中 723 个有子节点），它们的 summary 实为子节点
  * 摘要——检索命中这类节点时，调用方拿到的是「本节无独立正文」而无从续读。
  * 命中容器多为「找章入口」的合法诉求（如查「专利登记簿」命中「第九章 专利登记和专利公报」），
  * 故不在打分层降权，改为随结果附出这个可直接续读的实体子节点。
  *
- * 深度取 3：423 个容器的首层子节点即有正文，余 15 个需下探第二层，三层足够覆盖。
- * 按 childrenOf 的既有 id 序遍历（构建期已排序），故「首个」在文档顺序上确定。
+ * 深度取 3（阶段5.13b 复测：本行原写「4453 个节点／447 个无 own／438 有子节点／
+ * 423 个首层命中」，系阶段5.2 之前的数值，已随多轮入库失效）：723 个容器中 686 个的
+ * 首层子节点即有正文，33 个需下探第二层、3 个需第三层，1 个整棵子树皆无正文，
+ * 故三层仍足够覆盖。按 childrenOf 的既有 id 序遍历（构建期已排序），
+ * 故「首个」在文档顺序上确定。
  */
 function entryChildOf(kb, id, depth = 3) {
   const kids = kb.childrenOf.get(id) || [];
@@ -785,6 +788,8 @@ export function findLaw(ctx, { article, withCitations, limit }) {
     book: b.book,
     path: breadcrumbPath(kb, nodeId),
     slug: b.slug,
+    // 效力著录：消除「同一条号在不同版本下是不同规范」的歧义，说明见 effectivityOf
+    ...effectivityOf(kb, node.domain),
     text,
     citedByCount: cited.length,
     citedBy,
@@ -959,6 +964,40 @@ export function listBooks(ctx, { detail, offset, limit } = {}) {
 // 的路径——这既是 MCP 相对站点静态页的差异价值，也直接减少往返次数，与输出治理同向。
 // 全部只消费数据包内既有字段，无一需要扩充 build-data.mjs 的语料侧产出。
 
+// ============ 法条效力著录透出（阶段5.13b 补丁） ============
+//
+// 起因：本库的商标法是 2026 修订、2027-01-01 起施行的版本，其第30条是「展览会优先权」，
+// 而现行 2019 版第30条是驳回条款——同一条号在两个版本下是完全不同的规范。法条类工具
+// 原本只回法名与条号，以现行条号查询者拿到新版条文却无从察觉，属实质的法律信息误读风险。
+// 故凡返回法条的工具一律透出所属书目的 effectiveDate 与 statusCode。
+//
+// 提示（warning）只对 not-yet-effective 与 repealed 发出，不对 unknown 发。
+// 理由：statusCode=unknown 的 8 部书里含专利法、专利法实施细则、审查指南这三部最高频的——
+// 它们的 status 在上游 book-meta.json 中是空串，是「著录未及」而非「效力存疑」。
+// 若对 unknown 也发提示，最常用的 find_law('专利法第22条') 每次都要挂一句「状态未知」，
+// 警示被稀释到无人再看，真正该警惕的「尚未施行」反被淹没。结构化字段照常透出，
+// 调用方需要自行判断时取 statusCode 即可，信息并未隐藏。
+const EFFECTIVITY_WARN = new Set(['not-yet-effective', 'repealed']);
+
+/**
+ * 取书目的效力著录。
+ * @returns {{ effectiveDate: string, statusCode: string, effectivityWarning?: string }}
+ */
+function effectivityOf(kb, domain) {
+  const b = kb.allBooks.find((x) => x.domain === domain);
+  if (!b) return { effectiveDate: '', statusCode: 'unknown' };
+  const statusCode = b.statusCode || 'unknown';
+  const out = { effectiveDate: b.effectiveDate || '', statusCode };
+  if (EFFECTIVITY_WARN.has(statusCode)) {
+    const name = b.lawName || b.short || b.domain;
+    out.effectivityWarning = statusCode === 'not-yet-effective'
+      ? `注意：《${name}》${b.effectiveDate ? `自${b.effectiveDate}起施行，` : ''}目前尚未生效。`
+        + '其条号与编排可能与现行版本不一致，按现行条号查询时请核对版本。'
+      : `注意：《${name}》已废止或失效，仅供沿革查考，不得作为现行依据引用。`;
+  }
+  return out;
+}
+
 /** 法条节点 label 形如「第二十二条 · 发明/实用新型授权条件」，取分隔符后半段为条旨 */
 const ARTICLE_TITLE_SEP = ' · ';
 function articleTitleOf(label) {
@@ -1056,6 +1095,8 @@ export function listArticles(ctx, { lawName, domain, from, to, limit, offset }) 
   return {
     lawName: resolved.lawName,
     domain: resolved.domain,
+    // 整表同属一部法，效力著录出在顶层即可，不逐条重复
+    ...effectivityOf(kb, resolved.domain || kb.byId.get(all[0].nodeId).domain),
     total: all.length,
     matched: ranged.length,
     offset: off,
@@ -1124,6 +1165,9 @@ export function compareArticles(ctx, { articles, withCitations, charsPerArticle 
       book: b.book,
       path: breadcrumbPath(kb, nodeId),
       slug: b.slug,
+      // 效力著录逐条给：跨法对照正是版本歧义最易出事的场景——两条并列时，
+      // 一条现行、一条尚未施行而调用方不知情，得出的对照结论就是错的
+      ...effectivityOf(kb, node.domain),
       text: raw.slice(0, perChars),
       chars: raw.length,
       textTruncated: raw.length > perChars || undefined,
@@ -1144,6 +1188,9 @@ export function compareArticles(ctx, { articles, withCitations, charsPerArticle 
     returned: items.length,
     charsPerArticle: perChars,
     articles: items,
+    // 需警示的条目汇总到顶层，供调用方一眼看到本次对照里有几条不是现行有效的
+    effectivityWarnings: items.filter((x) => x.effectivityWarning)
+      .map((x) => ({ article: x.article, statusCode: x.statusCode, warning: x.effectivityWarning })),
     notFound,
     overflow: list.length > COMPARE_MAX ? list.length - COMPARE_MAX : undefined,
     budgetTruncated: budgetHit || undefined,
@@ -1397,8 +1444,17 @@ export function findCitingSections(ctx, { lawName, articles, books, limit, offse
   const end = off + items.length;
   const hasMore = end < withCites.length;
 
+  // 效力著录出在顶层而非逐条：本工具的主体是引用关系，条目动辄数十条，
+  // 逐条重复同一部法的效力信息纯属浪费。按被查法条所属书目去重后汇总。
+  const lawDomains = [...new Set(keys.map((k) => (kb.byId.get(kb.lawArticles.get(k)) || {}).domain).filter(Boolean))];
+  const effectivity = lawDomains.map((d) => {
+    const bk = kb.allBooks.find((x) => x.domain === d) || {};
+    return { domain: d, lawName: bk.lawName || bk.short || d, ...effectivityOf(kb, d) };
+  });
+
   return {
     criteria: { lawName, articles: articles || undefined, books: books || undefined },
+    effectivity,
     articleCount: keys.length,
     citedArticleCount: withCites.length,
     totalCitations: withCites.reduce((a, x) => a + x.cited.length, 0),
