@@ -252,7 +252,7 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
               </div>
             </div>
 
-            <h3>可用的七个工具</h3>
+            <h3>可用的十三个工具</h3>
             <ul>
               <li>
                 <strong>search_kb</strong> ——
@@ -275,6 +275,25 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
               </li>
               <li>
                 <strong>list_books</strong> —— 内容清单与规模
+              </li>
+              <li>
+                <strong>list_articles</strong> —— 列出某部法的全部条号与条旨，通览条文骨架
+              </li>
+              <li>
+                <strong>compare_articles</strong> —— 并列取回多条法条正文，供同法或跨法对照
+              </li>
+              <li>
+                <strong>batch_read</strong> —— 一次读取多个节点的摘要或正文节选
+              </li>
+              <li>
+                <strong>filter_books</strong> ——
+                按国家、法域、文献类型、效力状态筛选书目，返回域键清单与分布摘要
+              </li>
+              <li>
+                <strong>find_citing_sections</strong> —— 反查哪些章节引用了某法某条
+              </li>
+              <li>
+                <strong>get_brief</strong> —— 批量取节点的一句话摘要，供先判断再决定是否精读
               </li>
             </ul>
             <p class="kb-mcp-note">
@@ -326,7 +345,7 @@ const SettingsPage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
                 <p class="kb-about-row">
                   <span class="kb-about-label">版本</span>
                   {/* 桌面端由 settings.inline.ts 以 app.getVersion() 覆写，避免静态页版本信息滞后 */}
-                  <span data-update-version>v1.6.0</span>
+                  <span data-update-version>v1.7.0</span>
                 </p>
                 <p class="kb-about-row">
                   <span class="kb-about-label">内容</span>

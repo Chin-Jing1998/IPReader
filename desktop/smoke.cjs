@@ -1345,6 +1345,11 @@ async function main() {
   //     区块须在确认服务文件存在后显示、降级说明同时隐去，两条命令按本机真实路径
   //     拼装（此处为桩值），复制钮把命令原样送进系统剪贴板。断言比对剪贴板内容，
   //     链路端到端。
+  //     toolCount 期望值写死 13：事实源是 SettingsPage.tsx 的工具清单 <li>，而 smoke
+  //     是 CJS 不能 import .tsx，故与本文件其余组号常量同例硬编码。该数须与 mcp/src/
+  //     server.mjs 的 registerTool 注册数一致——v1.7.0（阶段5.13）由 7 增至 13，新增
+  //     list_articles / compare_articles / batch_read / filter_books /
+  //     find_citing_sections / get_brief 六个。日后增删工具时三处同步改。
   await win.webContents.executeJavaScript(
     `document.querySelector('.kb-settings-cat[data-pane="mcp"]').click()`,
   );
@@ -1384,7 +1389,7 @@ async function main() {
       mcpProbe.codex.includes("[mcp_servers.ipreader]") &&
       mcpProbe.codex.includes(MCP_STUB.execPath) &&
       mcpProbe.path === MCP_STUB.serverPath &&
-      mcpProbe.toolCount === 7 &&
+      mcpProbe.toolCount === 13 &&
       clip === mcpProbe.claude &&
       mcpProbe.copyLabel === "已复制",
     `可见=${mcpProbe.visible}, hidden已摘=${mcpProbe.hiddenRemoved}, ` +
