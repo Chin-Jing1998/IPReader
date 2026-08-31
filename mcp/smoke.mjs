@@ -204,8 +204,10 @@ async function main() {
   ok('status 已归一为短文本（不超 24 字）',
     allFull.every((b) => (b.status || '').length <= 24),
     `最长 ${Math.max(...allFull.map((b) => (b.status || '').length))} 字（治理前 99 字）`);
-  ok('statusCode 取值收敛为三个枚举',
-    allFull.every((b) => ['in-force', 'not-yet-effective', 'unknown'].includes(b.statusCode)),
+  ok('statusCode 取值收敛为已知枚举',
+    // repealed 系 normalizeStatus 可产出的合法值（前缀「已废止/已失效」），当前数据无实例；
+    // 效力著录补录后一旦出现废止书目，值域断言不得假红
+    allFull.every((b) => ['in-force', 'not-yet-effective', 'unknown', 'repealed'].includes(b.statusCode)),
     JSON.stringify(allFull.reduce((a, b) => ({ ...a, [b.statusCode]: (a[b.statusCode] || 0) + 1 }), {})));
   ok('被摘出的效力说明一字不落留存于 statusNote',
     allFull.some((b) => (b.statusNote || '').includes('局令第81号')
