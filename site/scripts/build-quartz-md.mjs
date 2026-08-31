@@ -786,7 +786,13 @@ for (const n of nodes) {
     const kids = childrenOf.get(n.id) || [];
     const overview = (n.summary || '').trim() || (kids.length ? '' : n.label);
     if (overview) {
-      const escaped = escapeMd(normalizeProse(overview, richStats));
+      // resolveInlineRefs 不可省（阶段5.12 悬空链修）：summary 里同样携带小节编号
+      // 交叉引用（形如 `[4.1.3.1](4.1.3.1)`），不解析就原样落盘成 markdown 行内链接，
+      // 被 CrawlLinks 当相对路径解析、指向不存在的页面。全库 30 条悬空内链
+      // 悉数出自本行——章节页分支（第 744 行 contentBlocks 内）早已按
+      // resolveInlineRefs → normalizeProse → escapeMd 的顺序处理，此处与之对齐，
+      // 非新增机制。30 条目标经实测全部在「同章唯一」层级命中，无自指、无降级。
+      const escaped = escapeMd(normalizeProse(resolveInlineRefs(overview, n), richStats));
       if (TERM_LINK_ENABLED && !TERM_LINK_PAGE_EXCLUDE.has(n.id)) {
         const r = linkTerms(escaped, termMatcher, { linkedIds: new Set(), selfId: n.id, linkTo });
         stats.termLinks += r.added;
@@ -1095,6 +1101,20 @@ for (const [rel, content] of outputs) {
   IMG_EMBED_RE.lastIndex = 0;
   while ((m = IMG_EMBED_RE.exec(content))) {
     if (!imagesToEmit.has(m[1])) broken.push(`${rel} → 图片 ${m[1]}`);
+  }
+}
+// 小节编号引用自校验（阶段5.12 新增，范式同上方图片引用）：产物中不得残留任何
+// 形如 `[4.1.3.1](4.1.3.1)` 的 markdown 行内链接——纯数字目标一律应经
+// resolveInlineRefs 转成 wikilink，转不成则退化为纯文本，两者都不会留下这种形态。
+// 残留即意味着某条渲染分支漏调 resolveInlineRefs（历史上容器索引页分支正是如此，
+// 30 条悬空内链皆由此而来），且构建期原有护栏只过滤图谱索引产物、拦不住产物 md。
+// 排除 ![...](...) 的图片形态：其目标是路径而非纯数字，由上方规则各自把关。
+const NUMREF_LEFTOVER_RE = /(^|[^!])\[[^\]]*\]\((\d[\d.]*)\)/g;
+for (const [rel, content] of outputs) {
+  let m;
+  NUMREF_LEFTOVER_RE.lastIndex = 0;
+  while ((m = NUMREF_LEFTOVER_RE.exec(content))) {
+    broken.push(`${rel} → 未解析的小节编号引用 (${m[2]})`);
   }
 }
 
