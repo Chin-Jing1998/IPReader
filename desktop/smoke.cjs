@@ -162,6 +162,17 @@
 // b 段刻意不等任何脚本回调——跟随是结构性的（条带在 <body> 内，随 micromorph 换新），
 // 若哪天被改成运行时拼串，b 段会因 morph 与回调之间那一帧旧值而变红，正是该改动应触发的护栏。
 // 总超时仍为 660s：本步三次 loadURL 加一次 SPA 点击，本机实测净增约 7s。
+//
+// 阶段5.14 施工③ 新增步 37「主窗口最小宽度 1080 → 1260」、总步数 36 → 37，同样排在
+// 离线报告之前——本步要改窗口尺寸，放中段会污染此前各步的几何基线。smoke 自建窗口、
+// 不加载 main.cjs，故值不写死在这里，而从 desktop/main.cjs 源码里正则取出——生产建窗
+// 配置本身即事实源，再与本文件的期望值比对，改数即红。四子项：a 源码取值、
+// b setMinimumSize 后往更小里缩验钳制、c 该宽度下图例的断行签名（恰三行；首行止
+// 「化学撰写」、次行止「竞争法·法律」、三行起「竞争法·规章」——用户按截图指定的下限
+// 形态，1px 步进实测该签名成立于 [1237,1279]，1260 居其中）、d 窗口与最小尺寸双复位。
+// c 的分行必须按各元素**中心 Y** 聚类：图例内组标题 span 与按钮的盒高分别为
+// 12.5/12.8/17/20.7px，按 top 分组会把同一视觉行劈成四五行。
+// 总超时仍为 660s：本步一次 loadURL 加两次窗口尺寸变更，本机实测净增约 5s，留白充裕。
 const {
   app,
   BrowserWindow,
@@ -4010,6 +4021,105 @@ async function main() {
       `e 配色：末段 ${s36a ? s36a.leafColor : "-"} ≟ --darkgray ${s36a ? s36a.tokDark : "-"} → ${s36a ? s36a.leafIsDarkgray : "-"}, ` +
       `书名 ${s36a ? s36a.rootColor : "-"} ≟ --gray ${s36a ? s36a.tokGray : "-"} → ${s36a ? s36a.rootIsGray : "-"}, 分隔符≟--gray → ${s36a ? s36a.sepIsGray : "-"}, ` +
       `末段字重=${s36a ? s36a.leafWeight : "-"}（须 500）, 条带字号=${s36a ? s36a.fontSize : "-"}`,
+  );
+
+  // 37. 主窗口最小宽度（阶段5.14 施工③）
+  //     smoke 自建窗口、不加载 main.cjs，故值不能凭空写死在这里——从
+  //     desktop/main.cjs 源码里取那一个字面量，**生产建窗配置本身即事实源**；
+  //     再与本步期望值比对，改数即红，逼迫连带复核下面 c 段的断行签名。
+  //     a 验数值、b 验 Electron 的 minWidth 语义确实钳制、c 验这个数值的**理由**——
+  //     用户按截图指定的下限形态：图例恰三行，首行止于「化学撰写」、次行止于
+  //     「竞争法·法律」、第三行起于「竞争法·规章」。1px 步进实测该签名成立于
+  //     [1237, 1279]，1260 居其中、两侧余量 23／19px。
+  //     分行判据必须按各元素的**中心 Y** 聚类：图例内组标题 span 与按钮的盒高分别为
+  //     12.5／12.8／17／20.7px，按 top 分组会把同一视觉行劈成四五行（本步初版即栽在此处）。
+  const EXPECT_MIN_WIDTH = 1260;
+  const EXPECT_MIN_HEIGHT = 700;
+  const mainSrc = await fs.promises.readFile(
+    path.join(__dirname, "main.cjs"),
+    "utf8",
+  );
+  const mwMatch = /\n\s*minWidth:\s*(\d+),/.exec(mainSrc);
+  const mhMatch = /\n\s*minHeight:\s*(\d+),/.exec(mainSrc);
+  const srcMinW = mwMatch ? Number(mwMatch[1]) : null;
+  const srcMinH = mhMatch ? Number(mhMatch[1]) : null;
+  const a37Ok = srcMinW === EXPECT_MIN_WIDTH && srcMinH === EXPECT_MIN_HEIGHT;
+
+  // b. 钳制实测：按源码值设最小尺寸后往更小里缩，外框宽度须被顶回 minWidth
+  const [w37Before, h37Before] = win.getSize();
+  win.setMinimumSize(srcMinW || EXPECT_MIN_WIDTH, srcMinH || EXPECT_MIN_HEIGHT);
+  win.setSize(1000, 800);
+  await sleep(500);
+  const [w37Clamped, h37Clamped] = win.getSize();
+  const b37Ok = w37Clamped === (srcMinW || EXPECT_MIN_WIDTH) && h37Clamped === 800;
+
+  // c. 该宽度下的图例断行签名（此刻窗口已被钳在 minWidth 上，无须再设尺寸）
+  await win.loadURL(base + encodeURI("/0-图谱总览/"));
+  await sleep(2200);
+  const s37c = await win.webContents.executeJavaScript(
+    `(() => {
+       const box = document.querySelector('.ge-legend');
+       if (!box) return null;
+       const kids = Array.from(box.children).map((el) => {
+         const r = el.getBoundingClientRect();
+         const sec = el.dataset.section
+           || (el.dataset.legendField ? 'F:' + el.dataset.legendField
+             : el.dataset.legendDoctype ? 'T:' + el.dataset.legendDoctype
+             : el.dataset.sectionGroup ? 'G:' + el.dataset.sectionGroup
+             : el.classList.contains('ge-legend-sep') ? 'SEP' : 'X');
+         return { sec, label: (el.textContent || '').trim(), cy: r.top + r.height / 2, h: r.height };
+       }).filter((k) => k.h > 0);
+       const rows = [];
+       for (const k of kids) {
+         let r = rows.find((r) => Math.abs(r.cy - k.cy) <= 6);
+         if (!r) { r = { cy: k.cy, items: [] }; rows.push(r); }
+         r.items.push(k);
+       }
+       rows.sort((a, b) => a.cy - b.cy);
+       const canvas = document.querySelector('.ge-canvas');
+       const body = document.querySelector('.ge-body');
+       const cr = canvas ? canvas.getBoundingClientRect() : null;
+       const br = body ? body.getBoundingClientRect() : null;
+       return {
+         n: rows.length,
+         r1last: rows[0] ? rows[0].items[rows[0].items.length - 1] : null,
+         r2last: rows[1] ? rows[1].items[rows[1].items.length - 1] : null,
+         r3first: rows[2] ? rows[2].items[0] : null,
+         innerW: window.innerWidth,
+         canvasW: cr ? Math.round(cr.width) : null,
+         canvasH: cr ? Math.round(cr.height) : null,
+         // 5.12 P2① 的「画布下方零空洞」在本窗宽下仍须成立
+         gapBelowCanvas: (cr && br) ? Math.round(br.bottom - cr.bottom) : null,
+       };
+     })()`,
+  );
+  const c37Ok =
+    !!s37c &&
+    s37c.n === 3 &&
+    s37c.r1last.sec === "6" &&
+    s37c.r2last.sec === "25" &&
+    s37c.r3first.sec === "26" &&
+    s37c.gapBelowCanvas === 0;
+  await shot(win, "最小宽度下的图例三行");
+
+  // d. 收尾（硬性）：最小尺寸与窗口尺寸复位回步首值，不把约束留给后续步骤
+  win.setMinimumSize(0, 0);
+  win.setSize(w37Before, h37Before);
+  await sleep(400);
+  const [w37After, h37After] = win.getSize();
+  const d37Ok = w37After === w37Before && h37After === h37Before;
+
+  record(
+    "主窗口最小宽度 1080→1260（源码即事实源 + 钳制实测 + 该宽度下图例恰三行断行签名 + 收尾复位）",
+    a37Ok && b37Ok && c37Ok && d37Ok,
+    `a 源码取值：minWidth=${srcMinW}（须 ${EXPECT_MIN_WIDTH}）, minHeight=${srcMinH}（须 ${EXPECT_MIN_HEIGHT}，本批不动）; ` +
+      `b 钳制：setSize(1000,800) → 实得 ${w37Clamped}×${h37Clamped}（宽须被顶回 ${srcMinW}，高须原样 800）; ` +
+      `c 断行签名 @inner=${s37c ? s37c.innerW : "-"}：行数=${s37c ? s37c.n : "-"}（须 3）, ` +
+      `首行末=${s37c && s37c.r1last ? s37c.r1last.label + "(" + s37c.r1last.sec + ")" : "-"}（须 化学撰写(6)）, ` +
+      `次行末=${s37c && s37c.r2last ? s37c.r2last.label + "(" + s37c.r2last.sec + ")" : "-"}（须 法律(25)）, ` +
+      `三行首=${s37c && s37c.r3first ? s37c.r3first.label + "(" + s37c.r3first.sec + ")" : "-"}（须 规章(26)）, ` +
+      `画布=${s37c ? s37c.canvasW + "×" + s37c.canvasH : "-"}, 画布下方空洞=${s37c ? s37c.gapBelowCanvas : "-"}（须 0）; ` +
+      `d 收尾：窗口 ${w37Before}×${h37Before} → ${w37After}×${h37After}, 最小尺寸已撤`,
   );
 
   // —— 离线报告 ——
