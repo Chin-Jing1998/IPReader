@@ -1,0 +1,34 @@
+# 目标：claude-code-user
+# 动作：command
+# 命令：claude mcp add --transport stdio --scope user --env ELECTRON_RUN_AS_NODE=1 ipreader -- /Applications/IPReader.app/Contents/MacOS/IPReader /Applications/IPReader.app/Contents/Resources/mcp/server.mjs
+# 备份：<HOME>/.claude.json
+# 等价落盘：<HOME>/.claude.json
+----
+{
+  "numStartups": 3,
+  "mcpServers": {
+    "memory": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "server-memory"
+      ]
+    },
+    "ipreader": {
+      "type": "stdio",
+      "command": "/Applications/IPReader.app/Contents/MacOS/IPReader",
+      "args": [
+        "/Applications/IPReader.app/Contents/Resources/mcp/server.mjs"
+      ],
+      "env": {
+        "ELECTRON_RUN_AS_NODE": "1"
+      }
+    }
+  },
+  "projects": {
+    "<PROJECT>": {
+      "mcpServers": {}
+    }
+  }
+}

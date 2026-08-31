@@ -1,0 +1,19 @@
+# 目标：zcode
+# 动作：file（新建，changed=true）
+# 落点：<HOME>/.zcode/cli/config.json
+----
+{
+  "mcp": {
+    "servers": {
+      "ipreader": {
+        "command": "/Applications/IPReader.app/Contents/MacOS/IPReader",
+        "args": [
+          "/Applications/IPReader.app/Contents/Resources/mcp/server.mjs"
+        ],
+        "env": {
+          "ELECTRON_RUN_AS_NODE": "1"
+        }
+      }
+    }
+  }
+}

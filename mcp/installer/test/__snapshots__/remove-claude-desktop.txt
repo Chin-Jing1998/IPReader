@@ -1,0 +1,16 @@
+# 目标：claude-desktop
+# 动作：file（读—改—写，changed=true）
+# 落点：<HOME>/Library/Application Support/Claude/claude_desktop_config.json
+----
+{
+  "mcpServers": {
+    "antv-chart": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@antv/mcp-server-chart"
+      ]
+    }
+  },
+  "isHardwareAccelerationDisabled": false
+}

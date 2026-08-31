@@ -1,0 +1,33 @@
+# 目标：claude-code-user
+# 告警：已指定 --no-cli，改为直接读—改—写 ~/.claude.json
+# 动作：file（读—改—写，changed=true）
+# 落点：<HOME>/.claude.json
+----
+{
+  "numStartups": 3,
+  "mcpServers": {
+    "memory": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "server-memory"
+      ]
+    },
+    "ipreader": {
+      "type": "stdio",
+      "command": "/Applications/IPReader.app/Contents/MacOS/IPReader",
+      "args": [
+        "/Applications/IPReader.app/Contents/Resources/mcp/server.mjs"
+      ],
+      "env": {
+        "ELECTRON_RUN_AS_NODE": "1"
+      }
+    }
+  },
+  "projects": {
+    "<PROJECT>": {
+      "mcpServers": {}
+    }
+  }
+}

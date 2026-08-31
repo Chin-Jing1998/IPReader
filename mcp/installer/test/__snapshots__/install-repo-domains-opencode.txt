@@ -1,0 +1,22 @@
+# 目标：opencode
+# 动作：file（读—改—写，changed=true）
+# 落点：<HOME>/.config/opencode/opencode.json
+----
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [],
+  "provider": {},
+  "mcp": {
+    "ipreader": {
+      "type": "local",
+      "command": [
+        "/usr/local/bin/node",
+        "/opt/ipreader/dist/server.mjs"
+      ],
+      "enabled": true,
+      "environment": {
+        "IPREADER_MCP_DOMAINS": "patent-law,examination-guideline"
+      }
+    }
+  }
+}

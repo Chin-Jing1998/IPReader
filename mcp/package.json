@@ -11,7 +11,9 @@
     "build:code": "node scripts/build.mjs",
     "build": "npm run build:data && npm run build:code",
     "start": "node dist/server.mjs",
-    "smoke": "node smoke.mjs"
+    "smoke": "node smoke.mjs",
+    "installer": "node installer/index.mjs",
+    "test:installer": "node installer/test/snapshot.test.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "^2.0.0",

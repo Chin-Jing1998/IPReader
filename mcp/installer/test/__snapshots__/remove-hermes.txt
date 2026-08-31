@@ -1,0 +1,12 @@
+# 目标：hermes
+# 动作：file（读—改—写，changed=true）
+# 落点：<HOME>/.hermes/config.yaml
+----
+model: some-model
+mcp_servers:
+  pandoc:
+    command: uvx
+    args:
+      - mcp-pandoc
+    enabled: true
+custom_providers: []

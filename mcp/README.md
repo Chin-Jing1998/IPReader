@@ -84,6 +84,21 @@ Windows 下应用内副本的路径为 `%LOCALAPPDATA%\Programs\IPReader\IPReade
 
 > 冷启动实测 354 ms（含解压数据包、建立检索索引与协议握手；节点 7706、书目 76/76，2026-08-30 阶段5.11 波O 书目下线后实测），仍远低于各客户端的默认启动超时。若客户端的超时设置低于 5 秒，建议按上文示例显式放宽。
 
+### 多端安装器
+
+不想逐家手填配置的话，用仓库内的安装器：
+
+```bash
+cd <仓库路径>/patent-kb/mcp
+node installer/index.mjs list                          # 探测各 agent 在位与当前配置状态
+node installer/index.mjs install --agent claude-desktop # 默认只演练，打印落点与将写入的差异
+node installer/index.mjs install --agent claude-desktop --write   # 确认后落盘
+```
+
+覆盖七个目标：Claude Code 的 user 与 project 两个作用域、Claude Desktop、Hermes Agent、ZCode、MiMo Code、OpenCode。写入一律读—改—写并留时间戳备份，重复运行不产生重复条目。
+
+其余十二家（Codex CLI、Cursor、VS Code Copilot、Zed、Cline、Windsurf、Kimi Code、iFlow、Qwen Code、Antigravity、OpenClaw、MiniMax Code）的现成配置片段，以及作用域选择指引，见 [docs/MCP-安装指南.md](docs/MCP-安装指南.md)。
+
 ## 内容范围开关
 
 默认开放全部 76 部书。通过环境变量 `IPREADER_MCP_DOMAINS` 可按书目收窄，逗号分隔：

@@ -1,0 +1,20 @@
+# 目标：mimo
+# 动作：file（新建，changed=true）
+# 落点：<HOME>/.config/mimocode/mimocode.jsonc
+----
+{
+  "$schema": "https://mimo.xiaomi.com/mimocode/config.json",
+  "mcp": {
+    "ipreader": {
+      "type": "local",
+      "command": [
+        "/Applications/IPReader.app/Contents/MacOS/IPReader",
+        "/Applications/IPReader.app/Contents/Resources/mcp/server.mjs"
+      ],
+      "enabled": true,
+      "environment": {
+        "ELECTRON_RUN_AS_NODE": "1"
+      }
+    }
+  }
+}

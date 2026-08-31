@@ -1,0 +1,16 @@
+# 目标：claude-code-project
+# 动作：file（新建，changed=true）
+# 落点：<PROJECT>/.mcp.json
+----
+{
+  "mcpServers": {
+    "ipreader": {
+      "type": "stdio",
+      "command": "/usr/local/bin/node",
+      "args": [
+        "/opt/ipreader/dist/server.mjs"
+      ],
+      "env": {}
+    }
+  }
+}
