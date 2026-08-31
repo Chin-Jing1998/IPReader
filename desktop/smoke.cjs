@@ -151,6 +151,17 @@
 // 本文件**一字未改**：5.12 那批本就没有 data-fullscreen 相关断言，步 14/15 的
 // 「--titlebar-h 38px / body padding-top 38px」逐字断言跑在非全屏窗口上、当时恒真。
 // 撤销后条带在全屏与否下一律 38px 常显，那两条断言的适用面反而由「非全屏」扩到全部。
+//
+// 阶段5.14 施工② 新增步 36「标题条显示正在阅览的正文目录」、总步数 35 → 36，排在
+// 步 35 之后、离线报告之前——本步要三次 loadURL 换页，放中段会污染前面各步的截图基线。
+// 条带内容由恒定应用名改为当前页在目录树中的祖先链，取材 SSR 期的 ctx.trie、与正文
+// 上方 Breadcrumbs 同一事实源。五子项：a 深层页四段链（书 › 章 › 节 › 当前页，
+// root/mid/leaf 三档 class 齐全、末段未被截断）、b SPA 点「下一节」后末段更新而书名
+// 不动、c 图谱总览页退化为单段且无分隔符、d 首页回落应用名（面包屑一枚不出）、
+// e 三档色分别等于 --darkgray／--gray／--gray 的当前解析值且末段字重 500。
+// b 段刻意不等任何脚本回调——跟随是结构性的（条带在 <body> 内，随 micromorph 换新），
+// 若哪天被改成运行时拼串，b 段会因 morph 与回调之间那一帧旧值而变红，正是该改动应触发的护栏。
+// 总超时仍为 660s：本步三次 loadURL 加一次 SPA 点击，本机实测净增约 7s。
 const {
   app,
   BrowserWindow,
@@ -3865,6 +3876,140 @@ async function main() {
       `d 持久化回归：全收点击=${d35Clicks} 次后硬重开同页 → 展开=${s35d ? s35d.open : "-"}（须 ===祖先链 ${s35d ? s35d.ancestorCount : "-"} 且 >0）, 收起钮 disabled=${s35d ? s35d.collapseDisabled : "-"}／aria=${s35d ? s35d.collapseAria : "-"}（须 false）; ` +
       `e 手动收顶层：顶层文件夹组=${s35e ? s35e.tops.length : "-"}（须 2＝CN 与 9-关键词索引；0-图谱总览 已降级为文档行）, 收前展开顶层=${s35e ? s35e.topOpenBefore : "-"}→收后=${s35e ? s35e.topOpenAfter : "-"}（须 0）, 全树仍展开=${s35e ? s35e.open : "-"}（须 >0）, 收起钮 disabled=${s35e ? s35e.collapseDisabled : "-"}（须 false）; ` +
       `f 收尾：fileTree-v2 复位=${s35f ? s35f.treeRestored : "-"}（长度 ${s35f ? s35f.len : "-"}）, 快照键复位=${s35f ? s35f.snapRestored : "-"}（现长度 ${s35f ? s35f.snapNow : "-"}）`,
+  );
+
+  // 36. 标题条显示「正在阅览的正文目录」（阶段5.14 施工②）
+  //     条带内容由恒定的应用名改为当前页在目录树中的祖先链（书名 › 章 › 节 › 当前页标题）。
+  //     取材于 SSR 期的 ctx.trie，与正文上方 Breadcrumbs 同一事实源；条带位于
+  //     afterBody（在 <body> 内），SPA 导航时随 micromorph 一并换新，故本步刻意
+  //     **不去等任何脚本回调**——若哪天有人把它改成运行时 JS 拼字符串，b 段的
+  //     「SPA 切页后立刻读到新值」会因那一帧旧值而变红，正是该改动应触发的护栏。
+  //     深层页选 03-01-06-01：全库最深一档（书/章/节/页 四级），链恰 4 段 3 分隔符，
+  //     是唯一能同时验到 root / mid / leaf 三档样式的形态。
+  const DEEP_PAGE =
+    "3-专利审查指南/3-进入国家阶段的国际申请的审查/1-进入国家阶段的国际申请的初步审查和事务处理/03-01-06-01";
+  // 面包屑取数：逐段读 class / 文本 / 计算色 / 是否被截断
+  const READ_CRUMBS = `(() => {
+       ${PARSE_COLOR_FN}
+       const bar = document.querySelector('.kb-titlebar');
+       const box = document.querySelector('.kb-titlebar-text');
+       const app = document.querySelector('.kb-titlebar-app');
+       const crumbs = Array.from(document.querySelectorAll('.kb-crumb'));
+       const seps = Array.from(document.querySelectorAll('.kb-crumb-sep'));
+       const root = document.querySelector('.kb-crumb-root');
+       const leaf = document.querySelector('.kb-crumb-leaf');
+       const cs = (el) => (el ? getComputedStyle(el) : null);
+       const rootStyle = getComputedStyle(document.documentElement);
+       const tok = (n) => parseColor(rootStyle.getPropertyValue(n).trim());
+       const same = (a, b) => !!a && !!b && a.r === b.r && a.g === b.g && a.b === b.b;
+       const leafCs = cs(leaf);
+       const rootCs = cs(root);
+       const sepCs = cs(seps[0]);
+       return {
+         barDisplay: bar ? cs(bar).display : null,
+         barHeight: bar ? cs(bar).height : null,
+         appPresent: !!app,
+         appText: app ? app.textContent : null,
+         n: crumbs.length,
+         nSep: seps.length,
+         texts: crumbs.map((c) => c.textContent),
+         classes: crumbs.map((c) => c.className),
+         sepTexts: seps.map((s) => s.textContent),
+         rootText: root ? root.textContent : null,
+         leafText: leaf ? leaf.textContent : null,
+         leafWeight: leafCs ? leafCs.fontWeight : null,
+         // 「当前页标题最后才让位」：leaf 在本窗宽下须完整可见（未被 ellipsis 截）
+         leafClipped: leaf ? leaf.scrollWidth > leaf.clientWidth + 1 : null,
+         boxOverflow: box ? box.scrollWidth > box.clientWidth + 1 : null,
+         // 「字体和颜色适应主题」：三档色一律取主题 token，不得是硬编码
+         leafIsDarkgray: same(parseColor(leafCs ? leafCs.color : null), tok('--darkgray')),
+         rootIsGray: same(parseColor(rootCs ? rootCs.color : null), tok('--gray')),
+         sepIsGray: sepCs ? same(parseColor(sepCs.color), tok('--gray')) : null,
+         leafColor: leafCs ? leafCs.color : null,
+         rootColor: rootCs ? rootCs.color : null,
+         tokDark: rootStyle.getPropertyValue('--darkgray').trim(),
+         tokGray: rootStyle.getPropertyValue('--gray').trim(),
+         fontSize: bar ? cs(bar).fontSize : null,
+       };
+     })()`;
+
+  // a. 深层文档页硬跳转：链为 4 段（书 › 章 › 节 › 当前页），首段书名、末段当前节标题
+  await win.loadURL(`${base}/${encodeURI(DEEP_PAGE)}`);
+  await sleep(900);
+  const s36a = await win.webContents.executeJavaScript(READ_CRUMBS);
+  const a36Ok =
+    !!s36a &&
+    s36a.barDisplay === "flex" &&
+    s36a.barHeight === "38px" &&
+    s36a.n === 4 &&
+    s36a.nSep === 3 &&
+    s36a.appPresent === false &&
+    s36a.rootText === "专利审查指南（2025年发布）" &&
+    s36a.leafText === "6.1 何时公布" &&
+    s36a.classes[0].includes("kb-crumb-root") &&
+    s36a.classes[1].includes("kb-crumb-mid") &&
+    s36a.classes[2].includes("kb-crumb-mid") &&
+    s36a.classes[3].includes("kb-crumb-leaf") &&
+    s36a.leafClipped === false;
+  await shot(win, "标题条面包屑-深层文档页");
+
+  // b. SPA 切页：点「下一节」软导航到同章的相邻页，链末段随之更新、书名不动。
+  //    这一项守的是「跟随是结构性的」——micromorph 形变 body 时把条带一并换新。
+  await win.webContents.executeJavaScript(
+    `document.querySelector('.page-nav-item.next').click()`,
+  );
+  await sleep(900);
+  const s36b = await win.webContents.executeJavaScript(READ_CRUMBS);
+  const b36Path = await currentPath(win);
+  const b36Ok =
+    !!s36b &&
+    b36Path.endsWith("03-01-06-02") &&
+    s36b.n === 4 &&
+    s36b.leafText === "6.2 公布形式" &&
+    s36b.leafText !== s36a.leafText &&
+    s36b.rootText === s36a.rootText;
+
+  // c. 图谱总览页：非正文页显示页面名本身，链退化为单段且按 leaf 处理、无分隔符
+  await win.loadURL(base + encodeURI("/0-图谱总览/"));
+  await sleep(900);
+  const s36c = await win.webContents.executeJavaScript(READ_CRUMBS);
+  const c36Ok =
+    !!s36c &&
+    s36c.n === 1 &&
+    s36c.nSep === 0 &&
+    s36c.leafText === "图谱总览" &&
+    s36c.appPresent === false &&
+    s36c.classes[0].includes("kb-crumb-leaf");
+  await shot(win, "标题条面包屑-图谱总览页");
+
+  // d. 首页：祖先链摘掉根节点后为空，回落应用名（面包屑元素一枚不出）
+  await win.loadURL(`${base}/`);
+  await sleep(700);
+  const s36d = await win.webContents.executeJavaScript(READ_CRUMBS);
+  const d36Ok =
+    !!s36d && s36d.n === 0 && s36d.appPresent === true && s36d.appText === "IPReader";
+
+  // e. 配色随主题 token（用户原话「字体和颜色适应主题」）：三档色分别等于
+  //    --darkgray / --gray / --gray 的当前解析值，硬编码色值会立刻变红。
+  //    比对在 a 段那一页取的样本上做——那页三档齐全。
+  const e36Ok =
+    !!s36a &&
+    s36a.leafIsDarkgray === true &&
+    s36a.rootIsGray === true &&
+    s36a.sepIsGray === true &&
+    s36a.leafWeight === "500";
+
+  record(
+    "标题条显示正在阅览的正文目录（深层页四段链 + SPA 切页随动 + 图谱页单段 + 首页回落应用名 + 三档色取主题 token）",
+    a36Ok && b36Ok && c36Ok && d36Ok && e36Ok,
+    `a 深层页：条带=${s36a ? s36a.barDisplay + "/" + s36a.barHeight : "-"}, 段数=${s36a ? s36a.n : "-"}（须 4）／分隔符=${s36a ? s36a.nSep : "-"}（须 3，形如「${s36a ? s36a.sepTexts.join("") : "-"}」）, ` +
+      `链=${s36a ? JSON.stringify(s36a.texts) : "-"}, 末段未被截断=${s36a ? !s36a.leafClipped : "-"}, 整条溢出=${s36a ? s36a.boxOverflow : "-"}; ` +
+      `b SPA 切页：落地 ${b36Path}, 末段 ${s36a ? s36a.leafText : "-"} → ${s36b ? s36b.leafText : "-"}（须变且书名不变=${s36b && s36a ? s36b.rootText === s36a.rootText : "-"}）, 段数=${s36b ? s36b.n : "-"}; ` +
+      `c 图谱页：段数=${s36c ? s36c.n : "-"}（须 1）／分隔符=${s36c ? s36c.nSep : "-"}（须 0）, 文本=${s36c ? s36c.leafText : "-"}, class=${s36c ? s36c.classes[0] : "-"}; ` +
+      `d 首页：面包屑段数=${s36d ? s36d.n : "-"}（须 0）, 应用名=${s36d ? s36d.appText : "-"}; ` +
+      `e 配色：末段 ${s36a ? s36a.leafColor : "-"} ≟ --darkgray ${s36a ? s36a.tokDark : "-"} → ${s36a ? s36a.leafIsDarkgray : "-"}, ` +
+      `书名 ${s36a ? s36a.rootColor : "-"} ≟ --gray ${s36a ? s36a.tokGray : "-"} → ${s36a ? s36a.rootIsGray : "-"}, 分隔符≟--gray → ${s36a ? s36a.sepIsGray : "-"}, ` +
+      `末段字重=${s36a ? s36a.leafWeight : "-"}（须 500）, 条带字号=${s36a ? s36a.fontSize : "-"}`,
   );
 
   // —— 离线报告 ——
