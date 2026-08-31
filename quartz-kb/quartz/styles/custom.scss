@@ -1701,22 +1701,14 @@ html[data-desktop] {
   }
 }
 
-// —— 原生全屏：条带收起（阶段5.12 P6）——
-// (0,2,1) 高于上方 (0,1,1)，胜出与书写顺序无关。全屏下 macOS 已隐去红绿灯，
-// 条带上除居中的应用名外只剩两侧 88px 的空护栏，占着 38px 却不再承担任何职能；
-// 收回后正文、侧栏、遮罩、进度条与图谱画布**六个消费点一步同步**吃回这段高度——
-// 这正是把高度提成单一 token 的用处，无须逐处改写。
-// data-fullscreen 由 settings.inline.ts 经 preload 的 onFullScreenChange 落在 <html>；
-// 浏览器产物、非 macOS 桌面端与旧壳上该属性恒不存在，本规则恒不命中。
-// ⚠️ smoke 步 14/15 的「titlebar 38px / body padding-top 38px」逐字断言不受影响：
-// 那两步跑在普通非全屏窗口上（smoke 全程无 setFullScreen/setSize/setBounds 调用），
-// 属性恒不存在，--titlebar-h 仍解析为 38px。日后若要为全屏态补断言，应新增独立
-// 步骤而非改写那两步。
-html[data-desktop][data-fullscreen] {
-  @media all and not ($mobile) {
-    --titlebar-h: 0px;
-  }
-}
+// 阶段5.14 施工①：5.12 P6「原生全屏收起条带」整套回退（用户验收裁决——
+// 全屏是最需要知道「正在读哪一节」的场景，此时抹掉条带恰好抹掉了唯一的位置线索）。
+// 随之拆净的还有主进程 enter/leave-full-screen 监听、preload 的 onFullScreenChange
+// 与渲染层的 html[data-fullscreen]——该属性此前只有此处与 titlebar.scss 两个消费点，
+// 回退后无人再读，按死代码纪律整链移除而非留着空转。故 --titlebar-h 在桌面端
+// 恒为 38px，全屏与否一视同仁，条带常显。
+// explorer.inline.ts 的 mobile-no-scroll 残留修复不在回退范围内：它挂在
+// window.resize 上、与该 IPC 通道无任何依赖，独立成立，原样保留。
 
 // —— 配色方案声明（v11，段③）——
 // 此前全站 0 声明 color-scheme，UA 默认按浅色绘制原生件：暗态下 overscroll

@@ -145,6 +145,12 @@
 //   33-e 目录抽屉未置灰组的期望集合按新组表重算（商标 5 组、并选 16 组）。
 // 组号常量都写死在本文件而不从组表派生：smoke 是 CJS、不能 import .ts，两侧靠
 // quartz/util/graphSections.test.ts 的同值断言互相钉住（那边改了这边跑不过）。
+//
+// 阶段5.14 施工① 撤销 5.12 P6 的全屏隐藏（主进程 enter/leave-full-screen 监听、
+// preload 的 onFullScreenChange、html[data-fullscreen] 与两处 CSS 规则整链拆净），
+// 本文件**一字未改**：5.12 那批本就没有 data-fullscreen 相关断言，步 14/15 的
+// 「--titlebar-h 38px / body padding-top 38px」逐字断言跑在非全屏窗口上、当时恒真。
+// 撤销后条带在全屏与否下一律 38px 常显，那两条断言的适用面反而由「非全屏」扩到全部。
 const {
   app,
   BrowserWindow,

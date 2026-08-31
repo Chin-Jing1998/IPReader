@@ -43,15 +43,6 @@ html[data-desktop] {
       letter-spacing: 0.06em;
     }
 
-    // 原生全屏（阶段5.12 P6）：条带整条撤出。
-    // 只把 --titlebar-h 收到 0 是不够的——那样条带仍在渲染树里，成为一条 0 高
-    // 却仍捕获 -webkit-app-region: drag 的隐形条，压在页顶控件之上。
-    // 全屏下 macOS 已隐去红绿灯，本规则连带取消上面为它们留的 88px 护栏，
-    // 无残留。属性由 settings.inline.ts 落在 <html>，见 custom.scss 第十三节。
-    &[data-fullscreen] .kb-titlebar {
-      display: none;
-    }
-
     // flex 项默认 min-width: auto，超长标题会撑破上面的 padding 护栏；
     // 归零后配合截断，文本无论多长都止步于红绿灯之前。
     .kb-titlebar-text {
