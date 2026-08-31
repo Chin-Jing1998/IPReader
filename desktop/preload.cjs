@@ -32,4 +32,14 @@ contextBridge.exposeInMainWorld('desktop', {
   // 故由主进程给出）；copyText 把拼好的配置命令送进系统剪贴板。
   getMcpInfo: () => ipcRenderer.invoke('mcp-get-info'),
   copyText: (text) => ipcRenderer.invoke('copy-text', text),
+  // 原生全屏态订阅（阶段5.12 P6）：本 preload 首个**主→渲染**方向的通道
+  //（其余七项皆为渲染→主的 send / invoke）。仍不透出 ipcRenderer 本体，只给
+  // 回调形态与一枚退订函数，符合既有的最小暴露面纪律。
+  // 渲染层拿到的是布尔真值（全屏中 = true），据此落 html[data-fullscreen]。
+  // 旧壳上本项为 undefined，渲染层据此降级为「永不全屏」，行为与改造前逐字一致。
+  onFullScreenChange: (cb) => {
+    const handler = (_e, on) => cb(!!on);
+    ipcRenderer.on('window-fullscreen', handler);
+    return () => ipcRenderer.off('window-fullscreen', handler);
+  },
 });

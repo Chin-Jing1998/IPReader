@@ -138,6 +138,12 @@ const STATUS_AUTO_CLEAR_MS = 4000
 // 设置页连点主题卡会连发 themechange，专页全量图重建代价高，只重建最后一次
 const THEME_CHANGE_DEBOUNCE_MS = 120
 
+// 窗口 resize 后重新整图入框的尾防抖窗口（阶段5.12 P2②）。
+// 拖拽窗口边框连发数十次 resize，逐次入框互相打断；250ms 是「已经停手」的稳妥判据
+//（macOS 全屏/最大化动画约 500ms 内不派发中间尺寸，故不会误触）。
+// ⚠️ 只作用于 window.resize 一条源；容器 ResizeObserver 那条仍是零防抖的就地同步。
+const WINDOW_RESIZE_FIT_DEBOUNCE_MS = 250
+
 // ---------- 骨架段控的规模文案（阶段5.3 批 B2：动态派生，根治滞后） ----------
 // 「N 个细分组（M 部文献）」一律从 SECTION_GROUPS 运行期派生：
 // N = tier === "ext" 的组数，M = 这些组 prefixes 长度合计。
@@ -2111,7 +2117,27 @@ document.addEventListener("nav", async () => {
   // 保留 120ms 防抖与 crossfade，那才是它的原始用例：颜色整体换档、不改几何、无位移）；
   // ② 术语层 hidden↔其它（改数据集构成，重建在 graph.inline.ts 内部完成）。
   // 另有两处兜底调用方：selectNode 定位未命中、onReset 在 controller 缺失时回落。
-  const onResize = () => controller?.syncSize()
+  // 阶段5.12 P2②：窗口外框变化在就地同步之外，另加一次**尾防抖重新入框**。
+  //
+  // 两条源自此分道，边界必须守住：
+  //   · window.resize（本分支）＝取景框整体换了大小 → 每次事件先 syncSize 保证画面
+  //     零位移不闪，拖拽停手 250ms 后再 fitAfterResize 一次，把因左上锚定而堆在
+  //     下方/右侧的大片空白收掉（1680×1050 实测下边距 183.5 → 约 12）；
+  //   · 容器 ResizeObserver（下方分支）＝页内布局变化（右栏显隐、图例折行、法域切换）
+  //     → **只走 syncSize**，相机守恒才是那些场景的正确语义（阶段5.10 波A-R2 的核心
+  //     承诺，smoke 步 32-e 的相机守恒断言正是由右栏显现触发）。**不得在此处合并两条源。**
+  //
+  // 250ms 尾防抖：拖拽窗口边框会连发数十次 resize，逐次入框既浪费又打架。
+  // 是否真的入框由渲染层的三道门自行裁定（局部图 / 用户调过相机 / 有选中或 focus 时不动）。
+  let fitResizeTimer: ReturnType<typeof setTimeout> | undefined
+  const onResize = () => {
+    controller?.syncSize()
+    clearTimeout(fitResizeTimer)
+    fitResizeTimer = setTimeout(() => {
+      if (disposed) return
+      controller?.fitAfterResize()
+    }, WINDOW_RESIZE_FIT_DEBOUNCE_MS)
+  }
   window.addEventListener("resize", onResize)
 
   // 容器尺寸观察（阶段5.10 波A-R2 改造）：回调只做一件事——把「容器变了」这一事件
@@ -2164,6 +2190,9 @@ document.addEventListener("nav", async () => {
     clearTimeout(themeChangeTimer)
     // 阶段5.4：未决的状态条自动清空定时器一并撤销，理由同上
     clearTimeout(statusAutoClearTimer)
+    // 阶段5.12 P2②：未决的 resize 尾防抖同样撤销——导航后触发会往已销毁的
+    // controller 上排一次入框（其内部虽有 destroyed 短路，但定时器本身不该留）
+    clearTimeout(fitResizeTimer)
     explorer.removeEventListener("graphnodeselect", onNodeSelect)
     searchInput?.removeEventListener("keydown", onSearchKey)
     searchBtn?.removeEventListener("click", onSearchClick)

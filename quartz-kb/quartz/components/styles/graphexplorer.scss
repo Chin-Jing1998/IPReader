@@ -424,12 +424,40 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
       }
 
       // 文种子段标题（波L）：第二层，取 DOCTYPE_SHORT 的 2 字简称（法律/法规/规章/司解/指引）。
-      // 比组钮更淡更小，读起来是「标题 → 其后若干枚钮」的从属关系，而非又一枚可点项。
+      //
+      // 阶段5.12 P4 定案：原为 0.72rem(11.52px) / 400 / --gray，「比组钮更淡更小」
+      // 的旧意图与信息层级相悖——标题的视觉权重反而低于它所统领的组钮
+      //（0.78rem / 400 / --darkgray），读者第一解读是「这项被禁用了」而非「这是分组名」，
+      // 且与既有禁用态语言（.ge-legend-item.hidden 的 opacity .38 + 删除线）撞车。
+      // 实测渲染对比度浅色 3.14:1、暗色 2.79:1，双双低于 WCAG AA 小字线 4.5:1。
+      //
+      // 现改为 0.75rem(12px) / 500 / --darkgray：**字重**承担层级、色彩不再倒挂，
+      // 实测对比度升至浅色 5.45:1、暗色 5.40:1（与组钮同档，均过 AA）；从属关系
+      // 另由右侧一条发丝竖线以**形态**表达，不再依赖明度差。
       .ge-legend-doctype {
-        font-size: 0.72rem;
-        color: var(--gray);
+        // 本身即 flex item（父 .ge-legend 是 flex 容器），inline-flex 会被 blockify 为
+        // flex；此处显式声明是为让下方 ::after 竖线与文字基线居中对齐。
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: var(--darkgray);
         white-space: nowrap;
         flex-shrink: 0;
+
+        // 从属分隔发丝线：形制同 .ge-legend-sep（1px / --lightgray），读作
+        //「法规 ▏其后若干枚钮」。高度取 0.8rem，略短于段分隔线的 0.9rem——
+        // 段分隔切法域边界、本条切文种边界，低一档才不与之混同。
+        // ::after 是伪元素，**不改元素数与 hidden 分布**：smoke 步 28 的
+        // DOCTYPE_HEAD_TOTAL=2 与 docHeads / docHeadsShown 计数逐值不变。
+        &::after {
+          content: "";
+          width: 1px;
+          height: 0.8rem;
+          background: var(--lightgray);
+          flex-shrink: 0;
+        }
       }
 
       // ⚠️ 两类新标题必须显式 display:none，理由与上方 .ge-legend-item[hidden] 同：
@@ -591,7 +619,8 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
     // 画布左上角的浮动抽屉：收起时只是一枚「目录」悬浮钮，展开后是
     // 「法域 → 书 → 章 → 节」三层树。外壳复用 .ge-panel 的玻璃配方
     //（--glass-* 一律带回退值），悬浮钮取 .graph-truncation-note 的形制
-    //（半透明静态色 + blur + 发丝描边 + 6px 圆角），暗色主题另设覆盖块。
+    //（玻璃底色 + blur + 发丝描边 + 6px 圆角）。阶段5.12 P5 起两者的底色一并
+    // 改走 --glass-bg / --glass-bg-solid，随主题自动切换，不再需要暗色覆盖块。
     // 刻意不引 --graph-section-* 域色：目录是导航层，不承担域配色语义
     //（与法域标签行同一条纪律）。
     .ge-toc {
@@ -622,8 +651,15 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
         font-size: 0.72rem;
         line-height: 1.5;
         color: var(--darkgray);
-        // 浅色 --light（#faf8f8）78% 透明的等效静态色（F12：不用颜色混合函数）
-        background-color: rgba(250, 248, 248, 0.78);
+        // 阶段5.12 P5：原为 rgba(250,248,248,.78)，即「上游 Quartz 默认 --light
+        //（#faf8f8）78% 透明」的等效静态色。本库六套主题一律改过 --light（宣纸浅色
+        // #feefe5、宣纸暗色 #201c16 …），该静态色所依据的前提早已不成立，色值随之
+        // 与所有主题错位：实测浅色档钮底 [250,247,245] 对相邻画布 [254,239,229]
+        // 蓝通道高出 16（偏冷偏白），暗色档钮底近中性灰而周围是暖褐，色相方向相反。
+        // 同元素的 border-color(--lightgray) 与 color(--darkgray) 本就走变量，
+        // 唯独底色掉队。现取 --glass-bg，与同页 .ge-toolbar / .ge-toc-drawer 同源，
+        // 六套主题 × 明暗自动跟随，文件末尾原有的深色覆盖块随之删除。
+        background-color: var(--glass-bg, rgba(255, 241, 232, 0.78));
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
         border: 1px solid var(--lightgray);
@@ -635,7 +671,9 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
 
         &:hover {
           color: var(--dark);
-          background-color: rgba(250, 248, 248, 0.95);
+          // 原 0.95 档同为上游 --light 的等效静态色；改取本主题的玻璃实底色，
+          // 语义仍是「静态半透明 → 悬停加重」，且不再引入任何硬编码色值。
+          background-color: var(--glass-bg-solid, #fff1e8);
         }
 
         // 展开态：与抽屉同色调，视觉上连成一体
@@ -1226,14 +1264,24 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
   }
 
   // ---------- 平板/窄屏：画布在上、面板限高在下，各自内滚 ----------
+  //
+  // 阶段5.12 P2① 修：本块原有首行 `height: auto`（意在让 .graph-explorer 随内容收缩）
+  // 特异性仅 (0,1,0)，被 custom.scss 消费点⑥ 的
+  // `body[data-slug="0-图谱总览/index"] .graph-explorer`(0,2,1) 压过，是**死代码**，
+  // 已连同下方画布的固定高度一并处理，不再留一条永不生效的声明误导后续维护。
   @media all and not ($desktop) {
-    height: auto;
-
     .ge-body {
       .ge-canvas {
-        height: 55vh;
+        // 原为 `height: 55vh; min-height: 18rem; flex: none`。父 .ge-body 是
+        // flex:1 吃满 .graph-explorer 全高的容器（其高度由上述消费点⑥ 钉死为
+        // calc(100vh - 2*--kb-panel-inset - --titlebar-h)，绝不随内容收缩），
+        // 画布再钉死 55vh 便与容器高度对不上：右栏面板未展开时无人填充其下方，
+        // 留下一条与画布近同色的纯空洞——1100×720 实测 .ge-body 459.7px、
+        // 画布 398px，空洞 61.7px，正是用户反馈的「图谱下部多出一条空白」。
+        // 现回到 flex 分配：面板未展开时画布吃满 .ge-body（空洞归零，同档画布
+        // 398 → 459.7px），面板展开时按 min-height 保底收缩、其余让给面板。
+        flex: 1 1 auto;
         min-height: 18rem;
-        flex: none;
       }
 
       .ge-panel {
@@ -1242,7 +1290,8 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
         border-radius: 10px 10px 0 0;
       }
 
-      // 窄屏画布只有 55vh，抽屉限高随之收到 44vh，避免展开后盖满整张画布
+      // 窄屏画布高度有限（阶段5.12 P2① 前为固定 55vh，现由 flex 分配、约 55–64vh），
+      // 抽屉限高收到 44vh，避免展开后盖满整张画布
       .ge-toc .ge-toc-drawer {
         max-height: 44vh;
       }
@@ -1250,17 +1299,10 @@ $fontFang: "STFangsong", "FangSong", "FangSong_GB2312", "Noto Serif CJK SC", ser
   }
 }
 
-// 目录抽屉悬浮钮的深色对应静态色（波B-B3）。抽屉本体与抽屉头走 --glass-*
-// 主题变量，随明暗自动切换、无须覆盖；唯独悬浮钮为与图内截断徽标
-// （graph.scss 的 .graph-truncation-note）保持同一形制，用的是等效静态色，
-// 故与那里同样补一块深色覆盖（--light 在深色主题下为 #161618）。
-:root[saved-theme="dark"] .graph-explorer .ge-toc .ge-toc-toggle {
-  background-color: rgba(22, 22, 24, 0.78);
-
-  &:hover {
-    background-color: rgba(22, 22, 24, 0.95);
-  }
-}
+// （原「目录抽屉悬浮钮的深色对应静态色」覆盖块已随阶段5.12 P5 删除：悬浮钮底色
+//   改取 --glass-bg / --glass-bg-solid 后本就随 saved-theme 切换，静态深色覆盖
+//   反而会把主题色压回上游默认灰。图内截断徽标 .graph-truncation-note 同批同法
+//   处理，两者「同一形制」的承诺保持不变。）
 
 // 波C-b 深色覆盖：勾选行的底色与对勾颜色。
 // 选中行本体走 --highlight（深色主题下即为深色高亮），仅两处需要显式补：

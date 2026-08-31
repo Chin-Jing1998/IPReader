@@ -731,6 +731,13 @@ export interface GraphController {
    * 容器显隐右栏、法域标签折行等一切改尺寸的场景一律走它，不再重建。
    */
   syncSize(): boolean
+  /**
+   * **窗口外框**尺寸变化后重新整图入框（阶段5.12 P2②）；不清 focus、不动选中态。
+   * 仅供 window.resize 的尾防抖调用——容器路径（ResizeObserver：右栏显隐、图例折行）
+   * 必须继续走 syncSize 的相机守恒语义，不得改调本方法。
+   * 局部图、用户已手动调过相机、或存在 focus/选中锚点时一律不动并返回 false。
+   */
+  fitAfterResize(): boolean
   /** 回到 zoomToFit 全景视图并清除 focus 高亮，不销毁实例 */
   resetView(): void
   /** 销毁渲染实例（停帧、停力导、销毁 PixiJS Application） */
@@ -769,6 +776,8 @@ type GraphInstance = {
   applyTransform(saved: SavedTransform): void
   /** 容器尺寸就地同步（阶段5.10 波A-R2）：不重建实例，返回是否真的改了尺寸 */
   syncSize(): boolean
+  /** 窗口外框变化后重新整图入框（阶段5.12 P2②）；三道门任一不过即不动并返回 false */
+  fitViewOnResize(): boolean
   resetView(): void
   destroy(): void
 }
@@ -2635,6 +2644,10 @@ async function createGraphInstance(
   // zoomToFit / focus / resetView 都要经 zoomBehavior.transform 应用变换，
   // 保持 d3 内部缩放状态与舞台同步，故保留 behavior 引用
   let zoomBehavior: ZoomBehavior<HTMLCanvasElement, NodeData> | null = null
+  // 用户是否亲手动过相机（阶段5.12 P2②）：由 zoom 处理器按 sourceEvent 非空置位，
+  // 程序化变换（zoomToFit / focusNode / resetView / syncSize 的锚定补偿）恒不置位。
+  // 唯一消费方是 fitViewOnResize——动过就不再因窗口尺寸变化把视角拉回全景。
+  let cameraUserAdjusted = false
   // depth:-1 全量图放宽最小缩放，zoomToFit 大图时才能整图入框
   const scaleExtentRange: [number, number] = fullGraph ? [0.05, 4] : [0.25, 4]
 
@@ -2656,6 +2669,9 @@ async function createGraphInstance(
         // 有逐帧预算兜底即可，冻结它反而让「拖到哪、标签才到哪」变成松手才出。
         const src = sourceEvent?.type
         zoomFreezeLabels = src === undefined || src === "wheel"
+        // 阶段5.12 P2②：带 sourceEvent 即「用户亲手调过视角」（滚轮/触控板捏合/拖拽平移），
+        // 此后窗口尺寸变化不再自动重新入框，免得把用户看了半天的局部视角强行拉回全景。
+        if (src !== undefined) cameraUserAdjusted = true
         // 冻结兜底：万一 d3 的 end 事件没来（gesture 被打断），到点强制解冻并补齐
         clearTimeout(zoomFreezeTimer)
         zoomFreezeTimer = setTimeout(releaseZoomFreeze, ZOOM_FREEZE_WATCHDOG_MS)
@@ -2816,6 +2832,35 @@ async function createGraphInstance(
       sel.call(zoomBehavior.transform, t)
     }
     markDirty()
+  }
+
+  /**
+   * 窗口外框尺寸变化后的重新入框（阶段5.12 P2②）。
+   *
+   * 病灶：syncSize 的相机补偿是**左上锚定**——画布变高 dh 时多出的高度全部落在
+   * 图形下方成为空白，变宽同理落在右侧。1440×900 → 1680×1050 实测下边距 12 → 183.5、
+   * 右边距 217 → 459，即用户反馈的「放大窗口后图谱下部与右侧多出大片空白」。
+   * 就地 resize 对**页内**尺寸变化（右栏显隐、图例折行）是正确语义，对**窗口外框**
+   * 变化则不是：后者是「取景框整体换了大小」，理应重新取景。
+   *
+   * 三道门，全过才 fit，宁可不动也不打扰：
+   *   ① 本实例根本没有自动入框语义（局部图 zoomToFit:false / enableZoom 关）——不动；
+   *   ② 用户亲手调过相机（cameraUserAdjusted）——他要的就是当前视角，不动；
+   *   ③ 存在 focus 高亮或选中锚点——右栏正在读某个知识点，画面锚在它上面，不动。
+   * 第③ 条是「保守优先」的取舍：fit 本身不改选中态，但会把用户正在端详的邻域推走，
+   * 观感等同于丢了焦点。
+   *
+   * 落点**无过渡**（applyFitView(false)）：调用方是 250ms 尾防抖，触发时用户已经松手，
+   * 400ms 动画既无必要，还会与拖拽窗口连发的下一次触发互相打断。
+   *
+   * 返回值仅供调用方与探针判断「本次是否真的重新入框」，不影响任何既有路径。
+   */
+  function fitViewOnResize(): boolean {
+    if (!fitViewEnabled || !enableZoom || zoomBehavior === null) return false
+    if (cameraUserAdjusted) return false
+    if (focusedNodeId !== null || hasSelection()) return false
+    applyFitView(false)
+    return true
   }
 
   let zoomToFitDone = false
@@ -3540,6 +3585,7 @@ async function createGraphInstance(
     getTransform,
     applyTransform,
     syncSize,
+    fitViewOnResize,
     resetView,
     destroy: destroyInstance,
   }
@@ -3690,6 +3736,8 @@ async function renderGraph(
     // 已销毁即返回 false：调用方（RO 回调、setPanelVisible）据此当作「什么也没发生」，
     // 与尺寸未变短路同一语义，无须再各自守 destroyed
     syncSize: () => (destroyed ? false : instance.syncSize()),
+    // 与 syncSize 同一守则：已销毁即当作「什么也没发生」，调用方无须各自守 destroyed
+    fitAfterResize: () => (destroyed ? false : instance.fitViewOnResize()),
     resetView: () => {
       if (!destroyed) instance.resetView()
     },

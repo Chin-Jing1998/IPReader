@@ -2657,10 +2657,26 @@ window.addEventListener("resize", function () {
 
   // Desktop explorer opens by default, and it stays open when the window is resized
   // to mobile screen size. Applies `no-scroll` to <html> in this edge case.
+  //
+  // patent-kb（阶段5.12 P6 连带修）：上游实现在**任何**视口宽度下都无条件加这个类，
+  // 且桌面端没有任何路径会把它摘掉——:2608 的移除分支只在移动端布局下可达，
+  // :1036 要点汉堡钮才走到。于是桌面端窗口尺寸一变（拖边框、最大化、进出全屏）
+  // 该类就永久残留。后果不止 explorer.scss:511 那条被 $mobile 门住的
+  // overscroll-behavior（桌面下本就不命中）：
+  //   · readingAids.scss:87 的 `html.mobile-no-scroll .reading-fab{display:none}`
+  //     **不带媒体查询**——桌面端 resize 一次，右下角回顶钮与阅读进度环就此消失；
+  //   · annotate.inline.ts 的 isBlocked() 与 pageNav.inline.ts 的同名判定都读它，
+  //     残留后选区批注工具条不再弹出、键盘翻页一并被禁。
+  // 现按上游本意补门：仅当视口确实处于移动端布局（汉堡钮 .mobile-explorer 可见，
+  // 与本处理器开头 expandDesktopExplorers 同一判据）且 explorer 未折叠时才加，
+  // 其余情形一律移除，使该类的存续与视口状态始终自洽。
   const explorer = document.querySelector(".explorer")
-  if (explorer && !explorer.classList.contains("collapsed")) {
+  const mobileExplorer = explorer?.querySelector(".mobile-explorer")
+  const mobileLayout = mobileExplorer instanceof HTMLElement && mobileExplorer.checkVisibility()
+  if (explorer !== null && mobileLayout && !explorer.classList.contains("collapsed")) {
     document.documentElement.classList.add("mobile-no-scroll")
-    return
+  } else {
+    document.documentElement.classList.remove("mobile-no-scroll")
   }
 })
 

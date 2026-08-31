@@ -125,6 +125,9 @@ type DesktopBridge = {
   openReleases?: (url?: string) => Promise<boolean>
   getMcpInfo?: () => Promise<McpInfo>
   copyText?: (text: string) => Promise<boolean>
+  // 原生全屏态订阅（阶段5.12 P6，仅新壳）：返回退订函数。旧壳与浏览器环境下为
+  // undefined，可选链自动降级为「永不全屏」，标题条行为与改造前逐字一致。
+  onFullScreenChange?: (cb: (on: boolean) => void) => () => void
 }
 
 type McpInfo = {
@@ -381,6 +384,17 @@ document.getElementById("kb-font-override")?.remove()
   const bridge = desktopBridge()
   if (bridge?.isDesktop && bridge.isMac) {
     document.documentElement.dataset.desktop = "true"
+    // 原生全屏时收起自绘标题条（阶段5.12 P6）。属性同样落在 <html>：与
+    // data-desktop / data-style / saved-theme 同源同层，micromorph 只形变 body，
+    // 故 SPA 导航不会抹掉它，无须在 nav 时重放（与上方 data-desktop 同一纪律）。
+    // 消费方只有一处——custom.scss 第十三节把 --titlebar-h 收到 0，六个布局
+    // 消费点随之同步让回 38px；条带本体另由 titlebar.scss 显式 display:none
+    //（只归零高度会留下一条 0 高却仍捕获 -webkit-app-region:drag 的隐形条）。
+    // 无退订：本块在文档生命周期内只跑一次，订阅与文档同寿；壳侧的
+    // webContents 销毁时通道一并作废。
+    bridge.onFullScreenChange?.((on) => {
+      document.documentElement.toggleAttribute("data-fullscreen", on)
+    })
   }
 }
 

@@ -1632,6 +1632,21 @@ button.toc-header > h3,
   font-weight: 500;
 }
 
+// —— 顶层「图谱总览」行（阶段5.12 P1）——
+// 波M 把该行由文件夹行降级为文档行（无下级即不再画空箭头）后，样式链整体换轨到
+// 上面那条 14px/500 的叶子规则：与同级的「中国」「关键词索引」（15px/600/--secondary）
+// 相比小 1px、色相由暖棕 --secondary 落到中性褐 --nav-fg，观感即「偏小偏灰」。
+// 此处只补字号与色相两项，**字重刻意维持 500**——600 是 .folder-container 表达
+//「可展开、有下级」的形态语义（explorer.scss 的 $semiBoldWeight），本行是无下级的
+// 直达页，保留 500 恰好把「顶层导航项但不可展开」这一形态如实说出。
+// 特异性 (0,2,3) 与 :792 的 `.explorer-content ul li > a.active` 同级、位序在其后，
+// 故激活态同样命中；两者 color 同为 --secondary，无值冲突，激活态的底色与左指示条
+// 照常由那条规则给出。属性选择器精确锁这一行，全库其余文档行零影响。
+.explorer-content ul li > a[data-for="0-图谱总览/index"] {
+  font-size: 0.9375rem; // 15px，与「中国」「关键词索引」齐平
+  color: var(--secondary);
+}
+
 // —— 右栏辅助索引：最轻一档 ——
 ul.toc-content > li > a,
 .backlinks .overflow > li > a {
@@ -1683,6 +1698,23 @@ ul.toc-content > li > a,
 html[data-desktop] {
   @media all and not ($mobile) {
     --titlebar-h: 38px;
+  }
+}
+
+// —— 原生全屏：条带收起（阶段5.12 P6）——
+// (0,2,1) 高于上方 (0,1,1)，胜出与书写顺序无关。全屏下 macOS 已隐去红绿灯，
+// 条带上除居中的应用名外只剩两侧 88px 的空护栏，占着 38px 却不再承担任何职能；
+// 收回后正文、侧栏、遮罩、进度条与图谱画布**六个消费点一步同步**吃回这段高度——
+// 这正是把高度提成单一 token 的用处，无须逐处改写。
+// data-fullscreen 由 settings.inline.ts 经 preload 的 onFullScreenChange 落在 <html>；
+// 浏览器产物、非 macOS 桌面端与旧壳上该属性恒不存在，本规则恒不命中。
+// ⚠️ smoke 步 14/15 的「titlebar 38px / body padding-top 38px」逐字断言不受影响：
+// 那两步跑在普通非全屏窗口上（smoke 全程无 setFullScreen/setSize/setBounds 调用），
+// 属性恒不存在，--titlebar-h 仍解析为 38px。日后若要为全屏态补断言，应新增独立
+// 步骤而非改写那两步。
+html[data-desktop][data-fullscreen] {
+  @media all and not ($mobile) {
+    --titlebar-h: 0px;
   }
 }
 

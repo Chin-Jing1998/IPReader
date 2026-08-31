@@ -169,6 +169,23 @@ async function createWindow() {
   win.setMenuBarVisibility(false);
   win.once('ready-to-show', () => win.show());
 
+  // 全屏态下发（阶段5.12 P6）：渲染层**无法自行感知原生全屏**。Electron 的
+  // setFullScreen 与用户点绿灯钮走的是 macOS 窗口全屏，与 HTML5 Fullscreen API
+  // 是两套机制——document.fullscreenElement、:fullscreen / :-webkit-full-screen
+  // 伪类、matchMedia('(display-mode: fullscreen)') 实测在全屏后全部仍为假值，
+  // 纯 CSS 与纯渲染层方案均不可行，故由主进程告知。
+  // 渲染层（settings.inline.ts）据此落 html[data-fullscreen]，把全站唯一的高度
+  // 事实源 --titlebar-h 收到 0，六个消费点一步同步让出那 38px（custom.scss 第十三节）。
+  const pushFullScreen = () => {
+    if (win.isDestroyed()) return;
+    win.webContents.send('window-fullscreen', win.isFullScreen());
+  };
+  win.on('enter-full-screen', pushFullScreen);
+  win.on('leave-full-screen', pushFullScreen);
+  // 整页重载（崩溃自愈、无响应后的 reload）会把 <html> 上的属性一并丢掉，
+  // 而此时未必有新的 enter/leave 事件可等，故每次加载完成补发一次当前真值。
+  win.webContents.on('did-finish-load', pushFullScreen);
+
   // 站内页面均在本地端口；万一出现外链（正常构建不应有）交给系统浏览器
   win.webContents.setWindowOpenHandler(({ url }) => {
     if (/^https?:\/\//i.test(url) && !url.startsWith(`http://127.0.0.1:${port}`)) {
