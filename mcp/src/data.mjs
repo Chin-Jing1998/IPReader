@@ -2,7 +2,12 @@
 //
 // 数据包 kb-data.json.gz 由 scripts/build-data.mjs 生成，与打包产物 server.mjs 同目录。
 // 加载全程无网络、无外部进程：读本地文件 → gunzip → JSON.parse → 建 Map 索引。
-// 实测冷启动（解压 65ms + 解析 + 建索引）约 200ms，故不做懒加载。
+//
+// 加载耗时分环节实测（阶段5.13b 重测，7 轮中位；旧注释「解压 65ms、合计约 200ms」系
+// 早期小数据包时代的数值，已滞后）：readFileSync 0.4ms + gunzipSync 19.6ms +
+// Buffer→string 59.5ms + JSON.parse 23.9ms + 本模块后处理 8.6ms ≈ 112ms。
+// 检索索引（search.mjs 的 buildIndex，另计约 158ms）自阶段5.13b 起改为惰性构建，
+// 见 server.mjs 的 lazyIndex——本模块只负责数据加载，不再承担建索引成本。
 //
 // 域过滤（环境变量 IPREADER_MCP_DOMAINS，旧名 PATENTREADER_MCP_DOMAINS 仍兜底兼容）
 // 在此层生效而非返回层：被关闭的书
@@ -181,6 +186,22 @@ export function loadKb(options = {}) {
 
   const books = pack.books.filter((b) => allowed.has(b.domain));
 
+  // —— 域 → 顶层节点（无父节点者）预建映射 ——
+  // 阶段5.13b：browse_toc 缺省档原实现对 76 部书各做一次 kb.nodes 全表 filter
+  //（76 × 7706 ≈ 58.6 万次比较），实测独占该调用 7.9ms 中的约 6ms。改为在此处一次
+  // 线性扫描建表（实测 0.47ms，约 13× 提速），browse_toc 与 get_brief 共用。
+  const rootsByDomain = new Map();
+  for (const n of nodes) {
+    if (parentOf.has(n.id)) continue;
+    if (!rootsByDomain.has(n.domain)) rootsByDomain.set(n.domain, []);
+    rootsByDomain.get(n.domain).push(n.id);
+  }
+  for (const arr of rootsByDomain.values()) arr.sort(idCompare);
+
+  // —— 术语节点计数缓存 ——
+  // listBooks 与 lookupTerm 的未命中提示各自都要这个数，原实现每次调用都扫全表。
+  const termCount = nodes.reduce((a, n) => a + (n.level === 'term' ? 1 : 0), 0);
+
   return {
     meta: pack.meta,
     books,
@@ -200,6 +221,8 @@ export function loadKb(options = {}) {
     lawArticles,
     lawCitedBy,
     lawCitesByNode,
+    rootsByDomain,
+    termCount,
     slugs: pack.slugs,
   };
 }

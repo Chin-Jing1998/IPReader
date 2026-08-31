@@ -1,16 +1,17 @@
 // build-data.mjs —— MCP 数据包生成器：site/data + site/public/content → dist/kb-data.json.gz
 //
-// 输入（均为只读，与 quartz 生成器同源）：
-//   site/data/nodes.json              5306 节点（87 域文档 4455 + 术语 851）
+// 输入（均为只读，与 quartz 生成器同源；数量为阶段5.13b 实测，随上游批次变动）：
+//   site/data/nodes.json              7706 节点（76 域文档 5963 + 术语 1743）
 //   site/data/node-bodies.json        每节点 ownText（本节净文本）/ fullText（含子树）
-//   site/data/edges.json              7998 边，8 种类型
-//   site/data/laws.json               123 条法条 → 引用它的节点列表（find_law 正向索引）
-//   site/data/law-citations.json      1453 条节点 → 法条引用（反向索引）
+//   site/data/edges.json              19099 边，8 种类型
+//   site/data/laws.json               512 条法条 → 引用它的节点列表（find_law 正向索引）
+//   site/data/law-citations.json      2983 条节点 → 法条引用（反向索引）
 //   site/public/content/{id}.json     章节详情（related/lawRefs/brief）与词条详情
 //                                     （definition/occurrences/laws/relatedTerms）
 //   quartz-kb/public/static/contentIndex.json  仅用于校验 slug 重建结果，不入包
 //
-// 输出：dist/kb-data.json.gz（gzip level 9，实测约 1.7MB，解压约 65ms）
+// 输出：dist/kb-data.json.gz（gzip level 9，实测 3.84MB；运行时解压 19.6ms，
+//      加上 Buffer→string 与 JSON.parse 共约 103ms，见 src/data.mjs 头注的分环节实测）
 //
 // 设计要点：
 //   1. slug 映射在构建期算定并入包，运行时零计算，也不必分发 contentIndex.json。
@@ -303,6 +304,17 @@ const leanNodes = nodes.map((n) => {
   return o;
 });
 
+// 正文槽：两个字段皆空的节点不写键（省体积）。
+//
+// 由此产生的缺口（阶段5.13b 查证定性）：文档节点 5963 个，leanBodies 只有 5930 个键，
+// 差额 33 个是「标题即全部内容」的节点，非缺陷、非上游丢失——三类，逐一核过：
+//   · 质量评价指南 24 个：其条目本身就是「第N条【通用】条文 · 条旨」形式，条文写在标题里，
+//     本无独立正文（如 qeval-08-01「第一百二十三条【通用】说明书摘要不超 300 字 · 摘要不超三百字」）；
+//   · 商标审查审理指南 7 个：「……例如：」引导的示例小节，示例本体在源文件中是图表，转档后正文为空；
+//   · 专利审查指南 2 个：援引性条款，标题即整句（如「相同主题的发明或者实用新型的定义适用本章第4.1.2节的规定。」）。
+// 三类共同特征是 charLen=0、summary 为空、无子节点。运行时 read_node 对其返回 empty 文案，
+// batch_read 同样显式标注，故调用方不会把「无正文」误判为读取失败。
+// 该计数在下方随构建摘要一并打印；若显著偏离 33，多半是上游切分变动，须复核而非放行。
 const leanBodies = {};
 for (const [id, b] of Object.entries(bodies)) {
   const own = (b.ownText || '').trim();
@@ -406,6 +418,51 @@ for (const [domain, bucket] of artByDomain) {
 }
 
 // ============ 七、书目清单 ============
+
+/** 效力状态的机器可读枚举。上游 book-meta.json 的 status 是自由文本，此处只做前缀判定。 */
+const STATUS_CODES = [
+  { prefix: '现行有效', code: 'in-force' },
+  { prefix: '尚未施行', code: 'not-yet-effective' },
+  { prefix: '已废止', code: 'repealed' },
+  { prefix: '已失效', code: 'repealed' },
+];
+/** 说明性括注移入 statusNote 的长度门槛：超过此长度即判为「说明」而非「限定」 */
+const STATUS_NOTE_MIN = 40;
+
+/**
+ * 书目效力状态归一，一进三出。
+ *
+ * 上游 `book-meta.json` 的 `status` 是人工录入的自由文本，实测 76 部书的取值分布为：
+ * 「现行有效」61 部、空 8 部、「现行有效（发布性案例汇编，非司法解释）」3 部、
+ * 「尚未施行（YYYY-MM-DD起施行）」3 部，以及 1 条 99 字的说明性备注
+ *（major-patent-adjudication-2021，记的是与局令第 81 号的适用关系与遗留问题）。
+ * 后者混在枚举值中，使该字段既无法过滤又异常臃肿。
+ *
+ * 三个出口各司其职，互不替代：
+ *   - `statusCode` 机器可读枚举，供 filter_books 过滤；
+ *   - `status`  人可读短文本，保留有信息量的短括注（「（2027-01-01起施行）」是限定，不是说明），
+ *              只把超过 STATUS_NOTE_MIN 字的长括注摘出去；
+ *   - `statusNote` 承接被摘出的说明文本，一字不删——它是考证结论，不可丢弃。
+ *
+ * 不改上游 `site/data/book-meta.json`：那是 site 侧的单一事实源，跨域改动超出本批边界；
+ * 且「原始值逐字留档、消费端按需归一」本就是更稳的分层。
+ */
+function normalizeStatus(raw) {
+  const text = String(raw || '').trim();
+  if (!text) return { status: '', statusCode: 'unknown', statusNote: '' };
+
+  let status = text;
+  let statusNote = '';
+  // 括注只取末尾成对的那一组：法名内部的括号（如「若干问题的解释（二）」）不在末尾，不受影响
+  const m = /^(.*?)（(.+)）$/s.exec(text);
+  if (m && m[2].length >= STATUS_NOTE_MIN) {
+    status = m[1].trim();
+    statusNote = m[2].trim();
+  }
+
+  const hit = STATUS_CODES.find((s) => status.startsWith(s.prefix));
+  return { status, statusCode: hit ? hit.code : 'unknown', statusNote };
+}
 const docNodeCount = nodes.filter((n) => n.level !== 'term').length;
 const termNodeCount = nodes.length - docNodeCount;
 if (docNodeCount !== EXPECTED_DOC_NODES || termNodeCount !== EXPECTED_TERM_NODES) {
@@ -443,7 +500,10 @@ const books = BOOKS.map((b) => {
     effectiveDate: bm.effectiveDate || '',
     adoptedDate: bm.adoptedDate || '',
     documentNo: bm.documentNo || '',
-    status: bm.status || '',
+    // status 三分（阶段5.13b）：原样透传的 status 里混着一条 99 字的适用关系备注，
+    // 与「现行有效」「尚未施行（2027-01-01起施行）」这类短取值同处一个字段，
+    // 既无法做机器过滤，又会把该字段撑成正文。归一见 normalizeStatus 的说明。
+    ...normalizeStatus(bm.status),
     nodeCount: own.length,
     chars,
   };
@@ -482,5 +542,7 @@ const mb = (n) => (n / 1048576).toFixed(2) + 'MB';
 console.log('MCP 数据包已生成：' + OUT_FILE);
 console.log(`  节点 ${nodes.length}（文档 ${docNodeCount} / 术语 ${termNodeCount}）· 边 ${edges.length} · 详情 ${detailFiles}`);
 console.log(`  法条正文索引 ${Object.keys(lawArticles).length} 条（其中 ${laws.length} 条有被引用记录）`);
-console.log(`  正文 ${Object.keys(leanBodies).length} 篇 · slug 映射 ${Object.keys(slugs).length} 条（已逐条对照 contentIndex）`);
+const bodilessCount = docNodeCount - Object.keys(leanBodies).length;
+console.log(`  正文 ${Object.keys(leanBodies).length} 篇（另 ${bodilessCount} 个文档节点标题即全部内容，无正文槽，见上方 leanBodies 处的定性说明）`
+  + ` · slug 映射 ${Object.keys(slugs).length} 条（已逐条对照 contentIndex）`);
 console.log(`  体积 ${mb(Buffer.byteLength(json))} → gzip ${mb(gz.length)}`);

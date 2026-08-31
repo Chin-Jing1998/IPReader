@@ -1,6 +1,6 @@
 // smoke.mjs —— MCP 服务端到端冒烟
 //
-// 以真实的 MCP 客户端经 stdio 起子进程连接被测服务，逐项断言协议与七个工具的行为，
+// 以真实的 MCP 客户端经 stdio 起子进程连接被测服务，逐项断言协议与十三个工具的行为，
 // 并在子进程内挂载离线护栏（offline-guard.cjs），断言外部访问次数恒为 0。
 //
 // 默认测打包产物 dist/server.mjs（用户实际运行的那一份）；传 --src 改测源码 src/server.mjs。
@@ -40,6 +40,40 @@ function dataOf(res, label) {
   return res.structuredContent || {};
 }
 
+// ============ 输出体量防回归（阶段5.13b） ============
+//
+// 宿主（Claude Code v2.1.247 实测）只把 structuredContent 的 JSON 交给模型，
+// content[0].text 被丢弃；默认硬上限 25 000 token，免检快速路径的边界是其一半 12 500。
+// 服务侧安全阈值取 12 000（推导见 src/tools.mjs 头注），本节对每个工具的最大输出形态
+// 逐一实调并断言不超阈——这是防止「输出治理被后续改动悄悄退回」的回归闸。
+const SAFE_TOKENS = 12000;
+/**
+ * batch_read 的最坏形态入参：全库 own 正文最长的 20 个节点（20894–5921 字）。
+ * 取固定清单而非运行时挑选，使该项断言的输入在数据未变时逐次可复现；
+ * 上游语料重排后这些 id 若失效，batch_read 会把它们计入 notFound，届时断言仍成立
+ * 但失去「最坏形态」的意义——故此处另设一条清单在位性断言把关。
+ */
+const BATCH_IDS = [
+  'padm-05-01-01', 'chem-02-03-03', 'padm-05-01-02', 'tmeg-07', 'chem-01-04-06',
+  '02-09-06-02', '06-02-06-03', 'padm-06', 'padm-05-01-03', 'padm-05-02-02',
+  'mech-02-03-05', 'padm-04-01-02', 'mech-02-02', 'padm-02-02-02', 'padm-04-02-01',
+  'chem-01-03-01', 'padm-05-02-01', 'oa-02-07', 'padm-02-02-03', 'padm-05-02-03',
+];
+/**
+ * token 估算：CJK 与全角区一字一 token，其余四字符一 token。
+ * 与 src/tools.mjs 的 estimateTokens 同口径，但此处独立实现而非 import——
+ * 冒烟默认测的是 dist 产物，用被测方自己的估算器当判据等于自证，必须另立一把尺。
+ */
+function estTokens(v) {
+  const s = typeof v === 'string' ? v : JSON.stringify(v) ?? '';
+  let cjk = 0;
+  for (let i = 0; i < s.length; i++) {
+    const c = s.charCodeAt(i);
+    if ((c >= 0x3000 && c <= 0x9fff) || (c >= 0xff00 && c <= 0xffef)) cjk++;
+  }
+  return Math.round(cjk + (s.length - cjk) / 4);
+}
+
 async function connect(env = {}) {
   const client = new Client({ name: 'ipreader-smoke', version: '1.0.0' });
   const transport = new StdioClientTransport({
@@ -76,9 +110,34 @@ async function main() {
 
   const { tools } = await client.listTools();
   const names = tools.map((t) => t.name).sort();
-  const expected = ['browse_toc', 'find_law', 'list_books', 'lookup_term', 'read_node', 'related_nodes', 'search_kb'];
-  ok('工具清单为七项', names.length === 7 && expected.every((n) => names.includes(n)), names.join('、'));
+  // 阶段5.13b：7 → 13。新增 list_articles / compare_articles / batch_read /
+  //   filter_books / find_citing_sections / get_brief 六项，原七项名称与语义不变。
+  const expected = [
+    'batch_read', 'browse_toc', 'compare_articles', 'filter_books', 'find_citing_sections',
+    'find_law', 'get_brief', 'list_articles', 'list_books', 'lookup_term', 'read_node',
+    'related_nodes', 'search_kb',
+  ];
+  ok('工具清单为十三项', names.length === 13 && expected.every((n) => names.includes(n)), names.join('、'));
   ok('每个工具都有描述与入参 schema', tools.every((t) => t.description && t.inputSchema));
+  // 阶段5.13b 协议面补齐：出参契约与行为标注
+  const noSchema = tools.filter((t) => !t.outputSchema).map((t) => t.name);
+  ok('每个工具都有出参 schema', noSchema.length === 0, noSchema.join('、') || '13/13');
+  const badAnno = tools.filter((t) => !t.annotations || t.annotations.readOnlyHint !== true
+    || t.annotations.openWorldHint !== false).map((t) => t.name);
+  ok('每个工具标注为只读且非开放世界', badAnno.length === 0, badAnno.join('、') || '13/13');
+  ok('工具描述为中文说明书体（均不短于 60 字）',
+    tools.every((t) => t.description.length >= 60),
+    `最短 ${Math.min(...tools.map((t) => t.description.length))} 字`);
+  // tools/list 随每一轮请求进入调用方上下文，是固定成本而非单次成本，故一并设闸。
+  // 阈值 10000 tok：现值约 8550（13 工具含出参契约），留约 15% 余量给后续描述微调；
+  // 再涨就该复核是否又把长枚举写进了入参 schema（76 个域键展开一次即约 550 tok）。
+  const listTok = estTokens({ tools });
+  ok('工具清单的上下文占用不超 10000 tok', listTok <= 10000, `${listTok} tok / ${JSON.stringify({ tools }).length} B`);
+
+  // 阶段5.13b：MCP 组件版本与应用版本同步为 1.7.0
+  const info = client.getServerVersion();
+  ok('serverInfo 名称为 ipreader', info && info.name === 'ipreader', info && info.name);
+  ok('serverInfo 版本为 1.7.0', info && info.version === '1.7.0', info && info.version);
 
   const { resourceTemplates } = await client.listResourceTemplates();
   ok('登记了节点资源模板', (resourceTemplates || []).some((r) => r.uriTemplate.includes('patentkb://node/')));
@@ -112,6 +171,46 @@ async function main() {
   ok('七十六部书目全开', books.books.length === 76, books.books.map((b) => b.short).join('、'));
   ok('节点总数 7706', books.totalNodes === 7706, String(books.totalNodes));
   ok('术语 1743 条', books.termCount === 1743, String(books.termCount));
+  // 阶段5.13b 输出瘦身：缺省为精简档（治理前恒返回全字段，实测 10 239 tok，占宿主配额 41%）
+  ok('缺省为精简档', books.detail === 'brief', books.detail);
+  ok('精简档不含长书名与文号', books.books.every((b) => b.title === undefined && b.documentNo === undefined));
+  ok('精简档含法域与效力枚举', books.books.every((b) => b.field && b.statusCode), `如 ${books.books[0].field}/${books.books[0].statusCode}`);
+  ok('精简档一次给全七十六部（不分页）', books.hasMore === false && books.returned === 76, `returned=${books.returned}`);
+  const booksFull = dataOf(await client.callTool({ name: 'list_books', arguments: { detail: 'full' } }), 'list_books');
+  ok('full 档补出书目全称与效力著录', booksFull.detail === 'full'
+    && booksFull.books.every((b) => typeof b.title === 'string')
+    && booksFull.books.some((b) => b.documentNo), booksFull.books[0].title);
+  ok('full 档分页并给出续取游标',
+    booksFull.hasMore === true && booksFull.nextOffset === booksFull.returned && /offset=/.test(booksFull.hint || ''),
+    `本页 ${booksFull.returned}/${booksFull.bookCount} 部，nextOffset=${booksFull.nextOffset}`);
+  const booksFull2 = dataOf(await client.callTool({ name: 'list_books', arguments: { detail: 'full', offset: booksFull.nextOffset } }), 'list_books');
+  ok('full 档续页接续无重叠',
+    booksFull2.offset === booksFull.nextOffset
+    && !booksFull2.books.some((b) => booksFull.books.some((x) => x.domain === b.domain)),
+    `第 ${booksFull2.offset + 1}–${booksFull2.offset + booksFull2.returned} 部`);
+  // 阶段5.13b 数据一致性：books.status 原混入一条 99 字说明文本，现拆为 status/statusCode/statusNote。
+  //   全 76 部的完整著录经 filter_books 取（它不带 groups，全量 full 档仍在预算内）。
+  const allFull = [];
+  let fbOffset = 0;
+  let fbPages = 0;
+  for (;;) {
+    const page = (await client.callTool({ name: 'filter_books', arguments: { detail: 'full', offset: fbOffset } })).structuredContent;
+    allFull.push(...page.books);
+    fbPages++;
+    if (!page.hasMore || fbPages > 5) break;
+    fbOffset = page.nextOffset;
+  }
+  ok('filter_books 翻页可取全七十六部完整著录', allFull.length === 76, `${fbPages} 页共 ${allFull.length} 部`);
+  ok('status 已归一为短文本（不超 24 字）',
+    allFull.every((b) => (b.status || '').length <= 24),
+    `最长 ${Math.max(...allFull.map((b) => (b.status || '').length))} 字（治理前 99 字）`);
+  ok('statusCode 取值收敛为三个枚举',
+    allFull.every((b) => ['in-force', 'not-yet-effective', 'unknown'].includes(b.statusCode)),
+    JSON.stringify(allFull.reduce((a, b) => ({ ...a, [b.statusCode]: (a[b.statusCode] || 0) + 1 }), {})));
+  ok('被摘出的效力说明一字不落留存于 statusNote',
+    allFull.some((b) => (b.statusNote || '').includes('局令第81号')
+      && b.statusNote.length >= 90 && b.status === '现行有效'),
+    (allFull.find((b) => b.statusNote) || {}).domain);
   // 2026-08-22 阶段3批②「lawName 登记」：69 部规范授 lawName 后 lawArticles 从 231 键增至 2496 键
   //   （设计方案 PatentReader-2026-设计方案-阶段3法条键跨法域改造 §四「全链路影响预判」）。
   //   2026-08-23 阶段5波A：cppl 缺陷修复后补授 lawName（第 70 域），2496 → 2521 键。
@@ -192,25 +291,169 @@ async function main() {
   console.log('\n七、browse_toc 与 related_nodes');
   const b1 = dataOf(await client.callTool({ name: 'browse_toc', arguments: {} }), 'browse_toc');
   ok('缺省列出七十六部书', b1.books.length === 76);
+  // 阶段5.13b 输出治理主项：缺省档由「展开两层子树」（实测 40 199 tok，必被宿主截断）
+  //   改为书目级摘要（不展开），并给出如何展开的显式指引
+  ok('缺省档为书目级摘要', b1.mode === 'summary' && b1.depth === 0, `mode=${b1.mode} depth=${b1.depth}`);
+  ok('缺省档不展开任何子树', b1.books.every((b) => b.children === undefined));
+  ok('缺省档给出顶层节点数与展开指引',
+    b1.books.every((b) => typeof b.topCount === 'number') && /root=/.test(b1.hint || ''),
+    `顶层合计 ${b1.books.reduce((a, b) => a + b.topCount, 0)} 节`);
+  const b1d = dataOf(await client.callTool({ name: 'browse_toc', arguments: { depth: 1 } }), 'browse_toc');
+  ok('显式 depth 才跨书展开', b1d.mode === 'expanded' && b1d.books.some((b) => Array.isArray(b.children)), `mode=${b1d.mode}`);
   const b2 = dataOf(await client.callTool({ name: 'browse_toc', arguments: { root: '02-04', depth: 1 } }), 'browse_toc');
   ok('按节点展开子结构', b2.children.length > 0, `${b2.children.length} 个子节点`);
   ok('depth 生效（不递归下一层）', b2.children.every((c) => c.children === undefined));
+  const b3 = dataOf(await client.callTool({ name: 'browse_toc', arguments: { depth: 8 } }), 'browse_toc');
+  ok('超深展开被预算截断而非放行', b3.truncated === true && /截断/.test(b3.hint || ''), `hint：${(b3.hint || '').slice(0, 30)}…`);
 
   const n1 = dataOf(await client.callTool({ name: 'related_nodes', arguments: { id: '02-04-05' } }), 'related_nodes');
   ok('返回分组关联', n1.groups.length > 0, n1.groups.map((g) => `${g.label}(${g.count})`).join('、'));
   const n2 = dataOf(await client.callTool({ name: 'related_nodes', arguments: { id: '02-04-05', types: ['hierarchy'] } }), 'related_nodes');
   ok('types 过滤生效', n2.groups.every((g) => g.type === 'hierarchy'), n2.groups.map((g) => g.type).join('、'));
 
-  // ============ 八、Resources ============
-  console.log('\n八、Resources');
+  // ============ 八、list_articles（阶段5.13b 新增） ============
+  console.log('\n八、list_articles');
+  const a1 = dataOf(await client.callTool({ name: 'list_articles', arguments: { lawName: '专利法' } }), 'list_articles');
+  ok('专利法条文全表 82 条', a1.total === 82 && a1.lawName === '专利法', `${a1.total} 条 / ${a1.lawName}`);
+  ok('条目含条号、条旨与节点 id', a1.articles.every((x) => Number.isInteger(x.num) && x.title && x.id), a1.articles[0] && `第${a1.articles[0].num}条 ${a1.articles[0].title}`);
+  ok('第22条条旨为新颖性创造性实用性口径',
+    /新颖性|创造性|授权条件/.test((a1.articles.find((x) => x.num === 22) || {}).title || ''),
+    (a1.articles.find((x) => x.num === 22) || {}).title);
+  const a2 = dataOf(await client.callTool({ name: 'list_articles', arguments: { lawName: '细则', from: 20, to: 25 } }), 'list_articles');
+  ok('简称解析 + 条号区间生效',
+    a2.lawName === '专利法实施细则' && a2.articles.every((x) => x.num >= 20 && x.num <= 25),
+    `${a2.lawName} 第 ${a2.articles.map((x) => x.num).join('/')} 条`);
+  const a3 = dataOf(await client.callTool({ name: 'list_articles', arguments: { lawName: '这不是一部法' } }), 'list_articles');
+  ok('未知法名返回错误而非空表', typeof a3.error === 'string', a3.error);
+
+  // ============ 九、compare_articles（阶段5.13b 新增） ============
+  console.log('\n九、compare_articles');
+  const cmp1 = dataOf(await client.callTool({ name: 'compare_articles', arguments: { articles: ['专利法第22条', '专利法第23条'] } }), 'compare_articles');
+  ok('并列取回两条条文', cmp1.returned === 2 && cmp1.articles.length === 2, cmp1.articles.map((x) => x.article).join('、'));
+  ok('第22条正文含新颖性、第23条正文含外观设计',
+    /新颖性/.test(cmp1.articles[0].text) && /外观设计/.test(cmp1.articles[1].text),
+    `${cmp1.articles[0].text.slice(0, 12)}… / ${cmp1.articles[1].text.slice(0, 12)}…`);
+  const cmp2 = dataOf(await client.callTool({ name: 'compare_articles', arguments: { articles: ['专利法第33条', '商标法第30条', '专利法第999条'] } }), 'compare_articles');
+  ok('跨法对照成立', cmp2.articles.length === 2
+    && cmp2.articles.some((x) => x.article === '专利法第33条')
+    && cmp2.articles.some((x) => x.article.startsWith('中华人民共和国商标法第30条') || x.article.endsWith('商标法第30条')),
+  cmp2.articles.map((x) => x.article).join('、'));
+  ok('取不到的条列入 notFound 并说明原因',
+    cmp2.notFound.length === 1 && /无第999条/.test(cmp2.notFound[0].reason),
+    JSON.stringify(cmp2.notFound[0]));
+  const cmp3 = dataOf(await client.callTool({ name: 'compare_articles', arguments: { articles: ['专利法第22条'], charsPerArticle: 100 } }), 'compare_articles');
+  ok('charsPerArticle 生效', cmp3.articles[0].text.length <= 100 && cmp3.articles[0].textTruncated === true, `${cmp3.articles[0].text.length}/${cmp3.articles[0].chars} 字`);
+
+  // ============ 十、batch_read（阶段5.13b 新增） ============
+  console.log('\n十、batch_read');
+  const br1 = dataOf(await client.callTool({ name: 'batch_read', arguments: { ids: ['02-04-05', 'law-02-01', '不存在的节点'] } }), 'batch_read');
+  ok('一次读回两个节点、一个记入 notFound',
+    br1.returned === 2 && br1.notFound.length === 1 && br1.notFound[0] === '不存在的节点',
+    br1.nodes.map((n) => n.id).join('、'));
+  ok('缺省 brief 档出摘要不出全文', br1.mode === 'brief' && br1.nodes.every((n) => n.text.length <= 400));
+  ok('每个节点含书目与路径', br1.nodes.every((n) => n.book && n.path), br1.nodes[0].path);
+  const br2 = dataOf(await client.callTool({ name: 'batch_read', arguments: { ids: ['02-04-05'], mode: 'own', charsPerNode: 300 } }), 'batch_read');
+  ok('own 档出正文且 charsPerNode 生效',
+    br2.mode === 'own' && br2.nodes[0].text.length <= 300 && br2.nodes[0].text.length > 0,
+    `${br2.nodes[0].text.length}/${br2.nodes[0].chars} 字`);
+  // 体量防回归用的固定清单须仍在位，否则该项「最坏形态」名存实亡
+  const br3 = dataOf(await client.callTool({ name: 'batch_read', arguments: { ids: BATCH_IDS, mode: 'own', charsPerNode: 200 } }), 'batch_read');
+  ok('最坏形态清单二十个 id 全部在位',
+    br3.notFound.length === 0 && br3.nodes.every((n) => n.chars >= 5000),
+    `最短正文 ${Math.min(...br3.nodes.map((n) => n.chars))} 字`);
+
+  // ============ 十一、filter_books（阶段5.13b 新增） ============
+  console.log('\n十一、filter_books');
+  const fb1 = dataOf(await client.callTool({ name: 'filter_books', arguments: { field: '专利', docType: 'D4' } }), 'filter_books');
+  ok('专利法域的司法解释可筛出', fb1.total > 0 && fb1.books.length === fb1.total && fb1.hasMore === false, `${fb1.total} 部`);
+  ok('筛出的书目字段与条件一致', fb1.books.every((b) => b.field === '专利' && b.docType === 'D4'));
+  const fb2 = dataOf(await client.callTool({ name: 'filter_books', arguments: { statusCode: 'not-yet-effective' } }), 'filter_books');
+  ok('尚未施行的书目为三部', fb2.total === 3, fb2.books.map((b) => b.short).join('、'));
+  const fb3 = dataOf(await client.callTool({ name: 'filter_books', arguments: { hasLawName: true } }), 'filter_books');
+  ok('有条文级法名者六十五部', fb3.total === 65, `${fb3.total} 部`);
+  ok('facets 给出命中集分布', fb3.facets && fb3.facets.field && Object.keys(fb3.facets.field).length > 0, JSON.stringify(fb3.facets.docType));
+
+  // ============ 十二、find_citing_sections（阶段5.13b 新增） ============
+  console.log('\n十二、find_citing_sections');
+  const fc1 = dataOf(await client.callTool({ name: 'find_citing_sections', arguments: { articles: ['专利法第22条'] } }), 'find_citing_sections');
+  ok('专利法第22条被引 70 处', fc1.items[0] && fc1.items[0].citingCount === 70, `${fc1.items[0] && fc1.items[0].citingCount} 处`);
+  ok('反查结果跨多部书', fc1.items[0].bookCount > 1, `跨 ${fc1.items[0].bookCount} 部书`);
+  ok('每条引用给出节点 id 与路径', fc1.items[0].citing.every((c) => c.id && c.path), fc1.items[0].citing[0].path);
+  const fc2 = dataOf(await client.callTool({ name: 'find_citing_sections', arguments: { lawName: '专利法' } }), 'find_citing_sections');
+  ok('按法全量反查：82 条中 65 条有被引记录',
+    fc2.articleCount === 82 && fc2.citedArticleCount === 65, `${fc2.articleCount}/${fc2.citedArticleCount}`);
+  ok('按被引数降序排列', fc2.items.every((it, i) => i === 0 || fc2.items[i - 1].citingCount >= it.citingCount),
+    fc2.items.slice(0, 3).map((x) => `${x.article}=${x.citingCount}`).join('、'));
+  const fc3 = dataOf(await client.callTool({ name: 'find_citing_sections', arguments: { articles: ['专利法第22条'], books: ['examination-guideline'] } }), 'find_citing_sections');
+  ok('books 限定生效（仅审查指南）',
+    fc3.items[0].citing.every((c) => c.book === '审查指南') && fc3.items[0].citingCount < 70,
+    `${fc3.items[0].citingCount} 处（全库 70 处）`);
+  // 域键不做 schema 级枚举校验（入参体量纪律），故无效值须在返回体中显式可见
+  const fc4 = dataOf(await client.callTool({ name: 'find_citing_sections', arguments: { articles: ['专利法第22条'], books: ['examination-guideline', '不存在的域'] } }), 'find_citing_sections');
+  ok('无效域键被显式回报而非静默忽略',
+    (fc4.notes || []).some((n) => n.includes('不存在的域')), (fc4.notes || [])[0]);
+  const fc5 = dataOf(await client.callTool({ name: 'find_citing_sections', arguments: { articles: ['专利法第22条'], books: ['全都不存在'] } }), 'find_citing_sections');
+  ok('域键全部无效时返回错误而非全库结果', typeof fc5.error === 'string', fc5.error);
+
+  // ============ 十三、get_brief（阶段5.13b 新增） ============
+  console.log('\n十三、get_brief');
+  const gb1 = dataOf(await client.callTool({ name: 'get_brief', arguments: { ids: ['02-04-05', '02-04-06'] } }), 'get_brief');
+  ok('按 id 取摘要', gb1.source === 'ids' && gb1.returned === 2, gb1.items.map((x) => x.id).join('、'));
+  ok('摘要非空且不含正文路径字段', gb1.items.every((x) => x.brief && x.path === undefined), `${gb1.items[0].brief.slice(0, 24)}…`);
+  const gb2 = dataOf(await client.callTool({ name: 'get_brief', arguments: { root: '02-04', depth: 1 } }), 'get_brief');
+  ok('按 root 取后代摘要', gb2.source === 'root' && gb2.returned > 0, `${gb2.returned} 个节点`);
+  const gb3 = dataOf(await client.callTool({ name: 'get_brief', arguments: {} }), 'get_brief');
+  ok('缺入参返回错误而非空结果', typeof gb3.error === 'string', gb3.error);
+
+  // ============ 十四、输出体量防回归（阶段5.13b） ============
+  //
+  // 逐工具实调其「最大输出形态」，断言 structuredContent 的估算 token 不超安全阈值。
+  // 治理前的对照值写在各行注释里——这些形态当时全部超出宿主 25 000 硬上限或逼近其半数配额。
+  console.log('\n十四、输出体量防回归（安全阈值 ' + SAFE_TOKENS + ' tok）');
+  const budgetCases = [
+    ['browse_toc 缺省', {}, 'browse_toc', 40199],
+    ['browse_toc depth=3', { depth: 3 }, 'browse_toc', 125267],
+    ['browse_toc depth=8', { depth: 8 }, 'browse_toc', null],
+    ['browse_toc groupBy=taxonomy', { groupBy: 'taxonomy' }, 'browse_toc', 43603],
+    ['browse_toc 指南 depth=8', { root: 'examination-guideline', depth: 8 }, 'browse_toc', 44583],
+    ['browse_toc 商标指南 depth=8', { root: 'trademark-exam-guide-2021', depth: 8 }, 'browse_toc', 45759],
+    ['list_books full', { detail: 'full' }, 'list_books', 10239],
+    ['search_kb 最坏形态', { query: '说明书', limit: 30, contextChars: 600 }, 'search_kb', 16146],
+    ['read_node 最长正文', { id: '02', mode: 'full', limit: 20000 }, 'read_node', 19593],
+    ['lookup_term 最坏形态', { term: '近似商标', includeEvidence: true }, 'lookup_term', 8687],
+    ['find_law 最坏形态', { article: '专利法第25条', limit: 200 }, 'find_law', 7428],
+    ['related_nodes 最坏形态', { id: 'law-02-04', limit: 100 }, 'related_nodes', 13836],
+    ['list_articles 最大部', { lawName: '专利法实施细则', limit: 400 }, 'list_articles', null],
+    ['compare_articles 10×4000', {
+      articles: ['专利法第22条', '专利法第26条', '专利法第2条', '专利法第9条', '专利法第23条',
+        '专利法第25条', '专利法第33条', '专利法第45条', '专利法第59条', '专利法第64条'],
+      charsPerArticle: 4000, withCitations: true,
+    }, 'compare_articles', null],
+    ['batch_read 20×4000', { ids: BATCH_IDS, mode: 'own', charsPerNode: 4000 }, 'batch_read', null],
+    ['filter_books 全量 full', { detail: 'full' }, 'filter_books', null],
+    ['find_citing 专利法 per=60', { lawName: '专利法', citingPerArticle: 60, limit: 200 }, 'find_citing_sections', null],
+    ['get_brief 指南 depth=8', { root: 'examination-guideline', depth: 8 }, 'get_brief', null],
+  ];
+  let maxSeen = 0;
+  for (const [label, args, tool, before] of budgetCases) {
+    const r = await client.callTool({ name: tool, arguments: args });
+    const tok = estTokens(r.structuredContent);
+    if (tok > maxSeen) maxSeen = tok;
+    ok(`${label} 不超阈`, tok <= SAFE_TOKENS,
+      `${tok} tok${before ? `（治理前 ${before}，降 ${Math.round((1 - tok / before) * 100)}%）` : ''}`);
+  }
+  ok('全部最大形态的峰值仍留有余量', maxSeen <= SAFE_TOKENS, `峰值 ${maxSeen} / 阈值 ${SAFE_TOKENS}`);
+
+  // ============ 十五、Resources ============
+  console.log('\n十五、Resources');
   const res = await client.readResource({ uri: 'patentkb://node/02-04-05' });
   ok('节点资源可读', res.contents[0].text.includes('创造性'), res.contents[0].text.slice(0, 40).replace(/\n/g, ' '));
 
   await client.close();
   await transport.close();
 
-  // ============ 九、离线护栏 ============
-  console.log('\n九、离线护栏');
+  // ============ 十六、离线护栏 ============
+  console.log('\n十六、离线护栏');
   await new Promise((r) => setTimeout(r, 300)); // 等子进程 exit 钩子落盘
   if (existsSync(REPORT)) {
     const rep = JSON.parse(readFileSync(REPORT, 'utf8'));
@@ -220,8 +463,8 @@ async function main() {
     ok('离线报告已生成', false, `未找到 ${REPORT}`);
   }
 
-  // ============ 十、域白名单 ============
-  console.log('\n十、域白名单（IPREADER_MCP_DOMAINS）');
+  // ============ 十七、域白名单 ============
+  console.log('\n十七、域白名单（IPREADER_MCP_DOMAINS）');
   const { client: c2, transport: tr2 } = await connect({ IPREADER_MCP_DOMAINS: 'patent-law' });
   const d1 = dataOf(await c2.callTool({ name: 'list_books', arguments: {} }), 'list_books');
   ok('仅开放一部书', d1.books.length === 1 && d1.books[0].domain === 'patent-law', d1.books.map((b) => b.short).join('、'));
