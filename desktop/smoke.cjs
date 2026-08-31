@@ -158,7 +158,10 @@
 // 上方 Breadcrumbs 同一事实源。五子项：a 深层页四段链（书 › 章 › 节 › 当前页，
 // root/mid/leaf 三档 class 齐全、末段未被截断）、b SPA 点「下一节」后末段更新而书名
 // 不动、c 图谱总览页退化为单段且无分隔符、d 首页回落应用名（面包屑一枚不出）、
-// e 三档色分别等于 --darkgray／--gray／--gray 的当前解析值且末段字重 500。
+// e 各段字体完全统一（施工④）：书名／末段／分隔符三者同取 --secondary 的当前
+// 解析值，字重均 500、字号三者相等，分隔符另有 opacity 0.55 为唯一放行的差异；
+// 字族另以左栏目录行的 computed font-family 为基准，四段与之逐字相等（实测本就
+// 同为 --headerFont 黑体栈，本断言是防日后漂移的护栏而非纠偏）。
 // b 段刻意不等任何脚本回调——跟随是结构性的（条带在 <body> 内，随 micromorph 换新），
 // 若哪天被改成运行时拼串，b 段会因 morph 与回调之间那一帧旧值而变红，正是该改动应触发的护栏。
 // 总超时仍为 660s：本步三次 loadURL 加一次 SPA 点击，本机实测净增约 7s。
@@ -3937,15 +3940,38 @@ async function main() {
          // 「当前页标题最后才让位」：leaf 在本窗宽下须完整可见（未被 ellipsis 截）
          leafClipped: leaf ? leaf.scrollWidth > leaf.clientWidth + 1 : null,
          boxOverflow: box ? box.scrollWidth > box.clientWidth + 1 : null,
-         // 「字体和颜色适应主题」：三档色一律取主题 token，不得是硬编码
-         leafIsDarkgray: same(parseColor(leafCs ? leafCs.color : null), tok('--darkgray')),
-         rootIsGray: same(parseColor(rootCs ? rootCs.color : null), tok('--gray')),
-         sepIsGray: sepCs ? same(parseColor(sepCs.color), tok('--gray')) : null,
+         // 「字体和颜色适应主题」+「各段字体完全统一」（施工④）：三段同取
+         // --secondary，不得是硬编码、也不得再分档；字重/字号一并逐项比对。
+         leafIsSecondary: same(parseColor(leafCs ? leafCs.color : null), tok('--secondary')),
+         rootIsSecondary: same(parseColor(rootCs ? rootCs.color : null), tok('--secondary')),
+         sepIsSecondary: sepCs ? same(parseColor(sepCs.color), tok('--secondary')) : null,
          leafColor: leafCs ? leafCs.color : null,
          rootColor: rootCs ? rootCs.color : null,
-         tokDark: rootStyle.getPropertyValue('--darkgray').trim(),
-         tokGray: rootStyle.getPropertyValue('--gray').trim(),
+         sepColor: sepCs ? sepCs.color : null,
+         rootWeight: rootCs ? rootCs.fontWeight : null,
+         sepWeight: sepCs ? sepCs.fontWeight : null,
+         leafSize: leafCs ? leafCs.fontSize : null,
+         rootSize: rootCs ? rootCs.fontSize : null,
+         sepSize: sepCs ? sepCs.fontSize : null,
+         // 分隔符是本链唯一允许的差异项：它是结构符号而非内容，压到 0.55 后
+         // 退为分界线；色/字重/字号仍与各段逐字相同。
+         sepOpacity: sepCs ? sepCs.opacity : null,
+         tokSecondary: rootStyle.getPropertyValue('--secondary').trim(),
          fontSize: bar ? cs(bar).fontSize : null,
+         // 字族一致性（施工④补充，用户原话「不光颜色，字体类型也需要一样」）：
+         // 基准取左栏目录行的 computed font-family——它是「主界面目录」的字体事实，
+         // 与面包屑同属导航层。四段 + 分隔符须与它逐字相等，任何一段落回系统默认
+         // （-apple-system 之类）或另立字族都会变红。正文用的是 --bodyFont（宋体
+         // 衬线），刻意不入本断言：导航层与正文层分族是既定版式，不是不统一。
+         ffRoot: rootCs ? rootCs.fontFamily : null,
+         ffLeaf: leafCs ? leafCs.fontFamily : null,
+         ffSep: sepCs ? sepCs.fontFamily : null,
+         ffMid: (() => { const m = document.querySelector('.kb-crumb-mid'); return m ? getComputedStyle(m).fontFamily : null; })(),
+         ffExplorer: (() => {
+           const e = document.querySelector('.folder-container > div > a')
+             || document.querySelector('.explorer-ul a');
+           return e ? getComputedStyle(e).fontFamily : null;
+         })(),
        };
      })()`;
 
@@ -4005,27 +4031,52 @@ async function main() {
   const d36Ok =
     !!s36d && s36d.n === 0 && s36d.appPresent === true && s36d.appText === "IPReader";
 
-  // e. 配色随主题 token（用户原话「字体和颜色适应主题」）：三档色分别等于
-  //    --darkgray / --gray / --gray 的当前解析值，硬编码色值会立刻变红。
-  //    比对在 a 段那一页取的样本上做——那页三档齐全。
+  // e. 配色随主题 token（用户原话「字体和颜色适应主题」）+ 各段字体完全统一
+  //    （施工④，用户反馈「状态栏的字体不统一」后定案）：书名／末段／分隔符三者
+  //    同取 --secondary 的当前解析值，且字重、字号逐项相同——硬编码色值、或
+  //    任何一段重新分档，都会立刻变红。比对在 a 段那一页取的样本上做（三段齐全）。
+  //    唯一放行的差异是分隔符的 opacity 0.55：它是结构符号不是内容。
   const e36Ok =
     !!s36a &&
-    s36a.leafIsDarkgray === true &&
-    s36a.rootIsGray === true &&
-    s36a.sepIsGray === true &&
-    s36a.leafWeight === "500";
+    s36a.leafIsSecondary === true &&
+    s36a.rootIsSecondary === true &&
+    s36a.sepIsSecondary === true &&
+    s36a.leafWeight === "500" &&
+    s36a.rootWeight === "500" &&
+    s36a.sepWeight === "500" &&
+    s36a.leafSize === s36a.rootSize &&
+    s36a.sepSize === s36a.rootSize &&
+    s36a.sepOpacity === "0.55" &&
+    // 字族：四段彼此相等，且与左栏目录行逐字相等
+    !!s36a.ffExplorer &&
+    s36a.ffRoot === s36a.ffExplorer &&
+    s36a.ffMid === s36a.ffExplorer &&
+    s36a.ffLeaf === s36a.ffExplorer &&
+    s36a.ffSep === s36a.ffExplorer;
 
   record(
-    "标题条显示正在阅览的正文目录（深层页四段链 + SPA 切页随动 + 图谱页单段 + 首页回落应用名 + 三档色取主题 token）",
+    "标题条显示正在阅览的正文目录（深层页四段链 + SPA 切页随动 + 图谱页单段 + 首页回落应用名 + 各段字体统一取 --secondary）",
     a36Ok && b36Ok && c36Ok && d36Ok && e36Ok,
     `a 深层页：条带=${s36a ? s36a.barDisplay + "/" + s36a.barHeight : "-"}, 段数=${s36a ? s36a.n : "-"}（须 4）／分隔符=${s36a ? s36a.nSep : "-"}（须 3，形如「${s36a ? s36a.sepTexts.join("") : "-"}」）, ` +
       `链=${s36a ? JSON.stringify(s36a.texts) : "-"}, 末段未被截断=${s36a ? !s36a.leafClipped : "-"}, 整条溢出=${s36a ? s36a.boxOverflow : "-"}; ` +
       `b SPA 切页：落地 ${b36Path}, 末段 ${s36a ? s36a.leafText : "-"} → ${s36b ? s36b.leafText : "-"}（须变且书名不变=${s36b && s36a ? s36b.rootText === s36a.rootText : "-"}）, 段数=${s36b ? s36b.n : "-"}; ` +
       `c 图谱页：段数=${s36c ? s36c.n : "-"}（须 1）／分隔符=${s36c ? s36c.nSep : "-"}（须 0）, 文本=${s36c ? s36c.leafText : "-"}, class=${s36c ? s36c.classes[0] : "-"}; ` +
       `d 首页：面包屑段数=${s36d ? s36d.n : "-"}（须 0）, 应用名=${s36d ? s36d.appText : "-"}; ` +
-      `e 配色：末段 ${s36a ? s36a.leafColor : "-"} ≟ --darkgray ${s36a ? s36a.tokDark : "-"} → ${s36a ? s36a.leafIsDarkgray : "-"}, ` +
-      `书名 ${s36a ? s36a.rootColor : "-"} ≟ --gray ${s36a ? s36a.tokGray : "-"} → ${s36a ? s36a.rootIsGray : "-"}, 分隔符≟--gray → ${s36a ? s36a.sepIsGray : "-"}, ` +
-      `末段字重=${s36a ? s36a.leafWeight : "-"}（须 500）, 条带字号=${s36a ? s36a.fontSize : "-"}`,
+      `e 配色统一：token --secondary=${s36a ? s36a.tokSecondary : "-"}；` +
+      `书名 ${s36a ? s36a.rootColor : "-"} → ${s36a ? s36a.rootIsSecondary : "-"}, ` +
+      `末段 ${s36a ? s36a.leafColor : "-"} → ${s36a ? s36a.leafIsSecondary : "-"}, ` +
+      `分隔符 ${s36a ? s36a.sepColor : "-"} → ${s36a ? s36a.sepIsSecondary : "-"}（三者须同色）; ` +
+      `字重 书名/末段/分隔符=${s36a ? s36a.rootWeight + "/" + s36a.leafWeight + "/" + s36a.sepWeight : "-"}（须均 500）, ` +
+      `字号 书名/末段/分隔符=${s36a ? s36a.rootSize + "/" + s36a.leafSize + "/" + s36a.sepSize : "-"}（须三者相等）, ` +
+      `分隔符 opacity=${s36a ? s36a.sepOpacity : "-"}（须 0.55，本链唯一放行的差异）, 条带字号=${s36a ? s36a.fontSize : "-"}; ` +
+      `字族基准（左栏目录行）=${s36a ? s36a.ffExplorer : "-"}，四段逐字相等=${
+        s36a
+          ? s36a.ffRoot === s36a.ffExplorer
+            && s36a.ffMid === s36a.ffExplorer
+            && s36a.ffLeaf === s36a.ffExplorer
+            && s36a.ffSep === s36a.ffExplorer
+          : "-"
+      }（书名/中间/末段/分隔符四项与基准比对）`,
   );
 
   // 37. 主窗口最小宽度（阶段5.14 施工③）
