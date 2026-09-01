@@ -69,7 +69,8 @@ const OUT_FILE = join(OUT_DIR, 'kb-data.json.gz');
 //   共 8 部法律法规的 384 片提取，词表 1035 → 1743（入图术语节点同数）。
 //   文档节点 6247 不变（本批不改语料切分，只加术语层）；总数 7282 → 7990；书目仍恒 88 部。
 //   2026-08-30 阶段5.11 波O（书目归档下线）：12 部低检索价值文献（编号 51/53/63/72/74/
-//   75/77/79/82/87/89/90）语料归档至 PatentReader/_archive/，三处登记表同批注释摘除，
+//   75/77/79/82/87/89/90）语料归档至 IPReader/_archive/（语料仓目录 2026-09-01 随项目
+//   更名由 PatentReader/ 改为 IPReader/），三处登记表同批注释摘除，
 //   书目 88 → 76。文档节点 6247 → 5963（−284）；术语 1743 不变（该 12 部零术语引用，
 //   波O 施工前已实测：1743 个 term-*.json 的 occurrences 与 laws 对这 12 部命中 0）；
 //   总数 7990 → 7706。同批法条键 528 → 512、法条正文索引 2521 → 2409 条
@@ -89,7 +90,7 @@ const readJson = (p) => JSON.parse(readFileSync(p, 'utf8'));
 //   **注释保留而非物理删行**，恢复时取消注释即可；本表须与另一处 BOOKS 逐条一致
 //   （site/scripts/build-quartz-md.mjs ↔ mcp/scripts/build-data.mjs，P7 惯例，
 //   条目数由 mcp/scripts/check-taxonomy.mjs 与 domains.mjs KNOWN_DOMAINS 比对把关）。
-//   语料源文件同步归档至 PatentReader/_archive/，恢复方法见该目录 _说明.md。
+//   语料源文件同步归档至 IPReader/_archive/（语料仓目录已随项目更名），恢复方法见该目录 _说明.md。
 //   ⚠ 摘条目必须与 rm quartz-kb/content/NN-*/ 同批完成：下方 managedTop 只清理在册
 //   BOOKS 的目录，先摘条目而不删目录会留下无人管理的孤儿目录（仍被 quartz 建站）。
 const BOOKS = [
