@@ -134,10 +134,10 @@ async function main() {
   const listTok = estTokens({ tools });
   ok('工具清单的上下文占用不超 10000 tok', listTok <= 10000, `${listTok} tok / ${JSON.stringify({ tools }).length} B`);
 
-  // 阶段5.13b：MCP 组件版本与应用版本同步为 1.7.0
+  // 阶段5.13b：MCP 组件版本与应用版本同步为 1.7.1
   const info = client.getServerVersion();
   ok('serverInfo 名称为 ipreader', info && info.name === 'ipreader', info && info.name);
-  ok('serverInfo 版本为 1.7.0', info && info.version === '1.7.0', info && info.version);
+  ok('serverInfo 版本为 1.7.1', info && info.version === '1.7.1', info && info.version);
 
   const { resourceTemplates } = await client.listResourceTemplates();
   ok('登记了节点资源模板', (resourceTemplates || []).some((r) => r.uriTemplate.includes('patentkb://node/')));
@@ -406,7 +406,7 @@ async function main() {
   ok('专利法域的司法解释可筛出', fb1.total > 0 && fb1.books.length === fb1.total && fb1.hasMore === false, `${fb1.total} 部`);
   ok('筛出的书目字段与条件一致', fb1.books.every((b) => b.field === '专利' && b.docType === 'D4'));
   const fb2 = dataOf(await client.callTool({ name: 'filter_books', arguments: { statusCode: 'not-yet-effective' } }), 'filter_books');
-  ok('尚未施行的书目为三部', fb2.total === 3, fb2.books.map((b) => b.short).join('、'));
+  ok('尚未施行的书目为两部', fb2.total === 2, fb2.books.map((b) => b.short).join('、'));
   const fb3 = dataOf(await client.callTool({ name: 'filter_books', arguments: { hasLawName: true } }), 'filter_books');
   ok('有条文级法名者六十五部', fb3.total === 65, `${fb3.total} 部`);
   ok('facets 给出命中集分布', fb3.facets && fb3.facets.field && Object.keys(fb3.facets.field).length > 0, JSON.stringify(fb3.facets.docType));

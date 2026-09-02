@@ -22,7 +22,7 @@ import {
   EDGE_LABEL, estimateTokens, safeOutputTokens,
 } from './tools.mjs';
 
-const VERSION = '1.7.0';
+const VERSION = '1.7.1';
 
 // ============ 一、启动：加载数据；检索索引惰性构建 ============
 //

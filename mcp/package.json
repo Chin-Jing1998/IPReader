@@ -1,7 +1,7 @@
 {
   "name": "ipreader-mcp",
   "private": true,
-  "version": "1.7.0",
+  "version": "1.7.1",
   "type": "module",
   "description": "IPReader MCP 服务——把 76 部知识产权法规与实务文献开放给支持 MCP 的 agent 检索、精读与溯源（纯离线，stdio 传输）",
   "author": "张京京",

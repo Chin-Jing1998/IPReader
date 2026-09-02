@@ -94,7 +94,7 @@ export const KNOWN_DOMAINS = [
   { key: 'ic-layout-regulations-2026', title: '集成电路布图设计保护条例', short: '布图条例', prefix: 'icld', lawName: '集成电路布图设计保护条例', country: 'CN', field: '品种布图', docType: 'D2' },
   // ---- 入库批次三「02 部门规章与规范性文件」25 件（2026-08-22）：按通过/发布日期升序 ----
   //   title 用官方全称、不带年份后缀；结构类型混合：章条 11、flat 11、公告体 1、指引体 2；
-  //   其中专利优先审查管理办法为「尚未施行」文本。
+  //   其中专利优先审查管理办法已于 2026-09-01 施行，现行有效。
   //   阶段 3（2026-08-22）已为其中 22 件补充 lawName；fee-adjustment-notice-2024／
   //   patent-payment-guide-2026／patent-ic-fee-manual-2026 为公告与操作指引，无「第X条」条文体例，不设 lawName。
   // 〔波O 下线·51〕{ key: 'work-registration-1994', title: '作品自愿登记试行办法', short: '作品登记', prefix: 'wkreg', lawName: '作品自愿登记试行办法', country: 'CN', field: '著作权', docType: 'D3' },
