@@ -406,7 +406,18 @@ async function main() {
   ok('专利法域的司法解释可筛出', fb1.total > 0 && fb1.books.length === fb1.total && fb1.hasMore === false, `${fb1.total} 部`);
   ok('筛出的书目字段与条件一致', fb1.books.every((b) => b.field === '专利' && b.docType === 'D4'));
   const fb2 = dataOf(await client.callTool({ name: 'filter_books', arguments: { statusCode: 'not-yet-effective' } }), 'filter_books');
-  ok('尚未施行的书目为两部', fb2.total === 2, fb2.books.map((b) => b.short).join('、'));
+  // 尚未施行计数按当日日期动态推导（2026-09-02 起）：期望集合 = 全部书目中 effectiveDate 晚于今日者。
+  //   施行日一到，期望集合自动收缩，而 statusCode 仍由各域 _index.md 的 status 文本在构建时决定——
+  //   两者不一致即断言失败并点名书目，提示把该书 status 改为「现行有效」并重建 quartz/kb-data。
+  //   effectiveDate 无法解析为「YYYY年M月D日」者（如「不适用」）不计入期望集合。
+  const parseCnDate = (str) => { const m = /(\d{4})年(\d{1,2})月(\d{1,2})日/.exec(str || ''); return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null; };
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const expectFuture = allFull.filter((b) => { const d = parseCnDate(b.effectiveDate); return d && d > today; }).map((b) => b.short).sort();
+  const gotFuture = fb2.books.map((b) => b.short).sort();
+  const stale = allFull.filter((b) => b.statusCode === 'not-yet-effective' && !(parseCnDate(b.effectiveDate) > today)).map((b) => `${b.short}(${b.effectiveDate})`);
+  ok('尚未施行书目集合与施行日期一致（按当日动态推导）',
+    fb2.total === expectFuture.length && JSON.stringify(gotFuture) === JSON.stringify(expectFuture),
+    `期望 ${expectFuture.length} 部[${expectFuture.join('、')}]，实际 ${gotFuture.length} 部[${gotFuture.join('、')}]${stale.length ? `；施行日已过仍标尚未施行：${stale.join('、')}` : ''}`);
   const fb3 = dataOf(await client.callTool({ name: 'filter_books', arguments: { hasLawName: true } }), 'filter_books');
   ok('有条文级法名者六十五部', fb3.total === 65, `${fb3.total} 部`);
   ok('facets 给出命中集分布', fb3.facets && fb3.facets.field && Object.keys(fb3.facets.field).length > 0, JSON.stringify(fb3.facets.docType));
